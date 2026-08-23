@@ -1881,3 +1881,62 @@ $ git diff --check
 `node --check` and `git diff --check` produced no errors. Line-ending warnings are Git's normal Windows CRLF warning.
 
 **Verdict:** final tree remains verified after STATE update.
+
+
+---
+
+## V-2026-08-24-O-01 - Baseline before doctor past-file system work
+
+**Date:** 2026-08-24
+**Scope:** Required pre-change verification before improving the doctor-side past-file system (cleaner list, filters by complaint/follow-up/date, open current + previous visits together). Ran from 11-Prototype with the Python 3.10 interpreter.
+
+```text
+$ /c/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m pytest tests/ -q
+95 passed in 0.11s
+```
+
+```text
+$ /c/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m harness.run
+VERDICT: PASS
+==========================================================================
+```
+
+```text
+$ /c/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe demo.py
+  Three distinct clinical facts. Three distinct renderings.
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+```
+
+**Verdict:** baseline was green before edits.
+
+---
+
+## V-2026-08-24-O-02 - Doctor past-file system verification
+
+**Date:** 2026-08-24
+**Scope:** Verify cleaner past-file list, complaint/follow-up/date filters, clear-filters reset, and the combined current + previous visits split review in the HTML MVP. All data synthetic; four digit visible PINs retained.
+
+```text
+# Backend / prototype suite unchanged and green
+$ /c/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m pytest tests/ -q
+95 passed in 0.11s
+$ /c/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m harness.run
+VERDICT: PASS
+$ /c/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe demo.py
+Every behaviour above is deterministic and unit-tested.
+
+# Front-end static check
+$ node --check 14-MVP-HTML/app.js      # no syntax errors
+
+# Live-browser interaction (http://127.0.0.1:8765/index.html, Doctor view):
+#  - Console: 0 js_errors, 0 console_messages.
+#  - Complaint filter "Cough" -> list narrowed to 2 of 15 synthetic files (expected: Demo Patient 01 & 07).
+#  - Date filter 2026-08-09   -> 1 of 15 synthetic files (expected: Demo Patient 07).
+#  - Clear filters reset      -> 15 of 15 synthetic files.
+#  - Row click PIN 6184       -> split review opens: heading "Demo Patient · current + past",
+#    .split-review present, both columns rendered: Current visit (in patient's words / reason /
+#    attachments / follow-up mark) and Past visit 2026-08-04 (symptoms / doctor assessment / plan / follow-up).
+```
+
+**Verdict:** all requested features verified working live; no JS errors; no backend regressions; boundary respected (synthetic only, no real patient data, no AI diagnosis, no visible differential).

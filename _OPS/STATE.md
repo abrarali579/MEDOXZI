@@ -1,6 +1,6 @@
 # STATE — where this project actually is
 
-**Updated:** 2026-08-24, session N (v2.6 HTML MVP history demo and four digit PINs)
+**Updated:** 2026-08-24, session O (doctor-side past-file system upgrade)
 **Repository version:** **v2.6**
 **Read this first. Update it last.**
 
@@ -8,7 +8,7 @@
 
 ## 1. One-paragraph status
 
-The design blueprint is complete and internally consistent. The Python prototype passes **95 tests** and the harness passes **9/9 gates** (re-verified in session N by re-running, not by report). **No production app exists yet.** Session H records an explicit founder decision to defer/skip the Evidence Sprint for now and proceed with a **healthcare-first narrow MVP**: basic personal information, a 2-3 line patient issue description, Lead-Doctor-approved basic questions, optional previous-report attachments for doctor review, and a doctor brief pushed to the doctor's tablet/phone. Best initial patients are first clinic visits with no previous reports. Session J adds the official doctor-facing pitch playbook and accepts clinic-owned reminders/check-ins/announcements as product direction under ADR-036, but no WhatsApp/Email sending may go live until consent, opt-out, audit and template controls exist. Sessions K-N maintain local visual iteration in `14-MVP-HTML/`: a synthetic HTML prototype covering staff registration, returning-patient search/PIN selection sync, four digit prototype PINs, manual clinic token entry, patient phone/tablet intake, complaint-specific demo questions, optional reports, PIN generation/display, doctor brief, searchable/scrollable synthetic past files, follow-up date capture, disabled messaging preview and data-capture helper ideas. The v2.3 horizontal architecture discipline remains useful where practical, but healthcare is now the committed first vertical by ADR-035. Session I published the repository to `https://github.com/abrarali579/MEDOXZI`.
+The design blueprint is complete and internally consistent. The Python prototype passes **95 tests** and the harness passes **9/9 gates** (re-verified in session N by re-running, not by report). **No production app exists yet.** Session H records an explicit founder decision to defer/skip the Evidence Sprint for now and proceed with a **healthcare-first narrow MVP**: basic personal information, a 2-3 line patient issue description, Lead-Doctor-approved basic questions, optional previous-report attachments for doctor review, and a doctor brief pushed to the doctor's tablet/phone. Best initial patients are first clinic visits with no previous reports. Session J adds the official doctor-facing pitch playbook and accepts clinic-owned reminders/check-ins/announcements as product direction under ADR-036, but no WhatsApp/Email sending may go live until consent, opt-out, audit and template controls exist. Sessions K-N maintain local visual iteration in `14-MVP-HTML/`: a synthetic HTML prototype covering staff registration, returning-patient search/PIN selection sync, four digit prototype PINs, manual clinic token entry, patient phone/tablet intake, complaint-specific demo questions, optional reports, PIN generation/display, doctor brief, searchable/scrollable synthetic past files, follow-up date capture, disabled messaging preview and data-capture helper ideas. Session O upgrades the doctor-side past-file system: a cleaner clinic grouped list (PIN, name, age/sex, mobile, date·complaint, follow-up badge, file count), filters by complaint / follow-up-needed / date with a Clear-filters reset, and an "open current visit + previous visits together" split-review panel; the production PIN collision/scoping risk is documented under OT-21 while all data remains synthetic. The v2.3 horizontal architecture discipline remains useful where practical, but healthcare is now the committed first vertical by ADR-035. Session I published the repository to `https://github.com/abrarali579/MEDOXZI`.
 
 ## 2. Product boundary (do not drift from this)
 
@@ -39,7 +39,7 @@ LEAD DOCTOR CUSTOMISE + SIGN-OFF → HARNESS+HARDENING → PITCH / PILOT CLINIC 
 
 ## 4. Verified state of the code
 
-Last verified **session N**, by re-running on the Windows host. Evidence: VERIFICATION-LOG V-2026-08-24-N-02.
+Last verified **session O**, by re-running on the Windows host. Evidence: VERIFICATION-LOG V-2026-08-24-O-02.
 
 | Check | Result |
 |---|---|
@@ -48,8 +48,7 @@ Last verified **session N**, by re-running on the Windows host. Evidence: VERIFI
 | `python demo.py \| Select-Object -Last 20` | runs clean |
 | `node --check 14-MVP-HTML\app.js` | syntax check passed |
 | `Invoke-WebRequest http://127.0.0.1:8765/index.html` | **200** |
-| Returning-patient/PIN selection DOM check | selected PIN filled staff form, patient form, active PIN and doctor brief |
-| Doctor history DOM check | 15 synthetic files rendered; search/open file works; generated PIN matched four digit format |
+| Doctor past-file live-browser (session O) | complaint filter "Cough" → 2 of 15; date filter → 1 of 15; Clear filters → 15 of 15; PIN 6184 opens "current + past" split review; 0 JS errors |
 
 ## 5. Blocking threads
 
@@ -60,7 +59,7 @@ Last verified **session N**, by re-running on the Windows host. Evidence: VERIFI
 | **OT-14 · PSE registration** | 🟠 **Blocks lawful operation** | B2B SaaS serving Indonesian users likely requires PSE registration; counsel/primary confirmation still needed. |
 | **OT-19 · Clinic-owned engagement consent/comms controls** | 🟠 **Blocks production messaging** | Required before WhatsApp/Email reminders, post-visit check-ins, feedback/rating requests, discount offers or bulk announcements go live. |
 | **OT-20 · HTML MVP visual review and screen lock** | 🟡 **Blocks production frontend scope** | Founder/doctor/staff should review the local HTML prototype before production frontend work. |
-| **OT-21 · Production PIN identity binding** | 🟡 **Blocks production patient history lookup** | HTML prototype models PIN binding locally; production needs backend identity constraints and audited duplicate handling. |
+| **OT-21 · Production PIN identity binding** | 🟡 **Blocks production patient history lookup** | HTML prototype models PIN binding locally and documents the 4-digit collision/scoping risk (OT-21 sub-note, session O); production needs backend identity constraints, scoped per-clinic PINs and audited duplicate handling. |
 | **OT-04 · Evidence Sprint** | ⚪ **Deferred risk** | Founder deferred/skipped it for now by ADR-035; document reality risk remains accepted, not disproven. |
 | **OT-17 · Which vertical goes first** | ✅ **Resolved** | Healthcare-first selected by founder in ADR-035. |
 
@@ -71,6 +70,7 @@ Last verified **session N**, by re-running on the Windows host. Evidence: VERIFI
 **New in session L:** OT-21 Production PIN identity binding.
 **Session M update:** OT-20 prototype review scope now includes returning-patient PIN selection sync, complaint-specific demo questions, helper chips and data-capture feature ideas.
 **Session N update:** OT-20 prototype review scope now includes four digit PINs and doctor-side old-file search/open flow; OT-21 must handle scoped uniqueness/collision risk if four digit visible PINs survive into production.
+**Session O update:** OT-20 prototype review scope now includes the doctor past-file filter controls and the current+past split review; OT-21 collision/scoping risk documented (4-digit space trivially collidable near ~119 records; identity stays a composite of PIN + name + age + mobile; production to scope PIN per clinic with an immutable internal patient key).
 
 ## 6. Settled decisions (36 ADRs)
 
@@ -111,7 +111,7 @@ Last verified **session N**, by re-running on the Windows host. Evidence: VERIFI
 
 | # | Action | Why now |
 |---|---|---|
-| 1 | **Review polished `14-MVP-HTML/index.html` on phone/tablet/doctor-desktop dimensions** | Confirms visual tone, four digit PINs, returning-patient selection sync, complaint-specific demo options, helper chips, Step 7 layout, PIN/done screen, doctor history browser and data-capture ideas before production frontend engineering |
+| 1 | **Review polished `14-MVP-HTML/index.html` on phone/tablet/doctor-desktop dimensions** | Confirms visual tone, four digit PINs, returning-patient selection sync, complaint-specific demo options, helper chips, Step 7 layout, PIN/done screen, **doctor past-file filter controls and the current+past split review** and data-capture ideas before production frontend engineering |
 | 2 | **Design production PIN identity binding** (OT-21) | Patient history must not attach to the wrong mobile/name/age identity |
 | 3 | **Create healthcare `vertical_pack` shell and question-pack status workflow** | Blocks safe implementation of the v2.6 intake |
 | 4 | **Draft first-visit/no-report basic question pack as `DRAFT` or `DEMO_UNVALIDATED` only** | Lets product/UX proceed without pretending content is signed |
@@ -155,3 +155,4 @@ Last verified **session N**, by re-running on the Windows host. Evidence: VERIFI
 | L | v2.6 HTML MVP refined with search, manual token, PIN, relevant answers and review layout fix; OT-21 added | [log](SESSION-LOG/2026-08-24-L-html-mvp-identity-flow.md) |
 | M | v2.6 HTML MVP polished; returning-patient PIN sync fixed; complaint-specific demo options and data-capture helper ideas added | [log](SESSION-LOG/2026-08-24-M-html-mvp-polish.md) |
 | N | v2.6 HTML MVP uses four digit prototype PINs; QR/assisted buttons removed; 15 synthetic doctor-history files added | [log](SESSION-LOG/2026-08-24-N-html-mvp-history-demo.md) |
+| O | v2.6 doctor past-file system upgrade: cleaner grouped list, complaint/follow-up/date filters + Clear, current+past split review; OT-21 collision/scoping risk documented | [log](SESSION-LOG/2026-08-24-O-doctor-past-file-upgrade.md) |

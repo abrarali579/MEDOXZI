@@ -333,9 +333,29 @@ function allPatientRecords() {
   return [...historyPatients, ...patients.filter((patient) => patient.pin)];
 }
 
-function renderHistoryList(query = "") {
-  const term = normalize(query);
-  const matches = historyPatients.filter((patient) => {
+const historyFilters = {
+  query: "",
+  complaint: "All",
+  followup: "All",
+  date: "",
+};
+
+function patientHasFollowup(patient) {
+  return !/^no routine follow-up/i.test(normalize(patient.followup));
+}
+
+function uniqueComplaints() {
+  return Array.from(new Set(historyPatients.map((patient) => patient.complaint))).sort();
+}
+
+function applyHistoryFilters(patients) {
+  const term = normalize(historyFilters.query);
+  return patients.filter((patient) => {
+    if (historyFilters.complaint !== "All" && patient.complaint !== historyFilters.complaint) return false;
+    if (historyFilters.followup === "Needs follow-up" && !patientHasFollowup(patient)) return false;
+    if (historyFilters.followup === "No follow-up" && patientHasFollowup(patient)) return false;
+    if (historyFilters.date && patient.lastVisit !== historyFilters.date) return false;
+    if (!term) return true;
     const haystack = [
       patient.pin,
       patient.name,
@@ -347,9 +367,33 @@ function renderHistoryList(query = "") {
     ]
       .join(" ")
       .toLowerCase();
-    return !term || haystack.includes(term);
+    return haystack.includes(term);
   });
+}
 
+function renderHistoryFilters() {
+  const complaintOptions = ["All", ...uniqueComplaints()]
+    .map(
+      (item) =>
+        `<option value="${item}" ${item === historyFilters.complaint ? "selected" : ""}>${item}</option>`,
+    )
+    .join("");
+  $("#historyComplaintFilter").innerHTML = complaintOptions;
+
+  const followupOptions = ["All", "Needs follow-up", "No follow-up"]
+    .map(
+      (item) =>
+        `<option value="${item}" ${item === historyFilters.followup ? "selected" : ""}>${item}</option>`,
+    )
+    .join("");
+  $("#historyFollowupFilter").innerHTML = followupOptions;
+
+  $("#historyDateFilter").value = historyFilters.date;
+  $("#historyCount").textContent = "15 synthetic files";
+}
+
+function renderHistoryList() {
+  const matches = applyHistoryFilters(historyPatients);
   $("#historyList").innerHTML = matches
     .map(
       (patient) => `
@@ -360,15 +404,94 @@ function renderHistoryList(query = "") {
             <small>${patient.age}/${patient.sex} · ${patient.phone}</small>
             <small>${patient.lastVisit} · ${patient.complaint}</small>
           </span>
-          <span class="mini-badge">${patient.reports.length} file</span>
+          <span class="history-meta">
+            ${patientHasFollowup(patient) ? '<span class="mini-badge followup">Follow-up</span>' : '<span class="mini-badge none">No follow-up</span>'}
+            <span class="mini-badge">${patient.reports.length} file</span>
+          </span>
         </button>
       `,
     )
     .join("");
 
   if (!matches.length) {
-    $("#historyList").innerHTML = `<div class="empty-state">No sample file matched your search.</div>`;
+    $("#historyList").innerHTML = `<div class="empty-state">No sample file matched your filters.</div>`;
   }
+  $("#historyCount").textContent = `${matches.length} of 15 synthetic files`;
+}
+
+function openCurrentWithPast(pin) {
+  const patient = historyPatients.find((item) => item.pin === pin);
+  if (!patient) return;
+  openCurrentVisitSplit(patient);
+}
+
+function openCurrentVisitSplit(pastPatient) {
+  const current = {
+    name: $("input#intakeName")?.value || $("input#patientName")?.value || "Demo Patient",
+    age: $("input#intakeAge")?.value || $("input#patientAge")?.value || "34",
+    sex: $("input#intakeSex")?.value || $("input#patientSex")?.value || "Male",
+    complaint: state.complaint,
+    symptoms: $("textarea#issueText")?.value || "Not entered",
+    files: state.files,
+    followup: $("select#followupNeeded")?.value || "No",
+  };
+
+  const currentVisitHtml = `
+    <article>
+      <h3>Current visit — in patient's words <span class="source">Patient</span></h3>
+      <p>${current.symptoms}</p>
+    </article>
+    <article>
+      <h3>Current visit — reason <span class="source">Patient</span></h3>
+      <p>${current.complaint} · ${current.age}/${current.sex}</p>
+    </article>
+    <article>
+      <h3>Current visit — attachments <span class="source">Attachment</span></h3>
+      <ul>${current.files.length ? current.files.map((f) => `<li>${f} · doctor-review only</li>`).join("") : "<li>No previous reports attached.</li>"}</ul>
+    </article>
+    <article>
+      <h3>Current visit — follow-up mark <span class="source">Clinic</span></h3>
+      <p>${current.followup === "Yes" ? "Follow-up needed this visit." : "No follow-up marked for this visit."}</p>
+    </article>
+  `;
+
+  const pastVisitHtml = `
+    <article>
+      <h3>Past visit ${pastPatient.lastVisit} — symptoms <span class="source">Patient</span></h3>
+      <p>${pastPatient.symptoms}</p>
+    </article>
+    <article>
+      <h3>Past visit — doctor assessment <span class="source">Sample doctor</span></h3>
+      <p>${pastPatient.assessment}</p>
+    </article>
+    <article>
+      <h3>Past visit — plan <span class="source">Sample doctor</span></h3>
+      <p>${pastPatient.treatment}</p>
+    </article>
+    <article>
+      <h3>Past visit — follow-up <span class="source">Clinic</span></h3>
+      <p>${pastPatient.followup}</p>
+    </article>
+  `;
+
+  $("#historyFileTitle").textContent = `${current.name} · current + past`;
+  $("#historyFile").innerHTML = `
+    <div class="split-review">
+      <div class="split-col split-current">
+        <div class="split-head"><strong>Current visit</strong><span class="status-pill safe">In patient's words</span></div>
+        ${currentVisitHtml}
+      </div>
+      <div class="split-col split-past">
+        <div class="split-head"><strong>Past visit</strong><span class="status-pill safe">${pastPatient.lastVisit} · PIN ${pastPatient.pin}</span></div>
+        ${pastVisitHtml}
+      </div>
+    </div>
+  `;
+}
+
+function openCloseSplitReview() {
+  $("#historyFileTitle").textContent = "Select a past file";
+  $("#historyFile").innerHTML = `<p class="quiet">Open a past file to see how previous symptoms, reports and doctor assessment can appear for review.</p>`;
 }
 
 function openHistoryFile(pin) {
@@ -664,6 +787,7 @@ function saveDoctorConclusion() {
 
 document.addEventListener("DOMContentLoaded", () => {
   renderQueues();
+  renderHistoryFilters();
   renderHistoryList();
   openHistoryFile(historyPatients[0].pin);
   showStep(0);
@@ -673,6 +797,34 @@ document.addEventListener("DOMContentLoaded", () => {
   $$("[data-jump]").forEach((button) =>
     button.addEventListener("click", () => switchView(button.dataset.jump)),
   );
+
+  $(".history-clear").addEventListener("click", () => {
+    historyFilters.query = "";
+    historyFilters.complaint = "All";
+    historyFilters.followup = "All";
+    historyFilters.date = "";
+    $(".history-search input").value = "";
+    $("input#historyDateFilter").value = "";
+    renderHistoryFilters();
+    renderHistoryList();
+  });
+
+  $("select#historyComplaintFilter").addEventListener("change", (event) => {
+    historyFilters.complaint = event.target.value;
+    renderHistoryList();
+  });
+  $("select#historyFollowupFilter").addEventListener("change", (event) => {
+    historyFilters.followup = event.target.value;
+    renderHistoryList();
+  });
+  $("input#historyDateFilter").addEventListener("change", (event) => {
+    historyFilters.date = event.target.value;
+    renderHistoryList();
+  });
+  $("input#historyDateFilter").addEventListener("input", (event) => {
+    historyFilters.date = event.target.value;
+    renderHistoryList();
+  });
 
   $("#registrationForm").addEventListener("submit", (event) => {
     event.preventDefault();
@@ -688,10 +840,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = event.target.closest("[data-pin]");
     if (button) loadExistingPatient(button.dataset.pin);
   });
-  $("#historySearch").addEventListener("input", (event) => renderHistoryList(event.target.value));
-  $("#historyList").addEventListener("click", (event) => {
+  $(".history-search input").addEventListener("input", (event) => {
+    historyFilters.query = event.target.value;
+    renderHistoryList();
+  });
+  $(".history-list").addEventListener("click", (event) => {
     const button = event.target.closest("[data-history-pin]");
-    if (button) openHistoryFile(button.dataset.historyPin);
+    if (!button) return;
+    openCurrentWithPast(button.dataset.historyPin);
   });
 
   $("#backStep").addEventListener("click", () => showStep(state.currentStep - 1));

@@ -302,6 +302,22 @@
                 Search by name, PIN, mobile, symptom or assessment
                 <input id="historySearch" placeholder="Try 4729, cough, gastritis, Demo Patient 07" autocomplete="off">
               </label>
+              <div class="history-filters">
+                <label>
+                  Complaint
+                  <select id="historyComplaintFilter"></select>
+                </label>
+                <label>
+                  Follow-up
+                  <select id="historyFollowupFilter"></select>
+                </label>
+                <label>
+                  Date
+                  <input id="historyDateFilter" type="date">
+                </label>
+                <button class="history-clear secondary" type="button">Clear filters</button>
+              </div>
+              <div class="history-count" id="historyCount">15 synthetic files</div>
               <div id="historyList" class="history-list"></div>
             </section>
 

@@ -20,6 +20,8 @@
 
 **Session N note:** HTML MVP now uses four digit prototype PINs, removes non-working QR and assisted-intake buttons, and adds a searchable/scrollable doctor-view browser for 15 synthetic past patient files with labelled sample doctor assessments.
 
+**Session O note:** Doctor past-file system upgraded in `14-MVP-HTML/` — cleaner grouped list (PIN, name, age/sex, mobile, date·complaint, follow-up badge, file count), filters by complaint / follow-up-needed / date with a Clear-filters reset, and an "open current visit + previous visits together" split-review panel (Current visit beside the selected Past visit). All data synthetic; four digit visible PINs retained. Production PIN collision/scoping risk documented under OT-21.
+
 ## 🔴 Blocking — cannot proceed to real patient use without these
 
 ### OT-01 · Indonesian data storage and inference — 🟠 DOWNGRADED from 🔴 (session E)
@@ -103,6 +105,13 @@
 - **Boundary:** this is identity/record-linking, not a clinical claim. Do not use real patient data in tests.
 - **Owner:** engineering + privacy/security reviewer.
 - **How:** add immutable patient identity keys, duplicate review workflow, audit events for any merge/correction, scoped uniqueness for four digit visible PINs, and tests proving an existing PIN cannot be re-bound to a mismatched mobile/name/age without an explicit audited human resolution.
+
+#### Collision / scoping risk (documented session O — latest work: doctor past-file filters)
+- **Known demo limitation:** the prototype deliberately keeps **4-digit visible PINs** and allows the same PIN to appear across synthetic demo files for illustration (e.g. clinic-facing list shows PINs like `1049`, `4729`, `6184`, `2914`, `6805`, `5273`). These are **not** unique patient identities — they are short, collision-prone labels.
+- **4-digit space is only 10,000 combinations** — trivially collidable at clinic scale (birthday paradox: ~50% collision likelihood near ~119 records). Production cannot use a bare 4-digit PIN as the sole identity key.
+- **Mismatch scoping (adopted here):** identity is a composite of PIN **+ name + age + mobile**, never PIN alone. The doctor past-file list groups and filters records under a PIN, but the chosen record must still match name/age/mobile before an existing file is presented as that patient's history. The split review ("open current visit + previous visits together") therefore only ever shows the **selected** composite record, never two different people under one PIN.
+- **Production requirement:** scope the PIN to its creating clinic + use a distinct immutable internal patient key; treat the visible 4-digit PIN as a **per-clinic 4-digit prefix/short-code**, not a global or national identifier. Any remap/correction must be an audited human action (covered by the OT-21 How line).
+- **Demo assertion:** no real patient data anywhere in the prototype; all PIN-linked files are synthetic "sample doctor assessments".
 
 ## 🟠 Blocking the pitch
 

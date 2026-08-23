@@ -4,6 +4,57 @@
 
 ---
 
+## 2026-08-24 - Session O - doctor-side past-file system upgrade
+
+**WHAT**
+- Made the doctor past-file list view cleaner for clinic use: grouped rows now show PIN, name, age/sex, mobile, last-visit date · complaint, a follow-up badge (Needs follow-up / No follow-up) and the file count, plus a live `15 of 15 synthetic files` summary.
+- Added filters to the past-file browser: search (name/PIN/mobile/symptom/assessment), **Complaint** dropdown, **Follow-up** dropdown (All / Needs follow-up / No follow-up) and a **Date** filter on last visit, with a **Clear filters** reset control.
+- Added "open current visit + previous visits together" — clicking any past file now opens a split-review panel showing the **Current visit** (patient's words, reason, attachments, follow-up mark) beside the **Past visit** (symptoms, sample doctor assessment, plan, follow-up).
+- Kept all past-file data synthetic ("sample doctor assessments" only) and retained the four digit visible PINs.
+- Documented the production PIN collision/scoping risk under OT-21: four digit PINs are trivially collidable at clinic scale (birthday-paradox ~50% near ~119 records) and are intentionally demo-tolerant, so production must bind PINs with clinic/date scoping and immutable identity constraints.
+
+**WHY**
+The founder wanted the doctor-facing past-file flow to look practical for a clinic ("make list view cleaner for clinic use", "add filters by complaint, follow-up needed, date", "open current visit + previous visits together"), while keeping data synthetic and PINs visible-but-documented as a known production risk.
+
+**EVIDENCE**
+`_OPS/VERIFICATION-LOG.md` V-2026-08-24-O-01 and V-2026-08-24-O-02.
+
+Key outputs:
+
+```text
+$ /c/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m pytest tests/ -q
+95 passed in 0.11s
+```
+
+```text
+$ /c/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m harness.run
+VERDICT: PASS
+```
+
+```text
+$ node --check 14-MVP-HTML\app.js
+```
+
+Focused live-browser evidence (http://127.0.0.1:8765/index.html, Doctor view):
+
+```text
+{"complaintFilter_Cough":"2 of 15 synthetic files","dateFilter_2026-08-09":"1 of 15 synthetic files","clear_reset":"15 of 15 synthetic files","split_open_pin_6184":"Demo Patient · current + past","js_errors":0}
+```
+
+**NEXT**
+1. Review the filter controls and split-review layout on an actual desktop/tablet and decide which list columns matter most for clinic pilots.
+2. Decide whether a scoped production ID (clinic/date + collision-safe sequence) should replace the demo four digit PIN; OT-21 documents the collision risk.
+3. Turn synthetic past files into a production data model only after OT-21 identity binding is designed.
+4. Keep sample doctor assessments clearly separated from any system-generated diagnosis.
+
+**WHY NEXT**
+The past-file browser is now filterable and shows current+past together for real clinic-readiness, but identity integrity (OT-21) and clinical wording sign-off (OT-18) are still required before any production frontend or real-patient use.
+
+**HOW**
+Continue iterating the doctor view in `14-MVP-HTML/`. For production, resolve OT-21 (immutable identity constraints/audit with collision-safe scoping) and OT-18 (signed healthcare question-pack status workflow) before any real clinic use.
+
+---
+
 ## 2026-08-24 - Session N - HTML MVP history demo and four digit PINs
 
 **WHAT**
