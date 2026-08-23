@@ -1504,6 +1504,136 @@ $ git diff --check
 
 ---
 
+## V-2026-08-24-N-01 - Baseline before HTML history demo
+
+**Date:** 2026-08-24
+**Scope:** Required pre-change verification before adding four digit prototype PINs and synthetic doctor history files.
+
+```text
+$ python -m pytest tests/ -q
+........................................................................ [ 75%]
+.......................                                                  [100%]
+95 passed in 0.12s
+```
+
+```text
+$ python -m harness.run
+VERDICT: PASS
+```
+
+```text
+$ python demo.py | Select-Object -Last 20
+Every behaviour above is deterministic and unit-tested.
+Run:  python -m pytest tests/ -v
+```
+
+**Verdict:** baseline was green before edits.
+
+---
+
+## V-2026-08-24-N-02 - HTML history demo verification
+
+**Date:** 2026-08-24
+**Scope:** Verify four digit prototype PINs, QR/assisted button removal, synthetic history browser, static assets and standard safety boundaries.
+
+```text
+$ python -m pytest tests/ -q
+........................................................................ [ 75%]
+.......................                                                  [100%]
+95 passed in 0.11s
+```
+
+```text
+$ python -m harness.run
+==========================================================================
+  MEDOXZI HARNESS
+  NOT FOR CLINICAL USE - synthetic cases only
+==========================================================================
+  harness 0.1.0 - content content@0.1.0 - rules 3
+
+[A] Contamination - 500 concurrent encounters ...
+    PASS — 500 encounters, 0 contamination(s), 0 pipeline failure(s)
+
+[E] Abstention - illegible / absent / ambiguous expected values ...
+    abstention 100.0% (9/9) · fabrications 0 · missed 0
+
+[F] Diagnostic drift - every generated statement ...
+    50 statements checked · 0 hit(s)
+
+==========================================================================
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+
+  VERDICT: PASS
+==========================================================================
+```
+
+```text
+$ python demo.py | Select-Object -Last 20
+  Red flags STILL evaluated:      True (1 fired)
+
+  Note: the invented sentence would have been the dangerous one -
+  the patient is in fact allergic to penicillin.
+
+------------------------------------------------------------------------------
+  7 - NOT_ASKED IS NEVER A NEGATIVE
+------------------------------------------------------------------------------
+  NOT_ASKED    renders as: "not asked"
+  UNKNOWN      renders as: "patient does not know"
+  ANSWERED(no) renders as: "no"
+
+  Allergies never asked -> "not asked"
+  Allergies asked, none -> "none known"
+
+  Three distinct clinical facts. Three distinct renderings.
+------------------------------------------------------------------------------
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+------------------------------------------------------------------------------
+```
+
+```text
+$ node --check 14-MVP-HTML\app.js
+```
+
+`node --check` produced no output, which is a pass.
+
+```text
+$ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8765/index.html
+200
+$ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8765/app.js
+200
+$ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8765/styles.css
+200
+```
+
+Focused DOM evidence:
+
+```text
+{"historyCount":15,"listHasDemo15":true,"openedTitle":"Demo Patient 02 · PIN 6184","openedHasAssessment":true,"generatedPin":"7618","pinIsFourDigits":true}
+```
+
+Feature/boundary grep:
+
+```text
+$ rg -n "MXZ-|Show QR|Assisted intake|historyPatients|historySearch|data-history-pin|Sample doctor assessment|Sample clinician entries|No system-generated diagnosis" 14-MVP-HTML
+```
+
+The grep found the synthetic history fixture, history search/open hooks, and sample-clinician labels. It found no `MXZ-`, no `Show QR`, and no `Assisted intake`.
+
+**AGENT-PROTOCOL sweep:** full Windows sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; red-flag phrases only in prohibitive or historical contexts; retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in the drift detector regex; `>=500` only in ADR-029/history/Gate 6/synthetic/privacy contexts.
+
+**Verdict:** HTML history demo is verified. The prototype remains local/synthetic and does not add production clinical content, diagnosis/differential generation, live messaging, real patient data, regulatory claims, or clinical performance claims.
+
+---
+
 ### V-2026-08-24-L-01 · HTML MVP refinement baseline
 
 **Date:** 2026-08-24

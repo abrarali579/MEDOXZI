@@ -96,8 +96,6 @@
               <div id="staffQueue" class="queue-list"></div>
               <div class="handoff-box">
                 <button class="secondary" data-jump="patient">Start on tablet</button>
-                <button class="secondary">Show QR</button>
-                <button class="secondary">Assisted intake</button>
               </div>
             </section>
           </div>
@@ -289,6 +287,34 @@
                   </label>
                 </div>
                 <button id="saveDoctor" class="primary full" type="button">Save doctor conclusion</button>
+              </div>
+            </section>
+
+            <section class="patient-history panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Past patient files</p>
+                  <h2>Search old records</h2>
+                </div>
+                <span class="mini-badge">Synthetic demo</span>
+              </div>
+              <label class="history-search">
+                Search by name, PIN, mobile, symptom or assessment
+                <input id="historySearch" placeholder="Try 4729, cough, gastritis, Demo Patient 07" autocomplete="off">
+              </label>
+              <div id="historyList" class="history-list"></div>
+            </section>
+
+            <section class="history-file panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Old file</p>
+                  <h2 id="historyFileTitle">Select a past file</h2>
+                </div>
+                <span class="status-pill safe">Sample clinician entries only</span>
+              </div>
+              <div id="historyFile" class="history-detail">
+                <p class="quiet">Open a past file to see how previous symptoms, reports and doctor assessment can appear for review.</p>
               </div>
             </section>
           </div>

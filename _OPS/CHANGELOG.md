@@ -4,6 +4,58 @@
 
 ---
 
+## 2026-08-24 - Session N - HTML MVP history demo and four digit PINs
+
+**WHAT**
+- Changed the HTML MVP's prototype PIN format to four random digits only.
+- Replaced existing demo PINs with four digit values and kept PIN binding local to the browser prototype.
+- Removed the non-working `Show QR` button and the `Assisted intake` button from the staff handoff area.
+- Added 15 synthetic demo past-patient files with symptoms, reports and labelled sample doctor assessments.
+- Added a doctor-view past-file browser with searchable/scrollable list view and open-file detail view.
+- Updated `14-MVP-HTML/README.md` and `14-MVP-HTML/MVP-Prototype-Plan.md` with the new scope and boundaries.
+
+**WHY**
+The founder wanted the doctor system to show how past patient data may look in a practical clinic review flow, while simplifying the visible PIN and removing non-working UI actions.
+
+**EVIDENCE**
+`_OPS/VERIFICATION-LOG.md` V-2026-08-24-N-01 and V-2026-08-24-N-02.
+
+Key outputs:
+
+```text
+$ python -m pytest tests/ -q
+95 passed in 0.11s
+```
+
+```text
+$ python -m harness.run
+VERDICT: PASS
+```
+
+```text
+$ node --check 14-MVP-HTML\app.js
+```
+
+Focused DOM evidence:
+
+```text
+{"historyCount":15,"listHasDemo15":true,"openedTitle":"Demo Patient 02 · PIN 6184","openedHasAssessment":true,"generatedPin":"7618","pinIsFourDigits":true}
+```
+
+**NEXT**
+1. Review the doctor history browser on desktop/tablet and decide which list columns are most important.
+2. Decide whether four digit PINs are acceptable for pilot usability or whether production should keep hidden clinic/date scoping behind the scenes.
+3. Turn synthetic past files into a production data model only after OT-21 identity binding is designed.
+4. Keep sample doctor assessments clearly separated from any system-generated diagnosis.
+
+**WHY NEXT**
+The visual prototype now demonstrates historical review value, but production history lookup has identity, collision, audit and clinical-governance implications that cannot be solved by a static HTML mock.
+
+**HOW**
+Continue visual iteration in `14-MVP-HTML/`. For production, create persistent patient, encounter, attachment and clinician-assessment models; enforce unique scoped PINs; add search indexes; and preserve the rule that all sample assessments are doctor-authored data, never AI output.
+
+---
+
 ## 2026-08-24 - Session M - HTML MVP polish and returning-patient flow
 
 **WHAT**

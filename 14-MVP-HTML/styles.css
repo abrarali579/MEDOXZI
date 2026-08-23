@@ -171,7 +171,8 @@ main {
 }
 
 .doctor-layout {
-  grid-template-columns: 320px minmax(0, 1fr);
+  grid-template-columns: 300px minmax(0, 1fr);
+  align-items: start;
 }
 
 .panel,
@@ -353,7 +354,7 @@ textarea {
 
 .handoff-box {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 8px;
   margin-top: 14px;
 }
@@ -622,6 +623,100 @@ textarea {
   border-top: 1px solid var(--line);
 }
 
+.patient-history {
+  grid-column: 1;
+}
+
+.history-file {
+  grid-column: 2;
+}
+
+.history-search {
+  margin-bottom: 12px;
+}
+
+.history-list {
+  display: grid;
+  gap: 8px;
+  max-height: 520px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.history-row {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 76px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  color: var(--ink);
+  text-align: left;
+}
+
+.history-row small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  line-height: 1.25;
+}
+
+.history-pin {
+  display: grid;
+  place-items: center;
+  min-height: 44px;
+  border-radius: 8px;
+  background: #18364a;
+  color: #fff;
+  font-weight: 900;
+}
+
+.history-detail {
+  display: grid;
+  gap: 12px;
+}
+
+.history-detail article,
+.file-summary {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--soft);
+}
+
+.history-detail p,
+.history-detail ul {
+  margin-bottom: 0;
+  line-height: 1.45;
+}
+
+.file-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.file-summary strong,
+.file-summary span {
+  display: block;
+}
+
+.file-summary strong {
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.empty-state {
+  padding: 14px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+}
+
 .message-preview {
   min-height: 190px;
   white-space: pre-wrap;
@@ -649,8 +744,14 @@ textarea {
   .doctor-layout,
   .brief-grid,
   .form-grid,
-  .form-grid.two {
+  .form-grid.two,
+  .file-summary {
     grid-template-columns: 1fr;
+  }
+
+  .patient-history,
+  .history-file {
+    grid-column: auto;
   }
 
   .role-tabs {
@@ -677,6 +778,14 @@ textarea {
   }
 
   .queue-item .mini-badge {
+    grid-column: 1 / -1;
+  }
+
+  .history-row {
+    grid-template-columns: 52px minmax(0, 1fr);
+  }
+
+  .history-row .mini-badge {
     grid-column: 1 / -1;
   }
 

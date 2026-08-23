@@ -55,7 +55,7 @@ function activeQuestions() {
 const patients = [
   {
     token: 49,
-    pin: "MXZ-2408-1049",
+    pin: "1049",
     name: "Ayesha Demo",
     age: "31",
     sex: "Female",
@@ -66,7 +66,7 @@ const patients = [
   },
   {
     token: 50,
-    pin: "MXZ-2408-1050",
+    pin: "1050",
     name: "Budi Demo",
     age: "42",
     sex: "Male",
@@ -85,6 +85,219 @@ const patients = [
     meta: "M 34",
     status: "Ready",
     docs: "0",
+  },
+];
+
+const historyPatients = [
+  {
+    pin: "4729",
+    name: "Demo Patient 01",
+    age: "28",
+    sex: "Female",
+    phone: "+62 812 3000 0001",
+    complaint: "Cough",
+    lastVisit: "2026-08-03",
+    symptoms: "Dry cough for 4 days, mild throat irritation, no report attached.",
+    assessment: "Sample doctor assessment: acute upper respiratory infection.",
+    treatment: "Doctor advised rest, fluids and follow-up if symptoms persisted.",
+    followup: "No routine follow-up scheduled.",
+    reports: ["No previous reports"],
+  },
+  {
+    pin: "6184",
+    name: "Demo Patient 02",
+    age: "35",
+    sex: "Male",
+    phone: "+62 812 3000 0002",
+    complaint: "Stomach pain",
+    lastVisit: "2026-08-04",
+    symptoms: "Upper abdominal burning after meals, nausea, no vomiting.",
+    assessment: "Sample doctor assessment: gastritis-like symptoms.",
+    treatment: "Doctor recorded diet advice and prescribed clinic-selected medicine.",
+    followup: "Review in 7 days if pain continued.",
+    reports: ["Old prescription photo"],
+  },
+  {
+    pin: "5903",
+    name: "Demo Patient 03",
+    age: "41",
+    sex: "Female",
+    phone: "+62 812 3000 0003",
+    complaint: "Headache",
+    lastVisit: "2026-08-05",
+    symptoms: "One-sided headache, light sensitivity, nausea, started yesterday.",
+    assessment: "Sample doctor assessment: migraine-type headache.",
+    treatment: "Doctor noted trigger review and clinic-selected medicine.",
+    followup: "Follow-up if episodes became frequent.",
+    reports: ["No previous reports"],
+  },
+  {
+    pin: "7361",
+    name: "Demo Patient 04",
+    age: "52",
+    sex: "Male",
+    phone: "+62 812 3000 0004",
+    complaint: "Fever",
+    lastVisit: "2026-08-06",
+    symptoms: "Fever for 2 days with body pain and tiredness.",
+    assessment: "Sample doctor assessment: viral fever.",
+    treatment: "Doctor recorded observation advice and return precautions.",
+    followup: "Review after 2 days if fever persisted.",
+    reports: ["Temperature log photo"],
+  },
+  {
+    pin: "2846",
+    name: "Demo Patient 05",
+    age: "63",
+    sex: "Female",
+    phone: "+62 812 3000 0005",
+    complaint: "Body pain",
+    lastVisit: "2026-08-07",
+    symptoms: "Knee and back pain after walking, no fever.",
+    assessment: "Sample doctor assessment: osteoarthritis flare.",
+    treatment: "Doctor recorded activity modification and pain plan.",
+    followup: "Follow-up in 2 weeks.",
+    reports: ["Knee X-ray report photo"],
+  },
+  {
+    pin: "9137",
+    name: "Demo Patient 06",
+    age: "19",
+    sex: "Male",
+    phone: "+62 812 3000 0006",
+    complaint: "Skin rash",
+    lastVisit: "2026-08-08",
+    symptoms: "Itchy red patches on arms after new soap.",
+    assessment: "Sample doctor assessment: contact dermatitis.",
+    treatment: "Doctor recorded avoidance advice and clinic-selected topical medicine.",
+    followup: "No routine follow-up scheduled.",
+    reports: ["Rash photo"],
+  },
+  {
+    pin: "3470",
+    name: "Demo Patient 07",
+    age: "46",
+    sex: "Female",
+    phone: "+62 812 3000 0007",
+    complaint: "Cough",
+    lastVisit: "2026-08-09",
+    symptoms: "Cough with phlegm for 1 week, worse at night.",
+    assessment: "Sample doctor assessment: bronchitis-like symptoms.",
+    treatment: "Doctor recorded chest exam note and clinic-selected medicine.",
+    followup: "Review in 5 days.",
+    reports: ["No previous reports"],
+  },
+  {
+    pin: "8251",
+    name: "Demo Patient 08",
+    age: "33",
+    sex: "Male",
+    phone: "+62 812 3000 0008",
+    complaint: "Loose motions",
+    lastVisit: "2026-08-10",
+    symptoms: "Loose motions since morning, mild cramps, ate outside last night.",
+    assessment: "Sample doctor assessment: acute gastroenteritis.",
+    treatment: "Doctor recorded hydration advice and clinic-selected medicine.",
+    followup: "Return if not improving.",
+    reports: ["No previous reports"],
+  },
+  {
+    pin: "1695",
+    name: "Demo Patient 09",
+    age: "57",
+    sex: "Female",
+    phone: "+62 812 3000 0009",
+    complaint: "High sugar follow-up",
+    lastVisit: "2026-08-11",
+    symptoms: "Tiredness, increased thirst, brought glucometer readings.",
+    assessment: "Sample doctor assessment: diabetes follow-up.",
+    treatment: "Doctor reviewed readings and adjusted clinic plan.",
+    followup: "Follow-up in 1 month.",
+    reports: ["Glucometer reading photo"],
+  },
+  {
+    pin: "6042",
+    name: "Demo Patient 10",
+    age: "44",
+    sex: "Male",
+    phone: "+62 812 3000 0010",
+    complaint: "Blood pressure follow-up",
+    lastVisit: "2026-08-12",
+    symptoms: "Occasional headache, home BP readings brought to clinic.",
+    assessment: "Sample doctor assessment: hypertension follow-up.",
+    treatment: "Doctor recorded BP review and clinic-selected plan.",
+    followup: "Follow-up in 2 weeks.",
+    reports: ["BP log photo"],
+  },
+  {
+    pin: "7580",
+    name: "Demo Patient 11",
+    age: "25",
+    sex: "Female",
+    phone: "+62 812 3000 0011",
+    complaint: "Sore throat",
+    lastVisit: "2026-08-13",
+    symptoms: "Pain while swallowing, mild fever, no cough.",
+    assessment: "Sample doctor assessment: acute pharyngitis.",
+    treatment: "Doctor recorded throat exam note and clinic-selected medicine.",
+    followup: "No routine follow-up scheduled.",
+    reports: ["No previous reports"],
+  },
+  {
+    pin: "4368",
+    name: "Demo Patient 12",
+    age: "39",
+    sex: "Male",
+    phone: "+62 812 3000 0012",
+    complaint: "Back pain",
+    lastVisit: "2026-08-14",
+    symptoms: "Lower back pain after lifting boxes, no attached reports.",
+    assessment: "Sample doctor assessment: mechanical low back pain.",
+    treatment: "Doctor recorded posture advice and clinic-selected medicine.",
+    followup: "Review if not improving in 1 week.",
+    reports: ["No previous reports"],
+  },
+  {
+    pin: "2914",
+    name: "Demo Patient 13",
+    age: "30",
+    sex: "Female",
+    phone: "+62 812 3000 0013",
+    complaint: "Urine burning",
+    lastVisit: "2026-08-15",
+    symptoms: "Burning urination and frequency for 2 days.",
+    assessment: "Sample doctor assessment: urinary tract infection symptoms.",
+    treatment: "Doctor recorded urine test request and clinic-selected plan.",
+    followup: "Follow-up with test result.",
+    reports: ["Urine test slip"],
+  },
+  {
+    pin: "6805",
+    name: "Demo Patient 14",
+    age: "48",
+    sex: "Male",
+    phone: "+62 812 3000 0014",
+    complaint: "Dizziness",
+    lastVisit: "2026-08-16",
+    symptoms: "Dizziness when standing, reduced sleep, no chest complaint entered.",
+    assessment: "Sample doctor assessment: vertigo-like symptoms.",
+    treatment: "Doctor recorded examination note and clinic-selected medicine.",
+    followup: "Review in 3 days if dizziness continued.",
+    reports: ["No previous reports"],
+  },
+  {
+    pin: "5273",
+    name: "Demo Patient 15",
+    age: "22",
+    sex: "Female",
+    phone: "+62 812 3000 0015",
+    complaint: "Eye irritation",
+    lastVisit: "2026-08-17",
+    symptoms: "Red itchy eye, watery discharge, no vision note entered.",
+    assessment: "Sample doctor assessment: conjunctivitis-like symptoms.",
+    treatment: "Doctor recorded hygiene advice and clinic-selected eye plan.",
+    followup: "No routine follow-up scheduled.",
+    reports: ["Eye photo"],
   },
 ];
 
@@ -114,6 +327,83 @@ function renderQueues() {
   $("#staffQueue").innerHTML = html;
   $("#doctorQueue").innerHTML = html;
   $("#waitingCount").textContent = `${patients.length} waiting`;
+}
+
+function allPatientRecords() {
+  return [...historyPatients, ...patients.filter((patient) => patient.pin)];
+}
+
+function renderHistoryList(query = "") {
+  const term = normalize(query);
+  const matches = historyPatients.filter((patient) => {
+    const haystack = [
+      patient.pin,
+      patient.name,
+      patient.phone,
+      patient.complaint,
+      patient.symptoms,
+      patient.assessment,
+      patient.lastVisit,
+    ]
+      .join(" ")
+      .toLowerCase();
+    return !term || haystack.includes(term);
+  });
+
+  $("#historyList").innerHTML = matches
+    .map(
+      (patient) => `
+        <button class="history-row" type="button" data-history-pin="${patient.pin}">
+          <span class="history-pin">${patient.pin}</span>
+          <span>
+            <strong>${patient.name}</strong>
+            <small>${patient.age}/${patient.sex} · ${patient.phone}</small>
+            <small>${patient.lastVisit} · ${patient.complaint}</small>
+          </span>
+          <span class="mini-badge">${patient.reports.length} file</span>
+        </button>
+      `,
+    )
+    .join("");
+
+  if (!matches.length) {
+    $("#historyList").innerHTML = `<div class="empty-state">No sample file matched your search.</div>`;
+  }
+}
+
+function openHistoryFile(pin) {
+  const patient = historyPatients.find((item) => item.pin === pin);
+  if (!patient) return;
+
+  $("#historyFileTitle").textContent = `${patient.name} · PIN ${patient.pin}`;
+  $("#historyFile").innerHTML = `
+    <div class="file-summary">
+      <div><strong>Patient</strong><span>${patient.age} / ${patient.sex}</span></div>
+      <div><strong>Mobile</strong><span>${patient.phone}</span></div>
+      <div><strong>Last visit</strong><span>${patient.lastVisit}</span></div>
+      <div><strong>Reason</strong><span>${patient.complaint}</span></div>
+    </div>
+    <article>
+      <h3>Symptoms recorded <span class="source">Patient</span></h3>
+      <p>${patient.symptoms}</p>
+    </article>
+    <article>
+      <h3>Doctor assessment <span class="source">Sample doctor</span></h3>
+      <p>${patient.assessment}</p>
+    </article>
+    <article>
+      <h3>Doctor plan <span class="source">Sample doctor</span></h3>
+      <p>${patient.treatment}</p>
+    </article>
+    <article>
+      <h3>Follow-up <span class="source">Clinic</span></h3>
+      <p>${patient.followup}</p>
+    </article>
+    <article>
+      <h3>Reports / files <span class="source">Attachment</span></h3>
+      <ul>${patient.reports.map((report) => `<li>${report}</li>`).join("")}</ul>
+    </article>
+  `;
 }
 
 function syncPatientFromRegistration() {
@@ -261,18 +551,17 @@ function identityKey(name, age, phone) {
 }
 
 function generatePin(name, age, phone) {
-  let hash = 0;
-  const source = identityKey(name, age, phone);
-  for (let index = 0; index < source.length; index += 1) {
-    hash = (hash * 31 + source.charCodeAt(index)) >>> 0;
-  }
-  const suffix = String(hash).slice(-6).padStart(6, "0");
-  return `MXZ-${new Date().getFullYear().toString().slice(-2)}${String(new Date().getMonth() + 1).padStart(2, "0")}-${suffix}`;
+  const usedPins = new Set(savedPatients().map((patient) => patient.pin));
+  let pin = "";
+  do {
+    pin = String(Math.floor(1000 + Math.random() * 9000));
+  } while (usedPins.has(pin));
+  return pin;
 }
 
 function savedPatients() {
   const stored = JSON.parse(localStorage.getItem("medoxziDemoPatients") || "[]");
-  const combined = [...patients.filter((patient) => patient.pin), ...stored];
+  const combined = [...allPatientRecords(), ...stored];
   const byPin = new Map();
   combined.forEach((patient) => byPin.set(patient.pin, patient));
   return Array.from(byPin.values());
@@ -292,7 +581,7 @@ function saveLinkedPatient() {
   }
 
   const pin = existing?.pin || generatePin(name, age, phone);
-  const patient = { pin, name, age, sex, phone, identityKey: key };
+  const patient = { pin, name, age, sex, phone, identityKey: key, complaint: state.complaint };
   const stored = JSON.parse(localStorage.getItem("medoxziDemoPatients") || "[]").filter(
     (item) => item.pin !== pin,
   );
@@ -375,6 +664,8 @@ function saveDoctorConclusion() {
 
 document.addEventListener("DOMContentLoaded", () => {
   renderQueues();
+  renderHistoryList();
+  openHistoryFile(historyPatients[0].pin);
   showStep(0);
   renderDoctorBrief();
 
@@ -396,6 +687,11 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#searchResults").addEventListener("click", (event) => {
     const button = event.target.closest("[data-pin]");
     if (button) loadExistingPatient(button.dataset.pin);
+  });
+  $("#historySearch").addEventListener("input", (event) => renderHistoryList(event.target.value));
+  $("#historyList").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-history-pin]");
+    if (button) openHistoryFile(button.dataset.historyPin);
   });
 
   $("#backStep").addEventListener("click", () => showStep(state.currentStep - 1));
