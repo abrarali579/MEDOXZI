@@ -1,0 +1,268 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "AI_DRAFT - requires clinician",
+  "signed_at": null,
+  "warning": "This content is not clinically validated and requires clinician review before use.",
+  "chief_complaints": [
+    {
+      "code": "headache",
+      "label_en": "Headache",
+      "label_hi": "सिर दर्द"
+    }
+  ],
+  "questions": [
+    {
+      "question_key": "headache_onset",
+      "chief_complaint_code": "headache",
+      "text_by_language": {
+        "en": "When did the headache first start?",
+        "hi": "सिर दर्द पहली बार कब शुरू हुआ?"
+      },
+      "answer_type": "DATE",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "headache_duration",
+      "chief_complaint_code": "headache",
+      "text_by_language": {
+        "en": "How long has the headache been going on?",
+        "hi": "सिर दर्द कितने समय से चल रहा है?"
+      },
+      "answer_type": "NUMERIC",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "headache_character",
+      "chief_complaint_code": "headache",
+      "text_by_language": {
+        "en": "What does the headache feel like?",
+        "hi": "सिर दर्द कैसा महसूस होता है?"
+      },
+      "answer_type": "ENUM",
+      "options": [
+        "Throbbing",
+        "Dull",
+        "Sharp",
+        "Pulsating",
+        "Other"
+      ],
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "headache_severity",
+      "chief_complaint_code": "headache",
+      "text_by_language": {
+        "en": "How severe is the headache on a scale of 1-10?",
+        "hi": "1 से 10 के पैमाने पर सिर दर्द कितना खराब है?"
+      },
+      "answer_type": "NUMERIC",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "headache_aggravating",
+      "chief_complaint_code": "headache",
+      "text_by_language": {
+        "en": "What makes the headache worse?",
+        "hi": "सिर दर्द को बिगाड़ने वाले कारक क्या हैं?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 5,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "headache_relieving",
+      "chief_complaint_code": "headache",
+      "text_by_language": {
+        "en": "What makes the headache better?",
+        "hi": "सिर दर्द को ठीक करने वाले कारक क्या हैं?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 6,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "headache_associated",
+      "chief_complaint_code": "headache",
+      "text_by_language": {
+        "en": "Are there any other symptoms with the headache?",
+        "hi": "सिर दर्द के साथ कोई अन्य लक्षण हैं?"
+      },
+      "answer_type": "MULTI",
+      "options": [
+        "Nausea",
+        "Vomiting",
+        "Visual changes",
+        "Speech changes",
+        "None",
+        "Other"
+      ],
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 7,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "headache_red_flag",
+      "chief_complaint_code": "headache",
+      "text_by_language": {
+        "en": "Is the headache sudden, severe, or new type?",
+        "hi": "सिर दर्द अचानक, खराब या नई तरह का है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": false,
+      "display_order": 8,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "headache_negatives",
+      "chief_complaint_code": "headache",
+      "text_by_language": {
+        "en": "Any previous head injury or surgery?",
+        "hi": "कोई पहले का सिर का चोट या सर्जरी है?"
+      },
+      "answer_type": "ENUM",
+      "options": [
+        "Yes",
+        "No",
+        "Unknown"
+      ],
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 9,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "headache_past_history",
+      "chief_complaint_code": "headache",
+      "text_by_language": {
+        "en": "History of migraines or tension headaches?",
+        "hi": "माइग्रेन या तनाव से सिर दर्द का इतिहास है?"
+      },
+      "answer_type": "ENUM",
+      "options": [
+        "Yes",
+        "No",
+        "Unknown"
+      ],
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 10,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "headache_context",
+      "chief_complaint_code": "headache",
+      "text_by_language": {
+        "en": "Any recent stress or changes in routine?",
+        "hi": "कोई हालिया तनाव या रूटीन में बदलाव है?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 11,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "headache_family_history",
+      "chief_complaint_code": "headache",
+      "text_by_language": {
+        "en": "Family history of headaches or neurological conditions?",
+        "hi": "सिर दर्द या तंत्रिका संबंधी बीमारियों का परिवार का इतिहास है?"
+      },
+      "answer_type": "ENUM",
+      "options": [
+        "Yes",
+        "No",
+        "Unknown"
+      ],
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 12,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    }
+  ],
+  "required_for_completeness": [
+    "headache_onset",
+    "headache_duration",
+    "headache_character",
+    "headache_severity"
+  ]
+}

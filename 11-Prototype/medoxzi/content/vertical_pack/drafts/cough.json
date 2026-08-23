@@ -1,0 +1,263 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "AI_DRAFT - requires clinician",
+  "signed_at": null,
+  "warning": "This content is not clinically validated and requires clinician review before use.",
+  "chief_complaints": [
+    {
+      "code": "cough",
+      "label_en": "Cough",
+      "label_hi": "कफ"
+    }
+  ],
+  "questions": [
+    {
+      "question_key": "cough_onset",
+      "chief_complaint_code": "cough",
+      "text_by_language": {
+        "en": "When did your cough first start?",
+        "hi": "आपके कफ कब शुरू हुआ?"
+      },
+      "answer_type": "ENUM",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician",
+      "options": [
+        "Acute (less than 3 weeks)",
+        "Chronic (3 weeks or more)"
+      ]
+    },
+    {
+      "question_key": "cough_duration",
+      "chief_complaint_code": "cough",
+      "text_by_language": {
+        "en": "How long has your cough lasted?",
+        "hi": "आपके कफ कितने समय से चल रहा है?"
+      },
+      "answer_type": "NUMERIC",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "cough_character",
+      "chief_complaint_code": "cough",
+      "text_by_language": {
+        "en": "What type of cough do you have?",
+        "hi": "आपके पास कैसा कफ है?"
+      },
+      "answer_type": "ENUM",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician",
+      "options": [
+        "Dry cough",
+        "Productive cough (with phlegm)",
+        "Barking cough",
+        "Whooping cough"
+      ]
+    },
+    {
+      "question_key": "cough_severity",
+      "chief_complaint_code": "cough",
+      "text_by_language": {
+        "en": "On a scale of 1-10, how severe is your cough?",
+        "hi": "1-10 के पैमाने पर, आपके कफ की गंभीरता कितनी है?"
+      },
+      "answer_type": "NUMERIC",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "cough_aggravating",
+      "chief_complaint_code": "cough",
+      "text_by_language": {
+        "en": "What makes your cough worse?",
+        "hi": "आपके कफ को क्या बिगाड़ता है?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 5,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "cough_relieving",
+      "chief_complaint_code": "cough",
+      "text_by_language": {
+        "en": "What makes your cough better?",
+        "hi": "आपके कफ को क्या ठीक करता है?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 6,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "cough_associated",
+      "chief_complaint_code": "cough",
+      "text_by_language": {
+        "en": "Are you experiencing any other symptoms with your cough?",
+        "hi": "क्या आपके कफ के साथ कोई अन्य लक्षण हैं?"
+      },
+      "answer_type": "MULTI",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 7,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician",
+      "options": [
+        "Fever",
+        "Shortness of breath",
+        "Weight loss",
+        "Chest pain",
+        "None",
+        "Other"
+      ]
+    },
+    {
+      "question_key": "cough_red_flag",
+      "chief_complaint_code": "cough",
+      "text_by_language": {
+        "en": "Have you noticed blood in your sputum or difficulty breathing?",
+        "hi": "क्या आपने अपने उत्सर्जन में रक्त या सांस लेने में कठिनाई देखी है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": false,
+      "display_order": 8,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "cough_negatives",
+      "chief_complaint_code": "cough",
+      "text_by_language": {
+        "en": "Are there any symptoms you are NOT experiencing?",
+        "hi": "क्या कोई लक्षण आप अनुभव नहीं कर रहे हैं?"
+      },
+      "answer_type": "MULTI",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 9,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician",
+      "options": [
+        "No fever",
+        "No weight loss",
+        "No chest pain",
+        "None",
+        "Other"
+      ]
+    },
+    {
+      "question_key": "cough_past_history",
+      "chief_complaint_code": "cough",
+      "text_by_language": {
+        "en": "Do you have a history of smoking or allergies?",
+        "hi": "क्या आपके पास सिगरेट के धूम्रपान या एलर्जी के इतिहास है?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 10,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "cough_context",
+      "chief_complaint_code": "cough",
+      "text_by_language": {
+        "en": "Have you recently traveled or been exposed to sick individuals?",
+        "hi": "क्या आपने हाल ही में यात्रा की या बीमार व्यक्तियों के संपर्क में रहे हैं?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 11,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "cough_other",
+      "chief_complaint_code": "cough",
+      "text_by_language": {
+        "en": "Any other information you'd like to share?",
+        "hi": "कोई अन्य जानकारी जो आप शेयर करना चाहेंगे?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 12,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    }
+  ],
+  "required_for_completeness": [
+    "cough_onset",
+    "cough_duration",
+    "cough_character",
+    "cough_severity"
+  ]
+}

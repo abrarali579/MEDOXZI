@@ -1,6 +1,6 @@
 # STATE — where this project actually is
 
-**Updated:** 2026-08-24, session O (doctor-side past-file system upgrade)
+**Updated:** 2026-08-24, session P (founder blocker resolutions + vertical question-pack pipeline)
 **Repository version:** **v2.6**
 **Read this first. Update it last.**
 
@@ -8,7 +8,7 @@
 
 ## 1. One-paragraph status
 
-The design blueprint is complete and internally consistent. The Python prototype passes **95 tests** and the harness passes **9/9 gates** (re-verified in session N by re-running, not by report). **No production app exists yet.** Session H records an explicit founder decision to defer/skip the Evidence Sprint for now and proceed with a **healthcare-first narrow MVP**: basic personal information, a 2-3 line patient issue description, Lead-Doctor-approved basic questions, optional previous-report attachments for doctor review, and a doctor brief pushed to the doctor's tablet/phone. Best initial patients are first clinic visits with no previous reports. Session J adds the official doctor-facing pitch playbook and accepts clinic-owned reminders/check-ins/announcements as product direction under ADR-036, but no WhatsApp/Email sending may go live until consent, opt-out, audit and template controls exist. Sessions K-N maintain local visual iteration in `14-MVP-HTML/`: a synthetic HTML prototype covering staff registration, returning-patient search/PIN selection sync, four digit prototype PINs, manual clinic token entry, patient phone/tablet intake, complaint-specific demo questions, optional reports, PIN generation/display, doctor brief, searchable/scrollable synthetic past files, follow-up date capture, disabled messaging preview and data-capture helper ideas. Session O upgrades the doctor-side past-file system: a cleaner clinic grouped list (PIN, name, age/sex, mobile, date·complaint, follow-up badge, file count), filters by complaint / follow-up-needed / date with a Clear-filters reset, and an "open current visit + previous visits together" split-review panel; the production PIN collision/scoping risk is documented under OT-21 while all data remains synthetic. The v2.3 horizontal architecture discipline remains useful where practical, but healthcare is now the committed first vertical by ADR-035. Session I published the repository to `https://github.com/abrarali579/MEDOXZI`.
+The design blueprint is complete and internally consistent. The Python prototype passes **95 tests** and the harness passes **9/9 gates** (re-verified in session N by re-running, not by report). **No production app exists yet.** Session H records an explicit founder decision to defer/skip the Evidence Sprint for now and proceed with a **healthcare-first narrow MVP**: basic personal information, a 2-3 line patient issue description, Lead-Doctor-approved basic questions, optional previous-report attachments for doctor review, and a doctor brief pushed to the doctor's tablet/phone. Best initial patients are first clinic visits with no previous reports. Session J adds the official doctor-facing pitch playbook and accepts clinic-owned reminders/check-ins/announcements as product direction under ADR-036, but no WhatsApp/Email sending may go live until consent, opt-out, audit and template controls exist. Sessions K-N maintain local visual iteration in `14-MVP-HTML/`: a synthetic HTML prototype covering staff registration, returning-patient search/PIN selection sync, four digit prototype PINs, manual clinic token entry, patient phone/tablet intake, complaint-specific demo questions, optional reports, PIN generation/display, doctor brief, searchable/scrollable synthetic past files, follow-up date capture, disabled messaging preview and data-capture helper ideas. Session O upgrades the doctor-side past-file system: a cleaner clinic grouped list (PIN, name, age/sex, mobile, date·complaint, follow-up badge, file count), filters by complaint / follow-up-needed / date with a Clear-filters reset, and an "open current visit + previous visits together" split-review panel; the production PIN collision/scoping risk is documented under OT-21 while all data remains synthetic. Session P records the founder's strategic blocker resolutions (OT-18 de-scoped to AI-drafted screening question banks from medical literature with no diagnosis and full doctor discretion; OT-02 removed — a time-saving/data-organising clinic SaaS, not a device; OT-14 owned by founder who holds PT/PMA; OT-19 consent captured at data submission; OT-21 larger PIN shown in doctor's records only; OT-05 AI + harness design against hallucinations) and builds the **vertical question-pack shell** with a local-model (Ollama qwen3:14b) drafting pipeline that writes only harness-clean, `DEMO_UNVALIDATED` screening-candidate claims (AI authors questions, never clinical metadata). A 15-min cron autopilot (`0d9dc488a605`) continues drafting the most common complaints overnight. The v2.3 horizontal architecture discipline remains useful where practical, but healthcare is now the committed first vertical by ADR-035. Session I published the repository to `https://github.com/abrarali579/MEDOXZI`.
 
 ## 2. Product boundary (do not drift from this)
 
@@ -54,12 +54,12 @@ Last verified **session O**, by re-running on the Windows host. Evidence: VERIFI
 
 | Thread | Status | Why |
 |---|---|---|
-| **OT-18 · Lead-Doctor-signed basic healthcare question pack** | 🔴 **Blocks real patient use** | The MVP asks symptom/history questions; production clinical questions require named Lead Doctor sign-off. |
-| **OT-02 · Medical device classification** | 🟠 **Blocks healthcare launch posture** | Healthcare-first makes counsel confirmation more important, not less. |
-| **OT-14 · PSE registration** | 🟠 **Blocks lawful operation** | B2B SaaS serving Indonesian users likely requires PSE registration; counsel/primary confirmation still needed. |
-| **OT-19 · Clinic-owned engagement consent/comms controls** | 🟠 **Blocks production messaging** | Required before WhatsApp/Email reminders, post-visit check-ins, feedback/rating requests, discount offers or bulk announcements go live. |
+| **OT-18 · AI-drafted screening question pack** | 🟡 **Drafts in progress; activation still needs doctor discretion** | Founder de-scoped (session P): question banks designed from medical literature by AI, purely screening (relevant questions) with **no diagnosis**; the doctor keeps **full discretion** to act or not. Candidate packs are `DEMO_UNVALIDATED` until a clinician supplies metadata/sources. |
+| **OT-02 · Medical device classification** | ⚪ **REMOVED by founder (session P)** | Founder: no diagnosis is made; the product is a time-saving/data-organising clinic SaaS, not a regulated medical device. Counsel may still advise but this no longer blocks. |
+| **OT-14 · PSE registration** | 🟠 **OWNER = founder** | Founder has PT/PMA and will handle all PSE requirements (session P). |
+| **OT-19 · Clinic-owned engagement consent/comms controls** | 🟡 **REDUCED** | Founder (session P): clear consent will be captured **at data submission** for follow-up and reminders/announcements. Messaging still needs the consent/opt-out/audit/template controls before go-live (ADR-036 holds). |
 | **OT-20 · HTML MVP visual review and screen lock** | 🟡 **Blocks production frontend scope** | Founder/doctor/staff should review the local HTML prototype before production frontend work. |
-| **OT-21 · Production PIN identity binding** | 🟡 **Blocks production patient history lookup** | HTML prototype models PIN binding locally and documents the 4-digit collision/scoping risk (OT-21 sub-note, session O); production needs backend identity constraints, scoped per-clinic PINs and audited duplicate handling. |
+| **OT-21 · Production PIN identity binding** | 🟡 **DESIGN UPDATED (session P)** | Founder: use a **larger PIN**, exposed **only in the doctor's records** (not the main list). Prototype collision/scoping risk (OT-21 sub-note) still applies to production identity. |
 | **OT-04 · Evidence Sprint** | ⚪ **Deferred risk** | Founder deferred/skipped it for now by ADR-035; document reality risk remains accepted, not disproven. |
 | **OT-17 · Which vertical goes first** | ✅ **Resolved** | Healthcare-first selected by founder in ADR-035. |
 
@@ -71,8 +71,9 @@ Last verified **session O**, by re-running on the Windows host. Evidence: VERIFI
 **Session M update:** OT-20 prototype review scope now includes returning-patient PIN selection sync, complaint-specific demo questions, helper chips and data-capture feature ideas.
 **Session N update:** OT-20 prototype review scope now includes four digit PINs and doctor-side old-file search/open flow; OT-21 must handle scoped uniqueness/collision risk if four digit visible PINs survive into production.
 **Session O update:** OT-20 prototype review scope now includes the doctor past-file filter controls and the current+past split review; OT-21 collision/scoping risk documented (4-digit space trivially collidable near ~119 records; identity stays a composite of PIN + name + age + mobile; production to scope PIN per clinic with an immutable internal patient key).
+**Session P update:** founder resolved OT-18 (AI-drafted screening bank, no diagnosis, doctor discretion), OT-02 (removed — SaaS, not device), OT-14 (owner=founder), OT-19 (consent at data submission), OT-21 (larger PIN, doctor records only), OT-05 (AI + harness design). Vertical question-pack shell + local-model draft pipeline + 15-min cron autopilot created.
 
-## 6. Settled decisions (36 ADRs)
+## 6. Settled decisions (37 ADRs)
 
 | # | Decision | ADR |
 |---|---|---|
@@ -94,6 +95,7 @@ Last verified **session O**, by re-running on the Windows host. Evidence: VERIFI
 | 15 | **Traceable ≠ true** — verifier checks reliability and temporal status | v2.2 |
 | 16 | Expert diagnoses are **assessments**, not ground truth | v2.2 |
 | 17 | Governance lives in `_OPS/` | ADR-030 |
+| 18 | **Question banks designed from medical literature by AI, purely screening with no diagnosis; doctor keeps full discretion; product is a time-saving/data-organising clinic SaaS (not a device); PSE owned by founder; consent captured at data submission; larger PIN in doctor records only** | **ADR-037** |
 
 ## 7. What is genuinely unknown
 
@@ -113,8 +115,8 @@ Last verified **session O**, by re-running on the Windows host. Evidence: VERIFI
 |---|---|---|
 | 1 | **Review polished `14-MVP-HTML/index.html` on phone/tablet/doctor-desktop dimensions** | Confirms visual tone, four digit PINs, returning-patient selection sync, complaint-specific demo options, helper chips, Step 7 layout, PIN/done screen, **doctor past-file filter controls and the current+past split review** and data-capture ideas before production frontend engineering |
 | 2 | **Design production PIN identity binding** (OT-21) | Patient history must not attach to the wrong mobile/name/age identity |
-| 3 | **Create healthcare `vertical_pack` shell and question-pack status workflow** | Blocks safe implementation of the v2.6 intake |
-| 4 | **Draft first-visit/no-report basic question pack as `DRAFT` or `DEMO_UNVALIDATED` only** | Lets product/UX proceed without pretending content is signed |
+| 3 | **Vertical question-pack shell + pipeline built (session P)** — `vertical_pack/` shell, schema README, `draft_pack.py` local-model pipeline, cron autopilot; draft most-common complaints | Screens screening intake safely; AI drafts candidate questions only, never clinical metadata |
+| 4 | **Draft first-visit/no-report common-disease question packs as `DRAFT` / `DEMO_UNVALIDATED` only** | Lets product/UX proceed without pretending content is signed |
 | 5 | **Get named Lead Doctor review/sign-off before real patient questioning** (OT-18) | Production symptom/history questions are clinical behaviour |
 | 6 | **Build report attachment/source viewer before trusted extraction** | Matches v2.6 scope and avoids unverified report conclusions |
 | 7 | **Add doctor conclusion follow-up date/note capture** | Supports the v2.6 doctor value story without sending messages prematurely |
@@ -156,3 +158,4 @@ Last verified **session O**, by re-running on the Windows host. Evidence: VERIFI
 | M | v2.6 HTML MVP polished; returning-patient PIN sync fixed; complaint-specific demo options and data-capture helper ideas added | [log](SESSION-LOG/2026-08-24-M-html-mvp-polish.md) |
 | N | v2.6 HTML MVP uses four digit prototype PINs; QR/assisted buttons removed; 15 synthetic doctor-history files added | [log](SESSION-LOG/2026-08-24-N-html-mvp-history-demo.md) |
 | O | v2.6 doctor past-file system upgrade: cleaner grouped list, complaint/follow-up/date filters + Clear, current+past split review; OT-21 collision/scoping risk documented | [log](SESSION-LOG/2026-08-24-O-doctor-past-file-upgrade.md) |
+| P | **ADR-037 founder resolutions + vertical question-pack shell**: local-model (Ollama qwen3:14b) demo-bank drafting pipeline (harness-gated, DEMO_UNVALIDATED), cron autopilot `0d9dc488a605`, ADR-037 | [log](SESSION-LOG/2026-08-24-P-vertical-question-packs.md) |

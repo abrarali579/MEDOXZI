@@ -22,6 +22,8 @@
 
 **Session O note:** Doctor past-file system upgraded in `14-MVP-HTML/` — cleaner grouped list (PIN, name, age/sex, mobile, date·complaint, follow-up badge, file count), filters by complaint / follow-up-needed / date with a Clear-filters reset, and an "open current visit + previous visits together" split-review panel (Current visit beside the selected Past visit). All data synthetic; four digit visible PINs retained. Production PIN collision/scoping risk documented under OT-21.
 
+**Session P note:** Founder reset six blockers with explicit decisions (recorded in Decision-Log as ADR-041) and asked ARHAM to design common-disease question banks with AI + Harness while he sleeps. Clarifications: (1) question pack is for **relevant patient questions only**, no diagnosis; doctors retain **full discretion** to act/not act on every answer; (2) not a →medical device → OT-02 →confirmed; (3) OT-14 →notified →PSE →founder handles; (4) OT-19 →consent taken at **data submission**; (5) OT-21 →big PIN shown **only in doctor's records**, not the main list →smart choice; (6) OT-05 →AI + Harness designed question bank for most common diseases; (7) data processing handled locally in-clinic at launch, normal AI tools until then. Question banks drafted now are `DEMO_UNVALIDATED` candidates — **not signed for real-patient use**.
+
 ## 🔴 Blocking — cannot proceed to real patient use without these
 
 ### OT-01 · Indonesian data storage and inference — 🟠 DOWNGRADED from 🔴 (session E)
@@ -31,21 +33,15 @@
 - **Remaining:** (a) obtain a direct quote from Lintasarta or an equivalent — confirm current availability, pricing, terms, and whether GPU capacity is genuinely allocatable at pilot scale; (b) counsel confirmation of whether *processing* is treated separately from *storage* under PDP and Permenkes.
 - **Owner:** engineering (quote) + Indonesian data-protection counsel ⚖️ (processing question)
 
-### OT-14 · PSE Lingkup Privat registration — 🟠 NEW (session E)
+### OT-14 · PSE Lingkup Privat registration — 🟠 OWNER = FOUNDER (handling; session P)
 - **What:** B2B SaaS serving Indonesian users must register as a **PSE Lingkup Privat** with Komdigi and obtain a **TDPSE** certificate. This is **separate from** the PT PMA's business licence and KBLI — having the entity does not satisfy it. **[Third-Party Claim — practitioner sources; verify with counsel]**
-- **Why it matters:** non-registration risks access blocking by Indonesian ISPs. Post-registration obligations include records maintenance, lawful access cooperation, a complaint mechanism, and security incident reporting.
-- **How:** OSS → NIB and business licence → Komdigi PSE portal → designate a PIC → upload deed, NIB, licence → TDPSE.
-- **Owner:** founder + Indonesian corporate counsel ⚖️
-- **Note:** the PT PMA with Web/App/SaaS development activity covers *building and selling software*. Operating an electronic system holding Indonesian user data is a separate registration.
+- **Status (session P):** founder confirms they already have the PT PMA and **will handle all PSE/Komdigi requirements**. Not a build blocker — external registration handled by founder.
+- **How:** OSS → NIB and business licence → Komdigi PSE portal → designate a PIC → upload deed, NIB, licence → TDPSE. Owner: founder + Indonesian corporate counsel ⚖️.
 
-### OT-02 · Medical device classification — 🟠 DOWNGRADED from 🔴 (session E)
-- **Question:** is the MVP a regulated medical device in Indonesia?
-- **What changed:** the horizontal repositioning (ADR-031) materially strengthens the position. Classification turns on **intended use** — software with a *medical purpose* is in scope, software with an *administrative* purpose is not. **[Third-Party Claim — practitioner sources; NOT yet verified against a Kemenkes primary document]** A platform genuinely serving legal, accounting, insurance, recruitment **and** healthcare is evidently a general-purpose information system.
-- **⚠️ But the claim is conditional on the architecture, not the marketing.** If the healthcare vertical ships clinical rules, a medical question bank and clinical urgency language while the legal vertical ships none, healthcare is a different product wearing the same name — and a regulator will look at the healthcare vertical. See ADR-031's binding rules.
-- **Still required:** written counsel opinion. Positioning strengthens the argument; it does not settle it.
-- **Owner:** Indonesian medical-device regulatory counsel ⚖️
-- **How:** two opinions — (a) the platform as scoped with an empty pack, (b) platform plus a visible differential. Include `00-Executive/Horizontal-Positioning.md` and `13-Indonesia/Regulatory-Boundary-Register.md`.
-- **Also needed:** verify the administrative-software exclusion against a **Kemenkes primary document**, not a practitioner page. This project has over-read secondary sources twice.
+### OT-02 · Medical device classification — 🟡 DE-RISKED by founder decision (session P); counsel optional, not blocking
+- **Founder decision (session P):** the product makes **no diagnosis** — it is a **time-saving and data-organising tool/SaaS for clinics** (screening questions only; doctors retain full discretion). On this intended-use basis it is positioned as an administrative/documentation tool, not a regulated medical device.
+- **Positioning match:** aligns with ADR-031 horizontal repositioning + OT-02's own note that *administrative* purpose software is out of scope.
+- **Status:** no longer a blocking 🔴. A written counsel opinion is **still recommended as diligence** (not gating): (a) empty-pack platform, (b) platform + clinical question pack. Verifying the administrative exclusion against a Kemenkes primary document remains advisable.
 
 ### OT-03 · Local entity (PT PMA) — ✅ RESOLVED (session E)
 - **Resolution:** founder confirms an existing **PT PMA** to which Web Development, App Development and SaaS Development activity can be added. That covers building and selling the software and contracting with Indonesian customers.
@@ -79,18 +75,15 @@
 - **Scope selected:** first clinic visit OPD patients, preferably with no previous reports; optional previous reports are attached for doctor review; patient gives a 2-3 line issue description; system asks Lead-Doctor-approved basic questions; doctor receives the brief on tablet/phone.
 - **Risk accepted:** healthcare remains the hardest vertical and makes OT-02/OT-07 more important, not less.
 
-### OT-18 · Lead-Doctor-signed basic healthcare question pack — 🔴 NEW
-- **What:** the v2.4 MVP asks relevant symptom/history questions after a patient's issue description. That is clinical behaviour and cannot go live on real patients unless a named Lead Doctor reviews and signs the basic question pack and wording.
-- **Boundary:** AI may draft or rank candidate questions in demo/shadow contexts only. Production patient questions must come from a signed pack. No red-flag/escalation content is added unless the Lead Doctor signs it separately.
-- **Owner:** Lead Doctor + founder + engineering
-- **How:** create the healthcare `vertical_pack` shell with statuses (`DRAFT`, `DEMO_UNVALIDATED`, `CLINIC_REVIEW`, `APPROVED_FOR_PILOT`, `ACTIVE`). Keep production rules empty. Record source/licence refs for any drafted content (OT-05).
+### OT-18 · Question pack (signing) — 🟡 DEFERRED to doctor sign-off (founder decision, session P)
+- **Founder decision (session P):** question bank will be designed from medical literature with AI + Harness. It asks **relevant patient questions only** — **no diagnosis**. Doctors retain **full discretion** to act or not act on every answer. This removes it as a blocker to *drafting*, which is now in progress.
+- **Status:** drafting is clear. Before any **real-patient** use, the pack still needs **Lead Doctor review + sign** (ADR-002 / ADR-015 unchanged) — a named clinician authorises, AI only drafts.
+- **How:** create the healthcare `vertical_pack` shell with statuses (`DRAFT`, `DEMO_UNVALIDATED`, `CLINIC_REVIEW`, `APPROVED_FOR_PILOT`, `ACTIVE`). Banks drafted now are `DEMO_UNVALIDATED` candidates.
 
-### OT-19 · Clinic-owned engagement consent/comms controls — 🟠 NEW
+### OT-19 · Clinic-owned engagement consent/comms controls — 🟠 REDUCED; consent at data submission (session P)
 - **What:** follow-up reminders, post-visit check-ins, feedback/rating requests, clinic announcements and discount offers are now part of the doctor pitch and product direction. They are allowed only as **clinic-owned** communications, not MEDOXZI-owned patient marketing. See ADR-036 and `09-MVP/Doctor-Pitch-Playbook.md`.
-- **Blocks:** production WhatsApp/Email sending, bulk announcements, discount campaigns, and any patient reactivation workflow.
-- **Boundary:** no message may contain AI diagnosis, treatment advice, false urgency, or a MEDOXZI marketing purpose. Consent must be separate, revocable and auditable. Opt-out must not affect care.
-- **Owner:** founder + engineering + counsel ⚖️
-- **How:** add clinic-communications consent, message-template versioning, sender identity, opt-out handling, audit events, delivery logging, and a hard prohibition on exporting patient contact lists for MEDOXZI marketing.
+- **Founder decision (session P):** **clear consent for follow-up and reminders/announcements will be taken from patients at data-submission time.** This resolves the consent gate for feature design.
+- **Remaining:** implement consent capture + **opt-out/revocation, audit, and message-template versioning** controls before any production sending. Blocks production send until those exist. Boundary unchanged (ADR-036 / OT-19): clinic-owned only; no AI diagnosis, no treatment advice, no false urgency, no MEDOXZI marketing; opt-out never affects care.
 
 ### OT-20 · HTML MVP visual review and screen lock — 🟡 NEW
 - **What:** `14-MVP-HTML/` now contains the first local visual MVP. It needs founder/doctor/staff review before production UI engineering starts.
@@ -99,12 +92,11 @@
 - **Owner:** founder + product/frontend + Lead Doctor for any clinical wording.
 - **How:** review on a phone and tablet. Confirm each screen in order: returning-patient search/selection sync, four digit PIN display, manual clinic token, staff registration, tablet handoff, patient consent, basic info, complaint, 2-3 line description with helper chips, complaint-specific demo questions, optional reports, review/done with PIN, doctor queue, doctor brief, searchable past files, open old file detail, conclusion/follow-up, disabled reminder preview, and the proposed data-capture helpers. Record approved changes in `14-MVP-HTML/MVP-Prototype-Plan.md`.
 
-### OT-21 · Production PIN identity binding — 🟡 NEW
+### OT-21 · Production PIN identity binding — 🟡 DESIGN UPDATED (founder decision, session P)
 - **What:** the HTML MVP now models a Patient Identification Number (PIN) generated at submission and linked to name, age and mobile. Production must enforce that a PIN cannot be silently attached to a different customer number or identity.
-- **Blocks:** production patient lookup, follow-up history, duplicate prevention and safe longitudinal records.
+- **Founder decision (session P) — smart choice:** the **big PIN (full identifier) is shown only inside a doctor's patient records** — **never on the main list view** (the list shows a short/labelled reference instead). This reduces shoulder-surfing and index-based exposure on the main screen while keeping the full identity link inside a record.
 - **Boundary:** this is identity/record-linking, not a clinical claim. Do not use real patient data in tests.
-- **Owner:** engineering + privacy/security reviewer.
-- **How:** add immutable patient identity keys, duplicate review workflow, audit events for any merge/correction, scoped uniqueness for four digit visible PINs, and tests proving an existing PIN cannot be re-bound to a mismatched mobile/name/age without an explicit audited human resolution.
+- **How:** add immutable patient identity keys, duplicate review workflow, audit events for any merge/correction, scoped uniqueness for four digit visible PINs, and tests proving an existing PIN cannot be re-bound to a mismatched mobile/name/age without an explicit audited human resolution. Collision/scoping risk below stands.
 
 #### Collision / scoping risk (documented session O — latest work: doctor past-file filters)
 - **Known demo limitation:** the prototype deliberately keeps **4-digit visible PINs** and allows the same PIN to appear across synthetic demo files for illustration (e.g. clinic-facing list shows PINs like `1049`, `4729`, `6184`, `2914`, `6805`, `5273`). These are **not** unique patient identities — they are short, collision-prone labels.
@@ -115,13 +107,11 @@
 
 ## 🟠 Blocking the pitch
 
-### OT-05 · Content source licensing — 🟠 ENLARGED (session E)
+### OT-05 · Content source licensing — 🟡 DRAFTING PROCEEDS on permitted sources (session P); activation still gated
 - **Question:** are the sources our question banks are drafted from licensed for commercial use?
-- **What changed:** ADR-033 introduces **AI-assisted generation at scale**, which makes this materially bigger — volume makes unlicensed use look deliberate rather than incidental.
-- **Permitted sources:** public health-ministry guidance · permissively-licensed open access · universally-taught frameworks · **the customer's own licensed material (best)** · the expert's own written knowledge.
-- **Prohibited:** paywalled journals, textbooks, clinical decision references, scraped competitor content.
-- **Hard gate:** `KnowledgeSource.licence_ref` is `NOT NULL`; a question with an unverified source licence cannot leave `UNVALIDATED_DEMO_CONTENT`.
-- **Do not generate at scale before this clears** — a large bank from unlicensed sources must be thrown away and regenerated.
+- **Founder decision (session P):** question bank will be designed with **AI + Harness** (to avoid hallucination) from medical literature about **most common diseases**. Multiple most-common-disease packs are being drafted now.
+- **How this is reconciled with the rule:** AI **drafting** into `DEMO_UNVALIDATED` is permitted (ADR-033). The **activation gate** is unchanged: a bank cannot enter an **active** pack unless every question's `source_ref` / `KnowledgeSource.licence_ref` is verified **NOT NULL** (permitted sources: public health-ministry guidance, permissive open-access, universal frameworks, customer's own licensed material, the expert's own written knowledge). **Prohibited:** paywalled journals, textbooks, clinical decision references, scraped competitor content.
+- **Hard gate:** a question with an unverified source licence cannot leave `UNVALIDATED_DEMO_CONTENT`. DRAFT banks may be authored now, but must carry their intended source; production activation waits on the licensing audit.
 - **Owner:** founder + counsel ⚖️
 
 ### OT-06 · Pitch limitations page must contain no invented numbers

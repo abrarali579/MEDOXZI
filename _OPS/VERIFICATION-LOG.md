@@ -1940,3 +1940,55 @@ $ node --check 14-MVP-HTML/app.js      # no syntax errors
 ```
 
 **Verdict:** all requested features verified working live; no JS errors; no backend regressions; boundary respected (synthetic only, no real patient data, no AI diagnosis, no visible differential).
+
+---
+
+## V-2026-08-24-P-01 - Local Ollama + vertical draft pipeline produce a harness-clean screening pack
+
+**Date:** 2026-08-24
+**Scope:** Verify the new `draft_pack.py` pipeline on the local Ollama model drafts a valid, harness-clean, DEMO_UNVALIDATED screening question pack.
+
+```text
+# Ollama reachable, qwen3:14b present
+$ curl -s --max-time 5 http://localhost:11434/api/tags
+models include qwen3:14b, qwen3:4b, qwen2.5-coder:14b, bge-m3, llama3.2-vision:11b
+
+# Draft cough via local model
+$ python -m medoxzi.content.vertical_pack.tools.draft_pack --complaint cough --model qwen3:14b
+[OK] drafted 12 questions -> .../vertical_pack/drafts/cough.json
+[OK] harness clean (F1/F3/F4). DEMO_UNVALIDATED — clinician review required before any clinical metadata or activation.
+
+# Output spot-check (drafts/cough.json)
+status: DEMO_UNVALIDATED | authored_by: AI_DRAFT - requires clinician | signed_at: null
+questions: 12, flat array, en+hi text, source_ref=PENDING_CLINICIAN_SOURCE,
+clinical_rationale=UNVALIDATED_DEMO_CONTENT; red-flag screen question 8
+("Have you noticed blood in your sputum or difficulty breathing?") is_red_flag_screen:true
+No diagnostic/differential vocabulary present in any patient-facing question.
+```
+
+**Verdict:** ✅ **CONFIRMED** — pipeline works end-to-end on local hardware; output is a valid candidate screening pack, harness-clean, and contains only clinician-placeholder clinical metadata. AI authored nothing diagnostic.
+
+---
+
+## V-2026-08-24-P-02 - Harness correctly rejects diagnostic drift in local-model drafts
+
+**Date:** 2026-08-24
+**Scope:** Confirm the harness gate actually blocks unsafe local-model output (not a pass-through).
+
+```text
+# Before strengthening the prompt/contract, qwen3:14b's suggested_action drifted into
+# differential language. The harness gate rejected it:
+[FAIL] harness drift caught: ['F3_DIFFERENTIAL_SHAPE']
+  ! [F3_DIFFERENTIAL_SHAPE] 'Consider' in: 'Potential red flags detected. Consider further investigation.'
+
+# A later attempt produced explicit diagnostic reasoning and was also rejected:
+[FAIL] harness drift caught: ['F1_PROHIBITED_PHRASE', 'F3_DIFFERENTIAL_SHAPE']
+  ! 'urgent' in: 'Consider urgent evaluation for potential cardiac or pleural pathology.'
+  ! 'Consider' in: 'Consider malignancy or chronic disease evaluation.'
+
+-> Lesson: local models will happily author diagnostic differentials if permitted. The
+   fix was to forbid AI from authoring ALL clinical metadata and to draft screening
+   questions only. After that, cough.json passed clean.
+```
+
+**Verdict:** ✅ **CONFIRMED** — the harness gate is not a pass-through; it demonstrably rejects diagnostic drift from local models. The safe contract (AI drafts questions only; clinician supplies metadata) is enforced by the pipeline.

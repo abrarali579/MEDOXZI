@@ -4,7 +4,38 @@
 
 ---
 
-## 2026-08-24 - Session O - doctor-side past-file system upgrade
+## 2026-08-24 - Session P - founder blocker resolutions + vertical question-pack pipeline
+
+**WHAT**
+- Recorded the founder's strategic decisions in Open Threads and ADR-037: OT-18 (question banks = screening-focused, designed from medical literature by AI, no diagnosis; doctor keeps full discretion), OT-02 (removed — not a medical device, it is a time-saving/data-organising clinic SaaS), OT-14 (owner = founder, he holds PT/PMA), OT-19 (clear patient consent captured at data submission for follow-up/reminders), OT-21 (smart choice: larger PIN, shown in doctor's records only, not the main list), OT-05 (question bank designed by AI for the most common diseases, with the harness to avoid hallucinations; founder doing deep research).
+- Created the **vertical question-pack shell**: `11-Prototype/medoxzi/content/vertical_pack/` with a schema/standards `README.md`, a `drafts/` output dir, and `tools/draft_pack.py`.
+- Built a **local-model draft pipeline** (Ollama `qwen3:14b`, OpenAI-style `/api/generate`): drafts patient-facing screening questions only, forces all clinical metadata to clinician placeholders, and passes every draft through the **harness drift gate** (F1 PROHIBITED, F3 DIFFERENTIAL_SHAPE, F4 COMPLETENESS; F2 excluded as interrogatives are not claims) to reject any diagnostic drift before writing to disk.
+- Validated the pipeline on `cough` → `drafts/cough.json` (12 screening questions, English + Hindi Devanagari, embedded red-flag screen, harness-clean).
+- Created recurring cron **`0d9dc488a605` "MEDOXZI question-pack autopilot"** (every 15 min) to keep drafting the remaining most-common complaints and auto-commit/push when done.
+
+**WHY**
+The founder resolved the earlier blockers himself and asked ARHAM to "do smart choices but don't stop work" overnight: set up cron to continue every 15 min while he sleeps, draft question banks for the most common diseases using local models + the harness (to avoid hallucinations). Drafts are strictly candidate material (`DEMO_UNVALIDATED`), never activated without a clinician — honouring OT-18 / ADR-002 / ADR-033.
+
+**EVIDENCE**
+- `_OPS/VERIFICATION-LOG.md` V-2026-08-24-P-01, P-02.
+- `_OPS/SESSION-LOG/2026-08-24-P-vertical-question-packs.md`.
+- Validated draft output: `11-Prototype/medoxzi/content/vertical_pack/drafts/cough.json` (12 questions).
+- Ollama reachable + inference verified; `qwen3:14b` produces harness-clean screening drafts at `num_predict=6000`, `temperature=0.4`.
+
+**NEXT**
+- Draft the remaining most-common complaints (`headache`, `abdominal_pain`, `diarrhoea`, `dizziness`, `sore_throat`, `skin_rash`, `dysuria`, `joint_pain`, `fatigue`) via the cron autopilot.
+- Run baseline pytest (95/95) to confirm nothing broke.
+- Commit + push `origin main`.
+- Finalise SESSION-LOG / CHANGELOG / STATE.md when the batch completes.
+
+**WHY NEXT**
+The drafting batch is long-running (each draft ~7 min on local hardware) and the founder is asleep; the cron driver continues autonomously and reports each 15-min cycle.
+
+**HOW**
+`python -m medoxzi.content.vertical_pack.tools.draft_pack --complaint <name> --model qwen3:14b` → validates schema → harness drift gate over patient-facing text → writes `<drafts>/<name>.json` on pass.
+
+---
+
 
 **WHAT**
 - Made the doctor past-file list view cleaner for clinic use: grouped rows now show PIN, name, age/sex, mobile, last-visit date · complaint, a follow-up badge (Needs follow-up / No follow-up) and the file count, plus a live `15 of 15 synthetic files` summary.
