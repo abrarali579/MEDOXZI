@@ -1,0 +1,20 @@
+# Local/generated files
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# Local environment and secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12
+
+# Build/editor noise
+dist/
+build/
+.DS_Store
+Thumbs.db
+
+# Uploaded source archive copy; source tree is committed separately.
+ziiAv6fl

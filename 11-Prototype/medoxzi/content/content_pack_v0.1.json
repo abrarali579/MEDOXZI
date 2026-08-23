@@ -1,0 +1,131 @@
+{
+  "content_version": "content@0.1.0",
+  "status": "DRAFT",
+  "authored_by": "PLACEHOLDER — must be authored and signed by the clinical safety owner",
+  "signed_at": null,
+  "warning": "ILLUSTRATIVE STRUCTURE ONLY. Not clinically validated. Not for use.",
+  "chief_complaints": [
+    {"code": "chest_pain", "label_en": "Chest pain", "label_hi": "सीने में दर्द"},
+    {"code": "fever", "label_en": "Fever", "label_hi": "बुखार"}
+  ],
+  "questions": [
+    {
+      "question_key": "q_cp_exertion",
+      "chief_complaint_code": "chest_pain",
+      "text_by_language": {
+        "en": "Does the pain get worse when you walk or climb stairs?",
+        "hi": "क्या यह दर्द चलने या सीढ़ी चढ़ने पर बढ़ता है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": ["PATIENT", "STAFF", "DOCTOR"],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Exertional relationship is a key discriminator between ischaemic and non-ischaemic chest pain.",
+      "discriminates_between": ["ischaemic", "musculoskeletal", "gastro-oesophageal"]
+    },
+    {
+      "question_key": "q_cp_radiation",
+      "chief_complaint_code": "chest_pain",
+      "text_by_language": {
+        "en": "Does the pain spread anywhere?",
+        "hi": "क्या दर्द कहीं और फैलता है?"
+      },
+      "answer_type": "MULTI",
+      "options": ["left_arm", "right_arm", "jaw", "back", "none", "other"],
+      "asked_of": ["PATIENT", "STAFF", "DOCTOR"],
+      "is_required_for_completeness": true,
+      "display_order": 20,
+      "clinical_rationale": "Radiation pattern discriminates cardiac from musculoskeletal causes."
+    },
+    {
+      "question_key": "q_cp_duration_days",
+      "chief_complaint_code": "chest_pain",
+      "text_by_language": {"en": "How many days have you had this?", "hi": "कितने दिनों से है?"},
+      "answer_type": "NUMERIC",
+      "unit": "days",
+      "asked_of": ["PATIENT", "STAFF", "DOCTOR"],
+      "is_required_for_completeness": true,
+      "display_order": 5
+    },
+    {
+      "question_key": "q_cp_breathless",
+      "chief_complaint_code": "chest_pain",
+      "text_by_language": {"en": "Are you short of breath?", "hi": "क्या साँस फूलती है?"},
+      "answer_type": "BOOL",
+      "asked_of": ["PATIENT", "STAFF", "DOCTOR"],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 30
+    },
+    {
+      "question_key": "q_smoking",
+      "chief_complaint_code": "*",
+      "text_by_language": {"en": "Do you smoke?", "hi": "क्या आप धूम्रपान करते हैं?"},
+      "answer_type": "BOOL",
+      "asked_of": ["PATIENT", "STAFF", "DOCTOR"],
+      "is_required_for_completeness": true,
+      "display_order": 100
+    }
+  ],
+  "required_for_completeness": [
+    "q_cp_duration_days", "q_cp_exertion", "q_cp_radiation",
+    "q_cp_breathless", "q_smoking"
+  ],
+  "safety_rules": [
+    {
+      "rule_key": "RF-CHEST-02",
+      "version": "content@0.1.0",
+      "severity": "HIGH",
+      "chief_complaint_scope": ["chest_pain"],
+      "cohort_exclude": ["paediatric", "pregnancy"],
+      "expression": {
+        "all": [
+          {"field": "response.q_cp_exertion", "op": "eq", "value": true},
+          {"field": "patient.age", "op": "gte", "value": 45}
+        ]
+      },
+      "message_template": "Chest pain with exertional relationship, age {{patient.age}} — assess promptly",
+      "suggested_action": "Prioritise assessment; consider ECG per clinic protocol",
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT: exertional chest pain over a given age is a demo trigger for prompt assessment workflow; not a calibrated disease probability or production rule.",
+      "evidence_reference": "TO BE SUPPLIED BY THE CLINICAL SAFETY OWNER"
+    },
+    {
+      "rule_key": "RF-BREATH-01",
+      "version": "content@0.1.0",
+      "severity": "HIGH",
+      "chief_complaint_scope": ["chest_pain", "fever"],
+      "cohort_exclude": ["paediatric"],
+      "expression": {
+        "all": [
+          {"field": "response.q_cp_breathless", "op": "eq", "value": true},
+          {"field": "response.q_cp_duration_days", "op": "lte", "value": 3}
+        ]
+      },
+      "message_template": "Recent-onset breathlessness — assess promptly",
+      "suggested_action": "Prioritise assessment; record oxygen saturation per clinic protocol",
+      "clinical_rationale": "PLACEHOLDER"
+    },
+    {
+      "rule_key": "RF-MED-01",
+      "version": "content@0.1.0",
+      "severity": "HIGH",
+      "chief_complaint_scope": ["*"],
+      "cohort_exclude": [],
+      "expression": {
+        "all": [
+          {"field": "medications.generics", "op": "contains", "value": "warfarin"}
+        ]
+      },
+      "message_template": "Patient is on an anticoagulant — review before any procedure or NSAID",
+      "suggested_action": "Confirm indication and current dose with the patient",
+      "clinical_rationale": "PLACEHOLDER"
+    }
+  ],
+  "prohibited_phrases": [
+    "diagnosis is", "the patient has", "most likely diagnosis",
+    "should be treated with", "prescribe", "nothing to worry",
+    "appears benign", "unlikely to be serious", "reassuring",
+    "complete history"
+  ]
+}

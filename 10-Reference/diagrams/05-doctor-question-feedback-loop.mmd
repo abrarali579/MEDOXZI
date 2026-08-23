@@ -1,0 +1,34 @@
+%% Diagram 5 — Doctor question and feedback loop
+flowchart TD
+    A["Pre-round view materialised"] --> B["Doctor opens patient"]
+    B --> C["Reads snapshot"]
+    C --> D["Next question selected — DETERMINISTIC decision table"]
+    D --> E["Doctor answers: Yes / No / Unknown / Not asked / MCQ / numeric"]
+    E --> F["Structured encounter state updated"]
+    F --> G["Red-flag rules RE-EVALUATED"]
+    F --> H["Contradictions re-checked"]
+    F --> I["Missing-critical-information recomputed"]
+    G & H & I --> J{More high-value questions?}
+    J -->|Yes| D
+    J -->|No| K["Encounter summary generated + verified"]
+    K --> L["Doctor reviews, edits"]
+    L --> M["APPROVE — enters the clinical record"]
+    M --> N["Final clinician diagnosis captured"]
+    N --> O["Feedback + assessment captured as candidate data"]
+    F -.internal only.-> P["Shadow ranker evaluation"]
+    P -.-> Q[("Shadow store")]
+    O --> R[("Feedback store")]
+    N --> R
+    L --> S["No visible differential stored in care record"]
+    S -.candidate evidence only.-> R
+    R --> T1["Layer 1 · Analytics"]
+    R --> T2["Quality checks"]
+    T2 --> T3["Eligible labelled example"]
+    T3 --> T4["Offline analysis"]
+    T4 --> T5["Proposed content/ranker change"]
+    T5 --> T6["Evaluation + clinical review when material"]
+    T6 --> T7["Versioned release + rollback"]
+    X["NO automatic path from feedback to clinical behaviour"]
+    style M fill:#d9f2d9,stroke:#080,stroke-width:2px
+    style X fill:#ffd9d9,stroke:#c00,stroke-width:2px
+    style P fill:#e8e8e8,stroke:#888,stroke-dasharray:5 5

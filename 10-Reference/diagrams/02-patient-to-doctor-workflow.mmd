@@ -1,0 +1,54 @@
+%% Diagram 2 — Patient-to-doctor workflow
+flowchart TD
+    subgraph REG["1 · Registration"]
+        A1[Patient arrives] --> A2{Existing patient?}
+        A2 -->|No| A3[Register + consent]
+        A2 -->|Yes| A4[Look up + verify]
+        A3 --> A5[Issue token · bind intake session]
+        A4 --> A5
+    end
+    subgraph INTAKE["2 · Intake in the waiting area"]
+        A5 --> B1{Can the patient self-serve?}
+        B1 -->|Yes| B2[Patient PWA]
+        B1 -->|No| B3[Staff-assisted intake]
+        B1 -->|Caregiver| B4[Caregiver-assisted]
+        B2 --> B5[Chief complaint]
+        B3 --> B5
+        B4 --> B5
+        B5 --> B6[Branching questions from the content bank]
+        B6 --> B7[Meds · allergies · conditions · surgeries · history]
+        B7 --> B8[Upload / photograph prior records]
+        B8 --> B9[Review + submit]
+    end
+    subgraph AI["3 · Pre-round processing — async"]
+        B9 --> C1[Validation]
+        C1 --> C2[Document pipeline]
+        C2 --> C3[Clinical normalisation]
+        C3 --> C4["Deterministic RED-FLAG rules"]
+        C3 --> C5[LLM synthesis]
+        C5 --> C6[Traceability verifier]
+        C6 -->|fail| C7[Degrade to raw view]
+        C6 -->|pass| C8[Materialise pre-round view]
+        C4 --> C8
+        C3 -.shadow.-> C9["Differential + ranker — NOT SHOWN in v1"]
+        C9 -.-> C10[(Eval store)]
+    end
+    subgraph DOC["4 · Consultation"]
+        C8 --> D1[Doctor opens queue]
+        C4 --> D1
+        D1 --> D2["Snapshot — 30 second read"]
+        D2 --> D3[Quick-answer questions]
+        D3 --> D4[Structured state update]
+        D4 --> D5[Examination + findings]
+        D5 --> D6[Draft summary — sources separated]
+        D6 --> D7{Doctor edits}
+        D7 --> D8["APPROVE — enters the record"]
+    end
+    subgraph FB["5 · Feedback"]
+        D8 --> E1[Final diagnosis captured]
+        E1 --> E2[One-tap feedback]
+        E2 --> E3[(Feedback + label store)]
+    end
+    style C4 fill:#ffd9d9,stroke:#c00,stroke-width:2px
+    style C9 fill:#e8e8e8,stroke:#888,stroke-dasharray:5 5
+    style D8 fill:#d9f2d9,stroke:#080,stroke-width:2px

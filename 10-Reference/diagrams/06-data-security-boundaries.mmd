@@ -1,0 +1,52 @@
+%% Diagram 6 — Data security boundaries
+flowchart TB
+    subgraph PUB["Untrusted zone"]
+        P1["Patient devices"]
+        P2["Uploaded documents"]
+        P3["Patient free text"]
+    end
+    subgraph SEMI["Semi-trusted"]
+        S1["Clinic devices"]
+        S2["Clinic staff"]
+    end
+    subgraph DMZ["Edge zone"]
+        E1["WAF / CDN"]
+        E2["API gateway — authn · tenant resolution · rate limit"]
+    end
+    subgraph APPZ["Application zone — private subnet"]
+        A1["App instances"]
+    end
+    subgraph WRKZ["Worker zone — private subnet, no inbound"]
+        W1["Document workers"]
+        W2["AI workers"]
+    end
+    subgraph DATAZ["Data zone — private subnet, NO internet route"]
+        DB[("PostgreSQL — RLS")]
+        OS[("Object storage — SSE")]
+        RD[("Redis")]
+        AU[("Audit — append only, WORM export")]
+    end
+    subgraph AIZ["AI egress zone — allowlist only"]
+        MG["Model gateway — DE-IDENTIFICATION BOUNDARY"]
+    end
+    subgraph EXTZ["External processors"]
+        LLM["LLM API — in-region · no-training · zero-retention"]
+        OCR["OCR fallback"]
+        SMS["SMS gateway — no clinical content"]
+    end
+    P1 -->|TLS 1.3| E1
+    S1 -->|TLS 1.3| E1
+    P2 --> E1
+    P3 --> E1
+    E1 --> E2 -->|mTLS| A1
+    A1 --> DB & OS & RD & AU
+    A1 -.enqueue.-> W1 & W2
+    W1 & W2 --> DB & OS
+    W2 -->|"pseudonymised payload ONLY"| MG
+    MG -->|"allowlisted host"| LLM
+    W1 -->|"allowlisted host"| OCR
+    A1 -->|"token + link only"| SMS
+    style MG fill:#ffe9c9,stroke:#e80,stroke-width:3px
+    style DATAZ fill:#e8f0ff
+    style AIZ fill:#fff4e0
+    style AU fill:#d9e8ff

@@ -1,0 +1,51 @@
+%% Diagram 4 — Document ingestion and RAG pipeline
+flowchart TB
+    subgraph DOCPIPE["Patient document ingestion"]
+        U["Upload / camera capture"] --> V["Client-side quality check"]
+        V --> W["Virus scan · type validation · encrypt"]
+        W --> L0["Lifecycle state updated"]
+        L0 --> X["Preprocess: deskew · denoise · crop"]
+        X --> Y{Digital text layer?}
+        Y -->|Yes| Z1["Direct extraction — Docling"]
+        Y -->|No| Z2["OCR tier 1 — PaddleOCR"]
+        Z2 --> Z3{Confidence above threshold?}
+        Z3 -->|No| Z4["OCR tier 2 — commercial fallback"]
+        Z3 -->|Yes| AA
+        Z4 --> AA
+        Z1 --> AA["Document classification"]
+        AA --> AB["Type-specific extraction"]
+        AB --> AC["Meds · problems · labs · dates"]
+        AC --> AD["Normalisation + terminology"]
+        AD --> AE["Dedup + contradiction detection"]
+        AE --> AF["Per-FACT confidence scoring"]
+        AF --> AG{High-risk field?}
+        AG -->|Yes| AH["UNCONFIRMED — human confirmation required"]
+        AG -->|No| AI["EXTRACTED"]
+        AH --> AJ[("ExtractedClinicalFact + field confidence + crop")]
+        AI --> AJ
+        AJ --> AK["Identity binding: verified / possible review / clear mismatch"]
+        AK --> AL["Contradiction + temporal checks"]
+    end
+    subgraph RAGPIPE["Institutional knowledge RAG — Phase 2"]
+        K1["Source registry: title · publisher · licence · reuse · evidence"] --> K2{Licence permits ingestion?}
+        K2 -->|No| K3["REJECTED — schema enforced"]
+        K2 -->|Yes| K4["Parse — Docling"]
+        K4 --> K5["Section-aware chunking — tables kept whole"]
+        K5 --> K6["Metadata enrichment"]
+        K6 --> K7["Embed to pgvector + FTS index"]
+        K7 --> K8[("approved knowledge_chunk")]
+        Q["Query"] --> K9["Hybrid retrieval: vector + BM25"]
+        K8 --> K9
+        K9 --> K10["Metadata filter — tenant · scope — MANDATORY"]
+        K10 --> K11["Rerank"]
+        K11 --> K12{Above relevance threshold?}
+        K12 -->|No| K13["No institutional source addresses this. NO GENERATION."]
+        K12 -->|Yes| K14["Constrained synthesis from spans"]
+        K14 --> K15["Citation + reliability binding"]
+        K15 --> K16["Staleness check"]
+        K16 --> K17["Answer + citations + coverage gaps"]
+    end
+    style AH fill:#ffd9d9,stroke:#c00
+    style K3 fill:#ffd9d9,stroke:#c00
+    style K13 fill:#ffe9c9,stroke:#e80
+    style K10 fill:#e8f0ff

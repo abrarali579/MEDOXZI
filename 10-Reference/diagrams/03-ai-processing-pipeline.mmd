@@ -1,0 +1,42 @@
+%% Diagram 3 — AI processing pipeline (deterministic vs model)
+flowchart TD
+    S0["Intake submitted"] --> C0{AI consent granted?}
+    C0 -->|No| Z1["AI_DISABLED_BY_CONSENT · ZERO model calls"]
+    C0 -->|Yes| S1["1 · Validation — DETERMINISTIC"]
+    S1 --> S2{Cohort gate passed?}
+    S2 -->|No| Z2["AI_DISABLED_BY_COHORT · structured view"]
+    S2 -->|Yes| S3["2 · Question/content pack selection"]
+    S3 --> S4["3 · Document ingestion lifecycle"]
+    S4 --> S4a["Preprocess — DETERMINISTIC"]
+    S4a --> S4b["Parse / OCR — MODEL"]
+    S4b --> S4c["Classify — MODEL"]
+    S4c --> S4d["Extract — MODEL, schema-constrained"]
+    S4d --> S4e["Confidence scoring — DETERMINISTIC"]
+    S4e --> S4f["Identity binding: match / review / mismatch"]
+    S4f --> S5["3 · Clinical normalisation"]
+    S5 --> S5a["Terminology — LOOKUP"]
+    S5a --> S5b["Units — DETERMINISTIC"]
+    S5b --> S5c["Assertion detection — NLP"]
+    S5c --> S5d["Dedup + contradiction — DETERMINISTIC"]
+    S5d --> S5e["Timeline — DETERMINISTIC"]
+    S5e --> S6["Approved safety rules — deterministic"]
+    S5e --> S7["Source-bound synthesis — model"]
+    S7 --> S8["Verifier: provenance + reliability + temporal + content"]
+    S8 -->|fail| Z3["AI_FAILED_SAFE · structured fallback + quality event"]
+    S8 -->|pass| S9["SOURCE_BOUND_SUMMARY materialised"]
+    S6 --> S9
+    S5e -.separate namespace.-> SH1["Shadow hypotheses — internal"]
+    S5e -.separate namespace.-> SH2["Question ranker eval — internal"]
+    SH1 & SH2 -.-> SH3[("Shadow store + eval")]
+    SH3 -.not accessible to care roles.-> SH4["Offline evidence only"]
+    S9 --> D1["Doctor opens patient"]
+    D1 --> D2["Doctor answers"]
+    D2 --> D3["8 · State update — DETERMINISTIC"]
+    D3 --> D4["9 · Re-evaluation — rules + next question"]
+    D4 --> D5["10 · Encounter summary — MODEL + verifier"]
+    D5 --> D6["11 · Clinician APPROVE"]
+    D6 --> D7["12 · Feedback — DETERMINISTIC"]
+    style S1 fill:#d9e8ff
+    style S6 fill:#ffd9d9,stroke:#c00,stroke-width:2px
+    style S8 fill:#ffe9c9,stroke:#e80,stroke-width:2px
+    style Z1 fill:#e8ffe8

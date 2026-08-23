@@ -1,0 +1,80 @@
+%% Diagram 1 — Overall system architecture
+flowchart TB
+    subgraph CLIENTS["Client applications"]
+        C1["Patient PWA"]
+        C2["Staff console"]
+        C3["Doctor dashboard"]
+        C4["Admin + content console"]
+    end
+    subgraph EDGE["Edge"]
+        E1["CDN / WAF / TLS"]
+        E2["API gateway"]
+    end
+    subgraph APP["Application tier — modular monolith"]
+        M1["Identity & Access"]
+        M2["Patient & Encounter"]
+        M3["Queue & Token — DETERMINISTIC"]
+        M4["Intake"]
+        M5["Document"]
+        M6["Clinical Record"]
+        M7["Terminology"]
+        M8["Clinical Content"]
+        M9["Safety Rules Engine — DETERMINISTIC"]
+        M10["AI Orchestration"]
+        M11["Feedback"]
+        M12["Audit — append only"]
+        M13["Notification"]
+        M14["Export"]
+    end
+    subgraph WORKERS["Async workers — no arbitrary internet/tools"]
+        W1["Document pipeline"]
+        W2["Pre-round synthesis"]
+        W3["Shadow evaluation worker"]
+        W4["Maintenance"]
+    end
+    subgraph AI["AI layer — isolated, no general egress"]
+        A1["Model gateway — de-ID boundary"]
+        A2["OCR service"]
+        A3["Clinical NLP"]
+        A4["Approved knowledge store only"]
+        A5["Guardrails + verifier"]
+    end
+    subgraph SHADOW["Shadow namespace — not doctor visible"]
+        S1[("Shadow hypothesis store")]
+        S2["Offline evaluation"]
+    end
+    subgraph DATA["Data infrastructure"]
+        D1[("PostgreSQL — RLS · pgvector · FTS")]
+        D2[("Object storage")]
+        D3[("Redis")]
+        D4[("Queue")]
+        D5[("Audit store — WORM")]
+        D6[("Analytics — de-identified")]
+    end
+    subgraph EXT["External"]
+        X1["LLM API — in-region"]
+        X2["SMS gateway"]
+        X3["OCR fallback"]
+        X4["HIS / EHR / SATUSEHAT adapter — Phase 2"]
+    end
+    C1 & C2 & C3 & C4 --> E1 --> E2 --> APP
+    APP --> D1
+    M5 --> D2
+    APP --> D3
+    M10 --> D4 --> WORKERS
+    M12 --> D5
+    W1 & W2 --> AI
+    W3 --> SHADOW
+    SHADOW -.candidate evidence only.-> D6
+    WORKERS --> D1
+    WORKERS --> D2
+    A1 --> X1
+    A2 --> X3
+    M13 --> X2
+    M14 -.Phase 2.-> X4
+    D1 -.de-identified ETL.-> D6
+    style M9 fill:#ffd9d9,stroke:#c00,stroke-width:2px
+    style M3 fill:#ffd9d9,stroke:#c00
+    style A5 fill:#ffe9c9,stroke:#e80
+    style W3 fill:#e8e8e8,stroke:#888,stroke-dasharray:5 5
+    style SHADOW fill:#f3f3f3,stroke:#777,stroke-dasharray:5 5
