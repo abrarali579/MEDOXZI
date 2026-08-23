@@ -1,0 +1,241 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Community-Acquired Pneumonia (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "community_acquired_pneumonia_D15",
+      "label_en": "Community-Acquired Pneumonia",
+      "label_id": "Pneumonia Komunitas"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "J18",
+  "category": "Respiratory/Infectious",
+  "context_note": "A leading cause of respiratory OPD/ER presentation and hospitalization risk, especially in young children and elderly in Java.",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "community_acquired_pneumonia_D15",
+      "text_by_language": {
+        "en": "How long have you had cough and fever, and is the cough productive?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Establish onset and character",
+      "source_ref": "OPD QuestionBank v1.0 :: Community-Acquired Pneumonia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D15', 'name_en': 'Community-Acquired Pneumonia', 'name_id': 'Pneumonia Komunitas', 'icd10': 'J18', 'category': 'Respiratory/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Community-Acquired Pneumonia (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "community_acquired_pneumonia_D15",
+      "text_by_language": {
+        "en": "What color is the sputum, and have you coughed up any blood?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Assess for bacterial infection or complications",
+      "source_ref": "OPD QuestionBank v1.0 :: Community-Acquired Pneumonia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D15', 'name_en': 'Community-Acquired Pneumonia', 'name_id': 'Pneumonia Komunitas', 'icd10': 'J18', 'category': 'Respiratory/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Community-Acquired Pneumonia (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "community_acquired_pneumonia_D15",
+      "text_by_language": {
+        "en": "Do you have chest pain that worsens with breathing or coughing?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Screen for pleuritic involvement",
+      "source_ref": "OPD QuestionBank v1.0 :: Community-Acquired Pneumonia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D15', 'name_en': 'Community-Acquired Pneumonia', 'name_id': 'Pneumonia Komunitas', 'icd10': 'J18', 'category': 'Respiratory/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Community-Acquired Pneumonia (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "community_acquired_pneumonia_D15",
+      "text_by_language": {
+        "en": "Are you breathing faster than usual, or feeling short of breath at rest?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Assess severity/respiratory compromise",
+      "source_ref": "OPD QuestionBank v1.0 :: Community-Acquired Pneumonia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D15', 'name_en': 'Community-Acquired Pneumonia', 'name_id': 'Pneumonia Komunitas', 'icd10': 'J18', 'category': 'Respiratory/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Community-Acquired Pneumonia (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "community_acquired_pneumonia_D15",
+      "text_by_language": {
+        "en": "Do you have any chronic lung disease, heart disease, diabetes, or are you elderly/very young?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Identify risk factors for severe disease",
+      "source_ref": "OPD QuestionBank v1.0 :: Community-Acquired Pneumonia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D15', 'name_en': 'Community-Acquired Pneumonia', 'name_id': 'Pneumonia Komunitas', 'icd10': 'J18', 'category': 'Respiratory/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Community-Acquired Pneumonia (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "community_acquired_pneumonia_D15",
+      "text_by_language": {
+        "en": "Have you felt confused, extremely weak, or unable to carry out normal activities?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Screen for severity markers requiring hospitalization",
+      "source_ref": "OPD QuestionBank v1.0 :: Community-Acquired Pneumonia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D15', 'name_en': 'Community-Acquired Pneumonia', 'name_id': 'Pneumonia Komunitas', 'icd10': 'J18', 'category': 'Respiratory/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Community-Acquired Pneumonia (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "community_acquired_pneumonia_D15",
+      "text_by_language": {
+        "en": "Have you had a flu or COVID-like illness recently before these symptoms started?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Identify possible viral precursor/co-infection",
+      "source_ref": "OPD QuestionBank v1.0 :: Community-Acquired Pneumonia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D15', 'name_en': 'Community-Acquired Pneumonia', 'name_id': 'Pneumonia Komunitas', 'icd10': 'J18', 'category': 'Respiratory/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Community-Acquired Pneumonia (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_08",
+      "chief_complaint_code": "community_acquired_pneumonia_D15",
+      "text_by_language": {
+        "en": "Severe respiratory distress",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Community-Acquired Pneumonia :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D15'}",
+      "authored_by": "LITERATURE_SOURCE - Community-Acquired Pneumonia (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "community_acquired_pneumonia_D15",
+      "text_by_language": {
+        "en": "Confusion",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Community-Acquired Pneumonia :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D15'}",
+      "authored_by": "LITERATURE_SOURCE - Community-Acquired Pneumonia (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_10",
+      "chief_complaint_code": "community_acquired_pneumonia_D15",
+      "text_by_language": {
+        "en": "Low blood pressure",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Community-Acquired Pneumonia :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D15'}",
+      "authored_by": "LITERATURE_SOURCE - Community-Acquired Pneumonia (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_11",
+      "chief_complaint_code": "community_acquired_pneumonia_D15",
+      "text_by_language": {
+        "en": "Oxygen saturation low/cyanosis",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 11,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Community-Acquired Pneumonia :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D15'}",
+      "authored_by": "LITERATURE_SOURCE - Community-Acquired Pneumonia (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_12",
+      "chief_complaint_code": "community_acquired_pneumonia_D15",
+      "text_by_language": {
+        "en": "Very young or elderly with high fever and rapid breathing",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 12,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Community-Acquired Pneumonia :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D15'}",
+      "authored_by": "LITERATURE_SOURCE - Community-Acquired Pneumonia (requires clinician sign)"
+    }
+  ]
+}

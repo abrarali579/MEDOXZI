@@ -1,0 +1,203 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Intestinal Worm Infestation (Helminthiasis) (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "intestinal_worm_infestation_helminthiasis_D37",
+      "label_en": "Intestinal Worm Infestation (Helminthiasis)",
+      "label_id": "Kecacingan"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "B82",
+  "category": "Infectious/Gastrointestinal",
+  "context_note": "Common especially in children in rural/semi-rural Java, related to sanitation and soil-transmitted helminths (roundworm, whipworm, hookworm).",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "intestinal_worm_infestation_helminthiasis_D37",
+      "text_by_language": {
+        "en": "Have you noticed any worms in your stool?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Direct evidence of infestation",
+      "source_ref": "OPD QuestionBank v1.0 :: Intestinal Worm Infestation (Helminthiasis) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D37', 'name_en': 'Intestinal Worm Infestation (Helminthiasis)', 'name_id': 'Kecacingan', 'icd10': 'B82', 'category': 'Infectious/Gastrointestinal'}",
+      "authored_by": "LITERATURE_SOURCE - Intestinal Worm Infestation (Helminthiasis) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "intestinal_worm_infestation_helminthiasis_D37",
+      "text_by_language": {
+        "en": "Do you have abdominal pain, bloating, or poor appetite?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Assess GI symptom burden",
+      "source_ref": "OPD QuestionBank v1.0 :: Intestinal Worm Infestation (Helminthiasis) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D37', 'name_en': 'Intestinal Worm Infestation (Helminthiasis)', 'name_id': 'Kecacingan', 'icd10': 'B82', 'category': 'Infectious/Gastrointestinal'}",
+      "authored_by": "LITERATURE_SOURCE - Intestinal Worm Infestation (Helminthiasis) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "intestinal_worm_infestation_helminthiasis_D37",
+      "text_by_language": {
+        "en": "For a child: has there been poor weight gain, growth delay, or reduced energy/concentration at school?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Assess nutritional/developmental impact, key in pediatric cases",
+      "source_ref": "OPD QuestionBank v1.0 :: Intestinal Worm Infestation (Helminthiasis) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D37', 'name_en': 'Intestinal Worm Infestation (Helminthiasis)', 'name_id': 'Kecacingan', 'icd10': 'B82', 'category': 'Infectious/Gastrointestinal'}",
+      "authored_by": "LITERATURE_SOURCE - Intestinal Worm Infestation (Helminthiasis) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "intestinal_worm_infestation_helminthiasis_D37",
+      "text_by_language": {
+        "en": "Is there itching around the anus, especially at night?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Classic pinworm symptom",
+      "source_ref": "OPD QuestionBank v1.0 :: Intestinal Worm Infestation (Helminthiasis) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D37', 'name_en': 'Intestinal Worm Infestation (Helminthiasis)', 'name_id': 'Kecacingan', 'icd10': 'B82', 'category': 'Infectious/Gastrointestinal'}",
+      "authored_by": "LITERATURE_SOURCE - Intestinal Worm Infestation (Helminthiasis) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "intestinal_worm_infestation_helminthiasis_D37",
+      "text_by_language": {
+        "en": "Do you or your household typically walk barefoot on soil, or how is your access to clean water and sanitation (toilets)?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Assess soil-transmitted helminth exposure risk",
+      "source_ref": "OPD QuestionBank v1.0 :: Intestinal Worm Infestation (Helminthiasis) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D37', 'name_en': 'Intestinal Worm Infestation (Helminthiasis)', 'name_id': 'Kecacingan', 'icd10': 'B82', 'category': 'Infectious/Gastrointestinal'}",
+      "authored_by": "LITERATURE_SOURCE - Intestinal Worm Infestation (Helminthiasis) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "intestinal_worm_infestation_helminthiasis_D37",
+      "text_by_language": {
+        "en": "Have you taken deworming medication before, and when was the last dose?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Assess prior treatment/prevention history",
+      "source_ref": "OPD QuestionBank v1.0 :: Intestinal Worm Infestation (Helminthiasis) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D37', 'name_en': 'Intestinal Worm Infestation (Helminthiasis)', 'name_id': 'Kecacingan', 'icd10': 'B82', 'category': 'Infectious/Gastrointestinal'}",
+      "authored_by": "LITERATURE_SOURCE - Intestinal Worm Infestation (Helminthiasis) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "intestinal_worm_infestation_helminthiasis_D37",
+      "text_by_language": {
+        "en": "Do you eat raw or undercooked meat/fish?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Assess risk for tapeworm infection specifically",
+      "source_ref": "OPD QuestionBank v1.0 :: Intestinal Worm Infestation (Helminthiasis) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D37', 'name_en': 'Intestinal Worm Infestation (Helminthiasis)', 'name_id': 'Kecacingan', 'icd10': 'B82', 'category': 'Infectious/Gastrointestinal'}",
+      "authored_by": "LITERATURE_SOURCE - Intestinal Worm Infestation (Helminthiasis) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_08",
+      "chief_complaint_code": "intestinal_worm_infestation_helminthiasis_D37",
+      "text_by_language": {
+        "en": "Signs of intestinal obstruction (severe pain, vomiting, no bowel movement/gas)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Intestinal Worm Infestation (Helminthiasis) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D37'}",
+      "authored_by": "LITERATURE_SOURCE - Intestinal Worm Infestation (Helminthiasis) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "intestinal_worm_infestation_helminthiasis_D37",
+      "text_by_language": {
+        "en": "Severe anemia symptoms",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Intestinal Worm Infestation (Helminthiasis) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D37'}",
+      "authored_by": "LITERATURE_SOURCE - Intestinal Worm Infestation (Helminthiasis) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_10",
+      "chief_complaint_code": "intestinal_worm_infestation_helminthiasis_D37",
+      "text_by_language": {
+        "en": "Signs of malnutrition/failure to thrive in a child",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Intestinal Worm Infestation (Helminthiasis) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D37'}",
+      "authored_by": "LITERATURE_SOURCE - Intestinal Worm Infestation (Helminthiasis) (requires clinician sign)"
+    }
+  ]
+}

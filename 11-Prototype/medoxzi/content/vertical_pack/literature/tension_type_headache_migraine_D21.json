@@ -1,0 +1,278 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Tension-Type Headache / Migraine (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "tension_type_headache_migraine_D21",
+      "label_en": "Tension-Type Headache / Migraine",
+      "label_id": "Nyeri Kepala Tegang / Migrain"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "G44",
+  "category": "Neurological",
+  "context_note": "One of the most frequent standalone OPD complaints ('sakit kepala'); usually primary headache disorder.",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "tension_type_headache_migraine_D21",
+      "text_by_language": {
+        "en": "Can you describe the pain - is it a tight band-like pressure, or throbbing/pulsating?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Differentiate tension-type from migraine pattern",
+      "source_ref": "OPD QuestionBank v1.0 :: Tension-Type Headache / Migraine :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D21', 'name_en': 'Tension-Type Headache / Migraine', 'name_id': 'Nyeri Kepala Tegang / Migrain', 'icd10': 'G44', 'category': 'Neurological'}",
+      "authored_by": "LITERATURE_SOURCE - Tension-Type Headache / Migraine (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "tension_type_headache_migraine_D21",
+      "text_by_language": {
+        "en": "Is the pain on one side or both sides of the head?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Migraine often unilateral; tension usually bilateral",
+      "source_ref": "OPD QuestionBank v1.0 :: Tension-Type Headache / Migraine :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D21', 'name_en': 'Tension-Type Headache / Migraine', 'name_id': 'Nyeri Kepala Tegang / Migrain', 'icd10': 'G44', 'category': 'Neurological'}",
+      "authored_by": "LITERATURE_SOURCE - Tension-Type Headache / Migraine (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "tension_type_headache_migraine_D21",
+      "text_by_language": {
+        "en": "Do you have nausea, vomiting, or sensitivity to light/sound with the headache?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Supports migraine diagnosis",
+      "source_ref": "OPD QuestionBank v1.0 :: Tension-Type Headache / Migraine :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D21', 'name_en': 'Tension-Type Headache / Migraine', 'name_id': 'Nyeri Kepala Tegang / Migrain', 'icd10': 'G44', 'category': 'Neurological'}",
+      "authored_by": "LITERATURE_SOURCE - Tension-Type Headache / Migraine (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "tension_type_headache_migraine_D21",
+      "text_by_language": {
+        "en": "How often do these headaches occur, and how long do they last?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Assess frequency for chronic vs episodic classification",
+      "source_ref": "OPD QuestionBank v1.0 :: Tension-Type Headache / Migraine :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D21', 'name_en': 'Tension-Type Headache / Migraine', 'name_id': 'Nyeri Kepala Tegang / Migrain', 'icd10': 'G44', 'category': 'Neurological'}",
+      "authored_by": "LITERATURE_SOURCE - Tension-Type Headache / Migraine (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "tension_type_headache_migraine_D21",
+      "text_by_language": {
+        "en": "Did this headache come on suddenly and severely, unlike your usual headaches?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Screen for red-flag 'thunderclap' headache",
+      "source_ref": "OPD QuestionBank v1.0 :: Tension-Type Headache / Migraine :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D21', 'name_en': 'Tension-Type Headache / Migraine', 'name_id': 'Nyeri Kepala Tegang / Migrain', 'icd10': 'G44', 'category': 'Neurological'}",
+      "authored_by": "LITERATURE_SOURCE - Tension-Type Headache / Migraine (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "tension_type_headache_migraine_D21",
+      "text_by_language": {
+        "en": "Do you have fever, neck stiffness, vision changes, weakness, or confusion?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Screen for secondary/dangerous causes (meningitis, stroke, mass)",
+      "source_ref": "OPD QuestionBank v1.0 :: Tension-Type Headache / Migraine :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D21', 'name_en': 'Tension-Type Headache / Migraine', 'name_id': 'Nyeri Kepala Tegang / Migrain', 'icd10': 'G44', 'category': 'Neurological'}",
+      "authored_by": "LITERATURE_SOURCE - Tension-Type Headache / Migraine (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "tension_type_headache_migraine_D21",
+      "text_by_language": {
+        "en": "What seems to trigger your headaches - stress, lack of sleep, certain foods, menstrual cycle?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Identify trigger pattern for management",
+      "source_ref": "OPD QuestionBank v1.0 :: Tension-Type Headache / Migraine :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D21', 'name_en': 'Tension-Type Headache / Migraine', 'name_id': 'Nyeri Kepala Tegang / Migrain', 'icd10': 'G44', 'category': 'Neurological'}",
+      "authored_by": "LITERATURE_SOURCE - Tension-Type Headache / Migraine (requires clinician sign)"
+    },
+    {
+      "question_key": "q_08",
+      "chief_complaint_code": "tension_type_headache_migraine_D21",
+      "text_by_language": {
+        "en": "How often do you take painkillers for headaches?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Screen for medication-overuse headache",
+      "source_ref": "OPD QuestionBank v1.0 :: Tension-Type Headache / Migraine :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D21', 'name_en': 'Tension-Type Headache / Migraine', 'name_id': 'Nyeri Kepala Tegang / Migrain', 'icd10': 'G44', 'category': 'Neurological'}",
+      "authored_by": "LITERATURE_SOURCE - Tension-Type Headache / Migraine (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "tension_type_headache_migraine_D21",
+      "text_by_language": {
+        "en": "'Worst headache of life', sudden thunderclap onset",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Tension-Type Headache / Migraine :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D21'}",
+      "authored_by": "LITERATURE_SOURCE - Tension-Type Headache / Migraine (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_10",
+      "chief_complaint_code": "tension_type_headache_migraine_D21",
+      "text_by_language": {
+        "en": "Fever with neck stiffness (meningitis concern)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Tension-Type Headache / Migraine :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D21'}",
+      "authored_by": "LITERATURE_SOURCE - Tension-Type Headache / Migraine (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_11",
+      "chief_complaint_code": "tension_type_headache_migraine_D21",
+      "text_by_language": {
+        "en": "Focal neurological deficit",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 11,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Tension-Type Headache / Migraine :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D21'}",
+      "authored_by": "LITERATURE_SOURCE - Tension-Type Headache / Migraine (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_12",
+      "chief_complaint_code": "tension_type_headache_migraine_D21",
+      "text_by_language": {
+        "en": "Headache with vomiting and altered consciousness",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 12,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Tension-Type Headache / Migraine :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D21'}",
+      "authored_by": "LITERATURE_SOURCE - Tension-Type Headache / Migraine (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_13",
+      "chief_complaint_code": "tension_type_headache_migraine_D21",
+      "text_by_language": {
+        "en": "New headache pattern in patient >50 years",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 13,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Tension-Type Headache / Migraine :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D21'}",
+      "authored_by": "LITERATURE_SOURCE - Tension-Type Headache / Migraine (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_14",
+      "chief_complaint_code": "tension_type_headache_migraine_D21",
+      "text_by_language": {
+        "en": "Headache after head trauma",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 14,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Tension-Type Headache / Migraine :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D21'}",
+      "authored_by": "LITERATURE_SOURCE - Tension-Type Headache / Migraine (requires clinician sign)"
+    }
+  ]
+}

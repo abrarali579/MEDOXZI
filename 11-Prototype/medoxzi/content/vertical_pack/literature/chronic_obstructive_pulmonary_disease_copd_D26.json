@@ -1,0 +1,259 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Chronic Obstructive Pulmonary Disease (COPD) (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "chronic_obstructive_pulmonary_disease_copd_D26",
+      "label_en": "Chronic Obstructive Pulmonary Disease (COPD)",
+      "label_id": "Penyakit Paru Obstruktif Kronik (PPOK)"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "J44",
+  "category": "Respiratory",
+  "context_note": "Common in older patients with smoking history or biomass fuel/cooking smoke exposure, a notable exposure in rural Java kitchens.",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "chronic_obstructive_pulmonary_disease_copd_D26",
+      "text_by_language": {
+        "en": "Do you have a long-standing cough with phlegm, and for how many years?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Assess chronic bronchitis pattern (cough >3 months/year for 2+ years)",
+      "source_ref": "OPD QuestionBank v1.0 :: Chronic Obstructive Pulmonary Disease (COPD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D26', 'name_en': 'Chronic Obstructive Pulmonary Disease (COPD)', 'name_id': 'Penyakit Paru Obstruktif Kronik (PPOK)', 'icd10': 'J44', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Chronic Obstructive Pulmonary Disease (COPD) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "chronic_obstructive_pulmonary_disease_copd_D26",
+      "text_by_language": {
+        "en": "Do you smoke, or have you smoked in the past? How many years/packs?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Major risk factor assessment",
+      "source_ref": "OPD QuestionBank v1.0 :: Chronic Obstructive Pulmonary Disease (COPD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D26', 'name_en': 'Chronic Obstructive Pulmonary Disease (COPD)', 'name_id': 'Penyakit Paru Obstruktif Kronik (PPOK)', 'icd10': 'J44', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Chronic Obstructive Pulmonary Disease (COPD) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "chronic_obstructive_pulmonary_disease_copd_D26",
+      "text_by_language": {
+        "en": "Are you exposed to cooking smoke from wood/biomass fuel, or workplace dust/fumes?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Identify non-smoking risk factors relevant in rural Java households",
+      "source_ref": "OPD QuestionBank v1.0 :: Chronic Obstructive Pulmonary Disease (COPD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D26', 'name_en': 'Chronic Obstructive Pulmonary Disease (COPD)', 'name_id': 'Penyakit Paru Obstruktif Kronik (PPOK)', 'icd10': 'J44', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Chronic Obstructive Pulmonary Disease (COPD) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "chronic_obstructive_pulmonary_disease_copd_D26",
+      "text_by_language": {
+        "en": "How far can you walk before feeling breathless, and has this changed over time?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Assess functional severity/progression",
+      "source_ref": "OPD QuestionBank v1.0 :: Chronic Obstructive Pulmonary Disease (COPD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D26', 'name_en': 'Chronic Obstructive Pulmonary Disease (COPD)', 'name_id': 'Penyakit Paru Obstruktif Kronik (PPOK)', 'icd10': 'J44', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Chronic Obstructive Pulmonary Disease (COPD) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "chronic_obstructive_pulmonary_disease_copd_D26",
+      "text_by_language": {
+        "en": "How many times in the past year have you had a flare-up needing extra medication or hospital visits?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Assess exacerbation frequency for severity classification",
+      "source_ref": "OPD QuestionBank v1.0 :: Chronic Obstructive Pulmonary Disease (COPD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D26', 'name_en': 'Chronic Obstructive Pulmonary Disease (COPD)', 'name_id': 'Penyakit Paru Obstruktif Kronik (PPOK)', 'icd10': 'J44', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Chronic Obstructive Pulmonary Disease (COPD) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "chronic_obstructive_pulmonary_disease_copd_D26",
+      "text_by_language": {
+        "en": "Have you had a diagnosis of asthma in childhood?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Assess for asthma-COPD overlap",
+      "source_ref": "OPD QuestionBank v1.0 :: Chronic Obstructive Pulmonary Disease (COPD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D26', 'name_en': 'Chronic Obstructive Pulmonary Disease (COPD)', 'name_id': 'Penyakit Paru Obstruktif Kronik (PPOK)', 'icd10': 'J44', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Chronic Obstructive Pulmonary Disease (COPD) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "chronic_obstructive_pulmonary_disease_copd_D26",
+      "text_by_language": {
+        "en": "Are you currently using any inhalers, and do you know how to use them correctly?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Assess treatment and technique",
+      "source_ref": "OPD QuestionBank v1.0 :: Chronic Obstructive Pulmonary Disease (COPD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D26', 'name_en': 'Chronic Obstructive Pulmonary Disease (COPD)', 'name_id': 'Penyakit Paru Obstruktif Kronik (PPOK)', 'icd10': 'J44', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Chronic Obstructive Pulmonary Disease (COPD) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_08",
+      "chief_complaint_code": "chronic_obstructive_pulmonary_disease_copd_D26",
+      "text_by_language": {
+        "en": "Have you had any swelling in your legs or unusual fatigue?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Screen for cor pulmonale/right heart strain",
+      "source_ref": "OPD QuestionBank v1.0 :: Chronic Obstructive Pulmonary Disease (COPD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D26', 'name_en': 'Chronic Obstructive Pulmonary Disease (COPD)', 'name_id': 'Penyakit Paru Obstruktif Kronik (PPOK)', 'icd10': 'J44', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Chronic Obstructive Pulmonary Disease (COPD) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "chronic_obstructive_pulmonary_disease_copd_D26",
+      "text_by_language": {
+        "en": "Severe acute breathlessness (exacerbation)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Chronic Obstructive Pulmonary Disease (COPD) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D26'}",
+      "authored_by": "LITERATURE_SOURCE - Chronic Obstructive Pulmonary Disease (COPD) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_10",
+      "chief_complaint_code": "chronic_obstructive_pulmonary_disease_copd_D26",
+      "text_by_language": {
+        "en": "Cyanosis",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Chronic Obstructive Pulmonary Disease (COPD) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D26'}",
+      "authored_by": "LITERATURE_SOURCE - Chronic Obstructive Pulmonary Disease (COPD) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_11",
+      "chief_complaint_code": "chronic_obstructive_pulmonary_disease_copd_D26",
+      "text_by_language": {
+        "en": "Confusion (possible hypercapnia)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 11,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Chronic Obstructive Pulmonary Disease (COPD) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D26'}",
+      "authored_by": "LITERATURE_SOURCE - Chronic Obstructive Pulmonary Disease (COPD) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_12",
+      "chief_complaint_code": "chronic_obstructive_pulmonary_disease_copd_D26",
+      "text_by_language": {
+        "en": "Chest pain suggestive of cardiac event",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 12,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Chronic Obstructive Pulmonary Disease (COPD) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D26'}",
+      "authored_by": "LITERATURE_SOURCE - Chronic Obstructive Pulmonary Disease (COPD) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_13",
+      "chief_complaint_code": "chronic_obstructive_pulmonary_disease_copd_D26",
+      "text_by_language": {
+        "en": "Coughing large amounts of blood",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 13,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Chronic Obstructive Pulmonary Disease (COPD) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D26'}",
+      "authored_by": "LITERATURE_SOURCE - Chronic Obstructive Pulmonary Disease (COPD) (requires clinician sign)"
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+disease_id,disease_name_en,red_flag
+D01,Acute Upper Respiratory Tract Infection (Common Cold),Difficulty breathing/respiratory distress
+D01,Acute Upper Respiratory Tract Infection (Common Cold),High fever >39C beyond 3 days
+D01,Acute Upper Respiratory Tract Infection (Common Cold),Stridor or drooling in a child
+D01,Acute Upper Respiratory Tract Infection (Common Cold),Symptoms persisting >10 days without improvement
+D02,Essential (Primary) Hypertension,Severe headache with BP >180/120
+D02,Essential (Primary) Hypertension,Chest pain
+D02,Essential (Primary) Hypertension,Shortness of breath
+D02,Essential (Primary) Hypertension,Visual disturbance or confusion
+D02,Essential (Primary) Hypertension,Focal neurological deficit
+D03,Dental Pulp and Periapical Disease,Facial swelling spreading to eye/neck (risk of cellulitis)
+D03,Dental Pulp and Periapical Disease,Fever with dental pain
+D03,Dental Pulp and Periapical Disease,Difficulty swallowing or opening mouth (trismus)
+D04,Dyspepsia (Functional/Uninvestigated),Unintentional weight loss
+D04,Dyspepsia (Functional/Uninvestigated),Vomiting blood or black stool (melena)
+D04,Dyspepsia (Functional/Uninvestigated),Difficulty/pain swallowing (dysphagia)
+D04,Dyspepsia (Functional/Uninvestigated),Age >45 with new-onset symptoms
+D04,Dyspepsia (Functional/Uninvestigated),Palpable abdominal mass
+D04,Dyspepsia (Functional/Uninvestigated),Persistent vomiting
+D05,Type 2 Diabetes Mellitus,Confusion or altered consciousness (possible DKA/HHS)
+D05,Type 2 Diabetes Mellitus,Very high or very low glucose with symptoms
+D05,Type 2 Diabetes Mellitus,Non-healing foot ulcer with signs of infection
+D05,Type 2 Diabetes Mellitus,Rapid unexplained weight loss with vomiting
+D06,Hypertensive Heart Disease,Severe breathlessness at rest
+D06,Hypertensive Heart Disease,Chest pain suggestive of acute coronary syndrome
+D06,Hypertensive Heart Disease,Coughing pink/frothy sputum (pulmonary edema)
+D06,Hypertensive Heart Disease,Syncope
+D07,Dyslipidemia,Chest pain (possible underlying ischemic disease)
+D07,Dyslipidemia,Calf pain with walking (peripheral artery disease)
+D07,Dyslipidemia,Very high triglycerides with abdominal pain (pancreatitis risk)
+D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Joint swelling with redness and warmth (possible septic arthritis/gout flare)
+D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Fever with joint pain
+D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Symmetric small joint swelling (possible rheumatoid arthritis)
+D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Sudden severe monoarticular pain (gout/infection)
+D09,Acute Diarrhea / Gastroenteritis,"Signs of severe dehydration (sunken eyes, lethargy, no urine output, very dry mouth)"
+D09,Acute Diarrhea / Gastroenteritis,Blood or mucus in stool (dysentery)
+D09,Acute Diarrhea / Gastroenteritis,High fever with severe abdominal pain
+D09,Acute Diarrhea / Gastroenteritis,Diarrhea >14 days (chronic)
+D09,Acute Diarrhea / Gastroenteritis,Infant/elderly with diarrhea
+D10,HIV Infection,"Signs of opportunistic infection (severe cough, neurological symptoms, severe thrush)"
+D10,HIV Infection,Rapid unexplained weight loss
+D10,HIV Infection,"CD4-related emergency symptoms (confusion, severe headache)"
+D11,Pulmonary Tuberculosis,Significant hemoptysis
+D11,Pulmonary Tuberculosis,Severe breathlessness
+D11,Pulmonary Tuberculosis,"Signs of disseminated/miliary TB (very unwell, altered consciousness)"
+D11,Pulmonary Tuberculosis,Known HIV-positive with TB symptoms (urgent workup)
+D12,Dengue Fever / Dengue Hemorrhagic Fever,Severe abdominal pain
+D12,Dengue Fever / Dengue Hemorrhagic Fever,Persistent vomiting
+D12,Dengue Fever / Dengue Hemorrhagic Fever,"Bleeding (gums, nose, black stool, heavy menstrual bleeding)"
+D12,Dengue Fever / Dengue Hemorrhagic Fever,Lethargy/restlessness
+D12,Dengue Fever / Dengue Hemorrhagic Fever,"Cold clammy skin, rapid weak pulse (shock)"
+D12,Dengue Fever / Dengue Hemorrhagic Fever,Fever defervescence with clinical worsening (critical phase)
+D13,Typhoid Fever,Severe abdominal pain with rigidity (possible perforation)
+D13,Typhoid Fever,GI bleeding
+D13,Typhoid Fever,Altered mental status
+D13,Typhoid Fever,Persistent high fever >7 days unresponsive to treatment
+D14,Bronchial Asthma,Inability to speak full sentences
+D14,Bronchial Asthma,Use of accessory muscles/severe distress
+D14,Bronchial Asthma,Cyanosis (bluish lips)
+D14,Bronchial Asthma,Silent chest on auscultation
+D14,Bronchial Asthma,Peak flow severely reduced
+D15,Community-Acquired Pneumonia,Severe respiratory distress
+D15,Community-Acquired Pneumonia,Confusion
+D15,Community-Acquired Pneumonia,Low blood pressure
+D15,Community-Acquired Pneumonia,Oxygen saturation low/cyanosis
+D15,Community-Acquired Pneumonia,Very young or elderly with high fever and rapid breathing
+D16,Gastritis / Peptic Ulcer Disease,Vomiting blood or coffee-ground vomitus
+D16,Gastritis / Peptic Ulcer Disease,Black tarry stools (melena)
+D16,Gastritis / Peptic Ulcer Disease,Severe sudden abdominal pain (possible perforation)
+D16,Gastritis / Peptic Ulcer Disease,Significant unintentional weight loss
+D17,Gastroesophageal Reflux Disease (GERD),Difficulty or pain swallowing (dysphagia/odynophagia)
+D17,Gastroesophageal Reflux Disease (GERD),Unintentional weight loss
+D17,Gastroesophageal Reflux Disease (GERD),Vomiting blood
+D17,Gastroesophageal Reflux Disease (GERD),Chest pain that could mimic cardiac origin
+D18,Osteoarthritis,Joint pain with fever/redness (rule out septic arthritis)
+D18,Osteoarthritis,Sudden inability to bear weight
+D18,Osteoarthritis,Significant deformity after trauma
+D19,Gout / Hyperuricemia,Fever with joint swelling (rule out septic arthritis)
+D19,Gout / Hyperuricemia,Multiple joints involved with systemic symptoms
+D19,Gout / Hyperuricemia,Tophi with skin ulceration/discharge
+D20,Rheumatoid Arthritis,"Severe systemic symptoms (fever, weight loss)"
+D20,Rheumatoid Arthritis,"Signs of vasculitis (skin ulcers, nerve symptoms)"
+D20,Rheumatoid Arthritis,Sudden neck pain with neurological symptoms (cervical spine involvement)
+D21,Tension-Type Headache / Migraine,"'Worst headache of life', sudden thunderclap onset"
+D21,Tension-Type Headache / Migraine,Fever with neck stiffness (meningitis concern)
+D21,Tension-Type Headache / Migraine,Focal neurological deficit
+D21,Tension-Type Headache / Migraine,Headache with vomiting and altered consciousness
+D21,Tension-Type Headache / Migraine,New headache pattern in patient >50 years
+D21,Tension-Type Headache / Migraine,Headache after head trauma
+D22,Vertigo (Benign Paroxysmal Positional Vertigo),"Sudden severe vertigo with new neurological symptoms (weakness, slurred speech, double vision, difficulty walking)"
+D22,Vertigo (Benign Paroxysmal Positional Vertigo),Vertigo with severe headache
+D22,Vertigo (Benign Paroxysmal Positional Vertigo),Hearing loss with vertigo (consider vestibular emergency)
+D22,Vertigo (Benign Paroxysmal Positional Vertigo),Inability to walk unassisted
+D23,Non-specific Low Back Pain,Pain radiating down the leg with numbness/weakness (possible nerve compression)
+D23,Non-specific Low Back Pain,Loss of bladder/bowel control (cauda equina - emergency)
+D23,Non-specific Low Back Pain,Fever with back pain (possible infection)
+D23,Non-specific Low Back Pain,History of trauma or cancer
+D23,Non-specific Low Back Pain,Pain worse at night/unrelieved by rest
+D23,Non-specific Low Back Pain,Unexplained weight loss
+D24,Iron Deficiency Anemia,"Severe symptomatic anemia (chest pain, severe breathlessness)"
+D24,Iron Deficiency Anemia,"Signs of active GI bleeding (melena, hematemesis)"
+D24,Iron Deficiency Anemia,Heavy vaginal bleeding
+D25,Chronic Kidney Disease,Very low urine output/anuria
+D25,Chronic Kidney Disease,Severe shortness of breath (fluid overload)
+D25,Chronic Kidney Disease,Confusion (uremic encephalopathy)
+D25,Chronic Kidney Disease,Chest pain (pericarditis)
+D26,Chronic Obstructive Pulmonary Disease (COPD),Severe acute breathlessness (exacerbation)
+D26,Chronic Obstructive Pulmonary Disease (COPD),Cyanosis
+D26,Chronic Obstructive Pulmonary Disease (COPD),Confusion (possible hypercapnia)
+D26,Chronic Obstructive Pulmonary Disease (COPD),Chest pain suggestive of cardiac event
+D26,Chronic Obstructive Pulmonary Disease (COPD),Coughing large amounts of blood
+D27,Allergic Rhinitis,Symptoms with facial pain/swelling and fever (possible sinusitis)
+D27,Allergic Rhinitis,Unilateral nasal symptoms with bleeding (rule out structural/other cause)
+D28,Atopic/Contact Dermatitis,"Signs of secondary bacterial infection (pus, spreading redness, fever)"
+D28,Atopic/Contact Dermatitis,Widespread severe skin involvement
+D28,Atopic/Contact Dermatitis,Facial/eye involvement affecting vision
+D29,Scabies,"Widespread crusted lesions (possible crusted/Norwegian scabies, seen in immunocompromised)"
+D29,Scabies,"Signs of secondary bacterial infection (pus, fever, spreading cellulitis)"
+D30,Tinea (Fungal Skin Infection),Signs of extensive/refractory infection in an immunocompromised patient
+D30,Tinea (Fungal Skin Infection),Signs of secondary bacterial infection
+D31,Urinary Tract Infection,Fever with flank/back pain and vomiting (possible pyelonephritis)
+D31,Urinary Tract Infection,"Signs of sepsis (confusion, low blood pressure)"
+D31,Urinary Tract Infection,Pregnancy with UTI symptoms
+D31,Urinary Tract Infection,Male with recurrent UTI (may indicate structural abnormality)
+D32,Otitis Media,Severe swelling/tenderness behind the ear (mastoiditis)
+D32,Otitis Media,Facial weakness
+D32,Otitis Media,High fever with lethargy/neck stiffness (possible meningitis)
+D32,Otitis Media,Severe headache with vomiting
+D33,Pharyngitis / Tonsillitis,Difficulty breathing or swallowing saliva (drooling)
+D33,Pharyngitis / Tonsillitis,Muffled ('hot potato') voice with severe throat pain (possible peritonsillar abscess/epiglottitis)
+D33,Pharyngitis / Tonsillitis,Severe neck swelling/stiffness
+D34,Conjunctivitis,Severe eye pain
+D34,Conjunctivitis,Vision loss or significant blurring
+D34,Conjunctivitis,Photophobia with headache (possible more serious eye/CNS condition)
+D34,Conjunctivitis,History of trauma or foreign body
+D34,Conjunctivitis,Contact lens wearer with red painful eye (risk of keratitis)
+D35,Malaria,Altered consciousness/confusion (cerebral malaria)
+D35,Malaria,Jaundice
+D35,Malaria,"Severe anemia (pallor, breathlessness)"
+D35,Malaria,Dark urine
+D35,Malaria,Seizures
+D35,Malaria,Signs of shock
+D36,Chikungunya Fever,"Signs of dengue co-infection (bleeding, warning signs)"
+D36,Chikungunya Fever,Severe dehydration
+D36,Chikungunya Fever,Neurological symptoms (rare but reported)
+D37,Intestinal Worm Infestation (Helminthiasis),"Signs of intestinal obstruction (severe pain, vomiting, no bowel movement/gas)"
+D37,Intestinal Worm Infestation (Helminthiasis),Severe anemia symptoms
+D37,Intestinal Worm Infestation (Helminthiasis),Signs of malnutrition/failure to thrive in a child
+D38,Leptospirosis,Jaundice with abdominal pain (possible Weil's disease - hepatic/renal involvement)
+D38,Leptospirosis,Decreased urine output
+D38,Leptospirosis,Difficulty breathing or coughing blood (pulmonary hemorrhage)
+D38,Leptospirosis,Signs of bleeding
+D39,Hepatitis A,"Signs of acute liver failure (confusion, severe jaundice, bleeding tendency)"
+D39,Hepatitis A,Persistent vomiting/inability to keep fluids down
+D39,Hepatitis A,Severe abdominal pain
+D40,Post-Stroke Follow-up / Chronic Sequelae,"New sudden weakness, facial droop, or speech difficulty (possible new stroke/TIA - emergency)"
+D40,Post-Stroke Follow-up / Chronic Sequelae,Sudden severe headache
+D40,Post-Stroke Follow-up / Chronic Sequelae,New seizures
+D40,Post-Stroke Follow-up / Chronic Sequelae,"Signs of aspiration (choking, recurrent pneumonia)"

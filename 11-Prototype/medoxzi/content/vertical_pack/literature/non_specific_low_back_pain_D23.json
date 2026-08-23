@@ -1,0 +1,278 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Non-specific Low Back Pain (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "non_specific_low_back_pain_D23",
+      "label_en": "Non-specific Low Back Pain",
+      "label_id": "Nyeri Punggung Bawah"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "M54.5",
+  "category": "Musculoskeletal",
+  "context_note": "Extremely common complaint, often related to occupation (lifting, prolonged sitting/standing), especially among laborers and market workers.",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "non_specific_low_back_pain_D23",
+      "text_by_language": {
+        "en": "When did the pain start, and was there a specific triggering event (lifting, injury, prolonged activity)?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Identify mechanical trigger",
+      "source_ref": "OPD QuestionBank v1.0 :: Non-specific Low Back Pain :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D23', 'name_en': 'Non-specific Low Back Pain', 'name_id': 'Nyeri Punggung Bawah', 'icd10': 'M54.5', 'category': 'Musculoskeletal'}",
+      "authored_by": "LITERATURE_SOURCE - Non-specific Low Back Pain (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "non_specific_low_back_pain_D23",
+      "text_by_language": {
+        "en": "Does the pain radiate down your leg, and is there any numbness, tingling, or weakness?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Screen for nerve root involvement (sciatica)",
+      "source_ref": "OPD QuestionBank v1.0 :: Non-specific Low Back Pain :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D23', 'name_en': 'Non-specific Low Back Pain', 'name_id': 'Nyeri Punggung Bawah', 'icd10': 'M54.5', 'category': 'Musculoskeletal'}",
+      "authored_by": "LITERATURE_SOURCE - Non-specific Low Back Pain (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "non_specific_low_back_pain_D23",
+      "text_by_language": {
+        "en": "Have you had any loss of bladder or bowel control, or numbness in the groin area?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Screen for cauda equina syndrome - surgical emergency",
+      "source_ref": "OPD QuestionBank v1.0 :: Non-specific Low Back Pain :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D23', 'name_en': 'Non-specific Low Back Pain', 'name_id': 'Nyeri Punggung Bawah', 'icd10': 'M54.5', 'category': 'Musculoskeletal'}",
+      "authored_by": "LITERATURE_SOURCE - Non-specific Low Back Pain (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "non_specific_low_back_pain_D23",
+      "text_by_language": {
+        "en": "Is the pain worse at night or unrelieved by rest?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Red flag for infection, malignancy, or inflammatory cause",
+      "source_ref": "OPD QuestionBank v1.0 :: Non-specific Low Back Pain :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D23', 'name_en': 'Non-specific Low Back Pain', 'name_id': 'Nyeri Punggung Bawah', 'icd10': 'M54.5', 'category': 'Musculoskeletal'}",
+      "authored_by": "LITERATURE_SOURCE - Non-specific Low Back Pain (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "non_specific_low_back_pain_D23",
+      "text_by_language": {
+        "en": "Do you have fever, unexplained weight loss, or a history of cancer?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Screen for serious underlying pathology",
+      "source_ref": "OPD QuestionBank v1.0 :: Non-specific Low Back Pain :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D23', 'name_en': 'Non-specific Low Back Pain', 'name_id': 'Nyeri Punggung Bawah', 'icd10': 'M54.5', 'category': 'Musculoskeletal'}",
+      "authored_by": "LITERATURE_SOURCE - Non-specific Low Back Pain (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "non_specific_low_back_pain_D23",
+      "text_by_language": {
+        "en": "What is your occupation, and does it involve heavy lifting or prolonged sitting/standing?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Identify occupational contributing factors",
+      "source_ref": "OPD QuestionBank v1.0 :: Non-specific Low Back Pain :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D23', 'name_en': 'Non-specific Low Back Pain', 'name_id': 'Nyeri Punggung Bawah', 'icd10': 'M54.5', 'category': 'Musculoskeletal'}",
+      "authored_by": "LITERATURE_SOURCE - Non-specific Low Back Pain (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "non_specific_low_back_pain_D23",
+      "text_by_language": {
+        "en": "Have you had similar back pain episodes before?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Assess recurrence pattern",
+      "source_ref": "OPD QuestionBank v1.0 :: Non-specific Low Back Pain :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D23', 'name_en': 'Non-specific Low Back Pain', 'name_id': 'Nyeri Punggung Bawah', 'icd10': 'M54.5', 'category': 'Musculoskeletal'}",
+      "authored_by": "LITERATURE_SOURCE - Non-specific Low Back Pain (requires clinician sign)"
+    },
+    {
+      "question_key": "q_08",
+      "chief_complaint_code": "non_specific_low_back_pain_D23",
+      "text_by_language": {
+        "en": "What movements or positions make the pain better or worse?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Assess mechanical pattern to guide management",
+      "source_ref": "OPD QuestionBank v1.0 :: Non-specific Low Back Pain :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D23', 'name_en': 'Non-specific Low Back Pain', 'name_id': 'Nyeri Punggung Bawah', 'icd10': 'M54.5', 'category': 'Musculoskeletal'}",
+      "authored_by": "LITERATURE_SOURCE - Non-specific Low Back Pain (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "non_specific_low_back_pain_D23",
+      "text_by_language": {
+        "en": "Pain radiating down the leg with numbness/weakness (possible nerve compression)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Non-specific Low Back Pain :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D23'}",
+      "authored_by": "LITERATURE_SOURCE - Non-specific Low Back Pain (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_10",
+      "chief_complaint_code": "non_specific_low_back_pain_D23",
+      "text_by_language": {
+        "en": "Loss of bladder/bowel control (cauda equina - emergency)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Non-specific Low Back Pain :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D23'}",
+      "authored_by": "LITERATURE_SOURCE - Non-specific Low Back Pain (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_11",
+      "chief_complaint_code": "non_specific_low_back_pain_D23",
+      "text_by_language": {
+        "en": "Fever with back pain (possible infection)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 11,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Non-specific Low Back Pain :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D23'}",
+      "authored_by": "LITERATURE_SOURCE - Non-specific Low Back Pain (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_12",
+      "chief_complaint_code": "non_specific_low_back_pain_D23",
+      "text_by_language": {
+        "en": "History of trauma or cancer",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 12,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Non-specific Low Back Pain :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D23'}",
+      "authored_by": "LITERATURE_SOURCE - Non-specific Low Back Pain (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_13",
+      "chief_complaint_code": "non_specific_low_back_pain_D23",
+      "text_by_language": {
+        "en": "Pain worse at night/unrelieved by rest",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 13,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Non-specific Low Back Pain :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D23'}",
+      "authored_by": "LITERATURE_SOURCE - Non-specific Low Back Pain (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_14",
+      "chief_complaint_code": "non_specific_low_back_pain_D23",
+      "text_by_language": {
+        "en": "Unexplained weight loss",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 14,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Non-specific Low Back Pain :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D23'}",
+      "authored_by": "LITERATURE_SOURCE - Non-specific Low Back Pain (requires clinician sign)"
+    }
+  ]
+}

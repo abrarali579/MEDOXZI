@@ -1,0 +1,268 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "AI_DRAFT - requires clinician",
+  "signed_at": null,
+  "warning": "This content is not clinically validated and requires clinician review before use.",
+  "chief_complaints": [
+    {
+      "code": "diarrhoea",
+      "label_en": "Diarrhoea",
+      "label_hi": "दस्त"
+    }
+  ],
+  "questions": [
+    {
+      "question_key": "diarrhoea_onset",
+      "chief_complaint_code": "diarrhoea",
+      "text_by_language": {
+        "en": "When did your diarrhea start?",
+        "hi": "आपके दस्त कब शुरू हुए?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "diarrhoea_duration",
+      "chief_complaint_code": "diarrhoea",
+      "text_by_language": {
+        "en": "How long has the diarrhea been going on?",
+        "hi": "दस्त कितने समय से चल रहा है?"
+      },
+      "answer_type": "ENUM",
+      "options": [
+        "<1 day",
+        "1-2 days",
+        "3-7 days",
+        "More than 7 days"
+      ],
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "diarrhoea_character",
+      "chief_complaint_code": "diarrhoea",
+      "text_by_language": {
+        "en": "What is the consistency of the stool?",
+        "hi": "मल के संरचना क्या है?"
+      },
+      "answer_type": "ENUM",
+      "options": [
+        "Watery",
+        "Loose",
+        "Soft",
+        "Hard"
+      ],
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "diarrhoea_severity",
+      "chief_complaint_code": "diarrhoea",
+      "text_by_language": {
+        "en": "How severe is the diarrhea?",
+        "hi": "दस्त कितना गंभीर है?"
+      },
+      "answer_type": "ENUM",
+      "options": [
+        "Mild",
+        "Moderate",
+        "Severe"
+      ],
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "diarrhoea_frequency",
+      "chief_complaint_code": "diarrhoea",
+      "text_by_language": {
+        "en": "How often do you have bowel movements?",
+        "hi": "आप कितनी बार मलत्याग करते हैं?"
+      },
+      "answer_type": "ENUM",
+      "options": [
+        "3-4 times a day",
+        "5-6 times a day",
+        "More than 6 times a day"
+      ],
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "diarrhoea_aggravating_relieving",
+      "chief_complaint_code": "diarrhoea",
+      "text_by_language": {
+        "en": "What makes the diarrhea worse or better?",
+        "hi": "दस्त किसके कारण बदतर या बेहतर होता है?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "diarrhoea_fever",
+      "chief_complaint_code": "diarrhoea",
+      "text_by_language": {
+        "en": "Have you had a fever?",
+        "hi": "क्या आपको बुखार है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "diarrhoea_vomiting",
+      "chief_complaint_code": "diarrhoea",
+      "text_by_language": {
+        "en": "Have you vomited?",
+        "hi": "क्या आपको उल्टी हुई है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "diarrhoea_abdominal_pain",
+      "chief_complaint_code": "diarrhoea",
+      "text_by_language": {
+        "en": "Do you have abdominal pain?",
+        "hi": "क्या आपको पेट में दर्द है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "diarrhoea_duration_red_flag",
+      "chief_complaint_code": "diarrhoea",
+      "text_by_language": {
+        "en": "Have you had diarrhea for more than two weeks?",
+        "hi": "क्या आपके दस्त दो हफ्ते से अधिक समय से चल रहे हैं?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "diarrhoea_weight_loss",
+      "chief_complaint_code": "diarrhoea",
+      "text_by_language": {
+        "en": "Have you lost weight recently?",
+        "hi": "क्या आपने हाल ही में वजन कम किया है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 11,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "diarrhoea_context",
+      "chief_complaint_code": "diarrhoea",
+      "text_by_language": {
+        "en": "What is the context of your diarrhea? (e.g., recent travel, food consumption)",
+        "hi": "आपके दस्त के संदर्भ क्या हैं? (उदाहरण के लिए, हाल ही में यात्रा, खाना खाना)"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 12,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    }
+  ],
+  "required_for_completeness": [
+    "diarrhoea_onset",
+    "diarrhoea_duration",
+    "diarrhoea_character",
+    "diarrhoea_severity",
+    "diarrhoea_frequency",
+    "diarrhoea_aggravating_relieving",
+    "diarrhoea_fever",
+    "diarrhoea_vomiting",
+    "diarrhoea_abdominal_pain",
+    "diarrhoea_duration_red_flag",
+    "diarrhoea_weight_loss",
+    "diarrhoea_context"
+  ]
+}

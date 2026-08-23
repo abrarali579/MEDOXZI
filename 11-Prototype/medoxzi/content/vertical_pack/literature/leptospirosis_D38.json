@@ -1,0 +1,222 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Leptospirosis (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "leptospirosis_D38",
+      "label_en": "Leptospirosis",
+      "label_id": "Leptospirosis"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "A27",
+  "category": "Infectious",
+  "context_note": "Notable risk in Java during flooding season (common in Jakarta and other low-lying Java cities); transmitted via rat urine-contaminated water.",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "leptospirosis_D38",
+      "text_by_language": {
+        "en": "Have you had any recent contact with flood water, or waded through standing water?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Establish key exposure - critical during Java's flood season",
+      "source_ref": "OPD QuestionBank v1.0 :: Leptospirosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D38', 'name_en': 'Leptospirosis', 'name_id': 'Leptospirosis', 'icd10': 'A27', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Leptospirosis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "leptospirosis_D38",
+      "text_by_language": {
+        "en": "Do you have severe muscle pain, especially in your calves?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Classic leptospirosis symptom",
+      "source_ref": "OPD QuestionBank v1.0 :: Leptospirosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D38', 'name_en': 'Leptospirosis', 'name_id': 'Leptospirosis', 'icd10': 'A27', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Leptospirosis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "leptospirosis_D38",
+      "text_by_language": {
+        "en": "Have you noticed your eyes look red without discharge?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Screen for conjunctival suffusion, a hallmark sign",
+      "source_ref": "OPD QuestionBank v1.0 :: Leptospirosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D38', 'name_en': 'Leptospirosis', 'name_id': 'Leptospirosis', 'icd10': 'A27', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Leptospirosis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "leptospirosis_D38",
+      "text_by_language": {
+        "en": "Have you noticed yellowing of your skin or eyes, or dark urine?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Screen for hepatic/renal involvement - red flag for severe disease (Weil's disease)",
+      "source_ref": "OPD QuestionBank v1.0 :: Leptospirosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D38', 'name_en': 'Leptospirosis', 'name_id': 'Leptospirosis', 'icd10': 'A27', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Leptospirosis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "leptospirosis_D38",
+      "text_by_language": {
+        "en": "How much are you urinating, and has this changed recently?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Assess for renal involvement",
+      "source_ref": "OPD QuestionBank v1.0 :: Leptospirosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D38', 'name_en': 'Leptospirosis', 'name_id': 'Leptospirosis', 'icd10': 'A27', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Leptospirosis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "leptospirosis_D38",
+      "text_by_language": {
+        "en": "Do you work in an environment with exposure to rodents, contaminated water, or agriculture/sanitation work?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Assess occupational exposure risk",
+      "source_ref": "OPD QuestionBank v1.0 :: Leptospirosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D38', 'name_en': 'Leptospirosis', 'name_id': 'Leptospirosis', 'icd10': 'A27', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Leptospirosis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "leptospirosis_D38",
+      "text_by_language": {
+        "en": "Have you had any cough or difficulty breathing?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Screen for pulmonary hemorrhage, a severe complication",
+      "source_ref": "OPD QuestionBank v1.0 :: Leptospirosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D38', 'name_en': 'Leptospirosis', 'name_id': 'Leptospirosis', 'icd10': 'A27', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Leptospirosis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_08",
+      "chief_complaint_code": "leptospirosis_D38",
+      "text_by_language": {
+        "en": "Jaundice with abdominal pain (possible Weil's disease - hepatic/renal involvement)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Leptospirosis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D38'}",
+      "authored_by": "LITERATURE_SOURCE - Leptospirosis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "leptospirosis_D38",
+      "text_by_language": {
+        "en": "Decreased urine output",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Leptospirosis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D38'}",
+      "authored_by": "LITERATURE_SOURCE - Leptospirosis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_10",
+      "chief_complaint_code": "leptospirosis_D38",
+      "text_by_language": {
+        "en": "Difficulty breathing or coughing blood (pulmonary hemorrhage)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Leptospirosis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D38'}",
+      "authored_by": "LITERATURE_SOURCE - Leptospirosis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_11",
+      "chief_complaint_code": "leptospirosis_D38",
+      "text_by_language": {
+        "en": "Signs of bleeding",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 11,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Leptospirosis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D38'}",
+      "authored_by": "LITERATURE_SOURCE - Leptospirosis (requires clinician sign)"
+    }
+  ]
+}

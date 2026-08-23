@@ -1,0 +1,260 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "AI_DRAFT - requires clinician",
+  "signed_at": null,
+  "warning": "This content is not clinically validated and requires clinician review before use.",
+  "chief_complaints": [
+    {
+      "code": "dizziness",
+      "label_en": "Dizziness/Lightheadedness",
+      "label_hi": "डिज़रिनेस/लाइटहेडेडनेस"
+    }
+  ],
+  "questions": [
+    {
+      "question_key": "dizziness_onset",
+      "chief_complaint_code": "dizziness",
+      "text_by_language": {
+        "en": "When did the dizziness first start?",
+        "hi": "डिज़रिनेस कब से शुरू हुई?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "dizziness_duration",
+      "chief_complaint_code": "dizziness",
+      "text_by_language": {
+        "en": "How long has the dizziness been occurring?",
+        "hi": "डिज़रिनेस कितने समय से चल रही है?"
+      },
+      "answer_type": "NUMERIC",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "dizziness_character",
+      "chief_complaint_code": "dizziness",
+      "text_by_language": {
+        "en": "How would you describe the dizziness?",
+        "hi": "आप डिज़रिनेस कैसे वर्णित करेंगे?"
+      },
+      "answer_type": "ENUM",
+      "options": [
+        "Spinning",
+        "Lightheaded",
+        "Unsteady",
+        "Other"
+      ],
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "dizziness_severity",
+      "chief_complaint_code": "dizziness",
+      "text_by_language": {
+        "en": "On a scale of 0 to 10, how severe is the dizziness?",
+        "hi": "0 से 10 के पैमाने पर, डिज़रिनेस कितनी गंभीर है?"
+      },
+      "answer_type": "NUMERIC",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "dizziness_aggravating_relieving",
+      "chief_complaint_code": "dizziness",
+      "text_by_language": {
+        "en": "What makes the dizziness worse or better, and when does it typically occur?",
+        "hi": "डिज़रिनेस को बदतर या बेहतर क्या बनाता है, और यह आमतौर पर कब होता है?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "dizziness_associated_symptoms",
+      "chief_complaint_code": "dizziness",
+      "text_by_language": {
+        "en": "Have you experienced any other symptoms with the dizziness? (e.g., nausea, vomiting, hearing changes)",
+        "hi": "क्या आपने डिज़रिनेस के साथ कोई अन्य लक्षण अनुभव किया है? (उदाहरण: उल्टी, खांसी, सुनने में बदलाव)"
+      },
+      "answer_type": "MULTI",
+      "options": [
+        "Nausea",
+        "Vomiting",
+        "Hearing changes",
+        "Vision changes",
+        "None",
+        "Other"
+      ],
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "dizziness_loss_of_consciousness",
+      "chief_complaint_code": "dizziness",
+      "text_by_language": {
+        "en": "Have you ever lost consciousness?",
+        "hi": "क्या आपने कभी जागरूकता खो दी है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "dizziness_head_injury",
+      "chief_complaint_code": "dizziness",
+      "text_by_language": {
+        "en": "Have you had any recent head injuries?",
+        "hi": "क्या आपको हाल के अतीत में कोई सिर के चोट लगी हैं?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "dizziness_falls_history",
+      "chief_complaint_code": "dizziness",
+      "text_by_language": {
+        "en": "Do you have a history of falls?",
+        "hi": "क्या आपके पास गिरने का इतिहास है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "dizziness_significant_negatives",
+      "chief_complaint_code": "dizziness",
+      "text_by_language": {
+        "en": "Have you noticed any changes in vision or hearing?",
+        "hi": "क्या आपने दृष्टि या सुनने में कोई बदलाव देखा है?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "dizziness_inner_ear_history",
+      "chief_complaint_code": "dizziness",
+      "text_by_language": {
+        "en": "Do you have a history of inner ear problems?",
+        "hi": "क्या आपके पास कान के अंदर के समस्याओं का इतिहास है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 11,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "dizziness_frequency",
+      "chief_complaint_code": "dizziness",
+      "text_by_language": {
+        "en": "How often does the dizziness occur?",
+        "hi": "डिज़रिनेस कितनी बार होती है?"
+      },
+      "answer_type": "NUMERIC",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 12,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    }
+  ],
+  "required_for_completeness": [
+    "dizziness_onset",
+    "dizziness_duration",
+    "dizziness_character",
+    "dizziness_severity",
+    "dizziness_aggravating_relieving",
+    "dizziness_associated_symptoms",
+    "dizziness_loss_of_consciousness",
+    "dizziness_head_injury",
+    "dizziness_falls_history",
+    "dizziness_significant_negatives",
+    "dizziness_inner_ear_history",
+    "dizziness_frequency"
+  ]
+}

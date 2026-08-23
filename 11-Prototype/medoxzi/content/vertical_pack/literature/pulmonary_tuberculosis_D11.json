@@ -1,0 +1,258 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Pulmonary Tuberculosis (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "pulmonary_tuberculosis_D11",
+      "label_en": "Pulmonary Tuberculosis",
+      "label_id": "Tuberkulosis Paru (TB Paru)"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "A15",
+  "category": "Infectious/Respiratory",
+  "context_note": "Indonesia has one of the world's highest TB burdens; consistently appears in top-10 puskesmas diagnoses across Java (rural and urban).",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "pulmonary_tuberculosis_D11",
+      "text_by_language": {
+        "en": "How long have you had a cough, and has it changed in character?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Screen duration - >2 weeks triggers TB workup per national guidelines",
+      "source_ref": "OPD QuestionBank v1.0 :: Pulmonary Tuberculosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D11', 'name_en': 'Pulmonary Tuberculosis', 'name_id': 'Tuberkulosis Paru (TB Paru)', 'icd10': 'A15', 'category': 'Infectious/Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Pulmonary Tuberculosis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "pulmonary_tuberculosis_D11",
+      "text_by_language": {
+        "en": "Have you coughed up blood or blood-streaked sputum?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Assess for hemoptysis, a red flag",
+      "source_ref": "OPD QuestionBank v1.0 :: Pulmonary Tuberculosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D11', 'name_en': 'Pulmonary Tuberculosis', 'name_id': 'Tuberkulosis Paru (TB Paru)', 'icd10': 'A15', 'category': 'Infectious/Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Pulmonary Tuberculosis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "pulmonary_tuberculosis_D11",
+      "text_by_language": {
+        "en": "Do you have fevers, especially at night, or night sweats?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Classic constitutional TB symptoms",
+      "source_ref": "OPD QuestionBank v1.0 :: Pulmonary Tuberculosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D11', 'name_en': 'Pulmonary Tuberculosis', 'name_id': 'Tuberkulosis Paru (TB Paru)', 'icd10': 'A15', 'category': 'Infectious/Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Pulmonary Tuberculosis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "pulmonary_tuberculosis_D11",
+      "text_by_language": {
+        "en": "Have you lost weight recently without trying?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Assess constitutional symptom burden",
+      "source_ref": "OPD QuestionBank v1.0 :: Pulmonary Tuberculosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D11', 'name_en': 'Pulmonary Tuberculosis', 'name_id': 'Tuberkulosis Paru (TB Paru)', 'icd10': 'A15', 'category': 'Infectious/Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Pulmonary Tuberculosis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "pulmonary_tuberculosis_D11",
+      "text_by_language": {
+        "en": "Have you been in close contact with anyone diagnosed with TB?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Assess exposure history",
+      "source_ref": "OPD QuestionBank v1.0 :: Pulmonary Tuberculosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D11', 'name_en': 'Pulmonary Tuberculosis', 'name_id': 'Tuberkulosis Paru (TB Paru)', 'icd10': 'A15', 'category': 'Infectious/Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Pulmonary Tuberculosis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "pulmonary_tuberculosis_D11",
+      "text_by_language": {
+        "en": "Have you ever been treated for TB before? Did you complete the full course?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Screen for relapse or drug-resistant TB risk",
+      "source_ref": "OPD QuestionBank v1.0 :: Pulmonary Tuberculosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D11', 'name_en': 'Pulmonary Tuberculosis', 'name_id': 'Tuberkulosis Paru (TB Paru)', 'icd10': 'A15', 'category': 'Infectious/Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Pulmonary Tuberculosis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "pulmonary_tuberculosis_D11",
+      "text_by_language": {
+        "en": "Do you know your HIV status?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Assess co-infection risk, affects management urgency",
+      "source_ref": "OPD QuestionBank v1.0 :: Pulmonary Tuberculosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D11', 'name_en': 'Pulmonary Tuberculosis', 'name_id': 'Tuberkulosis Paru (TB Paru)', 'icd10': 'A15', 'category': 'Infectious/Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Pulmonary Tuberculosis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_08",
+      "chief_complaint_code": "pulmonary_tuberculosis_D11",
+      "text_by_language": {
+        "en": "Do you live in a crowded household, or work/live in close quarters with others?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Assess transmission risk environment",
+      "source_ref": "OPD QuestionBank v1.0 :: Pulmonary Tuberculosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D11', 'name_en': 'Pulmonary Tuberculosis', 'name_id': 'Tuberkulosis Paru (TB Paru)', 'icd10': 'A15', 'category': 'Infectious/Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Pulmonary Tuberculosis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_09",
+      "chief_complaint_code": "pulmonary_tuberculosis_D11",
+      "text_by_language": {
+        "en": "Have you had chest pain or shortness of breath?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Assess pulmonary involvement severity",
+      "source_ref": "OPD QuestionBank v1.0 :: Pulmonary Tuberculosis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D11', 'name_en': 'Pulmonary Tuberculosis', 'name_id': 'Tuberkulosis Paru (TB Paru)', 'icd10': 'A15', 'category': 'Infectious/Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Pulmonary Tuberculosis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_10",
+      "chief_complaint_code": "pulmonary_tuberculosis_D11",
+      "text_by_language": {
+        "en": "Significant hemoptysis",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Pulmonary Tuberculosis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D11'}",
+      "authored_by": "LITERATURE_SOURCE - Pulmonary Tuberculosis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_11",
+      "chief_complaint_code": "pulmonary_tuberculosis_D11",
+      "text_by_language": {
+        "en": "Severe breathlessness",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 11,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Pulmonary Tuberculosis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D11'}",
+      "authored_by": "LITERATURE_SOURCE - Pulmonary Tuberculosis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_12",
+      "chief_complaint_code": "pulmonary_tuberculosis_D11",
+      "text_by_language": {
+        "en": "Signs of disseminated/miliary TB (very unwell, altered consciousness)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 12,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Pulmonary Tuberculosis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D11'}",
+      "authored_by": "LITERATURE_SOURCE - Pulmonary Tuberculosis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_13",
+      "chief_complaint_code": "pulmonary_tuberculosis_D11",
+      "text_by_language": {
+        "en": "Known HIV-positive with TB symptoms (urgent workup)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 13,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Pulmonary Tuberculosis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D11'}",
+      "authored_by": "LITERATURE_SOURCE - Pulmonary Tuberculosis (requires clinician sign)"
+    }
+  ]
+}

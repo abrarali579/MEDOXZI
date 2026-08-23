@@ -1,0 +1,240 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Typhoid Fever (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "typhoid_fever_D13",
+      "label_en": "Typhoid Fever",
+      "label_id": "Demam Tifoid"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "A01.0",
+  "category": "Infectious",
+  "context_note": "Endemic in Indonesia, especially Java, linked to contaminated food/water; frequent cause of prolonged fever in OPD.",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "typhoid_fever_D13",
+      "text_by_language": {
+        "en": "How long have you had fever, and does it tend to rise through the day/week?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Typhoid classically shows a stepwise fever pattern over days",
+      "source_ref": "OPD QuestionBank v1.0 :: Typhoid Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D13', 'name_en': 'Typhoid Fever', 'name_id': 'Demam Tifoid', 'icd10': 'A01.0', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Typhoid Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "typhoid_fever_D13",
+      "text_by_language": {
+        "en": "Do you have abdominal pain, constipation, or diarrhea?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Assess GI involvement",
+      "source_ref": "OPD QuestionBank v1.0 :: Typhoid Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D13', 'name_en': 'Typhoid Fever', 'name_id': 'Demam Tifoid', 'icd10': 'A01.0', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Typhoid Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "typhoid_fever_D13",
+      "text_by_language": {
+        "en": "Have you eaten food from street vendors or unclean water sources recently?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Identify likely exposure source",
+      "source_ref": "OPD QuestionBank v1.0 :: Typhoid Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D13', 'name_en': 'Typhoid Fever', 'name_id': 'Demam Tifoid', 'icd10': 'A01.0', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Typhoid Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "typhoid_fever_D13",
+      "text_by_language": {
+        "en": "Do you have a headache, loss of appetite, or generally feel very unwell?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Assess constitutional symptom severity",
+      "source_ref": "OPD QuestionBank v1.0 :: Typhoid Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D13', 'name_en': 'Typhoid Fever', 'name_id': 'Demam Tifoid', 'icd10': 'A01.0', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Typhoid Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "typhoid_fever_D13",
+      "text_by_language": {
+        "en": "Has anyone around you had a similar prolonged fever recently?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Assess for common-source outbreak",
+      "source_ref": "OPD QuestionBank v1.0 :: Typhoid Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D13', 'name_en': 'Typhoid Fever', 'name_id': 'Demam Tifoid', 'icd10': 'A01.0', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Typhoid Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "typhoid_fever_D13",
+      "text_by_language": {
+        "en": "Have you taken any antibiotics already for this illness?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Assess partial treatment, may affect test results and choice of therapy",
+      "source_ref": "OPD QuestionBank v1.0 :: Typhoid Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D13', 'name_en': 'Typhoid Fever', 'name_id': 'Demam Tifoid', 'icd10': 'A01.0', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Typhoid Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "typhoid_fever_D13",
+      "text_by_language": {
+        "en": "Have you had typhoid fever before?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Assess for relapse or chronic carrier state",
+      "source_ref": "OPD QuestionBank v1.0 :: Typhoid Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D13', 'name_en': 'Typhoid Fever', 'name_id': 'Demam Tifoid', 'icd10': 'A01.0', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Typhoid Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "q_08",
+      "chief_complaint_code": "typhoid_fever_D13",
+      "text_by_language": {
+        "en": "Do you have severe abdominal pain or notice blood in your stool?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Screen for intestinal perforation/bleeding - a surgical emergency",
+      "source_ref": "OPD QuestionBank v1.0 :: Typhoid Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D13', 'name_en': 'Typhoid Fever', 'name_id': 'Demam Tifoid', 'icd10': 'A01.0', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Typhoid Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "typhoid_fever_D13",
+      "text_by_language": {
+        "en": "Severe abdominal pain with rigidity (possible perforation)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Typhoid Fever :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D13'}",
+      "authored_by": "LITERATURE_SOURCE - Typhoid Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_10",
+      "chief_complaint_code": "typhoid_fever_D13",
+      "text_by_language": {
+        "en": "GI bleeding",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Typhoid Fever :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D13'}",
+      "authored_by": "LITERATURE_SOURCE - Typhoid Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_11",
+      "chief_complaint_code": "typhoid_fever_D13",
+      "text_by_language": {
+        "en": "Altered mental status",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 11,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Typhoid Fever :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D13'}",
+      "authored_by": "LITERATURE_SOURCE - Typhoid Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_12",
+      "chief_complaint_code": "typhoid_fever_D13",
+      "text_by_language": {
+        "en": "Persistent high fever >7 days unresponsive to treatment",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 12,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Typhoid Fever :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D13'}",
+      "authored_by": "LITERATURE_SOURCE - Typhoid Fever (requires clinician sign)"
+    }
+  ]
+}

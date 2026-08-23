@@ -1,0 +1,259 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "acute_diarrhea_gastroenteritis_D09",
+      "label_en": "Acute Diarrhea / Gastroenteritis",
+      "label_id": "Diare Akut / Gastroenteritis"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "A09",
+  "category": "Gastrointestinal/Infectious",
+  "context_note": "Consistently in the top 10 across Jakarta and rural Java puskesmas; linked to food/water sanitation.",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
+      "text_by_language": {
+        "en": "How many times a day are you passing loose stools, and since when?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Quantify severity and duration",
+      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
+      "text_by_language": {
+        "en": "Is there any blood or mucus in the stool?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Screen for dysentery/invasive infection",
+      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
+      "text_by_language": {
+        "en": "Do you have fever, vomiting, or abdominal cramping?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Assess associated symptoms and severity",
+      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
+      "text_by_language": {
+        "en": "Have you eaten any food or water from a questionable source recently, or eaten out?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Identify likely source/exposure",
+      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
+      "text_by_language": {
+        "en": "Are you able to keep fluids down, and how much are you urinating?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Assess hydration status",
+      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
+      "text_by_language": {
+        "en": "Is anyone else at home or nearby with similar symptoms?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Assess for outbreak/common source",
+      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
+      "text_by_language": {
+        "en": "Have you traveled recently or taken any antibiotics recently?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Identify travel-related or antibiotic-associated causes",
+      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_08",
+      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
+      "text_by_language": {
+        "en": "Do you feel dizzy when standing, or notice a very dry mouth?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Screen for dehydration",
+      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
+      "text_by_language": {
+        "en": "Signs of severe dehydration (sunken eyes, lethargy, no urine output, very dry mouth)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D09'}",
+      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_10",
+      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
+      "text_by_language": {
+        "en": "Blood or mucus in stool (dysentery)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D09'}",
+      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_11",
+      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
+      "text_by_language": {
+        "en": "High fever with severe abdominal pain",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 11,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D09'}",
+      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_12",
+      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
+      "text_by_language": {
+        "en": "Diarrhea >14 days (chronic)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 12,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D09'}",
+      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_13",
+      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
+      "text_by_language": {
+        "en": "Infant/elderly with diarrhea",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 13,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D09'}",
+      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
+    }
+  ]
+}

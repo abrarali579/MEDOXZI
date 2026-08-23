@@ -1,0 +1,184 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Allergic Rhinitis (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "allergic_rhinitis_D27",
+      "label_en": "Allergic Rhinitis",
+      "label_id": "Rinitis Alergi"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "J30",
+  "category": "ENT/Allergy",
+  "context_note": "Common recurring complaint, often mistaken for chronic 'colds'; triggered by dust mites, humidity, and pollution in Java's climate.",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "allergic_rhinitis_D27",
+      "text_by_language": {
+        "en": "How long have you had these symptoms, and do they come and go or are they constant?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Assess chronicity/pattern (perennial vs seasonal)",
+      "source_ref": "OPD QuestionBank v1.0 :: Allergic Rhinitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D27', 'name_en': 'Allergic Rhinitis', 'name_id': 'Rinitis Alergi', 'icd10': 'J30', 'category': 'ENT/Allergy'}",
+      "authored_by": "LITERATURE_SOURCE - Allergic Rhinitis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "allergic_rhinitis_D27",
+      "text_by_language": {
+        "en": "What seems to trigger your symptoms - dust, cold air, pets, specific seasons, or environments?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Identify allergen triggers",
+      "source_ref": "OPD QuestionBank v1.0 :: Allergic Rhinitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D27', 'name_en': 'Allergic Rhinitis', 'name_id': 'Rinitis Alergi', 'icd10': 'J30', 'category': 'ENT/Allergy'}",
+      "authored_by": "LITERATURE_SOURCE - Allergic Rhinitis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "allergic_rhinitis_D27",
+      "text_by_language": {
+        "en": "Do you have itchy eyes, throat, or skin along with the nasal symptoms?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Support allergic vs infectious etiology",
+      "source_ref": "OPD QuestionBank v1.0 :: Allergic Rhinitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D27', 'name_en': 'Allergic Rhinitis', 'name_id': 'Rinitis Alergi', 'icd10': 'J30', 'category': 'ENT/Allergy'}",
+      "authored_by": "LITERATURE_SOURCE - Allergic Rhinitis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "allergic_rhinitis_D27",
+      "text_by_language": {
+        "en": "Do you or your family have a history of asthma, eczema, or allergies?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Assess atopic predisposition",
+      "source_ref": "OPD QuestionBank v1.0 :: Allergic Rhinitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D27', 'name_en': 'Allergic Rhinitis', 'name_id': 'Rinitis Alergi', 'icd10': 'J30', 'category': 'ENT/Allergy'}",
+      "authored_by": "LITERATURE_SOURCE - Allergic Rhinitis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "allergic_rhinitis_D27",
+      "text_by_language": {
+        "en": "Is the discharge clear and watery, or thick and colored?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Differentiate allergic from infectious rhinitis/sinusitis",
+      "source_ref": "OPD QuestionBank v1.0 :: Allergic Rhinitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D27', 'name_en': 'Allergic Rhinitis', 'name_id': 'Rinitis Alergi', 'icd10': 'J30', 'category': 'ENT/Allergy'}",
+      "authored_by": "LITERATURE_SOURCE - Allergic Rhinitis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "allergic_rhinitis_D27",
+      "text_by_language": {
+        "en": "Do symptoms affect your sleep or daily activities?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Assess severity/impact for treatment intensity",
+      "source_ref": "OPD QuestionBank v1.0 :: Allergic Rhinitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D27', 'name_en': 'Allergic Rhinitis', 'name_id': 'Rinitis Alergi', 'icd10': 'J30', 'category': 'ENT/Allergy'}",
+      "authored_by": "LITERATURE_SOURCE - Allergic Rhinitis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "allergic_rhinitis_D27",
+      "text_by_language": {
+        "en": "Have you tried any antihistamines or nasal sprays? Did they help?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Assess prior treatment response",
+      "source_ref": "OPD QuestionBank v1.0 :: Allergic Rhinitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D27', 'name_en': 'Allergic Rhinitis', 'name_id': 'Rinitis Alergi', 'icd10': 'J30', 'category': 'ENT/Allergy'}",
+      "authored_by": "LITERATURE_SOURCE - Allergic Rhinitis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_08",
+      "chief_complaint_code": "allergic_rhinitis_D27",
+      "text_by_language": {
+        "en": "Symptoms with facial pain/swelling and fever (possible sinusitis)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Allergic Rhinitis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D27'}",
+      "authored_by": "LITERATURE_SOURCE - Allergic Rhinitis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "allergic_rhinitis_D27",
+      "text_by_language": {
+        "en": "Unilateral nasal symptoms with bleeding (rule out structural/other cause)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Allergic Rhinitis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D27'}",
+      "authored_by": "LITERATURE_SOURCE - Allergic Rhinitis (requires clinician sign)"
+    }
+  ]
+}

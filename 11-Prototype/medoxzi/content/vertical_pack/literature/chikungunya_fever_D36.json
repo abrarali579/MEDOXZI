@@ -1,0 +1,203 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Chikungunya Fever (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "chikungunya_fever_D36",
+      "label_en": "Chikungunya Fever",
+      "label_id": "Demam Chikungunya"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "A92.0",
+  "category": "Infectious",
+  "context_note": "Mosquito-borne outbreaks occur periodically across Java; often confused clinically with dengue.",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "chikungunya_fever_D36",
+      "text_by_language": {
+        "en": "When did the fever start, and how severe is your joint pain?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Establish onset and hallmark symptom severity",
+      "source_ref": "OPD QuestionBank v1.0 :: Chikungunya Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D36', 'name_en': 'Chikungunya Fever', 'name_id': 'Demam Chikungunya', 'icd10': 'A92.0', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Chikungunya Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "chikungunya_fever_D36",
+      "text_by_language": {
+        "en": "Which joints are painful, and is the pain symmetric on both sides?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Chikungunya classically causes severe, often symmetric polyarthralgia",
+      "source_ref": "OPD QuestionBank v1.0 :: Chikungunya Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D36', 'name_en': 'Chikungunya Fever', 'name_id': 'Demam Chikungunya', 'icd10': 'A92.0', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Chikungunya Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "chikungunya_fever_D36",
+      "text_by_language": {
+        "en": "Have you noticed any skin rash?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Common associated feature",
+      "source_ref": "OPD QuestionBank v1.0 :: Chikungunya Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D36', 'name_en': 'Chikungunya Fever', 'name_id': 'Demam Chikungunya', 'icd10': 'A92.0', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Chikungunya Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "chikungunya_fever_D36",
+      "text_by_language": {
+        "en": "Has anyone in your neighborhood recently been diagnosed with chikungunya or dengue?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Assess local outbreak context",
+      "source_ref": "OPD QuestionBank v1.0 :: Chikungunya Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D36', 'name_en': 'Chikungunya Fever', 'name_id': 'Demam Chikungunya', 'icd10': 'A92.0', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Chikungunya Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "chikungunya_fever_D36",
+      "text_by_language": {
+        "en": "Do you have any bleeding, severe abdominal pain, or persistent vomiting?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Screen for dengue warning signs, since co-circulation is common",
+      "source_ref": "OPD QuestionBank v1.0 :: Chikungunya Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D36', 'name_en': 'Chikungunya Fever', 'name_id': 'Demam Chikungunya', 'icd10': 'A92.0', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Chikungunya Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "chikungunya_fever_D36",
+      "text_by_language": {
+        "en": "How long has the joint pain lasted?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Chikungunya joint pain can persist for weeks to months (chronic phase)",
+      "source_ref": "OPD QuestionBank v1.0 :: Chikungunya Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D36', 'name_en': 'Chikungunya Fever', 'name_id': 'Demam Chikungunya', 'icd10': 'A92.0', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Chikungunya Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "chikungunya_fever_D36",
+      "text_by_language": {
+        "en": "Have you been able to move around and perform daily activities?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Assess functional impact of joint symptoms",
+      "source_ref": "OPD QuestionBank v1.0 :: Chikungunya Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D36', 'name_en': 'Chikungunya Fever', 'name_id': 'Demam Chikungunya', 'icd10': 'A92.0', 'category': 'Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Chikungunya Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_08",
+      "chief_complaint_code": "chikungunya_fever_D36",
+      "text_by_language": {
+        "en": "Signs of dengue co-infection (bleeding, warning signs)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Chikungunya Fever :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D36'}",
+      "authored_by": "LITERATURE_SOURCE - Chikungunya Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "chikungunya_fever_D36",
+      "text_by_language": {
+        "en": "Severe dehydration",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Chikungunya Fever :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D36'}",
+      "authored_by": "LITERATURE_SOURCE - Chikungunya Fever (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_10",
+      "chief_complaint_code": "chikungunya_fever_D36",
+      "text_by_language": {
+        "en": "Neurological symptoms (rare but reported)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Chikungunya Fever :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D36'}",
+      "authored_by": "LITERATURE_SOURCE - Chikungunya Fever (requires clinician sign)"
+    }
+  ]
+}

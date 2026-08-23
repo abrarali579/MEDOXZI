@@ -1,0 +1,240 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Urinary Tract Infection (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "urinary_tract_infection_D31",
+      "label_en": "Urinary Tract Infection",
+      "label_id": "Infeksi Saluran Kemih (ISK)"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "N39.0",
+  "category": "Genitourinary",
+  "context_note": "Common OPD complaint, especially among women; recurrent cases seen with poor hydration/hygiene practices.",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "urinary_tract_infection_D31",
+      "text_by_language": {
+        "en": "Do you have burning or pain when urinating, and how often are you urinating?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Confirm classic lower UTI symptoms",
+      "source_ref": "OPD QuestionBank v1.0 :: Urinary Tract Infection :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D31', 'name_en': 'Urinary Tract Infection', 'name_id': 'Infeksi Saluran Kemih (ISK)', 'icd10': 'N39.0', 'category': 'Genitourinary'}",
+      "authored_by": "LITERATURE_SOURCE - Urinary Tract Infection (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "urinary_tract_infection_D31",
+      "text_by_language": {
+        "en": "Do you have any fever, chills, or pain in your back/flank?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Screen for upper tract involvement (pyelonephritis) - red flag",
+      "source_ref": "OPD QuestionBank v1.0 :: Urinary Tract Infection :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D31', 'name_en': 'Urinary Tract Infection', 'name_id': 'Infeksi Saluran Kemih (ISK)', 'icd10': 'N39.0', 'category': 'Genitourinary'}",
+      "authored_by": "LITERATURE_SOURCE - Urinary Tract Infection (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "urinary_tract_infection_D31",
+      "text_by_language": {
+        "en": "Have you noticed blood or cloudiness in your urine, or an unusual smell?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Assess for hematuria and infection severity",
+      "source_ref": "OPD QuestionBank v1.0 :: Urinary Tract Infection :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D31', 'name_en': 'Urinary Tract Infection', 'name_id': 'Infeksi Saluran Kemih (ISK)', 'icd10': 'N39.0', 'category': 'Genitourinary'}",
+      "authored_by": "LITERATURE_SOURCE - Urinary Tract Infection (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "urinary_tract_infection_D31",
+      "text_by_language": {
+        "en": "Is there a chance you could be pregnant?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Pregnancy changes management urgency and antibiotic choice",
+      "source_ref": "OPD QuestionBank v1.0 :: Urinary Tract Infection :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D31', 'name_en': 'Urinary Tract Infection', 'name_id': 'Infeksi Saluran Kemih (ISK)', 'icd10': 'N39.0', 'category': 'Genitourinary'}",
+      "authored_by": "LITERATURE_SOURCE - Urinary Tract Infection (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "urinary_tract_infection_D31",
+      "text_by_language": {
+        "en": "Have you had UTIs before? How frequently do they recur?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Assess for recurrent UTI requiring further workup",
+      "source_ref": "OPD QuestionBank v1.0 :: Urinary Tract Infection :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D31', 'name_en': 'Urinary Tract Infection', 'name_id': 'Infeksi Saluran Kemih (ISK)', 'icd10': 'N39.0', 'category': 'Genitourinary'}",
+      "authored_by": "LITERATURE_SOURCE - Urinary Tract Infection (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "urinary_tract_infection_D31",
+      "text_by_language": {
+        "en": "How much water do you drink daily, and do you tend to hold your urine for long periods?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Identify contributing behavioral factors",
+      "source_ref": "OPD QuestionBank v1.0 :: Urinary Tract Infection :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D31', 'name_en': 'Urinary Tract Infection', 'name_id': 'Infeksi Saluran Kemih (ISK)', 'icd10': 'N39.0', 'category': 'Genitourinary'}",
+      "authored_by": "LITERATURE_SOURCE - Urinary Tract Infection (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "urinary_tract_infection_D31",
+      "text_by_language": {
+        "en": "Do you have diabetes or any condition affecting your immune system?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Identify risk factors for complicated UTI",
+      "source_ref": "OPD QuestionBank v1.0 :: Urinary Tract Infection :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D31', 'name_en': 'Urinary Tract Infection', 'name_id': 'Infeksi Saluran Kemih (ISK)', 'icd10': 'N39.0', 'category': 'Genitourinary'}",
+      "authored_by": "LITERATURE_SOURCE - Urinary Tract Infection (requires clinician sign)"
+    },
+    {
+      "question_key": "q_08",
+      "chief_complaint_code": "urinary_tract_infection_D31",
+      "text_by_language": {
+        "en": "For men: any history of prostate problems or difficulty with urine flow?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Assess for structural/obstructive cause in male UTI",
+      "source_ref": "OPD QuestionBank v1.0 :: Urinary Tract Infection :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D31', 'name_en': 'Urinary Tract Infection', 'name_id': 'Infeksi Saluran Kemih (ISK)', 'icd10': 'N39.0', 'category': 'Genitourinary'}",
+      "authored_by": "LITERATURE_SOURCE - Urinary Tract Infection (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "urinary_tract_infection_D31",
+      "text_by_language": {
+        "en": "Fever with flank/back pain and vomiting (possible pyelonephritis)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Urinary Tract Infection :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D31'}",
+      "authored_by": "LITERATURE_SOURCE - Urinary Tract Infection (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_10",
+      "chief_complaint_code": "urinary_tract_infection_D31",
+      "text_by_language": {
+        "en": "Signs of sepsis (confusion, low blood pressure)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Urinary Tract Infection :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D31'}",
+      "authored_by": "LITERATURE_SOURCE - Urinary Tract Infection (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_11",
+      "chief_complaint_code": "urinary_tract_infection_D31",
+      "text_by_language": {
+        "en": "Pregnancy with UTI symptoms",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 11,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Urinary Tract Infection :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D31'}",
+      "authored_by": "LITERATURE_SOURCE - Urinary Tract Infection (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_12",
+      "chief_complaint_code": "urinary_tract_infection_D31",
+      "text_by_language": {
+        "en": "Male with recurrent UTI (may indicate structural abnormality)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 12,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Urinary Tract Infection :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D31'}",
+      "authored_by": "LITERATURE_SOURCE - Urinary Tract Infection (requires clinician sign)"
+    }
+  ]
+}

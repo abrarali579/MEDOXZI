@@ -1,0 +1,240 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Vertigo (Benign Paroxysmal Positional Vertigo) (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "vertigo_benign_paroxysmal_positional_vertigo_D22",
+      "label_en": "Vertigo (Benign Paroxysmal Positional Vertigo)",
+      "label_id": "Vertigo (BPPV)"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "H81.1",
+  "category": "Neurological/ENT",
+  "context_note": "Very common OPD complaint ('pusing berputar'); important to distinguish peripheral (benign) from central (dangerous) causes.",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "vertigo_benign_paroxysmal_positional_vertigo_D22",
+      "text_by_language": {
+        "en": "Does the room spin, or do you feel more like you're going to faint/lightheaded?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Distinguish true vertigo from presyncope",
+      "source_ref": "OPD QuestionBank v1.0 :: Vertigo (Benign Paroxysmal Positional Vertigo) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D22', 'name_en': 'Vertigo (Benign Paroxysmal Positional Vertigo)', 'name_id': 'Vertigo (BPPV)', 'icd10': 'H81.1', 'category': 'Neurological/ENT'}",
+      "authored_by": "LITERATURE_SOURCE - Vertigo (Benign Paroxysmal Positional Vertigo) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "vertigo_benign_paroxysmal_positional_vertigo_D22",
+      "text_by_language": {
+        "en": "What triggers the spinning sensation - specific head movements or position changes (rolling in bed, looking up)?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Screen for BPPV pattern",
+      "source_ref": "OPD QuestionBank v1.0 :: Vertigo (Benign Paroxysmal Positional Vertigo) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D22', 'name_en': 'Vertigo (Benign Paroxysmal Positional Vertigo)', 'name_id': 'Vertigo (BPPV)', 'icd10': 'H81.1', 'category': 'Neurological/ENT'}",
+      "authored_by": "LITERATURE_SOURCE - Vertigo (Benign Paroxysmal Positional Vertigo) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "vertigo_benign_paroxysmal_positional_vertigo_D22",
+      "text_by_language": {
+        "en": "How long does each episode last - seconds, minutes, or hours?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "BPPV episodes are typically brief (<1 minute)",
+      "source_ref": "OPD QuestionBank v1.0 :: Vertigo (Benign Paroxysmal Positional Vertigo) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D22', 'name_en': 'Vertigo (Benign Paroxysmal Positional Vertigo)', 'name_id': 'Vertigo (BPPV)', 'icd10': 'H81.1', 'category': 'Neurological/ENT'}",
+      "authored_by": "LITERATURE_SOURCE - Vertigo (Benign Paroxysmal Positional Vertigo) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "vertigo_benign_paroxysmal_positional_vertigo_D22",
+      "text_by_language": {
+        "en": "Do you have any hearing loss, ringing in the ears, or ear fullness?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Screen for Meniere's disease or other inner ear pathology",
+      "source_ref": "OPD QuestionBank v1.0 :: Vertigo (Benign Paroxysmal Positional Vertigo) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D22', 'name_en': 'Vertigo (Benign Paroxysmal Positional Vertigo)', 'name_id': 'Vertigo (BPPV)', 'icd10': 'H81.1', 'category': 'Neurological/ENT'}",
+      "authored_by": "LITERATURE_SOURCE - Vertigo (Benign Paroxysmal Positional Vertigo) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "vertigo_benign_paroxysmal_positional_vertigo_D22",
+      "text_by_language": {
+        "en": "Have you had any weakness, slurred speech, double vision, or difficulty walking along with the dizziness?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Screen for central (stroke-related) cause - red flag",
+      "source_ref": "OPD QuestionBank v1.0 :: Vertigo (Benign Paroxysmal Positional Vertigo) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D22', 'name_en': 'Vertigo (Benign Paroxysmal Positional Vertigo)', 'name_id': 'Vertigo (BPPV)', 'icd10': 'H81.1', 'category': 'Neurological/ENT'}",
+      "authored_by": "LITERATURE_SOURCE - Vertigo (Benign Paroxysmal Positional Vertigo) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "vertigo_benign_paroxysmal_positional_vertigo_D22",
+      "text_by_language": {
+        "en": "Do you have nausea or vomiting with the episodes?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Assess associated autonomic symptoms",
+      "source_ref": "OPD QuestionBank v1.0 :: Vertigo (Benign Paroxysmal Positional Vertigo) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D22', 'name_en': 'Vertigo (Benign Paroxysmal Positional Vertigo)', 'name_id': 'Vertigo (BPPV)', 'icd10': 'H81.1', 'category': 'Neurological/ENT'}",
+      "authored_by": "LITERATURE_SOURCE - Vertigo (Benign Paroxysmal Positional Vertigo) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "vertigo_benign_paroxysmal_positional_vertigo_D22",
+      "text_by_language": {
+        "en": "Have you had similar episodes before, and did they resolve on their own?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Assess recurrence and course",
+      "source_ref": "OPD QuestionBank v1.0 :: Vertigo (Benign Paroxysmal Positional Vertigo) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D22', 'name_en': 'Vertigo (Benign Paroxysmal Positional Vertigo)', 'name_id': 'Vertigo (BPPV)', 'icd10': 'H81.1', 'category': 'Neurological/ENT'}",
+      "authored_by": "LITERATURE_SOURCE - Vertigo (Benign Paroxysmal Positional Vertigo) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_08",
+      "chief_complaint_code": "vertigo_benign_paroxysmal_positional_vertigo_D22",
+      "text_by_language": {
+        "en": "Do you have high blood pressure, diabetes, or heart disease?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Assess vascular risk factors relevant to central causes",
+      "source_ref": "OPD QuestionBank v1.0 :: Vertigo (Benign Paroxysmal Positional Vertigo) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D22', 'name_en': 'Vertigo (Benign Paroxysmal Positional Vertigo)', 'name_id': 'Vertigo (BPPV)', 'icd10': 'H81.1', 'category': 'Neurological/ENT'}",
+      "authored_by": "LITERATURE_SOURCE - Vertigo (Benign Paroxysmal Positional Vertigo) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "vertigo_benign_paroxysmal_positional_vertigo_D22",
+      "text_by_language": {
+        "en": "Sudden severe vertigo with new neurological symptoms (weakness, slurred speech, double vision, difficulty walking)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Vertigo (Benign Paroxysmal Positional Vertigo) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D22'}",
+      "authored_by": "LITERATURE_SOURCE - Vertigo (Benign Paroxysmal Positional Vertigo) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_10",
+      "chief_complaint_code": "vertigo_benign_paroxysmal_positional_vertigo_D22",
+      "text_by_language": {
+        "en": "Vertigo with severe headache",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Vertigo (Benign Paroxysmal Positional Vertigo) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D22'}",
+      "authored_by": "LITERATURE_SOURCE - Vertigo (Benign Paroxysmal Positional Vertigo) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_11",
+      "chief_complaint_code": "vertigo_benign_paroxysmal_positional_vertigo_D22",
+      "text_by_language": {
+        "en": "Hearing loss with vertigo (consider vestibular emergency)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 11,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Vertigo (Benign Paroxysmal Positional Vertigo) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D22'}",
+      "authored_by": "LITERATURE_SOURCE - Vertigo (Benign Paroxysmal Positional Vertigo) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_12",
+      "chief_complaint_code": "vertigo_benign_paroxysmal_positional_vertigo_D22",
+      "text_by_language": {
+        "en": "Inability to walk unassisted",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 12,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Vertigo (Benign Paroxysmal Positional Vertigo) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D22'}",
+      "authored_by": "LITERATURE_SOURCE - Vertigo (Benign Paroxysmal Positional Vertigo) (requires clinician sign)"
+    }
+  ]
+}

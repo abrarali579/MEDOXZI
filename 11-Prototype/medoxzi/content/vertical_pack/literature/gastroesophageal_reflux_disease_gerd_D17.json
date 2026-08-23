@@ -1,0 +1,240 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Gastroesophageal Reflux Disease (GERD) (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "gastroesophageal_reflux_disease_gerd_D17",
+      "label_en": "Gastroesophageal Reflux Disease (GERD)",
+      "label_id": "Penyakit Refluks Gastroesofageal (GERD)"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "K21",
+  "category": "Gastrointestinal",
+  "context_note": "Common complaint related to diet (spicy/fatty food), obesity trends, and late-night eating habits.",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "gastroesophageal_reflux_disease_gerd_D17",
+      "text_by_language": {
+        "en": "Do you feel a burning sensation rising from your stomach to your chest or throat?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Confirm classic heartburn symptom",
+      "source_ref": "OPD QuestionBank v1.0 :: Gastroesophageal Reflux Disease (GERD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D17', 'name_en': 'Gastroesophageal Reflux Disease (GERD)', 'name_id': 'Penyakit Refluks Gastroesofageal (GERD)', 'icd10': 'K21', 'category': 'Gastrointestinal'}",
+      "authored_by": "LITERATURE_SOURCE - Gastroesophageal Reflux Disease (GERD) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "gastroesophageal_reflux_disease_gerd_D17",
+      "text_by_language": {
+        "en": "Are symptoms worse after eating, lying down, or bending over?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Confirm positional/postprandial reflux pattern",
+      "source_ref": "OPD QuestionBank v1.0 :: Gastroesophageal Reflux Disease (GERD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D17', 'name_en': 'Gastroesophageal Reflux Disease (GERD)', 'name_id': 'Penyakit Refluks Gastroesofageal (GERD)', 'icd10': 'K21', 'category': 'Gastrointestinal'}",
+      "authored_by": "LITERATURE_SOURCE - Gastroesophageal Reflux Disease (GERD) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "gastroesophageal_reflux_disease_gerd_D17",
+      "text_by_language": {
+        "en": "Do you have a sour or bitter taste in your mouth, especially in the morning?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Confirm regurgitation symptom",
+      "source_ref": "OPD QuestionBank v1.0 :: Gastroesophageal Reflux Disease (GERD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D17', 'name_en': 'Gastroesophageal Reflux Disease (GERD)', 'name_id': 'Penyakit Refluks Gastroesofageal (GERD)', 'icd10': 'K21', 'category': 'Gastrointestinal'}",
+      "authored_by": "LITERATURE_SOURCE - Gastroesophageal Reflux Disease (GERD) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "gastroesophageal_reflux_disease_gerd_D17",
+      "text_by_language": {
+        "en": "Do you have any difficulty or pain when swallowing food?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Screen for alarm feature (possible stricture/malignancy)",
+      "source_ref": "OPD QuestionBank v1.0 :: Gastroesophageal Reflux Disease (GERD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D17', 'name_en': 'Gastroesophageal Reflux Disease (GERD)', 'name_id': 'Penyakit Refluks Gastroesofageal (GERD)', 'icd10': 'K21', 'category': 'Gastrointestinal'}",
+      "authored_by": "LITERATURE_SOURCE - Gastroesophageal Reflux Disease (GERD) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "gastroesophageal_reflux_disease_gerd_D17",
+      "text_by_language": {
+        "en": "Have you noticed a chronic cough, hoarseness, or throat clearing?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Screen for extra-esophageal GERD manifestations",
+      "source_ref": "OPD QuestionBank v1.0 :: Gastroesophageal Reflux Disease (GERD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D17', 'name_en': 'Gastroesophageal Reflux Disease (GERD)', 'name_id': 'Penyakit Refluks Gastroesofageal (GERD)', 'icd10': 'K21', 'category': 'Gastrointestinal'}",
+      "authored_by": "LITERATURE_SOURCE - Gastroesophageal Reflux Disease (GERD) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "gastroesophageal_reflux_disease_gerd_D17",
+      "text_by_language": {
+        "en": "What is your typical diet like - fatty, spicy, or large late-night meals?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Identify dietary triggers",
+      "source_ref": "OPD QuestionBank v1.0 :: Gastroesophageal Reflux Disease (GERD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D17', 'name_en': 'Gastroesophageal Reflux Disease (GERD)', 'name_id': 'Penyakit Refluks Gastroesofageal (GERD)', 'icd10': 'K21', 'category': 'Gastrointestinal'}",
+      "authored_by": "LITERATURE_SOURCE - Gastroesophageal Reflux Disease (GERD) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "gastroesophageal_reflux_disease_gerd_D17",
+      "text_by_language": {
+        "en": "Have you gained weight recently, and do you smoke?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Identify modifiable risk factors",
+      "source_ref": "OPD QuestionBank v1.0 :: Gastroesophageal Reflux Disease (GERD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D17', 'name_en': 'Gastroesophageal Reflux Disease (GERD)', 'name_id': 'Penyakit Refluks Gastroesofageal (GERD)', 'icd10': 'K21', 'category': 'Gastrointestinal'}",
+      "authored_by": "LITERATURE_SOURCE - Gastroesophageal Reflux Disease (GERD) (requires clinician sign)"
+    },
+    {
+      "question_key": "q_08",
+      "chief_complaint_code": "gastroesophageal_reflux_disease_gerd_D17",
+      "text_by_language": {
+        "en": "Could this chest discomfort be related to your heart - do you have exertional chest pain?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Rule out cardiac cause of chest symptoms",
+      "source_ref": "OPD QuestionBank v1.0 :: Gastroesophageal Reflux Disease (GERD) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D17', 'name_en': 'Gastroesophageal Reflux Disease (GERD)', 'name_id': 'Penyakit Refluks Gastroesofageal (GERD)', 'icd10': 'K21', 'category': 'Gastrointestinal'}",
+      "authored_by": "LITERATURE_SOURCE - Gastroesophageal Reflux Disease (GERD) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "gastroesophageal_reflux_disease_gerd_D17",
+      "text_by_language": {
+        "en": "Difficulty or pain swallowing (dysphagia/odynophagia)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Gastroesophageal Reflux Disease (GERD) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D17'}",
+      "authored_by": "LITERATURE_SOURCE - Gastroesophageal Reflux Disease (GERD) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_10",
+      "chief_complaint_code": "gastroesophageal_reflux_disease_gerd_D17",
+      "text_by_language": {
+        "en": "Unintentional weight loss",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Gastroesophageal Reflux Disease (GERD) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D17'}",
+      "authored_by": "LITERATURE_SOURCE - Gastroesophageal Reflux Disease (GERD) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_11",
+      "chief_complaint_code": "gastroesophageal_reflux_disease_gerd_D17",
+      "text_by_language": {
+        "en": "Vomiting blood",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 11,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Gastroesophageal Reflux Disease (GERD) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D17'}",
+      "authored_by": "LITERATURE_SOURCE - Gastroesophageal Reflux Disease (GERD) (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_12",
+      "chief_complaint_code": "gastroesophageal_reflux_disease_gerd_D17",
+      "text_by_language": {
+        "en": "Chest pain that could mimic cardiac origin",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 12,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Gastroesophageal Reflux Disease (GERD) :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D17'}",
+      "authored_by": "LITERATURE_SOURCE - Gastroesophageal Reflux Disease (GERD) (requires clinician sign)"
+    }
+  ]
+}

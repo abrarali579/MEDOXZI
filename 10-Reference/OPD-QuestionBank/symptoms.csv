@@ -1,0 +1,248 @@
+disease_id,disease_name_en,symptom
+D01,Acute Upper Respiratory Tract Infection (Common Cold),Runny/blocked nose
+D01,Acute Upper Respiratory Tract Infection (Common Cold),Sore throat
+D01,Acute Upper Respiratory Tract Infection (Common Cold),Cough
+D01,Acute Upper Respiratory Tract Infection (Common Cold),Sneezing
+D01,Acute Upper Respiratory Tract Infection (Common Cold),Mild fever
+D01,Acute Upper Respiratory Tract Infection (Common Cold),Malaise
+D01,Acute Upper Respiratory Tract Infection (Common Cold),Headache
+D02,Essential (Primary) Hypertension,Often asymptomatic (found on screening)
+D02,Essential (Primary) Hypertension,Headache (esp. occipital)
+D02,Essential (Primary) Hypertension,Dizziness
+D02,Essential (Primary) Hypertension,Blurred vision
+D02,Essential (Primary) Hypertension,Palpitations
+D02,Essential (Primary) Hypertension,Nape/neck stiffness ('tengeng')
+D02,Essential (Primary) Hypertension,Fatigue
+D03,Dental Pulp and Periapical Disease,Toothache
+D03,Dental Pulp and Periapical Disease,Sensitivity to hot/cold
+D03,Dental Pulp and Periapical Disease,Facial swelling
+D03,Dental Pulp and Periapical Disease,Pain on chewing
+D03,Dental Pulp and Periapical Disease,Bad taste/odor
+D03,Dental Pulp and Periapical Disease,Gum swelling
+D04,Dyspepsia (Functional/Uninvestigated),Upper abdominal discomfort/pain
+D04,Dyspepsia (Functional/Uninvestigated),Bloating
+D04,Dyspepsia (Functional/Uninvestigated),Early satiety
+D04,Dyspepsia (Functional/Uninvestigated),Nausea
+D04,Dyspepsia (Functional/Uninvestigated),Belching
+D04,Dyspepsia (Functional/Uninvestigated),Heartburn
+D04,Dyspepsia (Functional/Uninvestigated),Loss of appetite
+D05,Type 2 Diabetes Mellitus,Excessive thirst (polydipsia)
+D05,Type 2 Diabetes Mellitus,Frequent urination (polyuria)
+D05,Type 2 Diabetes Mellitus,Increased hunger (polyphagia)
+D05,Type 2 Diabetes Mellitus,Unexplained weight loss
+D05,Type 2 Diabetes Mellitus,Fatigue
+D05,Type 2 Diabetes Mellitus,Blurred vision
+D05,Type 2 Diabetes Mellitus,Slow-healing wounds
+D05,Type 2 Diabetes Mellitus,Tingling/numbness in feet
+D06,Hypertensive Heart Disease,Shortness of breath on exertion
+D06,Hypertensive Heart Disease,Chest discomfort
+D06,Hypertensive Heart Disease,Palpitations
+D06,Hypertensive Heart Disease,Leg swelling (edema)
+D06,Hypertensive Heart Disease,Fatigue
+D06,Hypertensive Heart Disease,Orthopnea (breathlessness lying flat)
+D06,Hypertensive Heart Disease,Nocturnal cough
+D07,Dyslipidemia,Usually asymptomatic
+D07,Dyslipidemia,Xanthelasma (yellowish eyelid deposits)
+D07,Dyslipidemia,Xanthoma (skin/tendon lipid deposits)
+D07,Dyslipidemia,Occasionally associated with early cardiovascular symptoms
+D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Muscle or joint aches
+D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),"Stiffness, worse in the morning or after rest"
+D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Reduced range of motion
+D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Localized tenderness
+D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Fatigue
+D09,Acute Diarrhea / Gastroenteritis,Frequent loose/watery stools
+D09,Acute Diarrhea / Gastroenteritis,Abdominal cramps
+D09,Acute Diarrhea / Gastroenteritis,Nausea/vomiting
+D09,Acute Diarrhea / Gastroenteritis,Fever
+D09,Acute Diarrhea / Gastroenteritis,Urgency
+D09,Acute Diarrhea / Gastroenteritis,"Signs of dehydration (thirst, dry mouth)"
+D10,HIV Infection,Often asymptomatic in early stage
+D10,HIV Infection,Recurrent fevers
+D10,HIV Infection,Unexplained weight loss
+D10,HIV Infection,Chronic diarrhea
+D10,HIV Infection,Recurrent oral thrush
+D10,HIV Infection,Generalized lymphadenopathy
+D10,HIV Infection,Recurrent skin infections
+D10,HIV Infection,Prolonged fatigue
+D11,Pulmonary Tuberculosis,Cough lasting >2 weeks
+D11,Pulmonary Tuberculosis,Blood-streaked sputum (hemoptysis)
+D11,Pulmonary Tuberculosis,"Low-grade fever, often evening/night"
+D11,Pulmonary Tuberculosis,Night sweats
+D11,Pulmonary Tuberculosis,Unintentional weight loss
+D11,Pulmonary Tuberculosis,Loss of appetite
+D11,Pulmonary Tuberculosis,Chest pain
+D11,Pulmonary Tuberculosis,Fatigue
+D12,Dengue Fever / Dengue Hemorrhagic Fever,Sudden high fever
+D12,Dengue Fever / Dengue Hemorrhagic Fever,Severe headache
+D12,Dengue Fever / Dengue Hemorrhagic Fever,Retro-orbital (behind-eye) pain
+D12,Dengue Fever / Dengue Hemorrhagic Fever,Muscle and joint pain ('breakbone fever')
+D12,Dengue Fever / Dengue Hemorrhagic Fever,Skin rash
+D12,Dengue Fever / Dengue Hemorrhagic Fever,Nausea/vomiting
+D12,Dengue Fever / Dengue Hemorrhagic Fever,Mild bleeding gums or easy bruising
+D13,Typhoid Fever,Prolonged (stepwise rising) fever
+D13,Typhoid Fever,Headache
+D13,Typhoid Fever,Abdominal pain/discomfort
+D13,Typhoid Fever,Constipation or diarrhea
+D13,Typhoid Fever,Loss of appetite
+D13,Typhoid Fever,Malaise
+D13,Typhoid Fever,Coated tongue
+D13,Typhoid Fever,Relative bradycardia
+D14,Bronchial Asthma,Episodic wheezing
+D14,Bronchial Asthma,Shortness of breath
+D14,Bronchial Asthma,Chest tightness
+D14,Bronchial Asthma,Cough (often nocturnal)
+D14,Bronchial Asthma,"Symptoms triggered by exercise, cold air, or allergens"
+D15,Community-Acquired Pneumonia,Cough with sputum
+D15,Community-Acquired Pneumonia,Fever with chills
+D15,Community-Acquired Pneumonia,Shortness of breath
+D15,Community-Acquired Pneumonia,Pleuritic chest pain (worse with breathing)
+D15,Community-Acquired Pneumonia,Fatigue
+D15,Community-Acquired Pneumonia,Fast breathing
+D16,Gastritis / Peptic Ulcer Disease,Burning epigastric pain
+D16,Gastritis / Peptic Ulcer Disease,Pain related to meals (before or after eating)
+D16,Gastritis / Peptic Ulcer Disease,Bloating
+D16,Gastritis / Peptic Ulcer Disease,Nausea
+D16,Gastritis / Peptic Ulcer Disease,Acid regurgitation
+D16,Gastritis / Peptic Ulcer Disease,Early fullness
+D17,Gastroesophageal Reflux Disease (GERD),Heartburn (burning sensation rising to chest/throat)
+D17,Gastroesophageal Reflux Disease (GERD),Acid regurgitation
+D17,Gastroesophageal Reflux Disease (GERD),Sour taste in mouth
+D17,Gastroesophageal Reflux Disease (GERD),Chronic cough or hoarseness
+D17,Gastroesophageal Reflux Disease (GERD),Worse when lying down or after large meals
+D18,Osteoarthritis,Joint pain worse with activity
+D18,Osteoarthritis,Morning stiffness <30 minutes
+D18,Osteoarthritis,Joint swelling
+D18,Osteoarthritis,Crepitus (grinding sensation)
+D18,Osteoarthritis,Reduced range of motion
+D18,Osteoarthritis,Pain relieved by rest
+D19,Gout / Hyperuricemia,Sudden severe joint pain (classically big toe)
+D19,Gout / Hyperuricemia,Redness and swelling of joint
+D19,Gout / Hyperuricemia,Warmth over joint
+D19,Gout / Hyperuricemia,Extreme tenderness (even light touch is painful)
+D19,Gout / Hyperuricemia,Recurrent episodes
+D20,Rheumatoid Arthritis,"Symmetric joint pain and swelling (hands, wrists, feet)"
+D20,Rheumatoid Arthritis,Morning stiffness >1 hour
+D20,Rheumatoid Arthritis,Fatigue
+D20,Rheumatoid Arthritis,Low-grade fever
+D20,Rheumatoid Arthritis,Joint deformity in advanced disease
+D21,Tension-Type Headache / Migraine,Bilateral pressing/tightening head pain (tension type)
+D21,Tension-Type Headache / Migraine,"Unilateral throbbing pain, nausea, light/sound sensitivity (migraine)"
+D21,Tension-Type Headache / Migraine,Neck/shoulder tightness
+D21,Tension-Type Headache / Migraine,Stress-related triggers
+D22,Vertigo (Benign Paroxysmal Positional Vertigo),Sudden spinning sensation triggered by head/position change
+D22,Vertigo (Benign Paroxysmal Positional Vertigo),Brief episodes (seconds to minutes)
+D22,Vertigo (Benign Paroxysmal Positional Vertigo),Nausea/vomiting during episodes
+D22,Vertigo (Benign Paroxysmal Positional Vertigo),Nystagmus (eye movement) during episodes
+D23,Non-specific Low Back Pain,Dull or aching lower back pain
+D23,Non-specific Low Back Pain,Stiffness
+D23,Non-specific Low Back Pain,Pain worse with certain movements/positions
+D23,Non-specific Low Back Pain,Muscle spasm
+D23,Non-specific Low Back Pain,Pain relieved by rest
+D24,Iron Deficiency Anemia,Fatigue/weakness
+D24,Iron Deficiency Anemia,Pale skin/conjunctiva
+D24,Iron Deficiency Anemia,Shortness of breath on exertion
+D24,Iron Deficiency Anemia,Dizziness
+D24,Iron Deficiency Anemia,Palpitations
+D24,Iron Deficiency Anemia,"Brittle nails, hair loss"
+D24,Iron Deficiency Anemia,Pica (craving non-food items like ice or dirt)
+D24,Iron Deficiency Anemia,Reduced concentration
+D25,Chronic Kidney Disease,Often asymptomatic in early stages
+D25,Chronic Kidney Disease,Fatigue
+D25,Chronic Kidney Disease,Swelling of legs/face
+D25,Chronic Kidney Disease,Frothy urine
+D25,Chronic Kidney Disease,Decreased urine output
+D25,Chronic Kidney Disease,Poor appetite
+D25,Chronic Kidney Disease,Nausea
+D25,Chronic Kidney Disease,Itching
+D25,Chronic Kidney Disease,Difficulty sleeping
+D26,Chronic Obstructive Pulmonary Disease (COPD),Chronic productive cough
+D26,Chronic Obstructive Pulmonary Disease (COPD),Progressive breathlessness
+D26,Chronic Obstructive Pulmonary Disease (COPD),Wheezing
+D26,Chronic Obstructive Pulmonary Disease (COPD),Chest tightness
+D26,Chronic Obstructive Pulmonary Disease (COPD),Frequent respiratory infections
+D26,Chronic Obstructive Pulmonary Disease (COPD),Reduced exercise tolerance
+D27,Allergic Rhinitis,Recurrent sneezing
+D27,Allergic Rhinitis,Clear runny nose
+D27,Allergic Rhinitis,Nasal congestion
+D27,Allergic Rhinitis,Itchy nose/eyes/throat
+D27,Allergic Rhinitis,Watery eyes
+D27,Allergic Rhinitis,Post-nasal drip
+D27,Allergic Rhinitis,Symptoms triggered by specific exposures
+D28,Atopic/Contact Dermatitis,Itchy skin (pruritus)
+D28,Atopic/Contact Dermatitis,Redness/erythema
+D28,Atopic/Contact Dermatitis,"Dry, scaly patches"
+D28,Atopic/Contact Dermatitis,Vesicles/oozing in acute phase
+D28,Atopic/Contact Dermatitis,Thickened skin (lichenification) in chronic cases
+D28,Atopic/Contact Dermatitis,Distribution often in flexural areas (atopic) or contact sites
+D29,Scabies,"Intense itching, especially at night"
+D29,Scabies,"Small papules/burrows, often between fingers, wrists, groin"
+D29,Scabies,Excoriation from scratching
+D29,Scabies,Similar symptoms in close contacts/family members
+D30,Tinea (Fungal Skin Infection),"Itchy, ring-shaped rash with central clearing"
+D30,Tinea (Fungal Skin Infection),Scaling/flaking skin
+D30,Tinea (Fungal Skin Infection),Redness at active border
+D30,Tinea (Fungal Skin Infection),Discoloration patches (for pityriasis versicolor)
+D30,Tinea (Fungal Skin Infection),Worse in skin folds/sweaty areas
+D31,Urinary Tract Infection,Burning/pain on urination (dysuria)
+D31,Urinary Tract Infection,Increased urinary frequency
+D31,Urinary Tract Infection,Urgency
+D31,Urinary Tract Infection,Lower abdominal/suprapubic pain
+D31,Urinary Tract Infection,Cloudy or foul-smelling urine
+D31,Urinary Tract Infection,Occasionally blood in urine
+D32,Otitis Media,Ear pain
+D32,Otitis Media,Reduced hearing/sense of fullness
+D32,Otitis Media,Fever
+D32,Otitis Media,Ear discharge (if perforated)
+D32,Otitis Media,"In infants: irritability, ear-pulling, poor feeding"
+D33,Pharyngitis / Tonsillitis,Sore throat
+D33,Pharyngitis / Tonsillitis,Pain on swallowing
+D33,Pharyngitis / Tonsillitis,Fever
+D33,Pharyngitis / Tonsillitis,Swollen/tender neck lymph nodes
+D33,Pharyngitis / Tonsillitis,"Red/swollen tonsils, possibly with white patches"
+D33,Pharyngitis / Tonsillitis,Bad breath
+D34,Conjunctivitis,Red eye(s)
+D34,Conjunctivitis,"Discharge (watery, mucoid, or purulent)"
+D34,Conjunctivitis,Itching or gritty sensation
+D34,Conjunctivitis,Eyelids stuck together on waking (bacterial)
+D34,Conjunctivitis,Mild light sensitivity
+D35,Malaria,Cyclical high fever with chills/rigors
+D35,Malaria,Sweating after fever breaks
+D35,Malaria,Headache
+D35,Malaria,Muscle aches
+D35,Malaria,Fatigue
+D35,Malaria,Nausea/vomiting
+D36,Chikungunya Fever,Sudden high fever
+D36,Chikungunya Fever,"Severe joint pain (often symmetric, hands/feet/knees)"
+D36,Chikungunya Fever,Joint swelling
+D36,Chikungunya Fever,Muscle pain
+D36,Chikungunya Fever,Rash
+D36,Chikungunya Fever,Headache
+D36,Chikungunya Fever,Fatigue that can persist for weeks
+D37,Intestinal Worm Infestation (Helminthiasis),Abdominal pain
+D37,Intestinal Worm Infestation (Helminthiasis),Bloating
+D37,Intestinal Worm Infestation (Helminthiasis),Poor appetite
+D37,Intestinal Worm Infestation (Helminthiasis),Weight loss/poor growth in children
+D37,Intestinal Worm Infestation (Helminthiasis),"Itchy anus (especially pinworm, worse at night)"
+D37,Intestinal Worm Infestation (Helminthiasis),Visible worms in stool
+D37,Intestinal Worm Infestation (Helminthiasis),Fatigue/pallor (from blood loss with hookworm)
+D38,Leptospirosis,Sudden fever with chills
+D38,Leptospirosis,Severe headache
+D38,Leptospirosis,Muscle pain (especially calves)
+D38,Leptospirosis,Red eyes (conjunctival suffusion)
+D38,Leptospirosis,Nausea/vomiting
+D38,Leptospirosis,Occasionally jaundice or rash
+D39,Hepatitis A,Fatigue
+D39,Hepatitis A,Nausea/vomiting
+D39,Hepatitis A,Loss of appetite
+D39,Hepatitis A,Low-grade fever
+D39,Hepatitis A,Abdominal discomfort (right upper quadrant)
+D39,Hepatitis A,Jaundice (yellowing of skin/eyes)
+D39,Hepatitis A,Dark urine
+D39,Hepatitis A,Pale stools
+D40,Post-Stroke Follow-up / Chronic Sequelae,Residual weakness (hemiparesis)
+D40,Post-Stroke Follow-up / Chronic Sequelae,Speech difficulty
+D40,Post-Stroke Follow-up / Chronic Sequelae,Difficulty swallowing
+D40,Post-Stroke Follow-up / Chronic Sequelae,Cognitive/memory changes
+D40,Post-Stroke Follow-up / Chronic Sequelae,Mood changes (post-stroke depression)
+D40,Post-Stroke Follow-up / Chronic Sequelae,Spasticity
+D40,Post-Stroke Follow-up / Chronic Sequelae,Balance/gait difficulty

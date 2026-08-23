@@ -1,0 +1,2204 @@
+{
+  "database_name": "OPD Java Indonesia - Pre-Round History Taking Question Bank",
+  "version": "1.0",
+  "disease_count": 40,
+  "diseases": [
+    {
+      "id": "D01",
+      "name_en": "Acute Upper Respiratory Tract Infection (Common Cold)",
+      "name_id": "Infeksi Saluran Pernapasan Atas Akut (ISPA)/Common Cold",
+      "icd10": "J06.9",
+      "category": "Respiratory",
+      "context_note": "Consistently the #1 or #2 outpatient diagnosis at Puskesmas across Java (Jakarta, Central & West Java data); driven by crowding, poor ventilation, tropical climate/pollution.",
+      "symptoms": [
+        "Runny/blocked nose",
+        "Sore throat",
+        "Cough",
+        "Sneezing",
+        "Mild fever",
+        "Malaise",
+        "Headache"
+      ],
+      "red_flags": [
+        "Difficulty breathing/respiratory distress",
+        "High fever >39C beyond 3 days",
+        "Stridor or drooling in a child",
+        "Symptoms persisting >10 days without improvement"
+      ],
+      "questions": [
+        {
+          "q": "When did the symptoms start, and did they come on suddenly or gradually?",
+          "purpose": "Establish onset/acuity"
+        },
+        {
+          "q": "Is the nasal discharge clear/watery or thick and colored (yellow/green)?",
+          "purpose": "Distinguish viral vs possible secondary bacterial infection"
+        },
+        {
+          "q": "Do you have a fever? If yes, how high and for how long?",
+          "purpose": "Assess severity, rule out complications"
+        },
+        {
+          "q": "Is there any shortness of breath, chest pain, or wheezing?",
+          "purpose": "Screen for lower respiratory involvement (pneumonia, asthma)"
+        },
+        {
+          "q": "Do you have ear pain or reduced hearing?",
+          "purpose": "Screen for otitis media as a complication"
+        },
+        {
+          "q": "Have you been in contact with anyone with similar symptoms recently?",
+          "purpose": "Assess exposure/transmission pattern"
+        },
+        {
+          "q": "Do you smoke, or is anyone in your household a smoker?",
+          "purpose": "Identify irritant exposure and risk of prolonged symptoms"
+        },
+        {
+          "q": "Do you have any chronic lung disease, heart disease, or immune-suppressing condition?",
+          "purpose": "Identify risk factors for complications"
+        },
+        {
+          "q": "Have you tried any medication already? Did it help?",
+          "purpose": "Guide further management, avoid duplicate therapy"
+        }
+      ]
+    },
+    {
+      "id": "D02",
+      "name_en": "Essential (Primary) Hypertension",
+      "name_id": "Hipertensi Esensial (Primer)",
+      "icd10": "I10",
+      "category": "Cardiovascular",
+      "context_note": "Among the top 3 outpatient diagnoses in Jakarta puskesmas (283,000+ visits in 2024); a major NCD burden across Java.",
+      "symptoms": [
+        "Often asymptomatic (found on screening)",
+        "Headache (esp. occipital)",
+        "Dizziness",
+        "Blurred vision",
+        "Palpitations",
+        "Nape/neck stiffness ('tengeng')",
+        "Fatigue"
+      ],
+      "red_flags": [
+        "Severe headache with BP >180/120",
+        "Chest pain",
+        "Shortness of breath",
+        "Visual disturbance or confusion",
+        "Focal neurological deficit"
+      ],
+      "questions": [
+        {
+          "q": "Have you ever been told you have high blood pressure before? When was it diagnosed?",
+          "purpose": "Establish known vs new diagnosis"
+        },
+        {
+          "q": "Are you currently taking any blood pressure medication? Do you take it regularly?",
+          "purpose": "Assess adherence and control"
+        },
+        {
+          "q": "Do you have headaches, dizziness, or blurred vision?",
+          "purpose": "Screen for hypertensive symptoms/urgency"
+        },
+        {
+          "q": "Do you experience chest pain, palpitations, or shortness of breath, especially on exertion?",
+          "purpose": "Screen for hypertensive heart disease"
+        },
+        {
+          "q": "Do you have a family history of hypertension, stroke, or heart disease?",
+          "purpose": "Assess genetic/familial risk"
+        },
+        {
+          "q": "How much salty food do you typically eat, and do you smoke or drink alcohol?",
+          "purpose": "Identify modifiable lifestyle risk factors"
+        },
+        {
+          "q": "Do you have diabetes, high cholesterol, or kidney disease?",
+          "purpose": "Assess comorbidities/cardiovascular risk"
+        },
+        {
+          "q": "Have you had any swelling in your legs or changes in how much you urinate?",
+          "purpose": "Screen for heart failure or renal involvement"
+        },
+        {
+          "q": "Do you check your blood pressure at home? What are typical readings?",
+          "purpose": "Assess control and monitoring habits"
+        }
+      ]
+    },
+    {
+      "id": "D03",
+      "name_en": "Dental Pulp and Periapical Disease",
+      "name_id": "Penyakit Pulpa dan Jaringan Periapikal",
+      "icd10": "K04",
+      "category": "Dental/Oral",
+      "context_note": "Ranked top 3 outpatient diagnosis in Jakarta puskesmas 2024 (202,882 visits); reflects poor oral hygiene access.",
+      "symptoms": [
+        "Toothache",
+        "Sensitivity to hot/cold",
+        "Facial swelling",
+        "Pain on chewing",
+        "Bad taste/odor",
+        "Gum swelling"
+      ],
+      "red_flags": [
+        "Facial swelling spreading to eye/neck (risk of cellulitis)",
+        "Fever with dental pain",
+        "Difficulty swallowing or opening mouth (trismus)"
+      ],
+      "questions": [
+        {
+          "q": "Which tooth or area is painful, and how long has the pain been present?",
+          "purpose": "Localize and establish duration"
+        },
+        {
+          "q": "Is the pain constant or does it come and go? Is it worse with hot, cold, or sweet food?",
+          "purpose": "Differentiate reversible vs irreversible pulpitis"
+        },
+        {
+          "q": "Does the pain wake you up at night or get worse when lying down?",
+          "purpose": "Suggests irreversible pulpitis/abscess"
+        },
+        {
+          "q": "Is there any swelling of the face or gums?",
+          "purpose": "Assess for spreading infection/abscess"
+        },
+        {
+          "q": "Do you have a fever or feel generally unwell?",
+          "purpose": "Screen for systemic spread of infection"
+        },
+        {
+          "q": "Have you had any recent dental treatment or trauma to the tooth?",
+          "purpose": "Identify precipitating cause"
+        },
+        {
+          "q": "Do you have difficulty opening your mouth or swallowing?",
+          "purpose": "Screen for deep space infection (emergency)"
+        }
+      ]
+    },
+    {
+      "id": "D04",
+      "name_en": "Dyspepsia (Functional/Uninvestigated)",
+      "name_id": "Dispepsia",
+      "icd10": "K30",
+      "category": "Gastrointestinal",
+      "context_note": "One of the top outpatient complaints across Java puskesmas ('sakit maag'); linked to irregular meals, spicy food, stress, H. pylori prevalence.",
+      "symptoms": [
+        "Upper abdominal discomfort/pain",
+        "Bloating",
+        "Early satiety",
+        "Nausea",
+        "Belching",
+        "Heartburn",
+        "Loss of appetite"
+      ],
+      "red_flags": [
+        "Unintentional weight loss",
+        "Vomiting blood or black stool (melena)",
+        "Difficulty/pain swallowing (dysphagia)",
+        "Age >45 with new-onset symptoms",
+        "Palpable abdominal mass",
+        "Persistent vomiting"
+      ],
+      "questions": [
+        {
+          "q": "Where exactly is the discomfort, and does it relate to eating (before, during, or after meals)?",
+          "purpose": "Localize and characterize meal relationship"
+        },
+        {
+          "q": "How long have you had these symptoms, and are they constant or intermittent?",
+          "purpose": "Establish chronicity"
+        },
+        {
+          "q": "Have you noticed any weight loss, difficulty swallowing, or vomiting blood/black stools?",
+          "purpose": "Screen for alarm features requiring urgent referral/endoscopy"
+        },
+        {
+          "q": "Do you regularly take NSAIDs, aspirin, steroids, or herbal/jamu preparations?",
+          "purpose": "Identify gastric mucosal irritants"
+        },
+        {
+          "q": "How would you describe your eating pattern - do you often skip meals, eat late, or eat spicy/fatty food?",
+          "purpose": "Identify contributing lifestyle factors"
+        },
+        {
+          "q": "Do you smoke or drink coffee/alcohol regularly?",
+          "purpose": "Identify additional gastric irritant exposure"
+        },
+        {
+          "q": "Is the pain related to stress or does it improve with antacids?",
+          "purpose": "Support functional dyspepsia vs organic cause"
+        },
+        {
+          "q": "Do you have a family history of stomach cancer or peptic ulcer disease?",
+          "purpose": "Assess risk stratification"
+        }
+      ]
+    },
+    {
+      "id": "D05",
+      "name_en": "Type 2 Diabetes Mellitus",
+      "name_id": "Diabetes Melitus Tipe 2",
+      "icd10": "E11",
+      "category": "Endocrine/Metabolic",
+      "context_note": "Top 5 outpatient diagnosis in Jakarta puskesmas (188,000+ visits, 2024); rising prevalence across urban and rural Java.",
+      "symptoms": [
+        "Excessive thirst (polydipsia)",
+        "Frequent urination (polyuria)",
+        "Increased hunger (polyphagia)",
+        "Unexplained weight loss",
+        "Fatigue",
+        "Blurred vision",
+        "Slow-healing wounds",
+        "Tingling/numbness in feet"
+      ],
+      "red_flags": [
+        "Confusion or altered consciousness (possible DKA/HHS)",
+        "Very high or very low glucose with symptoms",
+        "Non-healing foot ulcer with signs of infection",
+        "Rapid unexplained weight loss with vomiting"
+      ],
+      "questions": [
+        {
+          "q": "Have you been diagnosed with diabetes before? If so, when, and what treatment are you on?",
+          "purpose": "Establish known vs new diagnosis"
+        },
+        {
+          "q": "Do you experience excessive thirst, frequent urination, or unexplained weight loss?",
+          "purpose": "Classic hyperglycemia symptoms"
+        },
+        {
+          "q": "Do you check your blood sugar at home? What are your recent readings?",
+          "purpose": "Assess current control"
+        },
+        {
+          "q": "Do you have numbness, tingling, or pain in your feet, or any wounds that are slow to heal?",
+          "purpose": "Screen for diabetic neuropathy/foot complications"
+        },
+        {
+          "q": "Have you had any changes in your vision recently?",
+          "purpose": "Screen for diabetic retinopathy"
+        },
+        {
+          "q": "Do you have a family history of diabetes?",
+          "purpose": "Assess genetic risk"
+        },
+        {
+          "q": "What does your diet typically look like, and how physically active are you?",
+          "purpose": "Assess lifestyle contributors, guide counseling"
+        },
+        {
+          "q": "Do you have high blood pressure, high cholesterol, or any history of heart or kidney problems?",
+          "purpose": "Assess associated cardiometabolic risk"
+        },
+        {
+          "q": "Are you taking your medications regularly, and have you had any episodes of very low blood sugar (shakiness, sweating, confusion)?",
+          "purpose": "Assess adherence and hypoglycemia risk"
+        }
+      ]
+    },
+    {
+      "id": "D06",
+      "name_en": "Hypertensive Heart Disease",
+      "name_id": "Penyakit Jantung Hipertensi",
+      "icd10": "I11",
+      "category": "Cardiovascular",
+      "context_note": "Top 6 outpatient diagnosis in Jakarta puskesmas 2024 (108,167 visits); complication of poorly controlled chronic hypertension.",
+      "symptoms": [
+        "Shortness of breath on exertion",
+        "Chest discomfort",
+        "Palpitations",
+        "Leg swelling (edema)",
+        "Fatigue",
+        "Orthopnea (breathlessness lying flat)",
+        "Nocturnal cough"
+      ],
+      "red_flags": [
+        "Severe breathlessness at rest",
+        "Chest pain suggestive of acute coronary syndrome",
+        "Coughing pink/frothy sputum (pulmonary edema)",
+        "Syncope"
+      ],
+      "questions": [
+        {
+          "q": "How long have you had high blood pressure, and has it been well controlled?",
+          "purpose": "Establish chronicity and control history"
+        },
+        {
+          "q": "Do you get short of breath with activity, or when lying flat at night?",
+          "purpose": "Screen for heart failure symptoms"
+        },
+        {
+          "q": "Have you noticed swelling in your legs or ankles?",
+          "purpose": "Screen for fluid overload/right heart strain"
+        },
+        {
+          "q": "Do you have chest pain or tightness, and does it relate to exertion?",
+          "purpose": "Screen for concurrent ischemic heart disease"
+        },
+        {
+          "q": "Do you wake up at night gasping for breath or needing extra pillows to sleep?",
+          "purpose": "Assess for paroxysmal nocturnal dyspnea/orthopnea"
+        },
+        {
+          "q": "Are you taking your antihypertensive medications as prescribed?",
+          "purpose": "Assess adherence"
+        },
+        {
+          "q": "Do you have diabetes, high cholesterol, or a history of kidney disease?",
+          "purpose": "Assess overall cardiovascular risk profile"
+        },
+        {
+          "q": "Have you had any palpitations or episodes of dizziness/fainting?",
+          "purpose": "Screen for arrhythmia"
+        }
+      ]
+    },
+    {
+      "id": "D07",
+      "name_en": "Dyslipidemia",
+      "name_id": "Dislipidemia",
+      "icd10": "E78",
+      "category": "Endocrine/Metabolic",
+      "context_note": "Top 7 outpatient diagnosis in Jakarta puskesmas 2024; usually detected on routine screening rather than symptoms.",
+      "symptoms": [
+        "Usually asymptomatic",
+        "Xanthelasma (yellowish eyelid deposits)",
+        "Xanthoma (skin/tendon lipid deposits)",
+        "Occasionally associated with early cardiovascular symptoms"
+      ],
+      "red_flags": [
+        "Chest pain (possible underlying ischemic disease)",
+        "Calf pain with walking (peripheral artery disease)",
+        "Very high triglycerides with abdominal pain (pancreatitis risk)"
+      ],
+      "questions": [
+        {
+          "q": "Have you ever had a cholesterol test done? What were the results?",
+          "purpose": "Establish baseline/diagnosis"
+        },
+        {
+          "q": "Do you have a family history of high cholesterol, early heart attack, or stroke?",
+          "purpose": "Assess familial hyperlipidemia risk"
+        },
+        {
+          "q": "What does your typical diet look like - fried foods, fatty meats, coconut milk (santan)?",
+          "purpose": "Identify dietary contributors common in Javanese cuisine"
+        },
+        {
+          "q": "Do you exercise regularly?",
+          "purpose": "Assess modifiable lifestyle factor"
+        },
+        {
+          "q": "Do you have diabetes, hypertension, or thyroid problems?",
+          "purpose": "Identify secondary causes/associated conditions"
+        },
+        {
+          "q": "Are you currently taking any cholesterol-lowering medication? Any muscle pain since starting it?",
+          "purpose": "Assess treatment and statin side effects"
+        },
+        {
+          "q": "Do you smoke or drink alcohol?",
+          "purpose": "Assess additional cardiovascular risk factors"
+        }
+      ]
+    },
+    {
+      "id": "D08",
+      "name_en": "Myalgia / Non-specific Soft Tissue Pain ('Rematik')",
+      "name_id": "Nyeri Otot/Jaringan Lunak (Rematik)",
+      "icd10": "M79.1",
+      "category": "Musculoskeletal",
+      "context_note": "Frequently reported as 'nyeri sendi/rematik' - among the most common OPD diagnoses at rural Java puskesmas (e.g., top diagnosis at Puskesmas Gabus II 2023).",
+      "symptoms": [
+        "Muscle or joint aches",
+        "Stiffness, worse in the morning or after rest",
+        "Reduced range of motion",
+        "Localized tenderness",
+        "Fatigue"
+      ],
+      "red_flags": [
+        "Joint swelling with redness and warmth (possible septic arthritis/gout flare)",
+        "Fever with joint pain",
+        "Symmetric small joint swelling (possible rheumatoid arthritis)",
+        "Sudden severe monoarticular pain (gout/infection)"
+      ],
+      "questions": [
+        {
+          "q": "Which muscles or joints are affected, and is it one-sided or both sides?",
+          "purpose": "Localize and assess symmetry"
+        },
+        {
+          "q": "How long have you had this pain, and did it start suddenly or gradually?",
+          "purpose": "Establish onset/chronicity"
+        },
+        {
+          "q": "Is there any swelling, redness, or warmth over the joint?",
+          "purpose": "Screen for inflammatory or infectious arthritis"
+        },
+        {
+          "q": "Is the stiffness worse in the morning, and how long does it last?",
+          "purpose": "Differentiate inflammatory vs mechanical cause"
+        },
+        {
+          "q": "Does activity make it better or worse?",
+          "purpose": "Differentiate mechanical (worse with use) vs inflammatory (better with use)"
+        },
+        {
+          "q": "Have you had any recent injury, unusual physical activity, or repetitive strain?",
+          "purpose": "Identify precipitating trauma/overuse"
+        },
+        {
+          "q": "Do you have fever, weight loss, or fatigue along with the pain?",
+          "purpose": "Screen for systemic inflammatory/infectious cause"
+        },
+        {
+          "q": "Do you have a history of gout, high uric acid, or similar episodes before?",
+          "purpose": "Assess for recurrent gout"
+        }
+      ]
+    },
+    {
+      "id": "D09",
+      "name_en": "Acute Diarrhea / Gastroenteritis",
+      "name_id": "Diare Akut / Gastroenteritis",
+      "icd10": "A09",
+      "category": "Gastrointestinal/Infectious",
+      "context_note": "Consistently in the top 10 across Jakarta and rural Java puskesmas; linked to food/water sanitation.",
+      "symptoms": [
+        "Frequent loose/watery stools",
+        "Abdominal cramps",
+        "Nausea/vomiting",
+        "Fever",
+        "Urgency",
+        "Signs of dehydration (thirst, dry mouth)"
+      ],
+      "red_flags": [
+        "Signs of severe dehydration (sunken eyes, lethargy, no urine output, very dry mouth)",
+        "Blood or mucus in stool (dysentery)",
+        "High fever with severe abdominal pain",
+        "Diarrhea >14 days (chronic)",
+        "Infant/elderly with diarrhea"
+      ],
+      "questions": [
+        {
+          "q": "How many times a day are you passing loose stools, and since when?",
+          "purpose": "Quantify severity and duration"
+        },
+        {
+          "q": "Is there any blood or mucus in the stool?",
+          "purpose": "Screen for dysentery/invasive infection"
+        },
+        {
+          "q": "Do you have fever, vomiting, or abdominal cramping?",
+          "purpose": "Assess associated symptoms and severity"
+        },
+        {
+          "q": "Have you eaten any food or water from a questionable source recently, or eaten out?",
+          "purpose": "Identify likely source/exposure"
+        },
+        {
+          "q": "Are you able to keep fluids down, and how much are you urinating?",
+          "purpose": "Assess hydration status"
+        },
+        {
+          "q": "Is anyone else at home or nearby with similar symptoms?",
+          "purpose": "Assess for outbreak/common source"
+        },
+        {
+          "q": "Have you traveled recently or taken any antibiotics recently?",
+          "purpose": "Identify travel-related or antibiotic-associated causes"
+        },
+        {
+          "q": "Do you feel dizzy when standing, or notice a very dry mouth?",
+          "purpose": "Screen for dehydration"
+        }
+      ]
+    },
+    {
+      "id": "D10",
+      "name_en": "HIV Infection",
+      "name_id": "Infeksi HIV",
+      "icd10": "B20-B24",
+      "category": "Infectious",
+      "context_note": "Listed among Jakarta's top-10 outpatient puskesmas diagnoses (2024); urban Java has established ART programs.",
+      "symptoms": [
+        "Often asymptomatic in early stage",
+        "Recurrent fevers",
+        "Unexplained weight loss",
+        "Chronic diarrhea",
+        "Recurrent oral thrush",
+        "Generalized lymphadenopathy",
+        "Recurrent skin infections",
+        "Prolonged fatigue"
+      ],
+      "red_flags": [
+        "Signs of opportunistic infection (severe cough, neurological symptoms, severe thrush)",
+        "Rapid unexplained weight loss",
+        "CD4-related emergency symptoms (confusion, severe headache)"
+      ],
+      "questions": [
+        {
+          "q": "Have you been tested for HIV before? What was the result and when?",
+          "purpose": "Establish diagnostic history"
+        },
+        {
+          "q": "Have you had any risk exposures - unprotected sex, shared needles, blood transfusion?",
+          "purpose": "Assess risk factors (asked with sensitivity and confidentiality)"
+        },
+        {
+          "q": "Have you had recurrent fevers, weight loss, or night sweats?",
+          "purpose": "Screen for constitutional symptoms of HIV progression"
+        },
+        {
+          "q": "Have you noticed white patches in your mouth or frequent skin infections?",
+          "purpose": "Screen for opportunistic infection signs"
+        },
+        {
+          "q": "Are you currently on antiretroviral therapy (ART)? Are you taking it consistently?",
+          "purpose": "Assess treatment status and adherence"
+        },
+        {
+          "q": "Have you had any cough lasting more than 2 weeks?",
+          "purpose": "Screen for TB co-infection, common in Indonesia"
+        },
+        {
+          "q": "Do you have a partner or family member who is HIV positive?",
+          "purpose": "Assess household/partner context and need for partner testing"
+        }
+      ]
+    },
+    {
+      "id": "D11",
+      "name_en": "Pulmonary Tuberculosis",
+      "name_id": "Tuberkulosis Paru (TB Paru)",
+      "icd10": "A15",
+      "category": "Infectious/Respiratory",
+      "context_note": "Indonesia has one of the world's highest TB burdens; consistently appears in top-10 puskesmas diagnoses across Java (rural and urban).",
+      "symptoms": [
+        "Cough lasting >2 weeks",
+        "Blood-streaked sputum (hemoptysis)",
+        "Low-grade fever, often evening/night",
+        "Night sweats",
+        "Unintentional weight loss",
+        "Loss of appetite",
+        "Chest pain",
+        "Fatigue"
+      ],
+      "red_flags": [
+        "Significant hemoptysis",
+        "Severe breathlessness",
+        "Signs of disseminated/miliary TB (very unwell, altered consciousness)",
+        "Known HIV-positive with TB symptoms (urgent workup)"
+      ],
+      "questions": [
+        {
+          "q": "How long have you had a cough, and has it changed in character?",
+          "purpose": "Screen duration - >2 weeks triggers TB workup per national guidelines"
+        },
+        {
+          "q": "Have you coughed up blood or blood-streaked sputum?",
+          "purpose": "Assess for hemoptysis, a red flag"
+        },
+        {
+          "q": "Do you have fevers, especially at night, or night sweats?",
+          "purpose": "Classic constitutional TB symptoms"
+        },
+        {
+          "q": "Have you lost weight recently without trying?",
+          "purpose": "Assess constitutional symptom burden"
+        },
+        {
+          "q": "Have you been in close contact with anyone diagnosed with TB?",
+          "purpose": "Assess exposure history"
+        },
+        {
+          "q": "Have you ever been treated for TB before? Did you complete the full course?",
+          "purpose": "Screen for relapse or drug-resistant TB risk"
+        },
+        {
+          "q": "Do you know your HIV status?",
+          "purpose": "Assess co-infection risk, affects management urgency"
+        },
+        {
+          "q": "Do you live in a crowded household, or work/live in close quarters with others?",
+          "purpose": "Assess transmission risk environment"
+        },
+        {
+          "q": "Have you had chest pain or shortness of breath?",
+          "purpose": "Assess pulmonary involvement severity"
+        }
+      ]
+    },
+    {
+      "id": "D12",
+      "name_en": "Dengue Fever / Dengue Hemorrhagic Fever",
+      "name_id": "Demam Dengue / Demam Berdarah Dengue (DBD)",
+      "icd10": "A90 / A91",
+      "category": "Infectious",
+      "context_note": "Java experiences seasonal dengue outbreaks (rainy season); a frequent cause of acute febrile OPD presentation.",
+      "symptoms": [
+        "Sudden high fever",
+        "Severe headache",
+        "Retro-orbital (behind-eye) pain",
+        "Muscle and joint pain ('breakbone fever')",
+        "Skin rash",
+        "Nausea/vomiting",
+        "Mild bleeding gums or easy bruising"
+      ],
+      "red_flags": [
+        "Severe abdominal pain",
+        "Persistent vomiting",
+        "Bleeding (gums, nose, black stool, heavy menstrual bleeding)",
+        "Lethargy/restlessness",
+        "Cold clammy skin, rapid weak pulse (shock)",
+        "Fever defervescence with clinical worsening (critical phase)"
+      ],
+      "questions": [
+        {
+          "q": "When did the fever start, and has it been continuous or come and go?",
+          "purpose": "Establish day of illness - critical for dengue phase assessment"
+        },
+        {
+          "q": "Do you have severe headache, pain behind the eyes, or muscle/joint pain?",
+          "purpose": "Classic dengue symptom triad"
+        },
+        {
+          "q": "Have you noticed any rash, bleeding gums, nosebleeds, or unusual bruising?",
+          "purpose": "Screen for warning signs of bleeding tendency"
+        },
+        {
+          "q": "Have you had persistent vomiting or severe abdominal pain?",
+          "purpose": "WHO warning sign for progression to severe dengue"
+        },
+        {
+          "q": "Has your fever suddenly gone down, and if so, how are you feeling now?",
+          "purpose": "Assess for critical phase, when plasma leakage risk is highest"
+        },
+        {
+          "q": "Has anyone in your neighborhood or household recently had dengue?",
+          "purpose": "Assess local outbreak exposure"
+        },
+        {
+          "q": "How much are you able to drink, and how often are you urinating?",
+          "purpose": "Assess hydration and early shock signs"
+        },
+        {
+          "q": "Have you had dengue before?",
+          "purpose": "Prior infection raises risk of more severe secondary dengue"
+        }
+      ]
+    },
+    {
+      "id": "D13",
+      "name_en": "Typhoid Fever",
+      "name_id": "Demam Tifoid",
+      "icd10": "A01.0",
+      "category": "Infectious",
+      "context_note": "Endemic in Indonesia, especially Java, linked to contaminated food/water; frequent cause of prolonged fever in OPD.",
+      "symptoms": [
+        "Prolonged (stepwise rising) fever",
+        "Headache",
+        "Abdominal pain/discomfort",
+        "Constipation or diarrhea",
+        "Loss of appetite",
+        "Malaise",
+        "Coated tongue",
+        "Relative bradycardia"
+      ],
+      "red_flags": [
+        "Severe abdominal pain with rigidity (possible perforation)",
+        "GI bleeding",
+        "Altered mental status",
+        "Persistent high fever >7 days unresponsive to treatment"
+      ],
+      "questions": [
+        {
+          "q": "How long have you had fever, and does it tend to rise through the day/week?",
+          "purpose": "Typhoid classically shows a stepwise fever pattern over days"
+        },
+        {
+          "q": "Do you have abdominal pain, constipation, or diarrhea?",
+          "purpose": "Assess GI involvement"
+        },
+        {
+          "q": "Have you eaten food from street vendors or unclean water sources recently?",
+          "purpose": "Identify likely exposure source"
+        },
+        {
+          "q": "Do you have a headache, loss of appetite, or generally feel very unwell?",
+          "purpose": "Assess constitutional symptom severity"
+        },
+        {
+          "q": "Has anyone around you had a similar prolonged fever recently?",
+          "purpose": "Assess for common-source outbreak"
+        },
+        {
+          "q": "Have you taken any antibiotics already for this illness?",
+          "purpose": "Assess partial treatment, may affect test results and choice of therapy"
+        },
+        {
+          "q": "Have you had typhoid fever before?",
+          "purpose": "Assess for relapse or chronic carrier state"
+        },
+        {
+          "q": "Do you have severe abdominal pain or notice blood in your stool?",
+          "purpose": "Screen for intestinal perforation/bleeding - a surgical emergency"
+        }
+      ]
+    },
+    {
+      "id": "D14",
+      "name_en": "Bronchial Asthma",
+      "name_id": "Asma Bronkial",
+      "icd10": "J45",
+      "category": "Respiratory",
+      "context_note": "Common chronic respiratory OPD presentation, aggravated by Java's air pollution, dust, and humidity/mold triggers.",
+      "symptoms": [
+        "Episodic wheezing",
+        "Shortness of breath",
+        "Chest tightness",
+        "Cough (often nocturnal)",
+        "Symptoms triggered by exercise, cold air, or allergens"
+      ],
+      "red_flags": [
+        "Inability to speak full sentences",
+        "Use of accessory muscles/severe distress",
+        "Cyanosis (bluish lips)",
+        "Silent chest on auscultation",
+        "Peak flow severely reduced"
+      ],
+      "questions": [
+        {
+          "q": "How often do you experience wheezing, breathlessness, or chest tightness?",
+          "purpose": "Assess symptom frequency for control classification"
+        },
+        {
+          "q": "Do symptoms wake you up at night, and how often?",
+          "purpose": "Nocturnal symptoms indicate poor control"
+        },
+        {
+          "q": "What triggers your symptoms - exercise, cold air, dust, smoke, or specific allergens?",
+          "purpose": "Identify triggers for avoidance counseling"
+        },
+        {
+          "q": "Do you or does anyone in your family have a history of asthma, eczema, or allergies?",
+          "purpose": "Assess atopic predisposition"
+        },
+        {
+          "q": "Are you currently using any inhalers? How often, and do you use a reliever or controller inhaler?",
+          "purpose": "Assess current management and technique needs"
+        },
+        {
+          "q": "How many times have you needed emergency treatment or hospitalization for breathing problems?",
+          "purpose": "Assess severity and prior exacerbation history"
+        },
+        {
+          "q": "Does your breathlessness limit your daily activities or work?",
+          "purpose": "Assess functional impact/control"
+        },
+        {
+          "q": "Do you smoke, or are you exposed to smoke/biomass fuel at home?",
+          "purpose": "Identify aggravating exposures"
+        }
+      ]
+    },
+    {
+      "id": "D15",
+      "name_en": "Community-Acquired Pneumonia",
+      "name_id": "Pneumonia Komunitas",
+      "icd10": "J18",
+      "category": "Respiratory/Infectious",
+      "context_note": "A leading cause of respiratory OPD/ER presentation and hospitalization risk, especially in young children and elderly in Java.",
+      "symptoms": [
+        "Cough with sputum",
+        "Fever with chills",
+        "Shortness of breath",
+        "Pleuritic chest pain (worse with breathing)",
+        "Fatigue",
+        "Fast breathing"
+      ],
+      "red_flags": [
+        "Severe respiratory distress",
+        "Confusion",
+        "Low blood pressure",
+        "Oxygen saturation low/cyanosis",
+        "Very young or elderly with high fever and rapid breathing"
+      ],
+      "questions": [
+        {
+          "q": "How long have you had cough and fever, and is the cough productive?",
+          "purpose": "Establish onset and character"
+        },
+        {
+          "q": "What color is the sputum, and have you coughed up any blood?",
+          "purpose": "Assess for bacterial infection or complications"
+        },
+        {
+          "q": "Do you have chest pain that worsens with breathing or coughing?",
+          "purpose": "Screen for pleuritic involvement"
+        },
+        {
+          "q": "Are you breathing faster than usual, or feeling short of breath at rest?",
+          "purpose": "Assess severity/respiratory compromise"
+        },
+        {
+          "q": "Do you have any chronic lung disease, heart disease, diabetes, or are you elderly/very young?",
+          "purpose": "Identify risk factors for severe disease"
+        },
+        {
+          "q": "Have you felt confused, extremely weak, or unable to carry out normal activities?",
+          "purpose": "Screen for severity markers requiring hospitalization"
+        },
+        {
+          "q": "Have you had a flu or COVID-like illness recently before these symptoms started?",
+          "purpose": "Identify possible viral precursor/co-infection"
+        }
+      ]
+    },
+    {
+      "id": "D16",
+      "name_en": "Gastritis / Peptic Ulcer Disease",
+      "name_id": "Gastritis / Tukak Lambung",
+      "icd10": "K29",
+      "category": "Gastrointestinal",
+      "context_note": "Extremely common OPD complaint across Java puskesmas ('maag'/'sakit lambung'), often overlapping with dyspepsia.",
+      "symptoms": [
+        "Burning epigastric pain",
+        "Pain related to meals (before or after eating)",
+        "Bloating",
+        "Nausea",
+        "Acid regurgitation",
+        "Early fullness"
+      ],
+      "red_flags": [
+        "Vomiting blood or coffee-ground vomitus",
+        "Black tarry stools (melena)",
+        "Severe sudden abdominal pain (possible perforation)",
+        "Significant unintentional weight loss"
+      ],
+      "questions": [
+        {
+          "q": "Where is the pain located, and does eating make it better or worse?",
+          "purpose": "Differentiate gastric vs duodenal ulcer pattern"
+        },
+        {
+          "q": "How long have you had this pain, and is it a new problem or recurring?",
+          "purpose": "Assess chronicity"
+        },
+        {
+          "q": "Do you take NSAIDs (like ibuprofen), aspirin, or steroids regularly?",
+          "purpose": "Identify mucosal irritant use, major risk factor"
+        },
+        {
+          "q": "Have you vomited blood, or noticed black/tarry stools?",
+          "purpose": "Screen for GI bleeding - red flag"
+        },
+        {
+          "q": "Do you smoke or drink alcohol or coffee frequently?",
+          "purpose": "Identify contributing irritants"
+        },
+        {
+          "q": "Have you been diagnosed with H. pylori infection before, or has anyone in your family had stomach ulcers or stomach cancer?",
+          "purpose": "Assess infectious/familial risk"
+        },
+        {
+          "q": "Have you lost weight unintentionally or had difficulty swallowing?",
+          "purpose": "Screen for alarm features requiring endoscopy referral"
+        }
+      ]
+    },
+    {
+      "id": "D17",
+      "name_en": "Gastroesophageal Reflux Disease (GERD)",
+      "name_id": "Penyakit Refluks Gastroesofageal (GERD)",
+      "icd10": "K21",
+      "category": "Gastrointestinal",
+      "context_note": "Common complaint related to diet (spicy/fatty food), obesity trends, and late-night eating habits.",
+      "symptoms": [
+        "Heartburn (burning sensation rising to chest/throat)",
+        "Acid regurgitation",
+        "Sour taste in mouth",
+        "Chronic cough or hoarseness",
+        "Worse when lying down or after large meals"
+      ],
+      "red_flags": [
+        "Difficulty or pain swallowing (dysphagia/odynophagia)",
+        "Unintentional weight loss",
+        "Vomiting blood",
+        "Chest pain that could mimic cardiac origin"
+      ],
+      "questions": [
+        {
+          "q": "Do you feel a burning sensation rising from your stomach to your chest or throat?",
+          "purpose": "Confirm classic heartburn symptom"
+        },
+        {
+          "q": "Are symptoms worse after eating, lying down, or bending over?",
+          "purpose": "Confirm positional/postprandial reflux pattern"
+        },
+        {
+          "q": "Do you have a sour or bitter taste in your mouth, especially in the morning?",
+          "purpose": "Confirm regurgitation symptom"
+        },
+        {
+          "q": "Do you have any difficulty or pain when swallowing food?",
+          "purpose": "Screen for alarm feature (possible stricture/malignancy)"
+        },
+        {
+          "q": "Have you noticed a chronic cough, hoarseness, or throat clearing?",
+          "purpose": "Screen for extra-esophageal GERD manifestations"
+        },
+        {
+          "q": "What is your typical diet like - fatty, spicy, or large late-night meals?",
+          "purpose": "Identify dietary triggers"
+        },
+        {
+          "q": "Have you gained weight recently, and do you smoke?",
+          "purpose": "Identify modifiable risk factors"
+        },
+        {
+          "q": "Could this chest discomfort be related to your heart - do you have exertional chest pain?",
+          "purpose": "Rule out cardiac cause of chest symptoms"
+        }
+      ]
+    },
+    {
+      "id": "D18",
+      "name_en": "Osteoarthritis",
+      "name_id": "Osteoartritis",
+      "icd10": "M19",
+      "category": "Musculoskeletal",
+      "context_note": "Common in older OPD patients, especially knee OA, related to age, obesity, and physical labor.",
+      "symptoms": [
+        "Joint pain worse with activity",
+        "Morning stiffness <30 minutes",
+        "Joint swelling",
+        "Crepitus (grinding sensation)",
+        "Reduced range of motion",
+        "Pain relieved by rest"
+      ],
+      "red_flags": [
+        "Joint pain with fever/redness (rule out septic arthritis)",
+        "Sudden inability to bear weight",
+        "Significant deformity after trauma"
+      ],
+      "questions": [
+        {
+          "q": "Which joints are affected, and is the pain worse with activity or at rest?",
+          "purpose": "Confirm mechanical pattern typical of OA"
+        },
+        {
+          "q": "How long does morning stiffness last?",
+          "purpose": "Differentiate OA (<30 min) from inflammatory arthritis (>1 hour)"
+        },
+        {
+          "q": "Do you hear or feel grinding/clicking in the joint when you move it?",
+          "purpose": "Assess for crepitus, supportive of OA"
+        },
+        {
+          "q": "How long have you had these symptoms, and are they getting progressively worse?",
+          "purpose": "Assess chronicity and progression"
+        },
+        {
+          "q": "Does the joint pain limit your daily activities, walking, or work?",
+          "purpose": "Assess functional impact"
+        },
+        {
+          "q": "What is your weight and activity/occupation history (e.g., heavy lifting, prolonged standing)?",
+          "purpose": "Assess mechanical risk factors"
+        },
+        {
+          "q": "Have you had any previous joint injury or surgery?",
+          "purpose": "Identify secondary OA risk factors"
+        },
+        {
+          "q": "Is there any redness, warmth, or swelling that came on suddenly?",
+          "purpose": "Rule out an acute inflammatory or infectious process"
+        }
+      ]
+    },
+    {
+      "id": "D19",
+      "name_en": "Gout / Hyperuricemia",
+      "name_id": "Gout / Asam Urat",
+      "icd10": "M10",
+      "category": "Musculoskeletal/Metabolic",
+      "context_note": "Very common self-reported complaint ('asam urat') in Java OPD, linked to diet high in purines (organ meat, seafood, melinjo).",
+      "symptoms": [
+        "Sudden severe joint pain (classically big toe)",
+        "Redness and swelling of joint",
+        "Warmth over joint",
+        "Extreme tenderness (even light touch is painful)",
+        "Recurrent episodes"
+      ],
+      "red_flags": [
+        "Fever with joint swelling (rule out septic arthritis)",
+        "Multiple joints involved with systemic symptoms",
+        "Tophi with skin ulceration/discharge"
+      ],
+      "questions": [
+        {
+          "q": "Which joint is affected, and did the pain come on suddenly, often overnight?",
+          "purpose": "Classic acute gout presentation, especially first MTP joint"
+        },
+        {
+          "q": "Have you had similar episodes before? How often?",
+          "purpose": "Assess recurrence pattern"
+        },
+        {
+          "q": "Have you had a uric acid blood test before? What was the level?",
+          "purpose": "Establish biochemical confirmation"
+        },
+        {
+          "q": "What foods do you eat regularly - organ meats, seafood, melinjo/emping, alcohol (especially beer)?",
+          "purpose": "Identify dietary purine triggers"
+        },
+        {
+          "q": "Do you have fever or feel systemically unwell along with the joint pain?",
+          "purpose": "Screen for septic arthritis as differential"
+        },
+        {
+          "q": "Are you currently taking any uric-acid-lowering medication (e.g., allopurinol)? Are you taking it regularly?",
+          "purpose": "Assess adherence, note starting/stopping can trigger flares"
+        },
+        {
+          "q": "Do you have kidney disease or take diuretics?",
+          "purpose": "Identify factors that raise uric acid/reduce excretion"
+        },
+        {
+          "q": "Have you noticed any hard lumps under the skin near your joints?",
+          "purpose": "Screen for tophi indicating chronic gout"
+        }
+      ]
+    },
+    {
+      "id": "D20",
+      "name_en": "Rheumatoid Arthritis",
+      "name_id": "Artritis Reumatoid",
+      "icd10": "M06",
+      "category": "Musculoskeletal/Autoimmune",
+      "context_note": "Less common than OA/gout but an important differential when patients present with 'rematik' - symmetric small joint disease.",
+      "symptoms": [
+        "Symmetric joint pain and swelling (hands, wrists, feet)",
+        "Morning stiffness >1 hour",
+        "Fatigue",
+        "Low-grade fever",
+        "Joint deformity in advanced disease"
+      ],
+      "red_flags": [
+        "Severe systemic symptoms (fever, weight loss)",
+        "Signs of vasculitis (skin ulcers, nerve symptoms)",
+        "Sudden neck pain with neurological symptoms (cervical spine involvement)"
+      ],
+      "questions": [
+        {
+          "q": "Which joints are affected, and are both sides of the body involved symmetrically?",
+          "purpose": "Symmetric small joint involvement is characteristic of RA"
+        },
+        {
+          "q": "How long does your morning stiffness last?",
+          "purpose": ">1 hour supports inflammatory arthritis over OA"
+        },
+        {
+          "q": "How long have you had these symptoms - weeks, months, or longer?",
+          "purpose": "Assess chronicity for diagnostic criteria"
+        },
+        {
+          "q": "Do you have fatigue, low-grade fever, or unintentional weight loss?",
+          "purpose": "Assess systemic inflammatory features"
+        },
+        {
+          "q": "Does anyone in your family have rheumatoid arthritis or other autoimmune disease?",
+          "purpose": "Assess familial risk"
+        },
+        {
+          "q": "Have you noticed any joint deformity or difficulty with fine hand movements?",
+          "purpose": "Assess disease progression/functional impact"
+        },
+        {
+          "q": "Have you had any skin rashes, dry eyes/mouth, or other symptoms besides joint pain?",
+          "purpose": "Screen for overlapping autoimmune features"
+        }
+      ]
+    },
+    {
+      "id": "D21",
+      "name_en": "Tension-Type Headache / Migraine",
+      "name_id": "Nyeri Kepala Tegang / Migrain",
+      "icd10": "G44",
+      "category": "Neurological",
+      "context_note": "One of the most frequent standalone OPD complaints ('sakit kepala'); usually primary headache disorder.",
+      "symptoms": [
+        "Bilateral pressing/tightening head pain (tension type)",
+        "Unilateral throbbing pain, nausea, light/sound sensitivity (migraine)",
+        "Neck/shoulder tightness",
+        "Stress-related triggers"
+      ],
+      "red_flags": [
+        "'Worst headache of life', sudden thunderclap onset",
+        "Fever with neck stiffness (meningitis concern)",
+        "Focal neurological deficit",
+        "Headache with vomiting and altered consciousness",
+        "New headache pattern in patient >50 years",
+        "Headache after head trauma"
+      ],
+      "questions": [
+        {
+          "q": "Can you describe the pain - is it a tight band-like pressure, or throbbing/pulsating?",
+          "purpose": "Differentiate tension-type from migraine pattern"
+        },
+        {
+          "q": "Is the pain on one side or both sides of the head?",
+          "purpose": "Migraine often unilateral; tension usually bilateral"
+        },
+        {
+          "q": "Do you have nausea, vomiting, or sensitivity to light/sound with the headache?",
+          "purpose": "Supports migraine diagnosis"
+        },
+        {
+          "q": "How often do these headaches occur, and how long do they last?",
+          "purpose": "Assess frequency for chronic vs episodic classification"
+        },
+        {
+          "q": "Did this headache come on suddenly and severely, unlike your usual headaches?",
+          "purpose": "Screen for red-flag 'thunderclap' headache"
+        },
+        {
+          "q": "Do you have fever, neck stiffness, vision changes, weakness, or confusion?",
+          "purpose": "Screen for secondary/dangerous causes (meningitis, stroke, mass)"
+        },
+        {
+          "q": "What seems to trigger your headaches - stress, lack of sleep, certain foods, menstrual cycle?",
+          "purpose": "Identify trigger pattern for management"
+        },
+        {
+          "q": "How often do you take painkillers for headaches?",
+          "purpose": "Screen for medication-overuse headache"
+        }
+      ]
+    },
+    {
+      "id": "D22",
+      "name_en": "Vertigo (Benign Paroxysmal Positional Vertigo)",
+      "name_id": "Vertigo (BPPV)",
+      "icd10": "H81.1",
+      "category": "Neurological/ENT",
+      "context_note": "Very common OPD complaint ('pusing berputar'); important to distinguish peripheral (benign) from central (dangerous) causes.",
+      "symptoms": [
+        "Sudden spinning sensation triggered by head/position change",
+        "Brief episodes (seconds to minutes)",
+        "Nausea/vomiting during episodes",
+        "Nystagmus (eye movement) during episodes"
+      ],
+      "red_flags": [
+        "Sudden severe vertigo with new neurological symptoms (weakness, slurred speech, double vision, difficulty walking)",
+        "Vertigo with severe headache",
+        "Hearing loss with vertigo (consider vestibular emergency)",
+        "Inability to walk unassisted"
+      ],
+      "questions": [
+        {
+          "q": "Does the room spin, or do you feel more like you're going to faint/lightheaded?",
+          "purpose": "Distinguish true vertigo from presyncope"
+        },
+        {
+          "q": "What triggers the spinning sensation - specific head movements or position changes (rolling in bed, looking up)?",
+          "purpose": "Screen for BPPV pattern"
+        },
+        {
+          "q": "How long does each episode last - seconds, minutes, or hours?",
+          "purpose": "BPPV episodes are typically brief (<1 minute)"
+        },
+        {
+          "q": "Do you have any hearing loss, ringing in the ears, or ear fullness?",
+          "purpose": "Screen for Meniere's disease or other inner ear pathology"
+        },
+        {
+          "q": "Have you had any weakness, slurred speech, double vision, or difficulty walking along with the dizziness?",
+          "purpose": "Screen for central (stroke-related) cause - red flag"
+        },
+        {
+          "q": "Do you have nausea or vomiting with the episodes?",
+          "purpose": "Assess associated autonomic symptoms"
+        },
+        {
+          "q": "Have you had similar episodes before, and did they resolve on their own?",
+          "purpose": "Assess recurrence and course"
+        },
+        {
+          "q": "Do you have high blood pressure, diabetes, or heart disease?",
+          "purpose": "Assess vascular risk factors relevant to central causes"
+        }
+      ]
+    },
+    {
+      "id": "D23",
+      "name_en": "Non-specific Low Back Pain",
+      "name_id": "Nyeri Punggung Bawah",
+      "icd10": "M54.5",
+      "category": "Musculoskeletal",
+      "context_note": "Extremely common complaint, often related to occupation (lifting, prolonged sitting/standing), especially among laborers and market workers.",
+      "symptoms": [
+        "Dull or aching lower back pain",
+        "Stiffness",
+        "Pain worse with certain movements/positions",
+        "Muscle spasm",
+        "Pain relieved by rest"
+      ],
+      "red_flags": [
+        "Pain radiating down the leg with numbness/weakness (possible nerve compression)",
+        "Loss of bladder/bowel control (cauda equina - emergency)",
+        "Fever with back pain (possible infection)",
+        "History of trauma or cancer",
+        "Pain worse at night/unrelieved by rest",
+        "Unexplained weight loss"
+      ],
+      "questions": [
+        {
+          "q": "When did the pain start, and was there a specific triggering event (lifting, injury, prolonged activity)?",
+          "purpose": "Identify mechanical trigger"
+        },
+        {
+          "q": "Does the pain radiate down your leg, and is there any numbness, tingling, or weakness?",
+          "purpose": "Screen for nerve root involvement (sciatica)"
+        },
+        {
+          "q": "Have you had any loss of bladder or bowel control, or numbness in the groin area?",
+          "purpose": "Screen for cauda equina syndrome - surgical emergency"
+        },
+        {
+          "q": "Is the pain worse at night or unrelieved by rest?",
+          "purpose": "Red flag for infection, malignancy, or inflammatory cause"
+        },
+        {
+          "q": "Do you have fever, unexplained weight loss, or a history of cancer?",
+          "purpose": "Screen for serious underlying pathology"
+        },
+        {
+          "q": "What is your occupation, and does it involve heavy lifting or prolonged sitting/standing?",
+          "purpose": "Identify occupational contributing factors"
+        },
+        {
+          "q": "Have you had similar back pain episodes before?",
+          "purpose": "Assess recurrence pattern"
+        },
+        {
+          "q": "What movements or positions make the pain better or worse?",
+          "purpose": "Assess mechanical pattern to guide management"
+        }
+      ]
+    },
+    {
+      "id": "D24",
+      "name_en": "Iron Deficiency Anemia",
+      "name_id": "Anemia Defisiensi Besi",
+      "icd10": "D50",
+      "category": "Hematological",
+      "context_note": "Common in women of reproductive age and children in Java; linked to nutrition and menstrual blood loss.",
+      "symptoms": [
+        "Fatigue/weakness",
+        "Pale skin/conjunctiva",
+        "Shortness of breath on exertion",
+        "Dizziness",
+        "Palpitations",
+        "Brittle nails, hair loss",
+        "Pica (craving non-food items like ice or dirt)",
+        "Reduced concentration"
+      ],
+      "red_flags": [
+        "Severe symptomatic anemia (chest pain, severe breathlessness)",
+        "Signs of active GI bleeding (melena, hematemesis)",
+        "Heavy vaginal bleeding"
+      ],
+      "questions": [
+        {
+          "q": "How long have you felt tired, weak, or short of breath?",
+          "purpose": "Establish onset/chronicity"
+        },
+        {
+          "q": "For women: are your menstrual periods heavy or prolonged?",
+          "purpose": "Identify major cause of iron deficiency in reproductive-age women"
+        },
+        {
+          "q": "Have you noticed any blood in your stool, or black tarry stools?",
+          "purpose": "Screen for occult GI blood loss"
+        },
+        {
+          "q": "What does your typical diet look like - do you eat meat, iron-rich vegetables regularly?",
+          "purpose": "Assess dietary iron intake"
+        },
+        {
+          "q": "Are you currently pregnant or breastfeeding?",
+          "purpose": "Assess increased iron demand states"
+        },
+        {
+          "q": "Do you have any craving for unusual substances like ice, dirt, or starch?",
+          "purpose": "Screen for pica, a classic iron-deficiency symptom"
+        },
+        {
+          "q": "Have you had worm infestation or lived in an area where this is common?",
+          "purpose": "Assess for hookworm-related blood loss, relevant in rural Java"
+        },
+        {
+          "q": "Have you had this checked before (hemoglobin/blood test)?",
+          "purpose": "Establish prior diagnostic history"
+        }
+      ]
+    },
+    {
+      "id": "D25",
+      "name_en": "Chronic Kidney Disease",
+      "name_id": "Penyakit Ginjal Kronik",
+      "icd10": "N18",
+      "category": "Renal",
+      "context_note": "Growing OPD burden secondary to poorly controlled hypertension and diabetes across Java.",
+      "symptoms": [
+        "Often asymptomatic in early stages",
+        "Fatigue",
+        "Swelling of legs/face",
+        "Frothy urine",
+        "Decreased urine output",
+        "Poor appetite",
+        "Nausea",
+        "Itching",
+        "Difficulty sleeping"
+      ],
+      "red_flags": [
+        "Very low urine output/anuria",
+        "Severe shortness of breath (fluid overload)",
+        "Confusion (uremic encephalopathy)",
+        "Chest pain (pericarditis)"
+      ],
+      "questions": [
+        {
+          "q": "Do you have a history of diabetes or hypertension, and how well controlled are they?",
+          "purpose": "Identify the two leading causes of CKD"
+        },
+        {
+          "q": "Have you noticed any swelling in your legs, face, or around your eyes?",
+          "purpose": "Assess for fluid retention"
+        },
+        {
+          "q": "Have you noticed foamy/frothy urine, or a change in how much you urinate?",
+          "purpose": "Screen for proteinuria and renal function changes"
+        },
+        {
+          "q": "Do you take painkillers (NSAIDs) frequently, or any herbal/jamu remedies regularly?",
+          "purpose": "Identify nephrotoxic exposures common in self-medication practices"
+        },
+        {
+          "q": "Do you have a family history of kidney disease?",
+          "purpose": "Assess genetic risk (e.g., polycystic kidney disease)"
+        },
+        {
+          "q": "Have you had any previous blood tests showing kidney problems (creatinine, eGFR)?",
+          "purpose": "Establish prior diagnostic history/staging"
+        },
+        {
+          "q": "Do you feel unusually tired, itchy, or have poor appetite?",
+          "purpose": "Screen for uremic symptoms"
+        },
+        {
+          "q": "Have you ever had kidney stones, urinary infections, or blockage problems?",
+          "purpose": "Identify structural/obstructive contributing causes"
+        }
+      ]
+    },
+    {
+      "id": "D26",
+      "name_en": "Chronic Obstructive Pulmonary Disease (COPD)",
+      "name_id": "Penyakit Paru Obstruktif Kronik (PPOK)",
+      "icd10": "J44",
+      "category": "Respiratory",
+      "context_note": "Common in older patients with smoking history or biomass fuel/cooking smoke exposure, a notable exposure in rural Java kitchens.",
+      "symptoms": [
+        "Chronic productive cough",
+        "Progressive breathlessness",
+        "Wheezing",
+        "Chest tightness",
+        "Frequent respiratory infections",
+        "Reduced exercise tolerance"
+      ],
+      "red_flags": [
+        "Severe acute breathlessness (exacerbation)",
+        "Cyanosis",
+        "Confusion (possible hypercapnia)",
+        "Chest pain suggestive of cardiac event",
+        "Coughing large amounts of blood"
+      ],
+      "questions": [
+        {
+          "q": "Do you have a long-standing cough with phlegm, and for how many years?",
+          "purpose": "Assess chronic bronchitis pattern (cough >3 months/year for 2+ years)"
+        },
+        {
+          "q": "Do you smoke, or have you smoked in the past? How many years/packs?",
+          "purpose": "Major risk factor assessment"
+        },
+        {
+          "q": "Are you exposed to cooking smoke from wood/biomass fuel, or workplace dust/fumes?",
+          "purpose": "Identify non-smoking risk factors relevant in rural Java households"
+        },
+        {
+          "q": "How far can you walk before feeling breathless, and has this changed over time?",
+          "purpose": "Assess functional severity/progression"
+        },
+        {
+          "q": "How many times in the past year have you had a flare-up needing extra medication or hospital visits?",
+          "purpose": "Assess exacerbation frequency for severity classification"
+        },
+        {
+          "q": "Have you had a diagnosis of asthma in childhood?",
+          "purpose": "Assess for asthma-COPD overlap"
+        },
+        {
+          "q": "Are you currently using any inhalers, and do you know how to use them correctly?",
+          "purpose": "Assess treatment and technique"
+        },
+        {
+          "q": "Have you had any swelling in your legs or unusual fatigue?",
+          "purpose": "Screen for cor pulmonale/right heart strain"
+        }
+      ]
+    },
+    {
+      "id": "D27",
+      "name_en": "Allergic Rhinitis",
+      "name_id": "Rinitis Alergi",
+      "icd10": "J30",
+      "category": "ENT/Allergy",
+      "context_note": "Common recurring complaint, often mistaken for chronic 'colds'; triggered by dust mites, humidity, and pollution in Java's climate.",
+      "symptoms": [
+        "Recurrent sneezing",
+        "Clear runny nose",
+        "Nasal congestion",
+        "Itchy nose/eyes/throat",
+        "Watery eyes",
+        "Post-nasal drip",
+        "Symptoms triggered by specific exposures"
+      ],
+      "red_flags": [
+        "Symptoms with facial pain/swelling and fever (possible sinusitis)",
+        "Unilateral nasal symptoms with bleeding (rule out structural/other cause)"
+      ],
+      "questions": [
+        {
+          "q": "How long have you had these symptoms, and do they come and go or are they constant?",
+          "purpose": "Assess chronicity/pattern (perennial vs seasonal)"
+        },
+        {
+          "q": "What seems to trigger your symptoms - dust, cold air, pets, specific seasons, or environments?",
+          "purpose": "Identify allergen triggers"
+        },
+        {
+          "q": "Do you have itchy eyes, throat, or skin along with the nasal symptoms?",
+          "purpose": "Support allergic vs infectious etiology"
+        },
+        {
+          "q": "Do you or your family have a history of asthma, eczema, or allergies?",
+          "purpose": "Assess atopic predisposition"
+        },
+        {
+          "q": "Is the discharge clear and watery, or thick and colored?",
+          "purpose": "Differentiate allergic from infectious rhinitis/sinusitis"
+        },
+        {
+          "q": "Do symptoms affect your sleep or daily activities?",
+          "purpose": "Assess severity/impact for treatment intensity"
+        },
+        {
+          "q": "Have you tried any antihistamines or nasal sprays? Did they help?",
+          "purpose": "Assess prior treatment response"
+        }
+      ]
+    },
+    {
+      "id": "D28",
+      "name_en": "Atopic/Contact Dermatitis",
+      "name_id": "Dermatitis Atopik/Kontak",
+      "icd10": "L20 / L23",
+      "category": "Dermatological",
+      "context_note": "Common in Java's hot, humid climate; frequently aggravated by sweating, soaps, and occupational exposures.",
+      "symptoms": [
+        "Itchy skin (pruritus)",
+        "Redness/erythema",
+        "Dry, scaly patches",
+        "Vesicles/oozing in acute phase",
+        "Thickened skin (lichenification) in chronic cases",
+        "Distribution often in flexural areas (atopic) or contact sites"
+      ],
+      "red_flags": [
+        "Signs of secondary bacterial infection (pus, spreading redness, fever)",
+        "Widespread severe skin involvement",
+        "Facial/eye involvement affecting vision"
+      ],
+      "questions": [
+        {
+          "q": "Where on the body is the rash, and is it itchy?",
+          "purpose": "Localize and assess key symptom (pruritus)"
+        },
+        {
+          "q": "Have you started using any new soap, detergent, cosmetic, or come into contact with a new substance recently?",
+          "purpose": "Identify contact allergen/irritant"
+        },
+        {
+          "q": "Do you have a personal or family history of eczema, asthma, or allergies?",
+          "purpose": "Assess atopic predisposition"
+        },
+        {
+          "q": "How long have you had this rash, and has it happened before in the same pattern?",
+          "purpose": "Assess chronicity/recurrence"
+        },
+        {
+          "q": "Does sweating, heat, or certain fabrics make it worse?",
+          "purpose": "Identify aggravating factors relevant to tropical climate"
+        },
+        {
+          "q": "Is there any oozing, pus, or increasing redness and warmth?",
+          "purpose": "Screen for secondary bacterial infection"
+        },
+        {
+          "q": "What have you used to treat it so far, including any topical steroids?",
+          "purpose": "Assess prior treatment and response"
+        }
+      ]
+    },
+    {
+      "id": "D29",
+      "name_en": "Scabies",
+      "name_id": "Skabies (Kudis)",
+      "icd10": "B86",
+      "category": "Dermatological/Infectious",
+      "context_note": "Common in crowded households, boarding schools (pesantren), and dormitories across Java due to close contact transmission.",
+      "symptoms": [
+        "Intense itching, especially at night",
+        "Small papules/burrows, often between fingers, wrists, groin",
+        "Excoriation from scratching",
+        "Similar symptoms in close contacts/family members"
+      ],
+      "red_flags": [
+        "Widespread crusted lesions (possible crusted/Norwegian scabies, seen in immunocompromised)",
+        "Signs of secondary bacterial infection (pus, fever, spreading cellulitis)"
+      ],
+      "questions": [
+        {
+          "q": "Where is the itching worst, and is it worse at night?",
+          "purpose": "Classic distribution (finger webs, wrists, groin) and nocturnal itch pattern"
+        },
+        {
+          "q": "Does anyone else in your household, dormitory, or close contacts have similar itching?",
+          "purpose": "Assess for common exposure - scabies spreads with close contact"
+        },
+        {
+          "q": "Can you see small burrow lines or tiny bumps on the skin?",
+          "purpose": "Identify characteristic scabies burrows"
+        },
+        {
+          "q": "How long have you had the itching, and has it been getting worse?",
+          "purpose": "Assess chronicity/progression"
+        },
+        {
+          "q": "Do you live in a crowded setting such as a boarding school, dormitory, or shared housing?",
+          "purpose": "Identify high-risk living situation"
+        },
+        {
+          "q": "Have you shared clothing, bedding, or towels with someone who has similar symptoms?",
+          "purpose": "Assess fomite transmission risk"
+        },
+        {
+          "q": "Is there any pus, crusting, or spreading redness at the itchy sites?",
+          "purpose": "Screen for secondary bacterial skin infection"
+        }
+      ]
+    },
+    {
+      "id": "D30",
+      "name_en": "Tinea (Fungal Skin Infection)",
+      "name_id": "Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)",
+      "icd10": "B35",
+      "category": "Dermatological/Infectious",
+      "context_note": "Very common in Java's hot, humid climate; includes tinea corporis, cruris, pedis, and pityriasis versicolor ('panu').",
+      "symptoms": [
+        "Itchy, ring-shaped rash with central clearing",
+        "Scaling/flaking skin",
+        "Redness at active border",
+        "Discoloration patches (for pityriasis versicolor)",
+        "Worse in skin folds/sweaty areas"
+      ],
+      "red_flags": [
+        "Signs of extensive/refractory infection in an immunocompromised patient",
+        "Signs of secondary bacterial infection"
+      ],
+      "questions": [
+        {
+          "q": "Where is the rash located, and does it have a ring-like shape with a clearer center?",
+          "purpose": "Identify classic tinea morphology"
+        },
+        {
+          "q": "Is the area itchy, and does sweating or heat make it worse?",
+          "purpose": "Assess symptom pattern relevant to tropical climate"
+        },
+        {
+          "q": "How long have you had this rash, and has it spread?",
+          "purpose": "Assess chronicity/spread"
+        },
+        {
+          "q": "Do you share clothing, towels, or have close contact with pets or others with similar skin issues?",
+          "purpose": "Assess transmission source (fomites, animals, person-to-person)"
+        },
+        {
+          "q": "Have you used any antifungal or steroid creams already? Did symptoms improve or worsen?",
+          "purpose": "Assess prior treatment - steroid use can worsen tinea (tinea incognito)"
+        },
+        {
+          "q": "Do you have diabetes or any condition affecting your immune system?",
+          "purpose": "Identify risk factors for more extensive/recurrent infection"
+        },
+        {
+          "q": "Do you sweat heavily or wear tight/non-breathable clothing for long periods (e.g., for work)?",
+          "purpose": "Identify contributing environmental factors"
+        }
+      ]
+    },
+    {
+      "id": "D31",
+      "name_en": "Urinary Tract Infection",
+      "name_id": "Infeksi Saluran Kemih (ISK)",
+      "icd10": "N39.0",
+      "category": "Genitourinary",
+      "context_note": "Common OPD complaint, especially among women; recurrent cases seen with poor hydration/hygiene practices.",
+      "symptoms": [
+        "Burning/pain on urination (dysuria)",
+        "Increased urinary frequency",
+        "Urgency",
+        "Lower abdominal/suprapubic pain",
+        "Cloudy or foul-smelling urine",
+        "Occasionally blood in urine"
+      ],
+      "red_flags": [
+        "Fever with flank/back pain and vomiting (possible pyelonephritis)",
+        "Signs of sepsis (confusion, low blood pressure)",
+        "Pregnancy with UTI symptoms",
+        "Male with recurrent UTI (may indicate structural abnormality)"
+      ],
+      "questions": [
+        {
+          "q": "Do you have burning or pain when urinating, and how often are you urinating?",
+          "purpose": "Confirm classic lower UTI symptoms"
+        },
+        {
+          "q": "Do you have any fever, chills, or pain in your back/flank?",
+          "purpose": "Screen for upper tract involvement (pyelonephritis) - red flag"
+        },
+        {
+          "q": "Have you noticed blood or cloudiness in your urine, or an unusual smell?",
+          "purpose": "Assess for hematuria and infection severity"
+        },
+        {
+          "q": "Is there a chance you could be pregnant?",
+          "purpose": "Pregnancy changes management urgency and antibiotic choice"
+        },
+        {
+          "q": "Have you had UTIs before? How frequently do they recur?",
+          "purpose": "Assess for recurrent UTI requiring further workup"
+        },
+        {
+          "q": "How much water do you drink daily, and do you tend to hold your urine for long periods?",
+          "purpose": "Identify contributing behavioral factors"
+        },
+        {
+          "q": "Do you have diabetes or any condition affecting your immune system?",
+          "purpose": "Identify risk factors for complicated UTI"
+        },
+        {
+          "q": "For men: any history of prostate problems or difficulty with urine flow?",
+          "purpose": "Assess for structural/obstructive cause in male UTI"
+        }
+      ]
+    },
+    {
+      "id": "D32",
+      "name_en": "Otitis Media",
+      "name_id": "Otitis Media",
+      "icd10": "H66",
+      "category": "ENT",
+      "context_note": "Common, especially in children, often following upper respiratory infections; frequent OPD presentation across Java.",
+      "symptoms": [
+        "Ear pain",
+        "Reduced hearing/sense of fullness",
+        "Fever",
+        "Ear discharge (if perforated)",
+        "In infants: irritability, ear-pulling, poor feeding"
+      ],
+      "red_flags": [
+        "Severe swelling/tenderness behind the ear (mastoiditis)",
+        "Facial weakness",
+        "High fever with lethargy/neck stiffness (possible meningitis)",
+        "Severe headache with vomiting"
+      ],
+      "questions": [
+        {
+          "q": "Do you have ear pain, and is it in one ear or both?",
+          "purpose": "Localize and assess laterality"
+        },
+        {
+          "q": "Have you noticed any discharge from the ear?",
+          "purpose": "Assess for tympanic membrane perforation"
+        },
+        {
+          "q": "Do you have fever or reduced hearing?",
+          "purpose": "Assess severity and associated symptoms"
+        },
+        {
+          "q": "Did this start after a cold or upper respiratory infection?",
+          "purpose": "Identify common precipitating cause"
+        },
+        {
+          "q": "For a child: has the child been pulling at the ear, unusually irritable, or feeding poorly?",
+          "purpose": "Assess indirect symptoms in young children who cannot verbalize pain"
+        },
+        {
+          "q": "Is there any swelling or tenderness behind the ear?",
+          "purpose": "Screen for mastoiditis, a serious complication"
+        },
+        {
+          "q": "Has water entered the ear recently (swimming, bathing)?",
+          "purpose": "Assess for otitis externa as an alternative diagnosis"
+        }
+      ]
+    },
+    {
+      "id": "D33",
+      "name_en": "Pharyngitis / Tonsillitis",
+      "name_id": "Faringitis / Tonsilitis",
+      "icd10": "J02 / J03",
+      "category": "ENT/Infectious",
+      "context_note": "Very frequent OPD complaint ('radang tenggorokan'), ranked among top diagnoses at multiple Java puskesmas.",
+      "symptoms": [
+        "Sore throat",
+        "Pain on swallowing",
+        "Fever",
+        "Swollen/tender neck lymph nodes",
+        "Red/swollen tonsils, possibly with white patches",
+        "Bad breath"
+      ],
+      "red_flags": [
+        "Difficulty breathing or swallowing saliva (drooling)",
+        "Muffled ('hot potato') voice with severe throat pain (possible peritonsillar abscess/epiglottitis)",
+        "Severe neck swelling/stiffness"
+      ],
+      "questions": [
+        {
+          "q": "How long have you had the sore throat, and how severe is the pain when swallowing?",
+          "purpose": "Establish onset and severity"
+        },
+        {
+          "q": "Do you have fever, and how high?",
+          "purpose": "Assess systemic involvement"
+        },
+        {
+          "q": "Have you noticed any white or yellow patches on your tonsils?",
+          "purpose": "Screen for possible bacterial (streptococcal) tonsillitis"
+        },
+        {
+          "q": "Do you have swollen or tender glands in your neck?",
+          "purpose": "Assess lymphadenopathy, supports infectious etiology"
+        },
+        {
+          "q": "Do you have any difficulty breathing, swallowing your saliva, or opening your mouth wide?",
+          "purpose": "Screen for airway-threatening complications - red flag"
+        },
+        {
+          "q": "Have you been in contact with anyone with a similar sore throat recently?",
+          "purpose": "Assess exposure/transmission pattern"
+        },
+        {
+          "q": "How often do you get throat infections like this in a year?",
+          "purpose": "Assess for recurrent tonsillitis needing ENT referral"
+        }
+      ]
+    },
+    {
+      "id": "D34",
+      "name_en": "Conjunctivitis",
+      "name_id": "Konjungtivitis (Mata Merah)",
+      "icd10": "H10",
+      "category": "Ophthalmological",
+      "context_note": "Common, often viral or bacterial, spreads easily in schools/households; frequent 'mata merah' complaint in OPD.",
+      "symptoms": [
+        "Red eye(s)",
+        "Discharge (watery, mucoid, or purulent)",
+        "Itching or gritty sensation",
+        "Eyelids stuck together on waking (bacterial)",
+        "Mild light sensitivity"
+      ],
+      "red_flags": [
+        "Severe eye pain",
+        "Vision loss or significant blurring",
+        "Photophobia with headache (possible more serious eye/CNS condition)",
+        "History of trauma or foreign body",
+        "Contact lens wearer with red painful eye (risk of keratitis)"
+      ],
+      "questions": [
+        {
+          "q": "Is one eye affected or both, and did it start in one eye and spread to the other?",
+          "purpose": "Assess laterality/spread pattern, relevant for viral vs bacterial vs allergic"
+        },
+        {
+          "q": "What does the discharge look like - watery, or thick and yellow/green?",
+          "purpose": "Differentiate viral/allergic (watery) from bacterial (purulent) conjunctivitis"
+        },
+        {
+          "q": "Is there any eye pain, or just itching/irritation?",
+          "purpose": "Significant pain is a red flag requiring urgent eye assessment"
+        },
+        {
+          "q": "Have you noticed any change in your vision?",
+          "purpose": "Screen for vision-threatening conditions requiring urgent referral"
+        },
+        {
+          "q": "Are you sensitive to light?",
+          "purpose": "Photophobia may indicate more serious ocular involvement"
+        },
+        {
+          "q": "Has anyone around you had similar red/itchy eyes recently?",
+          "purpose": "Assess for contagious spread, common with viral conjunctivitis"
+        },
+        {
+          "q": "Do you wear contact lenses, or have you had any injury or object in the eye?",
+          "purpose": "Identify risk factors for more serious corneal involvement"
+        },
+        {
+          "q": "Do you have any seasonal allergies or history of allergic conjunctivitis?",
+          "purpose": "Assess for allergic etiology"
+        }
+      ]
+    },
+    {
+      "id": "D35",
+      "name_en": "Malaria",
+      "name_id": "Malaria",
+      "icd10": "B54",
+      "category": "Infectious",
+      "context_note": "Endemic in parts of Java (e.g., southern coastal areas of Central/East Java, Banten) - important differential for fever in relevant areas/travelers.",
+      "symptoms": [
+        "Cyclical high fever with chills/rigors",
+        "Sweating after fever breaks",
+        "Headache",
+        "Muscle aches",
+        "Fatigue",
+        "Nausea/vomiting"
+      ],
+      "red_flags": [
+        "Altered consciousness/confusion (cerebral malaria)",
+        "Jaundice",
+        "Severe anemia (pallor, breathlessness)",
+        "Dark urine",
+        "Seizures",
+        "Signs of shock"
+      ],
+      "questions": [
+        {
+          "q": "Do you live in or have you recently traveled to a malaria-endemic area (e.g., southern coastal Java, other islands)?",
+          "purpose": "Establish exposure risk - essential for malaria suspicion"
+        },
+        {
+          "q": "Does your fever come in cycles with chills/shivering followed by sweating?",
+          "purpose": "Assess for classic paroxysmal fever pattern"
+        },
+        {
+          "q": "Have you had malaria before?",
+          "purpose": "Assess for possible relapse (P. vivax/ovale)"
+        },
+        {
+          "q": "Do you sleep under a mosquito net, or use mosquito repellent?",
+          "purpose": "Assess exposure prevention practices"
+        },
+        {
+          "q": "Have you noticed yellowing of your eyes/skin, dark urine, or confusion?",
+          "purpose": "Screen for severe/complicated malaria - red flags"
+        },
+        {
+          "q": "Have you taken any antimalarial treatment already?",
+          "purpose": "Assess prior treatment, guides further management"
+        },
+        {
+          "q": "Do you have a headache, muscle aches, or feel extremely fatigued?",
+          "purpose": "Assess associated symptom burden"
+        }
+      ]
+    },
+    {
+      "id": "D36",
+      "name_en": "Chikungunya Fever",
+      "name_id": "Demam Chikungunya",
+      "icd10": "A92.0",
+      "category": "Infectious",
+      "context_note": "Mosquito-borne outbreaks occur periodically across Java; often confused clinically with dengue.",
+      "symptoms": [
+        "Sudden high fever",
+        "Severe joint pain (often symmetric, hands/feet/knees)",
+        "Joint swelling",
+        "Muscle pain",
+        "Rash",
+        "Headache",
+        "Fatigue that can persist for weeks"
+      ],
+      "red_flags": [
+        "Signs of dengue co-infection (bleeding, warning signs)",
+        "Severe dehydration",
+        "Neurological symptoms (rare but reported)"
+      ],
+      "questions": [
+        {
+          "q": "When did the fever start, and how severe is your joint pain?",
+          "purpose": "Establish onset and hallmark symptom severity"
+        },
+        {
+          "q": "Which joints are painful, and is the pain symmetric on both sides?",
+          "purpose": "Chikungunya classically causes severe, often symmetric polyarthralgia"
+        },
+        {
+          "q": "Have you noticed any skin rash?",
+          "purpose": "Common associated feature"
+        },
+        {
+          "q": "Has anyone in your neighborhood recently been diagnosed with chikungunya or dengue?",
+          "purpose": "Assess local outbreak context"
+        },
+        {
+          "q": "Do you have any bleeding, severe abdominal pain, or persistent vomiting?",
+          "purpose": "Screen for dengue warning signs, since co-circulation is common"
+        },
+        {
+          "q": "How long has the joint pain lasted?",
+          "purpose": "Chikungunya joint pain can persist for weeks to months (chronic phase)"
+        },
+        {
+          "q": "Have you been able to move around and perform daily activities?",
+          "purpose": "Assess functional impact of joint symptoms"
+        }
+      ]
+    },
+    {
+      "id": "D37",
+      "name_en": "Intestinal Worm Infestation (Helminthiasis)",
+      "name_id": "Kecacingan",
+      "icd10": "B82",
+      "category": "Infectious/Gastrointestinal",
+      "context_note": "Common especially in children in rural/semi-rural Java, related to sanitation and soil-transmitted helminths (roundworm, whipworm, hookworm).",
+      "symptoms": [
+        "Abdominal pain",
+        "Bloating",
+        "Poor appetite",
+        "Weight loss/poor growth in children",
+        "Itchy anus (especially pinworm, worse at night)",
+        "Visible worms in stool",
+        "Fatigue/pallor (from blood loss with hookworm)"
+      ],
+      "red_flags": [
+        "Signs of intestinal obstruction (severe pain, vomiting, no bowel movement/gas)",
+        "Severe anemia symptoms",
+        "Signs of malnutrition/failure to thrive in a child"
+      ],
+      "questions": [
+        {
+          "q": "Have you noticed any worms in your stool?",
+          "purpose": "Direct evidence of infestation"
+        },
+        {
+          "q": "Do you have abdominal pain, bloating, or poor appetite?",
+          "purpose": "Assess GI symptom burden"
+        },
+        {
+          "q": "For a child: has there been poor weight gain, growth delay, or reduced energy/concentration at school?",
+          "purpose": "Assess nutritional/developmental impact, key in pediatric cases"
+        },
+        {
+          "q": "Is there itching around the anus, especially at night?",
+          "purpose": "Classic pinworm symptom"
+        },
+        {
+          "q": "Do you or your household typically walk barefoot on soil, or how is your access to clean water and sanitation (toilets)?",
+          "purpose": "Assess soil-transmitted helminth exposure risk"
+        },
+        {
+          "q": "Have you taken deworming medication before, and when was the last dose?",
+          "purpose": "Assess prior treatment/prevention history"
+        },
+        {
+          "q": "Do you eat raw or undercooked meat/fish?",
+          "purpose": "Assess risk for tapeworm infection specifically"
+        }
+      ]
+    },
+    {
+      "id": "D38",
+      "name_en": "Leptospirosis",
+      "name_id": "Leptospirosis",
+      "icd10": "A27",
+      "category": "Infectious",
+      "context_note": "Notable risk in Java during flooding season (common in Jakarta and other low-lying Java cities); transmitted via rat urine-contaminated water.",
+      "symptoms": [
+        "Sudden fever with chills",
+        "Severe headache",
+        "Muscle pain (especially calves)",
+        "Red eyes (conjunctival suffusion)",
+        "Nausea/vomiting",
+        "Occasionally jaundice or rash"
+      ],
+      "red_flags": [
+        "Jaundice with abdominal pain (possible Weil's disease - hepatic/renal involvement)",
+        "Decreased urine output",
+        "Difficulty breathing or coughing blood (pulmonary hemorrhage)",
+        "Signs of bleeding"
+      ],
+      "questions": [
+        {
+          "q": "Have you had any recent contact with flood water, or waded through standing water?",
+          "purpose": "Establish key exposure - critical during Java's flood season"
+        },
+        {
+          "q": "Do you have severe muscle pain, especially in your calves?",
+          "purpose": "Classic leptospirosis symptom"
+        },
+        {
+          "q": "Have you noticed your eyes look red without discharge?",
+          "purpose": "Screen for conjunctival suffusion, a hallmark sign"
+        },
+        {
+          "q": "Have you noticed yellowing of your skin or eyes, or dark urine?",
+          "purpose": "Screen for hepatic/renal involvement - red flag for severe disease (Weil's disease)"
+        },
+        {
+          "q": "How much are you urinating, and has this changed recently?",
+          "purpose": "Assess for renal involvement"
+        },
+        {
+          "q": "Do you work in an environment with exposure to rodents, contaminated water, or agriculture/sanitation work?",
+          "purpose": "Assess occupational exposure risk"
+        },
+        {
+          "q": "Have you had any cough or difficulty breathing?",
+          "purpose": "Screen for pulmonary hemorrhage, a severe complication"
+        }
+      ]
+    },
+    {
+      "id": "D39",
+      "name_en": "Hepatitis A",
+      "name_id": "Hepatitis A",
+      "icd10": "B15",
+      "category": "Infectious/Gastrointestinal",
+      "context_note": "Common in areas with limited sanitation infrastructure; periodic outbreaks reported in Java linked to contaminated food/water.",
+      "symptoms": [
+        "Fatigue",
+        "Nausea/vomiting",
+        "Loss of appetite",
+        "Low-grade fever",
+        "Abdominal discomfort (right upper quadrant)",
+        "Jaundice (yellowing of skin/eyes)",
+        "Dark urine",
+        "Pale stools"
+      ],
+      "red_flags": [
+        "Signs of acute liver failure (confusion, severe jaundice, bleeding tendency)",
+        "Persistent vomiting/inability to keep fluids down",
+        "Severe abdominal pain"
+      ],
+      "questions": [
+        {
+          "q": "Have you noticed yellowing of your eyes or skin, or dark-colored urine?",
+          "purpose": "Assess for jaundice, a hallmark sign"
+        },
+        {
+          "q": "Do you have nausea, poor appetite, or fatigue?",
+          "purpose": "Assess prodromal symptom pattern"
+        },
+        {
+          "q": "Have you eaten food from street vendors, shellfish, or water from an uncertain source recently?",
+          "purpose": "Identify fecal-oral transmission source"
+        },
+        {
+          "q": "Has anyone around you recently had similar symptoms or been diagnosed with hepatitis?",
+          "purpose": "Assess for common-source outbreak"
+        },
+        {
+          "q": "Do you have pain in the upper right side of your abdomen?",
+          "purpose": "Assess for liver involvement/hepatomegaly"
+        },
+        {
+          "q": "Have you traveled recently to an area with poor sanitation?",
+          "purpose": "Assess travel-related exposure"
+        },
+        {
+          "q": "Have you had a hepatitis A vaccination before?",
+          "purpose": "Assess immunization status"
+        },
+        {
+          "q": "Do you drink alcohol, or take any medications that could affect the liver?",
+          "purpose": "Assess additional hepatotoxic risk factors"
+        }
+      ]
+    },
+    {
+      "id": "D40",
+      "name_en": "Post-Stroke Follow-up / Chronic Sequelae",
+      "name_id": "Pasca Stroke / Gejala Sisa Kronik",
+      "icd10": "I69",
+      "category": "Neurological",
+      "context_note": "Stroke is a leading cause of disability in Indonesia; many OPD visits are follow-up care for known stroke patients managing risk factors and rehabilitation.",
+      "symptoms": [
+        "Residual weakness (hemiparesis)",
+        "Speech difficulty",
+        "Difficulty swallowing",
+        "Cognitive/memory changes",
+        "Mood changes (post-stroke depression)",
+        "Spasticity",
+        "Balance/gait difficulty"
+      ],
+      "red_flags": [
+        "New sudden weakness, facial droop, or speech difficulty (possible new stroke/TIA - emergency)",
+        "Sudden severe headache",
+        "New seizures",
+        "Signs of aspiration (choking, recurrent pneumonia)"
+      ],
+      "questions": [
+        {
+          "q": "When was your stroke, and what part of your body was affected?",
+          "purpose": "Establish history and baseline deficit"
+        },
+        {
+          "q": "Have you noticed any new or worsening weakness, numbness, or speech difficulty since your last visit?",
+          "purpose": "Screen for new stroke/TIA or progression - urgent if positive"
+        },
+        {
+          "q": "Are you taking your blood pressure, diabetes, and cholesterol medications regularly?",
+          "purpose": "Assess secondary prevention adherence"
+        },
+        {
+          "q": "Do you have any difficulty swallowing, or have you had choking episodes while eating?",
+          "purpose": "Screen for dysphagia and aspiration risk"
+        },
+        {
+          "q": "How is your mood - have you felt persistently sad, hopeless, or lost interest in activities?",
+          "purpose": "Screen for post-stroke depression, common and under-recognized"
+        },
+        {
+          "q": "Are you attending physiotherapy or rehabilitation? How is your progress with mobility?",
+          "purpose": "Assess rehabilitation engagement and functional recovery"
+        },
+        {
+          "q": "Do you smoke, and how is your blood pressure and blood sugar control currently?",
+          "purpose": "Assess ongoing modifiable risk factors for recurrence"
+        },
+        {
+          "q": "Have you had any falls recently?",
+          "purpose": "Assess safety risk related to balance/gait impairment"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+id,name_en,name_id,icd10,category,context_note,symptom_count,red_flag_count,question_count
+D01,Acute Upper Respiratory Tract Infection (Common Cold),Infeksi Saluran Pernapasan Atas Akut (ISPA)/Common Cold,J06.9,Respiratory,"Consistently the #1 or #2 outpatient diagnosis at Puskesmas across Java (Jakarta, Central & West Java data); driven by crowding, poor ventilation, tropical climate/pollution.",7,4,9
+D02,Essential (Primary) Hypertension,Hipertensi Esensial (Primer),I10,Cardiovascular,"Among the top 3 outpatient diagnoses in Jakarta puskesmas (283,000+ visits in 2024); a major NCD burden across Java.",7,5,9
+D03,Dental Pulp and Periapical Disease,Penyakit Pulpa dan Jaringan Periapikal,K04,Dental/Oral,"Ranked top 3 outpatient diagnosis in Jakarta puskesmas 2024 (202,882 visits); reflects poor oral hygiene access.",6,3,7
+D04,Dyspepsia (Functional/Uninvestigated),Dispepsia,K30,Gastrointestinal,"One of the top outpatient complaints across Java puskesmas ('sakit maag'); linked to irregular meals, spicy food, stress, H. pylori prevalence.",7,6,8
+D05,Type 2 Diabetes Mellitus,Diabetes Melitus Tipe 2,E11,Endocrine/Metabolic,"Top 5 outpatient diagnosis in Jakarta puskesmas (188,000+ visits, 2024); rising prevalence across urban and rural Java.",8,4,9
+D06,Hypertensive Heart Disease,Penyakit Jantung Hipertensi,I11,Cardiovascular,"Top 6 outpatient diagnosis in Jakarta puskesmas 2024 (108,167 visits); complication of poorly controlled chronic hypertension.",7,4,8
+D07,Dyslipidemia,Dislipidemia,E78,Endocrine/Metabolic,Top 7 outpatient diagnosis in Jakarta puskesmas 2024; usually detected on routine screening rather than symptoms.,4,3,7
+D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Nyeri Otot/Jaringan Lunak (Rematik),M79.1,Musculoskeletal,"Frequently reported as 'nyeri sendi/rematik' - among the most common OPD diagnoses at rural Java puskesmas (e.g., top diagnosis at Puskesmas Gabus II 2023).",5,4,8
+D09,Acute Diarrhea / Gastroenteritis,Diare Akut / Gastroenteritis,A09,Gastrointestinal/Infectious,Consistently in the top 10 across Jakarta and rural Java puskesmas; linked to food/water sanitation.,6,5,8
+D10,HIV Infection,Infeksi HIV,B20-B24,Infectious,Listed among Jakarta's top-10 outpatient puskesmas diagnoses (2024); urban Java has established ART programs.,8,3,7
+D11,Pulmonary Tuberculosis,Tuberkulosis Paru (TB Paru),A15,Infectious/Respiratory,Indonesia has one of the world's highest TB burdens; consistently appears in top-10 puskesmas diagnoses across Java (rural and urban).,8,4,9
+D12,Dengue Fever / Dengue Hemorrhagic Fever,Demam Dengue / Demam Berdarah Dengue (DBD),A90 / A91,Infectious,Java experiences seasonal dengue outbreaks (rainy season); a frequent cause of acute febrile OPD presentation.,7,6,8
+D13,Typhoid Fever,Demam Tifoid,A01.0,Infectious,"Endemic in Indonesia, especially Java, linked to contaminated food/water; frequent cause of prolonged fever in OPD.",8,4,8
+D14,Bronchial Asthma,Asma Bronkial,J45,Respiratory,"Common chronic respiratory OPD presentation, aggravated by Java's air pollution, dust, and humidity/mold triggers.",5,5,8
+D15,Community-Acquired Pneumonia,Pneumonia Komunitas,J18,Respiratory/Infectious,"A leading cause of respiratory OPD/ER presentation and hospitalization risk, especially in young children and elderly in Java.",6,5,7
+D16,Gastritis / Peptic Ulcer Disease,Gastritis / Tukak Lambung,K29,Gastrointestinal,"Extremely common OPD complaint across Java puskesmas ('maag'/'sakit lambung'), often overlapping with dyspepsia.",6,4,7
+D17,Gastroesophageal Reflux Disease (GERD),Penyakit Refluks Gastroesofageal (GERD),K21,Gastrointestinal,"Common complaint related to diet (spicy/fatty food), obesity trends, and late-night eating habits.",5,4,8
+D18,Osteoarthritis,Osteoartritis,M19,Musculoskeletal,"Common in older OPD patients, especially knee OA, related to age, obesity, and physical labor.",6,3,8
+D19,Gout / Hyperuricemia,Gout / Asam Urat,M10,Musculoskeletal/Metabolic,"Very common self-reported complaint ('asam urat') in Java OPD, linked to diet high in purines (organ meat, seafood, melinjo).",5,3,8
+D20,Rheumatoid Arthritis,Artritis Reumatoid,M06,Musculoskeletal/Autoimmune,Less common than OA/gout but an important differential when patients present with 'rematik' - symmetric small joint disease.,5,3,7
+D21,Tension-Type Headache / Migraine,Nyeri Kepala Tegang / Migrain,G44,Neurological,One of the most frequent standalone OPD complaints ('sakit kepala'); usually primary headache disorder.,4,6,8
+D22,Vertigo (Benign Paroxysmal Positional Vertigo),Vertigo (BPPV),H81.1,Neurological/ENT,Very common OPD complaint ('pusing berputar'); important to distinguish peripheral (benign) from central (dangerous) causes.,4,4,8
+D23,Non-specific Low Back Pain,Nyeri Punggung Bawah,M54.5,Musculoskeletal,"Extremely common complaint, often related to occupation (lifting, prolonged sitting/standing), especially among laborers and market workers.",5,6,8
+D24,Iron Deficiency Anemia,Anemia Defisiensi Besi,D50,Hematological,Common in women of reproductive age and children in Java; linked to nutrition and menstrual blood loss.,8,3,8
+D25,Chronic Kidney Disease,Penyakit Ginjal Kronik,N18,Renal,Growing OPD burden secondary to poorly controlled hypertension and diabetes across Java.,9,4,8
+D26,Chronic Obstructive Pulmonary Disease (COPD),Penyakit Paru Obstruktif Kronik (PPOK),J44,Respiratory,"Common in older patients with smoking history or biomass fuel/cooking smoke exposure, a notable exposure in rural Java kitchens.",6,5,8
+D27,Allergic Rhinitis,Rinitis Alergi,J30,ENT/Allergy,"Common recurring complaint, often mistaken for chronic 'colds'; triggered by dust mites, humidity, and pollution in Java's climate.",7,2,7
+D28,Atopic/Contact Dermatitis,Dermatitis Atopik/Kontak,L20 / L23,Dermatological,"Common in Java's hot, humid climate; frequently aggravated by sweating, soaps, and occupational exposures.",6,3,7
+D29,Scabies,Skabies (Kudis),B86,Dermatological/Infectious,"Common in crowded households, boarding schools (pesantren), and dormitories across Java due to close contact transmission.",4,2,7
+D30,Tinea (Fungal Skin Infection),"Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)",B35,Dermatological/Infectious,"Very common in Java's hot, humid climate; includes tinea corporis, cruris, pedis, and pityriasis versicolor ('panu').",5,2,7
+D31,Urinary Tract Infection,Infeksi Saluran Kemih (ISK),N39.0,Genitourinary,"Common OPD complaint, especially among women; recurrent cases seen with poor hydration/hygiene practices.",6,4,8
+D32,Otitis Media,Otitis Media,H66,ENT,"Common, especially in children, often following upper respiratory infections; frequent OPD presentation across Java.",5,4,7
+D33,Pharyngitis / Tonsillitis,Faringitis / Tonsilitis,J02 / J03,ENT/Infectious,"Very frequent OPD complaint ('radang tenggorokan'), ranked among top diagnoses at multiple Java puskesmas.",6,3,7
+D34,Conjunctivitis,Konjungtivitis (Mata Merah),H10,Ophthalmological,"Common, often viral or bacterial, spreads easily in schools/households; frequent 'mata merah' complaint in OPD.",5,5,8
+D35,Malaria,Malaria,B54,Infectious,"Endemic in parts of Java (e.g., southern coastal areas of Central/East Java, Banten) - important differential for fever in relevant areas/travelers.",6,6,7
+D36,Chikungunya Fever,Demam Chikungunya,A92.0,Infectious,Mosquito-borne outbreaks occur periodically across Java; often confused clinically with dengue.,7,3,7
+D37,Intestinal Worm Infestation (Helminthiasis),Kecacingan,B82,Infectious/Gastrointestinal,"Common especially in children in rural/semi-rural Java, related to sanitation and soil-transmitted helminths (roundworm, whipworm, hookworm).",7,3,7
+D38,Leptospirosis,Leptospirosis,A27,Infectious,Notable risk in Java during flooding season (common in Jakarta and other low-lying Java cities); transmitted via rat urine-contaminated water.,6,4,7
+D39,Hepatitis A,Hepatitis A,B15,Infectious/Gastrointestinal,Common in areas with limited sanitation infrastructure; periodic outbreaks reported in Java linked to contaminated food/water.,8,3,8
+D40,Post-Stroke Follow-up / Chronic Sequelae,Pasca Stroke / Gejala Sisa Kronik,I69,Neurological,Stroke is a leading cause of disability in Indonesia; many OPD visits are follow-up care for known stroke patients managing risk factors and rehabilitation.,7,4,8

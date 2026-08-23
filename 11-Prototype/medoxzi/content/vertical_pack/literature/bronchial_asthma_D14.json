@@ -1,0 +1,259 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "bronchial_asthma_D14",
+      "label_en": "Bronchial Asthma",
+      "label_id": "Asma Bronkial"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "J45",
+  "category": "Respiratory",
+  "context_note": "Common chronic respiratory OPD presentation, aggravated by Java's air pollution, dust, and humidity/mold triggers.",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "bronchial_asthma_D14",
+      "text_by_language": {
+        "en": "How often do you experience wheezing, breathlessness, or chest tightness?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Assess symptom frequency for control classification",
+      "source_ref": "OPD QuestionBank v1.0 :: Bronchial Asthma :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D14', 'name_en': 'Bronchial Asthma', 'name_id': 'Asma Bronkial', 'icd10': 'J45', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "bronchial_asthma_D14",
+      "text_by_language": {
+        "en": "Do symptoms wake you up at night, and how often?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Nocturnal symptoms indicate poor control",
+      "source_ref": "OPD QuestionBank v1.0 :: Bronchial Asthma :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D14', 'name_en': 'Bronchial Asthma', 'name_id': 'Asma Bronkial', 'icd10': 'J45', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "bronchial_asthma_D14",
+      "text_by_language": {
+        "en": "What triggers your symptoms - exercise, cold air, dust, smoke, or specific allergens?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Identify triggers for avoidance counseling",
+      "source_ref": "OPD QuestionBank v1.0 :: Bronchial Asthma :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D14', 'name_en': 'Bronchial Asthma', 'name_id': 'Asma Bronkial', 'icd10': 'J45', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "bronchial_asthma_D14",
+      "text_by_language": {
+        "en": "Do you or does anyone in your family have a history of asthma, eczema, or allergies?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Assess atopic predisposition",
+      "source_ref": "OPD QuestionBank v1.0 :: Bronchial Asthma :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D14', 'name_en': 'Bronchial Asthma', 'name_id': 'Asma Bronkial', 'icd10': 'J45', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "bronchial_asthma_D14",
+      "text_by_language": {
+        "en": "Are you currently using any inhalers? How often, and do you use a reliever or controller inhaler?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Assess current management and technique needs",
+      "source_ref": "OPD QuestionBank v1.0 :: Bronchial Asthma :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D14', 'name_en': 'Bronchial Asthma', 'name_id': 'Asma Bronkial', 'icd10': 'J45', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "bronchial_asthma_D14",
+      "text_by_language": {
+        "en": "How many times have you needed emergency treatment or hospitalization for breathing problems?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Assess severity and prior exacerbation history",
+      "source_ref": "OPD QuestionBank v1.0 :: Bronchial Asthma :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D14', 'name_en': 'Bronchial Asthma', 'name_id': 'Asma Bronkial', 'icd10': 'J45', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "bronchial_asthma_D14",
+      "text_by_language": {
+        "en": "Does your breathlessness limit your daily activities or work?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Assess functional impact/control",
+      "source_ref": "OPD QuestionBank v1.0 :: Bronchial Asthma :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D14', 'name_en': 'Bronchial Asthma', 'name_id': 'Asma Bronkial', 'icd10': 'J45', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)"
+    },
+    {
+      "question_key": "q_08",
+      "chief_complaint_code": "bronchial_asthma_D14",
+      "text_by_language": {
+        "en": "Do you smoke, or are you exposed to smoke/biomass fuel at home?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Identify aggravating exposures",
+      "source_ref": "OPD QuestionBank v1.0 :: Bronchial Asthma :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D14', 'name_en': 'Bronchial Asthma', 'name_id': 'Asma Bronkial', 'icd10': 'J45', 'category': 'Respiratory'}",
+      "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "bronchial_asthma_D14",
+      "text_by_language": {
+        "en": "Inability to speak full sentences",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Bronchial Asthma :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D14'}",
+      "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_10",
+      "chief_complaint_code": "bronchial_asthma_D14",
+      "text_by_language": {
+        "en": "Use of accessory muscles/severe distress",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Bronchial Asthma :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D14'}",
+      "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_11",
+      "chief_complaint_code": "bronchial_asthma_D14",
+      "text_by_language": {
+        "en": "Cyanosis (bluish lips)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 11,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Bronchial Asthma :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D14'}",
+      "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_12",
+      "chief_complaint_code": "bronchial_asthma_D14",
+      "text_by_language": {
+        "en": "Silent chest on auscultation",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 12,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Bronchial Asthma :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D14'}",
+      "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_13",
+      "chief_complaint_code": "bronchial_asthma_D14",
+      "text_by_language": {
+        "en": "Peak flow severely reduced",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 13,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Bronchial Asthma :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D14'}",
+      "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)"
+    }
+  ]
+}

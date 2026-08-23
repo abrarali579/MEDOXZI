@@ -1,0 +1,184 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Scabies (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "scabies_D29",
+      "label_en": "Scabies",
+      "label_id": "Skabies (Kudis)"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "B86",
+  "category": "Dermatological/Infectious",
+  "context_note": "Common in crowded households, boarding schools (pesantren), and dormitories across Java due to close contact transmission.",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "scabies_D29",
+      "text_by_language": {
+        "en": "Where is the itching worst, and is it worse at night?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Classic distribution (finger webs, wrists, groin) and nocturnal itch pattern",
+      "source_ref": "OPD QuestionBank v1.0 :: Scabies :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D29', 'name_en': 'Scabies', 'name_id': 'Skabies (Kudis)', 'icd10': 'B86', 'category': 'Dermatological/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Scabies (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "scabies_D29",
+      "text_by_language": {
+        "en": "Does anyone else in your household, dormitory, or close contacts have similar itching?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Assess for common exposure - scabies spreads with close contact",
+      "source_ref": "OPD QuestionBank v1.0 :: Scabies :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D29', 'name_en': 'Scabies', 'name_id': 'Skabies (Kudis)', 'icd10': 'B86', 'category': 'Dermatological/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Scabies (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "scabies_D29",
+      "text_by_language": {
+        "en": "Can you see small burrow lines or tiny bumps on the skin?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Identify characteristic scabies burrows",
+      "source_ref": "OPD QuestionBank v1.0 :: Scabies :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D29', 'name_en': 'Scabies', 'name_id': 'Skabies (Kudis)', 'icd10': 'B86', 'category': 'Dermatological/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Scabies (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "scabies_D29",
+      "text_by_language": {
+        "en": "How long have you had the itching, and has it been getting worse?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Assess chronicity/progression",
+      "source_ref": "OPD QuestionBank v1.0 :: Scabies :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D29', 'name_en': 'Scabies', 'name_id': 'Skabies (Kudis)', 'icd10': 'B86', 'category': 'Dermatological/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Scabies (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "scabies_D29",
+      "text_by_language": {
+        "en": "Do you live in a crowded setting such as a boarding school, dormitory, or shared housing?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Identify high-risk living situation",
+      "source_ref": "OPD QuestionBank v1.0 :: Scabies :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D29', 'name_en': 'Scabies', 'name_id': 'Skabies (Kudis)', 'icd10': 'B86', 'category': 'Dermatological/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Scabies (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "scabies_D29",
+      "text_by_language": {
+        "en": "Have you shared clothing, bedding, or towels with someone who has similar symptoms?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Assess fomite transmission risk",
+      "source_ref": "OPD QuestionBank v1.0 :: Scabies :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D29', 'name_en': 'Scabies', 'name_id': 'Skabies (Kudis)', 'icd10': 'B86', 'category': 'Dermatological/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Scabies (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "scabies_D29",
+      "text_by_language": {
+        "en": "Is there any pus, crusting, or spreading redness at the itchy sites?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Screen for secondary bacterial skin infection",
+      "source_ref": "OPD QuestionBank v1.0 :: Scabies :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D29', 'name_en': 'Scabies', 'name_id': 'Skabies (Kudis)', 'icd10': 'B86', 'category': 'Dermatological/Infectious'}",
+      "authored_by": "LITERATURE_SOURCE - Scabies (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_08",
+      "chief_complaint_code": "scabies_D29",
+      "text_by_language": {
+        "en": "Widespread crusted lesions (possible crusted/Norwegian scabies, seen in immunocompromised)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Scabies :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D29'}",
+      "authored_by": "LITERATURE_SOURCE - Scabies (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "scabies_D29",
+      "text_by_language": {
+        "en": "Signs of secondary bacterial infection (pus, fever, spreading cellulitis)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Scabies :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D29'}",
+      "authored_by": "LITERATURE_SOURCE - Scabies (requires clinician sign)"
+    }
+  ]
+}

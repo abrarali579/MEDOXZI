@@ -1,0 +1,259 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "LITERATURE_SOURCE - Conjunctivitis (requires clinician sign)",
+  "signed_at": null,
+  "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
+  "chief_complaints": [
+    {
+      "code": "conjunctivitis_D34",
+      "label_en": "Conjunctivitis",
+      "label_id": "Konjungtivitis (Mata Merah)"
+    }
+  ],
+  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "icd10": "H10",
+  "category": "Ophthalmological",
+  "context_note": "Common, often viral or bacterial, spreads easily in schools/households; frequent 'mata merah' complaint in OPD.",
+  "questions": [
+    {
+      "question_key": "q_01",
+      "chief_complaint_code": "conjunctivitis_D34",
+      "text_by_language": {
+        "en": "Is one eye affected or both, and did it start in one eye and spread to the other?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "Assess laterality/spread pattern, relevant for viral vs bacterial vs allergic",
+      "source_ref": "OPD QuestionBank v1.0 :: Conjunctivitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D34', 'name_en': 'Conjunctivitis', 'name_id': 'Konjungtivitis (Mata Merah)', 'icd10': 'H10', 'category': 'Ophthalmological'}",
+      "authored_by": "LITERATURE_SOURCE - Conjunctivitis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_02",
+      "chief_complaint_code": "conjunctivitis_D34",
+      "text_by_language": {
+        "en": "What does the discharge look like - watery, or thick and yellow/green?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "Differentiate viral/allergic (watery) from bacterial (purulent) conjunctivitis",
+      "source_ref": "OPD QuestionBank v1.0 :: Conjunctivitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D34', 'name_en': 'Conjunctivitis', 'name_id': 'Konjungtivitis (Mata Merah)', 'icd10': 'H10', 'category': 'Ophthalmological'}",
+      "authored_by": "LITERATURE_SOURCE - Conjunctivitis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_03",
+      "chief_complaint_code": "conjunctivitis_D34",
+      "text_by_language": {
+        "en": "Is there any eye pain, or just itching/irritation?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "Significant pain is a red flag requiring urgent eye assessment",
+      "source_ref": "OPD QuestionBank v1.0 :: Conjunctivitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D34', 'name_en': 'Conjunctivitis', 'name_id': 'Konjungtivitis (Mata Merah)', 'icd10': 'H10', 'category': 'Ophthalmological'}",
+      "authored_by": "LITERATURE_SOURCE - Conjunctivitis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_04",
+      "chief_complaint_code": "conjunctivitis_D34",
+      "text_by_language": {
+        "en": "Have you noticed any change in your vision?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "Screen for vision-threatening conditions requiring urgent referral",
+      "source_ref": "OPD QuestionBank v1.0 :: Conjunctivitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D34', 'name_en': 'Conjunctivitis', 'name_id': 'Konjungtivitis (Mata Merah)', 'icd10': 'H10', 'category': 'Ophthalmological'}",
+      "authored_by": "LITERATURE_SOURCE - Conjunctivitis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_05",
+      "chief_complaint_code": "conjunctivitis_D34",
+      "text_by_language": {
+        "en": "Are you sensitive to light?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 5,
+      "clinical_rationale": "Photophobia may indicate more serious ocular involvement",
+      "source_ref": "OPD QuestionBank v1.0 :: Conjunctivitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D34', 'name_en': 'Conjunctivitis', 'name_id': 'Konjungtivitis (Mata Merah)', 'icd10': 'H10', 'category': 'Ophthalmological'}",
+      "authored_by": "LITERATURE_SOURCE - Conjunctivitis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_06",
+      "chief_complaint_code": "conjunctivitis_D34",
+      "text_by_language": {
+        "en": "Has anyone around you had similar red/itchy eyes recently?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 6,
+      "clinical_rationale": "Assess for contagious spread, common with viral conjunctivitis",
+      "source_ref": "OPD QuestionBank v1.0 :: Conjunctivitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D34', 'name_en': 'Conjunctivitis', 'name_id': 'Konjungtivitis (Mata Merah)', 'icd10': 'H10', 'category': 'Ophthalmological'}",
+      "authored_by": "LITERATURE_SOURCE - Conjunctivitis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_07",
+      "chief_complaint_code": "conjunctivitis_D34",
+      "text_by_language": {
+        "en": "Do you wear contact lenses, or have you had any injury or object in the eye?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 7,
+      "clinical_rationale": "Identify risk factors for more serious corneal involvement",
+      "source_ref": "OPD QuestionBank v1.0 :: Conjunctivitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D34', 'name_en': 'Conjunctivitis', 'name_id': 'Konjungtivitis (Mata Merah)', 'icd10': 'H10', 'category': 'Ophthalmological'}",
+      "authored_by": "LITERATURE_SOURCE - Conjunctivitis (requires clinician sign)"
+    },
+    {
+      "question_key": "q_08",
+      "chief_complaint_code": "conjunctivitis_D34",
+      "text_by_language": {
+        "en": "Do you have any seasonal allergies or history of allergic conjunctivitis?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 8,
+      "clinical_rationale": "Assess for allergic etiology",
+      "source_ref": "OPD QuestionBank v1.0 :: Conjunctivitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D34', 'name_en': 'Conjunctivitis', 'name_id': 'Konjungtivitis (Mata Merah)', 'icd10': 'H10', 'category': 'Ophthalmological'}",
+      "authored_by": "LITERATURE_SOURCE - Conjunctivitis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_09",
+      "chief_complaint_code": "conjunctivitis_D34",
+      "text_by_language": {
+        "en": "Severe eye pain",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 9,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Conjunctivitis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D34'}",
+      "authored_by": "LITERATURE_SOURCE - Conjunctivitis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_10",
+      "chief_complaint_code": "conjunctivitis_D34",
+      "text_by_language": {
+        "en": "Vision loss or significant blurring",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 10,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Conjunctivitis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D34'}",
+      "authored_by": "LITERATURE_SOURCE - Conjunctivitis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_11",
+      "chief_complaint_code": "conjunctivitis_D34",
+      "text_by_language": {
+        "en": "Photophobia with headache (possible more serious eye/CNS condition)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 11,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Conjunctivitis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D34'}",
+      "authored_by": "LITERATURE_SOURCE - Conjunctivitis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_12",
+      "chief_complaint_code": "conjunctivitis_D34",
+      "text_by_language": {
+        "en": "History of trauma or foreign body",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 12,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Conjunctivitis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D34'}",
+      "authored_by": "LITERATURE_SOURCE - Conjunctivitis (requires clinician sign)"
+    },
+    {
+      "question_key": "rf_13",
+      "chief_complaint_code": "conjunctivitis_D34",
+      "text_by_language": {
+        "en": "Contact lens wearer with red painful eye (risk of keratitis)",
+        "screen": true
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": true,
+      "display_order": 13,
+      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
+      "source_ref": "OPD QuestionBank v1.0 :: Conjunctivitis :: red_flags.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D34'}",
+      "authored_by": "LITERATURE_SOURCE - Conjunctivitis (requires clinician sign)"
+    }
+  ]
+}
