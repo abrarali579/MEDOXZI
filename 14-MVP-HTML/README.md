@@ -11,6 +11,7 @@ Open `index.html` in a browser.
 - Staff registration and token issue.
 - Manual clinic token entry, so an existing clinic token system can remain the source of token numbers.
 - Existing patient search by name, Patient Identification Number (PIN), or mobile number.
+- Returning-patient selection fills both staff registration and patient intake fields.
 - Patient/caregiver intake on phone/tablet.
 - Basic personal information.
 - Patient's 2-3 line issue description.
@@ -31,6 +32,7 @@ Open `index.html` in a browser.
 - No real WhatsApp/Email sending.
 - Demo questions are `DEMO_UNVALIDATED` and must not be used with real patients until a named Lead Doctor signs the pack.
 - PIN binding is local browser prototype behaviour only; production must enforce it in the backend with immutable identity/audit controls.
+- Question options are demo-only but now vary by selected complaint so the interaction feels realistic.
 
 ## Next Product Decisions To Test Visually
 
@@ -41,3 +43,12 @@ Open `index.html` in a browser.
 - What exact PIN format should clinics use?
 - What exact fields must the doctor see in the first 30 seconds?
 - Where should follow-up date capture live in the doctor workflow?
+
+## Data Collection Features Worth Considering
+
+- Medicine strip/prescription photo capture.
+- Allergy card with "none known", "not sure", and free text.
+- Caregiver mode when a parent/relative answers.
+- Staff read-back confirmation for assisted intake.
+- Support needs such as wheelchair, interpreter, hearing support.
+- Returning-patient previous visit picker.

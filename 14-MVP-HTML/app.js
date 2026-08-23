@@ -9,30 +9,54 @@ const state = {
   doctorSaved: false,
 };
 
-const questions = [
-  {
-    text: "When did this problem start?",
-    options: ["Today", "Yesterday", "2-3 days ago", "More than 1 week"],
-  },
-  {
-    text: "Is it getting better, worse, or staying the same?",
-    options: ["Getting better", "Getting worse", "Same", "Not sure"],
-  },
-  {
-    text: "Are you taking any regular medicines?",
-    options: ["Yes", "No", "I don't know names", "Not asked"],
-  },
-  {
-    text: "Do you know of any medicine allergy?",
-    options: ["Yes", "No known allergy", "Not sure", "Not asked"],
-  },
-];
+const questionBanks = {
+  Fever: [
+    { text: "When did the fever start?", options: ["Today", "Yesterday", "2-3 days ago", "More than 1 week"] },
+    { text: "How has it changed?", options: ["Going down", "Going up", "Comes and goes", "Not sure"] },
+    { text: "Any cough, throat pain, or runny nose?", options: ["Cough", "Throat pain", "Runny nose", "None"] },
+    { text: "Have you taken any medicine for it?", options: ["Yes", "No", "I don't know names", "Not asked"] },
+  ],
+  Cough: [
+    { text: "When did the cough start?", options: ["Today", "2-3 days", "More than 1 week", "More than 1 month"] },
+    { text: "What kind of cough is it?", options: ["Dry", "With phlegm", "Comes at night", "Not sure"] },
+    { text: "Any fever with it?", options: ["Yes", "No", "Not sure", "Not asked"] },
+    { text: "Have you tried any medicine or syrup?", options: ["Yes", "No", "I don't know names", "Not asked"] },
+  ],
+  "Stomach pain": [
+    { text: "When did the stomach pain start?", options: ["Today", "Yesterday", "2-3 days ago", "More than 1 week"] },
+    { text: "Where is the pain mostly?", options: ["Upper", "Lower", "One side", "All over"] },
+    { text: "Any vomiting or loose motions?", options: ["Vomiting", "Loose motions", "Both", "None"] },
+    { text: "Is eating making it better or worse?", options: ["Better", "Worse", "No change", "Not sure"] },
+  ],
+  Headache: [
+    { text: "When did the headache start?", options: ["Today", "Yesterday", "2-3 days ago", "More than 1 week"] },
+    { text: "Where do you feel it most?", options: ["Front", "One side", "Back of head", "All over"] },
+    { text: "Any nausea or light sensitivity?", options: ["Nausea", "Light bothers me", "Both", "None"] },
+    { text: "Have you taken anything for it?", options: ["Yes", "No", "I don't know names", "Not asked"] },
+  ],
+  "Body pain": [
+    { text: "When did the body pain start?", options: ["Today", "Yesterday", "2-3 days ago", "More than 1 week"] },
+    { text: "Where is it most noticeable?", options: ["Whole body", "Joints", "Back", "Legs"] },
+    { text: "Is there fever with it?", options: ["Yes", "No", "Not sure", "Not asked"] },
+    { text: "Does rest help?", options: ["Yes", "No", "A little", "Not sure"] },
+  ],
+  "Something else": [
+    { text: "When did this problem start?", options: ["Today", "Yesterday", "2-3 days ago", "More than 1 week"] },
+    { text: "Is it getting better, worse, or staying the same?", options: ["Getting better", "Getting worse", "Same", "Not sure"] },
+    { text: "Have you taken any regular medicines?", options: ["Yes", "No", "I don't know names", "Not asked"] },
+    { text: "Do you know of any medicine allergy?", options: ["Yes", "No known allergy", "Not sure", "Not asked"] },
+  ],
+};
+
+function activeQuestions() {
+  return questionBanks[state.complaint] || questionBanks["Something else"];
+}
 
 const patients = [
   {
     token: 49,
     pin: "MXZ-2408-1049",
-    name: "A. Demo",
+    name: "Ayesha Demo",
     age: "31",
     sex: "Female",
     phone: "+62 812 1111 1111",
@@ -43,7 +67,7 @@ const patients = [
   {
     token: 50,
     pin: "MXZ-2408-1050",
-    name: "B. Demo",
+    name: "Budi Demo",
     age: "42",
     sex: "Male",
     phone: "+62 812 2222 2222",
@@ -80,7 +104,7 @@ function renderQueues() {
           <span class="token">${patient.token}</span>
           <span>
             <span class="queue-name">${patient.name}</span>
-            <span class="queue-meta">${patient.meta} · Docs ${patient.docs}</span>
+            <span class="queue-meta">${patient.pin || "New record"} · ${patient.meta} · Docs ${patient.docs}</span>
           </span>
           <span class="mini-badge">${patient.status}</span>
         </button>
@@ -113,6 +137,22 @@ function syncPatientFromRegistration() {
   renderDoctorBrief();
 }
 
+function clearIntakeDraft({ keepIdentity = true } = {}) {
+  state.currentStep = 0;
+  state.complaint = "Fever";
+  state.answers = {};
+  state.files = [];
+  state.doctorSaved = false;
+  if (!keepIdentity) {
+    state.pin = "";
+    state.linkedIdentity = null;
+  }
+  $("#issueText").value = "I have fever and body pain since yesterday. I feel tired and want the doctor to check.";
+  $("#reportInput").value = "";
+  renderFiles();
+  $$(".complaint-grid button").forEach((button) => button.classList.remove("selected"));
+}
+
 function showStep(step) {
   state.currentStep = Math.max(0, Math.min(step, 7));
   $$(".intake-step").forEach((el) => {
@@ -136,6 +176,7 @@ function showStep(step) {
 }
 
 function renderQuestion() {
+  const questions = activeQuestions();
   const index = Object.keys(state.answers).length;
   const nextQuestion = questions[Math.min(index, questions.length - 1)];
   $("#questionTitle").textContent = `Basic question ${Math.min(index + 1, questions.length)} of ${questions.length}`;
@@ -153,6 +194,7 @@ function renderQuestion() {
 }
 
 function answerQuestion(answer) {
+  const questions = activeQuestions();
   const index = Object.keys(state.answers).length;
   const question = questions[Math.min(index, questions.length - 1)];
   state.answers[question.text] = answer;
@@ -167,7 +209,7 @@ function answerQuestion(answer) {
 
 function renderFiles() {
   if (!state.files.length) {
-    $("#fileList").textContent = "No reports attached. This is a normal first-visit state.";
+    $("#fileList").textContent = "No reports attached. This is normal for a first visit.";
     return;
   }
   $("#fileList").innerHTML = state.files.map((file) => `<div>${file} · doctor-review only</div>`).join("");
@@ -203,6 +245,7 @@ function renderDoctorBrief() {
     ? answerEntries.map(([q, a]) => `<li>${q}: <strong>${a}</strong></li>`).join("")
     : "<li>No basic questions answered yet.</li>";
 
+  const questions = activeQuestions();
   const missing = questions.filter((question) => !state.answers[question.text]);
   $("#missingItems").textContent = missing.length
     ? missing.map((question) => question.text).join(" · ")
@@ -229,7 +272,10 @@ function generatePin(name, age, phone) {
 
 function savedPatients() {
   const stored = JSON.parse(localStorage.getItem("medoxziDemoPatients") || "[]");
-  return [...patients.filter((patient) => patient.pin), ...stored];
+  const combined = [...patients.filter((patient) => patient.pin), ...stored];
+  const byPin = new Map();
+  combined.forEach((patient) => byPin.set(patient.pin, patient));
+  return Array.from(byPin.values());
 }
 
 function saveLinkedPatient() {
@@ -265,7 +311,7 @@ function saveLinkedPatient() {
 function renderSearchResults(query = "") {
   const term = normalize(query);
   if (!term) {
-    $("#searchResults").textContent = "Search before creating a new record.";
+    $("#searchResults").textContent = "Search first. If no record appears, continue as a new patient.";
     return;
   }
   const results = savedPatients().filter((patient) => {
@@ -274,7 +320,7 @@ function renderSearchResults(query = "") {
   });
 
   if (!results.length) {
-    $("#searchResults").textContent = "No matching existing patient found. Continue as new.";
+    $("#searchResults").textContent = "No matching patient found. Continue as a new record.";
     return;
   }
 
@@ -283,7 +329,7 @@ function renderSearchResults(query = "") {
       (patient) => `
         <button type="button" class="search-result" data-pin="${patient.pin}">
           <strong>${patient.name}</strong>
-          <span>${patient.pin} · ${patient.phone}</span>
+          <span>${patient.pin} · ${patient.phone} · ${patient.sex}, ${patient.age}</span>
         </button>
       `,
     )
@@ -293,6 +339,7 @@ function renderSearchResults(query = "") {
 function loadExistingPatient(pin) {
   const patient = savedPatients().find((item) => item.pin === pin);
   if (!patient) return;
+  clearIntakeDraft({ keepIdentity: true });
   state.pin = patient.pin;
   state.linkedIdentity = {
     ...patient,
@@ -303,7 +350,11 @@ function loadExistingPatient(pin) {
   $("#patientSex").value = patient.sex;
   $("#patientPhone").value = patient.phone;
   syncPatientFromRegistration();
-  $("#searchResults").innerHTML = `<div class="identity-lock">Loaded ${patient.pin}. This record is locked to ${patient.name}, age ${patient.age}, mobile ${patient.phone}.</div>`;
+  $("#donePin").textContent = patient.pin;
+  $("#doneToken").textContent = state.token;
+  renderReview();
+  showStep(0);
+  $("#searchResults").innerHTML = `<div class="identity-lock"><strong>${patient.name}</strong><span>${patient.pin} loaded. Mobile ${patient.phone}. Update today's issue, then submit this visit.</span></div>`;
 }
 
 function saveDoctorConclusion() {
@@ -314,10 +365,10 @@ function saveDoctorConclusion() {
 
   if (followupNeeded === "Yes" && followupDate) {
     $("#reminderPreview").textContent =
-      `Clinic message preview only\n\nDear ${$("#intakeName").value || "Patient"}, this is a reminder from the clinic for your follow-up visit on ${followupDate}.\n\nSending is disabled until clinic-owned consent, opt-out, audit and template controls are implemented.\n\nConsent selected in demo: ${consent ? "yes" : "no"}`;
+      `Clinic reminder preview\n\nDear ${$("#intakeName").value || "Patient"}, this is a reminder for your follow-up visit on ${followupDate}.\n\nSending stays off until consent, opt-out, audit and template controls are implemented.\n\nConsent selected in this prototype: ${consent ? "yes" : "no"}`;
   } else {
     $("#reminderPreview").textContent =
-      "Doctor conclusion saved. No follow-up reminder preview because follow-up is not marked as needed or no date was selected.";
+      "Doctor note saved. No reminder preview because follow-up is not marked as needed or no date was selected.";
   }
   switchView("ops");
 }
@@ -334,6 +385,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $("#registrationForm").addEventListener("submit", (event) => {
     event.preventDefault();
+    if (!state.linkedIdentity) {
+      clearIntakeDraft({ keepIdentity: false });
+    }
     syncPatientFromRegistration();
     switchView("patient");
   });
@@ -360,6 +414,7 @@ document.addEventListener("DOMContentLoaded", () => {
   $$(".complaint-grid button").forEach((button) => {
     button.addEventListener("click", () => {
       state.complaint = button.dataset.complaint;
+      state.answers = {};
       $$(".complaint-grid button").forEach((el) => el.classList.remove("selected"));
       button.classList.add("selected");
       showStep(3);
@@ -374,6 +429,16 @@ document.addEventListener("DOMContentLoaded", () => {
     state.files = Array.from(event.target.files).map((file) => file.name);
     renderFiles();
     renderDoctorBrief();
+  });
+
+  $$(".detail-chips button").forEach((button) => {
+    button.addEventListener("click", () => {
+      const current = $("#issueText").value.trim();
+      const addition = button.dataset.detail;
+      $("#issueText").value = current ? `${current}\n${addition}` : addition;
+      $("#issueText").focus();
+      renderDoctorBrief();
+    });
   });
 
   ["intakeName", "intakeAge", "intakeSex", "intakePhone", "issueText"].forEach((id) => {

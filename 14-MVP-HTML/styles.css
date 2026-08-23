@@ -1,16 +1,16 @@
 :root {
-  --ink: #172026;
-  --muted: #5d6872;
-  --line: #d8e0e5;
-  --soft: #f5f8fa;
+  --ink: #15212b;
+  --muted: #64717d;
+  --line: #d7dee6;
+  --soft: #f6f8fb;
   --panel: #ffffff;
-  --brand: #0d9488;
-  --brand-dark: #0f766e;
-  --accent: #2563eb;
-  --warn: #b7791f;
+  --brand: #0f766e;
+  --brand-dark: #115e59;
+  --accent: #315a7d;
+  --warn: #9a6a17;
   --danger: #b42318;
-  --ok: #177245;
-  --shadow: 0 18px 50px rgba(23, 32, 38, 0.12);
+  --ok: #176c4f;
+  --shadow: 0 14px 36px rgba(15, 35, 55, 0.1);
 }
 
 * {
@@ -20,7 +20,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: #eef4f4;
+  background: #eef2f5;
   color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -103,19 +103,19 @@ h3 {
   padding: 6px 10px;
   border-radius: 8px;
   background: #fff7ed;
-  color: #92400e;
+  color: #7c4a03;
   font-size: 0.8rem;
   font-weight: 700;
 }
 
 .status-pill.safe {
-  background: #ecfdf5;
+  background: #eef8f6;
   color: var(--ok);
 }
 
 .mini-badge {
-  background: #e0f2fe;
-  color: #075985;
+  background: #edf3f8;
+  color: #294766;
 }
 
 .mini-badge.locked {
@@ -124,8 +124,8 @@ h3 {
 }
 
 .metric {
-  background: #ecfeff;
-  color: #155e75;
+  background: #edf7f5;
+  color: var(--brand-dark);
 }
 
 .role-tabs {
@@ -144,7 +144,7 @@ h3 {
 }
 
 .tab.active {
-  background: var(--brand);
+  background: #18364a;
   color: white;
 }
 
@@ -240,7 +240,7 @@ textarea {
 }
 
 .primary {
-  background: var(--brand);
+  background: #0f766e;
   color: white;
 }
 
@@ -308,10 +308,15 @@ textarea {
 
 .identity-lock {
   padding: 10px;
-  border: 1px solid #99f6e4;
+  border: 1px solid #9fd6cb;
   border-radius: 8px;
-  background: #ecfdf5;
+  background: #eef8f6;
   color: var(--brand-dark);
+}
+
+.identity-lock strong,
+.identity-lock span {
+  display: block;
 }
 
 .queue-item {
@@ -330,7 +335,7 @@ textarea {
   place-items: center;
   min-height: 44px;
   border-radius: 8px;
-  background: var(--ink);
+  background: #18364a;
   color: white;
   font-weight: 800;
 }
@@ -419,7 +424,7 @@ textarea {
 }
 
 .fixed {
-  background: #f0fdf4;
+  background: #eef8f6;
 }
 
 .complaint-grid,
@@ -440,7 +445,7 @@ textarea {
 .complaint-grid button.selected,
 .answer-grid button.selected {
   border-color: var(--brand);
-  background: #ccfbf1;
+  background: #dff3ef;
 }
 
 .question-text {
@@ -450,6 +455,34 @@ textarea {
   background: var(--soft);
   font-size: 1.25rem;
   line-height: 1.35;
+}
+
+.helper-card {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.helper-card strong {
+  font-size: 0.92rem;
+}
+
+.detail-chips {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.detail-chips button {
+  min-height: 40px;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  color: var(--ink);
+  font-weight: 700;
 }
 
 .answer-summary,
@@ -507,9 +540,9 @@ textarea {
   gap: 6px;
   margin: 16px 0;
   padding: 14px;
-  border: 1px solid #99f6e4;
+  border: 1px solid #9fd6cb;
   border-radius: 8px;
-  background: #ecfdf5;
+  background: #eef8f6;
 }
 
 .pin-box span {
@@ -543,7 +576,7 @@ textarea {
   height: 82px;
   margin: 0 auto 18px;
   border-radius: 50%;
-  background: #dcfce7;
+  background: #dff3e8;
   color: var(--ok);
   font-size: 2.4rem;
   font-weight: 900;
@@ -645,5 +678,9 @@ textarea {
 
   .queue-item .mini-badge {
     grid-column: 1 / -1;
+  }
+
+  .detail-chips {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

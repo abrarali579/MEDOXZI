@@ -1,6 +1,6 @@
 # STATE — where this project actually is
 
-**Updated:** 2026-08-24, session L (v2.6 HTML MVP identity and patient-flow refinements)
+**Updated:** 2026-08-24, session M (v2.6 HTML MVP polish and returning-patient flow)
 **Repository version:** **v2.6**
 **Read this first. Update it last.**
 
@@ -8,7 +8,7 @@
 
 ## 1. One-paragraph status
 
-The design blueprint is complete and internally consistent. The Python prototype passes **95 tests** and the harness passes **9/9 gates** (re-verified in session L by re-running, not by report). **No production app exists yet.** Session H records an explicit founder decision to defer/skip the Evidence Sprint for now and proceed with a **healthcare-first narrow MVP**: basic personal information, a 2-3 line patient issue description, Lead-Doctor-approved basic questions, optional previous-report attachments for doctor review, and a doctor brief pushed to the doctor's tablet/phone. Best initial patients are first clinic visits with no previous reports. Session J adds the official doctor-facing pitch playbook and accepts clinic-owned reminders/check-ins/announcements as product direction under ADR-036, but no WhatsApp/Email sending may go live until consent, opt-out, audit and template controls exist. Sessions K/L maintain local visual iteration in `14-MVP-HTML/`: a synthetic HTML prototype covering staff registration, existing-patient search, manual clinic token entry, patient phone/tablet intake, optional reports, PIN generation/display, doctor brief, follow-up date capture and disabled messaging preview. The v2.3 horizontal architecture discipline remains useful where practical, but healthcare is now the committed first vertical by ADR-035. Session I published the repository to `https://github.com/abrarali579/MEDOXZI`.
+The design blueprint is complete and internally consistent. The Python prototype passes **95 tests** and the harness passes **9/9 gates** (re-verified in session M by re-running, not by report). **No production app exists yet.** Session H records an explicit founder decision to defer/skip the Evidence Sprint for now and proceed with a **healthcare-first narrow MVP**: basic personal information, a 2-3 line patient issue description, Lead-Doctor-approved basic questions, optional previous-report attachments for doctor review, and a doctor brief pushed to the doctor's tablet/phone. Best initial patients are first clinic visits with no previous reports. Session J adds the official doctor-facing pitch playbook and accepts clinic-owned reminders/check-ins/announcements as product direction under ADR-036, but no WhatsApp/Email sending may go live until consent, opt-out, audit and template controls exist. Sessions K-M maintain local visual iteration in `14-MVP-HTML/`: a synthetic HTML prototype covering staff registration, returning-patient search/PIN selection sync, manual clinic token entry, patient phone/tablet intake, complaint-specific demo questions, optional reports, PIN generation/display, doctor brief, follow-up date capture, disabled messaging preview and data-capture helper ideas. The v2.3 horizontal architecture discipline remains useful where practical, but healthcare is now the committed first vertical by ADR-035. Session I published the repository to `https://github.com/abrarali579/MEDOXZI`.
 
 ## 2. Product boundary (do not drift from this)
 
@@ -29,8 +29,8 @@ Local MVP visualization now lives in `14-MVP-HTML/index.html`. Use it for screen
 ## 3. Where we are in the sequence
 
 ```
-HEALTHCARE-FIRST NARROW MVP → HARNESS+HARDENING → PITCH / PILOT CLINIC →
-VISUAL HTML MVP → LEAD DOCTOR CUSTOMISE + SIGN-OFF → CLIENT 1 SHADOW (wk1) → LIVE (wk2) → IMPROVE → V1 FREEZE
+HEALTHCARE-FIRST NARROW MVP → VISUAL HTML MVP → SCREEN LOCK →
+LEAD DOCTOR CUSTOMISE + SIGN-OFF → HARNESS+HARDENING → PITCH / PILOT CLINIC → CLIENT 1 SHADOW (wk1) → LIVE (wk2) → IMPROVE → V1 FREEZE
    ▲
    └── WE ARE HERE (visual prototype started; production app not built)
 ```
@@ -39,7 +39,7 @@ VISUAL HTML MVP → LEAD DOCTOR CUSTOMISE + SIGN-OFF → CLIENT 1 SHADOW (wk1) �
 
 ## 4. Verified state of the code
 
-Last verified **session L**, by re-running on the Windows host. Evidence: VERIFICATION-LOG V-2026-08-24-L-03.
+Last verified **session M**, by re-running on the Windows host. Evidence: VERIFICATION-LOG V-2026-08-24-M-03.
 
 | Check | Result |
 |---|---|
@@ -48,6 +48,7 @@ Last verified **session L**, by re-running on the Windows host. Evidence: VERIFI
 | `python demo.py \| Select-Object -Last 20` | runs clean |
 | `node --check 14-MVP-HTML\app.js` | syntax check passed |
 | `Invoke-WebRequest http://127.0.0.1:8765/index.html` | **200** |
+| Returning-patient/PIN selection DOM check | selected PIN filled staff form, patient form, active PIN and doctor brief |
 
 ## 5. Blocking threads
 
@@ -67,6 +68,7 @@ Last verified **session L**, by re-running on the Windows host. Evidence: VERIFI
 **New in session J:** OT-19 Clinic-owned engagement consent/comms controls.
 **New in session K:** OT-20 HTML MVP visual review and screen lock.
 **New in session L:** OT-21 Production PIN identity binding.
+**Session M update:** OT-20 prototype review scope now includes returning-patient PIN selection sync, complaint-specific demo questions, helper chips and data-capture feature ideas.
 
 ## 6. Settled decisions (36 ADRs)
 
@@ -107,7 +109,7 @@ Last verified **session L**, by re-running on the Windows host. Evidence: VERIFI
 
 | # | Action | Why now |
 |---|---|---|
-| 1 | **Review updated `14-MVP-HTML/index.html` on phone/tablet dimensions** | Confirms relevant answer options, Step 7 layout, PIN/done screen and existing-patient search before production frontend engineering |
+| 1 | **Review polished `14-MVP-HTML/index.html` on phone/tablet dimensions** | Confirms visual tone, returning-patient selection sync, complaint-specific demo options, helper chips, Step 7 layout, PIN/done screen and data-capture ideas before production frontend engineering |
 | 2 | **Design production PIN identity binding** (OT-21) | Patient history must not attach to the wrong mobile/name/age identity |
 | 3 | **Create healthcare `vertical_pack` shell and question-pack status workflow** | Blocks safe implementation of the v2.6 intake |
 | 4 | **Draft first-visit/no-report basic question pack as `DRAFT` or `DEMO_UNVALIDATED` only** | Lets product/UX proceed without pretending content is signed |
@@ -149,3 +151,4 @@ Last verified **session L**, by re-running on the Windows host. Evidence: VERIFI
 | J | v2.5 doctor pitch playbook added; clinic-owned engagement adopted as product direction; ADR-036 and OT-19 added | [log](SESSION-LOG/2026-08-24-J-doctor-pitch-playbook.md) |
 | K | v2.6 local HTML MVP prototype started; OT-20 visual review added | [log](SESSION-LOG/2026-08-24-K-html-mvp-start.md) |
 | L | v2.6 HTML MVP refined with search, manual token, PIN, relevant answers and review layout fix; OT-21 added | [log](SESSION-LOG/2026-08-24-L-html-mvp-identity-flow.md) |
+| M | v2.6 HTML MVP polished; returning-patient PIN sync fixed; complaint-specific demo options and data-capture helper ideas added | [log](SESSION-LOG/2026-08-24-M-html-mvp-polish.md) |

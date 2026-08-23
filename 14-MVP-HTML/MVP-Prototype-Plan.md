@@ -24,6 +24,9 @@ Build a local, responsive HTML prototype that visualizes the healthcare-first na
 | Manual clinic token | Built in HTML v0.2 | Lets clinics keep their existing token system |
 | Existing patient search | Built in HTML v0.2 | Search by name, PIN or mobile |
 | PIN generation and binding | Built in HTML v0.2 | Local prototype only; production backend must enforce immutable identity links |
+| Returning-patient field sync | Built in HTML v0.3 | Selected PIN now fills staff form, patient form, PIN and doctor brief |
+| Complaint-specific answer options | Built in HTML v0.3 | Options change by selected complaint; still demo-only |
+| Data-capture helpers | Built in HTML v0.3 | Non-clinical helper chips and feature ideas added |
 | Patient intake | Built in HTML v0.1 | Phone-first stepper |
 | Report attachment preview | Built in HTML v0.1 | File names only; no upload |
 | Doctor queue and brief | Built in HTML v0.1 | Source-bound facts, no diagnosis |

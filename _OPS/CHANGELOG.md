@@ -4,6 +4,58 @@
 
 ---
 
+## 2026-08-24 - Session M - HTML MVP polish and returning-patient flow
+
+**WHAT**
+- Polished `14-MVP-HTML/` with a quieter professional palette and less robotic patient/staff/doctor copy.
+- Fixed returning-patient PIN selection so choosing an existing record fills the staff form, patient intake fields, active PIN, done screen and doctor brief.
+- Replaced one-size answer choices with complaint-specific demo question banks for fever, cough, stomach pain, headache, body pain and other complaints.
+- Added issue-description helper chips for practical patient details: started, where, tried and before.
+- Added visible data-collection feature suggestions in the prototype and docs: medicine photo capture, allergy card, caregiver mode, staff read-back, support needs and previous-visit picker.
+- Preserved the exact required doctor-view wording: `No clinic-approved safety rules are active`.
+
+**WHY**
+The founder reported that PIN search/selection did not update placeholder data, the screens felt too robotic, the colors needed a more professional clinic feel, and the data-collection flow needed smarter options and future feature ideas.
+
+**EVIDENCE**
+`_OPS/VERIFICATION-LOG.md` V-2026-08-24-M-01 and V-2026-08-24-M-02.
+
+Key outputs:
+
+```text
+$ python -m pytest tests/ -q
+95 passed in 0.11s
+```
+
+```text
+$ python -m harness.run
+VERDICT: PASS
+```
+
+```text
+$ node --check 14-MVP-HTML\app.js
+```
+
+Returning-patient sync evidence:
+
+```text
+{"name":"Ayesha Demo","age":"31","sex":"Female","phone":"+62 812 1111 1111","intakeName":"Ayesha Demo","intakeAge":"31","intakeSex":"Female","intakePhone":"+62 812 1111 1111","pin":"MXZ-2408-1049","brief":"Token 77 · Ayesha Demo · Female, 31 · MXZ-2408-1049","search":true}
+```
+
+**NEXT**
+1. Review the polished HTML MVP on an actual phone/tablet and approve or adjust the visual tone.
+2. Decide which proposed data-capture helpers belong in the MVP screen lock.
+3. Keep production PIN lookup blocked on OT-21 backend identity binding.
+4. Keep complaint/question wording demo-only until OT-18 Lead Doctor sign-off.
+
+**WHY NEXT**
+The local prototype now shows the intended flow more clearly, but visual approval, identity integrity and clinical wording sign-off are still required before production frontend or real-patient use.
+
+**HOW**
+Continue visual iteration in `14-MVP-HTML/`. For production, implement OT-21 with immutable identity constraints/audit and OT-18 with signed healthcare question-pack status workflow before any real clinic use.
+
+---
+
 ## 2026-08-24 — Session L — HTML MVP identity and patient-flow refinements
 
 **WHAT**

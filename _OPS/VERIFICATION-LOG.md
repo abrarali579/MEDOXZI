@@ -1320,6 +1320,190 @@ $ git diff --check
 
 ---
 
+## V-2026-08-24-M-01 - Baseline before HTML MVP polish
+
+**Date:** 2026-08-24
+**Scope:** Required pre-change verification before polishing `14-MVP-HTML/`.
+
+```text
+$ python -m pytest tests/ -q
+........................................................................ [ 75%]
+.......................                                                  [100%]
+95 passed in 0.11s
+```
+
+```text
+$ python -m harness.run
+VERDICT: PASS
+```
+
+```text
+$ python demo.py | Select-Object -Last 20
+Every behaviour above is deterministic and unit-tested.
+Run:  python -m pytest tests/ -v
+```
+
+**Verdict:** baseline was green before edits.
+
+---
+
+## V-2026-08-24-M-02 - HTML MVP polish verification
+
+**Date:** 2026-08-24
+**Scope:** Verify returning-patient/PIN selection sync, JavaScript syntax, local static assets, and standard prototype safety boundaries after HTML MVP polish.
+
+```text
+$ python -m pytest tests/ -q
+........................................................................ [ 75%]
+.......................                                                  [100%]
+95 passed in 0.11s
+```
+
+```text
+$ python -m harness.run
+==========================================================================
+  MEDOXZI HARNESS
+  NOT FOR CLINICAL USE - synthetic cases only
+==========================================================================
+  harness 0.1.0 - content content@0.1.0 - rules 3
+
+[A] Contamination - 500 concurrent encounters ...
+    PASS - 500 encounters, 0 contamination(s), 0 pipeline failure(s)
+
+[E] Abstention - illegible / absent / ambiguous expected values ...
+    abstention 100.0% (9/9) - fabrications 0 - missed 0
+
+[F] Diagnostic drift - every generated statement ...
+    50 statements checked - 0 hit(s)
+
+==========================================================================
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+
+  VERDICT: PASS
+==========================================================================
+```
+
+```text
+$ python demo.py | Select-Object -Last 20
+  Red flags STILL evaluated:      True (1 fired)
+
+  Note: the invented sentence would have been the dangerous one -
+  the patient is in fact allergic to penicillin.
+
+------------------------------------------------------------------------------
+  7 - NOT_ASKED IS NEVER A NEGATIVE
+------------------------------------------------------------------------------
+  NOT_ASKED    renders as: "not asked"
+  UNKNOWN      renders as: "patient does not know"
+  ANSWERED(no) renders as: "no"
+
+  Allergies never asked -> "not asked"
+  Allergies asked, none -> "none known"
+
+  Three distinct clinical facts. Three distinct renderings.
+------------------------------------------------------------------------------
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+------------------------------------------------------------------------------
+```
+
+```text
+$ node --check 14-MVP-HTML\app.js
+```
+
+`node --check` produced no output, which is a pass.
+
+```text
+$ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8765/index.html
+200
+$ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8765/app.js
+200
+$ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8765/styles.css
+200
+```
+
+Returning-patient/PIN selection sync was checked with a lightweight DOM harness against `14-MVP-HTML/app.js`:
+
+```text
+{"name":"Ayesha Demo","age":"31","sex":"Female","phone":"+62 812 1111 1111","intakeName":"Ayesha Demo","intakeAge":"31","intakeSex":"Female","intakePhone":"+62 812 1111 1111","pin":"MXZ-2408-1049","brief":"Token 77 · Ayesha Demo · Female, 31 · MXZ-2408-1049","search":true}
+```
+
+Feature/boundary grep:
+
+```text
+$ rg -n "Find returning patient|Helpful details|No clinic-approved safety rules are active|Prototype · sample data|DEMO_UNVALIDATED|robot|Open doctor view|Ayesha Demo|Budi Demo|questionBanks|loadExistingPatient|clearIntakeDraft" 14-MVP-HTML
+```
+
+The grep found the new returning-patient UI, helper chips, exact mandatory safety phrase, demo boundary docs, demo patient fixtures, and new flow functions. It found no `robot` and no patient-facing `Open doctor view`.
+
+**AGENT-PROTOCOL sweep:** full Windows sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; red-flag phrases only in prohibitive or historical contexts; retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in the drift detector regex; `>=500` only in ADR-029/history/Gate 6/synthetic/privacy contexts.
+
+**Verdict:** HTML MVP polish is verified. The prototype remains local/synthetic and does not add production clinical content, diagnosis/differential UI, live messaging, real patient data, regulatory claims, or clinical performance claims.
+
+---
+
+## V-2026-08-24-M-03 - Post-STATE final check
+
+**Date:** 2026-08-24
+**Scope:** Final verification after updating CHANGELOG, OPEN-THREADS, session log and STATE.
+
+```text
+$ python -m pytest tests/ -q
+........................................................................ [ 75%]
+.......................                                                  [100%]
+95 passed in 0.11s
+```
+
+```text
+$ python -m harness.run
+VERDICT: PASS
+```
+
+```text
+$ python demo.py | Select-Object -Last 20
+Every behaviour above is deterministic and unit-tested.
+Run:  python -m pytest tests/ -v
+```
+
+```text
+$ node --check 14-MVP-HTML\app.js
+```
+
+`node --check` produced no output, which is a pass.
+
+```text
+$ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8765/index.html
+200
+$ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8765/app.js
+200
+$ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8765/styles.css
+200
+```
+
+Returning-patient/PIN selection DOM check:
+
+```text
+{"name":"Ayesha Demo","age":"31","sex":"Female","phone":"+62 812 1111 1111","intakeName":"Ayesha Demo","intakeAge":"31","intakeSex":"Female","intakePhone":"+62 812 1111 1111","pin":"MXZ-2408-1049","brief":"Token 77 · Ayesha Demo · Female, 31 · MXZ-2408-1049","searchLoaded":true}
+```
+
+```text
+$ git diff --check
+```
+
+`git diff --check` produced no errors. Line-ending warnings are Git's normal Windows CRLF warning.
+
+**Verdict:** final tree remains verified after state/log updates.
+
+---
+
 ### V-2026-08-24-L-01 · HTML MVP refinement baseline
 
 **Date:** 2026-08-24

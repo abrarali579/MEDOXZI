@@ -11,9 +11,9 @@
       <header class="topbar">
         <div>
           <p class="eyebrow">MEDOXZI Pre-Round</p>
-          <h1>Clinic Intake MVP</h1>
+          <h1>Pre-Visit Patient Brief</h1>
         </div>
-        <div class="status-pill">DEMO_UNVALIDATED · synthetic data only</div>
+        <div class="status-pill">Prototype · sample data</div>
       </header>
 
       <nav class="role-tabs" aria-label="Prototype views">
@@ -30,17 +30,17 @@
               <div class="panel-head">
                 <div>
                   <p class="eyebrow">Front desk</p>
-                  <h2>Register patient</h2>
+                  <h2>Find or register patient</h2>
                 </div>
                 <span class="mini-badge">Step 1</span>
               </div>
               <form id="registrationForm" class="form-grid">
                 <div class="search-card full-span">
                   <label>
-                    Search existing patient
-                    <input id="existingSearch" placeholder="Name, PIN or mobile number" autocomplete="off">
+                    Find returning patient
+                    <input id="existingSearch" placeholder="Search by name, PIN, or mobile" autocomplete="off">
                   </label>
-                  <div id="searchResults" class="search-results">Search before creating a new record.</div>
+                  <div id="searchResults" class="search-results">Search first. If no record appears, continue as a new patient.</div>
                 </div>
                 <label>
                   Clinic token number
@@ -81,7 +81,7 @@
                     <option>Dr. Clinic Lead</option>
                   </select>
                 </label>
-                <button class="primary full" type="submit">Register and issue token</button>
+                <button class="primary full" type="submit">Continue to intake</button>
               </form>
             </section>
 
@@ -116,20 +116,20 @@
 
               <section class="intake-step active" data-step="0">
                 <h2>Before we start</h2>
-                <p class="quiet">Your answers help your doctor prepare before you go in.</p>
+                <p class="quiet">Answer a few things now so the doctor sees a clear brief before calling you in.</p>
                 <label class="check-row fixed">
                   <input type="checkbox" checked disabled>
                   <span>Share my answers with my doctor</span>
                 </label>
                 <label class="check-row">
                   <input id="aiConsent" type="checkbox">
-                  <span>Let the computer organize my information for my doctor</span>
+                  <span>Prepare a neat brief for my doctor</span>
                 </label>
                 <label class="check-row">
                   <input id="clinicCommsConsent" type="checkbox">
-                  <span>Allow clinic follow-up reminders and check-ins</span>
+                  <span>Allow clinic reminders and check-ins</span>
                 </label>
-                <p class="small-note">You can say no to optional items and still see the doctor normally.</p>
+                <p class="small-note">Optional choices can be turned off. Your visit continues normally.</p>
               </section>
 
               <section class="intake-step" data-step="1">
@@ -162,8 +162,17 @@
 
               <section class="intake-step" data-step="3">
                 <h2>Tell the doctor briefly</h2>
-                <p class="quiet">In 2 or 3 lines, describe the problem in your own words.</p>
+                <p class="quiet">Use your own words. Short is fine.</p>
                 <textarea id="issueText" rows="5">I have fever and body pain since yesterday. I feel tired and want the doctor to check.</textarea>
+                <div class="helper-card">
+                  <strong>Helpful details to add</strong>
+                  <div class="detail-chips">
+                    <button type="button" data-detail="Started: ">Started</button>
+                    <button type="button" data-detail="Main problem area: ">Where</button>
+                    <button type="button" data-detail="Tried so far: ">Tried</button>
+                    <button type="button" data-detail="Similar before: ">Before</button>
+                  </div>
+                </div>
               </section>
 
               <section class="intake-step" data-step="4">
@@ -180,18 +189,18 @@
 
               <section class="intake-step" data-step="5">
                 <h2>Previous reports</h2>
-                <p class="quiet">Optional. Reports are attached for doctor review; this demo does not extract conclusions.</p>
+                <p class="quiet">Optional. Add old reports only if you have them with you.</p>
                 <label class="upload-box">
                   <input id="reportInput" type="file" multiple>
                   <span>Choose report photos/files</span>
                 </label>
-                <div id="fileList" class="file-list">No reports attached. This is a normal first-visit state.</div>
+                <div id="fileList" class="file-list">No reports attached. This is normal for a first visit.</div>
               </section>
 
               <section class="intake-step" data-step="6">
                 <h2>Please check your answers</h2>
                 <div id="reviewList" class="review-list"></div>
-                <button id="submitIntake" class="primary full" type="button">Send to my doctor</button>
+                <button id="submitIntake" class="primary full" type="button">Submit intake</button>
               </section>
 
               <section class="intake-step done-step" data-step="7">
@@ -202,7 +211,7 @@
                   <span>Your Patient Identification Number</span>
                   <strong id="donePin">PIN will appear here</strong>
                 </div>
-                <p class="quiet">Please save this PIN. On your next visit, staff can search by PIN, mobile number or name so you do not need to enter everything again.</p>
+                <p class="quiet">Save this PIN for your next visit. Staff can find your record faster with your PIN or mobile number.</p>
                 <p class="quiet">Your doctor will see your answers before you go in.</p>
               </section>
 
@@ -219,7 +228,7 @@
             <aside class="doctor-queue panel">
               <div class="panel-head">
                 <div>
-                  <p class="eyebrow">OPD queue</p>
+                  <p class="eyebrow">Clinic queue</p>
                   <h2>Dr. Abrar</h2>
                 </div>
                 <button class="secondary compact">Next</button>
@@ -230,7 +239,7 @@
             <section class="doctor-brief panel">
               <div class="brief-header">
                 <div>
-                  <p class="eyebrow">Doctor brief</p>
+                  <p class="eyebrow">Ready before consult</p>
                   <h2 id="briefTitle">Token 51 · Demo Patient</h2>
                 </div>
                 <span class="status-pill safe">No clinic-approved safety rules are active</span>
@@ -238,7 +247,7 @@
 
               <div class="brief-grid">
                 <article>
-                  <h3>Patient words <span class="source">Patient</span></h3>
+                  <h3>In patient's words <span class="source">Patient</span></h3>
                   <p id="briefIssue">I have fever and body pain since yesterday. I feel tired and want the doctor to check.</p>
                 </article>
                 <article>
@@ -263,8 +272,8 @@
               <div class="doctor-sign">
                 <h3>Doctor conclusion</h3>
                 <label>
-                  Assessment / notes
-                  <textarea id="doctorNote" rows="4" placeholder="Doctor writes their own assessment here. System does not generate diagnosis."></textarea>
+                  Doctor notes
+                  <textarea id="doctorNote" rows="4" placeholder="Doctor writes notes here."></textarea>
                 </label>
                 <div class="form-grid two">
                   <label>
@@ -290,30 +299,30 @@
             <section class="panel">
               <div class="panel-head">
                 <div>
-                  <p class="eyebrow">Clinic-owned engagement</p>
+                  <p class="eyebrow">Clinic follow-up</p>
                   <h2>Reminder preview</h2>
                 </div>
                 <span class="mini-badge locked">Disabled</span>
               </div>
               <div id="reminderPreview" class="message-preview">
-                Save a doctor follow-up date to preview the clinic-owned reminder.
+                Save a follow-up date in the doctor view to preview the clinic reminder.
               </div>
-              <p class="small-note">No message can be sent until OT-19 controls exist: consent, opt-out, audit, template versioning and clinic sender identity.</p>
+              <p class="small-note">Sending stays off until consent, opt-out, audit, template versioning and clinic sender identity are implemented.</p>
             </section>
             <section class="panel">
               <div class="panel-head">
                 <div>
-                  <p class="eyebrow">Prototype guardrails</p>
-                  <h2>What is intentionally absent</h2>
+                  <p class="eyebrow">Next data-capture ideas</p>
+                  <h2>Useful additions</h2>
                 </div>
               </div>
               <ul class="guardrail-list">
-                <li>No AI diagnosis or differential.</li>
-                <li>No treatment or medicine advice.</li>
-                <li>No production red-flag rules.</li>
-                <li>No real patient data.</li>
-                <li>No WhatsApp/Email sending.</li>
-                <li>No MEDOXZI-owned patient marketing.</li>
+                <li>Medicine photo capture when patients do not know names.</li>
+                <li>Allergy card: none known, not sure, and free text.</li>
+                <li>Previous visit picker for returning patients.</li>
+                <li>Caregiver mode when someone else answers.</li>
+                <li>Staff read-back confirmation for assisted intake.</li>
+                <li>Support needs: wheelchair, interpreter, hearing support.</li>
               </ul>
             </section>
           </div>
