@@ -13,24 +13,24 @@
 > | Which facts can I rely on? | [`_OPS/CLAIMS-REGISTER.md`](_OPS/CLAIMS-REGISTER.md) |
 > | Why is it built this way? | [`10-Reference/Decision-Log.md`](10-Reference/Decision-Log.md) — 36 ADRs |
 >
-> **v2.5 — healthcare-first MVP plus doctor pitch playbook.** Evidence Sprint is deferred/skipped for now by explicit human decision. Read [`ROADMAP.md`](ROADMAP.md), ADR-035 and ADR-036 before touching product scope.
+> **v2.6 — local HTML MVP prototype started.** Evidence Sprint is deferred/skipped for now by explicit human decision. Read [`ROADMAP.md`](ROADMAP.md), ADR-035 and ADR-036 before touching product scope.
 >
 > **Three rules that matter most:** no claim without evidence · change → propagate → verify · never weaken a zero-tolerance safety gate silently.
 
 # MEDOXZI / AI-OPD-System
 ### AI-assisted pre-consultation intelligence platform
 
-**Version:** 2.5
+**Version:** 2.6
 **Research date:** 23 August 2026
 **Launch market:** Indonesia-first
-**Status:** v2.5 healthcare-first narrow MVP plus doctor pitch/clinic-owned engagement direction — design blueprint plus runnable non-clinical prototype
+**Status:** v2.6 healthcare-first narrow MVP plus local HTML visualization — design blueprint plus runnable non-clinical prototype
 **Prepared by:** Multidisciplinary design team (product architecture, OPD clinical workflow, clinical informatics, AI engineering, healthcare security, physician UX, medical-device regulatory, startup CTO)
 
 ---
 
 ## What this is
 
-A complete, decision-grade blueprint for a **healthcare-first professional intake and doctor-briefing platform**, preserving horizontal architecture boundaries where practical. The current v2.5 healthcare flow is:
+A complete, decision-grade blueprint for a **healthcare-first professional intake and doctor-briefing platform**, preserving horizontal architecture boundaries where practical. The current v2.6 healthcare flow is:
 
 ```text
 Patient -> Basic information -> 2-3 line issue description -> Relevant questions -> Optional previous reports -> Doctor brief -> Doctor decision
@@ -40,13 +40,15 @@ Healthcare is now the committed first vertical by founder decision. Earlier hori
 
 It is **not** a diagnostic system. V1 is not an AI doctor, patient-facing symptom checker, autonomous clinical agent, prescribing system, treatment recommendation system, or visible differential-diagnosis UI. Its primary job is **better information before consultation begins**.
 
-## Start Here - v2.5
+## Start Here - v2.6
 
 **[ROADMAP.md](ROADMAP.md)** is the current operational roadmap. Session H updated it for healthcare-first narrow MVP.
 
 **[10-Reference/Decision-Log.md](10-Reference/Decision-Log.md)** ADR-035 records the explicit founder decision to defer Evidence Sprint and proceed healthcare-first.
 
 **[09-MVP/Doctor-Pitch-Playbook.md](09-MVP/Doctor-Pitch-Playbook.md)** is the current doctor-facing pitch script and feature-boundary guide.
+
+**[14-MVP-HTML/index.html](14-MVP-HTML/index.html)** is the local phone/tablet-first MVP visualization. It is demo-only and synthetic.
 
 **[00-Executive/Horizontal-Positioning.md](00-Executive/Horizontal-Positioning.md)** remains the v2.3 architecture/positioning discipline, but its two-vertical Evidence Sprint recommendation is deferred by ADR-035.
 
@@ -65,6 +67,7 @@ Immediate MVP scope:
 - Doctor brief is pushed to tablet/phone.
 - Best initial patients: first clinic visits with no previous reports.
 - Follow-up date capture and clinic-owned reminders/check-ins are part of the product story, but require consent/opt-out/audit controls before production sending.
+- Local visual iteration happens first in `14-MVP-HTML/` before production engineering.
 
 Production content status:
 
@@ -127,11 +130,17 @@ Production content status:
 | **Follow-up value** | Follow-up date capture, patient reminders and post-visit check-ins are now explicit product/story elements |
 | **Future intelligence** | Possible diagnosis/test suggestions remain future-only, gated by validation, Lead Doctor sign-off and counsel |
 
+| Changed in v2.6 | |
+|---|---|
+| **HTML MVP** | `14-MVP-HTML/` added as the phone/tablet-first local visualization path |
+| **Prototype scope** | Staff registration, patient intake, optional reports, doctor brief, follow-up capture and disabled messaging preview are visible |
+| **Safety posture** | Prototype uses synthetic demo data and excludes diagnosis, visible differential, production red flags and real message sending |
+
 ## How to read this
 
 | If you are… | Start here |
 |---|---|
-| Founder / product owner | [ROADMAP](ROADMAP.md) -> [Doctor-Pitch-Playbook](09-MVP/Doctor-Pitch-Playbook.md) -> [Decision-Log ADR-035/036](10-Reference/Decision-Log.md) -> [MVP-Scope](02-Product/MVP-Scope.md) |
+| Founder / product owner | [ROADMAP](ROADMAP.md) -> [HTML MVP](14-MVP-HTML/index.html) -> [Doctor-Pitch-Playbook](09-MVP/Doctor-Pitch-Playbook.md) -> [Decision-Log ADR-035/036](10-Reference/Decision-Log.md) -> [MVP-Scope](02-Product/MVP-Scope.md) |
 | Doctor pitch | [Doctor-Pitch-Playbook](09-MVP/Doctor-Pitch-Playbook.md) -> [Go-To-Market](09-MVP/Go-To-Market.md) |
 | Clinician / medical advisor | [Clinical-Workflow](03-Clinical/Clinical-Workflow.md) → [Red-Flags](03-Clinical/Red-Flags.md) → [Safety-Rules](03-Clinical/Safety-Rules.md) → [Validation-Plan](03-Clinical/Validation-Plan.md) |
 | Engineering lead | [Tech-Stack](07-Engineering/Tech-Stack.md) → [System-Architecture](04-Architecture/System-Architecture.md) → [Data-Model](04-Architecture/Data-Model.md) → [Backlog](09-MVP/Backlog.md) |
@@ -170,6 +179,7 @@ Production content status:
 | — | **Revised direction (v2)** | `00-Executive/Revised-Direction-v2.md` |
 | — | **Revised direction (v2.2)** | `00-Executive/Revised-Direction-v2.2.md` |
 | — | **Doctor pitch playbook (v2.5)** | `09-MVP/Doctor-Pitch-Playbook.md` |
+| — | **HTML MVP prototype (v2.6)** | `14-MVP-HTML/` |
 | — | **Hazard-control matrix (v2.2)** | `05-Security-Compliance/Hazard-Control-Matrix.md` |
 | — | **Safety case (v2.2)** | `12-Harness/Safety-Case.md` |
 | — | **Indonesia boundary register (v2.2)** | `13-Indonesia/Regulatory-Boundary-Register.md` |

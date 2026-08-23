@@ -1,0 +1,37 @@
+# MEDOXZI HTML MVP Prototype
+
+**Status:** local visual prototype, not production software.
+
+This folder contains the first phone/tablet-first MVP visualization. It exists so the founder, doctors, staff and future agents can inspect the workflow before the real product is built.
+
+Open `index.html` in a browser.
+
+## Scope
+
+- Staff registration and token issue.
+- Patient/caregiver intake on phone/tablet.
+- Basic personal information.
+- Patient's 2-3 line issue description.
+- Demo-only basic history questions.
+- Optional previous report attachment preview.
+- Patient review and done screen.
+- Doctor queue, doctor brief, source-bound intake view.
+- Doctor conclusion with follow-up date and clinic-owned reminder preview.
+
+## Boundaries
+
+- Synthetic demo data only.
+- No diagnosis.
+- No treatment advice.
+- No visible differential.
+- No production red flags.
+- No real WhatsApp/Email sending.
+- Demo questions are `DEMO_UNVALIDATED` and must not be used with real patients until a named Lead Doctor signs the pack.
+
+## Next Product Decisions To Test Visually
+
+- Does the patient flow feel short enough on a phone?
+- Which questions should be one-screen-per-question versus grouped?
+- Should staff start intake by QR, tablet handoff, or assisted mode?
+- What exact fields must the doctor see in the first 30 seconds?
+- Where should follow-up date capture live in the doctor workflow?

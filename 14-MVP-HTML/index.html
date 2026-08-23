@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MEDOXZI MVP HTML Prototype</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">MEDOXZI Pre-Round</p>
+          <h1>Clinic Intake MVP</h1>
+        </div>
+        <div class="status-pill">DEMO_UNVALIDATED · synthetic data only</div>
+      </header>
+
+      <nav class="role-tabs" aria-label="Prototype views">
+        <button class="tab active" data-view="staff">Staff</button>
+        <button class="tab" data-view="patient">Patient</button>
+        <button class="tab" data-view="doctor">Doctor</button>
+        <button class="tab" data-view="ops">Ops</button>
+      </nav>
+
+      <main>
+        <section id="view-staff" class="view active">
+          <div class="work-surface two-col">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Front desk</p>
+                  <h2>Register patient</h2>
+                </div>
+                <span class="mini-badge">Step 1</span>
+              </div>
+              <form id="registrationForm" class="form-grid">
+                <label>
+                  Full name
+                  <input id="patientName" value="Demo Patient" autocomplete="off">
+                </label>
+                <label>
+                  Age
+                  <input id="patientAge" value="34" inputmode="numeric">
+                </label>
+                <label>
+                  Sex
+                  <select id="patientSex">
+                    <option>Female</option>
+                    <option selected>Male</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+                <label>
+                  Phone
+                  <input id="patientPhone" value="+62 812 0000 0000" autocomplete="off">
+                </label>
+                <label>
+                  Language
+                  <select id="patientLanguage">
+                    <option selected>English</option>
+                    <option>Bahasa Indonesia</option>
+                    <option>Urdu</option>
+                  </select>
+                </label>
+                <label>
+                  Doctor
+                  <select id="doctorName">
+                    <option selected>Dr. Abrar</option>
+                    <option>Dr. Clinic Lead</option>
+                  </select>
+                </label>
+                <button class="primary full" type="submit">Register and issue token</button>
+              </form>
+            </section>
+
+            <section class="panel queue-panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Today queue</p>
+                  <h2>Waiting list</h2>
+                </div>
+                <span id="waitingCount" class="metric">3 waiting</span>
+              </div>
+              <div id="staffQueue" class="queue-list"></div>
+              <div class="handoff-box">
+                <button class="secondary" data-jump="patient">Start on tablet</button>
+                <button class="secondary">Show QR</button>
+                <button class="secondary">Assisted intake</button>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section id="view-patient" class="view">
+          <div class="phone-frame">
+            <div class="patient-card">
+              <div class="progress-row">
+                <button id="backStep" class="icon-button" aria-label="Back">‹</button>
+                <div>
+                  <p id="stepLabel" class="eyebrow">Step 1 of 7</p>
+                  <div class="progress-track"><span id="progressBar"></span></div>
+                </div>
+              </div>
+
+              <section class="intake-step active" data-step="0">
+                <h2>Before we start</h2>
+                <p class="quiet">Your answers help your doctor prepare before you go in.</p>
+                <label class="check-row fixed">
+                  <input type="checkbox" checked disabled>
+                  <span>Share my answers with my doctor</span>
+                </label>
+                <label class="check-row">
+                  <input id="aiConsent" type="checkbox">
+                  <span>Let the computer organize my information for my doctor</span>
+                </label>
+                <label class="check-row">
+                  <input id="clinicCommsConsent" type="checkbox">
+                  <span>Allow clinic follow-up reminders and check-ins</span>
+                </label>
+                <p class="small-note">You can say no to optional items and still see the doctor normally.</p>
+              </section>
+
+              <section class="intake-step" data-step="1">
+                <h2>Your details</h2>
+                <div class="form-grid single">
+                  <label>Name <input id="intakeName" value="Demo Patient"></label>
+                  <label>Age <input id="intakeAge" value="34" inputmode="numeric"></label>
+                  <label>Sex
+                    <select id="intakeSex">
+                      <option>Female</option>
+                      <option selected>Male</option>
+                      <option>Other</option>
+                    </select>
+                  </label>
+                </div>
+              </section>
+
+              <section class="intake-step" data-step="2">
+                <h2>What brings you in today?</h2>
+                <div class="complaint-grid" role="group" aria-label="Common reasons">
+                  <button data-complaint="Fever">Fever</button>
+                  <button data-complaint="Cough">Cough</button>
+                  <button data-complaint="Stomach pain">Stomach pain</button>
+                  <button data-complaint="Headache">Headache</button>
+                  <button data-complaint="Body pain">Body pain</button>
+                  <button data-complaint="Something else">Something else</button>
+                </div>
+              </section>
+
+              <section class="intake-step" data-step="3">
+                <h2>Tell the doctor briefly</h2>
+                <p class="quiet">In 2 or 3 lines, describe the problem in your own words.</p>
+                <textarea id="issueText" rows="5">I have fever and body pain since yesterday. I feel tired and want the doctor to check.</textarea>
+              </section>
+
+              <section class="intake-step" data-step="4">
+                <h2 id="questionTitle">Basic question</h2>
+                <p id="questionText" class="question-text"></p>
+                <div class="answer-grid">
+                  <button data-answer="Yes">Yes</button>
+                  <button data-answer="No">No</button>
+                  <button data-answer="Not sure">Not sure</button>
+                  <button data-answer="Not asked">Skip</button>
+                </div>
+                <div id="answerSummary" class="answer-summary"></div>
+              </section>
+
+              <section class="intake-step" data-step="5">
+                <h2>Previous reports</h2>
+                <p class="quiet">Optional. Reports are attached for doctor review; this demo does not extract conclusions.</p>
+                <label class="upload-box">
+                  <input id="reportInput" type="file" multiple>
+                  <span>Choose report photos/files</span>
+                </label>
+                <div id="fileList" class="file-list">No reports attached. This is a normal first-visit state.</div>
+              </section>
+
+              <section class="intake-step" data-step="6">
+                <h2>Please check your answers</h2>
+                <div id="reviewList" class="review-list"></div>
+                <button id="submitIntake" class="primary full" type="button">Send to my doctor</button>
+              </section>
+
+              <section class="intake-step done-step" data-step="7">
+                <div class="done-mark">✓</div>
+                <h2>Thank you</h2>
+                <p>Your token: <strong id="doneToken">51</strong></p>
+                <p class="quiet">Your doctor will see your answers before you go in.</p>
+                <button class="secondary full" data-jump="doctor">Open doctor view</button>
+              </section>
+
+              <div class="bottom-actions">
+                <button id="skipStep" class="ghost" type="button">Skip</button>
+                <button id="nextStep" class="primary" type="button">Continue</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-doctor" class="view">
+          <div class="doctor-layout">
+            <aside class="doctor-queue panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">OPD queue</p>
+                  <h2>Dr. Abrar</h2>
+                </div>
+                <button class="secondary compact">Next</button>
+              </div>
+              <div id="doctorQueue" class="queue-list"></div>
+            </aside>
+
+            <section class="doctor-brief panel">
+              <div class="brief-header">
+                <div>
+                  <p class="eyebrow">Doctor brief</p>
+                  <h2 id="briefTitle">Token 51 · Demo Patient</h2>
+                </div>
+                <span class="status-pill safe">No clinic-approved safety rules are active</span>
+              </div>
+
+              <div class="brief-grid">
+                <article>
+                  <h3>Patient words <span class="source">Patient</span></h3>
+                  <p id="briefIssue">I have fever and body pain since yesterday. I feel tired and want the doctor to check.</p>
+                </article>
+                <article>
+                  <h3>Allergies <span class="source">Patient</span></h3>
+                  <p id="briefAllergies">Not asked</p>
+                </article>
+                <article>
+                  <h3>Basic answers <span class="source">Patient</span></h3>
+                  <ul id="briefAnswers"></ul>
+                </article>
+                <article>
+                  <h3>Attachments <span class="source">Attachment</span></h3>
+                  <p id="briefFiles">No previous reports attached.</p>
+                </article>
+              </div>
+
+              <div class="missing-band">
+                <strong>Missing / not asked:</strong>
+                <span id="missingItems">Items skipped by patient remain visible here.</span>
+              </div>
+
+              <div class="doctor-sign">
+                <h3>Doctor conclusion</h3>
+                <label>
+                  Assessment / notes
+                  <textarea id="doctorNote" rows="4" placeholder="Doctor writes their own assessment here. System does not generate diagnosis."></textarea>
+                </label>
+                <div class="form-grid two">
+                  <label>
+                    Follow-up needed?
+                    <select id="followupNeeded">
+                      <option selected>No</option>
+                      <option>Yes</option>
+                    </select>
+                  </label>
+                  <label>
+                    Follow-up date
+                    <input id="followupDate" type="date">
+                  </label>
+                </div>
+                <button id="saveDoctor" class="primary full" type="button">Save doctor conclusion</button>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section id="view-ops" class="view">
+          <div class="work-surface two-col">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Clinic-owned engagement</p>
+                  <h2>Reminder preview</h2>
+                </div>
+                <span class="mini-badge locked">Disabled</span>
+              </div>
+              <div id="reminderPreview" class="message-preview">
+                Save a doctor follow-up date to preview the clinic-owned reminder.
+              </div>
+              <p class="small-note">No message can be sent until OT-19 controls exist: consent, opt-out, audit, template versioning and clinic sender identity.</p>
+            </section>
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Prototype guardrails</p>
+                  <h2>What is intentionally absent</h2>
+                </div>
+              </div>
+              <ul class="guardrail-list">
+                <li>No AI diagnosis or differential.</li>
+                <li>No treatment or medicine advice.</li>
+                <li>No production red-flag rules.</li>
+                <li>No real patient data.</li>
+                <li>No WhatsApp/Email sending.</li>
+                <li>No MEDOXZI-owned patient marketing.</li>
+              </ul>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

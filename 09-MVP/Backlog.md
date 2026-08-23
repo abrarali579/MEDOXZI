@@ -7,11 +7,18 @@
 > **v2.4 amendment:** current build is healthcare-first narrow MVP per ADR-035. Prioritise first-visit/no-report intake, 2-3 line issue description, Lead-Doctor-approved basic questions, optional previous-report attachments, and doctor brief delivery. Do not build visible diagnosis, treatment advice, visible differential, unsigned production clinical questions, or active production red-flag rules.
 >
 > **v2.5 amendment:** doctor pitch points live in `Doctor-Pitch-Playbook.md`. Clinic-owned engagement features are allowed under ADR-036, but patient contact data must never become MEDOXZI-owned marketing data.
+>
+> **v2.6 amendment:** local visual MVP iteration starts in `14-MVP-HTML/`. Use it to finalize phone/tablet workflow before production app engineering.
 
 ---
 
 ## EPIC 1 — Platform foundations
 *Blocks everything. None of it is visible to a user, and all of it is a rewrite if deferred.*
+
+### F0.1 Local HTML MVP visualization
+**Priority:** P0
+**Owner:** product + frontend
+**AC:** `14-MVP-HTML/index.html` includes staff registration, patient intake, optional reports, doctor brief, follow-up date capture and disabled messaging preview ✓ · synthetic data only ✓ · no diagnosis/differential/treatment/red-flag content ✓ · runs locally without backend ✓
 
 ### F1.1 Multi-tenant data foundation — **L**
 > *As the CTO, I want tenancy enforced by the database, so that a forgotten `WHERE` clause cannot become a data breach.*

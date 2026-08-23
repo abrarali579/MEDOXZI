@@ -1,7 +1,7 @@
-# ROADMAP - MEDOXZI / AI-OPD-System v2.5
+# ROADMAP - MEDOXZI / AI-OPD-System v2.6
 
 **Status:** current operational roadmap  
-**Updated:** 2026-08-24, session J
+**Updated:** 2026-08-24, session K
 **Source of truth:** `_OPS/STATE.md`, `_OPS/OPEN-THREADS.md`, ADR-031..036
 
 This file exists because the active roadmap was previously spread across several documents and no root `ROADMAP.md` existed. It is a navigation layer, not a replacement for the `_OPS/` protocol.
@@ -30,7 +30,7 @@ The Evidence Sprint is deferred by human decision. Production planning may proce
 
 ## Phase 0 - Healthcare-First Narrow MVP (Current Work)
 
-**Status:** founder-selected direction, not yet built.  
+**Status:** founder-selected direction; local HTML visualization started in `14-MVP-HTML/`.
 **Owner:** founder + engineering + Lead Doctor before real patient use.  
 **Decision:** Evidence Sprint skipped/deferred for now; healthcare is the first vertical.
 
@@ -67,6 +67,20 @@ Patients who do have previous reports may attach them, but in the first MVP thos
 - Production red-flag/escalation content before named Lead Doctor sign-off.
 
 ## Phase 1 - Build MVP
+
+### Phase 1A - Visual HTML Prototype
+
+Build and iterate the flow locally before production engineering:
+
+1. Staff registration and token issue.
+2. Patient phone/tablet intake.
+3. Basic information, issue description, demo-only questions and optional reports.
+4. Review/done screen with no clinical interpretation.
+5. Doctor queue and source-bound brief.
+6. Doctor conclusion and follow-up date capture.
+7. Disabled clinic-owned reminder/check-in preview until OT-19 controls exist.
+
+Current artifact: `14-MVP-HTML/index.html`.
 
 Build order:
 
@@ -152,4 +166,5 @@ Any corpus-size requirement for exposing shadow differential or learned ranking 
 3. Work the healthcare-first narrow MVP from ADR-035.
 4. Do not add production clinical questions, red flags, urgency wording, differential output or treatment advice without named Lead Doctor sign-off.
 5. Use `09-MVP/Doctor-Pitch-Playbook.md` for doctor conversations.
-6. Log all evidence in `_OPS/VERIFICATION-LOG.md`, then update CHANGELOG, OPEN-THREADS, and STATE last.
+6. Use `14-MVP-HTML/` for visual MVP iteration before production engineering.
+7. Log all evidence in `_OPS/VERIFICATION-LOG.md`, then update CHANGELOG, OPEN-THREADS, and STATE last.

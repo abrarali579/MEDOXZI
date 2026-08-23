@@ -12,6 +12,8 @@
 
 **Session J note:** Doctor pitch playbook added. Clinic-owned reminders/check-ins/announcements are accepted as product direction under ADR-036, but production sending is blocked until consent, opt-out, audit and template controls exist.
 
+**Session K note:** Local phone/tablet-first HTML MVP prototype started in `14-MVP-HTML/`. It is synthetic/demo-only and excludes diagnosis, visible differential, production red flags and real message sending.
+
 ## 🔴 Blocking — cannot proceed to real patient use without these
 
 ### OT-01 · Indonesian data storage and inference — 🟠 DOWNGRADED from 🔴 (session E)
@@ -81,6 +83,13 @@
 - **Boundary:** no message may contain AI diagnosis, treatment advice, false urgency, or a MEDOXZI marketing purpose. Consent must be separate, revocable and auditable. Opt-out must not affect care.
 - **Owner:** founder + engineering + counsel ⚖️
 - **How:** add clinic-communications consent, message-template versioning, sender identity, opt-out handling, audit events, delivery logging, and a hard prohibition on exporting patient contact lists for MEDOXZI marketing.
+
+### OT-20 · HTML MVP visual review and screen lock — 🟡 NEW
+- **What:** `14-MVP-HTML/` now contains the first local visual MVP. It needs founder/doctor/staff review before production UI engineering starts.
+- **Blocks:** final UI scope, production component design, and the first production frontend build.
+- **Boundary:** keep the prototype synthetic/demo-only. Do not turn demo questions into production clinical content. Do not add diagnosis, visible differential, treatment advice, urgency language, production red flags or live patient messaging.
+- **Owner:** founder + product/frontend + Lead Doctor for any clinical wording.
+- **How:** review on a phone and tablet. Confirm each screen in order: staff registration, patient consent, basic info, complaint, 2-3 line description, demo questions, optional reports, review/done, doctor queue, doctor brief, conclusion/follow-up, disabled reminder preview. Record approved changes in `14-MVP-HTML/MVP-Prototype-Plan.md`.
 
 ## 🟠 Blocking the pitch
 

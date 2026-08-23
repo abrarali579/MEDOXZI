@@ -4,6 +4,56 @@
 
 ---
 
+## 2026-08-24 — Session K — v2.6 local HTML MVP prototype started
+
+**WHAT**
+- Added `14-MVP-HTML/` with a local static HTML/CSS/JS prototype.
+- Built phone/tablet-first views for staff registration, patient intake, optional report attachment, patient review/done, doctor queue, doctor brief, doctor conclusion/follow-up date and disabled clinic-owned reminder preview.
+- Added `14-MVP-HTML/MVP-Prototype-Plan.md` and `14-MVP-HTML/README.md`.
+- Updated `README.md`, `ROADMAP.md` and `09-MVP/Backlog.md` so future agents know visual iteration starts in `14-MVP-HTML/`.
+- Added OT-20 for founder/doctor/staff visual review before production frontend engineering.
+
+**WHY**
+The founder asked to start MVP work as an HTML visualization because patient data collection will mainly happen on tablets/phones. A local prototype lets the workflow be reviewed and corrected before investing in the production app.
+
+**EVIDENCE**
+`_OPS/VERIFICATION-LOG.md` V-2026-08-24-K-01 and V-2026-08-24-K-02.
+
+Key outputs:
+
+```text
+$ python -m pytest tests/ -q
+95 passed in 0.11s
+```
+
+```text
+$ python -m harness.run
+VERDICT: PASS
+```
+
+```text
+$ node --check 14-MVP-HTML\app.js
+```
+
+```text
+$ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8765/index.html
+StatusCode: 200
+```
+
+**NEXT**
+1. Review `http://127.0.0.1:8765/index.html` on phone/tablet-sized screens.
+2. Tighten copy, order and fields from founder/doctor feedback.
+3. Decide the first production frontend stack only after the HTML flow is approved.
+4. Keep OT-18 and OT-19 blocked until Lead Doctor sign-off and communications controls exist.
+
+**WHY NEXT**
+The HTML prototype is now good enough to discuss. Production engineering before screen approval would lock in avoidable workflow mistakes, especially in the patient intake and doctor brief.
+
+**HOW**
+Iterate only in `14-MVP-HTML/` for now. Keep demo questions marked `DEMO_UNVALIDATED`, use synthetic data only, and preserve the guardrails shown in the Ops tab.
+
+---
+
 ## 2026-08-24 — Session J — v2.5 doctor pitch playbook and clinic-owned engagement scope
 
 **WHAT**

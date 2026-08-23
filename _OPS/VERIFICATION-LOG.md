@@ -1061,3 +1061,259 @@ _OPS/STATE.md:137:| H | v2.4 healthcare-first narrow MVP adopted; Evidence Sprin
 ```
 
 **Verdict:** remaining v2.4 hits are historical/version-history references only. Current-facing status is v2.5.
+
+---
+
+### V-2026-08-24-K-01 · HTML MVP baseline
+
+**Date:** 2026-08-24
+**Scope:** Baseline verification before creating local phone/tablet-first HTML MVP prototype.
+**Host:** Windows PowerShell. `python` and `Select-Object -Last 20` used as the Windows equivalents.
+
+```text
+$ python -m pytest tests/ -q
+........................................................................ [ 75%]
+.......................                                                  [100%]
+95 passed in 0.11s
+```
+
+```text
+$ python -m harness.run
+==========================================================================
+  MEDOXZI HARNESS
+  NOT FOR CLINICAL USE - synthetic cases only
+==========================================================================
+  harness 0.1.0 - content content@0.1.0 - rules 3
+
+[A] Contamination - 500 concurrent encounters ...
+    PASS — 500 encounters, 0 contamination(s), 0 pipeline failure(s)
+
+[E] Abstention - illegible / absent / ambiguous expected values ...
+    abstention 100.0% (9/9) · fabrications 0 · missed 0
+
+[F] Diagnostic drift - every generated statement ...
+    50 statements checked · 0 hit(s)
+
+==========================================================================
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+
+  VERDICT: PASS
+==========================================================================
+```
+
+```text
+$ python demo.py | Select-Object -Last 20
+  Red flags STILL evaluated:      True (1 fired)
+
+  Note: the invented sentence would have been the dangerous one -
+  the patient is in fact allergic to penicillin.
+
+------------------------------------------------------------------------------
+  7 - NOT_ASKED IS NEVER A NEGATIVE
+------------------------------------------------------------------------------
+  NOT_ASKED    renders as: "not asked"
+  UNKNOWN      renders as: "patient does not know"
+  ANSWERED(no) renders as: "no"
+
+  Allergies never asked -> "not asked"
+  Allergies asked, none -> "none known"
+
+  Three distinct clinical facts. Three distinct renderings.
+------------------------------------------------------------------------------
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+------------------------------------------------------------------------------
+```
+
+**Baseline verdict:** clean. No broken baseline found.
+
+### V-2026-08-24-K-02 · HTML MVP final verification
+
+**Date:** 2026-08-24
+**Scope:** Final verification after adding `14-MVP-HTML/` and propagating v2.6 references.
+
+```text
+$ python -m pytest tests/ -q
+........................................................................ [ 75%]
+.......................                                                  [100%]
+95 passed in 0.11s
+```
+
+```text
+$ python -m harness.run
+==========================================================================
+  MEDOXZI HARNESS
+  NOT FOR CLINICAL USE - synthetic cases only
+==========================================================================
+  harness 0.1.0 - content content@0.1.0 - rules 3
+
+[A] Contamination - 500 concurrent encounters ...
+    PASS — 500 encounters, 0 contamination(s), 0 pipeline failure(s)
+
+[E] Abstention - illegible / absent / ambiguous expected values ...
+    abstention 100.0% (9/9) · fabrications 0 · missed 0
+
+[F] Diagnostic drift - every generated statement ...
+    50 statements checked · 0 hit(s)
+
+==========================================================================
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+
+  VERDICT: PASS
+==========================================================================
+```
+
+```text
+$ python demo.py | Select-Object -Last 20
+  Red flags STILL evaluated:      True (1 fired)
+
+  Note: the invented sentence would have been the dangerous one -
+  the patient is in fact allergic to penicillin.
+
+------------------------------------------------------------------------------
+  7 - NOT_ASKED IS NEVER A NEGATIVE
+------------------------------------------------------------------------------
+  NOT_ASKED    renders as: "not asked"
+  UNKNOWN      renders as: "patient does not know"
+  ANSWERED(no) renders as: "no"
+
+  Allergies never asked -> "not asked"
+  Allergies asked, none -> "none known"
+
+  Three distinct clinical facts. Three distinct renderings.
+------------------------------------------------------------------------------
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+------------------------------------------------------------------------------
+```
+
+```text
+$ node --check 14-MVP-HTML\app.js
+```
+
+No output; JavaScript syntax check passed.
+
+```text
+$ (Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8765/index.html).StatusCode
+200
+$ (Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8765/styles.css).StatusCode
+200
+$ (Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8765/app.js).StatusCode
+200
+```
+
+```text
+$ rg -n "diagnosis|differential|red flag|No red flags|WhatsApp|Email|real patient|DEMO_UNVALIDATED|DEMO" 14-MVP-HTML
+14-MVP-HTML\index.html:16:        <div class="status-pill">DEMO_UNVALIDATED · synthetic data only</div>
+14-MVP-HTML\index.html:251:                  <textarea id="doctorNote" rows="4" placeholder="Doctor writes their own assessment here. System does not generate diagnosis."></textarea>
+14-MVP-HTML\index.html:295:                <li>No AI diagnosis or differential.</li>
+14-MVP-HTML\index.html:298:                <li>No real patient data.</li>
+14-MVP-HTML\index.html:299:                <li>No WhatsApp/Email sending.</li>
+14-MVP-HTML\MVP-Prototype-Plan.md:26:| Doctor queue and brief | Built in HTML v0.1 | Source-bound facts, no diagnosis |
+14-MVP-HTML\MVP-Prototype-Plan.md:32:- No real patient data.
+14-MVP-HTML\MVP-Prototype-Plan.md:36:- No WhatsApp/Email sending.
+14-MVP-HTML\README.md:24:- No diagnosis.
+14-MVP-HTML\README.md:26:- No visible differential.
+14-MVP-HTML\README.md:27:- No production red flags.
+14-MVP-HTML\README.md:28:- No real WhatsApp/Email sending.
+14-MVP-HTML\README.md:29:- Demo questions are `DEMO_UNVALIDATED` and must not be used with real patients until a named Lead Doctor signs the pack.
+```
+
+**AGENT-PROTOCOL sweep:** Windows sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; red-flag phrases only in prohibitive contexts; retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in the drift detector regex; `>=500` only in ADR-029/history/Gate 6/synthetic/privacy contexts.
+
+**Verdict:** local HTML MVP prototype runs without backend and does not add production clinical content, diagnosis/differential UI, live messaging, real patient data, regulatory claims or clinical performance claims.
+
+### V-2026-08-24-K-03 · Post-STATE final check
+
+**Date:** 2026-08-24
+**Scope:** Final post-STATE verification after removing duplicate next-action row.
+
+```text
+$ python -m pytest tests/ -q
+........................................................................ [ 75%]
+.......................                                                  [100%]
+95 passed in 0.15s
+```
+
+```text
+$ python -m harness.run
+==========================================================================
+  MEDOXZI HARNESS
+  NOT FOR CLINICAL USE - synthetic cases only
+==========================================================================
+  harness 0.1.0 - content content@0.1.0 - rules 3
+
+[A] Contamination - 500 concurrent encounters ...
+    PASS — 500 encounters, 0 contamination(s), 0 pipeline failure(s)
+
+[E] Abstention - illegible / absent / ambiguous expected values ...
+    abstention 100.0% (9/9) · fabrications 0 · missed 0
+
+[F] Diagnostic drift - every generated statement ...
+    50 statements checked · 0 hit(s)
+
+==========================================================================
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+
+  VERDICT: PASS
+==========================================================================
+```
+
+```text
+$ python demo.py | Select-Object -Last 20
+  Red flags STILL evaluated:      True (1 fired)
+
+  Note: the invented sentence would have been the dangerous one -
+  the patient is in fact allergic to penicillin.
+
+------------------------------------------------------------------------------
+  7 - NOT_ASKED IS NEVER A NEGATIVE
+------------------------------------------------------------------------------
+  NOT_ASKED    renders as: "not asked"
+  UNKNOWN      renders as: "patient does not know"
+  ANSWERED(no) renders as: "no"
+
+  Allergies never asked -> "not asked"
+  Allergies asked, none -> "none known"
+
+  Three distinct clinical facts. Three distinct renderings.
+------------------------------------------------------------------------------
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+------------------------------------------------------------------------------
+```
+
+```text
+$ node --check 14-MVP-HTML\app.js
+$ (Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8765/index.html).StatusCode
+200
+$ git diff --check
+```
+
+`node --check` and `git diff --check` produced no errors. Line-ending warnings are Git's normal Windows CRLF warning.
+
+**Verdict:** final tree remains verified after STATE update.
