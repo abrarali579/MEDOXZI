@@ -1,8 +1,8 @@
-# ROADMAP - MEDOXZI / AI-OPD-System v2.4
+# ROADMAP - MEDOXZI / AI-OPD-System v2.5
 
 **Status:** current operational roadmap  
-**Updated:** 2026-08-23, session H  
-**Source of truth:** `_OPS/STATE.md`, `_OPS/OPEN-THREADS.md`, ADR-031..035  
+**Updated:** 2026-08-24, session J
+**Source of truth:** `_OPS/STATE.md`, `_OPS/OPEN-THREADS.md`, ADR-031..036
 
 This file exists because the active roadmap was previously spread across several documents and no root `ROADMAP.md` existed. It is a navigation layer, not a replacement for the `_OPS/` protocol.
 
@@ -26,6 +26,7 @@ The Evidence Sprint is deferred by human decision. Production planning may proce
 - No clinical performance claim from synthetic tests or harness results.
 - No Indonesian regulatory position treated as settled without primary-source text and counsel.
 - No marketing-consent option using patient/customer contact data as a MEDOXZI asset.
+- Clinic-owned patient reminders, follow-ups and announcements are allowed only as clinic-controlled communications with consent/opt-out/audit controls.
 
 ## Phase 0 - Healthcare-First Narrow MVP (Current Work)
 
@@ -76,7 +77,9 @@ Build order:
 5. Question selection from the approved pack; LLM may only draft or rank in non-production/shadow contexts until signed.
 6. Previous-report attachment flow with source viewer; extraction may be unconfirmed and doctor-review-only.
 7. Source-bound doctor brief for tablet/phone.
-8. Harness expansion with each component.
+8. Follow-up date capture in the doctor's conclusion workflow.
+9. Clinic-owned reminder/check-in template foundations, without sending messages until consent/comms controls are implemented.
+10. Harness expansion with each component.
 
 ## Phase 2 - Harness + Hardening
 
@@ -97,9 +100,11 @@ Pitch only measured facts and clearly labelled hypotheses.
 
 Must complete before pitch:
 
+- Use `09-MVP/Doctor-Pitch-Playbook.md` for doctor-facing talking points and forbidden claims.
 - Content licensing audit for any generated/demo pack material.
 - Limitations page with no invented numbers.
 - Healthcare-first decision ADR-035.
+- Clinic-owned engagement boundary ADR-036.
 - Current legal/regulatory uncertainty labels preserved.
 
 ## Phase 4 - Customise With Domain Expert
@@ -138,6 +143,7 @@ Any corpus-size requirement for exposing shadow differential or learned ranking 
 | OT-14 PSE registration | Operational blocker | Must be counsel-confirmed before lawful operation in Indonesia |
 | OT-01/OT-02 counsel questions | Healthcare launch blockers | Do not treat processing/storage or device status as settled |
 | OT-06 pitch limitations | Pitch blocker | Remove illustrative numbers unless tied to signed runs |
+| OT-19 clinic-owned engagement consent/comms | Later blocker | Required before WhatsApp/Email reminders, check-ins, discounts or bulk announcements go live |
 
 ## Next Agent Entry Point
 
@@ -145,4 +151,5 @@ Any corpus-size requirement for exposing shadow differential or learned ranking 
 2. Run the standard verification block.
 3. Work the healthcare-first narrow MVP from ADR-035.
 4. Do not add production clinical questions, red flags, urgency wording, differential output or treatment advice without named Lead Doctor sign-off.
-5. Log all evidence in `_OPS/VERIFICATION-LOG.md`, then update CHANGELOG, OPEN-THREADS, and STATE last.
+5. Use `09-MVP/Doctor-Pitch-Playbook.md` for doctor conversations.
+6. Log all evidence in `_OPS/VERIFICATION-LOG.md`, then update CHANGELOG, OPEN-THREADS, and STATE last.

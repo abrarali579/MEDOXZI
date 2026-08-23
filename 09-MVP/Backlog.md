@@ -5,6 +5,8 @@
 **Every acceptance criterion is binary.**
 
 > **v2.4 amendment:** current build is healthcare-first narrow MVP per ADR-035. Prioritise first-visit/no-report intake, 2-3 line issue description, Lead-Doctor-approved basic questions, optional previous-report attachments, and doctor brief delivery. Do not build visible diagnosis, treatment advice, visible differential, unsigned production clinical questions, or active production red-flag rules.
+>
+> **v2.5 amendment:** doctor pitch points live in `Doctor-Pitch-Playbook.md`. Clinic-owned engagement features are allowed under ADR-036, but patient contact data must never become MEDOXZI-owned marketing data.
 
 ---
 
@@ -26,9 +28,9 @@
 **AC:** every clinical read and write produces an event ✓ · the application role cannot update or delete audit rows ✓ · out-of-scope access requires a reason ✓ · no clinical values appear in audit rows ✓
 
 ### F1.3 Identity, RBAC and consent — **L**
-**Tasks:** IdP integration · role model per User-Roles.md · per-encounter scoping middleware · break-glass workflow · consent model (immutable, versioned, language-recorded) · revocation as a new row.
+**Tasks:** IdP integration · role model per User-Roles.md · per-encounter scoping middleware · break-glass workflow · consent model (immutable, versioned, language-recorded) · separate clinic-communications consent · revocation as a new row.
 
-**AC:** role matrix test suite passes for every (role × endpoint) pair ✓ · break-glass requires ticket + approver + time-box + notification ✓ · consent revocation never mutates the original row ✓ · patient principals receive 404 on all AI resources ✓
+**AC:** role matrix test suite passes for every (role × endpoint) pair ✓ · break-glass requires ticket + approver + time-box + notification ✓ · consent revocation never mutates the original row ✓ · patient principals receive 404 on all AI resources ✓ · no schema field permits MEDOXZI-owned patient marketing ✓
 
 ### F1.4 Encounter state machine — **M**
 **Tasks:** state enum and transitions · **database trigger enforcing `DOCTOR`-only signing** · cohort computation (deterministic) · `ai_enabled` derived from consent.
@@ -177,11 +179,11 @@
 **AC:** source region highlighted ✓ · opens in ≤2s ✓ · signed URL expires in ≤5 min ✓
 
 ### F6.5 Summary and sign — **L**
-**AC:** five sections structurally separate ✓ · AI section visually distinct, labelled and collapsible ✓ · **nothing enters the record before Approve** ✓ · draft excluded from export ✓ · diff stored ✓ · final diagnosis captured ✓
+**AC:** five sections structurally separate ✓ · AI section visually distinct, labelled and collapsible ✓ · **nothing enters the record before Approve** ✓ · draft excluded from export ✓ · diff stored ✓ · final diagnosis captured ✓ · follow-up date and note can be recorded by doctor ✓
 
 ---
 
-## EPIC 7 — Feedback and safety operations
+## EPIC 7 — Feedback, follow-up and safety operations
 
 ### F7.1 Feedback capture — **M**
 **AC:** one tap, never blocking ✓ · **`CLINICALLY_UNSAFE` creates a safety event by database trigger** ✓ · notification within 1 minute ✓
@@ -191,6 +193,26 @@
 
 ### F7.3 Content authoring console — **L**
 **AC:** the clinical safety owner can author, test, sign and activate without engineering ✓ · two-person control enforced ✓ · rollback in one action ✓
+
+### F7.4 Follow-up date and reminder eligibility — **M**
+**Tasks:** follow-up date field · doctor actor/timestamp · due/missed-follow-up projections · communication-consent check · reminder eligibility state.
+
+**AC:** only clinician-authorised follow-up dates create reminder eligibility ✓ · reminder eligibility is false when clinic-communications consent is absent or revoked ✓ · every state transition is audited ✓
+
+### F7.5 Clinic-owned message templates — **M**
+**Tasks:** template model · clinic branding · template versioning · allowed-purpose enum · opt-out text · approval workflow · preview.
+
+**AC:** templates cannot include diagnosis/treatment advice placeholders ✓ · messages are clinic-branded ✓ · template version is recorded on every prepared message ✓ · MEDOXZI cannot export patient contact lists ✓
+
+### F7.6 Post-visit check-in and feedback request — **S**
+**Tasks:** configurable days-after-visit trigger · well-being check-in template · appointment booking link field · feedback/rating branch after positive response.
+
+**AC:** check-ins ask how the patient feels and offer appointment scheduling only ✓ · no automated clinical urgency judgement ✓ · rating request can be disabled per clinic ✓
+
+### F7.7 Clinic announcements — **P2**
+**Tasks:** audience selector · operational announcement templates · send approval · delivery metrics.
+
+**AC:** only opted-in patients are eligible ✓ · announcements are for clinic operations/facilities/booking, not MEDOXZI marketing ✓ · every send is audited ✓
 
 ---
 
@@ -221,6 +243,7 @@
 | 5 · AI orchestration | ~6 weeks | |
 | 6 · Doctor experience | ~6 weeks | F6.2 needs splitting; performance is the hard part |
 | 7 · Feedback and safety ops | ~4 weeks | |
+| 7b · Clinic-owned engagement | P2 / overlaps pilot | Follow-up date capture can ship early; automated sending waits for consent/comms controls |
 | 8 · Evaluation and ops | ~4 weeks | |
 
 *Bands assume the team in [Milestones.md](Milestones.md) with parallel workstreams. They are for sequencing arguments, not for commitments.*

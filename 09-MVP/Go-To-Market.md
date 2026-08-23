@@ -1,5 +1,7 @@
 # Go-To-Market and Data Strategy
 
+> **v2.5 update:** doctor-facing pitch language now lives in `Doctor-Pitch-Playbook.md`. ADR-036 formally adopts clinic-owned reminders, follow-ups, feedback/rating requests, announcements and offers as a product direction while preserving ADR-021: patient contact data is never MEDOXZI's marketing asset.
+
 **This document exists because of one proposed idea: using patient emails and WhatsApp numbers collected during intake for customised marketing, and pitching that capability to doctors as a benefit.**
 
 That version does not work. This document says plainly why, and then specifies the version that produces more revenue with less risk — because the underlying instinct (the data is an asset; the funnel matters) is right.
@@ -134,7 +136,7 @@ A commercial framing from the external review that maps cleanly onto the three h
 | **MEDOXZI INTELLIGENCE** | *Improve clinical preparation.* Question engine, shadow reasoning, evaluation | Built, mostly invisible. Surfaces in Phase 2 behind validation gates |
 | **MEDOXZI ENGAGE** | *Grow the clinic.* Consent-controlled reminders, recalls, campaigns — **sent by the clinic, under the clinic's name** | **Phase 2 at the earliest** |
 
-⚠️ **Discipline on ENGAGE.** The framing is good and the revenue is real, but building or selling it before PRE-ROUND is proven is precisely the scope creep that kills health-tech startups. It is also the module a founder is most tempted to accelerate, because it sounds like growth. **It stays behind the gate: no ENGAGE work until clinic 1 has produced a time-saving readout.**
+⚠️ **Discipline on ENGAGE.** The framing is good and the revenue is real, but building broad campaigns before PRE-ROUND is proven is scope creep. v2.5 allows only the foundations needed by the doctor pitch: follow-up date capture, reminder eligibility, clinic-owned templates, consent/opt-out/audit controls, and later sending. Bulk campaigns, discount automation and growth services stay behind a later gate.
 
 ## 5. The sequence
 
@@ -142,6 +144,7 @@ A commercial framing from the external review that maps cleanly onto the three h
 |---|---|---|
 | **RECON** | Understand the market; collect documents | Curiosity and politeness |
 | **PITCH** | Get clinic 1 | Harness dossier + demo + compliance argument |
+| **PITCH v2.5** | Explain business value to doctors | Doctor-Pitch-Playbook: time saving, follow-up discipline, searchable history, clinic-owned engagement |
 | **CUSTOMISE** | Lead doctor authors clinical content | Their ownership of the content |
 | **LAUNCH + 2 weeks** | Prove it works; capture data | On-site presence |
 | **IMPROVE → V1** | Fix what week 1 and 2 revealed | Real evidence |
@@ -167,4 +170,8 @@ A commercial framing from the external review that maps cleanly onto the three h
 ## v2.2 Reconciliation
 
 Preserve B2B clinic strategy. Patient contacts are not MEDOXZI's marketing asset. Legal role certainty is not assumed before counsel review. Benchmarks and pricing are hypotheses to test during RECON/PITCH, not validated data, and pricing decisions must not alter clinical data collection.
+
+## v2.5 Reconciliation
+
+Clinic-owned patient engagement is now part of the pitch, not a hidden future surprise. The safe version is narrow: the clinic sends reminders/check-ins/announcements under its own name, with consent and opt-out. MEDOXZI sells the tool and may use a clinic-approved case study, but does not own or reuse patient contacts for MEDOXZI marketing.
 

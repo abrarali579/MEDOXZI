@@ -3,9 +3,11 @@
 **Product:** MEDOXZI Pre-Round — AI Pre-Round System for OPD
 **Version:** 1.0 (MVP definition)
 **Date:** 23 August 2026
-**Status:** v2.4 healthcare-first narrow MVP; for review by product owner, Lead Doctor, engineering lead
+**Status:** v2.5 healthcare-first narrow MVP plus doctor pitch/engagement direction; for review by product owner, Lead Doctor, engineering lead
 
 > **v2.4 founder direction:** proceed healthcare-first and defer the Evidence Sprint. The first MVP is not a full document-extraction product. It is a waiting-room intake workflow: basic personal information, 2-3 line patient issue description, relevant Lead-Doctor-approved symptom/history questions, optional previous-report attachments for doctor review, then a source-bound brief pushed to the doctor's tablet/phone. Preferred initial patients are first clinic visits with no previous reports. See ADR-035.
+>
+> **v2.5 pitch/engagement direction:** doctor-facing pitch points live in `09-MVP/Doctor-Pitch-Playbook.md`. Clinic-owned follow-up reminders, post-visit check-ins, feedback/rating requests, announcements and offers are allowed only under ADR-036: clinic-branded, consent/opt-out aware, auditable, and never MEDOXZI-owned patient marketing.
 
 ---
 
@@ -28,9 +30,10 @@ A busy OPD physician has 3–7 minutes per patient. A large share of that is spe
 | G4 | Establish clinician trust through provenance | Provenance click-through rate; trust survey; error-catching rate in seeded-error tests |
 | G5 | Be usable by patients who cannot use an app | Share of encounters completed via staff/caregiver-assisted intake; completion rate by mode |
 | G6 | Generate a governed corpus for future clinical intelligence | Shadow-mode outputs with adjudicated labels; final-diagnosis capture rate |
+| G7 | Improve clinic follow-up discipline and patient relationship | Follow-up date capture rate; reminder delivery rate; follow-up attendance/no-show rate; feedback response rate |
 
 ### Non-goals (v1)
-Autonomous diagnosis · AI clinical conclusions · patient-facing clinical interpretation · ambient voice · EHR write-back · literature Q&A · model fine-tuning · billing/claims · prescribing or interaction checking · autocoding for reimbursement · multi-tenant commercial administration · trusted report extraction before human review.
+Autonomous diagnosis · AI clinical conclusions · patient-facing clinical interpretation · ambient voice · EHR write-back · literature Q&A · model fine-tuning · billing/claims · prescribing or interaction checking · autocoding for reimbursement · multi-tenant commercial administration · trusted report extraction before human review · MEDOXZI-owned patient marketing.
 
 ## 3. Users and their jobs
 
@@ -45,7 +48,7 @@ See [User-Roles.md](User-Roles.md) for permissions detail.
 | **Assisted-intake staff** | "Help patients who can't use the app, without becoming the bottleneck." | Can complete an intake in ≤5 minutes |
 | **Nurse / triage** | "Know if someone in the queue shouldn't be waiting." | Red flags visible, actionable, and rare enough to be believed |
 | **Clinical safety owner** | "Own what this system says, and prove it." | Can author, version and sign clinical content without engineering |
-| **Clinic admin** | "Manage users and see it's working." | Self-service user management; weekly metrics |
+| **Clinic admin** | "Manage users, follow-ups and patient communication." | Self-service user management; weekly metrics; consented reminders and announcements |
 
 ## 4. Functional requirements
 
@@ -158,8 +161,9 @@ Priority: **M** = MVP must-have · **S** = MVP should-have · **P2/P3** = later 
 | FR-7.4 | Draft-state content is excluded from export, print and any integration | M |
 | FR-7.5 | The diff between AI draft and approved note is computed and stored | M |
 | FR-7.6 | Final clinician diagnosis captured (coded where possible, free text otherwise), plus optional alternative considered | M |
-| FR-7.7 | Approved encounter exportable as PDF and structured JSON | M |
-| FR-7.8 | Post-approval amendments create a new version; nothing is overwritten | M |
+| FR-7.7 | Doctor can record follow-up requirement, follow-up date, and follow-up note | M |
+| FR-7.8 | Approved encounter exportable as PDF and structured JSON | M |
+| FR-7.9 | Post-approval amendments create a new version; nothing is overwritten | M |
 
 ### 4.8 Feedback and learning
 
@@ -172,6 +176,19 @@ Priority: **M** = MVP must-have · **S** = MVP should-have · **P2/P3** = later 
 | FR-8.5 | Doctors can correct extracted record values and corrected history; corrections are stored as labels with the original preserved | M |
 | FR-8.6 | Feedback is never mandatory and never blocks progression to the next patient | M |
 | FR-8.7 | **No feedback signal alters any model automatically.** Feedback flows to analytics and to a governed dataset only. | M |
+
+### 4.8b Clinic-owned engagement
+
+| ID | Requirement | Pri |
+|---|---|---|
+| FR-8b.1 | System stores clinic-owned communication consent separately from treatment, AI-processing and product-improvement consent | M |
+| FR-8b.2 | Follow-up reminders can be prepared from doctor-entered follow-up dates | S |
+| FR-8b.3 | Reminder/check-in messages are clinic-branded, template-versioned and auditable | S |
+| FR-8b.4 | Patient can opt out of clinic communications without affecting care | M |
+| FR-8b.5 | Post-visit check-in templates ask about well-being and offer appointment scheduling; they do not provide diagnosis, treatment advice or urgency judgement | S |
+| FR-8b.6 | Clinic announcements can be sent to opted-in patients for operational updates such as timing/location/facility/branch changes | P2 |
+| FR-8b.7 | Clinic-controlled discount/offer messaging is configurable but never automatically triggered by AI clinical interpretation | P2 |
+| FR-8b.8 | MEDOXZI cannot export or reuse patient contact lists for MEDOXZI marketing | M |
 
 ### 4.9 Security, audit and administration
 
@@ -187,6 +204,7 @@ Priority: **M** = MVP must-have · **S** = MVP should-have · **P2/P3** = later 
 | FR-9.8 | Clinical safety owner can author, version, review and **sign** question banks and red-flag rules without an engineering deploy | M |
 | FR-9.9 | Data residency configurable per tenant; **no direct identifiers transmitted to any external model endpoint** | M |
 | FR-9.10 | Session timeout, device binding for clinic tablets, and forced re-auth for administrative actions | S |
+| FR-9.11 | Patient search supports verified identifiers/name/contact lookup for follow-up history, with audit on every access | M |
 
 ## 5. Non-functional requirements
 
@@ -216,18 +234,26 @@ Priority: **M** = MVP must-have · **S** = MVP should-have · **P2/P3** = later 
   **AC:** all question types answerable in a single interaction; keyboard shortcuts available; no confirmation dialog.
 - *As an OPD doctor, I want to be told what is missing, so that I know what the summary does not cover.*
   **AC:** a "Missing information" block is always present and is populated from the content bank's required fields; when nothing is missing it says so explicitly.
+- *As an OPD doctor, I want each patient saved under a unique searchable record, so that follow-up visits start from known history rather than from zero.*
+  **AC:** doctor/staff can find a patient by verified identity fields; access is audited; previous encounters show source-bound history.
+- *As an OPD doctor, I want to record a follow-up date while concluding, so that my clinic can remind the patient before the visit.*
+  **AC:** follow-up date is stored with doctor actor/timestamp; reminder eligibility checks clinic communication consent.
 
 **Patient**
 - *As a patient with limited literacy, I want a staff member to complete intake for me without being treated as an exception.*
   **AC:** staff-assisted intake produces an identical record; `entered_by=STAFF`; the doctor sees the entry mode.
 - *As a patient, I want to be told exactly what happens to my data and to be able to refuse AI processing.*
   **AC:** consent is granular, in the patient's language, refusable; refusal suppresses all LLM calls and the encounter still works.
+- *As a patient, I want reminders and check-ins to come from the clinic, not an unknown software company.*
+  **AC:** communication sender is clinic-branded; opt-out is available; care is unaffected if refused.
 
 **Staff**
 - *As front-desk staff, I want registration to add no more than 30 seconds to my current process.*
   **AC:** measured at pilot; registration ≤6 fields; token issued in the same action.
 - *As intake staff, I want to photograph a stack of prior records quickly.*
   **AC:** multi-page capture in one session; quality check with retake prompt; upload continues in the background.
+- *As clinic staff, I want a missed-follow-up worklist, so that patients who were asked to return do not disappear silently.*
+  **AC:** worklist includes due/missed follow-ups only when communication consent allows outreach.
 
 **Clinical safety owner**
 - *As the clinical safety owner, I want to change a red-flag rule without an engineering release.*
@@ -276,4 +302,8 @@ Content is versioned by global demo packs and clinic packs. Question packs and r
 ## v2.4 Reconciliation
 
 The committed first build is healthcare-first and narrower than the earlier PRD. The core path is personal information -> short issue description -> approved basic questions -> optional report attachments -> doctor brief on tablet/phone. Previous reports support doctor review; they do not create AI conclusions. Evidence Sprint is deferred by explicit founder instruction and recorded in ADR-035.
+
+## v2.5 Reconciliation
+
+Clinic-owned engagement is now part of the pitch and later product surface. Follow-up date capture belongs in the MVP record workflow. Automated reminders, post-visit check-ins, feedback/rating requests, announcements and offers require communication consent, opt-out, audit and clinic-branded templates before production use. Future diagnosis/test suggestions remain out of MVP and gated by validation, Lead Doctor sign-off and counsel.
 

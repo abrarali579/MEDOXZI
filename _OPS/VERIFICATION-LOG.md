@@ -795,3 +795,269 @@ To https://github.com/abrarali579/MEDOXZI.git
 **Contradiction sweep:** Windows AGENT-PROTOCOL sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; red-flag phrases only in prohibitive contexts; retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift detector regex; `>=500` only in ADR-029/history/Gate 6/synthetic/privacy contexts.
 
 **Verdict:** Repository published to GitHub. Root archive copy `ziiAv6fl` was ignored because the source tree is committed separately.
+
+---
+
+### V-2026-08-24-J-01 · Doctor pitch playbook baseline
+
+**Date:** 2026-08-24
+**Scope:** Baseline verification before adding doctor-facing pitch points, ADR-036 and clinic-owned engagement scope.
+**Host:** Windows PowerShell. `python3` was normalized to `python`; `tail -20` was normalized to `Select-Object -Last 20`.
+
+```text
+$ python -m pytest tests/ -q
+........................................................................ [ 75%]
+.......................                                                  [100%]
+95 passed in 0.11s
+```
+
+```text
+$ python -m harness.run
+==========================================================================
+  MEDOXZI HARNESS
+  NOT FOR CLINICAL USE - synthetic cases only
+==========================================================================
+  harness 0.1.0 - content content@0.1.0 - rules 3
+
+[A] Contamination - 500 concurrent encounters ...
+    PASS — 500 encounters, 0 contamination(s), 0 pipeline failure(s)
+
+[E] Abstention - illegible / absent / ambiguous expected values ...
+    abstention 100.0% (9/9) · fabrications 0 · missed 0
+
+[F] Diagnostic drift - every generated statement ...
+    50 statements checked · 0 hit(s)
+
+==========================================================================
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+
+  VERDICT: PASS
+==========================================================================
+```
+
+```text
+$ python demo.py | Select-Object -Last 20
+  Red flags STILL evaluated:      True (1 fired)
+
+  Note: the invented sentence would have been the dangerous one -
+  the patient is in fact allergic to penicillin.
+
+------------------------------------------------------------------------------
+  7 - NOT_ASKED IS NEVER A NEGATIVE
+------------------------------------------------------------------------------
+  NOT_ASKED    renders as: "not asked"
+  UNKNOWN      renders as: "patient does not know"
+  ANSWERED(no) renders as: "no"
+
+  Allergies never asked -> "not asked"
+  Allergies asked, none -> "none known"
+
+  Three distinct clinical facts. Three distinct renderings.
+------------------------------------------------------------------------------
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+------------------------------------------------------------------------------
+```
+
+**Baseline verdict:** clean. No broken baseline found.
+
+### V-2026-08-24-J-02 · Doctor pitch playbook final verification
+
+**Date:** 2026-08-24
+**Scope:** Final verification after adding `09-MVP/Doctor-Pitch-Playbook.md`, ADR-036, roadmap/backlog/PRD/GTm propagation, and OT-19.
+
+```text
+$ python -m pytest tests/ -q
+........................................................................ [ 75%]
+.......................                                                  [100%]
+95 passed in 0.12s
+```
+
+```text
+$ python -m harness.run
+==========================================================================
+  MEDOXZI HARNESS
+  NOT FOR CLINICAL USE - synthetic cases only
+==========================================================================
+  harness 0.1.0 - content content@0.1.0 - rules 3
+
+[A] Contamination - 500 concurrent encounters ...
+    PASS — 500 encounters, 0 contamination(s), 0 pipeline failure(s)
+
+[E] Abstention - illegible / absent / ambiguous expected values ...
+    abstention 100.0% (9/9) · fabrications 0 · missed 0
+
+[F] Diagnostic drift - every generated statement ...
+    50 statements checked · 0 hit(s)
+
+[I] Calibration - well-calibrated reference sample ...
+    PASS  H16_ece_below_0.05  ECE=0.0000
+    PASS  H17_high_conf_accuracy_ge_0.95  acc(>0.9)=0.95
+    PASS  H18_low_conf_accuracy_below_0.70  acc(<0.7)=0.35
+
+==========================================================================
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+
+  VERDICT: PASS
+==========================================================================
+```
+
+```text
+$ python demo.py | Select-Object -Last 20
+  Red flags STILL evaluated:      True (1 fired)
+
+  Note: the invented sentence would have been the dangerous one -
+  the patient is in fact allergic to penicillin.
+
+------------------------------------------------------------------------------
+  7 - NOT_ASKED IS NEVER A NEGATIVE
+------------------------------------------------------------------------------
+  NOT_ASKED    renders as: "not asked"
+  UNKNOWN      renders as: "patient does not know"
+  ANSWERED(no) renders as: "no"
+
+  Allergies never asked -> "not asked"
+  Allergies asked, none -> "none known"
+
+  Three distinct clinical facts. Three distinct renderings.
+------------------------------------------------------------------------------
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+------------------------------------------------------------------------------
+```
+
+**Propagation checks**
+
+```text
+$ rg -n "Doctor-Pitch-Playbook|ADR-036|OT-19|v2\.5|36 ADRs" README.md ROADMAP.md 02-Product/PRD.md 09-MVP/Backlog.md 09-MVP/Go-To-Market.md _OPS/OPEN-THREADS.md 10-Reference/Decision-Log.md
+10-Reference/Decision-Log.md:292:## ADR-036 · Clinic-owned patient engagement is allowed; MEDOXZI-owned marketing is still prohibited
+_OPS/OPEN-THREADS.md:78:### OT-19 · Clinic-owned engagement consent/comms controls — 🟠 NEW
+09-MVP/Go-To-Market.md:3:> **v2.5 update:** doctor-facing pitch language now lives in `Doctor-Pitch-Playbook.md`.
+02-Product/PRD.md:10:> **v2.5 pitch/engagement direction:** doctor-facing pitch points live in `09-MVP/Doctor-Pitch-Playbook.md`.
+09-MVP/Backlog.md:9:> **v2.5 amendment:** doctor pitch points live in `Doctor-Pitch-Playbook.md`.
+ROADMAP.md:103:- Use `09-MVP/Doctor-Pitch-Playbook.md` for doctor-facing talking points and forbidden claims.
+README.md:14:> | Why is it built this way? | [`10-Reference/Decision-Log.md`](10-Reference/Decision-Log.md) — 36 ADRs |
+```
+
+```text
+$ rg -n "MEDOXZI-owned patient marketing|MEDOXZI's marketing|patient contact data|clinic-owned|clinic communications|Clinic communications" README.md ROADMAP.md 02-Product/PRD.md 09-MVP/Doctor-Pitch-Playbook.md 09-MVP/Go-To-Market.md 09-MVP/Backlog.md _OPS/OPEN-THREADS.md 10-Reference/Decision-Log.md
+Hits confirm the boundary is propagated: clinic-owned communications only; patient contact data is not a MEDOXZI marketing asset; opt-out/consent/audit controls required.
+```
+
+```text
+$ rg -n "possible diagnos|diagnosis suggestions|Required tests|tests suggestions|Future AI|Future differential|Gate 6" 09-MVP/Doctor-Pitch-Playbook.md 02-Product/PRD.md ROADMAP.md 10-Reference/Decision-Log.md _OPS/OPEN-THREADS.md
+09-MVP/Doctor-Pitch-Playbook.md:92:### Future AI, Carefully
+09-MVP/Doctor-Pitch-Playbook.md:127:| Future differential | "Future gated feature after validation." | Not MVP, not visible now. |
+09-MVP/Doctor-Pitch-Playbook.md:237:| Possible diagnosis suggestions | Not visible | Gate 6+ only, after validation and counsel |
+09-MVP/Doctor-Pitch-Playbook.md:238:| Required tests suggestions | Not visible | Doctor-facing support only after sign-off/validation |
+```
+
+**AGENT-PROTOCOL sweep**
+
+```text
+$ rg -n "FULL_AI" -g "*.md" -g "*.py" .
+$ rg -n "No red flags|No concerns" -g "*.md" .
+$ rg -n "25 year|25 \(dua puluh lima\)" -g "*.md" .
+$ rg -n "PATIENT_UNSURE" -g "*.md" -g "*.py" .
+$ rg -n "probability" -g "*.py" 11-Prototype/
+$ rg -n "≥500|500 real" -g "*.md" .
+```
+
+Results remain contextual only: `FULL_AI` alias/history/direction; red-flag phrases only in prohibitive contexts including the new playbook's "Things Not To Say"; retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in the drift-detector prohibited-term regex; `>=500` only in ADR-029/history/Gate 6/synthetic/privacy contexts.
+
+**Verdict:** v2.5 doctor pitch scope is documented without adding production clinical rule content, exposing shadow differential, using real patient data, adding MEDOXZI-owned patient marketing, asserting Indonesian regulatory certainty, or claiming clinical performance.
+
+### V-2026-08-24-J-03 · Post-STATE final check
+
+**Date:** 2026-08-24
+**Scope:** Final check after updating `_OPS/STATE.md` last and correcting stale current-facing v2.4 labels.
+
+```text
+$ python -m pytest tests/ -q
+........................................................................ [ 75%]
+.......................                                                  [100%]
+95 passed in 0.12s
+```
+
+```text
+$ python -m harness.run
+==========================================================================
+  MEDOXZI HARNESS
+  NOT FOR CLINICAL USE - synthetic cases only
+==========================================================================
+  harness 0.1.0 - content content@0.1.0 - rules 3
+
+[A] Contamination - 500 concurrent encounters ...
+    PASS — 500 encounters, 0 contamination(s), 0 pipeline failure(s)
+
+[E] Abstention - illegible / absent / ambiguous expected values ...
+    abstention 100.0% (9/9) · fabrications 0 · missed 0
+
+[F] Diagnostic drift - every generated statement ...
+    50 statements checked · 0 hit(s)
+
+==========================================================================
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+
+  VERDICT: PASS
+==========================================================================
+```
+
+```text
+$ python demo.py | Select-Object -Last 20
+  Red flags STILL evaluated:      True (1 fired)
+
+  Note: the invented sentence would have been the dangerous one -
+  the patient is in fact allergic to penicillin.
+
+------------------------------------------------------------------------------
+  7 - NOT_ASKED IS NEVER A NEGATIVE
+------------------------------------------------------------------------------
+  NOT_ASKED    renders as: "not asked"
+  UNKNOWN      renders as: "patient does not know"
+  ANSWERED(no) renders as: "no"
+
+  Allergies never asked -> "not asked"
+  Allergies asked, none -> "none known"
+
+  Three distinct clinical facts. Three distinct renderings.
+------------------------------------------------------------------------------
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+------------------------------------------------------------------------------
+```
+
+```text
+$ rg -n "v2\.4" README.md ROADMAP.md _OPS/STATE.md 02-Product/PRD.md 09-MVP/Backlog.md 09-MVP/Go-To-Market.md
+09-MVP/Backlog.md:7:> **v2.4 amendment:** current build is healthcare-first narrow MVP per ADR-035.
+02-Product/PRD.md:8:> **v2.4 founder direction:** proceed healthcare-first and defer the Evidence Sprint.
+02-Product/PRD.md:302:## v2.4 Reconciliation
+README.md:115:| Changed in v2.4 | |
+_OPS/STATE.md:137:| H | v2.4 healthcare-first narrow MVP adopted; Evidence Sprint deferred by founder decision; ADR-035 added |
+```
+
+**Verdict:** remaining v2.4 hits are historical/version-history references only. Current-facing status is v2.5.

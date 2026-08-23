@@ -10,6 +10,8 @@
 
 **Session H note:** Founder explicitly deferred/skipped the Evidence Sprint for now and selected healthcare-first narrow MVP. See ADR-035. OT-17 is resolved by human decision; OT-04 is deferred risk, not completed evidence.
 
+**Session J note:** Doctor pitch playbook added. Clinic-owned reminders/check-ins/announcements are accepted as product direction under ADR-036, but production sending is blocked until consent, opt-out, audit and template controls exist.
+
 ## 🔴 Blocking — cannot proceed to real patient use without these
 
 ### OT-01 · Indonesian data storage and inference — 🟠 DOWNGRADED from 🔴 (session E)
@@ -72,6 +74,13 @@
 - **Boundary:** AI may draft or rank candidate questions in demo/shadow contexts only. Production patient questions must come from a signed pack. No red-flag/escalation content is added unless the Lead Doctor signs it separately.
 - **Owner:** Lead Doctor + founder + engineering
 - **How:** create the healthcare `vertical_pack` shell with statuses (`DRAFT`, `DEMO_UNVALIDATED`, `CLINIC_REVIEW`, `APPROVED_FOR_PILOT`, `ACTIVE`). Keep production rules empty. Record source/licence refs for any drafted content (OT-05).
+
+### OT-19 · Clinic-owned engagement consent/comms controls — 🟠 NEW
+- **What:** follow-up reminders, post-visit check-ins, feedback/rating requests, clinic announcements and discount offers are now part of the doctor pitch and product direction. They are allowed only as **clinic-owned** communications, not MEDOXZI-owned patient marketing. See ADR-036 and `09-MVP/Doctor-Pitch-Playbook.md`.
+- **Blocks:** production WhatsApp/Email sending, bulk announcements, discount campaigns, and any patient reactivation workflow.
+- **Boundary:** no message may contain AI diagnosis, treatment advice, false urgency, or a MEDOXZI marketing purpose. Consent must be separate, revocable and auditable. Opt-out must not affect care.
+- **Owner:** founder + engineering + counsel ⚖️
+- **How:** add clinic-communications consent, message-template versioning, sender identity, opt-out handling, audit events, delivery logging, and a hard prohibition on exporting patient contact lists for MEDOXZI marketing.
 
 ## 🟠 Blocking the pitch
 

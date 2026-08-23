@@ -1,14 +1,14 @@
 # STATE — where this project actually is
 
-**Updated:** 2026-08-23, session I (GitHub publish complete; v2.4 state unchanged)
-**Repository version:** **v2.4**
+**Updated:** 2026-08-24, session J (v2.5 doctor pitch playbook and clinic-owned engagement direction)
+**Repository version:** **v2.5**
 **Read this first. Update it last.**
 
 ---
 
 ## 1. One-paragraph status
 
-The design blueprint is complete and internally consistent. The prototype passes **95 tests** and the harness passes **9/9 gates** (re-verified in session I by re-running, not by report). **No production code exists yet.** Session H records an explicit founder decision to defer/skip the Evidence Sprint for now and proceed with a **healthcare-first narrow MVP**: basic personal information, a 2-3 line patient issue description, Lead-Doctor-approved basic questions, optional previous-report attachments for doctor review, and a doctor brief pushed to the doctor's tablet/phone. Best initial patients are first clinic visits with no previous reports. The v2.3 horizontal architecture discipline remains useful where practical, but healthcare is now the committed first vertical by ADR-035. Session I published the repository to `https://github.com/abrarali579/MEDOXZI`.
+The design blueprint is complete and internally consistent. The prototype passes **95 tests** and the harness passes **9/9 gates** (re-verified in session J by re-running, not by report). **No production code exists yet.** Session H records an explicit founder decision to defer/skip the Evidence Sprint for now and proceed with a **healthcare-first narrow MVP**: basic personal information, a 2-3 line patient issue description, Lead-Doctor-approved basic questions, optional previous-report attachments for doctor review, and a doctor brief pushed to the doctor's tablet/phone. Best initial patients are first clinic visits with no previous reports. Session J adds the official doctor-facing pitch playbook and accepts clinic-owned reminders/check-ins/announcements as product direction under ADR-036, but no WhatsApp/Email sending may go live until consent, opt-out, audit and template controls exist. The v2.3 horizontal architecture discipline remains useful where practical, but healthcare is now the committed first vertical by ADR-035. Session I published the repository to `https://github.com/abrarali579/MEDOXZI`.
 
 ## 2. Product boundary (do not drift from this)
 
@@ -19,6 +19,8 @@ Patient → Basic information → Issue description → Relevant questions → O
 ```
 
 The current MVP is healthcare-first, but still **not** a diagnosis engine, symptom checker, prescribing system, treatment recommender, or autonomous clinical agent. The doctor brief organises source-bound information; it does not make a clinical conclusion.
+
+Doctor-facing pitch language now lives in `09-MVP/Doctor-Pitch-Playbook.md`. Use it for founder/doctor conversations and forbidden claims.
 
 ⚠️ **The horizontal claim is only protective if the architecture is genuinely horizontal.** See ADR-031's three binding rules.
 
@@ -35,7 +37,7 @@ LEAD DOCTOR CUSTOMISE + SIGN-OFF → CLIENT 1 SHADOW (wk1) → LIVE (wk2) → IM
 
 ## 4. Verified state of the code
 
-Last verified **session I**, by re-running on the Windows host. Evidence: VERIFICATION-LOG V-2026-08-23-I-01.
+Last verified **session J**, by re-running on the Windows host. Evidence: VERIFICATION-LOG V-2026-08-24-J-03.
 
 | Check | Result |
 |---|---|
@@ -50,17 +52,20 @@ Last verified **session I**, by re-running on the Windows host. Evidence: VERIFI
 | **OT-18 · Lead-Doctor-signed basic healthcare question pack** | 🔴 **Blocks real patient use** | The MVP asks symptom/history questions; production clinical questions require named Lead Doctor sign-off. |
 | **OT-02 · Medical device classification** | 🟠 **Blocks healthcare launch posture** | Healthcare-first makes counsel confirmation more important, not less. |
 | **OT-14 · PSE registration** | 🟠 **Blocks lawful operation** | B2B SaaS serving Indonesian users likely requires PSE registration; counsel/primary confirmation still needed. |
+| **OT-19 · Clinic-owned engagement consent/comms controls** | 🟠 **Blocks production messaging** | Required before WhatsApp/Email reminders, post-visit check-ins, feedback/rating requests, discount offers or bulk announcements go live. |
 | **OT-04 · Evidence Sprint** | ⚪ **Deferred risk** | Founder deferred/skipped it for now by ADR-035; document reality risk remains accepted, not disproven. |
 | **OT-17 · Which vertical goes first** | ✅ **Resolved** | Healthcare-first selected by founder in ADR-035. |
 
 **Downgraded in session E:** OT-01 (storage resolved, inference feasible) · OT-02 (positioning strengthens it) · OT-03 (**resolved** — PT PMA exists).
 **New in session H:** OT-18 Lead-Doctor-signed basic healthcare question pack.
+**New in session J:** OT-19 Clinic-owned engagement consent/comms controls.
 
-## 6. Settled decisions (35 ADRs)
+## 6. Settled decisions (36 ADRs)
 
 | # | Decision | ADR |
 |---|---|---|
 | 1 | **Healthcare-first narrow MVP**; Evidence Sprint deferred by founder decision | **ADR-035** |
+| 1b | **Clinic-owned patient engagement allowed**; MEDOXZI-owned patient marketing still prohibited | **ADR-036** |
 | 2 | **Horizontal platform discipline, vertical packs**; engine should know nothing domain-specific where feasible | **ADR-031** |
 | 3 | **Evidence Sprint** replaced RECON but is now deferred for immediate sequencing | **ADR-032 / ADR-035** |
 | 4 | **AI drafts question banks; a named expert authorises** | **ADR-033** |
@@ -94,13 +99,15 @@ Last verified **session I**, by re-running on the Windows host. Evidence: VERIFI
 
 | # | Action | Why now |
 |---|---|---|
-| 1 | **Create healthcare `vertical_pack` shell and question-pack status workflow** | Blocks safe implementation of the v2.4 intake |
+| 1 | **Create healthcare `vertical_pack` shell and question-pack status workflow** | Blocks safe implementation of the v2.5 intake |
 | 2 | **Draft first-visit/no-report basic question pack as `DRAFT` or `DEMO_UNVALIDATED` only** | Lets product/UX proceed without pretending content is signed |
 | 3 | **Get named Lead Doctor review/sign-off before real patient questioning** (OT-18) | Production symptom/history questions are clinical behaviour |
-| 4 | **Build report attachment/source viewer before trusted extraction** | Matches v2.4 scope and avoids unverified report conclusions |
-| 5 | **PSE registration** (OT-14) + **counsel opinions** (OT-01, OT-02) | Long lead; blocks lawful healthcare operation |
-| 6 | **Content licensing audit** (OT-05) | Must precede generation at scale |
-| 7 | **Get a GPU quote** | Turns ADR-034 from feasible into costed |
+| 4 | **Build report attachment/source viewer before trusted extraction** | Matches v2.5 scope and avoids unverified report conclusions |
+| 5 | **Add doctor conclusion follow-up date/note capture** | Supports the v2.5 doctor value story without sending messages prematurely |
+| 6 | **Design clinic-owned communication consent, opt-out, audit and template-versioning** (OT-19) | Required before reminders/check-ins/announcements/discounts can go live |
+| 7 | **PSE registration** (OT-14) + **counsel opinions** (OT-01, OT-02) | Long lead; blocks lawful healthcare operation |
+| 8 | **Content licensing audit** (OT-05) | Must precede generation at scale |
+| 9 | **Get a GPU quote** | Turns ADR-034 from feasible into costed |
 
 ## 9. What must NOT happen next
 
@@ -110,6 +117,9 @@ Last verified **session I**, by re-running on the Windows host. Evidence: VERIFI
 - No clinical rule content authored by anyone but a named expert
 - No pitch using invented performance figures
 - No real patient or client data anywhere
+- No WhatsApp/Email reminders, check-ins, discounts or announcements before clinic-owned consent/opt-out/audit controls exist
+- No MEDOXZI-owned patient marketing or patient-contact export
+- No future diagnosis/test suggestion feature exposed before Gate 6+ validation, named Lead Doctor sign-off and counsel
 - No treating C-13 (intended-use exclusion) as settled — it is a [Third-Party Claim]
 
 ## 10. Session history
@@ -126,3 +136,4 @@ Last verified **session I**, by re-running on the Windows host. Evidence: VERIFI
 | G | `ROADMAP.md` created; Evidence Sprint runbook/templates added; stale current-facing sequence text reconciled | [log](SESSION-LOG/2026-08-23-G-roadmap-resume.md) |
 | H | v2.4 healthcare-first narrow MVP adopted; Evidence Sprint deferred by founder decision; ADR-035 added | [log](SESSION-LOG/2026-08-23-H-healthcare-first-mvp.md) |
 | I | Git repository published to GitHub; `.gitignore` added; archive copy excluded | [log](SESSION-LOG/2026-08-23-I-git-publish.md) |
+| J | v2.5 doctor pitch playbook added; clinic-owned engagement adopted as product direction; ADR-036 and OT-19 added | [log](SESSION-LOG/2026-08-24-J-doctor-pitch-playbook.md) |

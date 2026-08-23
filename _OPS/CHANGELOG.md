@@ -4,6 +4,53 @@
 
 ---
 
+## 2026-08-24 — Session J — v2.5 doctor pitch playbook and clinic-owned engagement scope
+
+**WHAT**
+- Added `09-MVP/Doctor-Pitch-Playbook.md` as the official doctor-facing pitch script and feature-boundary guide.
+- Added **ADR-036**: clinic-owned patient engagement is allowed; MEDOXZI-owned patient marketing remains prohibited.
+- Propagated the v2.5 pitch/product direction through `README.md`, `ROADMAP.md`, `02-Product/PRD.md`, `09-MVP/Backlog.md`, and `09-MVP/Go-To-Market.md`.
+- Added **OT-19** for consent/comms controls before WhatsApp/Email reminders, post-visit check-ins, feedback/rating requests, discounts or bulk announcements can go live.
+
+**WHY**
+The founder wants doctor conversations to be commercially strong but truth-based: time saving, searchable history, follow-up discipline, patient loyalty, clinic announcements, case-study offer, future clinic growth services, and long-term de-identified insights. These points need to be part of the repository so future agents do not invent claims, overpromise AI diagnosis, or accidentally turn patient contact data into MEDOXZI marketing data.
+
+**EVIDENCE**
+`_OPS/VERIFICATION-LOG.md` V-2026-08-24-J-01 and V-2026-08-24-J-02.
+
+Key outputs:
+
+```text
+$ python -m pytest tests/ -q
+95 passed in 0.12s
+```
+
+```text
+$ python -m harness.run
+VERDICT: PASS
+```
+
+```text
+$ rg -n "Doctor-Pitch-Playbook|ADR-036|OT-19|v2\.5|36 ADRs" README.md ROADMAP.md 02-Product/PRD.md 09-MVP/Backlog.md 09-MVP/Go-To-Market.md _OPS/OPEN-THREADS.md 10-Reference/Decision-Log.md
+10-Reference/Decision-Log.md:292:## ADR-036 · Clinic-owned patient engagement is allowed; MEDOXZI-owned marketing is still prohibited
+_OPS/OPEN-THREADS.md:78:### OT-19 · Clinic-owned engagement consent/comms controls — 🟠 NEW
+README.md:14:> | Why is it built this way? | [`10-Reference/Decision-Log.md`](10-Reference/Decision-Log.md) — 36 ADRs |
+```
+
+**NEXT**
+1. Build healthcare `vertical_pack` shell and Lead-Doctor-signable question-pack status workflow.
+2. Add follow-up date capture to the doctor conclusion workflow.
+3. Design clinic-communications consent, opt-out, audit and template-versioning before any sending feature.
+4. Keep future diagnosis/test suggestions behind Gate 6+ validation, sign-off and counsel.
+
+**WHY NEXT**
+The pitch is now clear, but real patient use still depends on Lead Doctor sign-off and safe communication controls. Follow-up capture is the smallest MVP feature that supports the doctor value story without sending messages prematurely.
+
+**HOW**
+Use `09-MVP/Doctor-Pitch-Playbook.md` for doctor conversations. Use ADR-036 and OT-19 for any reminder/check-in/announcement work. Keep all patient messaging clinic-owned, consented, opt-out aware, audited and template-controlled.
+
+---
+
 ## 2026-08-23 — Session I — Repository published to GitHub
 
 **WHAT**
