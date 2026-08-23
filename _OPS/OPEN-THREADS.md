@@ -14,6 +14,8 @@
 
 **Session K note:** Local phone/tablet-first HTML MVP prototype started in `14-MVP-HTML/`. It is synthetic/demo-only and excludes diagnosis, visible differential, production red flags and real message sending.
 
+**Session L note:** HTML MVP refined with existing-patient search, manual clinic token entry, relevant answer options, fixed review text layout, patient PIN generation/display, and removal of the patient-facing doctor-view button.
+
 ## 🔴 Blocking — cannot proceed to real patient use without these
 
 ### OT-01 · Indonesian data storage and inference — 🟠 DOWNGRADED from 🔴 (session E)
@@ -89,7 +91,14 @@
 - **Blocks:** final UI scope, production component design, and the first production frontend build.
 - **Boundary:** keep the prototype synthetic/demo-only. Do not turn demo questions into production clinical content. Do not add diagnosis, visible differential, treatment advice, urgency language, production red flags or live patient messaging.
 - **Owner:** founder + product/frontend + Lead Doctor for any clinical wording.
-- **How:** review on a phone and tablet. Confirm each screen in order: staff registration, patient consent, basic info, complaint, 2-3 line description, demo questions, optional reports, review/done, doctor queue, doctor brief, conclusion/follow-up, disabled reminder preview. Record approved changes in `14-MVP-HTML/MVP-Prototype-Plan.md`.
+- **How:** review on a phone and tablet. Confirm each screen in order: existing-patient search, manual clinic token, staff registration, patient consent, basic info, complaint, 2-3 line description, demo questions with relevant answer options, optional reports, review/done with PIN, doctor queue, doctor brief, conclusion/follow-up, disabled reminder preview. Record approved changes in `14-MVP-HTML/MVP-Prototype-Plan.md`.
+
+### OT-21 · Production PIN identity binding — 🟡 NEW
+- **What:** the HTML MVP now models a Patient Identification Number (PIN) generated at submission and linked to name, age and mobile. Production must enforce that a PIN cannot be silently attached to a different customer number or identity.
+- **Blocks:** production patient lookup, follow-up history, duplicate prevention and safe longitudinal records.
+- **Boundary:** this is identity/record-linking, not a clinical claim. Do not use real patient data in tests.
+- **Owner:** engineering + privacy/security reviewer.
+- **How:** add immutable patient identity keys, duplicate review workflow, audit events for any merge/correction, and tests proving an existing PIN cannot be re-bound to a mismatched mobile/name/age without an explicit audited human resolution.
 
 ## 🟠 Blocking the pitch
 

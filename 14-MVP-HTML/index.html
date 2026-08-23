@@ -35,6 +35,17 @@
                 <span class="mini-badge">Step 1</span>
               </div>
               <form id="registrationForm" class="form-grid">
+                <div class="search-card full-span">
+                  <label>
+                    Search existing patient
+                    <input id="existingSearch" placeholder="Name, PIN or mobile number" autocomplete="off">
+                  </label>
+                  <div id="searchResults" class="search-results">Search before creating a new record.</div>
+                </div>
+                <label>
+                  Clinic token number
+                  <input id="clinicToken" value="51" inputmode="numeric" autocomplete="off">
+                </label>
                 <label>
                   Full name
                   <input id="patientName" value="Demo Patient" autocomplete="off">
@@ -126,13 +137,14 @@
                 <div class="form-grid single">
                   <label>Name <input id="intakeName" value="Demo Patient"></label>
                   <label>Age <input id="intakeAge" value="34" inputmode="numeric"></label>
-                  <label>Sex
+                <label>Sex
                     <select id="intakeSex">
                       <option>Female</option>
                       <option selected>Male</option>
                       <option>Other</option>
                     </select>
                   </label>
+                  <label>Mobile number <input id="intakePhone" value="+62 812 0000 0000"></label>
                 </div>
               </section>
 
@@ -158,10 +170,10 @@
                 <h2 id="questionTitle">Basic question</h2>
                 <p id="questionText" class="question-text"></p>
                 <div class="answer-grid">
-                  <button data-answer="Yes">Yes</button>
-                  <button data-answer="No">No</button>
-                  <button data-answer="Not sure">Not sure</button>
-                  <button data-answer="Not asked">Skip</button>
+                  <button type="button"></button>
+                  <button type="button"></button>
+                  <button type="button"></button>
+                  <button type="button"></button>
                 </div>
                 <div id="answerSummary" class="answer-summary"></div>
               </section>
@@ -185,9 +197,13 @@
               <section class="intake-step done-step" data-step="7">
                 <div class="done-mark">✓</div>
                 <h2>Thank you</h2>
-                <p>Your token: <strong id="doneToken">51</strong></p>
+                <p>Your clinic token: <strong id="doneToken">51</strong></p>
+                <div class="pin-box">
+                  <span>Your Patient Identification Number</span>
+                  <strong id="donePin">PIN will appear here</strong>
+                </div>
+                <p class="quiet">Please save this PIN. On your next visit, staff can search by PIN, mobile number or name so you do not need to enter everything again.</p>
                 <p class="quiet">Your doctor will see your answers before you go in.</p>
-                <button class="secondary full" data-jump="doctor">Open doctor view</button>
               </section>
 
               <div class="bottom-actions">

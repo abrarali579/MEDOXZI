@@ -9,12 +9,15 @@ Open `index.html` in a browser.
 ## Scope
 
 - Staff registration and token issue.
+- Manual clinic token entry, so an existing clinic token system can remain the source of token numbers.
+- Existing patient search by name, Patient Identification Number (PIN), or mobile number.
 - Patient/caregiver intake on phone/tablet.
 - Basic personal information.
 - Patient's 2-3 line issue description.
 - Demo-only basic history questions.
 - Optional previous report attachment preview.
 - Patient review and done screen.
+- Patient Identification Number generated on submission and shown to the patient to save for next visit.
 - Doctor queue, doctor brief, source-bound intake view.
 - Doctor conclusion with follow-up date and clinic-owned reminder preview.
 
@@ -27,11 +30,14 @@ Open `index.html` in a browser.
 - No production red flags.
 - No real WhatsApp/Email sending.
 - Demo questions are `DEMO_UNVALIDATED` and must not be used with real patients until a named Lead Doctor signs the pack.
+- PIN binding is local browser prototype behaviour only; production must enforce it in the backend with immutable identity/audit controls.
 
 ## Next Product Decisions To Test Visually
 
 - Does the patient flow feel short enough on a phone?
 - Which questions should be one-screen-per-question versus grouped?
 - Should staff start intake by QR, tablet handoff, or assisted mode?
+- Where should existing-patient search live in the final clinic workflow?
+- What exact PIN format should clinics use?
 - What exact fields must the doctor see in the first 30 seconds?
 - Where should follow-up date capture live in the doctor workflow?

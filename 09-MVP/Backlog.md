@@ -18,7 +18,7 @@
 ### F0.1 Local HTML MVP visualization
 **Priority:** P0
 **Owner:** product + frontend
-**AC:** `14-MVP-HTML/index.html` includes staff registration, patient intake, optional reports, doctor brief, follow-up date capture and disabled messaging preview ✓ · synthetic data only ✓ · no diagnosis/differential/treatment/red-flag content ✓ · runs locally without backend ✓
+**AC:** `14-MVP-HTML/index.html` includes staff registration, existing-patient search, manual clinic token entry, patient intake, optional reports, PIN display, doctor brief, follow-up date capture and disabled messaging preview ✓ · synthetic data only ✓ · no diagnosis/differential/treatment/red-flag content ✓ · runs locally without backend ✓ · PIN binding is prototype-only and must be enforced by backend identity/audit controls in production ✓
 
 ### F1.1 Multi-tenant data foundation — **L**
 > *As the CTO, I want tenancy enforced by the database, so that a forgotten `WHERE` clause cannot become a data breach.*

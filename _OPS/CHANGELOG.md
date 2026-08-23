@@ -4,6 +4,61 @@
 
 ---
 
+## 2026-08-24 — Session L — HTML MVP identity and patient-flow refinements
+
+**WHAT**
+- Updated `14-MVP-HTML/` so answer options are relevant to each demo question instead of generic yes/no everywhere.
+- Fixed Step 7 review text overlap by changing answer review rows to a stacked, wrapping layout.
+- Added existing-patient search by name, PIN or mobile number at the start of registration.
+- Added manual clinic token entry so clinics can keep their existing token system.
+- Added local prototype PIN generation on submission and displayed the PIN to the patient with save-for-next-visit wording.
+- Removed the patient-facing `Open doctor view` button from the done screen.
+- Added OT-21 for production PIN identity binding.
+
+**WHY**
+The founder found real usability issues in the phone prototype screenshots: generic answer options were confusing, long text overlapped on the review screen, patient flow exposed a doctor-only view, and the MVP needed to respect existing clinic token workflows plus future repeat-visit lookup.
+
+**EVIDENCE**
+`_OPS/VERIFICATION-LOG.md` V-2026-08-24-L-01 and V-2026-08-24-L-02.
+
+Key outputs:
+
+```text
+$ python -m pytest tests/ -q
+95 passed in 0.11s
+```
+
+```text
+$ python -m harness.run
+VERDICT: PASS
+```
+
+```text
+$ node --check 14-MVP-HTML\app.js
+```
+
+```text
+$ rg -n "Search existing patient|clinicToken|donePin|Patient Identification Number|Open doctor view|answer-grid|review-item|identity-lock|generatePin|identityKey|No AI diagnosis" 14-MVP-HTML
+14-MVP-HTML\index.html:40:                    Search existing patient
+14-MVP-HTML\index.html:47:                  <input id="clinicToken" value="51" inputmode="numeric" autocomplete="off">
+14-MVP-HTML\index.html:202:                  <span>Your Patient Identification Number</span>
+14-MVP-HTML\app.js:216:function identityKey(name, age, phone) {
+14-MVP-HTML\app.js:220:function generatePin(name, age, phone) {
+```
+
+**NEXT**
+1. Founder should review the updated phone flow again, especially Step 5 answer options and Step 7 review layout.
+2. Production planning must design backend-enforced PIN identity binding before real patient lookup/history.
+3. Continue keeping demo questions `DEMO_UNVALIDATED` until Lead Doctor sign-off.
+
+**WHY NEXT**
+The HTML prototype now shows the desired workflow, but PIN binding is only browser-local. Production needs database constraints, audit and duplicate-resolution workflow before patient history can be trusted.
+
+**HOW**
+Iterate in `14-MVP-HTML/`. For production, implement OT-21 with immutable identity keys and tests proving that a PIN cannot be silently linked to a different mobile/name/age combination.
+
+---
+
 ## 2026-08-24 — Session K — v2.6 local HTML MVP prototype started
 
 **WHAT**

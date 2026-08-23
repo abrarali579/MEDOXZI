@@ -7,7 +7,7 @@ Build a local, responsive HTML prototype that visualizes the healthcare-first na
 ## Product Sequence
 
 1. Staff registers or looks up a patient.
-2. System issues a unique token/code.
+2. Staff enters the clinic's existing token number, or the system can issue one later.
 3. Patient uses phone/tablet for consent, basic information and a short issue description.
 4. Patient answers demo-only basic history questions.
 5. Patient optionally attaches previous reports for doctor review.
@@ -21,6 +21,9 @@ Build a local, responsive HTML prototype that visualizes the healthcare-first na
 | Slice | Status | Notes |
 |---|---|---|
 | Staff registration | Built in HTML v0.1 | Synthetic-only, token generated in browser |
+| Manual clinic token | Built in HTML v0.2 | Lets clinics keep their existing token system |
+| Existing patient search | Built in HTML v0.2 | Search by name, PIN or mobile |
+| PIN generation and binding | Built in HTML v0.2 | Local prototype only; production backend must enforce immutable identity links |
 | Patient intake | Built in HTML v0.1 | Phone-first stepper |
 | Report attachment preview | Built in HTML v0.1 | File names only; no upload |
 | Doctor queue and brief | Built in HTML v0.1 | Source-bound facts, no diagnosis |
@@ -35,6 +38,7 @@ Build a local, responsive HTML prototype that visualizes the healthcare-first na
 - No patient-facing interpretation.
 - No WhatsApp/Email sending.
 - No MEDOXZI-owned patient marketing.
+- No patient PIN may be linked to a different name/age/mobile identity in production.
 
 ## Visual Priorities
 
@@ -44,3 +48,4 @@ Build a local, responsive HTML prototype that visualizes the healthcare-first na
 - Doctor brief readable in under 30 seconds.
 - Clear source labels: Patient, Staff, Attachment, Doctor.
 - Explicit unknown/not asked states.
+- Relevant answer options per question, not generic Yes/No where the question is not binary.
