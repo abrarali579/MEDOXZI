@@ -1,6 +1,6 @@
 # STATE — where this project actually is
 
-**Updated:** 2026-08-23, session H (healthcare-first narrow MVP; post-log state finalised)
+**Updated:** 2026-08-23, session I (GitHub publish complete; v2.4 state unchanged)
 **Repository version:** **v2.4**
 **Read this first. Update it last.**
 
@@ -8,7 +8,7 @@
 
 ## 1. One-paragraph status
 
-The design blueprint is complete and internally consistent. The prototype passes **95 tests** and the harness passes **9/9 gates** (re-verified in session H by re-running, not by report). **No production code exists yet.** Session H records an explicit founder decision to defer/skip the Evidence Sprint for now and proceed with a **healthcare-first narrow MVP**: basic personal information, a 2-3 line patient issue description, Lead-Doctor-approved basic questions, optional previous-report attachments for doctor review, and a doctor brief pushed to the doctor's tablet/phone. Best initial patients are first clinic visits with no previous reports. The v2.3 horizontal architecture discipline remains useful where practical, but healthcare is now the committed first vertical by ADR-035.
+The design blueprint is complete and internally consistent. The prototype passes **95 tests** and the harness passes **9/9 gates** (re-verified in session I by re-running, not by report). **No production code exists yet.** Session H records an explicit founder decision to defer/skip the Evidence Sprint for now and proceed with a **healthcare-first narrow MVP**: basic personal information, a 2-3 line patient issue description, Lead-Doctor-approved basic questions, optional previous-report attachments for doctor review, and a doctor brief pushed to the doctor's tablet/phone. Best initial patients are first clinic visits with no previous reports. The v2.3 horizontal architecture discipline remains useful where practical, but healthcare is now the committed first vertical by ADR-035. Session I published the repository to `https://github.com/abrarali579/MEDOXZI`.
 
 ## 2. Product boundary (do not drift from this)
 
@@ -35,7 +35,7 @@ LEAD DOCTOR CUSTOMISE + SIGN-OFF → CLIENT 1 SHADOW (wk1) → LIVE (wk2) → IM
 
 ## 4. Verified state of the code
 
-Last verified **session H**, by re-running on the Windows host. Evidence: VERIFICATION-LOG V-2026-08-23-H-01..02.
+Last verified **session I**, by re-running on the Windows host. Evidence: VERIFICATION-LOG V-2026-08-23-I-01.
 
 | Check | Result |
 |---|---|
@@ -125,3 +125,4 @@ Last verified **session H**, by re-running on the Windows host. Evidence: VERIFI
 | F | Windows verification portability fixed; demo runs on Windows host | [log](SESSION-LOG/2026-08-23-F-onboarding-baseline.md) |
 | G | `ROADMAP.md` created; Evidence Sprint runbook/templates added; stale current-facing sequence text reconciled | [log](SESSION-LOG/2026-08-23-G-roadmap-resume.md) |
 | H | v2.4 healthcare-first narrow MVP adopted; Evidence Sprint deferred by founder decision; ADR-035 added | [log](SESSION-LOG/2026-08-23-H-healthcare-first-mvp.md) |
+| I | Git repository published to GitHub; `.gitignore` added; archive copy excluded | [log](SESSION-LOG/2026-08-23-I-git-publish.md) |

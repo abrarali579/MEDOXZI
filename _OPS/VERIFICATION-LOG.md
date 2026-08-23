@@ -730,3 +730,68 @@ The `_OPS/STATE.md` hits were fixed after this check because STATE is updated la
 **AGENT-PROTOCOL sweep:** full Windows contradiction sweep rerun. Results are contextual only: `FULL_AI` alias/history/direction; red-flag phrases only in prohibitive or signed-rule contexts; retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift detector regex; `>=500` only in ADR-029/history/Gate 6/synthetic/privacy contexts.
 
 **Verdict:** Healthcare-first narrow MVP direction is reconciled in current-facing docs without adding production clinical rule content, exposing shadow differential, using real patient data, adding marketing consent, asserting Indonesian regulatory certainty, or claiming clinical performance.
+
+### V-2026-08-23-I-01 · Git publish verification
+
+**Date:** 2026-08-23  
+**Scope:** Verification before and after initializing/publishing the repository to GitHub.  
+**Host:** Windows PowerShell.
+
+```
+$ python -m pytest tests/ -q
+........................................................................ [ 75%]
+.......................                                                  [100%]
+95 passed in 0.11s
+```
+
+```
+$ python -m harness.run
+==========================================================================
+  MEDOXZI HARNESS
+  NOT FOR CLINICAL USE - synthetic cases only
+==========================================================================
+  harness 0.1.0 - content content@0.1.0 - rules 3
+
+[A] Contamination - 500 concurrent encounters ...
+    PASS — 500 encounters, 0 contamination(s), 0 pipeline failure(s)
+
+[E] Abstention - illegible / absent / ambiguous expected values ...
+    abstention 100.0% (9/9) · fabrications 0 · missed 0
+
+[F] Diagnostic drift - every generated statement ...
+    50 statements checked · 0 hit(s)
+
+==========================================================================
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+
+  VERDICT: PASS
+==========================================================================
+```
+
+```
+$ python demo.py | Select-Object -Last 20
+  Three distinct clinical facts. Three distinct renderings.
+------------------------------------------------------------------------------
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+------------------------------------------------------------------------------
+```
+
+```
+$ git push -u origin main
+branch 'main' set up to track 'origin/main'.
+To https://github.com/abrarali579/MEDOXZI.git
+ * [new branch]      main -> main
+```
+
+**Contradiction sweep:** Windows AGENT-PROTOCOL sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; red-flag phrases only in prohibitive contexts; retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift detector regex; `>=500` only in ADR-029/history/Gate 6/synthetic/privacy contexts.
+
+**Verdict:** Repository published to GitHub. Root archive copy `ziiAv6fl` was ignored because the source tree is committed separately.

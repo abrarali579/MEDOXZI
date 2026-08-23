@@ -4,6 +4,53 @@
 
 ---
 
+## 2026-08-23 — Session I — Repository published to GitHub
+
+**WHAT**
+- Confirmed the actual repository root on this Windows host is `D:\MEDOXZI`; `D:\MEDOXZI\AI-OPD-System` does not exist.
+- Confirmed `.git` already existed but had no commits.
+- Added `.gitignore` to exclude local caches, secrets patterns, and the root archive copy `ziiAv6fl`.
+- Added remote `origin` pointing to `https://github.com/abrarali579/MEDOXZI.git`.
+- Created initial commit `66b4e24` and pushed branch `main` to GitHub.
+
+**WHY**
+The founder asked to initialize Git and push the current MEDOXZI repository to GitHub. The archive copy should not be committed because the extracted source tree is already present and committed file-by-file.
+
+**EVIDENCE**
+`_OPS/VERIFICATION-LOG.md` V-2026-08-23-I-01.
+
+Key outputs:
+
+```
+$ git push -u origin main
+branch 'main' set up to track 'origin/main'.
+To https://github.com/abrarali579/MEDOXZI.git
+ * [new branch]      main -> main
+```
+
+```
+$ python -m pytest tests/ -q
+95 passed in 0.11s
+```
+
+```
+$ python -m harness.run
+VERDICT: PASS
+```
+
+**NEXT**
+1. Use `https://github.com/abrarali579/MEDOXZI` as the shared remote for future agents.
+2. Do not commit `ziiAv6fl`; it is an archive copy of the source.
+3. Continue from `_OPS/STATE.md` and `ROADMAP.md` before any implementation.
+
+**WHY NEXT**
+The remote is now the coordination point. Future agents need to pull from it and preserve the `_OPS` protocol, otherwise local-only decisions will diverge again.
+
+**HOW**
+Run `git pull --ff-only` before work, follow `_OPS/AGENT-PROTOCOL.md`, then commit and push with verification evidence.
+
+---
+
 ## 2026-08-23 — Session H — Healthcare-first narrow MVP adopted
 
 **WHAT**
