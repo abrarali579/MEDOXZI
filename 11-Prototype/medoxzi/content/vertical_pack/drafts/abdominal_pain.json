@@ -1,0 +1,254 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "AI_DRAFT - requires clinician",
+  "signed_at": null,
+  "warning": "This content is not clinically validated and requires clinician review before use.",
+  "chief_complaints": [
+    {
+      "code": "abdominal_pain",
+      "label_en": "Abdominal Pain",
+      "label_hi": "पेट का दर्द"
+    }
+  ],
+  "questions": [
+    {
+      "question_key": "abdominal_pain_onset",
+      "chief_complaint_code": "abdominal_pain",
+      "text_by_language": {
+        "en": "When did the abdominal pain first start?",
+        "hi": "पेट के दर्द कब से शुरू हुआ?"
+      },
+      "answer_type": "DATE",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "abdominal_pain_duration",
+      "chief_complaint_code": "abdominal_pain",
+      "text_by_language": {
+        "en": "How long has the abdominal pain lasted?",
+        "hi": "पेट के दर्द के कितने समय तक रहे हैं?"
+      },
+      "answer_type": "NUMERIC",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "abdominal_pain_character",
+      "chief_complaint_code": "abdominal_pain",
+      "text_by_language": {
+        "en": "How would you describe the abdominal pain? (e.g., sharp, dull, burning)",
+        "hi": "आप पेट के दर्द कैसे वर्णित करेंगे? (उदाहरण: तीखा, मटोला, जलन"
+      },
+      "answer_type": "ENUM",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician",
+      "options": [
+        "Sharp",
+        "Dull",
+        "Burning",
+        "Cramping",
+        "Other"
+      ]
+    },
+    {
+      "question_key": "abdominal_pain_severity",
+      "chief_complaint_code": "abdominal_pain",
+      "text_by_language": {
+        "en": "On a scale of 1 to 10, how severe is the abdominal pain?",
+        "hi": "1 से 10 के पैमाने पर पेट के दर्द की गंभीरता कितनी है?"
+      },
+      "answer_type": "NUMERIC",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "abdominal_pain_aggravating",
+      "chief_complaint_code": "abdominal_pain",
+      "text_by_language": {
+        "en": "Does anything make the abdominal pain worse?",
+        "hi": "कोई भी चीज पेट के दर्द को बदतर करती है?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 5,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "abdominal_pain_relieving",
+      "chief_complaint_code": "abdominal_pain",
+      "text_by_language": {
+        "en": "Does anything relieve the abdominal pain?",
+        "hi": "कोई भी चीज पेट के दर्द को कम करती है?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 6,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "abdominal_pain_associated_symptoms",
+      "chief_complaint_code": "abdominal_pain",
+      "text_by_language": {
+        "en": "Are there any other symptoms with the abdominal pain? (e.g., nausea, vomiting, diarrhea)",
+        "hi": "पेट के दर्द के साथ कोई अन्य लक्षण हैं? (उदाहरण: उल्बेरिका, उल्टी, गैस)"
+      },
+      "answer_type": "MULTI",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 7,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician",
+      "options": [
+        "Nausea",
+        "Vomiting",
+        "Diarrhea",
+        "Fever",
+        "Weight loss",
+        "None",
+        "Other"
+      ]
+    },
+    {
+      "question_key": "abdominal_pain_red_flag_weight_loss",
+      "chief_complaint_code": "abdominal_pain",
+      "text_by_language": {
+        "en": "Have you lost weight recently without trying?",
+        "hi": "क्या आपने बिना कोशिश के हाल ही में वजन कम कर दिया है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": false,
+      "display_order": 8,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "abdominal_pain_red_flag_jaundice",
+      "chief_complaint_code": "abdominal_pain",
+      "text_by_language": {
+        "en": "Have you noticed yellowing of the skin or eyes?",
+        "hi": "क्या आपकी त्वचा या आंखों के पीला होने के बारे में आपको कोई ध्यान दिया है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": false,
+      "display_order": 9,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "abdominal_pain_negatives",
+      "chief_complaint_code": "abdominal_pain",
+      "text_by_language": {
+        "en": "Are there any symptoms that are NOT present? (e.g., no fever, no blood in stool)",
+        "hi": "कोई लक्षण अनुपस्थित हैं? (उदाहरण: कोई बुखार नहीं, कोई मल में खून नहीं)"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 10,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "abdominal_pain_past_history",
+      "chief_complaint_code": "abdominal_pain",
+      "text_by_language": {
+        "en": "Have you had any previous abdominal surgeries or conditions?",
+        "hi": "क्या आपके पास पहले से कोई पेट के सर्जरी या बीमारी हैं?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 11,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "abdominal_pain_context",
+      "chief_complaint_code": "abdominal_pain",
+      "text_by_language": {
+        "en": "Are there any recent changes in diet, travel, or stress?",
+        "hi": "क्या आहार, यात्रा या तनाव में हाल ही में कोई परिवर्तन हुआ है?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 12,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    }
+  ],
+  "required_for_completeness": [
+    "abdominal_pain_onset",
+    "abdominal_pain_duration",
+    "abdominal_pain_character",
+    "abdominal_pain_severity"
+  ]
+}

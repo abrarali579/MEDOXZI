@@ -1,0 +1,269 @@
+{
+  "content_version": "vertical@0.1.0",
+  "status": "DEMO_UNVALIDATED",
+  "authored_by": "AI_DRAFT - requires clinician",
+  "signed_at": null,
+  "warning": "This content is not clinically validated and requires clinician review before use.",
+  "chief_complaints": [
+    {
+      "code": "sore_throat",
+      "label_en": "Sore throat",
+      "label_hi": "खांसी"
+    }
+  ],
+  "questions": [
+    {
+      "question_key": "sore_throat_onset",
+      "chief_complaint_code": "sore_throat",
+      "text_by_language": {
+        "en": "When did your sore throat first start?",
+        "hi": "आपकी खांसी कब से शुरू हुई?"
+      },
+      "answer_type": "ENUM",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 1,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician",
+      "options": [
+        "Sudden",
+        "Gradual",
+        "Unknown"
+      ]
+    },
+    {
+      "question_key": "sore_throat_duration",
+      "chief_complaint_code": "sore_throat",
+      "text_by_language": {
+        "en": "How long has your sore throat been present?",
+        "hi": "आपकी खांसी कितने समय से लग रही है?"
+      },
+      "answer_type": "ENUM",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 2,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician",
+      "options": [
+        "<1 day",
+        "1-3 days",
+        "4-7 days",
+        "1-2 weeks",
+        "More than 2 weeks"
+      ]
+    },
+    {
+      "question_key": "sore_throat_character",
+      "chief_complaint_code": "sore_throat",
+      "text_by_language": {
+        "en": "How would you describe the pain or discomfort?",
+        "hi": "दर्द या असुविधा कैसे वर्णित करें?"
+      },
+      "answer_type": "ENUM",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 3,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician",
+      "options": [
+        "Sharp",
+        "Burning",
+        "Throbbing",
+        "Dull",
+        "Other"
+      ]
+    },
+    {
+      "question_key": "sore_throat_severity",
+      "chief_complaint_code": "sore_throat",
+      "text_by_language": {
+        "en": "On a scale of 1-10, how severe is your sore throat?",
+        "hi": "एक पैमाने पर 1-10, आपकी खांसी कितनी खराब है?"
+      },
+      "answer_type": "NUMERIC",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": true,
+      "display_order": 4,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "sore_throat_aggravating",
+      "chief_complaint_code": "sore_throat",
+      "text_by_language": {
+        "en": "What makes your sore throat better or worse?",
+        "hi": "आपकी खांसी को बेहतर या खराब क्या करता है?"
+      },
+      "answer_type": "MULTI",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 5,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician",
+      "options": [
+        "Speaking",
+        "Eating",
+        "Swallowing",
+        "No change",
+        "Other"
+      ]
+    },
+    {
+      "question_key": "sore_throat_associated_fever",
+      "chief_complaint_code": "sore_throat",
+      "text_by_language": {
+        "en": "Have you had a fever with this sore throat?",
+        "hi": "इस खांसी के साथ आपको बुखार रहा है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 6,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "sore_throat_associated_swelling",
+      "chief_complaint_code": "sore_throat",
+      "text_by_language": {
+        "en": "Have you noticed swollen glands or neck pain?",
+        "hi": "क्या आपको गर्दन के दर्द या लिम्फ नोड्स की बर्फ दिखाई दी है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 7,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "sore_throat_red_flag_breathing",
+      "chief_complaint_code": "sore_throat",
+      "text_by_language": {
+        "en": "Are you having difficulty breathing or swallowing?",
+        "hi": "क्या आपको सांस लेने या खाने में कठिनाई हो रही है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": false,
+      "display_order": 8,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "sore_throat_neg_fever",
+      "chief_complaint_code": "sore_throat",
+      "text_by_language": {
+        "en": "Have you had no fever in the past 24 hours?",
+        "hi": "पिछले 24 घंटों में आपको कोई बुखार नहीं रहा है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 9,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "sore_throat_past_history",
+      "chief_complaint_code": "sore_throat",
+      "text_by_language": {
+        "en": "Have you had similar sore throats in the past?",
+        "hi": "पहले आपको ऐसी खांसी रही है?"
+      },
+      "answer_type": "ENUM",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 10,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician",
+      "options": [
+        "Yes, frequently",
+        "Yes, occasionally",
+        "No"
+      ]
+    },
+    {
+      "question_key": "sore_throat_travel_exposure",
+      "chief_complaint_code": "sore_throat",
+      "text_by_language": {
+        "en": "Have you traveled or had contact with someone who was sick recently?",
+        "hi": "क्या आपने हाल ही में किसी बीमार व्यक्ति के साथ संपर्क रखा है या यात्रा की है?"
+      },
+      "answer_type": "TEXT",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": false,
+      "is_required_for_completeness": false,
+      "display_order": 11,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    },
+    {
+      "question_key": "sore_throat_cancer_history",
+      "chief_complaint_code": "sore_throat",
+      "text_by_language": {
+        "en": "Do you have a history of cancer or immunosuppression?",
+        "hi": "क्या आपके पास कैंसर या प्रतिरक्षा कमजोरी का इतिहास है?"
+      },
+      "answer_type": "BOOL",
+      "asked_of": [
+        "PATIENT"
+      ],
+      "is_red_flag_screen": true,
+      "is_required_for_completeness": false,
+      "display_order": 12,
+      "clinical_rationale": "UNVALIDATED_DEMO_CONTENT",
+      "source_ref": "PENDING_CLINICIAN_SOURCE",
+      "authored_by": "AI_DRAFT - requires clinician"
+    }
+  ],
+  "required_for_completeness": [
+    "sore_throat_onset",
+    "sore_throat_duration",
+    "sore_throat_character",
+    "sore_throat_severity"
+  ]
+}

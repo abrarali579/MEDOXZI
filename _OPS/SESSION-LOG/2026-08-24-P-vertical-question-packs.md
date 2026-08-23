@@ -71,6 +71,44 @@ The founder resolved the product blockers himself. Recorded verbatim intent:
 - Commit + push `origin main`.
 - Final SESSION-LOG / CHANGELOG / STATE.md completion when the batch finishes.
 
+## Addendum — OPD Java Disease QuestionBank integrated (primary basis)
+
+**Human direction (recorded):** founder sent the primary source for the question bank —
+`OPD Java Disease QuestionBank.zip` ("deep research about Question Bank") — fulfilling OT-05's
+"founder will do deep research on the question bank" and the standing requirement to design packs
+**from actual medical literature**.
+
+### What shipped (commit `139185e`, pushed `origin/main`)
+- **Source extracted** to `10-Reference/OPD-QuestionBank/` — `diseases.json` (40 Java/Indonesia OPD
+  diseases), `diseases.csv`, `symptoms.csv`, `red_flags.csv`, `history_questions.csv`, `README.md`.
+  The bank is grounded in DKI Jakarta puskesmas 2024 epidemiology + regional burden (ISPA,
+  hypertension, dyspepsia, T2DM, tropical: TB, dengue, typhoid, malaria...) and is explicitly framed
+  as a **reference/education aid, not a diagnostic algorithm** — an exact match to our screening-only boundary.
+- **`tools/build_from_questionbank.py`** — converts `diseases.json` → one pack per disease →
+  `vertical_pack/literature/<code>_<Dxx>.json`. **40 packs, 466 patient-facing questions** (308 sourced
+  history questions + embedded red-flag screens). Each question carries the bank's verbatim clinical
+  `purpose` as `clinical_rationale` and an `evidence_reference` (ICD-10 + bank identity). This finally
+  closes the source gap the harness/ADR-033 flagged (`source_ref` was `PENDING_CLINICIAN_SOURCE` before).
+- **`tools/gate_literature.py`** — harness F1/F3/F4 gate over all 40 packs. (F2 skipped deliberately:
+  literature question text is carried verbatim from source — no AI rewrite — so output==source, nothing to escalate.)
+- **Gate outcome:** 28 **CLEAN** / 12 **BLOCKED**. `literature/GATE-REPORT.md` documents the exact
+  flagged patient-facing strings in the 12 blocked packs. Most flags are urgency/differential wording in
+  **red-flag screens** (e.g. "rule out septic arthritis", "emergency", "suggestive of acute coronary syndrome").
+  These are **NOT auto-rewritten** — clinical/safety wording is a clinician's decision (ADR-002/037). They stay
+  `DEMO_UNVALIDATED` + BLOCKED until a lead clinician redacts wording, then re-gate.
+- **No Hindi fabricated:** the bank ships English + Indonesian only; `hi` localisation is a clinician/
+  localiser task, never AI-invented (avoids hallucinated translation).
+
+### Impact on the plan
+- The **literature packs are now the primary Harness-training basis** (28 immediately usable).
+- AI complaint-drafting is **superseded/secondary**: the 40 packs already cover the formerly-planned
+  skin_rash / dysuria / joint_pain / fatigue areas via their source diseases. **Cron `0d9dc488a605`
+  update** stops the AI-drafting of those 4 and repoints the driver at literature-pack integrity checks +
+  git hygiene + commit of any leftover batch drafts.
+- The background batch finished cough/headache/abdominal_pain/diarrhoea/dizziness (all harness-clean,
+  12Q each); `sore_throat` in flight at time of writing; `abdominal_pain.json`+`sore_throat.json` picked
+  up by the cron's commit step when they land.
+
 ## Safety
 
 - No real patient data, no AI diagnosis, no visible differential, no production red flags.

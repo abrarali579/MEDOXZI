@@ -4,6 +4,29 @@
 
 ---
 
+## 2026-08-24 - Session P (addendum) - OPD Java Disease QuestionBank integrated as primary source basis
+
+**WHAT**
+- Extracted the founder's supplied primary source `OPD Java Disease QuestionBank.zip` → `10-Reference/OPD-QuestionBank/` (40 Java/Indonesia OPD diseases, 308 clinician-purposed history questions, symptoms, red flags, grounded in DKI Jakarta puskesmas 2024 epidemiology + regional tropical burden; explicitly framed as reference/education, not a diagnostic algorithm).
+- Added `tools/build_from_questionbank.py` → generated **40 literature-grounded packs** at `vertical_pack/literature/*.json` (466 patient-facing questions), each carrying the bank's verbatim clinical purpose as `clinical_rationale` + ICD-10 `evidence_reference`. This finally fills the source gap the harness/ADR-033 flagged (`source_ref` was `PENDING_CLINICIAN_SOURCE`).
+- Added `tools/gate_literature.py` (F1/F3/F4 over patient text): **28 CLEAN / 12 BLOCKED**. `literature/GATE-REPORT.md` documents the exact flagged strings (urgency/`rule out` wording in red-flag screens). Blocked packs are NOT auto-rewritten — clinical wording is a clinician's decision (ADR-002/037).
+- Repointed cron `0d9dc488a605` at the literature primary basis; cancelled the redundant AI-draft of skin_rash/dysuria/joint_pain/fatigue (already covered by source diseases). AI batch finished all 6 complaint drafts harness-clean (cough, headache, abdominal_pain, diarrhoea, dizziness, sore_throat).
+
+**WHY**
+The founder's standing requirement is to design question packs from **actual medical literature** and train the Harness on the most common diseases with a Question Pack. This bank is exactly that source, and it is higher-quality and better-verifiable than AI-generated candidates.
+
+**EVIDENCE**
+- `_OPS/SESSION-LOG/2026-08-24-P-vertical-question-packs.md` Addendum.
+- `11-Prototype/medoxzi/content/vertical_pack/literature/GATE-REPORT.md`.
+- Commit `139185e` (pushed).
+
+**NEXT**
+- Lead clinician redacts the 12 blocked red-flag strings → re-run gate → unblock.
+- No Hindi fabricated (bank is EN/ID); localisation is a clinician/localiser task.
+
+**WHY NEXT**
+The 28 clean packs are immediately usable as the Harness-training basis; the 12 blocked ones need human wording sign-off before they can join.
+
 ## 2026-08-24 - Session P - founder blocker resolutions + vertical question-pack pipeline
 
 **WHAT**
