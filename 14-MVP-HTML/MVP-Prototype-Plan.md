@@ -35,6 +35,7 @@ Build a local, responsive HTML prototype that visualizes the healthcare-first na
 | Doctor conclusion/follow-up | Built in HTML v0.1 | Follow-up date captured locally |
 | Messaging preview | Built in HTML v0.1 | Disabled; requires OT-19 controls |
 | Workspace UI polish | Built in HTML v0.5 | Screenshot-guided doctor-workspace shell: dark navigation rail, white top bar, refined cards, professional visible text, patient-review upload card, responsive desktop/mobile verification |
+| POV workflow split | Built in HTML v0.6 | Patient direct-entry prefill, Pre-visit narrowed to current patient + next two incoming patients, separate Patient Records and Record Viewer tabs, current-vs-past compare action, and subtle motion polish |
 
 ## Non-Negotiables
 
@@ -57,3 +58,4 @@ Build a local, responsive HTML prototype that visualizes the healthcare-first na
 - Explicit unknown/not asked states.
 - Relevant answer options per question, not generic Yes/No where the question is not binary.
 - Screenshot-guided v0.5 tone: dense clinical workspace, restrained teal/green status accents, white review cards, and professional wording across staff, patient, doctor, and ops screens.
+- v0.6 doctor workflow: Pre-visit should stay focused on live consultation work; searchable historical records and detailed record reading belong in separate tabs.

@@ -12,8 +12,8 @@
         <div class="brand-row">
           <div class="brand-mark" aria-hidden="true">M</div>
           <div class="brand-title">
-            <p class="eyebrow">Doctor workspace</p>
-            <h1>Pre-visit review</h1>
+            <p class="eyebrow" id="topbarContext">Doctor workspace</p>
+            <h1 id="topbarTitle">Pre-visit review</h1>
           </div>
         </div>
         <div class="topbar-meta">
@@ -35,6 +35,8 @@
         <button class="tab active" data-view="staff">Front desk</button>
         <button class="tab" data-view="patient">Patient intake</button>
         <button class="tab" data-view="doctor">Pre-visit review</button>
+        <button class="tab" data-view="records">Patient records</button>
+        <button class="tab" data-view="viewer">Record viewer</button>
         <button class="tab" data-view="ops">Clinic operations</button>
         <div class="sidebar-foot">Demo clinic workspace</div>
       </nav>
@@ -275,11 +277,12 @@
             <aside class="doctor-queue panel">
               <div class="panel-head">
                 <div>
-                  <p class="eyebrow">Clinic queue</p>
-                  <h2>Dr. Abrar</h2>
+                  <p class="eyebrow">Pre-visit queue</p>
+                  <h2>Current + next two</h2>
                 </div>
-                <button class="secondary compact">Next</button>
+                <button class="secondary compact" data-jump="records" type="button">Records</button>
               </div>
+              <p class="queue-note">The active consultation stays pinned at the top. Only the next two incoming patients are shown here.</p>
               <div id="doctorQueue" class="queue-list"></div>
             </aside>
 
@@ -339,7 +342,11 @@
                 <button id="saveDoctor" class="primary full" type="button">Save assessment</button>
               </div>
             </section>
+          </div>
+        </section>
 
+        <section id="view-records" class="view">
+          <div class="records-layout">
             <section class="patient-history panel">
               <div class="panel-head">
                 <div>
@@ -367,18 +374,23 @@
                 </label>
                 <button class="history-clear secondary" type="button">Clear filters</button>
               </div>
-              <div class="history-count" id="historyCount">15 synthetic files</div>
+              <div class="history-count" id="historyCount">15 synthetic records</div>
               <div id="historyList" class="history-list"></div>
             </section>
+          </div>
+        </section>
 
+        <section id="view-viewer" class="view">
+          <div class="records-layout">
             <section class="history-file panel">
               <div class="panel-head">
                 <div>
                   <p class="eyebrow">Record viewer</p>
                   <h2 id="historyFileTitle">Select a past file</h2>
                 </div>
-                <span class="status-pill safe">Sample clinician entries only</span>
+                <button class="secondary compact" data-jump="records" type="button">Back to records</button>
               </div>
+              <span class="status-pill safe viewer-scope">Sample clinician entries only</span>
               <div id="historyFile" class="history-detail">
                 <p class="quiet">Open a past file to compare previous concerns, reports, and sample doctor assessments.</p>
               </div>

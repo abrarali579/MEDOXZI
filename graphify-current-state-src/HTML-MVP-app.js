@@ -309,28 +309,60 @@ const historyPatients = [
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => Array.from(document.querySelectorAll(selector));
 
-function switchView(viewName) {
+const viewTitles = {
+  staff: ["Clinic workspace", "Front desk"],
+  patient: ["Patient workspace", "Patient intake"],
+  doctor: ["Doctor workspace", "Pre-visit review"],
+  records: ["Doctor workspace", "Patient records"],
+  viewer: ["Doctor workspace", "Record viewer"],
+  ops: ["Clinic workspace", "Clinic operations"],
+};
+
+function switchView(viewName, options = {}) {
+  if (viewName === "patient" && !options.preserveDraft) {
+    const hasPatientDraft = ($("#intakeName")?.value || "").trim() || ($("#intakePhone")?.value || "").trim();
+    if (!hasPatientDraft && $("#patientName") && $("#patientPhone")) {
+      syncPatientFromRegistration();
+    }
+  }
   $$(".tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.view === viewName));
   $$(".view").forEach((view) => view.classList.toggle("active", view.id === `view-${viewName}`));
+  const [context, title] = viewTitles[viewName] || viewTitles.doctor;
+  $("#topbarContext").textContent = context;
+  $("#topbarTitle").textContent = title;
+}
+
+function currentQueuePatient() {
+  return patients.find((patient) => String(patient.token) === String(state.token)) || patients[2];
+}
+
+function previsitPatients() {
+  const current = currentQueuePatient();
+  const incoming = patients.filter((patient) => patient !== current).slice(0, 2);
+  return [current, ...incoming];
+}
+
+function queueItemHtml(patient, { current = false, compact = false } = {}) {
+  const label = current ? "Current patient" : compact ? "Incoming" : patient.status;
+  const statusClass = current ? "mini-badge current" : "mini-badge";
+  const itemClass = current ? "queue-item current-patient" : "queue-item incoming-patient";
+  return `
+    <button class="${itemClass}" type="button" data-token="${patient.token}" ${current ? 'aria-current="true"' : ""}>
+      <span class="token">${patient.token}</span>
+      <span>
+        <span class="queue-name">${patient.name}</span>
+        <span class="queue-meta">${patient.pin || "New profile"} · ${patient.meta} · Docs ${patient.docs}</span>
+      </span>
+      <span class="${statusClass}">${label}</span>
+    </button>
+  `;
 }
 
 function renderQueues() {
-  const html = patients
-    .map(
-      (patient) => `
-        <button class="queue-item" type="button" data-token="${patient.token}">
-          <span class="token">${patient.token}</span>
-          <span>
-            <span class="queue-name">${patient.name}</span>
-            <span class="queue-meta">${patient.pin || "New profile"} · ${patient.meta} · Docs ${patient.docs}</span>
-          </span>
-          <span class="mini-badge">${patient.status}</span>
-        </button>
-      `,
-    )
+  $("#staffQueue").innerHTML = patients.map((patient) => queueItemHtml(patient)).join("");
+  $("#doctorQueue").innerHTML = previsitPatients()
+    .map((patient, index) => queueItemHtml(patient, { current: index === 0, compact: true }))
     .join("");
-  $("#staffQueue").innerHTML = html;
-  $("#doctorQueue").innerHTML = html;
   $("#waitingCount").textContent = `${patients.length} waiting`;
 }
 
@@ -531,6 +563,7 @@ function openHistoryFile(pin) {
       <h3>Reports / files <span class="source">Attachment</span></h3>
       <ul>${patient.reports.map((report) => `<li>${report}</li>`).join("")}</ul>
     </article>
+    <button class="primary full" type="button" data-compare-pin="${patient.pin}">Compare with current visit</button>
   `;
 }
 
@@ -1008,7 +1041,7 @@ function registerNewPatient() {
   $("#intakePhone").value = "";
   $("#issueText").value = "";
   showStep(0);
-  switchView("patient");
+  switchView("patient", { preserveDraft: true });
 }
 
 function escapeHtml(value) {
@@ -1109,7 +1142,14 @@ document.addEventListener("DOMContentLoaded", () => {
   $(".history-list").addEventListener("click", (event) => {
     const button = event.target.closest("[data-history-pin]");
     if (!button) return;
-    openCurrentWithPast(button.dataset.historyPin);
+    openHistoryFile(button.dataset.historyPin);
+    switchView("viewer");
+  });
+
+  $("#historyFile").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-compare-pin]");
+    if (!button) return;
+    openCurrentWithPast(button.dataset.comparePin);
   });
 
   $("#backStep").addEventListener("click", () => showStep(state.currentStep - 1));

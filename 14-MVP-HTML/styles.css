@@ -1697,3 +1697,179 @@ textarea::placeholder {
     gap: 4px;
   }
 }
+
+/* ---------- Session X: POV workflow split + motion polish ---------- */
+.view.active {
+  animation: pageEnter 240ms ease both;
+}
+
+.panel,
+.patient-card {
+  animation: cardSettle 280ms ease both;
+}
+
+.panel:nth-child(2) { animation-delay: 45ms; }
+.panel:nth-child(3) { animation-delay: 90ms; }
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardSettle {
+  from { opacity: 0; transform: translateY(10px) scale(0.995); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.records-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  max-width: 1120px;
+}
+
+.doctor-layout {
+  grid-template-columns: 292px minmax(0, 1fr);
+}
+
+.doctor-queue {
+  grid-row: 1;
+}
+
+.doctor-brief {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.patient-history,
+.history-file {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.queue-note {
+  margin: -6px 0 14px;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.queue-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.queue-item:hover,
+.history-row:hover,
+.search-result:hover,
+.complaint-grid button:hover,
+.answer-grid button:hover {
+  transform: translateY(-1px);
+}
+
+.queue-item.current-patient {
+  border-color: #64c7bb;
+  background:
+    linear-gradient(90deg, rgba(12, 171, 151, 0.14), rgba(255,255,255,0) 54%),
+    #fff;
+  box-shadow: 0 10px 24px rgba(14, 124, 116, 0.12);
+}
+
+.queue-item.current-patient::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: #0ec4b6;
+}
+
+.queue-item.current-patient .token {
+  background: linear-gradient(145deg, #0bb6a4, #067766);
+  animation: tokenPulse 1600ms ease-in-out infinite;
+}
+
+.queue-item.incoming-patient {
+  opacity: 0.92;
+}
+
+.mini-badge.current {
+  background: var(--ok-tint);
+  color: var(--ok);
+  border: 1px solid #bfe7d4;
+}
+
+@keyframes tokenPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(14, 196, 182, 0.28); }
+  50% { box-shadow: 0 0 0 7px rgba(14, 196, 182, 0); }
+}
+
+.history-row {
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+}
+
+.history-list {
+  max-height: min(62vh, 720px);
+}
+
+.history-file {
+  max-width: 1120px;
+}
+
+.viewer-scope {
+  margin: -4px 0 16px;
+}
+
+.history-detail {
+  animation: fadeUp 220ms ease both;
+}
+
+.history-detail .primary {
+  margin-top: 4px;
+}
+
+.split-review {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.split-current {
+  border: 1px solid #bfe7d4;
+  border-radius: 8px;
+  padding: 14px;
+  background: #f6fcfa;
+}
+
+.split-past {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  background: #fff;
+}
+
+@media (max-width: 1180px) {
+  .doctor-layout {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .doctor-layout,
+  .split-review {
+    grid-template-columns: 1fr;
+  }
+
+  .doctor-queue,
+  .doctor-brief {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}

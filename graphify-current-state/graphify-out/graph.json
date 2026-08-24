@@ -4,26 +4,13 @@
   "graph": {},
   "nodes": [
     {
-      "id": "current_state_model_verticalquestionpack",
-      "label": "VerticalQuestionPack",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "Community 10",
-      "file_type": "code",
-      "norm_label": "verticalquestionpack",
-      "source_file": "current_state_model.py",
-      "source_location": "L89"
-    },
-    {
       "id": "current_state_model_visualhtmlmvp",
       "label": "VisualHTMLMVP",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 11,
-      "community_name": "Community 11",
+      "community": 10,
+      "community_name": "Community 10",
       "file_type": "code",
       "norm_label": "visualhtmlmvp",
       "source_file": "current_state_model.py",
@@ -35,8 +22,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 2,
-      "community_name": "Community 2",
+      "community": 3,
+      "community_name": "Community 3",
       "file_type": "code",
       "norm_label": "clinicmessaging",
       "source_file": "current_state_model.py",
@@ -48,8 +35,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 2,
-      "community_name": "Community 2",
+      "community": 3,
+      "community_name": "Community 3",
       "file_type": "code",
       "norm_label": "contentlicensing",
       "source_file": "current_state_model.py",
@@ -61,8 +48,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 2,
-      "community_name": "Community 2",
+      "community": 3,
+      "community_name": "Community 3",
       "file_type": "code",
       "norm_label": "followuppreview",
       "source_file": "current_state_model.py",
@@ -74,8 +61,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 2,
-      "community_name": "Community 2",
+      "community": 3,
+      "community_name": "Community 3",
       "file_type": "code",
       "norm_label": "indonesiancompliance",
       "source_file": "current_state_model.py",
@@ -87,8 +74,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 2,
-      "community_name": "Community 2",
+      "community": 3,
+      "community_name": "Community 3",
       "file_type": "code",
       "norm_label": "pinidentitybinding",
       "source_file": "current_state_model.py",
@@ -100,8 +87,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 2,
-      "community_name": "Community 2",
+      "community": 3,
+      "community_name": "Community 3",
       "file_type": "code",
       "norm_label": "safetyharness",
       "source_file": "current_state_model.py",
@@ -113,8 +100,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 2,
-      "community_name": "Community 2",
+      "community": 3,
+      "community_name": "Community 3",
       "file_type": "code",
       "norm_label": "welcomesearch",
       "source_file": "current_state_model.py",
@@ -126,8 +113,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 6,
-      "community_name": "Community 6",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "doctorbrief",
       "source_file": "current_state_model.py",
@@ -139,8 +126,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 7,
-      "community_name": "Community 7",
+      "community": 6,
+      "community_name": "Community 6",
       "file_type": "code",
       "norm_label": "doctorpastfiles",
       "source_file": "current_state_model.py",
@@ -152,8 +139,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 8,
-      "community_name": "Community 8",
+      "community": 7,
+      "community_name": "Community 7",
       "file_type": "code",
       "norm_label": "medoxzicurrentstate",
       "source_file": "current_state_model.py",
@@ -165,12 +152,37 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 9,
-      "community_name": "Community 9",
+      "community": 8,
+      "community_name": "Community 8",
       "file_type": "code",
       "norm_label": "patientintake",
       "source_file": "current_state_model.py",
       "source_location": "L48"
+    },
+    {
+      "id": "current_state_model_verticalquestionpack",
+      "label": "VerticalQuestionPack",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "Community 9",
+      "file_type": "code",
+      "norm_label": "verticalquestionpack",
+      "source_file": "current_state_model.py",
+      "source_location": "L89"
+    },
+    {
+      "id": "html_mvp_app_currentqueuepatient",
+      "label": "currentQueuePatient()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Community 0",
+      "file_type": "code",
+      "norm_label": "currentqueuepatient()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L335"
     },
     {
       "id": "html_mvp_app_openclosesplitreview",
@@ -182,7 +194,7 @@
       "file_type": "code",
       "norm_label": "openclosesplitreview()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L497"
+      "source_location": "L529"
     },
     {
       "id": "html_mvp_app_opencurrentvisitsplit",
@@ -194,7 +206,7 @@
       "file_type": "code",
       "norm_label": "opencurrentvisitsplit()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L433"
+      "source_location": "L465"
     },
     {
       "id": "html_mvp_app_opencurrentwithpast",
@@ -206,7 +218,7 @@
       "file_type": "code",
       "norm_label": "opencurrentwithpast()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L427"
+      "source_location": "L459"
     },
     {
       "id": "html_mvp_app_openhistoryfile",
@@ -218,7 +230,31 @@
       "file_type": "code",
       "norm_label": "openhistoryfile()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L502"
+      "source_location": "L534"
+    },
+    {
+      "id": "html_mvp_app_previsitpatients",
+      "label": "previsitPatients()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Community 0",
+      "file_type": "code",
+      "norm_label": "previsitpatients()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L339"
+    },
+    {
+      "id": "html_mvp_app_queueitemhtml",
+      "label": "queueItemHtml()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Community 0",
+      "file_type": "code",
+      "norm_label": "queueitemhtml()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L345"
     },
     {
       "id": "html_mvp_app_renderhistoryfilters",
@@ -230,7 +266,7 @@
       "file_type": "code",
       "norm_label": "renderhistoryfilters()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L379"
+      "source_location": "L411"
     },
     {
       "id": "html_mvp_app_renderqueues",
@@ -242,19 +278,7 @@
       "file_type": "code",
       "norm_label": "renderqueues()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L317"
-    },
-    {
-      "id": "html_mvp_app_setintakephone",
-      "label": "setIntakePhone()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Community 0",
-      "file_type": "code",
-      "norm_label": "setintakephone()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L824"
+      "source_location": "L361"
     },
     {
       "id": "html_mvp_app_setupbriefstep",
@@ -266,19 +290,7 @@
       "file_type": "code",
       "norm_label": "setupbriefstep()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L724"
-    },
-    {
-      "id": "html_mvp_app_syncpatientfromregistration",
-      "label": "syncPatientFromRegistration()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Community 0",
-      "file_type": "code",
-      "norm_label": "syncpatientfromregistration()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L537"
+      "source_location": "L757"
     },
     {
       "id": "html_mvp_app_uniquecomplaints",
@@ -290,43 +302,43 @@
       "file_type": "code",
       "norm_label": "uniquecomplaints()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L352"
+      "source_location": "L384"
     },
     {
-      "id": "html_mvp_app_allpatientrecords",
-      "label": "allPatientRecords()",
+      "id": "html_mvp_app_activequestions",
+      "label": "activeQuestions()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "community_name": "Community 1",
       "file_type": "code",
-      "norm_label": "allpatientrecords()",
+      "norm_label": "activequestions()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L337"
+      "source_location": "L53"
     },
     {
-      "id": "html_mvp_app_confirmwelcomepatient",
-      "label": "confirmWelcomePatient()",
+      "id": "html_mvp_app_answerquestion",
+      "label": "answerQuestion()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "community_name": "Community 1",
       "file_type": "code",
-      "norm_label": "confirmwelcomepatient()",
+      "norm_label": "answerquestion()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L992"
+      "source_location": "L735"
     },
     {
-      "id": "html_mvp_app_generatepin",
-      "label": "generatePin()",
+      "id": "html_mvp_app_ensureaisuggestions",
+      "label": "ensureAISuggestions()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "community_name": "Community 1",
       "file_type": "code",
-      "norm_label": "generatepin()",
+      "norm_label": "ensureaisuggestions()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L850"
+      "source_location": "L692"
     },
     {
       "id": "html_mvp_app_getintakephone",
@@ -338,31 +350,19 @@
       "file_type": "code",
       "norm_label": "getintakephone()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L815"
+      "source_location": "L848"
     },
     {
-      "id": "html_mvp_app_identitykey",
-      "label": "identityKey()",
+      "id": "html_mvp_app_hidequestionloading",
+      "label": "hideQuestionLoading()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
       "community_name": "Community 1",
       "file_type": "code",
-      "norm_label": "identitykey()",
+      "norm_label": "hidequestionloading()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L846"
-    },
-    {
-      "id": "html_mvp_app_loadexistingpatient",
-      "label": "loadExistingPatient()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Community 1",
-      "file_type": "code",
-      "norm_label": "loadexistingpatient()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L925"
+      "source_location": "L662"
     },
     {
       "id": "html_mvp_app_phonecode",
@@ -374,7 +374,31 @@
       "file_type": "code",
       "norm_label": "phonecode()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L810"
+      "source_location": "L843"
+    },
+    {
+      "id": "html_mvp_app_renderdoctorbrief",
+      "label": "renderDoctorBrief()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Community 1",
+      "file_type": "code",
+      "norm_label": "renderdoctorbrief()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L804"
+    },
+    {
+      "id": "html_mvp_app_renderquestion",
+      "label": "renderQuestion()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Community 1",
+      "file_type": "code",
+      "norm_label": "renderquestion()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L672"
     },
     {
       "id": "html_mvp_app_renderreview",
@@ -386,163 +410,199 @@
       "file_type": "code",
       "norm_label": "renderreview()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L756"
-    },
-    {
-      "id": "html_mvp_app_savedpatients",
-      "label": "savedPatients()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Community 1",
-      "file_type": "code",
-      "norm_label": "savedpatients()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L859"
-    },
-    {
-      "id": "html_mvp_app_savelinkedpatient",
-      "label": "saveLinkedPatient()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Community 1",
-      "file_type": "code",
-      "norm_label": "savelinkedpatient()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L867"
-    },
-    {
-      "id": "current_state_model_verticalquestionpack_guarded_by",
-      "label": ".guarded_by()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "Community 10",
-      "file_type": "code",
-      "norm_label": ".guarded_by()",
-      "source_file": "current_state_model.py",
-      "source_location": "L95"
-    },
-    {
-      "id": "current_state_model_visualhtmlmvp_contains",
-      "label": ".contains()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "Community 11",
-      "file_type": "code",
-      "norm_label": ".contains()",
-      "source_file": "current_state_model.py",
-      "source_location": "L31"
-    },
-    {
-      "id": "html_mvp_app_activequestions",
-      "label": "activeQuestions()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "Community 3",
-      "file_type": "code",
-      "norm_label": "activequestions()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L53"
-    },
-    {
-      "id": "html_mvp_app_answerquestion",
-      "label": "answerQuestion()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "Community 3",
-      "file_type": "code",
-      "norm_label": "answerquestion()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L702"
-    },
-    {
-      "id": "html_mvp_app_ensureaisuggestions",
-      "label": "ensureAISuggestions()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "Community 3",
-      "file_type": "code",
-      "norm_label": "ensureaisuggestions()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L659"
-    },
-    {
-      "id": "html_mvp_app_hidequestionloading",
-      "label": "hideQuestionLoading()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "Community 3",
-      "file_type": "code",
-      "norm_label": "hidequestionloading()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L629"
-    },
-    {
-      "id": "html_mvp_app_renderdoctorbrief",
-      "label": "renderDoctorBrief()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "Community 3",
-      "file_type": "code",
-      "norm_label": "renderdoctorbrief()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L771"
-    },
-    {
-      "id": "html_mvp_app_renderquestion",
-      "label": "renderQuestion()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "Community 3",
-      "file_type": "code",
-      "norm_label": "renderquestion()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L639"
+      "source_location": "L789"
     },
     {
       "id": "html_mvp_app_renderstepindicator",
       "label": "renderStepIndicator()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "community_name": "Community 3",
+      "community": 1,
+      "community_name": "Community 1",
       "file_type": "code",
       "norm_label": "renderstepindicator()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L576"
+      "source_location": "L609"
     },
     {
       "id": "html_mvp_app_showquestionloading",
       "label": "showQuestionLoading()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "community_name": "Community 3",
+      "community": 1,
+      "community_name": "Community 1",
       "file_type": "code",
       "norm_label": "showquestionloading()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L619"
+      "source_location": "L652"
     },
     {
       "id": "html_mvp_app_showstep",
       "label": "showStep()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "community_name": "Community 3",
+      "community": 1,
+      "community_name": "Community 1",
       "file_type": "code",
       "norm_label": "showstep()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L587"
+      "source_location": "L620"
+    },
+    {
+      "id": "current_state_model_visualhtmlmvp_contains",
+      "label": ".contains()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "Community 10",
+      "file_type": "code",
+      "norm_label": ".contains()",
+      "source_file": "current_state_model.py",
+      "source_location": "L31"
+    },
+    {
+      "id": "html_mvp_app_allpatientrecords",
+      "label": "allPatientRecords()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Community 2",
+      "file_type": "code",
+      "norm_label": "allpatientrecords()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L369"
+    },
+    {
+      "id": "html_mvp_app_applyhistoryfilters",
+      "label": "applyHistoryFilters()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Community 2",
+      "file_type": "code",
+      "norm_label": "applyhistoryfilters()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L388"
+    },
+    {
+      "id": "html_mvp_app_escapehtml",
+      "label": "escapeHtml()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Community 2",
+      "file_type": "code",
+      "norm_label": "escapehtml()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1047"
+    },
+    {
+      "id": "html_mvp_app_generatepin",
+      "label": "generatePin()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Community 2",
+      "file_type": "code",
+      "norm_label": "generatepin()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L883"
+    },
+    {
+      "id": "html_mvp_app_identitykey",
+      "label": "identityKey()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Community 2",
+      "file_type": "code",
+      "norm_label": "identitykey()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L879"
+    },
+    {
+      "id": "html_mvp_app_normalize",
+      "label": "normalize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Community 2",
+      "file_type": "code",
+      "norm_label": "normalize()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L838"
+    },
+    {
+      "id": "html_mvp_app_patienthasfollowup",
+      "label": "patientHasFollowup()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Community 2",
+      "file_type": "code",
+      "norm_label": "patienthasfollowup()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L380"
+    },
+    {
+      "id": "html_mvp_app_renderhistorylist",
+      "label": "renderHistoryList()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Community 2",
+      "file_type": "code",
+      "norm_label": "renderhistorylist()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L432"
+    },
+    {
+      "id": "html_mvp_app_rendersearchresults",
+      "label": "renderSearchResults()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Community 2",
+      "file_type": "code",
+      "norm_label": "rendersearchresults()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L930"
+    },
+    {
+      "id": "html_mvp_app_renderwelcomesearch",
+      "label": "renderWelcomeSearch()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Community 2",
+      "file_type": "code",
+      "norm_label": "renderwelcomesearch()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L979"
+    },
+    {
+      "id": "html_mvp_app_savedpatients",
+      "label": "savedPatients()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Community 2",
+      "file_type": "code",
+      "norm_label": "savedpatients()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L892"
+    },
+    {
+      "id": "html_mvp_app_savelinkedpatient",
+      "label": "saveLinkedPatient()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Community 2",
+      "file_type": "code",
+      "norm_label": "savelinkedpatient()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L900"
     },
     {
       "id": "html_mvp_app_clearintakedraft",
@@ -554,19 +614,31 @@
       "file_type": "code",
       "norm_label": "clearintakedraft()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L558"
+      "source_location": "L591"
     },
     {
-      "id": "html_mvp_app_escapehtml",
-      "label": "escapeHtml()",
+      "id": "html_mvp_app_confirmwelcomepatient",
+      "label": "confirmWelcomePatient()",
       "_callable": true,
       "_origin": "ast",
       "community": 4,
       "community_name": "Community 4",
       "file_type": "code",
-      "norm_label": "escapehtml()",
+      "norm_label": "confirmwelcomepatient()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1014"
+      "source_location": "L1025"
+    },
+    {
+      "id": "html_mvp_app_loadexistingpatient",
+      "label": "loadExistingPatient()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "loadexistingpatient()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L958"
     },
     {
       "id": "html_mvp_app_registernewpatient",
@@ -578,7 +650,7 @@
       "file_type": "code",
       "norm_label": "registernewpatient()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L999"
+      "source_location": "L1032"
     },
     {
       "id": "html_mvp_app_renderfiles",
@@ -590,19 +662,7 @@
       "file_type": "code",
       "norm_label": "renderfiles()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L716"
-    },
-    {
-      "id": "html_mvp_app_renderwelcomesearch",
-      "label": "renderWelcomeSearch()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
-      "file_type": "code",
-      "norm_label": "renderwelcomesearch()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L946"
+      "source_location": "L749"
     },
     {
       "id": "html_mvp_app_savedoctorconclusion",
@@ -614,7 +674,19 @@
       "file_type": "code",
       "norm_label": "savedoctorconclusion()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1022"
+      "source_location": "L1055"
+    },
+    {
+      "id": "html_mvp_app_setintakephone",
+      "label": "setIntakePhone()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "setintakephone()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L857"
     },
     {
       "id": "html_mvp_app_switchview",
@@ -626,75 +698,27 @@
       "file_type": "code",
       "norm_label": "switchview()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L312"
+      "source_location": "L321"
     },
     {
-      "id": "html_mvp_app_applyhistoryfilters",
-      "label": "applyHistoryFilters()",
+      "id": "html_mvp_app_syncpatientfromregistration",
+      "label": "syncPatientFromRegistration()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 4,
+      "community_name": "Community 4",
       "file_type": "code",
-      "norm_label": "applyhistoryfilters()",
+      "norm_label": "syncpatientfromregistration()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L356"
-    },
-    {
-      "id": "html_mvp_app_normalize",
-      "label": "normalize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "normalize()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L805"
-    },
-    {
-      "id": "html_mvp_app_patienthasfollowup",
-      "label": "patientHasFollowup()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "patienthasfollowup()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L348"
-    },
-    {
-      "id": "html_mvp_app_renderhistorylist",
-      "label": "renderHistoryList()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "renderhistorylist()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L400"
-    },
-    {
-      "id": "html_mvp_app_rendersearchresults",
-      "label": "renderSearchResults()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "rendersearchresults()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L897"
+      "source_location": "L570"
     },
     {
       "id": "current_state_model_doctorbrief_receives_from",
       "label": ".receives_from()",
       "_callable": true,
       "_origin": "ast",
-      "community": 6,
-      "community_name": "Community 6",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": ".receives_from()",
       "source_file": "current_state_model.py",
@@ -705,8 +729,8 @@
       "label": ".links_to()",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
-      "community_name": "Community 7",
+      "community": 6,
+      "community_name": "Community 6",
       "file_type": "code",
       "norm_label": ".links_to()",
       "source_file": "current_state_model.py",
@@ -717,8 +741,8 @@
       "label": ".depends_on()",
       "_callable": true,
       "_origin": "ast",
-      "community": 8,
-      "community_name": "Community 8",
+      "community": 7,
+      "community_name": "Community 7",
       "file_type": "code",
       "norm_label": ".depends_on()",
       "source_file": "current_state_model.py",
@@ -729,12 +753,24 @@
       "label": ".feeds()",
       "_callable": true,
       "_origin": "ast",
-      "community": 9,
-      "community_name": "Community 9",
+      "community": 8,
+      "community_name": "Community 8",
       "file_type": "code",
       "norm_label": ".feeds()",
       "source_file": "current_state_model.py",
       "source_location": "L60"
+    },
+    {
+      "id": "current_state_model_verticalquestionpack_guarded_by",
+      "label": ".guarded_by()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "Community 9",
+      "file_type": "code",
+      "norm_label": ".guarded_by()",
+      "source_file": "current_state_model.py",
+      "source_location": "L95"
     },
     {
       "id": "html_mvp_app",
@@ -756,7 +792,7 @@
       "file_type": "code",
       "norm_label": "historyfilters",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L341"
+      "source_location": "L373"
     },
     {
       "id": "html_mvp_app_historypatients",
@@ -803,11 +839,22 @@
       "source_location": "L1"
     },
     {
+      "id": "html_mvp_app_viewtitles",
+      "label": "viewTitles",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "Community 0",
+      "file_type": "code",
+      "norm_label": "viewtitles",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L312"
+    },
+    {
       "id": "current_state_model",
       "label": "current_state_model.py",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "Community 2",
+      "community": 3,
+      "community_name": "Community 3",
       "file_type": "code",
       "norm_label": "current_state_model.py",
       "source_file": "current_state_model.py",
@@ -817,8 +864,8 @@
       "id": "current_state_model_rationale_1",
       "label": "Structured current-state model for Graphify. Synthetic planning artifact only.\u2026",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "Community 2",
+      "community": 3,
+      "community_name": "Community 3",
       "file_type": "rationale",
       "norm_label": "structured current-state model for graphify. synthetic planning artifact only....",
       "source_file": "current_state_model.py",
@@ -835,7 +882,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L703",
+      "source_location": "L736",
       "weight": 1.0
     },
     {
@@ -847,7 +894,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L709",
+      "source_location": "L742",
       "weight": 1.0
     },
     {
@@ -859,7 +906,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L711",
+      "source_location": "L744",
       "weight": 1.0
     },
     {
@@ -871,7 +918,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L713",
+      "source_location": "L746",
       "weight": 1.0
     },
     {
@@ -883,7 +930,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L357",
+      "source_location": "L389",
       "weight": 1.0
     },
     {
@@ -895,7 +942,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L360",
+      "source_location": "L392",
       "weight": 1.0
     },
     {
@@ -907,7 +954,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L572",
+      "source_location": "L605",
       "weight": 1.0
     },
     {
@@ -919,7 +966,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L993",
+      "source_location": "L1026",
       "weight": 1.0
     },
     {
@@ -931,7 +978,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L995",
+      "source_location": "L1028",
       "weight": 1.0
     },
     {
@@ -943,7 +990,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L996",
+      "source_location": "L1029",
       "weight": 1.0
     },
     {
@@ -955,7 +1002,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L688",
+      "source_location": "L721",
       "weight": 1.0
     },
     {
@@ -967,7 +1014,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L689",
+      "source_location": "L722",
       "weight": 1.0
     },
     {
@@ -979,7 +1026,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L851",
+      "source_location": "L884",
       "weight": 1.0
     },
     {
@@ -991,7 +1038,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L821",
+      "source_location": "L854",
       "weight": 1.0
     },
     {
@@ -1003,7 +1050,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L847",
+      "source_location": "L880",
       "weight": 1.0
     },
     {
@@ -1015,7 +1062,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L926",
+      "source_location": "L959",
       "weight": 1.0
     },
     {
@@ -1027,7 +1074,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L928",
+      "source_location": "L961",
       "weight": 1.0
     },
     {
@@ -1039,7 +1086,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L932",
+      "source_location": "L965",
       "weight": 1.0
     },
     {
@@ -1051,7 +1098,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L938",
+      "source_location": "L971",
       "weight": 1.0
     },
     {
@@ -1063,7 +1110,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L941",
+      "source_location": "L974",
       "weight": 1.0
     },
     {
@@ -1075,7 +1122,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L942",
+      "source_location": "L975",
       "weight": 1.0
     },
     {
@@ -1087,7 +1134,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L430",
+      "source_location": "L462",
       "weight": 1.0
     },
     {
@@ -1099,7 +1146,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L349",
+      "source_location": "L381",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app_previsitpatients",
+      "target": "html_mvp_app_currentqueuepatient",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L340",
       "weight": 1.0
     },
     {
@@ -1111,7 +1170,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1000",
+      "source_location": "L1033",
       "weight": 1.0
     },
     {
@@ -1123,7 +1182,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1010",
+      "source_location": "L1043",
       "weight": 1.0
     },
     {
@@ -1135,7 +1194,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1011",
+      "source_location": "L1044",
       "weight": 1.0
     },
     {
@@ -1147,7 +1206,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L786",
+      "source_location": "L819",
       "weight": 1.0
     },
     {
@@ -1159,7 +1218,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L798",
+      "source_location": "L831",
       "weight": 1.0
     },
     {
@@ -1171,7 +1230,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L380",
+      "source_location": "L412",
       "weight": 1.0
     },
     {
@@ -1183,7 +1242,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L401",
+      "source_location": "L433",
       "weight": 1.0
     },
     {
@@ -1195,7 +1254,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L413",
+      "source_location": "L445",
       "weight": 1.0
     },
     {
@@ -1207,7 +1266,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L640",
+      "source_location": "L673",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app_renderqueues",
+      "target": "html_mvp_app_queueitemhtml",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L362",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app_renderqueues",
+      "target": "html_mvp_app_previsitpatients",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L363",
       "weight": 1.0
     },
     {
@@ -1219,7 +1302,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L760",
+      "source_location": "L793",
       "weight": 1.0
     },
     {
@@ -1231,7 +1314,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L898",
+      "source_location": "L931",
       "weight": 1.0
     },
     {
@@ -1243,31 +1326,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L903",
-      "weight": 1.0
-    },
-    {
-      "source": "html_mvp_app_renderwelcomesearch",
-      "target": "html_mvp_app_normalize",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L947",
-      "weight": 1.0
-    },
-    {
-      "source": "html_mvp_app_renderwelcomesearch",
-      "target": "html_mvp_app_savedpatients",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L958",
+      "source_location": "L936",
       "weight": 1.0
     },
     {
@@ -1279,7 +1338,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L968",
+      "source_location": "L1001",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app_renderwelcomesearch",
+      "target": "html_mvp_app_normalize",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L980",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app_renderwelcomesearch",
+      "target": "html_mvp_app_savedpatients",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L991",
       "weight": 1.0
     },
     {
@@ -1291,7 +1374,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1035",
+      "source_location": "L1068",
       "weight": 1.0
     },
     {
@@ -1303,7 +1386,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L861",
+      "source_location": "L894",
       "weight": 1.0
     },
     {
@@ -1315,7 +1398,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L871",
+      "source_location": "L904",
       "weight": 1.0
     },
     {
@@ -1327,7 +1410,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L872",
+      "source_location": "L905",
       "weight": 1.0
     },
     {
@@ -1339,7 +1422,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L880",
+      "source_location": "L913",
       "weight": 1.0
     },
     {
@@ -1351,7 +1434,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L592",
+      "source_location": "L625",
       "weight": 1.0
     },
     {
@@ -1363,7 +1446,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L604",
+      "source_location": "L637",
       "weight": 1.0
     },
     {
@@ -1375,7 +1458,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L605",
+      "source_location": "L638",
       "weight": 1.0
     },
     {
@@ -1387,7 +1470,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L607",
+      "source_location": "L640",
       "weight": 1.0
     },
     {
@@ -1399,7 +1482,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L608",
+      "source_location": "L641",
       "weight": 1.0
     },
     {
@@ -1411,7 +1494,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L613",
+      "source_location": "L646",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app_switchview",
+      "target": "html_mvp_app_syncpatientfromregistration",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L325",
       "weight": 1.0
     },
     {
@@ -1423,7 +1518,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L547",
+      "source_location": "L580",
       "weight": 1.0
     },
     {
@@ -1435,7 +1530,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L554",
+      "source_location": "L587",
       "weight": 1.0
     },
     {
@@ -1447,7 +1542,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L555",
+      "source_location": "L588",
       "weight": 1.0
     },
     {
@@ -1606,13 +1701,35 @@
     },
     {
       "source": "html_mvp_app",
+      "target": "html_mvp_app_confirmwelcomepatient",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1025",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app",
+      "target": "html_mvp_app_registernewpatient",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1032",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app",
       "target": "html_mvp_app_escapehtml",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1014",
+      "source_location": "L1047",
       "weight": 1.0
     },
     {
@@ -1623,7 +1740,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1022",
+      "source_location": "L1055",
       "weight": 1.0
     },
     {
@@ -1639,7 +1756,7 @@
     },
     {
       "source": "html_mvp_app",
-      "target": "html_mvp_app_switchview",
+      "target": "html_mvp_app_viewtitles",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -1650,13 +1767,57 @@
     },
     {
       "source": "html_mvp_app",
+      "target": "html_mvp_app_switchview",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L321",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app",
+      "target": "html_mvp_app_currentqueuepatient",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L335",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app",
+      "target": "html_mvp_app_previsitpatients",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L339",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app",
+      "target": "html_mvp_app_queueitemhtml",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L345",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app",
       "target": "html_mvp_app_renderqueues",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L317",
+      "source_location": "L361",
       "weight": 1.0
     },
     {
@@ -1667,7 +1828,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L337",
+      "source_location": "L369",
       "weight": 1.0
     },
     {
@@ -1678,7 +1839,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L341",
+      "source_location": "L373",
       "weight": 1.0
     },
     {
@@ -1689,7 +1850,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L348",
+      "source_location": "L380",
       "weight": 1.0
     },
     {
@@ -1700,7 +1861,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L352",
+      "source_location": "L384",
       "weight": 1.0
     },
     {
@@ -1711,7 +1872,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L356",
+      "source_location": "L388",
       "weight": 1.0
     },
     {
@@ -1722,7 +1883,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L379",
+      "source_location": "L411",
       "weight": 1.0
     },
     {
@@ -1733,7 +1894,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L400",
+      "source_location": "L432",
       "weight": 1.0
     },
     {
@@ -1744,7 +1905,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L427",
+      "source_location": "L459",
       "weight": 1.0
     },
     {
@@ -1755,7 +1916,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L433",
+      "source_location": "L465",
       "weight": 1.0
     },
     {
@@ -1766,18 +1927,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L497",
-      "weight": 1.0
-    },
-    {
-      "source": "html_mvp_app",
-      "target": "html_mvp_app_openhistoryfile",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L502",
+      "source_location": "L529",
       "weight": 1.0
     },
     {
@@ -1793,13 +1943,24 @@
     },
     {
       "source": "html_mvp_app",
+      "target": "html_mvp_app_openhistoryfile",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L534",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app",
       "target": "html_mvp_app_syncpatientfromregistration",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L537",
+      "source_location": "L570",
       "weight": 1.0
     },
     {
@@ -1810,29 +1971,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L558",
-      "weight": 1.0
-    },
-    {
-      "source": "html_mvp_app",
-      "target": "html_mvp_app_renderstepindicator",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L576",
-      "weight": 1.0
-    },
-    {
-      "source": "html_mvp_app",
-      "target": "html_mvp_app_showstep",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L587",
+      "source_location": "L591",
       "weight": 1.0
     },
     {
@@ -1848,13 +1987,35 @@
     },
     {
       "source": "html_mvp_app",
+      "target": "html_mvp_app_renderstepindicator",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L609",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app",
+      "target": "html_mvp_app_showstep",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L620",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app",
       "target": "html_mvp_app_showquestionloading",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L619",
+      "source_location": "L652",
       "weight": 1.0
     },
     {
@@ -1865,7 +2026,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L629",
+      "source_location": "L662",
       "weight": 1.0
     },
     {
@@ -1876,7 +2037,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L639",
+      "source_location": "L672",
       "weight": 1.0
     },
     {
@@ -1887,7 +2048,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L659",
+      "source_location": "L692",
       "weight": 1.0
     },
     {
@@ -1898,7 +2059,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L702",
+      "source_location": "L735",
       "weight": 1.0
     },
     {
@@ -1909,7 +2070,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L716",
+      "source_location": "L749",
       "weight": 1.0
     },
     {
@@ -1920,7 +2081,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L724",
+      "source_location": "L757",
       "weight": 1.0
     },
     {
@@ -1931,7 +2092,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L756",
+      "source_location": "L789",
       "weight": 1.0
     },
     {
@@ -1942,7 +2103,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L771",
+      "source_location": "L804",
       "weight": 1.0
     },
     {
@@ -1953,7 +2114,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L805",
+      "source_location": "L838",
       "weight": 1.0
     },
     {
@@ -1964,7 +2125,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L810",
+      "source_location": "L843",
       "weight": 1.0
     },
     {
@@ -1975,7 +2136,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L815",
+      "source_location": "L848",
       "weight": 1.0
     },
     {
@@ -1986,7 +2147,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L824",
+      "source_location": "L857",
       "weight": 1.0
     },
     {
@@ -1997,7 +2158,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L846",
+      "source_location": "L879",
       "weight": 1.0
     },
     {
@@ -2008,7 +2169,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L850",
+      "source_location": "L883",
       "weight": 1.0
     },
     {
@@ -2019,7 +2180,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L859",
+      "source_location": "L892",
       "weight": 1.0
     },
     {
@@ -2030,7 +2191,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L867",
+      "source_location": "L900",
       "weight": 1.0
     },
     {
@@ -2041,7 +2202,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L897",
+      "source_location": "L930",
       "weight": 1.0
     },
     {
@@ -2052,18 +2213,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L925",
-      "weight": 1.0
-    },
-    {
-      "source": "html_mvp_app",
-      "target": "html_mvp_app_renderwelcomesearch",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L946",
+      "source_location": "L958",
       "weight": 1.0
     },
     {
@@ -2079,24 +2229,13 @@
     },
     {
       "source": "html_mvp_app",
-      "target": "html_mvp_app_confirmwelcomepatient",
+      "target": "html_mvp_app_renderwelcomesearch",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L992",
-      "weight": 1.0
-    },
-    {
-      "source": "html_mvp_app",
-      "target": "html_mvp_app_registernewpatient",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L999",
+      "source_location": "L979",
       "weight": 1.0
     },
     {
@@ -2185,10 +2324,10 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L971",
+      "source_location": "L1004",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "dd8fff9cacb12ee4d55f93d6725cd3bca9a97b83"
+  "built_at_commit": "ab8932cadec00bf3b0b69e17b547ec382b952db1"
 }

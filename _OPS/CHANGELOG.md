@@ -4,6 +4,40 @@
 
 ---
 
+## 2026-08-24 - Session X - HTML MVP POV workflow split + records tabs + animation pass
+
+**WHAT**
+- Reviewed the local HTML MVP from patient and doctor points of view.
+- Fixed the patient direct-entry path: opening `Patient intake` directly now pre-fills from the current front-desk registration instead of feeling like a blank broken handoff; `Register new patient` still starts intentionally blank.
+- Split doctor workflow into separate tabs: `Pre-visit review`, `Patient records`, and `Record viewer`.
+- Narrowed `Pre-visit review` to show only the highlighted current patient and the next two incoming patients, plus the current source-bound brief.
+- Added a record viewer flow: clicking a patient record opens `Record viewer`, with a `Compare with current visit` action.
+- Added dynamic top-bar titles and subtle motion polish: page/card entrance, hover lift, current-token pulse, and `prefers-reduced-motion` fallback.
+- Updated `14-MVP-HTML/MVP-Prototype-Plan.md` with the v0.6 POV workflow split.
+- Refreshed the Graphify current-state source snapshot and rebuilt `graphify-current-state/graphify-out/` (**72 nodes, 127 edges, 11 communities**).
+- Added `_OPS/SESSION-LOG/2026-08-24-X-html-mvp-pov-tabs-animation.md` and recorded verification in `_OPS/VERIFICATION-LOG.md` V-2026-08-24-X-01.
+
+**WHY**
+The founder asked to use the prototype from patient and doctor POVs, suggest improvements/fixes/features, separate records/viewing from Pre-visit, highlight the current patient, and add animations. The split keeps live doctor work focused while preserving historical review in dedicated screens.
+
+**EVIDENCE**
+- Browser verification covered desktop and mobile patient/direct-intake, Pre-visit, Patient Records, Record Viewer, and current-vs-past compare: `consoleErrors: []`, `brokenControls: []`, three doctor queue rows (`current-patient` + two `incoming-patient` rows), `recordsActive: view-records`, `viewerActive: view-viewer`.
+- Final: `python -m pytest tests/ -q` -> **100 passed**; `python -m harness.run` -> **VERDICT: PASS**; `python demo.py | Select-Object -Last 20` -> clean deterministic demo tail.
+- `node --check 14-MVP-HTML/app.js` and `node --check 14-MVP-HTML/server.js` exited 0.
+- Graphify refresh: `graphify extract ... --code-only` wrote graph.json with **72 nodes, 127 edges, 11 communities**; `graphify cluster-only ... --no-label` regenerated `GRAPH_REPORT.md`, `graph.json`, and `graph.html`.
+- Full evidence: `_OPS/VERIFICATION-LOG.md` **V-2026-08-24-X-01**.
+
+**NEXT**
+Founder/doctor/staff should review the v0.6 workflow and decide whether the split tabs and current+incoming queue should be screen-locked. Suggested next product improvements: actual "Next patient" transition, record timeline grouping, pinned allergy/medicine cards, medication-photo capture, caregiver mode, and audit-stamped doctor notes.
+
+**WHY NEXT**
+This is still a synthetic local prototype. Screen-locking should happen before production UI engineering, and doctor/patient convenience ideas should not accidentally become clinical claims or live messaging features.
+
+**HOW**
+Run `cd 14-MVP-HTML && node --env-file=.env server.js`, then open `http://localhost:8765`. Review Patient intake, Pre-visit review, Patient records, Record viewer, and Clinic operations on desktop and phone widths. Keep additions synthetic/demo-only unless an ADR and verification trail are added.
+
+---
+
 ## 2026-08-24 - Session W - HTML MVP workspace UI polish
 
 **WHAT**

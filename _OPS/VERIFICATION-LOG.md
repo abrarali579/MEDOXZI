@@ -2464,3 +2464,78 @@ No diagnostic/differential vocabulary present in any patient-facing question.
   ```
 - **Contradiction sweep:** Windows AGENT-PROTOCOL sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; `No red flags`/`No concerns` only in prohibitive, historical, or pitch-forbidden contexts; 25-year retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift/prohibited-term implementation; `>=500`/`≥500` only in ADR-029/history/Gate 6/synthetic/privacy contexts including copied Graphify source docs.
 - **Verdict:** ✅ **CONFIRMED** — UI polish verified in browser and core prototype checks stayed green. This is visual/prototype evidence only, not clinical performance evidence.
+
+## V-2026-08-24-X-01 · HTML MVP POV workflow split, records tabs, and animation pass
+- **Claim:** The HTML MVP now supports a cleaner patient/doctor POV flow: Patient Intake pre-fills from the current registration when opened directly; Pre-visit Review shows only the highlighted current patient plus two incoming patients; Patient Records and Record Viewer are separate tabs; the viewer can compare a past record with the current visit; subtle animations were added with a reduced-motion fallback.
+- **Method:** Followed the repo protocol; used Graphify first for affected functions; performed a live browser POV review; edited `14-MVP-HTML/index.html`, `14-MVP-HTML/app.js`, `14-MVP-HTML/styles.css`, and `14-MVP-HTML/MVP-Prototype-Plan.md`; refreshed the curated Graphify current-state source and graph; ran browser, syntax, standard verification, and contradiction sweep checks.
+- **Evidence:**
+  ```text
+  $ graphify query "How should the HTML MVP separate Pre-Visit current queue from Patient Records and Record Viewer, and which functions are involved?" --graph graphify-current-state/graphify-out/graph.json --budget 2000
+  Graph: graphify-current-state/graphify-out/graph.json (68 nodes) | Traversal: BFS depth=2 | Start: ['HTML-MVP-app.js', 'allPatientRecords()', 'openCurrentVisitSplit()', 'current_state_model.py', 'patientHasFollowup()', 'FollowupPreview', 'renderQueues()'] | 68 nodes found
+  ```
+  ```text
+  $ node work/session-x-verify-ui.cjs
+  desktop.consoleErrors: []
+  desktop.patientActive: view-patient
+  desktop.patientReady: Abrar Ali
+  desktop.doctorActive: view-doctor
+  desktop.queueRows: 3 rows; current-patient + two incoming-patient rows
+  desktop.recordsActive: view-records
+  desktop.recordCountText: 15 of 15 synthetic records
+  desktop.viewerActive: view-viewer
+  desktop.viewerHasRecord: true
+  desktop.compareHasCurrentAndPast: true
+  desktop.brokenControls: []
+
+  mobile.consoleErrors: []
+  mobile.patientActive: view-patient
+  mobile.patientReady: Abrar Ali
+  mobile.doctorActive: view-doctor
+  mobile.queueRows: 3 rows; current-patient + two incoming-patient rows
+  mobile.recordsActive: view-records
+  mobile.recordCountText: 15 of 15 synthetic records
+  mobile.viewerActive: view-viewer
+  mobile.viewerHasRecord: true
+  mobile.compareHasCurrentAndPast: true
+  mobile.brokenControls: []
+  ```
+  ```text
+  $ graphify extract 'D:/MEDOXZI/graphify-current-state-src' --code-only --out 'D:/MEDOXZI/graphify-current-state'
+  [graphify extract] wrote D:\MEDOXZI\graphify-current-state\graphify-out\graph.json: 72 nodes, 127 edges, 11 communities
+
+  $ graphify cluster-only 'D:/MEDOXZI/graphify-current-state' --no-label
+  Graph: 72 nodes, 127 edges
+  Done - 11 communities. GRAPH_REPORT.md, graph.json and graph.html updated.
+  ```
+  ```text
+  $ python -m pytest tests/ -q
+  ........................................................................ [ 72%]
+  ............................                                             [100%]
+  100 passed in 0.15s
+  ```
+  ```text
+  $ python -m harness.run
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+  VERDICT: PASS
+  ```
+  ```text
+  $ python demo.py | Select-Object -Last 20
+  Three distinct clinical facts. Three distinct renderings.
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+  ```
+  ```text
+  $ node --check 14-MVP-HTML/app.js
+  $ node --check 14-MVP-HTML/server.js
+  ```
+  Both `node --check` commands exited 0 with no output.
+- **Contradiction sweep:** Windows AGENT-PROTOCOL sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; `No red flags`/`No concerns` only in prohibitive, historical, or pitch-forbidden contexts; 25-year retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift/prohibited-term implementation; `>=500`/`≥500` only in ADR-029/history/Gate 6/synthetic/privacy contexts including copied Graphify source docs.
+- **Verdict:** ✅ **CONFIRMED** — POV workflow split verified in browser on desktop and mobile, Graphify refreshed, and core prototype checks stayed green. This is visual/prototype evidence only, not clinical performance evidence.
