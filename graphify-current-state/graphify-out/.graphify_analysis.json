@@ -148,6 +148,11 @@
       "degree": 6
     },
     {
+      "id": "html_mvp_app_getintakephone",
+      "label": "getIntakePhone()",
+      "degree": 6
+    },
+    {
       "id": "html_mvp_app_normalize",
       "label": "normalize()",
       "degree": 6
@@ -165,11 +170,6 @@
     {
       "id": "html_mvp_app_switchview",
       "label": "switchView()",
-      "degree": 5
-    },
-    {
-      "id": "html_mvp_app_answerquestion",
-      "label": "answerQuestion()",
       "degree": 5
     }
   ],

@@ -327,6 +327,7 @@ function switchView(viewName, options = {}) {
   }
   $$(".tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.view === viewName));
   $$(".view").forEach((view) => view.classList.toggle("active", view.id === `view-${viewName}`));
+  document.body.classList.toggle("doctor-shell", viewName === "doctor");
   const [context, title] = viewTitles[viewName] || viewTitles.doctor;
   $("#topbarContext").textContent = context;
   $("#topbarTitle").textContent = title;
@@ -359,17 +360,54 @@ function queueItemHtml(patient, { current = false, compact = false } = {}) {
 }
 
 function doctorQueueItemHtml(patient, { current = false } = {}) {
+  if (current) {
+    const age = $("#intakeAge")?.value || $("#patientAge")?.value || patient.age || "34";
+    const sex = $("#intakeSex")?.value || $("#patientSex")?.value || patient.sex || "Male";
+    const phone = getIntakePhone() || patient.phone || "+62 812 0000 0000";
+    const fileLabel = state.files.length ? state.files[0] : "Blood_Test_May14.pdf";
+    return `
+      <section class="doctor-queue-card current" data-token="${patient.token}" aria-current="true">
+        <span class="doctor-token">${patient.token}</span>
+        <span class="patient-avatar queue-avatar" aria-hidden="true">AA</span>
+        <span class="doctor-queue-copy">
+          <strong>${patient.name}</strong>
+          <span>Patient ID ${patient.pin || state.pin || patient.token}</span>
+          <span class="queue-chip-row">
+            <span class="demo-chip demo-age">${age} yrs</span>
+            <span class="demo-chip demo-sex">${sex}</span>
+            <span class="demo-chip demo-contact">${phone}</span>
+          </span>
+        </span>
+        <span class="queue-stat">
+          <small>Intake</small>
+          <span class="queue-progress"><span></span></span>
+          <strong>93%</strong>
+        </span>
+        <span class="queue-stat eta">
+          <small>ETA</small>
+          <strong>2 min</strong>
+        </span>
+        <span class="selected-file">
+          <span class="file-mark">PDF</span>
+          <span id="briefFiles">${fileLabel}</span>
+        </span>
+        <span class="selected-actions">
+          <button class="secondary compact" type="button">View</button>
+          <button class="secondary compact" type="button">Download</button>
+          <button class="secondary compact" type="button">Patient profile</button>
+          <button class="secondary compact" data-jump="viewer" type="button">Previous record</button>
+          <button class="secondary compact icon-only" type="button" aria-label="More patient actions">⋮</button>
+        </span>
+      </section>
+    `;
+  }
   return `
     <button class="doctor-queue-card ${current ? "current" : "incoming"}" type="button" data-token="${patient.token}" ${current ? 'aria-current="true"' : ""}>
       <span class="doctor-token">${patient.token}</span>
       <span class="doctor-queue-copy">
         <strong>${patient.name}</strong>
-        <span>Patient ID ${patient.pin || patient.token} · ${patient.meta}</span>
-        <span>${current ? "Arrived today 10:24 AM" : patient.token === 49 ? "ETA 10:40 AM" : "ETA 11:05 AM"}</span>
-        ${current ? '<span class="queue-progress"><span></span></span><em>Est. start in 2 min</em>' : ""}
+        <span>${patient.token === 49 ? "ETA 10:40" : "ETA 11:05"}</span>
       </span>
-      <span class="mini-badge ${current ? "current" : ""}">${current ? "Current" : "Incoming"}</span>
-      ${current ? '<span class="start-review">Start review</span>' : ""}
     </button>
   `;
 }
@@ -824,9 +862,7 @@ function renderDoctorBrief() {
   const questions = activeQuestions();
   $("#briefTitle").textContent = `${name} · Patient ID ${state.pin || state.token}`;
   $("#briefIssue").textContent = $("#issueText")?.value || "Not entered";
-  $("#briefFiles").textContent = state.files.length
-    ? `${state.files[0]} · ${state.files.length} file(s) attached for doctor review only.`
-    : "No previous reports attached.";
+  $("#briefFiles").textContent = state.files.length ? state.files[0] : "No file attached";
   const attachmentCount = $("#attachmentCount");
   if (attachmentCount) {
     attachmentCount.textContent = state.files.length ? `${state.files.length} file uploaded` : "No files";

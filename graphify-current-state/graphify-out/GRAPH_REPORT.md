@@ -4,12 +4,12 @@
 - cluster-only mode — file stats not available
 
 ## Summary
-- 73 nodes · 129 edges · 15 communities (7 shown, 8 thin omitted)
+- 73 nodes · 130 edges · 15 communities (7 shown, 8 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `40eb15ca`
+- Built from commit: `ee7445ac`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -36,11 +36,11 @@
 3. `savedPatients()` - 7 edges
 4. `syncPatientFromRegistration()` - 6 edges
 5. `renderDoctorBrief()` - 6 edges
-6. `normalize()` - 6 edges
-7. `registerNewPatient()` - 5 edges
-8. `renderWelcomeSearch()` - 5 edges
-9. `switchView()` - 5 edges
-10. `answerQuestion()` - 5 edges
+6. `getIntakePhone()` - 6 edges
+7. `normalize()` - 6 edges
+8. `registerNewPatient()` - 5 edges
+9. `renderWelcomeSearch()` - 5 edges
+10. `switchView()` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `loadExistingPatient()` --calls--> `identityKey()`  [EXTRACTED]

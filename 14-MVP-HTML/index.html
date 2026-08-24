@@ -274,23 +274,22 @@
 
         <section id="view-doctor" class="view">
           <div class="doctor-layout">
-            <aside class="doctor-queue doctor-side-panel">
+            <section class="doctor-queue doctor-side-panel" aria-label="Live queue">
               <div class="doctor-side-head">
-                <div>
-                  <h2>Live queue</h2>
+                <div class="doctor-queue-brand">
+                  <div class="brand-mark" aria-hidden="true">M</div>
+                  <strong>MEDOXZI</strong>
+                  <span><span class="dot live"></span>Live queue</span>
                 </div>
                 <span class="auto-chip"><span class="dot live"></span>Auto-advancing</span>
+                <button class="secondary compact view-queue-button" type="button">View queue</button>
+                <div class="doctor-top-icons" aria-label="Doctor notifications and profile">
+                  <button class="icon-button compact bell-button" type="button" aria-label="Notifications">⌕</button>
+                  <span class="doctor-avatar" aria-hidden="true">DA</span>
+                </div>
               </div>
               <div id="doctorQueue" class="queue-list"></div>
-              <div class="structured-feedback">
-                <h3>Structured feedback <span>For this intake</span></h3>
-                <label><input type="checkbox"> Question useful</label>
-                <label><input type="checkbox"> Question unclear</label>
-                <label><input type="checkbox"> Missing question</label>
-                <label><input type="checkbox"> Patient answer corrected</label>
-                <label><input type="checkbox"> Attachment needed</label>
-              </div>
-            </aside>
+            </section>
 
             <section class="doctor-brief doctor-command">
               <div class="doctor-safety">
@@ -298,18 +297,8 @@
                 <strong>No clinic-approved safety rules are active</strong>
               </div>
 
-              <div class="doctor-patient-card">
-                <div class="patient-avatar" aria-hidden="true">AA</div>
-                <div>
-                  <h2 id="briefTitle">Token 51 · Demo Patient</h2>
-                  <div id="briefDemographics" class="demo-chips"></div>
-                </div>
-                <div class="patient-actions">
-                  <button class="secondary compact" type="button">Patient profile</button>
-                  <button class="secondary compact" data-jump="viewer" type="button">Previous record</button>
-                  <button class="secondary compact icon-only" type="button" aria-label="More patient actions">⋮</button>
-                </div>
-              </div>
+              <h2 id="briefTitle" class="sr-only">Token 51 · Demo Patient</h2>
+              <div id="briefDemographics" class="sr-only"></div>
 
               <div class="doctor-main-grid">
                 <article class="doctor-card concern-card">
@@ -347,18 +336,6 @@
                   <ul id="briefAnswers"></ul>
                 </article>
 
-                <article class="doctor-card attachment-card">
-                  <div class="doctor-card-head">
-                    <h3>Reports & attachments</h3>
-                    <span id="attachmentCount" class="mini-badge">No files</span>
-                  </div>
-                  <div class="attachment-row">
-                    <span class="file-icon">PDF</span>
-                    <p id="briefFiles">No previous reports attached.</p>
-                    <button class="secondary compact" type="button">View all attachments</button>
-                  </div>
-                </article>
-
                 <article class="doctor-card doctor-entry-card">
                   <div class="doctor-card-head">
                     <div>
@@ -371,7 +348,7 @@
                     <label>2nd priority <input placeholder="Enter diagnosis"></label>
                     <label>3rd priority <input placeholder="Enter diagnosis"></label>
                   </div>
-                  <div class="doctor-choice-group">
+                  <div class="doctor-choice-group tests-group">
                     <h4>Relevant tests to be performed <span>Doctor-selected</span></h4>
                     <div class="choice-row">
                       <button type="button">CBC</button>
@@ -381,7 +358,7 @@
                       <button type="button">Other test</button>
                     </div>
                   </div>
-                  <div class="doctor-choice-group">
+                  <div class="doctor-choice-group plan-group">
                     <h4>Plan category <span>For documentation purpose</span></h4>
                     <div class="choice-row plan-row">
                       <button class="selected" type="button">Documentation only</button>
@@ -403,6 +380,14 @@
               </div>
 
               <div class="doctor-action-bar">
+                <div class="structured-feedback">
+                  <h3>Structured feedback <span>For this intake</span></h3>
+                  <label><input type="checkbox"> Question useful</label>
+                  <label><input type="checkbox"> Question unclear</label>
+                  <label><input type="checkbox"> Missing question</label>
+                  <label><input type="checkbox"> Patient answer corrected</label>
+                  <label><input type="checkbox"> Attachment needed</label>
+                </div>
                 <span class="draft-pill">✓ Draft saved</span>
                 <span class="review-pill">Doctor reviewed · May 14, 2025 10:18 AM · Dr. Dana</span>
                 <button class="secondary compact" type="button">Save draft</button>

@@ -3,6 +3,41 @@
 **Append-only.** Newest first. Every entry answers: WHAT · WHY · EVIDENCE · NEXT · WHY NEXT · HOW.
 
 ---
+## 2026-08-25 - Session AD - Compact landscape Pre-Visit Review
+
+**WHAT**
+- Updated only `14-MVP-HTML/` Doctor / Pre-visit Review to the compact landscape tablet concept.
+- Removed the visible doctor-tab global chrome (`Doctor workspace` breadcrumb, Demo Clinic selector, Live chip, Synthetic prototype chip) by applying a doctor-only shell state; other screens retain the normal restored navigation.
+- Moved MEDOXZI logo, live queue, bell icon, and DA profile avatar into a single compact queue/header strip.
+- Made the selected/current patient queue card wider than the two incoming queue cards and moved patient profile, previous-record, file label, View, Download, and overflow actions into that selected card.
+- Removed the separate doctor patient-header card and separate Reports & attachments card to save space for clinical content.
+- Kept allergies/vitals, intake responses, doctor-entered diagnosis fields, relevant-test chips, plan categories, follow-up controls, clinical note, structured feedback, and save actions visible in the compact doctor workspace.
+- Refreshed `graphify-current-state/` after the UI update (`73 nodes, 130 edges, 15 communities`).
+
+**WHY**
+Abrar's preference is now explicit: Doctor review should be **landscape-tablet first**, with the queue/header kept compact and the selected patient card carrying profile/record/file actions so the doctor has more room for the clinical review and note-entry controls. Abrar also explicitly said not to modify other screens.
+
+**EVIDENCE**
+- `python -m pytest tests/ -q` -> `100 passed in 0.17s`.
+- `python -m harness.run` -> `VERDICT: PASS`.
+- `python demo.py | Select-Object -Last 20` -> deterministic demo completed.
+- `node --check 14-MVP-HTML\app.js; node --check 14-MVP-HTML\server.js; node --check 14-MVP-HTML\api\questions.js; node --check api\questions.js` -> all exited 0.
+- `Invoke-WebRequest http://127.0.0.1:8765/index.html` -> `200`.
+- Browser smoke at `http://127.0.0.1:8765/`: default `view-welcome` keeps normal topbar/tabs; Pre-visit Review toggles `doctorShell: true`; doctor tab hides topbar/tabs; queue cards = 3; current cards = 1; selected card wider than incoming; no standalone `.doctor-patient-card`; no standalone `.attachment-card`; logo/bell/profile are in the queue strip; Previous record + View + Download actions present; diagnosis inputs = 3; `hasSpO2: false`; no console errors.
+- 1024x768 landscape tablet browser check: `overflowX: false`, `scrollHeight: 768`, action bar visible, selected card wider than incoming.
+- Graphify refresh: `73 nodes, 130 edges, 15 communities`.
+- Contradiction sweep remained contextual only.
+
+**NEXT**
+Deploy to Vercel and verify production `https://medoxzi.vercel.app/` has the compact doctor UI markers.
+
+**WHY NEXT**
+The local UI is verified; production must match before tablet review.
+
+**HOW**
+Push to `main` and verify production, or use `vercel --prod` if the Git deployment does not trigger. Keep future Pre-Visit Review iterations scoped to the doctor tab unless Abrar explicitly asks for cross-screen changes.
+
+---
 ## 2026-08-25 - Session AC - Restore `faf4e71` intake flow with doctor-only UI polish
 
 **WHAT**

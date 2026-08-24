@@ -2863,3 +2863,97 @@ No diagnostic/differential vocabulary present in any patient-facing question.
   `node --check api/questions.js`, `node --check app.js`, `node --check server.js` all exit 0.
 - **Verdict:** ✅ CONFIRMED — deployment plumbing verified locally; production behaviour pending
   live Vercel deploy + real `DEEPSEEK_API_KEY`.
+
+## V-2026-08-25-AD-01 · Compact landscape Pre-Visit Review UI
+- **Claim:** The HTML MVP Pre-Visit Review tab now uses the compact landscape tablet concept only for the doctor screen: no global Doctor workspace breadcrumb, Demo Clinic selector, Live chip, or Synthetic prototype chip in that tab; logo, queue, bell, and doctor profile live in the queue/header strip; the selected/current patient card is wider than the incoming queue cards and carries patient profile, previous-record, and file actions; there is no separate patient header card or separate reports/attachments card.
+- **Method:** Followed repo protocol, used Graphify first for affected HTML MVP rendering functions, edited only `14-MVP-HTML/app.js`, `14-MVP-HTML/index.html`, and `14-MVP-HTML/styles.css`, synced `graphify-current-state-src/HTML-MVP-app.js`, refreshed Graphify, ran local browser assertions at 1366x1024 and 1024x768, ran syntax checks, standard prototype verification, and contradiction sweep.
+- **Evidence:**
+  ```text
+  $ graphify query "Which files implement the 14-MVP-HTML Pre-visit Review tab UI, queue, doctor-entered section, and responsive tablet layout?" --graph graphify-current-state/graphify-out/graph.json
+  Graph: graphify-current-state/graphify-out/graph.json (73 nodes) | Traversal: BFS depth=2 | Start: ['doctorQueueItemHtml()', 'previsitPatients()', 'HTML-MVP-app.js', 'DoctorBrief', 'renderFiles()', 'queueItemHtml()', 'renderReview()'] | 68 nodes found
+  ```
+  ```text
+  $ node --check 14-MVP-HTML\app.js; node --check 14-MVP-HTML\server.js; node --check 14-MVP-HTML\api\questions.js; node --check api\questions.js
+  ```
+  All syntax checks exited 0 with no output.
+  ```text
+  $ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8765/index.html
+  200
+  ```
+  ```json
+  {
+    "initial": {
+      "active": "view-welcome",
+      "doctorShell": false,
+      "topbarVisible": true,
+      "tabsVisible": true
+    },
+    "doctor": {
+      "active": "view-doctor",
+      "doctorShell": true,
+      "topbarDisplay": "none",
+      "tabsDisplay": "none",
+      "queueCards": 3,
+      "currentCards": 1,
+      "currentWider": true,
+      "hasStandalonePatientCard": false,
+      "hasStandaloneAttachmentCard": false,
+      "hasLogoInQueue": true,
+      "hasBellInQueue": true,
+      "hasProfileInQueue": true,
+      "hasPreviousRecord": true,
+      "hasFileActions": true,
+      "diagnosisInputs": 3,
+      "hasSpO2": false,
+      "overflowX": false,
+      "actionBarVisibleTop": true,
+      "viewportH": 1024
+    },
+    "tablet": {
+      "overflowX": false,
+      "queueCards": 3,
+      "currentWider": true,
+      "actionBarVisibleTop": true,
+      "actionBarBottom": 756.171875,
+      "scrollHeight": 768,
+      "viewportH": 768,
+      "bodyShell": true
+    },
+    "errors": []
+  }
+  ```
+  ```text
+  $ python -m pytest tests/ -q
+  ........................................................................ [ 72%]
+  ............................                                             [100%]
+  100 passed in 0.17s
+  ```
+  ```text
+  $ python -m harness.run
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+  VERDICT: PASS
+  ```
+  ```text
+  $ python demo.py | Select-Object -Last 20
+  Three distinct clinical facts. Three distinct renderings.
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+  ```
+  ```text
+  $ graphify extract graphify-current-state-src --out graphify-current-state --code-only
+  [graphify extract] wrote D:\MEDOXZI\graphify-current-state\graphify-out\graph.json: 73 nodes, 130 edges, 15 communities
+
+  $ graphify cluster-only graphify-current-state --no-label
+  Graph: 73 nodes, 130 edges
+  Done - 15 communities. GRAPH_REPORT.md, graph.json and graph.html updated.
+  ```
+- **Contradiction sweep:** Windows AGENT-PROTOCOL sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; `No red flags`/`No concerns` only in prohibitive, historical, or pitch-forbidden contexts; 25-year retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift/prohibited-term implementation; `>=500`/`≥500` only in ADR-029/history/Gate 6/synthetic/privacy contexts including copied Graphify source docs.
+- **Verdict:** ✅ **CONFIRMED** — local compact Pre-Visit Review UI matches Abrar's landscape preference while preserving the other screens' normal shell. This is visual/prototype evidence only, not clinical performance evidence.
