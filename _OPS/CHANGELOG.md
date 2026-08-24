@@ -27,15 +27,18 @@ Abrar's preference is now explicit: Doctor review should be **landscape-tablet f
 - 1024x768 landscape tablet browser check: `overflowX: false`, `scrollHeight: 768`, action bar visible, selected card wider than incoming.
 - Graphify refresh: `73 nodes, 130 edges, 15 communities`.
 - Contradiction sweep remained contextual only.
+- Commit `8b109f7` pushed to `main`.
+- Production browser check at `https://medoxzi.vercel.app/`: `doctorShell: true`, queue cards = 3, current cards = 1, selected card wider than incoming, no standalone `.doctor-patient-card`, no standalone `.attachment-card`, logo/bell/profile in queue strip, Previous record + View + Download actions present, `hasSpO2: false`, `overflowX: false`, `scrollHeight: 768`, no console errors.
+- Production `POST https://medoxzi.vercel.app/api/questions` with a synthetic fever brief -> `200`.
 
 **NEXT**
-Deploy to Vercel and verify production `https://medoxzi.vercel.app/` has the compact doctor UI markers.
+Founder/doctor/staff should review the compact landscape doctor screen on localhost and production.
 
 **WHY NEXT**
-The local UI is verified; production must match before tablet review.
+The compact Pre-Visit Review is now live; screen-lock review should happen before production frontend engineering.
 
 **HOW**
-Push to `main` and verify production, or use `vercel --prod` if the Git deployment does not trigger. Keep future Pre-Visit Review iterations scoped to the doctor tab unless Abrar explicitly asks for cross-screen changes.
+Open `http://localhost:8765/` or `https://medoxzi.vercel.app/`, switch to Pre-visit Review, and test on a landscape tablet viewport. Keep future Pre-Visit Review iterations scoped to the doctor tab unless Abrar explicitly asks for cross-screen changes.
 
 ---
 ## 2026-08-25 - Session AC - Restore `faf4e71` intake flow with doctor-only UI polish

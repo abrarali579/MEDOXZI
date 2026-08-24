@@ -2957,3 +2957,44 @@ No diagnostic/differential vocabulary present in any patient-facing question.
   ```
 - **Contradiction sweep:** Windows AGENT-PROTOCOL sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; `No red flags`/`No concerns` only in prohibitive, historical, or pitch-forbidden contexts; 25-year retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift/prohibited-term implementation; `>=500`/`≥500` only in ADR-029/history/Gate 6/synthetic/privacy contexts including copied Graphify source docs.
 - **Verdict:** ✅ **CONFIRMED** — local compact Pre-Visit Review UI matches Abrar's landscape preference while preserving the other screens' normal shell. This is visual/prototype evidence only, not clinical performance evidence.
+
+## V-2026-08-25-AD-02 · Production deploy verification
+- **Claim:** `https://medoxzi.vercel.app/` serves the compact landscape Pre-Visit Review UI from session AD, and `/api/questions` still responds successfully.
+- **Method:** Pushed commit `8b109f7` to `main`, waited for Vercel production to update, then ran a production browser check at 1024x768 and a production `POST /api/questions` smoke test.
+- **Evidence:**
+  ```text
+  $ git push
+  To https://github.com/abrarali579/MEDOXZI.git
+     ee7445a..8b109f7  main -> main
+  ```
+  ```json
+  {
+    "result": {
+      "active": "view-doctor",
+      "doctorShell": true,
+      "queueCards": 3,
+      "currentCards": 1,
+      "currentWider": true,
+      "hasStandalonePatientCard": false,
+      "hasStandaloneAttachmentCard": false,
+      "hasLogoInQueue": true,
+      "hasBellInQueue": true,
+      "hasProfileInQueue": true,
+      "hasPreviousRecord": true,
+      "hasFileActions": true,
+      "hasSpO2": false,
+      "overflowX": false,
+      "scrollHeight": 768,
+      "viewportH": 768,
+      "actionBarVisibleTop": true
+    },
+    "errors": []
+  }
+  ```
+  ```text
+  $ Invoke-WebRequest -UseBasicParsing https://medoxzi.vercel.app/api/questions -Method POST -ContentType 'application/json' -Body <synthetic fever brief>
+  StatusCode: 200
+  Body starts: {"ok":true,"source":"deepseek","suggested":[{"text":"How high has your fever been?",...
+  ```
+- **Vercel connector note:** `_deploy_to_vercel` returned `INVALID_ARGUMENT`; `list_teams` found `team_kpCCSsj8kNSjErilRR3lmy77`, but `list_projects` returned an empty list. Production still updated through the Git push and was verified by live browser/API checks.
+- **Verdict:** ✅ **CONFIRMED** — production is live with the compact doctor Pre-Visit Review UI and the API crash path remains healthy.

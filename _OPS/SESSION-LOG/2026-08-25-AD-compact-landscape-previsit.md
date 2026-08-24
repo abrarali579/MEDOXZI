@@ -133,15 +133,51 @@ Contradiction sweep remained contextual only:
 
 ## NEXT
 
-Deploy the committed HTML MVP and verify `https://medoxzi.vercel.app/` contains the compact doctor UI markers.
+Founder/doctor/staff should review the compact landscape doctor screen on `http://localhost:8765/` and `https://medoxzi.vercel.app/`.
 
 ## WHY NEXT
 
-The local compact Pre-Visit Review is verified; production must match before the screen can be reviewed on real tablets.
+The local and production compact Pre-Visit Review now match the landscape-tablet preference; review should decide whether this is screen-lock ready before production frontend engineering.
 
 ## HOW
 
-- Push the committed change to `main` and let Vercel deploy, or run `vercel --prod` from the linked project if Git deployment does not trigger.
-- Verify production has no separate `.doctor-patient-card` / `.attachment-card`, contains the queue-brand shell, still exposes Patient Records and Record Viewer elsewhere, and has no SpO2 text.
 - Preserve this preference: **landscape tablet is the primary doctor review mode; keep the selected patient queue card wide and information-rich; keep attachments/profile/previous-record actions in that selected card; do not re-expand the doctor header.**
 - `package-lock.json` remains an unrelated pre-existing untracked file and was not touched.
+
+## DEPLOYMENT UPDATE
+
+```text
+$ git push
+To https://github.com/abrarali579/MEDOXZI.git
+   ee7445a..8b109f7  main -> main
+```
+
+Production browser check at `https://medoxzi.vercel.app/` and 1024x768:
+
+```json
+{
+  "active": "view-doctor",
+  "doctorShell": true,
+  "queueCards": 3,
+  "currentCards": 1,
+  "currentWider": true,
+  "hasStandalonePatientCard": false,
+  "hasStandaloneAttachmentCard": false,
+  "hasLogoInQueue": true,
+  "hasBellInQueue": true,
+  "hasProfileInQueue": true,
+  "hasPreviousRecord": true,
+  "hasFileActions": true,
+  "hasSpO2": false,
+  "overflowX": false,
+  "scrollHeight": 768,
+  "viewportH": 768,
+  "actionBarVisibleTop": true
+}
+```
+
+```text
+$ Invoke-WebRequest -UseBasicParsing https://medoxzi.vercel.app/api/questions -Method POST -ContentType 'application/json' -Body <synthetic fever brief>
+StatusCode: 200
+Body starts: {"ok":true,"source":"deepseek","suggested":[{"text":"How high has your fever been?",...
+```
