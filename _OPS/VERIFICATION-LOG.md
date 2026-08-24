@@ -8,6 +8,63 @@
 
 ---
 
+## Session AB — 2026-08-25 — HTML MVP journey-first polish
+
+### V-2026-08-25-AB-01 · Local HTML MVP opens on the patient-arrival journey and preserves Doctor Review
+- **Claim:** The local HTML MVP now exposes the screens before Doctor View and keeps the polished doctor command center functional.
+- **Method:** Followed the repo protocol; used Graphify first; edited `14-MVP-HTML/index.html`, `14-MVP-HTML/app.js`, `14-MVP-HTML/styles.css`, `14-MVP-HTML/MVP-Prototype-Plan.md`; refreshed Graphify; verified with command-line checks and browser smoke tests at desktop and mobile widths.
+- **Evidence:**
+  ```text
+  $ python -m pytest tests/ -q
+  ........................................................................ [ 72%]
+  ............................                                             [100%]
+  100 passed in 0.19s
+  ```
+  ```text
+  $ python -m harness.run
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+  VERDICT: PASS
+  ```
+  ```text
+  $ python demo.py | Select-Object -Last 20
+  Three distinct clinical facts. Three distinct renderings.
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+  ```
+  ```text
+  $ node --check 14-MVP-HTML\app.js
+  $ node --check 14-MVP-HTML\server.js
+  $ node --check 14-MVP-HTML\api\questions.js
+  $ node --check api\questions.js
+  ```
+  All syntax checks exited 0 with no output.
+  ```text
+  Browser smoke at http://localhost:8765/
+  Landing: active=view-welcome, workflow strip=6, journey cards=3, horizontalOverflow=false
+  Workflow: Front desk, Patient intake, Doctor review, Records, Operations reachable
+  Doctor Review: doctorQueueRows=3, diagnosisInputs=3, hasPreviousRecord=true, hasSpO2=false
+  Mobile: horizontalOverflow=false, Doctor Review one-column, queue + diagnosis controls preserved
+  Console errors: []
+  ```
+  ```text
+  $ graphify extract graphify-current-state-src --out graphify-current-state --code-only
+  [graphify extract] wrote D:\MEDOXZI\graphify-current-state\graphify-out\graph.json: 72 nodes, 126 edges, 14 communities
+
+  $ graphify cluster-only graphify-current-state --no-label
+  Graph: 72 nodes, 126 edges
+  Done - 14 communities. GRAPH_REPORT.md, graph.json and graph.html updated.
+  ```
+- **Contradiction sweep:** Windows AGENT-PROTOCOL sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; `No red flags`/`No concerns` only in prohibitive, historical, or pitch-forbidden contexts; 25-year retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift/prohibited-term implementation; `>=500`/`≥500` only in ADR-029/history/Gate 6/synthetic/privacy contexts including copied Graphify source docs.
+- **Verdict:** ✅ **CONFIRMED** — the local prototype starts with the pre-doctor journey, all expected screens are reachable, and Doctor Review keeps the final command-center controls without violating safety boundaries.
+
 ## Session AA — 2026-08-25 — Vercel production crash fix
 
 ### V-2026-08-25-AA-01 · Repo-root and subdir Vercel deploy paths no longer crash locally

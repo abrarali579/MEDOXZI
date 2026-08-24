@@ -2644,3 +2644,392 @@ main {
     padding: 12px 14px;
   }
 }
+
+/* ---------- Session AB: journey-first polish pass ---------- */
+body {
+  background:
+    linear-gradient(180deg, #f8fbff 0, #f3f7fc 58%, #eef4fb 100%);
+}
+
+.app-shell {
+  grid-template-rows: 68px 54px 1fr;
+}
+
+.topbar {
+  padding: 10px 28px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+}
+
+.workflow-strip {
+  position: sticky;
+  top: 68px;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  padding: 8px 28px;
+  border-bottom: 1px solid #e1e9f3;
+  background: rgba(249, 252, 255, 0.94);
+  backdrop-filter: blur(16px);
+}
+
+.flow-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid #d8e3ef;
+  border-radius: 8px;
+  background: #fff;
+  color: #284b78;
+  font-size: 0.82rem;
+  font-weight: 800;
+  box-shadow: 0 1px 2px rgba(7, 26, 58, 0.04);
+}
+
+.flow-tab span {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: #edf4ff;
+  color: #1147a6;
+  font-size: 0.72rem;
+}
+
+.flow-tab.active {
+  border-color: #0ab5a7;
+  background: linear-gradient(180deg, #eafff9, #ffffff);
+  color: #006f62;
+  box-shadow: 0 8px 24px rgba(8, 128, 112, 0.10);
+}
+
+.flow-tab.active span {
+  background: #07967e;
+  color: #fff;
+}
+
+main {
+  grid-row: 3;
+}
+
+#view-welcome,
+#view-staff,
+#view-patient,
+#view-records,
+#view-viewer,
+#view-ops {
+  min-height: calc(100vh - 122px);
+  padding: 26px 28px 42px;
+}
+
+#view-doctor {
+  min-height: calc(100vh - 122px);
+  padding: 0 20px 94px;
+}
+
+.welcome-panel {
+  max-width: 1180px;
+  min-height: calc(100vh - 190px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(380px, 1.1fr);
+  grid-template-rows: auto auto;
+  align-content: center;
+  gap: 24px;
+  padding: 18px 0;
+  text-align: left;
+}
+
+.welcome-copy {
+  align-self: center;
+}
+
+.welcome-mark {
+  margin: 0 0 18px;
+  width: 76px;
+  height: 76px;
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, #0c4ea2 0 48%, transparent 48%),
+    linear-gradient(135deg, #d8f3f6 50%, #008f80 50%);
+  box-shadow: 0 22px 58px rgba(7, 26, 58, 0.16);
+}
+
+.welcome-title {
+  max-width: 560px;
+  margin-bottom: 14px;
+  color: #061b52;
+  font-size: clamp(2rem, 4vw, 4rem);
+  letter-spacing: 0;
+}
+
+.welcome-sub {
+  max-width: 560px;
+  margin: 0;
+  color: #39577f;
+  font-size: 1.08rem;
+}
+
+.welcome-card {
+  align-self: center;
+  padding: 26px;
+  border: 1px solid #dbe5f1;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 24px 70px rgba(7, 26, 58, 0.10);
+}
+
+.welcome-search {
+  display: grid;
+  gap: 10px;
+  color: #08205b;
+  font-weight: 850;
+}
+
+.welcome-search input {
+  min-height: 56px;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.arrival-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.journey-cards {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.journey-cards article {
+  min-height: 142px;
+  padding: 18px;
+  border: 1px solid #dbe5f1;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 12px 34px rgba(7, 26, 58, 0.05);
+}
+
+.journey-cards span {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  background: #e9f8f4;
+  color: #087454;
+  font-weight: 900;
+}
+
+.journey-cards strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #071a3a;
+  font-size: 1rem;
+}
+
+.journey-cards p {
+  margin: 0;
+  color: #4b658a;
+  font-size: 0.9rem;
+}
+
+.work-surface,
+.records-layout {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.phone-frame {
+  min-height: calc(100vh - 190px);
+}
+
+.doctor-command {
+  max-width: none;
+  grid-template-columns: 335px minmax(0, 1fr);
+  gap: 14px;
+}
+
+.doctor-queue-panel {
+  padding-top: 18px;
+}
+
+.doctor-queue-panel .queue-list {
+  gap: 10px;
+  padding-right: 14px;
+}
+
+.doctor-queue-panel .queue-current-expanded {
+  min-height: 244px;
+}
+
+.doctor-canvas {
+  padding-top: 16px;
+}
+
+.patient-command-card {
+  min-height: 92px;
+  padding: 16px 22px;
+}
+
+.patient-avatar {
+  width: 64px;
+  height: 64px;
+}
+
+.patient-command-card h2 {
+  font-size: 1.42rem;
+}
+
+.doctor-content-grid {
+  grid-template-columns: minmax(360px, 0.92fr) minmax(520px, 1.48fr);
+  gap: 12px;
+}
+
+.doctor-card {
+  padding: 16px;
+}
+
+.concern-card,
+.vitals-card {
+  min-height: 160px;
+}
+
+.concern-card p {
+  margin-top: 12px;
+}
+
+.answer-list .answer-item {
+  min-height: 34px;
+  padding: 6px 10px 6px 38px;
+}
+
+.assessment-card {
+  grid-row: 2 / span 2;
+}
+
+.assessment-section {
+  margin-top: 12px;
+}
+
+.choice-row {
+  gap: 10px;
+}
+
+.note-editor textarea {
+  min-height: 76px;
+}
+
+@media (max-width: 1250px) {
+  .workflow-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    position: static;
+  }
+
+  .app-shell {
+    grid-template-rows: 68px auto 1fr;
+  }
+
+  #view-welcome,
+  #view-staff,
+  #view-patient,
+  #view-records,
+  #view-viewer,
+  #view-ops,
+  #view-doctor {
+    min-height: auto;
+  }
+
+  .doctor-command,
+  .doctor-canvas,
+  .doctor-content-grid,
+  .patient-command-card,
+  .doctor-card,
+  .assessment-card {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .doctor-command,
+  .doctor-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .assessment-card,
+  .intake-card,
+  .files-card {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 860px) {
+  .workflow-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 8px 14px;
+  }
+
+  #view-welcome,
+  #view-staff,
+  #view-patient,
+  #view-records,
+  #view-viewer,
+  #view-ops {
+    padding: 18px 14px 34px;
+  }
+
+  .welcome-panel,
+  .journey-cards,
+  .arrival-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar,
+  .topbar-meta,
+  .patient-command-card,
+  .patient-identity,
+  .patient-actions,
+  .card-title-row,
+  .followup-line {
+    display: grid;
+    justify-items: stretch;
+  }
+
+  .topbar-meta,
+  .patient-actions,
+  .vitals-grid,
+  .choice-row,
+  .assessment-section label,
+  .doctor-action-bar,
+  .attachment-row {
+    grid-template-columns: 1fr;
+  }
+
+  .safety-banner,
+  .patient-command-card,
+  .doctor-content-grid,
+  .doctor-card {
+    max-width: 100%;
+  }
+
+  .answer-list .answer-item {
+    grid-template-columns: 1fr;
+    padding-left: 12px;
+  }
+
+  .answer-a {
+    justify-self: start;
+    text-align: left;
+  }
+}

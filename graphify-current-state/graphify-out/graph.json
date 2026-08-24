@@ -194,7 +194,7 @@
       "file_type": "code",
       "norm_label": "answerquestion()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L762"
+      "source_location": "L764"
     },
     {
       "id": "html_mvp_app_ensureaisuggestions",
@@ -206,7 +206,7 @@
       "file_type": "code",
       "norm_label": "ensureaisuggestions()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L719"
+      "source_location": "L721"
     },
     {
       "id": "html_mvp_app_getintakephone",
@@ -218,7 +218,7 @@
       "file_type": "code",
       "norm_label": "getintakephone()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L903"
+      "source_location": "L905"
     },
     {
       "id": "html_mvp_app_hidequestionloading",
@@ -230,7 +230,7 @@
       "file_type": "code",
       "norm_label": "hidequestionloading()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L689"
+      "source_location": "L691"
     },
     {
       "id": "html_mvp_app_phonecode",
@@ -242,7 +242,7 @@
       "file_type": "code",
       "norm_label": "phonecode()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L898"
+      "source_location": "L900"
     },
     {
       "id": "html_mvp_app_renderdoctorbrief",
@@ -254,7 +254,7 @@
       "file_type": "code",
       "norm_label": "renderdoctorbrief()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L831"
+      "source_location": "L833"
     },
     {
       "id": "html_mvp_app_renderquestion",
@@ -266,7 +266,7 @@
       "file_type": "code",
       "norm_label": "renderquestion()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L699"
+      "source_location": "L701"
     },
     {
       "id": "html_mvp_app_renderreview",
@@ -278,7 +278,7 @@
       "file_type": "code",
       "norm_label": "renderreview()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L816"
+      "source_location": "L818"
     },
     {
       "id": "html_mvp_app_renderstepindicator",
@@ -290,7 +290,7 @@
       "file_type": "code",
       "norm_label": "renderstepindicator()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L636"
+      "source_location": "L638"
     },
     {
       "id": "html_mvp_app_showquestionloading",
@@ -302,7 +302,7 @@
       "file_type": "code",
       "norm_label": "showquestionloading()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L679"
+      "source_location": "L681"
     },
     {
       "id": "html_mvp_app_showstep",
@@ -314,7 +314,7 @@
       "file_type": "code",
       "norm_label": "showstep()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L647"
+      "source_location": "L649"
     },
     {
       "id": "html_mvp_app_allpatientrecords",
@@ -326,7 +326,7 @@
       "file_type": "code",
       "norm_label": "allpatientrecords()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L395"
+      "source_location": "L397"
     },
     {
       "id": "html_mvp_app_clearintakedraft",
@@ -338,7 +338,7 @@
       "file_type": "code",
       "norm_label": "clearintakedraft()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L618"
+      "source_location": "L620"
     },
     {
       "id": "html_mvp_app_confirmwelcomepatient",
@@ -350,7 +350,7 @@
       "file_type": "code",
       "norm_label": "confirmwelcomepatient()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1080"
+      "source_location": "L1082"
     },
     {
       "id": "html_mvp_app_escapehtml",
@@ -362,7 +362,7 @@
       "file_type": "code",
       "norm_label": "escapehtml()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1102"
+      "source_location": "L1104"
     },
     {
       "id": "html_mvp_app_loadexistingpatient",
@@ -374,7 +374,7 @@
       "file_type": "code",
       "norm_label": "loadexistingpatient()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1013"
+      "source_location": "L1015"
     },
     {
       "id": "html_mvp_app_registernewpatient",
@@ -386,7 +386,7 @@
       "file_type": "code",
       "norm_label": "registernewpatient()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1087"
+      "source_location": "L1089"
     },
     {
       "id": "html_mvp_app_renderfiles",
@@ -398,7 +398,7 @@
       "file_type": "code",
       "norm_label": "renderfiles()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L776"
+      "source_location": "L778"
     },
     {
       "id": "html_mvp_app_renderwelcomesearch",
@@ -410,7 +410,7 @@
       "file_type": "code",
       "norm_label": "renderwelcomesearch()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1034"
+      "source_location": "L1036"
     },
     {
       "id": "html_mvp_app_savedpatients",
@@ -422,7 +422,7 @@
       "file_type": "code",
       "norm_label": "savedpatients()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L947"
+      "source_location": "L949"
     },
     {
       "id": "html_mvp_app_setintakephone",
@@ -434,7 +434,7 @@
       "file_type": "code",
       "norm_label": "setintakephone()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L912"
+      "source_location": "L914"
     },
     {
       "id": "html_mvp_app_switchview",
@@ -446,7 +446,7 @@
       "file_type": "code",
       "norm_label": "switchview()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L330"
+      "source_location": "L331"
     },
     {
       "id": "html_mvp_app_syncpatientfromregistration",
@@ -458,7 +458,7 @@
       "file_type": "code",
       "norm_label": "syncpatientfromregistration()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L596"
+      "source_location": "L598"
     },
     {
       "id": "current_state_model_verticalquestionpack_guarded_by",
@@ -494,7 +494,7 @@
       "file_type": "code",
       "norm_label": "opencurrentvisitsplit()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L491"
+      "source_location": "L493"
     },
     {
       "id": "html_mvp_app_opencurrentwithpast",
@@ -506,7 +506,7 @@
       "file_type": "code",
       "norm_label": "opencurrentwithpast()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L485"
+      "source_location": "L487"
     },
     {
       "id": "html_mvp_app_renderhistoryfilters",
@@ -518,7 +518,7 @@
       "file_type": "code",
       "norm_label": "renderhistoryfilters()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L437"
+      "source_location": "L439"
     },
     {
       "id": "html_mvp_app_uniquecomplaints",
@@ -530,7 +530,7 @@
       "file_type": "code",
       "norm_label": "uniquecomplaints()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L410"
+      "source_location": "L412"
     },
     {
       "id": "html_mvp_app_openclosesplitreview",
@@ -542,7 +542,7 @@
       "file_type": "code",
       "norm_label": "openclosesplitreview()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L555"
+      "source_location": "L557"
     },
     {
       "id": "html_mvp_app_openhistoryfile",
@@ -554,7 +554,7 @@
       "file_type": "code",
       "norm_label": "openhistoryfile()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L560"
+      "source_location": "L562"
     },
     {
       "id": "html_mvp_app_savedoctorconclusion",
@@ -566,7 +566,7 @@
       "file_type": "code",
       "norm_label": "savedoctorconclusion()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1110"
+      "source_location": "L1112"
     },
     {
       "id": "html_mvp_app_setupbriefstep",
@@ -578,7 +578,7 @@
       "file_type": "code",
       "norm_label": "setupbriefstep()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L784"
+      "source_location": "L786"
     },
     {
       "id": "html_mvp_app_applyhistoryfilters",
@@ -590,7 +590,7 @@
       "file_type": "code",
       "norm_label": "applyhistoryfilters()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L414"
+      "source_location": "L416"
     },
     {
       "id": "html_mvp_app_generatepin",
@@ -602,7 +602,7 @@
       "file_type": "code",
       "norm_label": "generatepin()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L938"
+      "source_location": "L940"
     },
     {
       "id": "html_mvp_app_identitykey",
@@ -614,7 +614,7 @@
       "file_type": "code",
       "norm_label": "identitykey()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L934"
+      "source_location": "L936"
     },
     {
       "id": "html_mvp_app_normalize",
@@ -626,7 +626,7 @@
       "file_type": "code",
       "norm_label": "normalize()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L893"
+      "source_location": "L895"
     },
     {
       "id": "html_mvp_app_patienthasfollowup",
@@ -638,7 +638,7 @@
       "file_type": "code",
       "norm_label": "patienthasfollowup()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L406"
+      "source_location": "L408"
     },
     {
       "id": "html_mvp_app_renderhistorylist",
@@ -650,7 +650,7 @@
       "file_type": "code",
       "norm_label": "renderhistorylist()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L458"
+      "source_location": "L460"
     },
     {
       "id": "html_mvp_app_rendersearchresults",
@@ -662,7 +662,7 @@
       "file_type": "code",
       "norm_label": "rendersearchresults()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L985"
+      "source_location": "L987"
     },
     {
       "id": "html_mvp_app_savelinkedpatient",
@@ -674,7 +674,7 @@
       "file_type": "code",
       "norm_label": "savelinkedpatient()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L955"
+      "source_location": "L957"
     },
     {
       "id": "html_mvp_app_currentqueuepatient",
@@ -686,7 +686,7 @@
       "file_type": "code",
       "norm_label": "currentqueuepatient()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L344"
+      "source_location": "L346"
     },
     {
       "id": "html_mvp_app_previsitpatients",
@@ -698,7 +698,7 @@
       "file_type": "code",
       "norm_label": "previsitpatients()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L348"
+      "source_location": "L350"
     },
     {
       "id": "html_mvp_app_queueitemhtml",
@@ -710,7 +710,7 @@
       "file_type": "code",
       "norm_label": "queueitemhtml()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L354"
+      "source_location": "L356"
     },
     {
       "id": "html_mvp_app_renderqueues",
@@ -722,7 +722,7 @@
       "file_type": "code",
       "norm_label": "renderqueues()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L387"
+      "source_location": "L389"
     },
     {
       "id": "current_state_model_doctorbrief_receives_from",
@@ -792,7 +792,7 @@
       "file_type": "code",
       "norm_label": "historyfilters",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L399"
+      "source_location": "L401"
     },
     {
       "id": "html_mvp_app_historypatients",
@@ -882,24 +882,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L763",
+      "source_location": "L765",
       "weight": 1.0
     },
     {
       "source": "html_mvp_app_answerquestion",
       "target": "html_mvp_app_showstep",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L769",
-      "weight": 1.0
-    },
-    {
-      "source": "html_mvp_app_answerquestion",
-      "target": "html_mvp_app_renderquestion",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -911,7 +899,7 @@
     },
     {
       "source": "html_mvp_app_answerquestion",
-      "target": "html_mvp_app_renderdoctorbrief",
+      "target": "html_mvp_app_renderquestion",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -919,6 +907,18 @@
       "context": "call",
       "source_file": "HTML-MVP-app.js",
       "source_location": "L773",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app_answerquestion",
+      "target": "html_mvp_app_renderdoctorbrief",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L775",
       "weight": 1.0
     },
     {
@@ -930,7 +930,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L415",
+      "source_location": "L417",
       "weight": 1.0
     },
     {
@@ -942,7 +942,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L418",
+      "source_location": "L420",
       "weight": 1.0
     },
     {
@@ -954,24 +954,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L632",
+      "source_location": "L634",
       "weight": 1.0
     },
     {
       "source": "html_mvp_app_confirmwelcomepatient",
       "target": "html_mvp_app_savedpatients",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1081",
-      "weight": 1.0
-    },
-    {
-      "source": "html_mvp_app_confirmwelcomepatient",
-      "target": "html_mvp_app_loadexistingpatient",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -983,6 +971,18 @@
     },
     {
       "source": "html_mvp_app_confirmwelcomepatient",
+      "target": "html_mvp_app_loadexistingpatient",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1085",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app_confirmwelcomepatient",
       "target": "html_mvp_app_switchview",
       "relation": "calls",
       "_origin": "ast",
@@ -990,7 +990,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1084",
+      "source_location": "L1086",
       "weight": 1.0
     },
     {
@@ -1002,7 +1002,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L748",
+      "source_location": "L750",
       "weight": 1.0
     },
     {
@@ -1014,7 +1014,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L749",
+      "source_location": "L751",
       "weight": 1.0
     },
     {
@@ -1026,7 +1026,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L939",
+      "source_location": "L941",
       "weight": 1.0
     },
     {
@@ -1038,7 +1038,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L909",
+      "source_location": "L911",
       "weight": 1.0
     },
     {
@@ -1050,24 +1050,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L935",
+      "source_location": "L937",
       "weight": 1.0
     },
     {
       "source": "html_mvp_app_loadexistingpatient",
       "target": "html_mvp_app_savedpatients",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1014",
-      "weight": 1.0
-    },
-    {
-      "source": "html_mvp_app_loadexistingpatient",
-      "target": "html_mvp_app_clearintakedraft",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -1079,6 +1067,18 @@
     },
     {
       "source": "html_mvp_app_loadexistingpatient",
+      "target": "html_mvp_app_clearintakedraft",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1018",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app_loadexistingpatient",
       "target": "html_mvp_app_identitykey",
       "relation": "calls",
       "_origin": "ast",
@@ -1086,7 +1086,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1020",
+      "source_location": "L1022",
       "weight": 1.0
     },
     {
@@ -1098,7 +1098,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1026",
+      "source_location": "L1028",
       "weight": 1.0
     },
     {
@@ -1110,7 +1110,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1029",
+      "source_location": "L1031",
       "weight": 1.0
     },
     {
@@ -1122,7 +1122,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1030",
+      "source_location": "L1032",
       "weight": 1.0
     },
     {
@@ -1134,7 +1134,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L488",
+      "source_location": "L490",
       "weight": 1.0
     },
     {
@@ -1146,7 +1146,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L407",
+      "source_location": "L409",
       "weight": 1.0
     },
     {
@@ -1158,7 +1158,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L349",
+      "source_location": "L351",
       "weight": 1.0
     },
     {
@@ -1170,7 +1170,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1088",
+      "source_location": "L1090",
       "weight": 1.0
     },
     {
@@ -1182,7 +1182,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1098",
+      "source_location": "L1100",
       "weight": 1.0
     },
     {
@@ -1194,7 +1194,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1099",
+      "source_location": "L1101",
       "weight": 1.0
     },
     {
@@ -1206,7 +1206,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L835",
+      "source_location": "L837",
       "weight": 1.0
     },
     {
@@ -1218,7 +1218,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L878",
+      "source_location": "L880",
       "weight": 1.0
     },
     {
@@ -1230,7 +1230,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L438",
+      "source_location": "L440",
       "weight": 1.0
     },
     {
@@ -1242,7 +1242,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L459",
+      "source_location": "L461",
       "weight": 1.0
     },
     {
@@ -1254,7 +1254,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L471",
+      "source_location": "L473",
       "weight": 1.0
     },
     {
@@ -1266,7 +1266,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L700",
+      "source_location": "L702",
       "weight": 1.0
     },
     {
@@ -1278,7 +1278,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L388",
+      "source_location": "L390",
       "weight": 1.0
     },
     {
@@ -1290,7 +1290,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L389",
+      "source_location": "L391",
       "weight": 1.0
     },
     {
@@ -1302,7 +1302,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L820",
+      "source_location": "L822",
       "weight": 1.0
     },
     {
@@ -1314,7 +1314,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L986",
+      "source_location": "L988",
       "weight": 1.0
     },
     {
@@ -1326,7 +1326,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L991",
+      "source_location": "L993",
       "weight": 1.0
     },
     {
@@ -1338,7 +1338,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1035",
+      "source_location": "L1037",
       "weight": 1.0
     },
     {
@@ -1350,7 +1350,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1046",
+      "source_location": "L1048",
       "weight": 1.0
     },
     {
@@ -1362,7 +1362,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1056",
+      "source_location": "L1058",
       "weight": 1.0
     },
     {
@@ -1374,7 +1374,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L949",
+      "source_location": "L951",
       "weight": 1.0
     },
     {
@@ -1386,7 +1386,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L959",
+      "source_location": "L961",
       "weight": 1.0
     },
     {
@@ -1398,7 +1398,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L960",
+      "source_location": "L962",
       "weight": 1.0
     },
     {
@@ -1410,7 +1410,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L968",
+      "source_location": "L970",
       "weight": 1.0
     },
     {
@@ -1422,7 +1422,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L652",
+      "source_location": "L654",
       "weight": 1.0
     },
     {
@@ -1434,7 +1434,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L664",
+      "source_location": "L666",
       "weight": 1.0
     },
     {
@@ -1446,7 +1446,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L665",
+      "source_location": "L667",
       "weight": 1.0
     },
     {
@@ -1458,7 +1458,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L667",
+      "source_location": "L669",
       "weight": 1.0
     },
     {
@@ -1470,7 +1470,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L668",
+      "source_location": "L670",
       "weight": 1.0
     },
     {
@@ -1482,7 +1482,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L673",
+      "source_location": "L675",
       "weight": 1.0
     },
     {
@@ -1494,7 +1494,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L334",
+      "source_location": "L335",
       "weight": 1.0
     },
     {
@@ -1506,7 +1506,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L606",
+      "source_location": "L608",
       "weight": 1.0
     },
     {
@@ -1518,7 +1518,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L614",
+      "source_location": "L616",
       "weight": 1.0
     },
     {
@@ -1530,7 +1530,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L615",
+      "source_location": "L617",
       "weight": 1.0
     },
     {
@@ -1695,7 +1695,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1013",
+      "source_location": "L1015",
       "weight": 1.0
     },
     {
@@ -1706,7 +1706,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1034",
+      "source_location": "L1036",
       "weight": 1.0
     },
     {
@@ -1728,7 +1728,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1080",
+      "source_location": "L1082",
       "weight": 1.0
     },
     {
@@ -1739,7 +1739,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1087",
+      "source_location": "L1089",
       "weight": 1.0
     },
     {
@@ -1750,7 +1750,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1102",
+      "source_location": "L1104",
       "weight": 1.0
     },
     {
@@ -1761,7 +1761,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1110",
+      "source_location": "L1112",
       "weight": 1.0
     },
     {
@@ -1794,7 +1794,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L330",
+      "source_location": "L331",
       "weight": 1.0
     },
     {
@@ -1805,7 +1805,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L344",
+      "source_location": "L346",
       "weight": 1.0
     },
     {
@@ -1816,7 +1816,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L348",
+      "source_location": "L350",
       "weight": 1.0
     },
     {
@@ -1827,7 +1827,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L354",
+      "source_location": "L356",
       "weight": 1.0
     },
     {
@@ -1838,7 +1838,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L387",
+      "source_location": "L389",
       "weight": 1.0
     },
     {
@@ -1849,7 +1849,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L395",
+      "source_location": "L397",
       "weight": 1.0
     },
     {
@@ -1860,7 +1860,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L399",
+      "source_location": "L401",
       "weight": 1.0
     },
     {
@@ -1871,7 +1871,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L406",
+      "source_location": "L408",
       "weight": 1.0
     },
     {
@@ -1882,7 +1882,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L410",
+      "source_location": "L412",
       "weight": 1.0
     },
     {
@@ -1893,7 +1893,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L414",
+      "source_location": "L416",
       "weight": 1.0
     },
     {
@@ -1904,7 +1904,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L437",
+      "source_location": "L439",
       "weight": 1.0
     },
     {
@@ -1915,7 +1915,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L458",
+      "source_location": "L460",
       "weight": 1.0
     },
     {
@@ -1926,7 +1926,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L485",
+      "source_location": "L487",
       "weight": 1.0
     },
     {
@@ -1937,7 +1937,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L491",
+      "source_location": "L493",
       "weight": 1.0
     },
     {
@@ -1948,7 +1948,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L555",
+      "source_location": "L557",
       "weight": 1.0
     },
     {
@@ -1959,7 +1959,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L560",
+      "source_location": "L562",
       "weight": 1.0
     },
     {
@@ -1970,18 +1970,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L596",
-      "weight": 1.0
-    },
-    {
-      "source": "html_mvp_app",
-      "target": "html_mvp_app_clearintakedraft",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L618",
+      "source_location": "L598",
       "weight": 1.0
     },
     {
@@ -1997,13 +1986,24 @@
     },
     {
       "source": "html_mvp_app",
+      "target": "html_mvp_app_clearintakedraft",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L620",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app",
       "target": "html_mvp_app_renderstepindicator",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L636",
+      "source_location": "L638",
       "weight": 1.0
     },
     {
@@ -2014,7 +2014,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L647",
+      "source_location": "L649",
       "weight": 1.0
     },
     {
@@ -2025,18 +2025,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L679",
-      "weight": 1.0
-    },
-    {
-      "source": "html_mvp_app",
-      "target": "html_mvp_app_hidequestionloading",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L689",
+      "source_location": "L681",
       "weight": 1.0
     },
     {
@@ -2052,13 +2041,24 @@
     },
     {
       "source": "html_mvp_app",
+      "target": "html_mvp_app_hidequestionloading",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L691",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app",
       "target": "html_mvp_app_renderquestion",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L699",
+      "source_location": "L701",
       "weight": 1.0
     },
     {
@@ -2069,7 +2069,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L719",
+      "source_location": "L721",
       "weight": 1.0
     },
     {
@@ -2080,7 +2080,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L762",
+      "source_location": "L764",
       "weight": 1.0
     },
     {
@@ -2091,7 +2091,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L776",
+      "source_location": "L778",
       "weight": 1.0
     },
     {
@@ -2102,7 +2102,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L784",
+      "source_location": "L786",
       "weight": 1.0
     },
     {
@@ -2113,7 +2113,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L816",
+      "source_location": "L818",
       "weight": 1.0
     },
     {
@@ -2124,7 +2124,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L831",
+      "source_location": "L833",
       "weight": 1.0
     },
     {
@@ -2135,7 +2135,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L893",
+      "source_location": "L895",
       "weight": 1.0
     },
     {
@@ -2146,7 +2146,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L898",
+      "source_location": "L900",
       "weight": 1.0
     },
     {
@@ -2157,7 +2157,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L903",
+      "source_location": "L905",
       "weight": 1.0
     },
     {
@@ -2168,7 +2168,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L912",
+      "source_location": "L914",
       "weight": 1.0
     },
     {
@@ -2179,7 +2179,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L934",
+      "source_location": "L936",
       "weight": 1.0
     },
     {
@@ -2190,7 +2190,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L938",
+      "source_location": "L940",
       "weight": 1.0
     },
     {
@@ -2201,7 +2201,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L947",
+      "source_location": "L949",
       "weight": 1.0
     },
     {
@@ -2212,7 +2212,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L955",
+      "source_location": "L957",
       "weight": 1.0
     },
     {
@@ -2223,7 +2223,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L985",
+      "source_location": "L987",
       "weight": 1.0
     },
     {
@@ -2312,10 +2312,10 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1059",
+      "source_location": "L1061",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e118caf2b2639a2b3f990a9b82caa98c0eeb4e6d"
+  "built_at_commit": "5cdd7e2e8ec4bb0fdbd67cd1bb5298bb435dd7fc"
 }

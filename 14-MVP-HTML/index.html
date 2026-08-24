@@ -12,8 +12,8 @@
         <div class="brand-row">
           <div class="brand-mark" aria-hidden="true">M</div>
           <div class="brand-title">
-            <p class="eyebrow" id="topbarContext">Doctor workspace</p>
-            <h1 id="topbarTitle">Pre-visit review</h1>
+            <p class="eyebrow" id="topbarContext">Clinic journey</p>
+            <h1 id="topbarTitle">Patient arrival</h1>
           </div>
         </div>
         <div class="topbar-meta">
@@ -23,6 +23,33 @@
           <span class="doctor-avatar" aria-hidden="true">DA</span>
         </div>
       </header>
+
+      <div class="workflow-strip" aria-label="Clinic workflow">
+        <button class="flow-tab active" data-jump="welcome" type="button">
+          <span>01</span>
+          Patient arrival
+        </button>
+        <button class="flow-tab" data-jump="staff" type="button">
+          <span>02</span>
+          Front desk
+        </button>
+        <button class="flow-tab" data-jump="patient" type="button">
+          <span>03</span>
+          Patient intake
+        </button>
+        <button class="flow-tab" data-jump="doctor" type="button">
+          <span>04</span>
+          Doctor review
+        </button>
+        <button class="flow-tab" data-jump="records" type="button">
+          <span>05</span>
+          Records
+        </button>
+        <button class="flow-tab" data-jump="ops" type="button">
+          <span>06</span>
+          Operations
+        </button>
+      </div>
 
       <nav class="role-tabs" aria-label="Prototype views">
         <div class="sidebar-brand" aria-hidden="true">
@@ -40,16 +67,43 @@
       </nav>
 
       <main>
-        <section id="view-welcome" class="view">
+        <section id="view-welcome" class="view active">
           <div class="welcome-panel">
-            <div class="welcome-mark" aria-hidden="true">M</div>
-            <h1 class="welcome-title">Welcome to MEDOXZI</h1>
-            <p class="welcome-sub">Find an existing record by mobile number or full name, or register a new patient for today's visit.</p>
-            <div class="welcome-search">
-              <input id="welcomeSearch" placeholder="Search mobile number or full name" autocomplete="off">
+            <div class="welcome-copy">
+              <div class="welcome-mark" aria-hidden="true">M</div>
+              <p class="eyebrow">Pre-round intake</p>
+              <h1 class="welcome-title">Start before the doctor opens the visit</h1>
+              <p class="welcome-sub">Search a returning patient, register a new arrival, collect intake answers, and then hand the prepared brief to the doctor workspace.</p>
             </div>
-            <div id="welcomeResults" class="welcome-results" role="status" aria-live="polite"></div>
-            <div id="welcomeEmpty" class="welcome-empty" hidden></div>
+            <div class="welcome-card">
+              <label class="welcome-search">
+                Patient record lookup
+                <input id="welcomeSearch" placeholder="Search mobile number, PIN, or full name" autocomplete="off">
+              </label>
+              <div id="welcomeResults" class="welcome-results" role="status" aria-live="polite"></div>
+              <div id="welcomeEmpty" class="welcome-empty" hidden></div>
+              <div class="arrival-actions">
+                <button class="primary" data-jump="staff" type="button">Open front desk</button>
+                <button class="secondary" data-jump="patient" type="button">Continue patient intake</button>
+              </div>
+            </div>
+            <div class="journey-cards" aria-label="Screens before doctor view">
+              <article>
+                <span>01</span>
+                <strong>Front desk</strong>
+                <p>Confirm identity, token, doctor, language, and returning-patient match.</p>
+              </article>
+              <article>
+                <span>02</span>
+                <strong>Patient intake</strong>
+                <p>Collect concern, focused questions, optional reports, and required consents.</p>
+              </article>
+              <article>
+                <span>03</span>
+                <strong>Doctor pre-visit</strong>
+                <p>Show current patient, next two arrivals, vitals, answers, files, and doctor-owned notes.</p>
+              </article>
+            </div>
           </div>
         </section>
 
@@ -270,7 +324,7 @@
           </div>
         </section>
 
-        <section id="view-doctor" class="view active">
+        <section id="view-doctor" class="view">
           <div class="doctor-command">
             <aside class="doctor-queue-panel">
               <div class="queue-head">

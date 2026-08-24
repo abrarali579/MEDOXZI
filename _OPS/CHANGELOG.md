@@ -3,6 +3,39 @@
 **Append-only.** Newest first. Every entry answers: WHAT · WHY · EVIDENCE · NEXT · WHY NEXT · HOW.
 
 ---
+## 2026-08-25 - Session AB - HTML MVP journey-first polish
+
+**WHAT**
+- Updated `14-MVP-HTML/` so the prototype opens on a polished Patient arrival/search screen instead of jumping directly to Doctor Review.
+- Added a visible workflow strip for the full screen sequence: Patient arrival -> Front desk -> Patient intake -> Doctor review -> Records -> Operations.
+- Reworked the landing copy/cards to show the screens before Doctor View and tightened the doctor command-center spacing/responsive behaviour to better match the approved final UI reference.
+- Updated `14-MVP-HTML/MVP-Prototype-Plan.md` with HTML v0.8 notes.
+- Refreshed `graphify-current-state/graphify-out/` after the app navigation change.
+- No clinical logic, real patient data, diagnosis automation, treatment advice, or live messaging was added.
+
+**WHY**
+Abrar reported that the local UI looked too basic and asked where the screens before Doctor View had gone. The screens existed, but the active view and hidden navigation made the prototype feel like it started halfway through the visit.
+
+**EVIDENCE**
+- `python -m pytest tests/ -q` -> `100 passed in 0.19s`.
+- `python -m harness.run` -> `VERDICT: PASS`.
+- `python demo.py | Select-Object -Last 20` -> deterministic demo completed.
+- `node --check 14-MVP-HTML\app.js; node --check 14-MVP-HTML\server.js; node --check 14-MVP-HTML\api\questions.js; node --check api\questions.js` -> all exited 0.
+- Browser smoke at `http://localhost:8765/`: default active view `view-welcome`; workflow strip count `6`; journey cards count `3`; Front desk, Patient intake, Doctor review, Records, and Operations reachable; Doctor Review has 3 queue rows, 3 diagnosis inputs, Previous record action, no SpO2, and no console errors.
+- Mobile browser smoke: no horizontal overflow; Doctor Review collapses to one column while preserving queue and doctor-entry controls.
+- Graphify refresh: `72 nodes, 126 edges, 14 communities`.
+- Full detail: `_OPS/SESSION-LOG/2026-08-25-AB-html-mvp-journey-polish.md`; VERIFICATION-LOG V-2026-08-25-AB-01.
+
+**NEXT**
+Founder/doctor/staff should review the full journey from `http://localhost:8765/`: Patient arrival -> Front desk -> Patient intake -> Doctor review -> Records.
+
+**WHY NEXT**
+The prototype now exposes the intended flow, but production frontend scope should still be screen-locked by human review.
+
+**HOW**
+Run `cd 14-MVP-HTML && node --env-file=.env server.js`, open `http://localhost:8765/`, and click through the workflow strip. Keep any further UI additions inside the synthetic/demo boundary unless an ADR and verification trail are added.
+
+---
 ## 2026-08-25 - Session AA - Vercel production crash fix
 
 **WHAT**

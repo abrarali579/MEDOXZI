@@ -319,6 +319,7 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => Array.from(document.querySelectorAll(selector));
 
 const viewTitles = {
+  welcome: ["Clinic journey", "Patient arrival"],
   staff: ["Clinic workspace", "Front desk"],
   patient: ["Patient workspace", "Patient intake"],
   doctor: ["Doctor workspace", "Pre-visit review"],
@@ -335,6 +336,7 @@ function switchView(viewName, options = {}) {
     }
   }
   $$(".tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.view === viewName));
+  $$(".flow-tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.jump === viewName));
   $$(".view").forEach((view) => view.classList.toggle("active", view.id === `view-${viewName}`));
   const [context, title] = viewTitles[viewName] || viewTitles.doctor;
   $("#topbarContext").textContent = context;
