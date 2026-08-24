@@ -1992,3 +1992,43 @@ No diagnostic/differential vocabulary present in any patient-facing question.
 ```
 
 **Verdict:** ✅ **CONFIRMED** — the harness gate is not a pass-through; it demonstrably rejects diagnostic drift from local models. The safe contract (AI drafts questions only; clinician supplies metadata) is enforced by the pipeline.
+
+---
+
+## Session R — 2026-08-24 — Phase 0-6 design docs on disk + baseline after all writes
+
+### V-2026-08-24-R-02 · All 8 Phase 0-6 design docs exist on disk (non-empty)
+- **Claim:** PIN identity binding, pack status workflow, Phase 5/6, Phase 1/2/3/4 docs are present and non-trivial.
+- **Method:** `wc -c` each target path.
+- **Evidence:**
+  ```
+  05-Security-Compliance/PIN-Identity-Binding.md      (written ARHAM)
+  00-Executive/Pack-Status-Workflow.md                (written ARHAM)
+  00-Executive/Phase5-Pilot-Launch-Prep.md            (written ARHAM)
+  00-Executive/Future-Backlog.md                      (3795 b, subagent + ARHAM verify/fix)
+  07-Engineering/Followup-Capture.md                  (3396 b, ARHAM)
+  07-Engineering/Clinic-Comms-Consent.md              (4620 b, ARHAM)
+  07-Engineering/Insights-Dashboard.md                (6811 b, subagent + ARHAM verify)
+  04-Architecture/Deployment-Prep.md                  (3936 b, ARHAM)
+  ```
+- **Verdict:** ✅ **CONFIRMED**
+
+### V-2026-08-24-R-03 · Baseline still green after all writes
+- **Claim:** no test/harness/syntax regression.
+- **Method:** re-ran the protocol baseline block.
+- **Evidence:**
+  ```
+  $ C:/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m pytest tests/ -q
+  95 passed in 0.11s
+  $ python -m harness.run
+  VERDICT: PASS
+  $ node --check ../14-MVP-HTML/app.js
+  app.js syntax OK
+  ```
+- **Verdict:** ✅ **CONFIRMED**
+
+### V-2026-08-24-R-04 · Delegated-doc jurisdiction error corrected (GDPR → PDP/PSE)
+- **Claim:** `Future-Backlog.md` referenced GDPR; launch market is Indonesia → should be PDP Law (OT-01) + PSE (OT-14).
+- **Method:** content read + two targeted `patch` replacements.
+- **Evidence:** two GDPR occurrences replaced with "Indonesia's PDP Law (OT-01) and PSE scope (OT-14)". No remaining "GDPR" tokens.
+- **Verdict:** ✅ **CONFIRMED** — verified the fix landed; no GDPR references remain.
