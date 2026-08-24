@@ -2069,3 +2069,22 @@ No diagnostic/differential vocabulary present in any patient-facing question.
   VERDICT: PASS
   ```
 - **Verdict:** ✅ **CONFIRMED**
+
+### V-2026-08-24-CRON-01 · Autonomous continuation driver — baseline re-verified, no gate drift
+- **Claim:** current on-disk baseline is 100 tests green / harness VERDICT PASS / 28 CLEAN / 12 BLOCKED; git tree clean; all 8 Phase 0-6 design docs present.
+- **Method:** re-ran baseline under Python310 + re-ran gate_literature.py + git status + wc -c on design docs.
+- **Evidence:**
+  ```
+  $ pytest tests/ -q            (Python310)
+  100 passed in 0.18s
+  $ python -m harness.run
+  PASS H1_contamination H3_fabrication H15_abstention H5_drift H16_ece_below_0.05 H17 H18 calibration ... VERDICT: PASS
+  $ python medoxzi/content/vertical_pack/tools/gate_literature.py
+  [gate] scanned 40 literature packs / 466 questions
+  [gate] CLEAN: 28  BLOCKED: 12
+  $ node --check ../14-MVP-HTML/app.js   -> node OK
+  $ demo.py -> runs clean (distinct clinical facts render distinctly)
+  $ git status --short -> (clean, 0)
+  design docs wc -c -> min 3.4KB (Followup-Capture 3396) .. max 8.2KB, all present
+  ```
+- **Verdict:** ✅ **CONFIRMED** — no test regression (baseline is now 100, was 95 pre-RT+bridge tests), no gate split drift (28/12 unchanged), no uncommitted broken JSON (6 drafts tracked+clean). STATE.md §1/§4 updated to the verified 100-test current value.

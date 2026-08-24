@@ -4,6 +4,30 @@
 
 ---
 
+## 2026-08-24 - Cron continuation (autonomous driver) - baseline re-verified; no functional change
+
+**WHAT**
+- Re-verified the full baseline autonomously: `pytest` **100 passed** (Python310), `harness.run` **VERDICT: PASS** (9/9 gates), `demo.py` runs clean, `node --check` OK, gate split unchanged **28 CLEAN / 12 BLOCKED** across 40 packs / 466 questions.
+- Confirmed all 8 Phase 0-6 design docs on disk (min 3.4 KB each); confirmed the 6 AI-drafted symptom packs in `drafts/` are tracked+committed (tree clean, no broken JSON).
+- Updated STATE.md §1/§4 stale "95 tests" to the verified current **100** (95 baseline + 5 bridge tests from session RT), backed by V-2026-08-24-CRON-01.
+
+**WHY**
+- Correct the on-disk state record to match reality after session RT raised the test count; keep the verified baseline current. No code or clinical-content change.
+
+**EVIDENCE**
+- `100 passed in 0.18s`; `VERDICT: PASS`; `[gate] CLEAN: 28 BLOCKED: 12`; `git status --short` -> 0. Full paste in V-2026-08-24-CRON-01.
+
+**NEXT**
+- No autonomous step remains (all docs exist, gate stable, baseline green, harness training done). Next work is human-gated: OT-18 lead-doctor sign-off (promote CLEAN packs DEMO→DRAFT), OT-20 founder/doctor visual review of 14-MVP-HTML/index.html.
+
+**WHY NEXT**
+- Both are human decisions the protocol forbids automating.
+
+**HOW**
+- This cron run; nothing new to exercise until a human gate opens.
+
+---
+
 ## 2026-08-24 - Session R (train) - "Train the Harness with the Question Pack" made real: loader bridge + CLEAN gate
 
 **WHAT**
