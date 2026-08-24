@@ -4,6 +4,38 @@
 
 ---
 
+## 2026-08-24 - Session Y - HTML MVP final doctor command-center UI
+
+**WHAT**
+- Updated the actual `14-MVP-HTML/` doctor Pre-visit Review UI according to the founder's final concept image.
+- Reworked the default visible product screen into a full-width doctor command center: top MEDOXZI bar, left live queue, current patient highlighted, and only the next two incoming patients shown.
+- Added the final concept sections: structured feedback, patient profile button, previous record button, allergies + vitals card without SpO2, close question-answer rows, report attachment row, doctor-entered three-priority diagnosis inputs, doctor-selected relevant tests, plan category buttons, follow-up toggle/date, rich-note shell, and sticky assessment actions.
+- Kept diagnosis/test fields explicitly doctor-entered/doctor-selected and labeled the assessment card as having no AI-generated content.
+- Updated `14-MVP-HTML/MVP-Prototype-Plan.md` with HTML v0.7 notes.
+- Refreshed the Graphify current-state source snapshot and rebuilt `graphify-current-state/graphify-out/` (**72 nodes, 126 edges, 14 communities**).
+- Added `_OPS/SESSION-LOG/2026-08-24-Y-html-mvp-final-doctor-command-center.md` and recorded verification in `_OPS/VERIFICATION-LOG.md` V-2026-08-24-Y-01.
+
+**WHY**
+The founder approved the final concept direction and asked to update the actual product UI to match it. The changes make the doctor workspace feel more mature while preserving the v2.6 boundary: the system organises source-bound intake information; it does not generate diagnoses, recommend treatment, or make clinical claims.
+
+**EVIDENCE**
+- Browser verification covered desktop `1680x980` and mobile `390x900`: `consoleErrors: []`, active `view-doctor`, 3 queue rows with token 51 current + tokens 49/50 incoming, 3 diagnosis inputs, structured feedback present, previous record present, relevant tests present, plan category present, `hasSpO2: false`, no undersized visible controls, bottom action bar visible.
+- Final: `python -m pytest tests/ -q` -> **100 passed**; `python -m harness.run` -> **VERDICT: PASS**; `python demo.py | Select-Object -Last 20` -> clean deterministic demo tail.
+- `node --check 14-MVP-HTML\app.js` and `node --check 14-MVP-HTML\server.js` exited 0.
+- Graphify refresh: `graphify extract graphify-current-state-src --out graphify-current-state --code-only` wrote graph.json with **72 nodes, 126 edges, 14 communities**; `graphify cluster-only graphify-current-state --no-label` regenerated `GRAPH_REPORT.md`, `graph.json`, and `graph.html`.
+- Full evidence: `_OPS/VERIFICATION-LOG.md` **V-2026-08-24-Y-01**.
+
+**NEXT**
+Founder/doctor/staff should review the v0.7 command center on desktop and phone widths, then decide whether the final Pre-visit screen is screen-locked for production frontend engineering.
+
+**WHY NEXT**
+This is still a synthetic local HTML prototype. The added diagnosis/test/plan inputs are clinician documentation controls, not clinical automation; production engineering should not proceed until humans confirm that wording and workflow fit the clinic.
+
+**HOW**
+Run `cd 14-MVP-HTML && node --env-file=.env server.js`, then open `http://localhost:8765`. Review the visible Pre-visit Review command center and especially the doctor-entered assessment fields. Keep any future additions synthetic/demo-only unless an ADR and verification trail are added.
+
+---
+
 ## 2026-08-24 - Session X - HTML MVP POV workflow split + records tabs + animation pass
 
 **WHAT**

@@ -2539,3 +2539,88 @@ No diagnostic/differential vocabulary present in any patient-facing question.
   Both `node --check` commands exited 0 with no output.
 - **Contradiction sweep:** Windows AGENT-PROTOCOL sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; `No red flags`/`No concerns` only in prohibitive, historical, or pitch-forbidden contexts; 25-year retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift/prohibited-term implementation; `>=500`/`≥500` only in ADR-029/history/Gate 6/synthetic/privacy contexts including copied Graphify source docs.
 - **Verdict:** ✅ **CONFIRMED** — POV workflow split verified in browser on desktop and mobile, Graphify refreshed, and core prototype checks stayed green. This is visual/prototype evidence only, not clinical performance evidence.
+
+## V-2026-08-24-Y-01 · HTML MVP final doctor command-center UI
+- **Claim:** The HTML MVP now opens to the final doctor Pre-visit Review command-center concept: full-width doctor workspace, current + next-two live queue, structured feedback, patient profile + previous record actions, allergies + vitals without SpO2, close question-answer rows, attachment row, doctor-entered priority diagnosis inputs, doctor-selected relevant tests, plan category buttons, and sticky assessment actions.
+- **Method:** Followed the repo protocol; used Graphify first for affected HTML MVP functions; edited `14-MVP-HTML/index.html`, `14-MVP-HTML/app.js`, `14-MVP-HTML/styles.css`, and `14-MVP-HTML/MVP-Prototype-Plan.md`; refreshed `graphify-current-state-src/HTML-MVP-app.js` and the Graphify current-state graph; ran syntax, browser, standard verification, and contradiction sweep checks.
+- **Evidence:**
+  ```text
+  $ graphify query "Which HTML MVP functions and DOM sections control the doctor pre-visit review, doctor assessment, vitals, attachments, structured feedback, previous record action, and queue layout?" --graph graphify-current-state/graphify-out/graph.json --budget 2200
+  Graph: graphify-current-state/graphify-out/graph.json (72 nodes) | Traversal: BFS depth=2 | Start: ['previsitPatients()', 'HTML-MVP-app.js', 'queueItemHtml()', 'DoctorBrief', 'allPatientRecords()', 'renderReview()', 'Structured current-state model for Graphify. Synthetic planning artifact only.…'] | 67 nodes found
+  ```
+  ```text
+  $ node --check 14-MVP-HTML\app.js; node --check 14-MVP-HTML\server.js
+  ```
+  Both `node --check` commands exited 0 with no output.
+  ```text
+  $ node work\session-y-verify-doctor-ui.cjs
+  {
+    "ok": true,
+    "failures": [],
+    "results": [
+      {
+        "viewport": { "width": 1680, "height": 980 },
+        "consoleErrors": [],
+        "activeView": "view-doctor",
+        "hasStructuredFeedback": true,
+        "hasPreviousRecord": true,
+        "hasRelevantTests": true,
+        "hasPlanCategory": true,
+        "hasSpO2": false,
+        "diagnosisInputs": 3,
+        "doctorQueueRows": "3 rows; token 51 current + tokens 49 and 50 incoming",
+        "minBadControls": [],
+        "bottomBarVisible": true
+      },
+      {
+        "viewport": { "width": 390, "height": 900 },
+        "consoleErrors": [],
+        "activeView": "view-doctor",
+        "hasStructuredFeedback": true,
+        "hasPreviousRecord": true,
+        "hasRelevantTests": true,
+        "hasPlanCategory": true,
+        "hasSpO2": false,
+        "diagnosisInputs": 3,
+        "doctorQueueRows": "3 rows; token 51 current + tokens 49 and 50 incoming",
+        "minBadControls": [],
+        "bottomBarVisible": true
+      }
+    ]
+  }
+  ```
+  ```text
+  $ python -m pytest tests/ -q
+  ........................................................................ [ 72%]
+  ............................                                             [100%]
+  100 passed in 0.23s
+  ```
+  ```text
+  $ python -m harness.run
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+  VERDICT: PASS
+  ```
+  ```text
+  $ python demo.py | Select-Object -Last 20
+  Three distinct clinical facts. Three distinct renderings.
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+  ```
+  ```text
+  $ graphify extract graphify-current-state-src --out graphify-current-state --code-only
+  [graphify extract] wrote D:\MEDOXZI\graphify-current-state\graphify-out\graph.json: 72 nodes, 126 edges, 14 communities
+
+  $ graphify cluster-only graphify-current-state --no-label
+  Graph: 72 nodes, 126 edges
+  Done - 14 communities. GRAPH_REPORT.md, graph.json and graph.html updated.
+  ```
+- **Contradiction sweep:** Windows AGENT-PROTOCOL sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; `No red flags`/`No concerns` only in prohibitive, historical, or pitch-forbidden contexts; 25-year retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift/prohibited-term implementation; `>=500`/`≥500` only in ADR-029/history/Gate 6/synthetic/privacy contexts including copied Graphify source docs.
+- **Verdict:** ✅ **CONFIRMED** — final doctor command-center UI verified in browser on desktop and mobile, Graphify refreshed, and core prototype checks stayed green. This is visual/prototype evidence only, not clinical performance evidence.

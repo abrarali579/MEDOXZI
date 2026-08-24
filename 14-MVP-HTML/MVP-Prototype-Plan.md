@@ -36,6 +36,7 @@ Build a local, responsive HTML prototype that visualizes the healthcare-first na
 | Messaging preview | Built in HTML v0.1 | Disabled; requires OT-19 controls |
 | Workspace UI polish | Built in HTML v0.5 | Screenshot-guided doctor-workspace shell: dark navigation rail, white top bar, refined cards, professional visible text, patient-review upload card, responsive desktop/mobile verification |
 | POV workflow split | Built in HTML v0.6 | Patient direct-entry prefill, Pre-visit narrowed to current patient + next two incoming patients, separate Patient Records and Record Viewer tabs, current-vs-past compare action, and subtle motion polish |
+| Final doctor command center | Built in HTML v0.7 | Final concept implementation: full-width doctor workspace, current + next-two live queue, structured feedback, patient profile + previous record actions, allergies + vitals without SpO2, close question-answer rows, attachment row, doctor-entered priority diagnosis inputs, doctor-selected relevant tests, plan category buttons, and a sticky assessment action bar |
 
 ## Non-Negotiables
 
@@ -59,3 +60,4 @@ Build a local, responsive HTML prototype that visualizes the healthcare-first na
 - Relevant answer options per question, not generic Yes/No where the question is not binary.
 - Screenshot-guided v0.5 tone: dense clinical workspace, restrained teal/green status accents, white review cards, and professional wording across staff, patient, doctor, and ops screens.
 - v0.6 doctor workflow: Pre-visit should stay focused on live consultation work; searchable historical records and detailed record reading belong in separate tabs.
+- v0.7 final concept: the main doctor workspace returns to one unified Pre-visit command center; historical review is exposed as a `Previous record` action rather than a separate visible tab set.

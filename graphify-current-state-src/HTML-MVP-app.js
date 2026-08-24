@@ -1,11 +1,20 @@
 const state = {
   token: 51,
-  pin: "",
+  pin: "6711",
   linkedIdentity: null,
   currentStep: 0,
-  complaint: "Fever",
-  answers: {},
-  files: [],
+  complaint: "Body pain",
+  answers: {
+    "How would you describe the pain?": "Aching",
+    "Is the pain accompanied by swelling, redness, or warmth in the joints?": "No",
+    "Does the pain affect your daily activities?": "A little",
+    "How long have you been experiencing the pain?": "~1 month",
+    "Have you tried any medication or home remedies?": "No",
+    "Does anything make the pain better or worse?": "Worse in morning",
+    "Have you had any fever, fatigue, or rash along with the joint pain?": "Yes",
+    "Anything else you want us to know?": "Not answered",
+  },
+  files: ["Blood_Test_May14.pdf"],
   doctorSaved: false,
   aiQuestions: null,
   aiBriefKey: "",
@@ -82,14 +91,14 @@ const patients = [
   },
   {
     token: 51,
-    pin: "",
-    name: "Abrar Ali",
-    age: "34",
-    sex: "Male",
-    phone: "+62 812 0000 0000",
-    meta: "M 34",
+    pin: "6711",
+    name: "Arooj Abrar",
+    age: "26",
+    sex: "Female",
+    phone: "+62 85819980404",
+    meta: "F 26",
     status: "Ready",
-    docs: "0",
+    docs: "1",
   },
 ];
 
@@ -342,10 +351,27 @@ function previsitPatients() {
   return [current, ...incoming];
 }
 
-function queueItemHtml(patient, { current = false, compact = false } = {}) {
+function queueItemHtml(patient, { current = false, compact = false, mode = "staff" } = {}) {
   const label = current ? "Current patient" : compact ? "Incoming" : patient.status;
   const statusClass = current ? "mini-badge current" : "mini-badge";
   const itemClass = current ? "queue-item current-patient" : "queue-item incoming-patient";
+
+  if (mode === "doctor" && current) {
+    return `
+      <button class="${itemClass} queue-current-expanded" type="button" data-token="${patient.token}" aria-current="true">
+        <span class="token">${patient.token}</span>
+        <span class="queue-main">
+          <span class="queue-topline"><span class="queue-name">${patient.name}</span><span class="${statusClass}">Current</span></span>
+          <span class="queue-meta">Patient ID ${patient.pin || "New profile"} · ${patient.meta}</span>
+          <span class="queue-time">Arrived today 10:24 AM</span>
+          <span class="queue-progress"><span><i style="width: 93%"></i></span><strong>93%</strong></span>
+          <span class="queue-eta">Est. start in 2 min</span>
+          <span class="queue-start">Start review</span>
+        </span>
+      </button>
+    `;
+  }
+
   return `
     <button class="${itemClass}" type="button" data-token="${patient.token}" ${current ? 'aria-current="true"' : ""}>
       <span class="token">${patient.token}</span>
@@ -359,9 +385,9 @@ function queueItemHtml(patient, { current = false, compact = false } = {}) {
 }
 
 function renderQueues() {
-  $("#staffQueue").innerHTML = patients.map((patient) => queueItemHtml(patient)).join("");
+  $("#staffQueue").innerHTML = patients.map((patient) => queueItemHtml(patient, { mode: "staff" })).join("");
   $("#doctorQueue").innerHTML = previsitPatients()
-    .map((patient, index) => queueItemHtml(patient, { current: index === 0, compact: true }))
+    .map((patient, index) => queueItemHtml(patient, { current: index === 0, compact: true, mode: "doctor" }))
     .join("");
   $("#waitingCount").textContent = `${patients.length} waiting`;
 }
@@ -583,6 +609,7 @@ function syncPatientFromRegistration() {
   patients[2].sex = sex;
   patients[2].phone = phone;
   patients[2].token = token;
+  patients[2].pin = state.pin || patients[2].pin;
   patients[2].meta = `${sex.charAt(0)} ${age}`;
   renderQueues();
   renderDoctorBrief();
@@ -805,22 +832,50 @@ function renderDoctorBrief() {
   const name = $("#intakeName")?.value || $("#patientName")?.value || "Demo Patient";
   const age = $("#intakeAge")?.value || $("#patientAge")?.value || "34";
   const sex = $("#intakeSex")?.value || $("#patientSex")?.value || "Male";
+  const phone = getIntakePhone() || $("#patientPhone")?.value || "No phone";
   $("#briefTitle").textContent = `${name}${state.pin ? ` · Patient ID ${state.pin}` : ""}`;
   $("#briefIssue").textContent = $("#issueText")?.value || "Not entered";
-  $("#briefFiles").textContent = state.files.length
-    ? `${state.files.length} file(s) attached for doctor review only.`
-    : "No previous reports attached.";
+
+  const filesEl = $("#briefFiles");
+  const attachmentCount = $("#attachmentCount");
+  if (filesEl) {
+    filesEl.innerHTML = state.files.length
+      ? state.files
+          .map(
+            (file) => `
+              <div class="attachment-row">
+                <span class="file-icon">PDF</span>
+                <span>
+                  <strong>${file}</strong>
+                  <small>PDF · 356 KB · May 14, 2025 09:52 AM</small>
+                </span>
+                <button type="button" aria-label="Preview ${file}">View</button>
+                <button type="button" aria-label="Download ${file}">Download</button>
+              </div>
+            `,
+          )
+          .join("")
+      : `<div class="empty-state">No previous reports attached.</div>`;
+  }
+  if (attachmentCount) {
+    attachmentCount.textContent = state.files.length
+      ? `${state.files.length} file${state.files.length === 1 ? "" : "s"} uploaded`
+      : "No files";
+  }
 
   const demographicsEl = $("#briefDemographics");
   if (demographicsEl) {
     demographicsEl.innerHTML = [
-      `<span class="demo-chip demo-age">Age ${age}</span>`,
+      `<span class="demo-chip demo-age">${age} yrs</span>`,
       `<span class="demo-chip demo-sex">${sex}</span>`,
-      `<span class="demo-chip demo-contact">${getIntakePhone() || "No phone"}</span>`,
+      `<span class="demo-chip demo-contact">${phone}</span>`,
     ].join("");
   }
 
   const answerEntries = Object.entries(state.answers);
+  const answeredCount = answerEntries.filter(([, answer]) => answer !== "Not answered").length;
+  const answerCountEl = $("#intakeAnswerCount");
+  if (answerCountEl) answerCountEl.textContent = `${answeredCount} of ${answerEntries.length || activeQuestions().length} answered`;
   $("#briefAnswers").innerHTML = answerEntries.length
     ? answerEntries.map(
         ([q, a]) =>
@@ -1054,7 +1109,8 @@ function escapeHtml(value) {
 
 function saveDoctorConclusion() {
   state.doctorSaved = true;
-  const followupNeeded = $("#followupNeeded").value;
+  const followupEl = $("#followupNeeded");
+  const followupNeeded = followupEl?.type === "checkbox" ? (followupEl.checked ? "Yes" : "No") : followupEl.value;
   const followupDate = $("#followupDate").value;
   const consent = $("#clinicCommsConsent").checked;
 
@@ -1065,21 +1121,25 @@ function saveDoctorConclusion() {
     $("#reminderPreview").textContent =
       "Assessment saved. No reminder preview is shown because follow-up is not marked as needed or no date was selected.";
   }
-  switchView("ops");
+  $(".save-state").textContent = "Assessment saved";
+  $(".review-state").innerHTML = "Doctor reviewed <strong>May 14, 2025 10:18 AM</strong> · Dr. Dana";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderQueues();
   renderHistoryFilters();
   renderHistoryList();
   openHistoryFile(historyPatients[0].pin);
+  syncPatientFromRegistration();
   showStep(0);
-  renderDoctorBrief();
 
   $$(".tab").forEach((tab) => tab.addEventListener("click", () => switchView(tab.dataset.view)));
   $$("[data-jump]").forEach((button) =>
     button.addEventListener("click", () => switchView(button.dataset.jump)),
   );
+  $("#previousRecordBtn")?.addEventListener("click", () => {
+    openHistoryFile(historyPatients[0].pin);
+    switchView("viewer");
+  });
 
   $(".history-clear").addEventListener("click", () => {
     historyFilters.query = "";

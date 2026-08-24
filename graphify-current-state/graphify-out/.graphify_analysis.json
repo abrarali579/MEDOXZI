@@ -1,26 +1,6 @@
 {
   "communities": {
     "0": [
-      "html_mvp_app",
-      "html_mvp_app_currentqueuepatient",
-      "html_mvp_app_historyfilters",
-      "html_mvp_app_historypatients",
-      "html_mvp_app_openclosesplitreview",
-      "html_mvp_app_opencurrentvisitsplit",
-      "html_mvp_app_opencurrentwithpast",
-      "html_mvp_app_openhistoryfile",
-      "html_mvp_app_patients",
-      "html_mvp_app_previsitpatients",
-      "html_mvp_app_questionbanks",
-      "html_mvp_app_queueitemhtml",
-      "html_mvp_app_renderhistoryfilters",
-      "html_mvp_app_renderqueues",
-      "html_mvp_app_setupbriefstep",
-      "html_mvp_app_state",
-      "html_mvp_app_uniquecomplaints",
-      "html_mvp_app_viewtitles"
-    ],
-    "1": [
       "html_mvp_app_activequestions",
       "html_mvp_app_answerquestion",
       "html_mvp_app_ensureaisuggestions",
@@ -34,19 +14,32 @@
       "html_mvp_app_showquestionloading",
       "html_mvp_app_showstep"
     ],
-    "2": [
+    "1": [
       "html_mvp_app_allpatientrecords",
-      "html_mvp_app_applyhistoryfilters",
+      "html_mvp_app_clearintakedraft",
+      "html_mvp_app_confirmwelcomepatient",
       "html_mvp_app_escapehtml",
-      "html_mvp_app_generatepin",
-      "html_mvp_app_identitykey",
-      "html_mvp_app_normalize",
-      "html_mvp_app_patienthasfollowup",
-      "html_mvp_app_renderhistorylist",
-      "html_mvp_app_rendersearchresults",
+      "html_mvp_app_loadexistingpatient",
+      "html_mvp_app_registernewpatient",
+      "html_mvp_app_renderfiles",
       "html_mvp_app_renderwelcomesearch",
       "html_mvp_app_savedpatients",
-      "html_mvp_app_savelinkedpatient"
+      "html_mvp_app_setintakephone",
+      "html_mvp_app_switchview",
+      "html_mvp_app_syncpatientfromregistration"
+    ],
+    "2": [
+      "html_mvp_app",
+      "html_mvp_app_historyfilters",
+      "html_mvp_app_historypatients",
+      "html_mvp_app_openclosesplitreview",
+      "html_mvp_app_openhistoryfile",
+      "html_mvp_app_patients",
+      "html_mvp_app_questionbanks",
+      "html_mvp_app_savedoctorconclusion",
+      "html_mvp_app_setupbriefstep",
+      "html_mvp_app_state",
+      "html_mvp_app_viewtitles"
     ],
     "3": [
       "current_state_model",
@@ -60,53 +53,69 @@
       "current_state_model_welcomesearch"
     ],
     "4": [
-      "html_mvp_app_clearintakedraft",
-      "html_mvp_app_confirmwelcomepatient",
-      "html_mvp_app_loadexistingpatient",
-      "html_mvp_app_registernewpatient",
-      "html_mvp_app_renderfiles",
-      "html_mvp_app_savedoctorconclusion",
-      "html_mvp_app_setintakephone",
-      "html_mvp_app_switchview",
-      "html_mvp_app_syncpatientfromregistration"
+      "html_mvp_app_applyhistoryfilters",
+      "html_mvp_app_generatepin",
+      "html_mvp_app_identitykey",
+      "html_mvp_app_normalize",
+      "html_mvp_app_patienthasfollowup",
+      "html_mvp_app_renderhistorylist",
+      "html_mvp_app_rendersearchresults",
+      "html_mvp_app_savelinkedpatient"
     ],
     "5": [
+      "html_mvp_app_currentqueuepatient",
+      "html_mvp_app_previsitpatients",
+      "html_mvp_app_queueitemhtml",
+      "html_mvp_app_renderqueues"
+    ],
+    "6": [
       "current_state_model_doctorbrief",
       "current_state_model_doctorbrief_receives_from"
     ],
-    "6": [
+    "7": [
       "current_state_model_doctorpastfiles",
       "current_state_model_doctorpastfiles_links_to"
     ],
-    "7": [
+    "8": [
       "current_state_model_medoxzicurrentstate",
       "current_state_model_medoxzicurrentstate_depends_on"
     ],
-    "8": [
+    "9": [
       "current_state_model_patientintake",
       "current_state_model_patientintake_feeds"
     ],
-    "9": [
+    "10": [
       "current_state_model_verticalquestionpack",
       "current_state_model_verticalquestionpack_guarded_by"
     ],
-    "10": [
+    "11": [
       "current_state_model_visualhtmlmvp",
       "current_state_model_visualhtmlmvp_contains"
+    ],
+    "12": [
+      "html_mvp_app_opencurrentvisitsplit",
+      "html_mvp_app_opencurrentwithpast"
+    ],
+    "13": [
+      "html_mvp_app_renderhistoryfilters",
+      "html_mvp_app_uniquecomplaints"
     ]
   },
   "cohesion": {
-    "0": 0.1437908496732026,
-    "1": 0.25757575757575757,
-    "2": 0.22727272727272727,
+    "0": 0.25757575757575757,
+    "1": 0.22727272727272727,
+    "2": 0.18181818181818182,
     "3": 0.2222222222222222,
-    "4": 0.2777777777777778,
-    "5": 1.0,
+    "4": 0.32142857142857145,
+    "5": 0.5,
     "6": 1.0,
     "7": 1.0,
     "8": 1.0,
     "9": 1.0,
-    "10": 1.0
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0
   },
   "gods": [
     {
@@ -130,13 +139,13 @@
       "degree": 6
     },
     {
-      "id": "html_mvp_app_normalize",
-      "label": "normalize()",
+      "id": "html_mvp_app_syncpatientfromregistration",
+      "label": "syncPatientFromRegistration()",
       "degree": 6
     },
     {
-      "id": "html_mvp_app_syncpatientfromregistration",
-      "label": "syncPatientFromRegistration()",
+      "id": "html_mvp_app_normalize",
+      "label": "normalize()",
       "degree": 6
     },
     {
@@ -155,34 +164,12 @@
       "degree": 5
     },
     {
-      "id": "html_mvp_app_renderwelcomesearch",
-      "label": "renderWelcomeSearch()",
+      "id": "html_mvp_app_registernewpatient",
+      "label": "registerNewPatient()",
       "degree": 5
     }
   ],
   "surprises": [
-    {
-      "source": "renderWelcomeSearch()",
-      "target": "registerNewPatient()",
-      "source_files": [
-        "HTML-MVP-app.js",
-        "HTML-MVP-app.js"
-      ],
-      "confidence": "INFERRED",
-      "relation": "indirect_call",
-      "note": "Bridges community 2 → community 4"
-    },
-    {
-      "source": "syncPatientFromRegistration()",
-      "target": "renderQueues()",
-      "source_files": [
-        "HTML-MVP-app.js",
-        "HTML-MVP-app.js"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "note": "Bridges community 0 → community 4"
-    },
     {
       "source": "saveLinkedPatient()",
       "target": "getIntakePhone()",
@@ -192,7 +179,7 @@
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "note": "Bridges community 1 → community 2"
+      "note": "Bridges community 0 → community 4"
     },
     {
       "source": "syncPatientFromRegistration()",
@@ -203,34 +190,51 @@
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
+      "note": "Bridges community 0 → community 1"
+    },
+    {
+      "source": "loadExistingPatient()",
+      "target": "identityKey()",
+      "source_files": [
+        "HTML-MVP-app.js",
+        "HTML-MVP-app.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
       "note": "Bridges community 1 → community 4"
+    },
+    {
+      "source": "syncPatientFromRegistration()",
+      "target": "renderQueues()",
+      "source_files": [
+        "HTML-MVP-app.js",
+        "HTML-MVP-app.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 1 → community 5"
     }
   ],
   "questions": [
     {
       "type": "bridge_node",
-      "question": "Why does `VisualHTMLMVP` connect `Community 10` to `Community 3`?",
+      "question": "Why does `VerticalQuestionPack` connect `Community 10` to `Community 3`?",
       "why": "High betweenness centrality (0.008) - this node is a cross-community bridge."
     },
     {
       "type": "bridge_node",
-      "question": "Why does `DoctorBrief` connect `Community 5` to `Community 3`?",
+      "question": "Why does `VisualHTMLMVP` connect `Community 11` to `Community 3`?",
       "why": "High betweenness centrality (0.008) - this node is a cross-community bridge."
     },
     {
       "type": "bridge_node",
-      "question": "Why does `DoctorPastFiles` connect `Community 6` to `Community 3`?",
+      "question": "Why does `DoctorBrief` connect `Community 6` to `Community 3`?",
       "why": "High betweenness centrality (0.008) - this node is a cross-community bridge."
     },
     {
       "type": "isolated_nodes",
       "question": "What connects `ClinicMessaging`, `ContentLicensing`, `FollowupPreview` to the rest of the system?",
       "why": "13 weakly-connected nodes found - possible documentation gaps or missing edges."
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `Community 0` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.1437908496732026 - nodes in this community are weakly interconnected."
     }
   ]
 }

@@ -32,17 +32,15 @@
             <span>Pre-Round</span>
           </div>
         </div>
-        <button class="tab active" data-view="staff">Front desk</button>
+        <button class="tab" data-view="staff">Front desk</button>
         <button class="tab" data-view="patient">Patient intake</button>
-        <button class="tab" data-view="doctor">Pre-visit review</button>
-        <button class="tab" data-view="records">Patient records</button>
-        <button class="tab" data-view="viewer">Record viewer</button>
+        <button class="tab active" data-view="doctor">Pre-visit review</button>
         <button class="tab" data-view="ops">Clinic operations</button>
         <div class="sidebar-foot">Demo clinic workspace</div>
       </nav>
 
       <main>
-        <section id="view-welcome" class="view active">
+        <section id="view-welcome" class="view">
           <div class="welcome-panel">
             <div class="welcome-mark" aria-hidden="true">M</div>
             <h1 class="welcome-title">Welcome to MEDOXZI</h1>
@@ -79,23 +77,23 @@
                 </label>
                 <label>
                   Full name
-                  <input id="patientName" value="Abrar Ali" autocomplete="off">
+                  <input id="patientName" value="Arooj Abrar" autocomplete="off">
                 </label>
                 <label>
                   Age
-                  <input id="patientAge" value="34" inputmode="numeric">
+                  <input id="patientAge" value="26" inputmode="numeric">
                 </label>
                 <label>
                   Sex
                   <select id="patientSex">
-                    <option>Female</option>
-                    <option selected>Male</option>
+                    <option selected>Female</option>
+                    <option>Male</option>
                     <option>Other</option>
                   </select>
                 </label>
                 <label>
                   Phone
-                  <input id="patientPhone" value="+62 812 0000 0000" autocomplete="off">
+                  <input id="patientPhone" value="+62 85819980404" autocomplete="off">
                 </label>
                 <label>
                   Language
@@ -193,7 +191,7 @@
               <section class="intake-step" data-step="2">
                 <h2 id="briefTitleId">Tell the doctor briefly</h2>
                 <p class="quiet" id="briefSubtitle"></p>
-                <textarea id="issueText" rows="5" placeholder="Example: I have fever and body pain since yesterday."></textarea>
+                <textarea id="issueText" rows="5" placeholder="Example: I have fever and body pain since yesterday.">Have pain in almost all body joints. Suffering from almost a month.</textarea>
                 <div class="helper-card" id="briefTips" hidden>
                   <strong>Helpful details to add</strong>
                   <div class="detail-chips">
@@ -272,76 +270,152 @@
           </div>
         </section>
 
-        <section id="view-doctor" class="view">
-          <div class="doctor-layout">
-            <aside class="doctor-queue panel">
-              <div class="panel-head">
+        <section id="view-doctor" class="view active">
+          <div class="doctor-command">
+            <aside class="doctor-queue-panel">
+              <div class="queue-head">
                 <div>
-                  <p class="eyebrow">Pre-visit queue</p>
+                  <p class="eyebrow">Live queue</p>
                   <h2>Current + next two</h2>
                 </div>
-                <button class="secondary compact" data-jump="records" type="button">Records</button>
+                <span class="live-dot"><span></span>Auto-advancing</span>
               </div>
-              <p class="queue-note">The active consultation stays pinned at the top. Only the next two incoming patients are shown here.</p>
               <div id="doctorQueue" class="queue-list"></div>
+              <section class="structured-feedback">
+                <h3>Structured feedback <span>For this intake</span></h3>
+                <label><input type="checkbox"> Question useful</label>
+                <label><input type="checkbox"> Question unclear</label>
+                <label><input type="checkbox"> Missing question</label>
+                <label><input type="checkbox"> Patient answer corrected</label>
+                <label><input type="checkbox"> Attachment needed</label>
+              </section>
             </aside>
 
-            <section class="doctor-brief panel">
-              <div class="brief-header">
-                <div>
-                  <p class="eyebrow">Pre-visit review</p>
-                  <h2 id="briefTitle">Token 51 · Demo Patient</h2>
-                  <div id="briefDemographics" class="demo-chips"></div>
+            <section class="doctor-canvas">
+              <div class="safety-banner">
+                <span aria-hidden="true">✓</span>
+                No clinic-approved safety rules are active
+              </div>
+
+              <section class="patient-command-card">
+                <div class="patient-identity">
+                  <div class="patient-avatar" aria-hidden="true">AA</div>
+                  <div>
+                    <h2 id="briefTitle">Arooj Abrar · Patient ID 6711</h2>
+                    <div id="briefDemographics" class="demo-chips"></div>
+                  </div>
                 </div>
-                <span class="status-pill safe">No clinic-approved safety rules are active</span>
-              </div>
-
-              <div class="brief-grid">
-                <article>
-                  <h3>Patient-reported concern <span class="source">Patient</span></h3>
-                  <p id="briefIssue">I have fever and body pain since yesterday. I feel tired and want the doctor to check.</p>
-                </article>
-                <article>
-                  <h3>Allergies <span class="source">Patient</span></h3>
-                  <p id="briefAllergies">Not asked</p>
-                </article>
-                <article>
-                  <h3>Intake responses <span class="source">Patient</span></h3>
-                  <ul id="briefAnswers"></ul>
-                </article>
-                <article>
-                  <h3>Reports & attachments <span class="source">Attachment</span></h3>
-                  <p id="briefFiles">No previous reports attached.</p>
-                </article>
-              </div>
-
-              <div class="missing-band">
-                <strong>Pending / not asked:</strong>
-                <span id="missingItems">Items skipped by patient remain visible here.</span>
-              </div>
-
-              <div class="doctor-sign">
-                <h3>Doctor's assessment</h3>
-                <label>
-                  Clinical notes
-                  <textarea id="doctorNote" rows="4" placeholder="Add your clinical notes here..."></textarea>
-                </label>
-                <div class="form-grid two">
-                  <label>
-                    Follow-up needed
-                    <select id="followupNeeded">
-                      <option selected>No</option>
-                      <option>Yes</option>
-                    </select>
-                  </label>
-                  <label>
-                    Follow-up date
-                    <input id="followupDate" type="date">
-                  </label>
+                <div class="patient-actions">
+                  <button class="secondary compact" type="button">Patient profile</button>
+                  <button class="secondary compact" id="previousRecordBtn" type="button">Previous record</button>
+                  <button class="icon-button" type="button" aria-label="More options">⋮</button>
                 </div>
-                <button id="saveDoctor" class="primary full" type="button">Save assessment</button>
+              </section>
+
+              <div class="doctor-content-grid">
+                <article class="doctor-card concern-card">
+                  <h3>Patient-reported concern</h3>
+                  <p id="briefIssue">Have pain in almost all body joints. Suffering from almost a month.</p>
+                </article>
+
+                <article class="doctor-card vitals-card">
+                  <div class="card-title-row">
+                    <h3>Allergies & vitals</h3>
+                    <div class="recorded-by">
+                      <span>Recorded by</span>
+                      <strong>Dr. Dana</strong>
+                      <small>May 14, 2025 · 10:15 AM</small>
+                    </div>
+                  </div>
+                  <div class="allergy-line">
+                    <span>Allergies</span>
+                    <strong id="briefAllergies">No known allergies</strong>
+                  </div>
+                  <div class="vitals-grid">
+                    <label>BP <input value="118 / 76" aria-label="Blood pressure"><span>mmHg</span></label>
+                    <label>Pulse <input value="78" aria-label="Pulse"><span>bpm</span></label>
+                    <label>Temp <input value="36.8" aria-label="Temperature"><span>°C</span></label>
+                    <label>Weight <input value="61" aria-label="Weight"><span>kg</span></label>
+                  </div>
+                </article>
+
+                <article class="doctor-card intake-card">
+                  <div class="card-title-row">
+                    <h3>Intake responses <span id="intakeAnswerCount" class="mini-badge">6 of 8 answered</span></h3>
+                    <label class="toggle-label"><input type="checkbox"> Show unanswered</label>
+                  </div>
+                  <ul id="briefAnswers" class="answer-list"></ul>
+                  <span id="missingItems" class="visually-hidden">All visible intake questions are complete.</span>
+                </article>
+
+                <article class="doctor-card files-card">
+                  <div class="card-title-row">
+                    <h3>Reports & attachments <span id="attachmentCount" class="mini-badge">1 file uploaded</span></h3>
+                  </div>
+                  <div id="briefFiles" class="attachment-list"></div>
+                  <button class="secondary compact" type="button">View all attachments</button>
+                </article>
+
+                <article class="doctor-card assessment-card">
+                  <div class="card-title-row">
+                    <h3>Doctor-entered <span>For clinician review</span></h3>
+                    <span class="mini-badge safe">No AI-generated content</span>
+                  </div>
+
+                  <div class="assessment-section">
+                    <h4>Possible diagnoses <span>Doctor-entered</span></h4>
+                    <label>1st priority <input placeholder="Enter diagnosis"></label>
+                    <label>2nd priority <input placeholder="Enter diagnosis"></label>
+                    <label>3rd priority <input placeholder="Enter diagnosis"></label>
+                  </div>
+
+                  <div class="assessment-section">
+                    <h4>Relevant tests to be performed <span>Doctor-selected</span></h4>
+                    <p class="microcopy">Select tests for clinician review</p>
+                    <div class="choice-row">
+                      <button type="button">CBC</button>
+                      <button type="button">Urine test</button>
+                      <button type="button">X-ray</button>
+                      <button type="button">Blood sugar</button>
+                      <button type="button">Other test</button>
+                    </div>
+                  </div>
+
+                  <div class="assessment-section">
+                    <h4>Plan category <span>For documentation purpose</span></h4>
+                    <div class="choice-row plan-row">
+                      <button class="selected" type="button">Documentation only</button>
+                      <button type="button">Follow-up</button>
+                      <button type="button">Lab/report review</button>
+                      <button type="button">Referral note</button>
+                      <button type="button">Observation</button>
+                    </div>
+                  </div>
+
+                  <div class="followup-line">
+                    <label class="switch-field">Follow-up needed <input id="followupNeeded" type="checkbox" checked></label>
+                    <label>Follow-up date <input id="followupDate" type="date"></label>
+                  </div>
+
+                  <label class="note-editor">
+                    <span>Clinical note</span>
+                    <div class="editor-toolbar" aria-hidden="true">
+                      <span>Inter</span><span>14</span><strong>B</strong><em>I</em><u>U</u><span>List</span><span>Link</span>
+                    </div>
+                    <textarea id="doctorNote" rows="4" maxlength="3000" placeholder="Enter clinician note..."></textarea>
+                    <small>0 / 3000</small>
+                  </label>
+                </article>
               </div>
             </section>
+          </div>
+
+          <div class="doctor-action-bar">
+            <span class="save-state">Draft saved</span>
+            <span class="review-state">Doctor reviewed <strong>May 14, 2025 10:18 AM</strong> · Dr. Dana</span>
+            <button class="secondary" type="button">Save draft</button>
+            <button class="secondary mark-reviewed" type="button">Mark reviewed</button>
+            <button id="saveDoctor" class="primary" type="button">Save assessment</button>
           </div>
         </section>
 
