@@ -1,0 +1,13 @@
+{
+  "name": "medoxzi-mvp-html",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "MEDOXZI pre-visit brief prototype with DeepSeek question suggestion.",
+  "scripts": {
+    "start": "node --env-file=.env server.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

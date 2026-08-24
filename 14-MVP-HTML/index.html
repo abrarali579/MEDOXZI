@@ -9,11 +9,17 @@
   <body>
     <div class="app-shell">
       <header class="topbar">
-        <div>
-          <p class="eyebrow">MEDOXZI Pre-Round</p>
-          <h1>Pre-Visit Patient Brief</h1>
+        <div class="brand-row">
+          <div class="brand-mark" aria-hidden="true">M</div>
+          <div class="brand-title">
+            <p class="eyebrow">MEDOXZI Pre-Round</p>
+            <h1>Pre-Visit Patient Brief</h1>
+          </div>
         </div>
-        <div class="status-pill">Prototype · sample data</div>
+        <div class="topbar-meta">
+          <span class="sync-chip" id="syncChip"><span class="dot live"></span>DeepSeek · Live</span>
+          <span class="status-pill safe">Prototype · sample data</span>
+        </div>
       </header>
 
       <nav class="role-tabs" aria-label="Prototype views">
@@ -112,6 +118,8 @@
                 </div>
               </div>
 
+              <div class="step-indicator" id="stepIndicator" aria-hidden="true"></div>
+
               <section class="intake-step active" data-step="0">
                 <h2>Before we start</h2>
                 <p class="quiet">Answer a few things now so the doctor sees a clear brief before calling you in.</p>
@@ -175,6 +183,7 @@
 
               <section class="intake-step" data-step="4">
                 <h2 id="questionTitle">Basic question</h2>
+                <p id="aiSourceNote" class="ai-source" hidden></p>
                 <p id="questionText" class="question-text"></p>
                 <div class="answer-grid">
                   <button type="button"></button>

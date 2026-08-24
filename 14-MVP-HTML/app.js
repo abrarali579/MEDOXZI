@@ -7,6 +7,8 @@ const state = {
   answers: {},
   files: [],
   doctorSaved: false,
+  aiQuestions: null,
+  aiBriefKey: "",
 };
 
 const questionBanks = {
@@ -49,6 +51,9 @@ const questionBanks = {
 };
 
 function activeQuestions() {
+  if (state.aiQuestions && state.aiQuestions.length) {
+    return state.aiQuestions;
+  }
   return questionBanks[state.complaint] || questionBanks["Something else"];
 }
 
@@ -566,11 +571,23 @@ function clearIntakeDraft({ keepIdentity = true } = {}) {
   $$(".complaint-grid button").forEach((button) => button.classList.remove("selected"));
 }
 
+function renderStepIndicator() {
+  const el = $("#stepIndicator");
+  if (!el) return;
+  const total = 7;
+  const cur = state.currentStep;
+  el.innerHTML = Array.from({ length: total }, (_, i) => {
+    const cls = i < cur ? "step-dot done" : i === cur ? "step-dot current" : "step-dot";
+    return `<span class="${cls}"></span>`;
+  }).join("");
+}
+
 function showStep(step) {
   state.currentStep = Math.max(0, Math.min(step, 7));
   $$(".intake-step").forEach((el) => {
     el.classList.toggle("active", Number(el.dataset.step) === state.currentStep);
   });
+  renderStepIndicator();
 
   const total = 7;
   $("#stepLabel").textContent =
@@ -582,6 +599,7 @@ function showStep(step) {
 
   if (state.currentStep === 4) {
     renderQuestion();
+    ensureAISuggestions();
   }
   if (state.currentStep === 6) {
     renderReview();
@@ -604,6 +622,67 @@ function renderQuestion() {
   $("#answerSummary").innerHTML = Object.entries(state.answers)
     .map(([question, answer]) => `<div><strong>${question}</strong><br>${answer}</div>`)
     .join("");
+}
+
+async function ensureAISuggestions() {
+  const brief = ($("#issueText")?.value || "").trim();
+  const complaint = state.complaint;
+  const key = `${complaint}|${brief}`;
+  if (state.aiQuestions && state.aiBriefKey === key) {
+    return; // already have suggestions for this brief
+  }
+  if (!brief) {
+    // No brief yet: show the static-only pill state (nothing to suggest from).
+    const note = $("#aiSourceNote");
+    if (note) {
+      note.hidden = false;
+      note.innerHTML = `<span class="pill">Static question set</span> (write your concern above and DeepSeek can tailor questions)`;
+    }
+    return;
+  }
+  try {
+    const res = await fetch("/api/questions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ brief: brief.slice(0, 1200), complaint }),
+    });
+    const data = await res.json();
+    // Only apply if the brief hasn't changed since we dispatched.
+    if (key !== `${state.complaint}|${($("#issueText")?.value || "").trim()}`) return;
+    const note = $("#aiSourceNote");
+    if (data && data.ok && Array.isArray(data.suggested) && data.suggested.length) {
+      state.aiQuestions = data.suggested;
+      state.aiBriefKey = key;
+      // Reset answers so the (possibly different) AI questions start fresh.
+      state.answers = {};
+      if (note) {
+        note.hidden = false;
+        note.innerHTML = `<span class="pill deepseek">DeepSeek · suggested from your brief</span>`;
+      }
+      if (state.currentStep === 4) renderQuestion();
+      renderDoctorBrief();
+    } else {
+      // Fallback to the static set; note why.
+      state.aiQuestions = null;
+      state.aiBriefKey = "";
+      const msg = (data && data.error) || "unavailable";
+      if (note) {
+        note.hidden = false;
+        note.innerHTML = msg === "NO_API_KEY"
+          ? `<span class="pill">Static question set</span> (DeepSeek key not configured locally)`
+          : `<span class="pill">Static question set</span> (DeepSeek offline)`;
+      }
+    }
+  } catch (err) {
+    // Local server not running -> static set, no error surfaced to patient.
+    state.aiQuestions = null;
+    state.aiBriefKey = "";
+    const note = $("#aiSourceNote");
+    if (note) {
+      note.hidden = false;
+      note.innerHTML = `<span class="pill">Static question set</span> (run the local server for DeepSeek questions)`;
+    }
+  }
 }
 
 function answerQuestion(answer) {
@@ -867,6 +946,8 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       state.complaint = button.dataset.complaint;
       state.answers = {};
+      state.aiQuestions = null;
+      state.aiBriefKey = "";
       $$(".complaint-grid button").forEach((el) => el.classList.remove("selected"));
       button.classList.add("selected");
       showStep(3);
@@ -894,7 +975,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   ["intakeName", "intakeAge", "intakeSex", "intakePhone", "issueText"].forEach((id) => {
-    $(`#${id}`).addEventListener("input", renderDoctorBrief);
+    $(`#${id}`).addEventListener("input", () => {
+      if (id === "issueText") {
+        state.aiQuestions = null;
+        state.aiBriefKey = "";
+      }
+      renderDoctorBrief();
+    });
   });
 
   $("#saveDoctor").addEventListener("click", saveDoctorConclusion);
