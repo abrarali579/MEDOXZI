@@ -2032,3 +2032,40 @@ No diagnostic/differential vocabulary present in any patient-facing question.
 - **Method:** content read + two targeted `patch` replacements.
 - **Evidence:** two GDPR occurrences replaced with "Indonesia's PDP Law (OT-01) and PSE scope (OT-14)". No remaining "GDPR" tokens.
 - **Verdict:** ✅ **CONFIRMED** — verified the fix landed; no GDPR references remain.
+
+## Session R (train) — 2026-08-24 — "Train the Harness with the Question Pack" made real (loader bridge + CLEAN gate)
+
+### V-2026-08-24-RT-01 · Vertical packs now load through the harness loader
+- **Claim:** `loader.load(path)` previously raised KeyError on vertical packs (no `safety_rules`); after the `loader.py` fix, a vertical pack loads with derived completeness.
+- **Method:** load a CLEAN literature pack by path via python.
+- **Evidence:**
+  ```
+  OK loaded: vertical@0.1.0 | status: DEMO_UNVALIDATED | questions: 13
+  required_for_completeness derived: 13 | rules: 0 | prohibited_phrases: 0 | is_signed: False
+  ```
+- **Verdict:** ✅ **CONFIRMED**
+
+### V-2026-08-24-RT-02 · CLEAN packs exercisable; BLOCKED packs refused (no auto-rewrite)
+- **Claim:** the bridge exercises only the 28 CLEAN packs and refuses the 12 BLOCKED with detector reasons.
+- **Method:** run `vertical_to_contentpack.py` over all `literature/*.json`.
+- **Evidence:** `[bridge] CLEAN-and-loadable: 28   refused: 12`; refusals name detector (F1_PROHIBITED_PHRASE / F3_DIFFERENTIAL_SHAPE) and instruct clinician rewrite.
+- **Verdict:** ✅ **CONFIRMED**
+
+### V-2026-08-24-RT-03 · ACTIVE-without-safety-rules invariant holds
+- **Claim:** a pack with `status=ACTIVE` and zero `safety_rules` refuses to load.
+- **Method:** construct `ContentPack({...,status:ACTIVE,questions:[],required_for_completeness:[]})`.
+- **Evidence:** `ValueError: pack 'v' is ACTIVE but has no safety_rules. ... refusing to load`.
+- **Verdict:** ✅ **CONFIRMED**
+
+### V-2026-08-24-RT-04 · Full suite + harness green, no regression
+- **Claim:** nothing regressed; exercise path unlocked.
+- **Method:** `pytest tests/` + `python -m harness.run`.
+- **Evidence:**
+  ```
+  $ pytest tests/ -q
+  100 passed in 0.17s
+  $ python -m harness.run
+  PASS  H1_contamination ... H5_drift ... H15_abstention ... calibration all PASS
+  VERDICT: PASS
+  ```
+- **Verdict:** ✅ **CONFIRMED**

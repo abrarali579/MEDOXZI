@@ -20,8 +20,31 @@ class ContentPack:
         self.status: str = data.get("status", "DRAFT")
         self.signed_at = data.get("signed_at")
         self.questions: list[dict] = data["questions"]
-        self.required_for_completeness: list[str] = data["required_for_completeness"]
+
+        # Pack-level completeness list may be omitted on DEMO_UNVALIDATED /
+        # DRAFT packs. When absent, derive it from the per-question flags so a
+        # pack drafted in vertical_pack/ is still exercisable through the harness.
+        if "required_for_completeness" in data:
+            self.required_for_completeness: list[str] = data["required_for_completeness"]
+        else:
+            self.required_for_completeness = [
+                q["question_key"]
+                for q in data["questions"]
+                if q.get("is_required_for_completeness")
+            ]
+
         self.prohibited_phrases: list[str] = data.get("prohibited_phrases", [])
+
+        raw_rules: list[dict] = data.get("safety_rules", [])
+        if not raw_rules and self.status == "ACTIVE":
+            # Production invariant: an ACTIVE pack MUST carry clinical safety
+            # rules. Treating a signed pack with zero rules as loadable would
+            # silently weaken the red-flag guard (protocol rule 5). Fail loudly.
+            raise ValueError(
+                f"pack {self.version!r} is ACTIVE but has no safety_rules. "
+                "ACTIVE packs must define clinical red-flag rules that a named "
+                "clinician has signed; refusing to load an unsigned-but-ACTIVE pack."
+            )
         self.rules: list[Rule] = [
             Rule(
                 rule_key=r["rule_key"],
@@ -35,7 +58,7 @@ class ContentPack:
                 cohort_exclude=r.get("cohort_exclude", []),
                 evidence_reference=r.get("evidence_reference"),
             )
-            for r in data["safety_rules"]
+            for r in raw_rules
         ]
 
     @property

@@ -4,6 +4,30 @@
 
 ---
 
+## 2026-08-24 - Session R (train) - "Train the Harness with the Question Pack" made real: loader bridge + CLEAN gate
+
+**WHAT**
+- Fixed **`loader.py`** so vertical question packs (literature- and draft-sourced) are exercisable through the harness, closing the README §4 claim that was previously false:
+  - `required_for_completeness` now derived from per-question `is_required_for_completeness` flags when the pack-level list is absent.
+  - `safety_rules` now optional for **DEMO_UNVALIDATED / DRAFT** packs (empty rules are structurally valid for harness exercise).
+  - **Hard invariant added:** a pack with `status=ACTIVE` and zero `safety_rules` **refuses to load** (`ValueError`). Signed/ACTIVE packs must carry clinician-signed red-flag rules. Protocol rule 5 preserved.
+- Added **`vertical_pack/tools/vertical_to_contentpack.py`** — the gated, safe bridge that exercises **only CLEAN** literature packs through the harness loader; BLOCKED packs are refused loudly (no clinical rewriting, ever).
+- Added **`tests/test_contentpack_bridge.py`** (5 tests) locking in: all vertical packs load structurally, CLEAN majority exists, CLEAN packs are DEMO-not-ACTIVE, ACTIVE-without-rules refuses, shipped demo pack unregressed.
+
+**WHY**
+- Abrar: "Hum system ko most common diseases se related Harness me Train kren gy with Question Pack." The 28 CLEAN literature packs (OPD Java Disease QuestionBank-grounded) previously could NOT be loaded by the harness — `loader.load()` raised `KeyError` on `safety_rules`, so nothing from the Question Pack could run through the harness gates. Now they can, safely.
+
+**EVIDENCE**
+- Bridge run: **CLEAN-and-loadable 28, refused 12** (the 12 BLOCKED refused with F1/F3 detector reasons and clinician-rewrite instruction — auto-rewrite never happens).
+- `pytest`: **100 passed** (95 baseline + 5 new). Harness end-to-end: **VERDICT: PASS** (H1/H3/H15/H5 all green).
+- ACTIVE guard demonstrated: a crafted ACTIVE-without-rules pack raises `ValueError`.
+
+**NEXT / WHY** · Promote CLEAN packs to `DRAFT` for clinician review as the Lead Doctor onboards (OT-18 sign-off gate). · The 12 BLOCKED packs await clinician rewording.
+
+**HOW** · loader defaulting + invariant guard · gate reuse (F1/F3/F4) · pytest regression lock.
+
+---
+
 ## 2026-08-24 - Session R (continuation) - Phase 0-6 design docs all on disk + cron upgraded to autonomous continuation
 
 **WHAT**
