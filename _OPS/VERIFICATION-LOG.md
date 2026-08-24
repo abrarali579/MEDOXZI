@@ -8,6 +8,79 @@
 
 ---
 
+## Session AC — 2026-08-25 — Restore `faf4e71` flow + doctor-only polish
+
+### V-2026-08-25-AC-01 · Restored intake/records workflow and polished only Doctor Review
+- **Claim:** The HTML MVP product flow is restored to `faf4e71 feat(mvp-html): split records workflow`, while only the Doctor / Pre-visit Review section receives the new polished command-center UI.
+- **Method:** Followed AGENT-PROTOCOL; used Graphify first; restored `14-MVP-HTML/` product files from `faf4e71`; edited only the Doctor view markup and supporting doctor-scoped JavaScript/CSS; refreshed Graphify; verified locally, by browser, and with the standard prototype test block.
+- **Evidence:**
+  ```text
+  $ graphify query "Which files and functions implement the HTML MVP doctor pre-visit screen, patient records split workflow, and Vercel deployment routing?" --graph graphify-current-state/graphify-out/graph.json --budget 1800
+  Start: ['previsitPatients()', 'HTML-MVP-app.js', 'openCurrentVisitSplit()', 'DoctorBrief', 'renderFiles()', 'patientHasFollowup()', 'allPatientRecords()']
+  Key functions: switchView(), renderQueues(), previsitPatients(), openCurrentVisitSplit(), openHistoryFile(), renderDoctorBrief(), renderFiles()
+  ```
+  ```text
+  $ git show --stat --oneline faf4e71
+  faf4e71 feat(mvp-html): split records workflow
+  15 files changed, 1262 insertions(+), 537 deletions(-)
+  ```
+  ```text
+  $ node --check 14-MVP-HTML\app.js
+  $ node --check 14-MVP-HTML\server.js
+  $ node --check 14-MVP-HTML\api\questions.js
+  $ node --check api\questions.js
+  ```
+  All syntax checks exited 0 with no output.
+  ```text
+  $ Invoke-WebRequest http://localhost:8765/ -UseBasicParsing | Select-Object -ExpandProperty StatusCode
+  200
+  ```
+  ```text
+  Browser smoke at http://localhost:8765/
+  Default/restored flow: active=view-welcome; hasPatient=true; hasRecords=true; hasViewer=true
+  Tabs: Front desk, Patient intake, Pre-visit review, Patient records, Record viewer, Clinic operations
+  Doctor Review: queueCards=3; currentCards=1; structuredFeedback=true; recordsButton=true
+  Doctor controls: diagnosisInputs=3; relevantTests=[CBC, Urine test, X-ray, Blood sugar, Other test]
+  Vitals: [118 / 76, 78, 36.8, 61]; hasSpO2=false; hasPendingBand=false
+  Responsive: 1024x768 overflowX=false; 820x1180 overflowX=false; 768x1024 overflowX=false
+  Console errors: []
+  ```
+  ```text
+  $ python -m pytest tests/ -q
+  ........................................................................ [ 72%]
+  ............................                                             [100%]
+  100 passed in 0.16s
+  ```
+  ```text
+  $ python -m harness.run
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+  VERDICT: PASS
+  ```
+  ```text
+  $ python demo.py | Select-Object -Last 20
+  Three distinct clinical facts. Three distinct renderings.
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+  ```
+  ```text
+  $ graphify extract graphify-current-state-src --out graphify-current-state --code-only
+  [graphify extract] wrote D:\MEDOXZI\graphify-current-state\graphify-out\graph.json: 73 nodes, 129 edges, 15 communities
+
+  $ graphify cluster-only graphify-current-state --no-label
+  Graph: 73 nodes, 129 edges
+  Done - 15 communities. GRAPH_REPORT.md, graph.json and graph.html updated.
+  ```
+- **Contradiction sweep:** Windows AGENT-PROTOCOL sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; `No red flags`/`No concerns` only in prohibitive, historical, or pitch-forbidden contexts; 25-year retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift/prohibited-term implementation; `>=500`/`≥500` only in ADR-029/history/Gate 6/synthetic/privacy contexts including copied Graphify source docs.
+- **Verdict:** CONFIRMED — the rejected AB product-flow change is superseded, the `faf4e71` intake/records workflow is restored, and the Doctor Review UI is polished without adding real patient data, clinical automation, SpO2, pending-items band, or safety-clearance claims.
+
 ## Session AB — 2026-08-25 — HTML MVP journey-first polish
 
 ### V-2026-08-25-AB-01 · Local HTML MVP opens on the patient-arrival journey and preserves Doctor Review

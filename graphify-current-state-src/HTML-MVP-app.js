@@ -1,20 +1,11 @@
 const state = {
   token: 51,
-  pin: "6711",
+  pin: "",
   linkedIdentity: null,
   currentStep: 0,
-  complaint: "Body pain",
-  answers: {
-    "How would you describe the pain?": "Aching",
-    "Is the pain accompanied by swelling, redness, or warmth in the joints?": "No",
-    "Does the pain affect your daily activities?": "A little",
-    "How long have you been experiencing the pain?": "~1 month",
-    "Have you tried any medication or home remedies?": "No",
-    "Does anything make the pain better or worse?": "Worse in morning",
-    "Have you had any fever, fatigue, or rash along with the joint pain?": "Yes",
-    "Anything else you want us to know?": "Not answered",
-  },
-  files: ["Blood_Test_May14.pdf"],
+  complaint: "Fever",
+  answers: {},
+  files: [],
   doctorSaved: false,
   aiQuestions: null,
   aiBriefKey: "",
@@ -91,14 +82,14 @@ const patients = [
   },
   {
     token: 51,
-    pin: "6711",
-    name: "Arooj Abrar",
-    age: "26",
-    sex: "Female",
-    phone: "+62 85819980404",
-    meta: "F 26",
+    pin: "",
+    name: "Abrar Ali",
+    age: "34",
+    sex: "Male",
+    phone: "+62 812 0000 0000",
+    meta: "M 34",
     status: "Ready",
-    docs: "1",
+    docs: "0",
   },
 ];
 
@@ -319,7 +310,6 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => Array.from(document.querySelectorAll(selector));
 
 const viewTitles = {
-  welcome: ["Clinic journey", "Patient arrival"],
   staff: ["Clinic workspace", "Front desk"],
   patient: ["Patient workspace", "Patient intake"],
   doctor: ["Doctor workspace", "Pre-visit review"],
@@ -336,7 +326,6 @@ function switchView(viewName, options = {}) {
     }
   }
   $$(".tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.view === viewName));
-  $$(".flow-tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.jump === viewName));
   $$(".view").forEach((view) => view.classList.toggle("active", view.id === `view-${viewName}`));
   const [context, title] = viewTitles[viewName] || viewTitles.doctor;
   $("#topbarContext").textContent = context;
@@ -353,27 +342,10 @@ function previsitPatients() {
   return [current, ...incoming];
 }
 
-function queueItemHtml(patient, { current = false, compact = false, mode = "staff" } = {}) {
+function queueItemHtml(patient, { current = false, compact = false } = {}) {
   const label = current ? "Current patient" : compact ? "Incoming" : patient.status;
   const statusClass = current ? "mini-badge current" : "mini-badge";
   const itemClass = current ? "queue-item current-patient" : "queue-item incoming-patient";
-
-  if (mode === "doctor" && current) {
-    return `
-      <button class="${itemClass} queue-current-expanded" type="button" data-token="${patient.token}" aria-current="true">
-        <span class="token">${patient.token}</span>
-        <span class="queue-main">
-          <span class="queue-topline"><span class="queue-name">${patient.name}</span><span class="${statusClass}">Current</span></span>
-          <span class="queue-meta">Patient ID ${patient.pin || "New profile"} · ${patient.meta}</span>
-          <span class="queue-time">Arrived today 10:24 AM</span>
-          <span class="queue-progress"><span><i style="width: 93%"></i></span><strong>93%</strong></span>
-          <span class="queue-eta">Est. start in 2 min</span>
-          <span class="queue-start">Start review</span>
-        </span>
-      </button>
-    `;
-  }
-
   return `
     <button class="${itemClass}" type="button" data-token="${patient.token}" ${current ? 'aria-current="true"' : ""}>
       <span class="token">${patient.token}</span>
@@ -386,10 +358,26 @@ function queueItemHtml(patient, { current = false, compact = false, mode = "staf
   `;
 }
 
+function doctorQueueItemHtml(patient, { current = false } = {}) {
+  return `
+    <button class="doctor-queue-card ${current ? "current" : "incoming"}" type="button" data-token="${patient.token}" ${current ? 'aria-current="true"' : ""}>
+      <span class="doctor-token">${patient.token}</span>
+      <span class="doctor-queue-copy">
+        <strong>${patient.name}</strong>
+        <span>Patient ID ${patient.pin || patient.token} · ${patient.meta}</span>
+        <span>${current ? "Arrived today 10:24 AM" : patient.token === 49 ? "ETA 10:40 AM" : "ETA 11:05 AM"}</span>
+        ${current ? '<span class="queue-progress"><span></span></span><em>Est. start in 2 min</em>' : ""}
+      </span>
+      <span class="mini-badge ${current ? "current" : ""}">${current ? "Current" : "Incoming"}</span>
+      ${current ? '<span class="start-review">Start review</span>' : ""}
+    </button>
+  `;
+}
+
 function renderQueues() {
-  $("#staffQueue").innerHTML = patients.map((patient) => queueItemHtml(patient, { mode: "staff" })).join("");
+  $("#staffQueue").innerHTML = patients.map((patient) => queueItemHtml(patient)).join("");
   $("#doctorQueue").innerHTML = previsitPatients()
-    .map((patient, index) => queueItemHtml(patient, { current: index === 0, compact: true, mode: "doctor" }))
+    .map((patient, index) => doctorQueueItemHtml(patient, { current: index === 0 }))
     .join("");
   $("#waitingCount").textContent = `${patients.length} waiting`;
 }
@@ -611,7 +599,6 @@ function syncPatientFromRegistration() {
   patients[2].sex = sex;
   patients[2].phone = phone;
   patients[2].token = token;
-  patients[2].pin = state.pin || patients[2].pin;
   patients[2].meta = `${sex.charAt(0)} ${age}`;
   renderQueues();
   renderDoctorBrief();
@@ -834,35 +821,15 @@ function renderDoctorBrief() {
   const name = $("#intakeName")?.value || $("#patientName")?.value || "Demo Patient";
   const age = $("#intakeAge")?.value || $("#patientAge")?.value || "34";
   const sex = $("#intakeSex")?.value || $("#patientSex")?.value || "Male";
-  const phone = getIntakePhone() || $("#patientPhone")?.value || "No phone";
-  $("#briefTitle").textContent = `${name}${state.pin ? ` · Patient ID ${state.pin}` : ""}`;
+  const questions = activeQuestions();
+  $("#briefTitle").textContent = `${name} · Patient ID ${state.pin || state.token}`;
   $("#briefIssue").textContent = $("#issueText")?.value || "Not entered";
-
-  const filesEl = $("#briefFiles");
+  $("#briefFiles").textContent = state.files.length
+    ? `${state.files[0]} · ${state.files.length} file(s) attached for doctor review only.`
+    : "No previous reports attached.";
   const attachmentCount = $("#attachmentCount");
-  if (filesEl) {
-    filesEl.innerHTML = state.files.length
-      ? state.files
-          .map(
-            (file) => `
-              <div class="attachment-row">
-                <span class="file-icon">PDF</span>
-                <span>
-                  <strong>${file}</strong>
-                  <small>PDF · 356 KB · May 14, 2025 09:52 AM</small>
-                </span>
-                <button type="button" aria-label="Preview ${file}">View</button>
-                <button type="button" aria-label="Download ${file}">Download</button>
-              </div>
-            `,
-          )
-          .join("")
-      : `<div class="empty-state">No previous reports attached.</div>`;
-  }
   if (attachmentCount) {
-    attachmentCount.textContent = state.files.length
-      ? `${state.files.length} file${state.files.length === 1 ? "" : "s"} uploaded`
-      : "No files";
+    attachmentCount.textContent = state.files.length ? `${state.files.length} file uploaded` : "No files";
   }
 
   const demographicsEl = $("#briefDemographics");
@@ -870,14 +837,15 @@ function renderDoctorBrief() {
     demographicsEl.innerHTML = [
       `<span class="demo-chip demo-age">${age} yrs</span>`,
       `<span class="demo-chip demo-sex">${sex}</span>`,
-      `<span class="demo-chip demo-contact">${phone}</span>`,
+      `<span class="demo-chip demo-contact">${getIntakePhone() || "No phone"}</span>`,
     ].join("");
   }
 
   const answerEntries = Object.entries(state.answers);
-  const answeredCount = answerEntries.filter(([, answer]) => answer !== "Not answered").length;
-  const answerCountEl = $("#intakeAnswerCount");
-  if (answerCountEl) answerCountEl.textContent = `${answeredCount} of ${answerEntries.length || activeQuestions().length} answered`;
+  const answerCount = $("#answerCount");
+  if (answerCount) {
+    answerCount.textContent = `${answerEntries.length} of ${questions.length} answered`;
+  }
   $("#briefAnswers").innerHTML = answerEntries.length
     ? answerEntries.map(
         ([q, a]) =>
@@ -885,11 +853,13 @@ function renderDoctorBrief() {
       ).join("")
     : `<li class="answer-item empty">No intake questions answered yet.</li>`;
 
-  const questions = activeQuestions();
-  const missing = questions.filter((question) => !state.answers[question.text]);
-  $("#missingItems").textContent = missing.length
-    ? missing.map((question) => question.text).join(" · ")
-    : "All visible intake questions are complete.";
+  const missingItems = $("#missingItems");
+  if (missingItems) {
+    const missing = questions.filter((question) => !state.answers[question.text]);
+    missingItems.textContent = missing.length
+      ? missing.map((question) => question.text).join(" · ")
+      : "All visible intake questions are complete.";
+  }
 }
 
 function normalize(value) {
@@ -1111,8 +1081,8 @@ function escapeHtml(value) {
 
 function saveDoctorConclusion() {
   state.doctorSaved = true;
-  const followupEl = $("#followupNeeded");
-  const followupNeeded = followupEl?.type === "checkbox" ? (followupEl.checked ? "Yes" : "No") : followupEl.value;
+  const followupField = $("#followupNeeded");
+  const followupNeeded = followupField?.type === "checkbox" ? (followupField.checked ? "Yes" : "No") : followupField.value;
   const followupDate = $("#followupDate").value;
   const consent = $("#clinicCommsConsent").checked;
 
@@ -1123,25 +1093,21 @@ function saveDoctorConclusion() {
     $("#reminderPreview").textContent =
       "Assessment saved. No reminder preview is shown because follow-up is not marked as needed or no date was selected.";
   }
-  $(".save-state").textContent = "Assessment saved";
-  $(".review-state").innerHTML = "Doctor reviewed <strong>May 14, 2025 10:18 AM</strong> · Dr. Dana";
+  switchView("ops");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  renderQueues();
   renderHistoryFilters();
   renderHistoryList();
   openHistoryFile(historyPatients[0].pin);
-  syncPatientFromRegistration();
   showStep(0);
+  renderDoctorBrief();
 
   $$(".tab").forEach((tab) => tab.addEventListener("click", () => switchView(tab.dataset.view)));
   $$("[data-jump]").forEach((button) =>
     button.addEventListener("click", () => switchView(button.dataset.jump)),
   );
-  $("#previousRecordBtn")?.addEventListener("click", () => {
-    openHistoryFile(historyPatients[0].pin);
-    switchView("viewer");
-  });
 
   $(".history-clear").addEventListener("click", () => {
     historyFilters.query = "";
