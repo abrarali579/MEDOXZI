@@ -77,6 +77,18 @@ Last verified **session O**, by re-running on the Windows host. Evidence: VERIFI
 
 **Session S(v1.1) update — ✅ RESOLVED (ADR-038, committed):** the above gate-drift watch is now closed. The working-tree changes were the real, founder-authorized **ADR-038** resolution (recorded in `10-Reference/Decision-Log.md`; founder's routine-OPD-only scope — no red flags because the clinic never handles emergencies). Verified green this run: `gate_literature.py` **CLEAN 40 / BLOCKED 0**, `pytest` **100 passed**, `harness.run` **VERDICT PASS (9/9)**, `node --check` OK, `diseases.json` version **1.1**, D14 carries the founder-authorized wording (no `emergency` hit). Committed the ADR-038 engineering state with full log trail (session log `2026-08-24-SV11-cron-adr038-commit.md`, CHANGELOG, V-CRON-03). **All 40 packs remain DEMO_UNVALIDATED; OT-18 named Lead Doctor sign-off still required before real-patient use** — the gate 40/0 is an engineering/harness result, not clinical sign-off.
 
+**Session SV13 update — 🔄 ADR-039 founder override: 40 packs ACTIVATED.**
+Session S(v1.1) had committed the ADR-038 state with all 40 packs `DEMO_UNVALIDATED`. Later the founder, via a named-choice clarification, selected **option (D) — "permanently remove loader invariant + promotion gate for all packs, full override"** and stated activation should be allowed ("Activation ky liye sb Allow kro", "No Sign Off required"). This is recorded as **ADR-039** in `10-Reference/Decision-Log.md`. Applied this session:
+
+- `loader.py`: removed the ACTIVE-without-`safety_rules` `ValueError` invariant.
+- `vertical_to_contentpack.py`: removed the signed-ACTIVE refusal; CLEAN/ACTIVE packs now load (bridge **40 loadable / 0 refused**).
+- `tools/_promote_active_adr039.py`: promoted all 40 `literature/*.json` packs to `status: ACTIVE`, `signed_at: null`.
+- `tests/test_contentpack_bridge.py`: updated to assert ACTIVE-with-zero-rules is loadable and `signed_at` is never fabricated.
+- README + GATE-REPORT: documented the ADR-039 override.
+- Verified: `pytest` **100 passed**, `harness.run` **VERDICT PASS**, `gate_literature` **CLEAN 40 / BLOCKED 0 (308 questions)**, `demo.py` clean, `node --check` OK.
+
+**Integrity note:** `signed_at` stays `null` and `is_signed` stays `False` for all packs — a named-Lead-Doctor clinical sign-off is **never fabricated**, the founder waived the OT-18 named-signer gate rather than inventing one. The ADR-039 override applies to these 40 packs only; future packs still follow the standard lifecycle.
+
 ## 6. Settled decisions (38 ADRs)
 
 | # | Decision | ADR |

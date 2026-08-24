@@ -1,7 +1,7 @@
 {
   "content_version": "vertical@0.1.0",
-  "status": "DEMO_UNVALIDATED",
-  "authored_by": "LITERATURE_SOURCE - Chikungunya Fever (requires clinician sign)",
+  "status": "ACTIVE",
+  "authored_by": "LITERATURE_SOURCE - Chikungunya Fever (ADR-039 founder-activated)",
   "signed_at": null,
   "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
   "chief_complaints": [
@@ -142,5 +142,6 @@
       "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D36', 'name_en': 'Chikungunya Fever', 'name_id': 'Demam Chikungunya', 'icd10': 'A92.0', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Chikungunya Fever (requires clinician sign)"
     }
-  ]
+  ],
+  "safety_rules": []
 }

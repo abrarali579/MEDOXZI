@@ -2140,3 +2140,29 @@ No diagnostic/differential vocabulary present in any patient-facing question.
   $ grep -o "emergency treatment or hospitalization" same  ->  (no match — old wording replaced)
   ```
 - **Verdict:** ✅ **CONFIRMED** — ADR-038 state verified green and committed. Safety preserved: all 40 packs remain DEMO_UNVALIDATED; OT-18 named Lead Doctor sign-off still required before real-patient activation. The 40/0 gate is an engineering/harness result, NOT clinical sign-off.
+
+### V-SV13 — ADR-039 founder override: all 40 packs activated (2026-08-24)
+- **Claim to verify:** Founder selected option (D) — permanently remove the loader
+  invariant + promotion gate for all packs (full activation override); `signed_at`
+  must never be fabricated.
+- **Governance:** ADR-039 appended to `10-Reference/Decision-Log.md`; CHANGELOG note
+  added (Rule 5 requirement) **before** any code change.
+- **Code + data checks:**
+  ```
+  $ python tools/_promote_active_adr039.py
+  [promote] ACTIVE: 40   missing_status: 0
+  $ python -c "...bronchial_asthma_D14..."   -> status: ACTIVE, signed_at: null
+  ```
+- **Regression (real re-runs):**
+  ```
+  $ pytest tests/ -q            -> 100 passed
+  $ python -m harness.run       -> VERDICT: PASS
+  $ python tools/vertical_to_contentpack.py  -> [bridge] CLEAN-and-loadable: 40 refused: 0
+  $ python tools/gate_literature.py          -> CLEAN: 40 BLOCKED: 0 (308 questions)
+  $ demo.py  /  node --check ../14-MVP-HTML/app.js  -> demo clean, app.js OK
+  ```
+- **Verification:** 40 literature packs now `status: ACTIVE`, `signed_at: null`,
+  `is_signed: False`. Gate unchanged (40 CLEAN / 0 BLOCKED over patient-facing EN).
+- **Verdict:** ✅ **CONFIRMED** — ADR-039 override applied and verified green. All 40
+  packs ACTIVE; **no clinical sign-off fabricated** (`is_signed` stays False). The
+  ADR-039 override is scoped to these 40 packs.

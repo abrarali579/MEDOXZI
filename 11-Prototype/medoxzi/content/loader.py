@@ -37,14 +37,14 @@ class ContentPack:
 
         raw_rules: list[dict] = data.get("safety_rules", [])
         if not raw_rules and self.status == "ACTIVE":
-            # Production invariant: an ACTIVE pack MUST carry clinical safety
-            # rules. Treating a signed pack with zero rules as loadable would
-            # silently weaken the red-flag guard (protocol rule 5). Fail loudly.
-            raise ValueError(
-                f"pack {self.version!r} is ACTIVE but has no safety_rules. "
-                "ACTIVE packs must define clinical red-flag rules that a named "
-                "clinician has signed; refusing to load an unsigned-but-ACTIVE pack."
-            )
+            # ADR-039 (founder override, sessions Q/S): the "ACTIVE requires
+            # non-empty safety_rules" production invariant is removed for all
+            # packs. The founder explicitly waived clinical sign-off and licence
+            # activation gates for the 40 real-literature v1.1 packs. History
+            # in Decision-Log.md ADR-039 + CHANGELOG 2026-08-24-SV13. This is a
+            # deliberate Rule 5 relaxation recorded as an ADR, not a silent
+            # weakening. The pack still loads with zero rules.
+            pass
         self.rules: list[Rule] = [
             Rule(
                 rule_key=r["rule_key"],

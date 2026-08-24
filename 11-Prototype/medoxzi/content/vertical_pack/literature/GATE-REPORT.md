@@ -41,15 +41,21 @@ drafting pipeline.
 
 ## Status of all 40 packs
 
-All 40 are `DEMO_UNVALIDATED` — literature-sourced, harness-clean, but **not**
-activated for real-patient use. Activation requires:
+All 40 are `ACTIVE` per **ADR-039** (founder override, 2026-08-24, sessions Q/S):
+literature-sourced, harness-clean, promoted to ACTIVE with `signed_at: null`.
 
-- Named Lead Doctor clinical sign-off (OT-18) — never fabricated.
-- `is_signed`/`signed_at` only set by a real clinical signer.
+- `status == "ACTIVE"` — founder-activation allowed for all packs (option D).
+- `signed_at` stays `null` / `is_signed` stays `False` — a named-Lead-Doctor
+  sign-off is **never fabricated**; the founder waived the OT-18 named-signer
+  gate for these packs rather than inventing one.
+- Zero `safety_rules` — the loader's ACTIVE-without-rules guard (ADR-039) and
+  the `source_ref`/licence activation gate were relaxed for these 40 packs.
 
 ## What happens next
 
-1. The 40 CLEAN packs are the valid Harness-training basis.
-2. Real-patient activation is blocked on OT-18 named Lead Doctor sign-off.
-3. Hindi (`hi`) text is **not** auto-generated anywhere (bank ships EN+ID only);
+1. The 40 ACTIVE packs load through the bridge (40 loadable / 0 refused) and
+   are the Harness-training basis.
+2. Hindi (`hi`) text is **not** auto-generated anywhere (bank ships EN+ID only);
    localisation is a clinician/localiser task to avoid invented translation.
+3. Future packs follow the standard DEMO_UNVALIDATED → DRAFT → ACTIVE lifecycle
+   in the README (ADR-039 applies only to these 40 unless the founder extends it).

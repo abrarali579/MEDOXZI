@@ -11,11 +11,10 @@ GUARANTEES
 - Only packs that pass the drift gate (CLEAN) are loadable. A BLOCKED pack is
   refused loudly — nothing clinical is rewritten here, ever.
 - No clinical content is authored. The bridge never synthesises safety_rules or
-  clinical wording; a DEMO pack carries zero red-flag rules and can never be
-  ACTIVE (loader guard: ACTIVE-without-rules refuses to load).
+  clinical wording; status/promotion per **ADR-039** (founder override): an ACTIVE
+  pack with zero safety_rules is loadable, so a CLEAN pack may be ACTIVE.
 - The output is exercised through the existing deterministic harness gates only;
-  it is NOT an automated path to ACTIVE (that is a human, clinical-safety
-  decision, OT-18).
+  status/activation follows ADR-039 (founder override), not an automated gate.
 
 Usage
     python vertical_to_contentpack.py [path/to/a/literature/pack.json]
@@ -47,12 +46,7 @@ def bridge_one(path: Path) -> Path:
             "Only CLEAN packs may be exercised through the harness. A clinician "
             "must rewrite the flagged questions first (gate_literature.py)."
         )
-    pack = load(path)  # raises if ACTIVE-without-rules or malformed
-    if pack.is_signed:
-        raise SystemExit(
-            f"REFUSED {path.name}: a signed (ACTIVE) pack has no empty safety "
-            "rules, and unsupported. Aborting rather than risk a misload."
-        )
+    pack = load(path)  # raises if malformed (ADR-039: zero rules OK for ACTIVE)
     return path
 
 

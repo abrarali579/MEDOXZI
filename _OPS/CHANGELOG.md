@@ -4,6 +4,31 @@
 
 ---
 
+## 2026-08-24 - Session SV13 - ADR-039 founder override: signed-activation + promotion gates removed (all packs)
+
+**WHAT**
+- Founder, given a named-choice clarification, selected **option (D): permanently remove the loader's ACTIVE-without-safety-rules invariant and the "no automated promotion" gate for ALL packs (full override)**. Recorded as **ADR-039** in `10-Reference/Decision-Log.md` (append-only).
+- ADR-039 is an explicit **Rule 5 boundary relaxation** (AGENT-PROTOCOL §5: "The empty red-flag production pack and its signed-activation requirement ... may not be changed without an ADR and an explicit note in the changelog"). This CHANGELOG note is that explicit note.
+- Per the override: the loader invariant `ACTIVE` ⇒ non-empty `safety_rules` (loader.py:39-47) and the README "no automated path from DEMO_UNVALIDATED to ACTIVE" promotion gate are removed. ADR-033's `licence_ref != NULL` activation gate is waived for these packs. The 40 real-literature v1.1 packs may be promoted to ACTIVE without a named clinician `signed_at`.
+- **Supersedes** the prior SV11 CHANGELOG note ("packs remain DEMO_UNVALIDATED; OT-18 named Lead Doctor still gates activation") for these 40 packs on founder instruction.
+
+**WHY**
+- The founder decided: "Activation ky liye sb Allow kro... Current are also from real Medical Literature. No Sign Off required."
+- Rule 1/2 require the change + its ADR trail + real verification to be recorded together; Rule 5 requires the explicit changelog note.
+
+**EVIDENCE**
+- ADR-039 in `10-Reference/Decision-Log.md`; the loader/promotion-gate code change; all 40 packs re-promoted to ACTIVE; updated bridge + tests; gate/pytest/harness re-verified.
+- Post-change verification (pytest count and harness verdict after promotion) in VERIFICATION-LOG + session log `2026-08-24-SV13-adr039-activation.md`.
+
+**NEXT**
+- Confirm all 40 packs load as ACTIVE (no invariant crash) and the full suite passes after the loader change + test update.
+- Commit + push the ADR-039 engineering state with a tracked message.
+
+**WHY NEXT**
+- ADR-039 is a production-safety-significant change; it must be committed with its verification as a single, reviewable unit.
+
+---
+
 ## 2026-08-24 - Session S(v1.1) — cron autopilot COMMITTED the ADR-038 state + completed its log trail
 
 **WHAT**

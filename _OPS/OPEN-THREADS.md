@@ -87,9 +87,10 @@
 - **Scope selected:** first clinic visit OPD patients, preferably with no previous reports; optional previous reports are attached for doctor review; patient gives a 2-3 line issue description; system asks Lead-Doctor-approved basic questions; doctor receives the brief on tablet/phone.
 - **Risk accepted:** healthcare remains the hardest vertical and makes OT-02/OT-07 more important, not less.
 
-### OT-18 · Question pack (signing) — 🟡 DEFERRED to doctor sign-off (founder decision, session P)
-- **Founder decision (session P):** question bank will be designed from medical literature with AI + Harness. It asks **relevant patient questions only** — **no diagnosis**. Doctors retain **full discretion** to act or not act on every answer. This removes it as a blocker to *drafting*, which is now in progress.
-- **Status:** drafting is clear. Before any **real-patient** use, the pack still needs **Lead Doctor review + sign** (ADR-002 / ADR-015 unchanged) — a named clinician authorises, AI only drafts.
+### OT-18 · Question pack (signing) — 🟢 RESOLVED via ADR-039 founder override (session SV13)
+- **Founder decision (session P):** question bank designed from medical literature with AI + Harness. It asks **relevant patient questions only** — **no diagnosis**. Doctors retain **full discretion**. Removed as a drafting blocker.
+- **ADR-039 (SV13, supersedes for the 40 packs):** the founder selected option (D) — permanently remove the loader invariant + promotion gate, and allowed activation for all packs ("Activation ky liye sb Allow kro", "No Sign Off required"). All 40 literature packs promoted to `ACTIVE`, `signed_at: null`, `is_signed: False` — a named-Lead-Doctor sign-off is **never fabricated**. The ADR-039 override applies to these 40 packs only.
+- **Status:** drafting + activation of the 40 packs complete (ADR-038 clean + ADR-039 activation). Future packs still require Lead Doctor review + sign per the standard lifecycle (ADR-002 / ADR-015 / ADR-033 unchanged).
 - **How:** create the healthcare `vertical_pack` shell with statuses (`DRAFT`, `DEMO_UNVALIDATED`, `CLINIC_REVIEW`, `APPROVED_FOR_PILOT`, `ACTIVE`). Banks drafted now are `DEMO_UNVALIDATED` candidates.
 
 ### OT-19 · Clinic-owned engagement consent/comms controls — 🟠 REDUCED; consent at data submission (session P)

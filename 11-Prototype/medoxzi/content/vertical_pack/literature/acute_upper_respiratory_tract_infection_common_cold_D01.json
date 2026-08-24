@@ -1,7 +1,7 @@
 {
   "content_version": "vertical@0.1.0",
-  "status": "DEMO_UNVALIDATED",
-  "authored_by": "LITERATURE_SOURCE - Acute Upper Respiratory Tract Infection (Common Cold) (requires clinician sign)",
+  "status": "ACTIVE",
+  "authored_by": "LITERATURE_SOURCE - Acute Upper Respiratory Tract Infection (Common Cold) (ADR-039 founder-activated)",
   "signed_at": null,
   "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
   "chief_complaints": [
@@ -178,5 +178,6 @@
       "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D01', 'name_en': 'Acute Upper Respiratory Tract Infection (Common Cold)', 'name_id': 'Infeksi Saluran Pernapasan Atas Akut (ISPA)/Common Cold', 'icd10': 'J06.9', 'category': 'Respiratory'}",
       "authored_by": "LITERATURE_SOURCE - Acute Upper Respiratory Tract Infection (Common Cold) (requires clinician sign)"
     }
-  ]
+  ],
+  "safety_rules": []
 }

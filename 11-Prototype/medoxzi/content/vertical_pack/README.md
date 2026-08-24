@@ -88,6 +88,13 @@ ACTIVE            (signed_at set, loaded as the live pack)
 **No automated path crosses from `DEMO_UNVALIDATED` to `ACTIVE`.** Promotion is a
 human, clinical-safety decision.
 
+> **ADR-039 override (founder, sessions Q/S).** The founder waived the named-Lead-
+> Doctor sign-off, the `source_ref`/licence activation gate, and the ACTIVE-without-
+> safety-rules loader guard for the 40 literature question packs, and promoted them
+> to `ACTIVE` with `signed_at: null`. `is_signed` therefore stays False — a sign-off
+> is never fabricated. Future packs still follow the lifecycle above unless the
+> founder issues another ADR. See `10-Reference/Decision-Log.md` ADR-039.
+
 ## 6. Hallucination / safety guard (the Harness)
 
 Drafts are produced by a local Ollama model under a **strict drafting prompt**

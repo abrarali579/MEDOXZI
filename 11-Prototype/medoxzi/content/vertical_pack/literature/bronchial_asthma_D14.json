@@ -1,7 +1,7 @@
 {
   "content_version": "vertical@0.1.0",
-  "status": "DEMO_UNVALIDATED",
-  "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)",
+  "status": "ACTIVE",
+  "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (ADR-039 founder-activated)",
   "signed_at": null,
   "warning": "This content is drawn from a clinical reference/education aid and is not clinically validated. It requires named clinician review + sign-off before any real-patient use.",
   "chief_complaints": [
@@ -160,5 +160,6 @@
       "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D14', 'name_en': 'Bronchial Asthma', 'name_id': 'Asma Bronkial', 'icd10': 'J45', 'category': 'Respiratory'}",
       "authored_by": "LITERATURE_SOURCE - Bronchial Asthma (requires clinician sign)"
     }
-  ]
+  ],
+  "safety_rules": []
 }
