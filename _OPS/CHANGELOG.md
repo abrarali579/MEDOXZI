@@ -9,7 +9,7 @@
 - Restored `14-MVP-HTML/` product flow files to the `faf4e71 feat(mvp-html): split records workflow` baseline after the Session AB journey-first polish was rejected.
 - Preserved the `faf4e71` staff, patient intake, Patient Records, and Record Viewer logic/screens.
 - Updated only the Doctor / Pre-visit Review section to match the approved command-center reference: live queue with current + next two patients, structured feedback, patient profile + previous-record actions, allergies + vitals without SpO2, close intake response rows, report attachment row, clinician-entered priority diagnosis fields, doctor-selected relevant tests, plan category controls, follow-up controls, and sticky assessment actions.
-- Kept Vercel deployment plumbing from Sessions Z-AA so the restored/polished HTML MVP can redeploy.
+- Kept Vercel deployment plumbing from Sessions Z-AA and verified the corrected/polished HTML MVP on production.
 - Refreshed `graphify-current-state/` after the correction (`73 nodes, 129 edges, 15 communities`).
 
 **WHY**
@@ -21,19 +21,21 @@ Abrar explicitly requested restoration to commit `faf4e71` and asked that only t
 - `python demo.py | Select-Object -Last 20` -> deterministic demo completed.
 - `node --check 14-MVP-HTML\app.js; node --check 14-MVP-HTML\server.js; node --check 14-MVP-HTML\api\questions.js; node --check api\questions.js` -> all exited 0.
 - `Invoke-WebRequest http://localhost:8765/ -UseBasicParsing` -> `200`.
+- Live production check at `https://medoxzi.vercel.app/` -> `200`; HTML contains `Doctor-entered`, `Patient records`, `Previous record`, and `Structured feedback`; HTML does not contain `workflow-strip`.
+- Live `POST https://medoxzi.vercel.app/api/questions` -> `200`.
 - Browser smoke at `http://localhost:8765/`: default active view restored to `view-welcome`; Front desk, Patient intake, Pre-visit Review, Patient Records, Record Viewer, and Clinic Operations tabs present; Doctor Review has 3 queue cards, 1 current card, structured feedback, Previous record action, 3 diagnosis inputs, relevant-test buttons, vitals BP/pulse/temp/weight, `hasSpO2: false`, no pending-items band, no console errors.
 - Responsive browser checks: desktop, 1024 tablet, 820 portrait tablet, and 768 portrait tablet all had `overflowX: false`.
 - Contradiction sweep remained contextual only.
 - Graphify refresh: `73 nodes, 129 edges, 15 communities`.
 
 **NEXT**
-Redeploy to Vercel production and verify `https://medoxzi.vercel.app/` after the push.
+Founder/doctor/staff should review the restored flow and doctor-only polish on localhost and production.
 
 **WHY NEXT**
-The local product state is corrected; production must match it so the founder can review the restored intake flow and doctor-only polish from the public URL.
+The corrected product state is now live; review should focus on screen lock, not re-opening the rejected Session AB cross-screen redesign.
 
 **HOW**
-Use `git push` / Vercel production deployment from this corrected state. Do not reapply Session AB's journey strip, landing redesign, or cross-screen UI changes unless Abrar explicitly asks for that scope.
+Open `http://localhost:8765/` or `https://medoxzi.vercel.app/`. Do not reapply Session AB's journey strip, landing redesign, or cross-screen UI changes unless Abrar explicitly asks for that scope.
 
 ---
 ## 2026-08-25 - Session AB - HTML MVP journey-first polish

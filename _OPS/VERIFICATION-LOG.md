@@ -81,6 +81,30 @@
 - **Contradiction sweep:** Windows AGENT-PROTOCOL sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; `No red flags`/`No concerns` only in prohibitive, historical, or pitch-forbidden contexts; 25-year retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift/prohibited-term implementation; `>=500`/`≥500` only in ADR-029/history/Gate 6/synthetic/privacy contexts including copied Graphify source docs.
 - **Verdict:** CONFIRMED — the rejected AB product-flow change is superseded, the `faf4e71` intake/records workflow is restored, and the Doctor Review UI is polished without adding real patient data, clinical automation, SpO2, pending-items band, or safety-clearance claims.
 
+### V-2026-08-25-AC-02 · Production URL serves the corrected HTML MVP
+- **Claim:** `https://medoxzi.vercel.app/` serves the restored split-records flow with the doctor-only command-center polish, and `/api/questions` remains healthy.
+- **Method:** Pushed commit `ef7adf2` to `main`; checked the production URL and API endpoint directly with `Invoke-WebRequest`.
+- **Evidence:**
+  ```text
+  $ git push
+  To https://github.com/abrarali579/MEDOXZI.git
+     40eb15c..ef7adf2  main -> main
+  ```
+  ```text
+  $ Invoke-WebRequest -UseBasicParsing https://medoxzi.vercel.app/
+  StatusCode: 200
+  HasDoctorEntered: true
+  HasPatientRecords: true
+  HasWorkflowStrip: false
+  HasPreviousRecord: true
+  HasStructuredFeedback: true
+  ```
+  ```text
+  $ Invoke-WebRequest -UseBasicParsing https://medoxzi.vercel.app/api/questions -Method POST -ContentType 'application/json' -Body <synthetic fever brief>
+  200
+  ```
+- **Verdict:** CONFIRMED — production is live with the corrected UI markers and without the rejected workflow strip.
+
 ## Session AB — 2026-08-25 — HTML MVP journey-first polish
 
 ### V-2026-08-25-AB-01 · Local HTML MVP opens on the patient-arrival journey and preserves Doctor Review

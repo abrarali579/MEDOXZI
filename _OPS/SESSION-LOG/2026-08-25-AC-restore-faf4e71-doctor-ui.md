@@ -20,7 +20,7 @@
   - plan category controls
   - follow-up controls
   - sticky assessment action bar
-- Kept Sessions Z-AA Vercel routing/deployment plumbing so the corrected HTML MVP can redeploy.
+- Kept Sessions Z-AA Vercel routing/deployment plumbing and verified the corrected HTML MVP on production.
 - Refreshed Graphify current-state output.
 
 ## WHY
@@ -109,6 +109,25 @@ Graph: 73 nodes, 129 edges
 Done - 15 communities. GRAPH_REPORT.md, graph.json and graph.html updated.
 ```
 
+```text
+$ git push
+To https://github.com/abrarali579/MEDOXZI.git
+   40eb15c..ef7adf2  main -> main
+```
+
+```text
+$ Invoke-WebRequest -UseBasicParsing https://medoxzi.vercel.app/
+StatusCode: 200
+HasDoctorEntered: true
+HasPatientRecords: true
+HasWorkflowStrip: false
+HasPreviousRecord: true
+HasStructuredFeedback: true
+
+$ Invoke-WebRequest -UseBasicParsing https://medoxzi.vercel.app/api/questions -Method POST -ContentType 'application/json' -Body <synthetic fever brief>
+200
+```
+
 Contradiction sweep remained contextual only:
 
 - `FULL_AI` alias/history/direction
@@ -120,11 +139,11 @@ Contradiction sweep remained contextual only:
 
 ## NEXT
 
-Deploy the corrected state to Vercel production and verify `https://medoxzi.vercel.app/`.
+Founder/doctor/staff should review the corrected UI on `http://localhost:8765/` and `https://medoxzi.vercel.app/`.
 
 ## WHY NEXT
 
-The local HTML MVP now matches the requested restored flow and doctor-only polish. The production URL must match the same state for founder review.
+The local and production HTML MVP now match the requested restored flow and doctor-only polish; screen-lock review should happen before production frontend engineering.
 
 ## HOW
 
