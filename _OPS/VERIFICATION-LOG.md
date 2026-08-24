@@ -60,8 +60,18 @@
   $ node -e "... require('./api/questions.js') ..."
   200 {"ok":false,"source":"deepseek","error":"NO_API_KEY"}
   ```
+  ```text
+  $ Invoke-WebRequest -UseBasicParsing https://medoxzi.vercel.app/ -Method GET
+  200 <!doctype html> ... <title>MEDOXZI
+
+  $ Invoke-WebRequest -UseBasicParsing https://medoxzi.vercel.app/index.html -Method GET
+  200 <!doctype html> ... <title>MEDOXZI
+
+  $ Invoke-WebRequest -UseBasicParsing https://medoxzi.vercel.app/api/questions -Method POST
+  200 {"ok":true,"source":"deepseek","suggested":[...]}
+  ```
 - **Contradiction sweep:** Run after implementation; results were contextual only. No real patient data, MEDOXZI-owned patient marketing, clinical performance claim, diagnosis/treatment automation, or Indonesian regulatory certainty was introduced.
-- **Verdict:** ✅ **CONFIRMED LOCALLY** — the deployment fallback and API wrapper execute without crashing locally. Production requires commit/push and Vercel redeploy before live confirmation.
+- **Verdict:** ✅ **CONFIRMED LIVE** — the production URL now serves the HTML MVP and `/api/questions` returns JSON instead of a Vercel 500.
 
 ## Session D — 2026-08-23 — verification of the v2.2 changes
 

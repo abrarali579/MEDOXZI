@@ -50,21 +50,20 @@
 - Handler smoke tests:
   - `14-MVP-HTML/api/questions.js` valid POST with no key -> `200 {"ok":false,"source":"deepseek","error":"NO_API_KEY"}`
   - root `api/questions.js` wrapper valid POST with no key -> `200 {"ok":false,"source":"deepseek","error":"NO_API_KEY"}`
+- Live production checks after commit `8977633` and Vercel redeploy:
+  - `https://medoxzi.vercel.app/` -> `200` HTML with MEDOXZI title.
+  - `https://medoxzi.vercel.app/index.html` -> `200` HTML with MEDOXZI title.
+  - `POST https://medoxzi.vercel.app/api/questions` -> `200` DeepSeek JSON response.
 
 ## CONTRADICTION SWEEP
 - Re-run after implementation.
 - Results contextual only; no new real patient data, no MEDOXZI-owned patient marketing, no clinical performance claim, no diagnosis/treatment automation, and no Indonesian regulatory certainty introduced.
 
 ## NEXT
-- Commit and push the deployment files plus logs.
-- Allow Vercel to redeploy and verify:
-  - `https://medoxzi.vercel.app/`
-  - `https://medoxzi.vercel.app/index.html`
-  - `https://medoxzi.vercel.app/api/questions`
-- If the API should return live DeepSeek suggestions, set `DEEPSEEK_API_KEY` in Vercel Production environment variables.
+Continue founder/doctor review on the live HTML MVP. Keep `DEEPSEEK_API_KEY` managed in Vercel only; never commit secrets.
 
 ## WHY NEXT
-- Local deployment behaviour is now controlled, but the production alias only changes after Vercel receives and deploys the committed artifact.
+- The deployment crash is resolved and production now serves the HTML MVP.
 
 ## HOW
 - Keep this deployment-only: do not add clinical claims, real patient data, diagnosis/treatment automation, or live messaging.

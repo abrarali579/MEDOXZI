@@ -22,13 +22,14 @@ The deployed domain was returning Vercel `500 INTERNAL_SERVER_ERROR` / `FUNCTION
 - `python demo.py | Select-Object -Last 24` -> deterministic demo completed.
 - `node --check 14-MVP-HTML\app.js; node --check 14-MVP-HTML\server.js; node --check 14-MVP-HTML\api\questions.js; node --check api\questions.js` -> all exited 0.
 - Handler smoke tests: both the subdir ESM handler and root wrapper return `200 {"ok":false,"source":"deepseek","error":"NO_API_KEY"}` when no API key is set, instead of crashing.
+- Live post-push checks: `https://medoxzi.vercel.app/` -> 200 HTML; `/index.html` -> 200 HTML; `POST /api/questions` -> 200 DeepSeek JSON.
 - Full detail: `_OPS/SESSION-LOG/2026-08-25-AA-vercel-crash-fix.md`; VERIFICATION-LOG V-2026-08-25-AA-01.
 
 **NEXT**
-Push to GitHub, allow Vercel to redeploy, then verify `https://medoxzi.vercel.app/` loads the HTML MVP and `POST /api/questions` returns a controlled JSON response. If AI suggestions are needed in production, set `DEEPSEEK_API_KEY` in Vercel Production env.
+Continue product review on the live HTML MVP. Keep `DEEPSEEK_API_KEY` managed only in Vercel environment variables; never commit secrets.
 
 **WHY NEXT**
-The local deploy configuration is now resilient to either repo-root or `14-MVP-HTML` Vercel root settings; the production alias needs the committed artifact redeployed.
+The deployment crash is resolved; next work should return to product review and production-readiness decisions rather than deployment plumbing.
 
 **HOW**
 Followed AGENT-PROTOCOL and Graphify-first handoff; treated the screenshot as error evidence only; used Vercel function/deployment guidance; kept changes deployment-only; updated logs and `STATE.md` last; commit/push after verification.
