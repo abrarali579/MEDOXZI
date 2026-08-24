@@ -4,6 +4,38 @@
 
 ---
 
+## 2026-08-24 - Session W - HTML MVP workspace UI polish
+
+**WHAT**
+- Polished `14-MVP-HTML/` across the welcome, staff, patient intake, doctor review, patient-records, and ops screens to follow the attached doctor-workspace visual direction.
+- Reworked the shell into a dark left navigation rail + clean top bar + white clinical cards, with restrained teal/green status accents and tighter desktop/mobile spacing.
+- Rewrote visible text to be more professional while preserving the safety boundary: no diagnosis, no treatment advice, no clinical performance claim, no real patient data, and no live messaging.
+- Added a patient review/upload card using the existing `reportInput` / `fileList` hooks.
+- Updated `14-MVP-HTML/MVP-Prototype-Plan.md` with the v0.5 workspace UI polish slice.
+- Refreshed the Graphify current-state source snapshot and rebuilt `graphify-current-state/graphify-out/` (68 nodes, 119 edges, 12 communities).
+- Added `_OPS/SESSION-LOG/2026-08-24-W-html-mvp-ui-polish.md` and recorded verification in `_OPS/VERIFICATION-LOG.md` V-2026-08-24-W-01.
+
+**WHY**
+The founder asked to polish the overall HTML UI according to the attached image and improve visible text. OT-20 requires the visual prototype to be reviewed and screen-locked before production frontend work; this pass makes the prototype feel like a real clinic workspace while staying synthetic/demo-only.
+
+**EVIDENCE**
+- Baseline and final: `python -m pytest tests/ -q` -> **100 passed**; `python -m harness.run` -> **VERDICT: PASS**; `python demo.py | Select-Object -Last 20` -> clean deterministic demo tail.
+- `node --check 14-MVP-HTML/app.js` and `node --check 14-MVP-HTML/server.js` exited 0.
+- Browser verification script reported `consoleErrors: []` and `brokenSizedControls: []` for desktop welcome, desktop doctor review, mobile patient intake, and mobile ops views.
+- Graphify refresh: `graphify extract ... --code-only` wrote graph.json with **68 nodes, 119 edges, 12 communities**; `graphify cluster-only ... --no-label` regenerated `GRAPH_REPORT.md`, `graph.json`, and `graph.html`.
+- Full evidence: `_OPS/VERIFICATION-LOG.md` **V-2026-08-24-W-01**.
+
+**NEXT**
+Founder/doctor/staff should review the polished local prototype on phone, tablet, and doctor-desktop dimensions, then decide what is screen-locked for production UI engineering.
+
+**WHY NEXT**
+This is still a local synthetic HTML prototype. Production scope should not begin from unreviewed screens, and clinical wording must not be treated as approved content just because the interface looks polished.
+
+**HOW**
+Run `cd 14-MVP-HTML && node --env-file=.env server.js`, then open `http://localhost:8765`. Review every tab: Front desk, Patient intake, Pre-visit review, and Clinic operations. Any approved screen-lock changes should be recorded in `14-MVP-HTML/MVP-Prototype-Plan.md` and `_OPS/`.
+
+---
+
 ## 2026-08-24 - Session V - onboarding baseline + Graphify-first check
 
 **WHAT**

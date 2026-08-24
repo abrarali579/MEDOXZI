@@ -34,6 +34,7 @@ Build a local, responsive HTML prototype that visualizes the healthcare-first na
 | Doctor queue and brief | Built in HTML v0.1 | Source-bound facts, no diagnosis |
 | Doctor conclusion/follow-up | Built in HTML v0.1 | Follow-up date captured locally |
 | Messaging preview | Built in HTML v0.1 | Disabled; requires OT-19 controls |
+| Workspace UI polish | Built in HTML v0.5 | Screenshot-guided doctor-workspace shell: dark navigation rail, white top bar, refined cards, professional visible text, patient-review upload card, responsive desktop/mobile verification |
 
 ## Non-Negotiables
 
@@ -55,3 +56,4 @@ Build a local, responsive HTML prototype that visualizes the healthcare-first na
 - Clear source labels: Patient, Staff, Attachment, Doctor.
 - Explicit unknown/not asked states.
 - Relevant answer options per question, not generic Yes/No where the question is not binary.
+- Screenshot-guided v0.5 tone: dense clinical workspace, restrained teal/green status accents, white review cards, and professional wording across staff, patient, doctor, and ops screens.

@@ -32,6 +32,8 @@
 
 **Session V note:** Onboarding-only baseline completed with Graphify-first query and no functional changes. Verification stayed green (100 tests, harness PASS, demo clean, HTML MVP syntax OK). No open-thread priorities changed; pre-existing untracked `package-lock.json` remains untouched.
 
+**Session W note:** `14-MVP-HTML/` received a screenshot-guided v0.5 workspace UI polish: dark left navigation rail, clean top bar, denser clinical cards, professional visible copy, patient review/upload card, and responsive desktop/mobile verification. Browser check covered desktop welcome, desktop doctor review, mobile patient intake, and mobile ops with no console errors and no undersized visible controls. The prototype remains synthetic/demo-only and still needs founder/doctor/staff screen review before production frontend scope is locked.
+
 ---
 
 ## ✅ Resolved — red-flag removal in question packs confirmed as real founder decision (ADR-038)

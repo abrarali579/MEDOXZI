@@ -83,7 +83,7 @@ const patients = [
   {
     token: 51,
     pin: "",
-    name: "Demo Patient",
+    name: "Abrar Ali",
     age: "34",
     sex: "Male",
     phone: "+62 812 0000 0000",
@@ -322,7 +322,7 @@ function renderQueues() {
           <span class="token">${patient.token}</span>
           <span>
             <span class="queue-name">${patient.name}</span>
-            <span class="queue-meta">${patient.pin || "New record"} · ${patient.meta} · Docs ${patient.docs}</span>
+            <span class="queue-meta">${patient.pin || "New profile"} · ${patient.meta} · Docs ${patient.docs}</span>
           </span>
           <span class="mini-badge">${patient.status}</span>
         </button>
@@ -394,7 +394,7 @@ function renderHistoryFilters() {
   $("#historyFollowupFilter").innerHTML = followupOptions;
 
   $("#historyDateFilter").value = historyFilters.date;
-  $("#historyCount").textContent = "15 synthetic files";
+  $("#historyCount").textContent = "15 synthetic records";
 }
 
 function renderHistoryList() {
@@ -419,9 +419,9 @@ function renderHistoryList() {
     .join("");
 
   if (!matches.length) {
-    $("#historyList").innerHTML = `<div class="empty-state">No sample file matched your filters.</div>`;
+    $("#historyList").innerHTML = `<div class="empty-state">No synthetic file matched these filters.</div>`;
   }
-  $("#historyCount").textContent = `${matches.length} of 15 synthetic files`;
+  $("#historyCount").textContent = `${matches.length} of 15 synthetic records`;
 }
 
 function openCurrentWithPast(pin) {
@@ -443,38 +443,38 @@ function openCurrentVisitSplit(pastPatient) {
 
   const currentVisitHtml = `
     <article>
-      <h3>Current visit — in patient's words <span class="source">Patient</span></h3>
+      <h3>Current visit - patient-reported concern <span class="source">Patient</span></h3>
       <p>${current.symptoms}</p>
     </article>
     <article>
-      <h3>Current visit — reason <span class="source">Patient</span></h3>
+      <h3>Current visit - reason <span class="source">Patient</span></h3>
       <p>${current.complaint} · ${current.age}/${current.sex}</p>
     </article>
     <article>
-      <h3>Current visit — attachments <span class="source">Attachment</span></h3>
-      <ul>${current.files.length ? current.files.map((f) => `<li>${f} · doctor-review only</li>`).join("") : "<li>No previous reports attached.</li>"}</ul>
+      <h3>Current visit - reports & attachments <span class="source">Attachment</span></h3>
+      <ul>${current.files.length ? current.files.map((f) => `<li>${f} - doctor-review only</li>`).join("") : "<li>No previous reports attached.</li>"}</ul>
     </article>
     <article>
-      <h3>Current visit — follow-up mark <span class="source">Clinic</span></h3>
-      <p>${current.followup === "Yes" ? "Follow-up needed this visit." : "No follow-up marked for this visit."}</p>
+      <h3>Current visit - follow-up status <span class="source">Clinic</span></h3>
+      <p>${current.followup === "Yes" ? "Follow-up marked for this visit." : "No follow-up currently marked for this visit."}</p>
     </article>
   `;
 
   const pastVisitHtml = `
     <article>
-      <h3>Past visit ${pastPatient.lastVisit} — symptoms <span class="source">Patient</span></h3>
+      <h3>Past visit ${pastPatient.lastVisit} - symptoms <span class="source">Patient</span></h3>
       <p>${pastPatient.symptoms}</p>
     </article>
     <article>
-      <h3>Past visit — doctor assessment <span class="source">Sample doctor</span></h3>
+      <h3>Past visit - doctor assessment <span class="source">Sample doctor</span></h3>
       <p>${pastPatient.assessment}</p>
     </article>
     <article>
-      <h3>Past visit — plan <span class="source">Sample doctor</span></h3>
+      <h3>Past visit - plan <span class="source">Sample doctor</span></h3>
       <p>${pastPatient.treatment}</p>
     </article>
     <article>
-      <h3>Past visit — follow-up <span class="source">Clinic</span></h3>
+      <h3>Past visit - follow-up <span class="source">Clinic</span></h3>
       <p>${pastPatient.followup}</p>
     </article>
   `;
@@ -483,7 +483,7 @@ function openCurrentVisitSplit(pastPatient) {
   $("#historyFile").innerHTML = `
     <div class="split-review">
       <div class="split-col split-current">
-        <div class="split-head"><strong>Current visit</strong><span class="status-pill safe">In patient's words</span></div>
+        <div class="split-head"><strong>Current visit</strong><span class="status-pill safe">Patient-reported</span></div>
         ${currentVisitHtml}
       </div>
       <div class="split-col split-past">
@@ -496,7 +496,7 @@ function openCurrentVisitSplit(pastPatient) {
 
 function openCloseSplitReview() {
   $("#historyFileTitle").textContent = "Select a past file";
-  $("#historyFile").innerHTML = `<p class="quiet">Open a past file to see how previous symptoms, reports and doctor assessment can appear for review.</p>`;
+  $("#historyFile").innerHTML = `<p class="quiet">Open a past file to compare previous concerns, reports, and sample doctor assessments.</p>`;
 }
 
 function openHistoryFile(pin) {
@@ -565,7 +565,7 @@ function clearIntakeDraft({ keepIdentity = true } = {}) {
     state.pin = "";
     state.linkedIdentity = null;
   }
-  $("#issueText").value = "I have fever and body pain since yesterday. I feel tired and want the doctor to check.";
+  $("#issueText").value = "I have fever and body pain since yesterday. I feel tired and would like the doctor to review it.";
   const reportEl = $("#reportInput");
   if (reportEl) reportEl.value = "";
   const fileEl = $("#fileList");
@@ -640,7 +640,7 @@ function renderQuestion() {
   const questions = activeQuestions();
   const index = Object.keys(state.answers).length;
   const nextQuestion = questions[Math.min(index, questions.length - 1)];
-  $("#questionTitle").textContent = `Basic question ${Math.min(index + 1, questions.length)} of ${questions.length}`;
+  $("#questionTitle").textContent = `Intake question ${Math.min(index + 1, questions.length)} of ${questions.length}`;
   $("#questionText").textContent = nextQuestion.text;
   $("#questionText").hidden = false;
   $("#answerGrid").hidden = false;
@@ -718,7 +718,7 @@ function renderFiles() {
     $("#fileList").textContent = "No reports attached. This is normal for a first visit.";
     return;
   }
-  $("#fileList").innerHTML = state.files.map((file) => `<div>${file} · doctor-review only</div>`).join("");
+  $("#fileList").innerHTML = state.files.map((file) => `<div>${file} - doctor-review only</div>`).join("");
 }
 
 function setupBriefStep() {
@@ -731,24 +731,24 @@ function setupBriefStep() {
   if (title) {
     title.textContent = isOther
       ? "Tell the doctor briefly"
-      : `Please give more information about your “${state.complaint}”`;
+      : `Add details about your ${state.complaint.toLowerCase()}`;
   }
   if (subtitle) {
     subtitle.textContent = isOther
-      ? "Describe what’s going on in your own words."
-      : "Write anything you think the doctor must know — feel free to phrase it in your own way.";
+      ? "Describe what is happening in your own words."
+      : "Share what started, where you feel it, and anything you have already tried.";
   }
   if (issue) {
     issue.value = "";
     issue.placeholder = isOther
-      ? "For example: I have fever and body pain since yesterday."
-      : `For example: my ${state.complaint.toLowerCase()} started today and is getting worse.`;
+      ? "Example: I have fever and body pain since yesterday."
+      : `Example: my ${state.complaint.toLowerCase()} started today and has not improved.`;
   }
   if (tips) tips.hidden = !isOther;
   if (tipHint) {
     tipHint.textContent = isOther
       ? "Helpful details to add: Started · Where · Tried · Before"
-      : "You can add when it started, where you feel it, what you tried, and if it happened before.";
+      : "Helpful details: when it started, where you feel it, what you tried, and whether it happened before.";
   }
   if (issue) issue.focus();
 }
@@ -759,7 +759,7 @@ function renderReview() {
     ["Age / sex", `${$("#intakeAge").value} / ${$("#intakeSex").value}`],
     ["Mobile", getIntakePhone() || "Not entered"],
     ["Reason", state.complaint],
-    ["Patient words", $("#issueText").value || "Not entered"],
+    ["Patient-reported concern", $("#issueText").value || "Not entered"],
     ["Reports", state.files.length ? `${state.files.length} attached` : "No previous reports"],
   ];
 
@@ -772,7 +772,7 @@ function renderDoctorBrief() {
   const name = $("#intakeName")?.value || $("#patientName")?.value || "Demo Patient";
   const age = $("#intakeAge")?.value || $("#patientAge")?.value || "34";
   const sex = $("#intakeSex")?.value || $("#patientSex")?.value || "Male";
-  $("#briefTitle").textContent = `Token ${state.token} · ${name}${state.pin ? ` · ${state.pin}` : ""}`;
+  $("#briefTitle").textContent = `${name}${state.pin ? ` · Patient ID ${state.pin}` : ""}`;
   $("#briefIssue").textContent = $("#issueText")?.value || "Not entered";
   $("#briefFiles").textContent = state.files.length
     ? `${state.files.length} file(s) attached for doctor review only.`
@@ -793,13 +793,13 @@ function renderDoctorBrief() {
         ([q, a]) =>
           `<li class="answer-item"><span class="answer-q">${q}</span><strong class="answer-a">${a}</strong></li>`
       ).join("")
-    : `<li class="answer-item empty">No basic questions answered yet.</li>`;
+    : `<li class="answer-item empty">No intake questions answered yet.</li>`;
 
   const questions = activeQuestions();
   const missing = questions.filter((question) => !state.answers[question.text]);
   $("#missingItems").textContent = missing.length
     ? missing.map((question) => question.text).join(" · ")
-    : "No demo questions missing.";
+    : "All visible intake questions are complete.";
 }
 
 function normalize(value) {
@@ -897,7 +897,7 @@ function saveLinkedPatient() {
 function renderSearchResults(query = "") {
   const term = normalize(query);
   if (!term) {
-    $("#searchResults").textContent = "Search first. If no record appears, continue as a new patient.";
+    $("#searchResults").textContent = "Search before registering. If no record appears, continue with a new patient profile.";
     return;
   }
   const results = savedPatients().filter((patient) => {
@@ -906,7 +906,7 @@ function renderSearchResults(query = "") {
   });
 
   if (!results.length) {
-    $("#searchResults").textContent = "No matching patient found. Continue as a new record.";
+    $("#searchResults").textContent = "No matching patient found. Continue with a new patient profile.";
     return;
   }
 
@@ -940,7 +940,7 @@ function loadExistingPatient(pin) {
   $("#doneToken").textContent = state.token;
   renderReview();
   showStep(0);
-  $("#searchResults").innerHTML = `<div class="identity-lock"><strong>${patient.name}</strong><span>${patient.pin} loaded. Mobile ${patient.phone}. Update today's issue, then submit this visit.</span></div>`;
+  $("#searchResults").innerHTML = `<div class="identity-lock"><strong>${patient.name}</strong><span>${patient.pin} loaded. Mobile ${patient.phone}. Update today's concern, then submit this visit.</span></div>`;
 }
 
 function renderWelcomeSearch(query = "") {
@@ -966,7 +966,7 @@ function renderWelcomeSearch(query = "") {
       emptyState.hidden = false;
       emptyState.innerHTML = `
         <p>No record matched “${escapeHtml(query.trim())}”.</p>
-        <button type="button" id="welcomeRegisterNew" class="btn primary">Register as a new Patient</button>`;
+        <button type="button" id="welcomeRegisterNew" class="btn primary">Register new patient</button>`;
       const registerBtn = $("#welcomeRegisterNew");
       if (registerBtn) registerBtn.addEventListener("click", registerNewPatient);
     }
@@ -999,7 +999,7 @@ function confirmWelcomePatient(pin) {
 function registerNewPatient() {
   clearIntakeDraft({ keepIdentity: false });
   const hint = $("#detailsHint");
-  if (hint) hint.textContent = "New patient — please fill in your basic details.";
+  if (hint) hint.textContent = "New patient - please fill in the basic details.";
   $("#intakeName").value = "";
   $("#intakeAge").value = "";
   $("#intakeSex").value = "";
@@ -1027,10 +1027,10 @@ function saveDoctorConclusion() {
 
   if (followupNeeded === "Yes" && followupDate) {
     $("#reminderPreview").textContent =
-      `Clinic reminder preview\n\nDear ${$("#intakeName").value || "Patient"}, this is a reminder for your follow-up visit on ${followupDate}.\n\nSending stays off until consent, opt-out, audit and template controls are implemented.\n\nConsent selected in this prototype: ${consent ? "yes" : "no"}`;
+      `Clinic reminder preview\n\nDear ${$("#intakeName").value || "Patient"}, this is a reminder for your follow-up visit on ${followupDate}.\n\nSending remains disabled until consent, opt-out, audit, and template controls are implemented.\n\nConsent selected in this prototype: ${consent ? "yes" : "no"}`;
   } else {
     $("#reminderPreview").textContent =
-      "Doctor note saved. No reminder preview because follow-up is not marked as needed or no date was selected.";
+      "Assessment saved. No reminder preview is shown because follow-up is not marked as needed or no date was selected.";
   }
   switchView("ops");
 }
@@ -1140,7 +1140,7 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBrief.addEventListener("click", () => {
       const brief = $("#issueText").value.trim();
       if (!brief) {
-        alert("Please describe your issue briefly so the doctor can prepare your questions.");
+        alert("Please describe your concern briefly so the doctor can prepare focused questions.");
         return;
       }
       renderDoctorBrief();

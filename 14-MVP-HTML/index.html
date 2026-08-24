@@ -12,31 +12,41 @@
         <div class="brand-row">
           <div class="brand-mark" aria-hidden="true">M</div>
           <div class="brand-title">
-            <p class="eyebrow">MEDOXZI Pre-Round</p>
-            <h1>Pre-Visit Patient Brief</h1>
+            <p class="eyebrow">Doctor workspace</p>
+            <h1>Pre-visit review</h1>
           </div>
         </div>
         <div class="topbar-meta">
-          <span class="sync-chip" id="syncChip"><span class="dot live"></span>DeepSeek · Live</span>
-          <span class="status-pill safe">Prototype · sample data</span>
+          <span class="clinic-select">Demo Clinic <span aria-hidden="true">⌄</span></span>
+          <span class="sync-chip" id="syncChip"><span class="dot live"></span>Live</span>
+          <span class="status-pill safe">Synthetic prototype</span>
+          <span class="doctor-avatar" aria-hidden="true">DA</span>
         </div>
       </header>
 
       <nav class="role-tabs" aria-label="Prototype views">
-        <button class="tab active" data-view="staff">Staff</button>
-        <button class="tab" data-view="patient">Patient</button>
-        <button class="tab" data-view="doctor">Doctor</button>
-        <button class="tab" data-view="ops">Ops</button>
+        <div class="sidebar-brand" aria-hidden="true">
+          <div class="brand-mark">M</div>
+          <div>
+            <strong>Medoxzi</strong>
+            <span>Pre-Round</span>
+          </div>
+        </div>
+        <button class="tab active" data-view="staff">Front desk</button>
+        <button class="tab" data-view="patient">Patient intake</button>
+        <button class="tab" data-view="doctor">Pre-visit review</button>
+        <button class="tab" data-view="ops">Clinic operations</button>
+        <div class="sidebar-foot">Demo clinic workspace</div>
       </nav>
 
       <main>
         <section id="view-welcome" class="view active">
           <div class="welcome-panel">
             <div class="welcome-mark" aria-hidden="true">M</div>
-            <h1 class="welcome-title">WELCOME TO MEDOXZI LAB</h1>
-            <p class="welcome-sub">To find your records or enter new, please search by phone number or full name.</p>
+            <h1 class="welcome-title">Welcome to MEDOXZI</h1>
+            <p class="welcome-sub">Find an existing record by mobile number or full name, or register a new patient for today's visit.</p>
             <div class="welcome-search">
-              <input id="welcomeSearch" placeholder="Search by phone number or full name" autocomplete="off">
+              <input id="welcomeSearch" placeholder="Search mobile number or full name" autocomplete="off">
             </div>
             <div id="welcomeResults" class="welcome-results" role="status" aria-live="polite"></div>
             <div id="welcomeEmpty" class="welcome-empty" hidden></div>
@@ -49,7 +59,7 @@
               <div class="panel-head">
                 <div>
                   <p class="eyebrow">Front desk</p>
-                  <h2>Find or register patient</h2>
+                  <h2>Patient registration</h2>
                 </div>
                 <span class="mini-badge">Step 1</span>
               </div>
@@ -57,9 +67,9 @@
                 <div class="search-card full-span">
                   <label>
                     Find returning patient
-                    <input id="existingSearch" placeholder="Search by name, PIN, or mobile" autocomplete="off">
+                    <input id="existingSearch" placeholder="Search name, PIN, or mobile number" autocomplete="off">
                   </label>
-                  <div id="searchResults" class="search-results">Search first. If no record appears, continue as a new patient.</div>
+                  <div id="searchResults" class="search-results">Search before registering. If no record appears, continue with a new patient profile.</div>
                 </div>
                 <label>
                   Clinic token number
@@ -67,7 +77,7 @@
                 </label>
                 <label>
                   Full name
-                  <input id="patientName" value="Demo Patient" autocomplete="off">
+                  <input id="patientName" value="Abrar Ali" autocomplete="off">
                 </label>
                 <label>
                   Age
@@ -100,21 +110,21 @@
                     <option>Dr. Clinic Lead</option>
                   </select>
                 </label>
-                <button class="primary full" type="submit">Continue to intake</button>
+                <button class="primary full" type="submit">Continue to patient intake</button>
               </form>
             </section>
 
             <section class="panel queue-panel">
               <div class="panel-head">
                 <div>
-                  <p class="eyebrow">Today queue</p>
-                  <h2>Waiting list</h2>
+                  <p class="eyebrow">Clinic queue</p>
+                  <h2>Today's patients</h2>
                 </div>
                 <span id="waitingCount" class="metric">3 waiting</span>
               </div>
               <div id="staffQueue" class="queue-list"></div>
               <div class="handoff-box">
-                <button class="secondary" data-jump="patient">Start on tablet</button>
+                <button class="secondary" data-jump="patient">Open intake screen</button>
               </div>
             </section>
           </div>
@@ -134,7 +144,7 @@
               <div class="step-indicator" id="stepIndicator" aria-hidden="true"></div>
 
               <section class="intake-step active" data-step="0">
-                <h2>Your details</h2>
+                <h2>Confirm your details</h2>
                 <p class="quiet" id="detailsHint"></p>
                 <div class="form-grid single">
                   <label>Full name <input id="intakeName" placeholder="As shown on your ID"></label>
@@ -162,12 +172,12 @@
                     <span class="field-hint">No leading zero — e.g. 812 3000 0001 (not 0812…)</span>
                   </label>
                 </div>
-                <button id="continueToIntake" class="primary full inline-top" type="button">Continue to Intake</button>
+                <button id="continueToIntake" class="primary full inline-top" type="button">Continue to reason for visit</button>
               </section>
 
               <section class="intake-step" data-step="1">
-                <h2>Pick a reason</h2>
-                <p class="quiet">Choose the closest option for what brings you in today.</p>
+                <h2>Select the main reason for today's visit</h2>
+                <p class="quiet">Choose the closest option. You can add details in your own words next.</p>
                 <div class="complaint-grid" role="group" aria-label="Common reasons">
                   <button data-complaint="Fever">Fever</button>
                   <button data-complaint="Cough">Cough</button>
@@ -181,7 +191,7 @@
               <section class="intake-step" data-step="2">
                 <h2 id="briefTitleId">Tell the doctor briefly</h2>
                 <p class="quiet" id="briefSubtitle"></p>
-                <textarea id="issueText" rows="5" placeholder="For example: I have fever and body pain since yesterday."></textarea>
+                <textarea id="issueText" rows="5" placeholder="Example: I have fever and body pain since yesterday."></textarea>
                 <div class="helper-card" id="briefTips" hidden>
                   <strong>Helpful details to add</strong>
                   <div class="detail-chips">
@@ -191,15 +201,15 @@
                     <button type="button" data-detail="Similar before: ">Before</button>
                   </div>
                 </div>
-                <button id="submitBrief" class="primary full inline-top" type="button">Submit — prepare my questions</button>
+                <button id="submitBrief" class="primary full inline-top" type="button">Prepare intake questions</button>
                 <p class="field-hint" id="briefTip"></p>
               </section>
 
               <section class="intake-step" data-step="3">
-                <h2 id="questionTitle">Preparing your questions</h2>
+                <h2 id="questionTitle">Preparing focused questions</h2>
                 <div id="questionLoading" class="processing-box" hidden>
                   <div class="spinner" aria-hidden="true"></div>
-                  <p class="processing-text">Analyzing Your Issue...</p>
+                  <p class="processing-text">Reviewing your note...</p>
                 </div>
                 <p id="questionText" class="question-text" hidden></p>
                 <div class="answer-grid" id="answerGrid" hidden>
@@ -212,8 +222,15 @@
               </section>
 
               <section class="intake-step" data-step="4">
-                <h2>Please check your answers</h2>
+                <h2>Review before submission</h2>
                 <div id="reviewList" class="review-list"></div>
+                <div class="upload-box inline-top">
+                  <input id="reportInput" type="file" multiple>
+                  <strong>No previous reports uploaded</strong>
+                  <span>Attach lab results, imaging, prescriptions, or referral notes if available.</span>
+                  <label for="reportInput" class="secondary upload-trigger">Upload file</label>
+                  <div id="fileList" class="file-list">No reports attached. This is normal for a first visit.</div>
+                </div>
                 <div class="consent-block">
                   <h3 class="subsection">Required consents</h3>
                   <label class="check-row fixed">
@@ -222,11 +239,11 @@
                   </label>
                   <label class="check-row">
                     <input id="aiConsent" type="checkbox">
-                    <span>Prepare a neat brief for my doctor</span>
+                    <span>Prepare a structured pre-visit brief for my doctor</span>
                   </label>
                   <label class="check-row">
                     <input id="clinicCommsConsent" type="checkbox">
-                    <span>Allow clinic reminders and check-ins</span>
+                    <span>Allow clinic-owned reminders and follow-up check-ins</span>
                   </label>
                   <p class="small-note">Optional choices can be turned off. Your visit continues normally.</p>
                 </div>
@@ -235,14 +252,14 @@
 
               <section class="intake-step done-step" data-step="5">
                 <div class="done-mark">✓</div>
-                <h2>Thank you</h2>
+                <h2>Intake submitted</h2>
                 <p>Your clinic token: <strong id="doneToken">51</strong></p>
                 <div class="pin-box">
                   <span>Your Patient Identification Number</span>
                   <strong id="donePin">PIN will appear here</strong>
                 </div>
-                <p class="quiet">Save this PIN for your next visit. Staff can find your record faster with your PIN or mobile number.</p>
-                <p class="quiet">Your doctor will see your answers before you go in.</p>
+                <p class="quiet">Keep this PIN for future visits. Clinic staff can find your record faster with your PIN or mobile number.</p>
+                <p class="quiet">Your doctor can now review your answers before consultation.</p>
               </section>
 
               <div class="bottom-actions">
@@ -269,7 +286,7 @@
             <section class="doctor-brief panel">
               <div class="brief-header">
                 <div>
-                  <p class="eyebrow">Ready before consult</p>
+                  <p class="eyebrow">Pre-visit review</p>
                   <h2 id="briefTitle">Token 51 · Demo Patient</h2>
                   <div id="briefDemographics" class="demo-chips"></div>
                 </div>
@@ -278,7 +295,7 @@
 
               <div class="brief-grid">
                 <article>
-                  <h3>In patient's words <span class="source">Patient</span></h3>
+                  <h3>Patient-reported concern <span class="source">Patient</span></h3>
                   <p id="briefIssue">I have fever and body pain since yesterday. I feel tired and want the doctor to check.</p>
                 </article>
                 <article>
@@ -286,29 +303,29 @@
                   <p id="briefAllergies">Not asked</p>
                 </article>
                 <article>
-                  <h3>Basic answers <span class="source">Patient</span></h3>
+                  <h3>Intake responses <span class="source">Patient</span></h3>
                   <ul id="briefAnswers"></ul>
                 </article>
                 <article>
-                  <h3>Attachments <span class="source">Attachment</span></h3>
+                  <h3>Reports & attachments <span class="source">Attachment</span></h3>
                   <p id="briefFiles">No previous reports attached.</p>
                 </article>
               </div>
 
               <div class="missing-band">
-                <strong>Missing / not asked:</strong>
+                <strong>Pending / not asked:</strong>
                 <span id="missingItems">Items skipped by patient remain visible here.</span>
               </div>
 
               <div class="doctor-sign">
-                <h3>Doctor conclusion</h3>
+                <h3>Doctor's assessment</h3>
                 <label>
-                  Doctor notes
-                  <textarea id="doctorNote" rows="4" placeholder="Doctor writes notes here."></textarea>
+                  Clinical notes
+                  <textarea id="doctorNote" rows="4" placeholder="Add your clinical notes here..."></textarea>
                 </label>
                 <div class="form-grid two">
                   <label>
-                    Follow-up needed?
+                    Follow-up needed
                     <select id="followupNeeded">
                       <option selected>No</option>
                       <option>Yes</option>
@@ -319,20 +336,20 @@
                     <input id="followupDate" type="date">
                   </label>
                 </div>
-                <button id="saveDoctor" class="primary full" type="button">Save doctor conclusion</button>
+                <button id="saveDoctor" class="primary full" type="button">Save assessment</button>
               </div>
             </section>
 
             <section class="patient-history panel">
               <div class="panel-head">
                 <div>
-                  <p class="eyebrow">Past patient files</p>
-                  <h2>Search old records</h2>
+                  <p class="eyebrow">Patient records</p>
+                  <h2>Search past files</h2>
                 </div>
                 <span class="mini-badge">Synthetic demo</span>
               </div>
               <label class="history-search">
-                Search by name, PIN, mobile, symptom or assessment
+                Search by name, PIN, mobile, concern or assessment
                 <input id="historySearch" placeholder="Try 4729, cough, gastritis, Demo Patient 07" autocomplete="off">
               </label>
               <div class="history-filters">
@@ -357,13 +374,13 @@
             <section class="history-file panel">
               <div class="panel-head">
                 <div>
-                  <p class="eyebrow">Old file</p>
+                  <p class="eyebrow">Record viewer</p>
                   <h2 id="historyFileTitle">Select a past file</h2>
                 </div>
                 <span class="status-pill safe">Sample clinician entries only</span>
               </div>
               <div id="historyFile" class="history-detail">
-                <p class="quiet">Open a past file to see how previous symptoms, reports and doctor assessment can appear for review.</p>
+                <p class="quiet">Open a past file to compare previous concerns, reports, and sample doctor assessments.</p>
               </div>
             </section>
           </div>
@@ -380,15 +397,15 @@
                 <span class="mini-badge locked">Disabled</span>
               </div>
               <div id="reminderPreview" class="message-preview">
-                Save a follow-up date in the doctor view to preview the clinic reminder.
+                Save a follow-up date in the doctor view to preview a clinic-owned reminder.
               </div>
               <p class="small-note">Sending stays off until consent, opt-out, audit, template versioning and clinic sender identity are implemented.</p>
             </section>
             <section class="panel">
               <div class="panel-head">
                 <div>
-                  <p class="eyebrow">Next data-capture ideas</p>
-                  <h2>Useful additions</h2>
+                  <p class="eyebrow">Data capture</p>
+                  <h2>Potential additions</h2>
                 </div>
               </div>
               <ul class="guardrail-list">

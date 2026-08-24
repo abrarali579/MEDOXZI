@@ -2405,3 +2405,62 @@ No diagnostic/differential vocabulary present in any patient-facing question.
 - **Contradiction sweep:** Windows AGENT-PROTOCOL sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; `No red flags`/`No concerns` only in prohibitive, historical, or pitch-forbidden contexts; 25-year retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift/prohibited-term implementation; `>=500`/`≥500` only in ADR-029/history/Gate 6/synthetic/privacy contexts including copied Graphify source docs.
 - **Graph freshness note:** `GRAPH_REPORT.md` records source commit `89e3d76b`; current HEAD before this session was `0ec5b63` because Session U committed the graph/handoff after building it. The graph remains the intended curated current-state map, not a full-repository graph.
 - **Verdict:** ✅ **CONFIRMED** — onboarding protocol followed, baseline green, Graphify-first rule exercised, and no new contradiction found. This is repository/process evidence only; no clinical performance claim is made.
+
+## V-2026-08-24-W-01 · HTML MVP workspace UI polish
+- **Claim:** The HTML MVP was polished across staff, patient, doctor, welcome, and ops screens to match the attached doctor-workspace direction while preserving synthetic/demo-only boundaries and safety wording.
+- **Method:** Followed the repo protocol; inspected the attached screenshot visually; used Graphify first for the HTML MVP file/function map; ran the baseline before edits; edited `14-MVP-HTML/index.html`, `14-MVP-HTML/styles.css`, `14-MVP-HTML/app.js`, and `14-MVP-HTML/MVP-Prototype-Plan.md`; refreshed `graphify-current-state-src/HTML-MVP-app.js`; rebuilt the curated Graphify graph; ran syntax, browser, standard verification, and contradiction sweep checks.
+- **Evidence:**
+  ```text
+  $ graphify query "Which files and UI functions control all HTML MVP screens and doctor workspace styling?" --graph graphify-current-state/graphify-out/graph.json --budget 1800
+  Graph: graphify-current-state/graphify-out/graph.json (68 nodes) | Traversal: BFS depth=2 | Start: ['HTML-MVP-app.js', 'DoctorPastFiles', 'renderFiles()', 'DoctorBrief'] | 64 nodes found
+  ```
+  ```text
+  $ python -m pytest tests/ -q
+  ........................................................................ [ 72%]
+  ............................                                             [100%]
+  100 passed in 0.16s
+  ```
+  ```text
+  $ python -m harness.run
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+  VERDICT: PASS
+  ```
+  ```text
+  $ python demo.py | Select-Object -Last 20
+  Three distinct clinical facts. Three distinct renderings.
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+  ```
+  ```text
+  $ node --check 14-MVP-HTML/app.js
+  $ node --check 14-MVP-HTML/server.js
+  ```
+  Both `node --check` commands exited 0 with no output.
+  ```text
+  $ node work/session-w-verify-ui.cjs
+  consoleErrors: []
+  desktopWelcome.activeView: view-welcome; brokenSizedControls: []
+  desktopDoctor.activeView: view-doctor; brokenSizedControls: []
+  desktopPatient.activeView: view-patient; brokenSizedControls: []
+  mobileOps.activeView: view-ops; brokenSizedControls: []
+  ```
+  Screenshots saved under the local Codex `work/` folder for review:
+  `session-w-welcome-1440.png`, `session-w-doctor-1440.png`, `session-w-patient-430.png`, `session-w-ops-390.png`.
+  ```text
+  $ graphify extract 'D:/MEDOXZI/graphify-current-state-src' --code-only --out 'D:/MEDOXZI/graphify-current-state'
+  [graphify extract] wrote D:\MEDOXZI\graphify-current-state\graphify-out\graph.json: 68 nodes, 119 edges, 12 communities
+
+  $ graphify cluster-only 'D:/MEDOXZI/graphify-current-state' --no-label
+  Graph: 68 nodes, 119 edges
+  Done - 12 communities. GRAPH_REPORT.md, graph.json and graph.html updated.
+  ```
+- **Contradiction sweep:** Windows AGENT-PROTOCOL sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; `No red flags`/`No concerns` only in prohibitive, historical, or pitch-forbidden contexts; 25-year retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift/prohibited-term implementation; `>=500`/`≥500` only in ADR-029/history/Gate 6/synthetic/privacy contexts including copied Graphify source docs.
+- **Verdict:** ✅ **CONFIRMED** — UI polish verified in browser and core prototype checks stayed green. This is visual/prototype evidence only, not clinical performance evidence.
