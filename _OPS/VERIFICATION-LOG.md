@@ -2191,3 +2191,67 @@ No diagnostic/differential vocabulary present in any patient-facing question.
 - **Step 4a (design docs):** all 8 present, all >3.3KB — no missing doc.
 - **Step 4d (harness training):** loader bridge already integrates all 40 ACTIVE packs (ADR-039); no clean pack left unpromoted.
 - **Verdict:** ✅ CONFIRMED — no regression, no gate drift, no new work autonomously doable. All 40 packs remain ACTIVE with `signed_at: null`; remaining items are human-gated (OT-20 founder/doctor visual review; production PIN design OT-21; PSE/PT-PMA founder-owned). No spurious commit created.
+
+## V-2026-08-24-S-01 · HTML MVP first-screen welcome + search + intake restructure (2026-08-24)
+- **Claim:** the new first-screen landing (WELCOME TO MEDOXZI LAB + phone/name search) works; match → Confirm pre-fills the 2nd screen; no-match → "Register as a new Patient" opens blank fields; the intake is 5 steps ending in "Check Your Answers" + required consents; DeepSeek skips a duration/onset question when already stated and returns `alreadyKnown`.
+- **Method:** `node --check` on app.js/server.js; restarted the local server from `.env`; browser end-to-end walk on `http://localhost:8765/`; live `curl` to `/api/questions`.
+- **Evidence:**
+  ```text
+  $ node --check 14-MVP-HTML/app.js     ->  OK
+  $ node --check 14-MVP-HTML/server.js  ->  OK
+
+  Browser: first screen = "WELCOME TO MEDOXZI LAB" + search box (default landing).
+  Search "812 3000 0001" -> "Demo Patient 01" rendered below with Confirm button.
+  Confirm -> Patient view, step 0 pre-filled: name "Demo Patient 01", age 28, phone "+62 812 3000 0001".
+  No-match "999888777" -> "Register as a new Patient" button; click -> blank name/age/mobile + "New patient" hint.
+  Continue to Intake -> Brief; Submit "I have fever and dry cough since yesterday, my body aches."
+  -> Questions step with processing/loading spinner; then 3 AI questions:
+     "How high is your fever?" / "How severe is your body ache?" / "Are you experiencing any difficulty breathing?"
+     note: "DeepSeek · suggested from your brief  Already noted: Fever since yesterday, Dry cough since yesterday, Body aches"
+     -> NO "when did it start" question (duration-dedup confirmed).
+  Answered all -> Check Your Answers step (review list + 3 consent checkboxes, required "Share with doctor" fixed+disabled).
+  Submit intake -> Done step (PIN 4729, token 51).
+
+  $ curl -s -X POST http://localhost:8765/api/questions -H "Content-Type: application/json" \
+      -d '{"brief":"I have fever and dry cough since yesterday, my body aches.","complaint":"Fever"}'
+  => {"ok":true,"source":"deepseek","suggested":[...3 questions...],
+      "alreadyKnown":["Fever and dry cough started yesterday","Body aches present"]}
+  ```
+- **Verdict:** ✅ **CONFIRMED** — welcome first screen, search-by-phone/name, Confirm (pre-fill) / Register-as-new (blank), 5-step intake ending in Check Your Answers + consents, processing/loading screen, and duration-dedup (no re-ask of onset) all verified in the browser. DeepSeek output stays labeled triage suggestions under ADR-039/OT-18; doctor retains final discretion.
+
+## V-2026-08-24-T-02 · HTML MVP refinements: full name, phone format, LLM demographics, pick-a-reason split, clean loading, doctor brief color grading (2026-08-24)
+- **Claim:** details step asks for a **full name**; the phone field has an Indonesian-first **country-code dropdown (+62 default)** that accepts a number **without a leading zero** and shows an expected-format hint; patient **age + sex are sent to the LLM** so triage questions are demographics-aware; the brief step is split so Step 2 shows **only "Pick a reason"** and a specific choice opens "Please give more information about your '<Reason>'" while **"Something else"** opens "Tell the doctor briefly" with Started/Where/Tried/Before tips; Step-3 loading shows only **"Analyzing Your Issue..."** (no DeepSeek/system texts); the **doctor brief is reorganized with color-graded demographic chips** and a structured alternating-color answer list.
+- **Method:** `node --check` on app.js/server.js; restarted the local server from `.env`; live `curl` to `/api/questions` with `age`+`sex`; browser end-to-end walks for BOTH the specific-reason and "Something else" branches; computed-style check of the color-graded doctor brief.
+- **Evidence:**
+  ```text
+  $ node --check 14-MVP-HTML/app.js     ->  APP_OK
+  $ node --check 14-MVP-HTML/server.js  ->  SERVER_OK
+
+  $ curl -s -X POST http://localhost:8765/api/questions \
+      -H "Content-Type: application/json" \
+      -d '{"brief":"Fever and dry cough since yesterday, body aches.","complaint":"Fever","age":"28","sex":"Male"}'
+  => {"ok":true,"source":"deepseek","suggested":[3 questions],"alreadyKnown":[...]}
+
+  Browser walk A (specific reason):
+   - welcome search "812 3000 0001" -> Confirm "Demo Patient 01".
+   - Step 0: label "Full name", #phoneCode="+62", #intakePhone="812 3000 0001", hint "No leading zero — e.g. 812 3000 0001 (not 0812…)".
+   - Continue -> Step 1 "Pick a reason" (grid only, no textarea).
+   - Pick "Fever" -> Step 2 "Please give more information about your 'Fever'".
+   - Submit brief -> Step 3 "Analyzing Your Issue..." -> "Basic question 1 of 3".
+   - No "DeepSeek · suggested", no "Already noted", no "Processing your response…" in patient view.
+   - Answered all -> Step 4 check answers (Name/Age-sex/Mobile/Reason/Patient words/Reports + consents) -> Step 5 Done PIN 4729 / token 51.
+
+  Browser walk B ("Something else"):
+   - Register new patient -> Step 1 pick "Something else".
+   - Step 2: "Tell the doctor briefly" + tips card [Started, Where, Tried, Before] + hint "Helpful details to add: Started · Where · Tried · Before".
+   - "Started" chip -> inserts "Started: " into textarea.
+   - Submit rash brief -> Step 3 "Analyzing Your Issue..." -> tailored question "Where on your body is the rash located?".
+
+  Leading-zero + dropdown (live on page):
+   #phoneCode "+62"->"+65"; #intakePhone "0812 3000 0001" -> getIntakePhone() = "+65 81230000001".
+
+  Doctor view computed styles:
+   .demo-chip Age -> rgb(228,244,242) teal; .demo-chip Female -> rgb(232,238,244) blue; .demo-contact -> rgb(231,245,238) green.
+   #briefAnswers .answer-item alternating rgb(228,244,242)/rgb(232,238,244) tints.
+  ```
+- **Verdict:** ✅ **CONFIRMED** — full name capture, Indonesian-first phone (+62 default, dropdown, leading-zero strip, format hint), age+sex sent to and used by DeepSeek, pick-a-reason split with a distinct "Something else" brief + tips, clean "Analyzing Your Issue..." loading (all system texts removed), and an organized color-graded doctor brief all verified in the browser and API. Both intake branches complete end-to-end. DeepSeek output remains labeled triage suggestions under ADR-039/OT-18; doctor retains final discretion. No regression in consents (required "Share with my doctor" stays fixed+disabled).

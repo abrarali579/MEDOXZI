@@ -4,6 +4,60 @@
 
 ---
 
+## 2026-08-24 - Session T - HTML MVP refinements: full name, phone format, LLM demographics, pick-a-reason split, clean loading, doctor brief color grading
+
+**WHAT**
+- Step-0 name field relabeled to **"Full name"** with a real-ID placeholder.
+- Phone entry now a **country-code dropdown defaulting to +62 (Indonesia)** beside the local-number input; it **accepts a number without a leading zero** (a single leading `0` is stripped), and shows an **expected-format hint** ("No leading zero — e.g. 812 3000 0001 (not 0812…)"). Stored/displayed as `<code> <local digits>`.
+- Patient **age and sex now sent to the LLM**: `POST /api/questions` body gains `age` + `sex`, and `server.js` injects "The patient is a <age>-year-old <sex>…" into the DeepSeek system prompt so triage questions are demographics-aware.
+- Intake restructured into **6 steps** (Details -> **Pick a reason** -> Brief -> Questions -> Check answers -> Done). Step 1 shows **only the pick-a-reason grid**. Selecting a specific reason (Fever/Cough/…) opens a step titled **"Please give more information about your '<Reason>'"** with a professional prompt; selecting **"Something else"** opens **"Tell the doctor briefly"** with a **tips card (Started / Where / Tried / Before)** whose buttons insert helpful detail labels into the brief.
+- **Cleaned Step-3 loading**: patient now sees only **"Analyzing Your Issue..."** while DeepSeek works; removed the "DeepSeek · suggested from your brief", "Already noted: …", and "Processing your response…" system texts from the patient questions view. Questions appear one by one when ready.
+- **Doctor Brief reorganized + color graded**: added a demographic chip row (Age teal / Sex blue / Contact green) and turned the answer feed into a structured list of question→answer pairs with alternating teal/blue shading.
+
+**WHY**
+Direct founder directives (2026-08-24): proper full-name capture; Indonesian-first phone format for the clinic's context; richer LLM context (age/sex) for more useful triage; a cleaner two-step reason→detail intake that branches specially for "Something else"; a calm, AI-invisible processing screen; and a more scannable, color-coded doctor brief.
+
+**EVIDENCE**
+- `node --check` APP_OK / SERVER_OK.
+- `curl POST /api/questions` with `age:28, sex:Male, complaint:Fever` returned 3 well-formed DeepSeek questions.
+- Browser walk A (specific reason): Confirm Demo Patient -> "Full name" label, `+62` default, phone `812 3000 0001`, hint shown -> Pick "Fever" -> "Please give more information about your 'Fever'" -> Submit -> "Analyzing Your Issue..." -> "Basic question 1 of 3" -> review -> Done (PIN 4729). No system texts in patient view.
+- Browser walk B ("Something else"): register new -> pick "Something else" -> "Tell the doctor briefly" + tips card; "Started" chip inserted "Started: " -> Submit -> "Analyzing Your Issue..." -> tailored question ("Where on your body is the rash located?").
+- Leading-zero + dropdown live-checked: code `+62`→`+65`, input `0812 3000 0001` → `getIntakePhone()` = `+65 81230000001`.
+- Doctor view: 3 distinct color-coded demographic chips + alternating answer items (computed styles confirmed distinct tints).
+
+**NEXT / WHY NEXT / HOW**
+- Founder review of the demo at `http://localhost:8765` (server running, `.env`-gated key). Deploy/public URL pending founder sign-off. Regression suite re-verified green (100 pass baseline).
+
+---
+
+## 2026-08-24 - Session S - HTML MVP first-screen welcome + phone/name search + intake flow restructure
+
+**WHAT**
+- Added a first-screen landing (`#view-welcome`) that shows ONLY "WELCOME TO MEDOXZI LAB" + a search box for phone number or full name, replacing the previous 4-tab staff landing as the default screen.
+- Matched records render below the search box, each with a **Confirm** button. Confirm loads the record into the patient intake with basic info (name/age/sex/phone) pre-filled on the 2nd screen.
+- No-match renders a **"Register as a new Patient"** button under the search box; it opens the intake with blank fields for the patient to fill.
+- Restructured the patient intake from 8 steps to 5 (0-4): Details -> Brief+Submit -> Questions (with processing/loading screen) -> Check Your Answers + required consents -> Done. Removed the report/file-upload step; consents moved from old step 0 onto "Check Your Answers".
+- The 2nd screen (Details) does not show today's queue.
+- Enhanced the DeepSeek prompt so it does not re-ask anything already in the brief (e.g. duration/onset) and returns an `alreadyKnown` list; the app surfaces it as an "Already noted:" pill. DeepSeek remains labeled triage suggestions; doctor retains final discretion.
+
+**WHY**
+- Founder directive for the MEDOXZI demo first screen and patient flow, as given in chat: welcome-only first screen, search by phone/name, confirm-or-register, pre-filled-or-blank 2nd screen (no queue), brief + Submit with loading accepted, no repeated duration question when onset already given, then "Check Your Answers" followed by required consent checkboxes.
+
+**EVIDENCE**
+- Session log `_OPS/SESSION-LOG/2026-08-24-S-html-mvp-first-screen-search.md`.
+- Browser end-to-end walk (welcome -> search-by-phone match + Confirm -> pre-filled details -> Continue to Intake -> brief Submit -> loading -> 3 AI questions with "Already noted: started yesterday" and NO onset re-ask -> answer all -> Check Your Answers + 3 consent checkboxes -> Done/PIN) on `http://localhost:8765/`.
+- No-match -> "Register as a new Patient" -> blank details confirmed.
+- `curl` to `/api/questions` returned `ok:true`, 3 questions, `alreadyKnown:["Fever and dry cough started yesterday","Body aches present"]`.
+- Baseline unchanged: `pytest tests/ -q` 100 passed; `harness.run` VERDICT: PASS.
+
+**NEXT**
+- Commit + push the HTML MVP first-screen/search changes with a tracked message, then follow up on the remaining items in `_OPS/OPEN-THREADS.md`.
+
+**WHY NEXT**
+- The first-screen/search redesign is the active outstanding feature work; committing it as a single reviewable unit keeps the demo current and the log trail complete.
+
+---
+
 ## 2026-08-24 - Session SV13 - ADR-039 founder override: signed-activation + promotion gates removed (all packs)
 
 **WHAT**

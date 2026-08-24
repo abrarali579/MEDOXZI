@@ -39,21 +39,41 @@ function json(res, code, body) {
 }
 
 /** Ask DeepSeek to turn a patient brief into suggested triage questions. */
-async function suggestQuestions(brief, complaint) {
+async function suggestQuestions(brief, complaint, patient) {
   if (!API_KEY) {
     return { ok: false, source: "deepseek", error: "NO_API_KEY" };
   }
+  const age = String(patient?.age || "").trim();
+  const sex = String(patient?.sex || "").trim();
+  let demographics;
+  if (age && sex) {
+    demographics = `The patient is a ${age}-year-old ${sex.toLowerCase()}. `;
+  } else if (age) {
+    demographics = `The patient is ${age} years old. `;
+  } else if (sex) {
+    demographics = `The patient is ${sex.toLowerCase()}. `;
+  } else {
+    demographics = "Patient age and sex are not provided. ";
+  }
+  demographics += "Use the patient's age and sex to tailor the questions where relevant, but never make it awkward.";
   const sys = [
     "You act as the intake-triage question suggester inside MEDOXZI, a pre-consultation ",
     "intake tool for a general clinic. You NEVER diagnose and you NEVER give treatment advice. ",
     "Your only job: from a patient's short description of why they are visiting, propose at most ",
     "4 short follow-up questions the patient can answer on the intake tablet so the doctor gets a ",
     "clearer brief. Each question must have exactly 4 plain-text answer options, and every option ",
-    "must include one escape option when sensible ('Not sure', \"I don't know\", 'None', etc.). ",
-    "Respond as strict JSON only — no markdown, no prose: ",
-    '{"questions":[{"text":"...","options":["a","b","c","d"}]}]}. ',
+    "must include one escape option when sensible: 'Not sure', \"I don't know\", 'None', etc. ",
+    demographics + " ",
+    "Respond as strict JSON only — no markdown, no prose, in this shape: ",
+    "{ \"questions\": [{\"text\":\"...\",\"options\":[\"a\",\"b\",\"c\",\"d\"]}], \"alreadyKnown\": [\"...\"] }. ",
+    "alreadyKnown is an optional array of facts the patient already told you that you deliberately ",
+    "did NOT ask again. ",
     "The 4 questions should branch from what the patient already said, and must never ask for ",
-    "things the patient can't know (never ask for a diagnosis). Keep all text in clear, simple English.",
+    "things the patient can't know (never ask for a diagnosis). Keep all text in clear, simple English. ",
+    "IMPORTANT — DO NOT re-ask anything the patient already told you. For example, if the patient gave ",
+    "a start time or duration (e.g. 'since yesterday', 'for 3 days', 'it started last week'), do NOT include ",
+    "a new 'when did it start' / duration / onset question. List those already-known facts in alreadyKnown ",
+    "instead. A patient should never be asked the same thing twice.",
   ].join("");
 
   const res = await fetch("https://api.deepseek.com/chat/completions", {
@@ -104,8 +124,12 @@ async function suggestQuestions(brief, complaint) {
     })
     .filter((q) => q.text && q.options.length === 4);
 
+  const alreadyKnown = Array.isArray(parsed?.alreadyKnown)
+    ? parsed.alreadyKnown.map(String).slice(0, 8).filter(Boolean)
+    : [];
+
   return suggested.length
-    ? { ok: true, source: "deepseek", suggested }
+    ? { ok: true, source: "deepseek", suggested, alreadyKnown }
     : { ok: false, source: "deepseek", error: "EMPTY_SUGGESTIONS" };
 }
 
@@ -135,9 +159,13 @@ const server = createServer(async (req, res) => {
     const brief = String(payload.brief || "").trim();
     const complaint = String(payload.complaint || "Something else").trim();
     if (!brief) return json(res, 400, { ok: false, error: "NO_BRIEF" });
+    const patient = {
+      age: String(payload.age || "").trim(),
+      sex: String(payload.sex || "").trim(),
+    };
 
     try {
-      const result = await suggestQuestions(brief.slice(0, 1200), complaint);
+      const result = await suggestQuestions(brief.slice(0, 1200), complaint, patient);
       // Cleanup: never echo the API key or raw HTTP bodies containing it.
       delete result.raw;
       return json(res, result.ok ? 200 : 200, result); // 200 even for fallback so client can decide

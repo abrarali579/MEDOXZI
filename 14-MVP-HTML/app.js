@@ -544,7 +544,7 @@ function syncPatientFromRegistration() {
   $("#intakeName").value = name;
   $("#intakeAge").value = age;
   $("#intakeSex").value = sex;
-  $("#intakePhone").value = phone;
+  setIntakePhone(phone);
   patients[2].name = name;
   patients[2].age = age;
   patients[2].sex = sex;
@@ -566,15 +566,17 @@ function clearIntakeDraft({ keepIdentity = true } = {}) {
     state.linkedIdentity = null;
   }
   $("#issueText").value = "I have fever and body pain since yesterday. I feel tired and want the doctor to check.";
-  $("#reportInput").value = "";
-  renderFiles();
+  const reportEl = $("#reportInput");
+  if (reportEl) reportEl.value = "";
+  const fileEl = $("#fileList");
+  if (fileEl) renderFiles();
   $$(".complaint-grid button").forEach((button) => button.classList.remove("selected"));
 }
 
 function renderStepIndicator() {
   const el = $("#stepIndicator");
   if (!el) return;
-  const total = 7;
+  const total = 6;
   const cur = state.currentStep;
   el.innerHTML = Array.from({ length: total }, (_, i) => {
     const cls = i < cur ? "step-dot done" : i === cur ? "step-dot current" : "step-dot";
@@ -583,27 +585,55 @@ function renderStepIndicator() {
 }
 
 function showStep(step) {
-  state.currentStep = Math.max(0, Math.min(step, 7));
+  state.currentStep = Math.max(0, Math.min(step, 5));
   $$(".intake-step").forEach((el) => {
     el.classList.toggle("active", Number(el.dataset.step) === state.currentStep);
   });
   renderStepIndicator();
 
-  const total = 7;
+  const total = 6;
   $("#stepLabel").textContent =
-    state.currentStep < 7 ? `Step ${state.currentStep + 1} of ${total}` : "Done";
+    state.currentStep < 5 ? `Step ${state.currentStep + 1} of ${total}` : "Done";
   $("#progressBar").style.width = `${Math.min(100, ((state.currentStep + 1) / total) * 100)}%`;
   $("#backStep").disabled = state.currentStep === 0;
-  $("#nextStep").style.display = state.currentStep >= 6 ? "none" : "";
-  $("#skipStep").style.display = state.currentStep >= 6 ? "none" : "";
+  $("#backStep").style.display = state.currentStep === 5 ? "none" : "";
+  $("#nextStep").style.display = "none";
+  $("#skipStep").style.display = "none";
 
-  if (state.currentStep === 4) {
-    renderQuestion();
-    ensureAISuggestions();
+  if (state.currentStep === 3) {
+    showQuestionLoading();
+    ensureAISuggestions().then(() => {
+      if (state.currentStep === 3) {
+        hideQuestionLoading();
+        renderQuestion();
+      }
+    });
   }
-  if (state.currentStep === 6) {
+  if (state.currentStep === 4) {
     renderReview();
   }
+}
+
+let _processingActive = false;
+
+function showQuestionLoading() {
+  _processingActive = true;
+  const ql = $("#questionLoading");
+  if (ql) ql.hidden = false;
+  ["#questionText", "#answerGrid"].forEach((sel) => {
+    const el = $(sel);
+    if (el) el.hidden = true;
+  });
+}
+
+function hideQuestionLoading() {
+  _processingActive = false;
+  const ql = $("#questionLoading");
+  if (ql) ql.hidden = true;
+  ["#questionText", "#answerGrid"].forEach((sel) => {
+    const el = $(sel);
+    if (el) el.hidden = false;
+  });
 }
 
 function renderQuestion() {
@@ -612,6 +642,8 @@ function renderQuestion() {
   const nextQuestion = questions[Math.min(index, questions.length - 1)];
   $("#questionTitle").textContent = `Basic question ${Math.min(index + 1, questions.length)} of ${questions.length}`;
   $("#questionText").textContent = nextQuestion.text;
+  $("#questionText").hidden = false;
+  $("#answerGrid").hidden = false;
   $$(".answer-grid button").forEach((button, optionIndex) => {
     const option = nextQuestion.options[optionIndex];
     button.textContent = option;
@@ -627,61 +659,43 @@ function renderQuestion() {
 async function ensureAISuggestions() {
   const brief = ($("#issueText")?.value || "").trim();
   const complaint = state.complaint;
+  const age = ($("#intakeAge")?.value || "").trim();
+  const sex = ($("#intakeSex")?.value || "").trim();
   const key = `${complaint}|${brief}`;
   if (state.aiQuestions && state.aiBriefKey === key) {
     return; // already have suggestions for this brief
   }
   if (!brief) {
-    // No brief yet: show the static-only pill state (nothing to suggest from).
-    const note = $("#aiSourceNote");
-    if (note) {
-      note.hidden = false;
-      note.innerHTML = `<span class="pill">Static question set</span> (write your concern above and DeepSeek can tailor questions)`;
-    }
+    // No brief yet: nothing to suggest from. No system text shown to patient.
+    state.aiQuestions = null;
+    state.aiBriefKey = "";
     return;
   }
   try {
     const res = await fetch("/api/questions", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ brief: brief.slice(0, 1200), complaint }),
+      body: JSON.stringify({ brief: brief.slice(0, 1200), complaint, age, sex }),
     });
     const data = await res.json();
     // Only apply if the brief hasn't changed since we dispatched.
     if (key !== `${state.complaint}|${($("#issueText")?.value || "").trim()}`) return;
-    const note = $("#aiSourceNote");
     if (data && data.ok && Array.isArray(data.suggested) && data.suggested.length) {
       state.aiQuestions = data.suggested;
       state.aiBriefKey = key;
       // Reset answers so the (possibly different) AI questions start fresh.
       state.answers = {};
-      if (note) {
-        note.hidden = false;
-        note.innerHTML = `<span class="pill deepseek">DeepSeek · suggested from your brief</span>`;
-      }
-      if (state.currentStep === 4) renderQuestion();
+      if (state.currentStep === 3) renderQuestion();
       renderDoctorBrief();
     } else {
-      // Fallback to the static set; note why.
+      // Fallback to the static set.
       state.aiQuestions = null;
       state.aiBriefKey = "";
-      const msg = (data && data.error) || "unavailable";
-      if (note) {
-        note.hidden = false;
-        note.innerHTML = msg === "NO_API_KEY"
-          ? `<span class="pill">Static question set</span> (DeepSeek key not configured locally)`
-          : `<span class="pill">Static question set</span> (DeepSeek offline)`;
-      }
     }
   } catch (err) {
-    // Local server not running -> static set, no error surfaced to patient.
+    // Local server not running -> static set.
     state.aiQuestions = null;
     state.aiBriefKey = "";
-    const note = $("#aiSourceNote");
-    if (note) {
-      note.hidden = false;
-      note.innerHTML = `<span class="pill">Static question set</span> (run the local server for DeepSeek questions)`;
-    }
   }
 }
 
@@ -692,7 +706,7 @@ function answerQuestion(answer) {
   state.answers[question.text] = answer;
 
   if (Object.keys(state.answers).length >= questions.length) {
-    showStep(5);
+    showStep(4);
   } else {
     renderQuestion();
   }
@@ -707,11 +721,43 @@ function renderFiles() {
   $("#fileList").innerHTML = state.files.map((file) => `<div>${file} · doctor-review only</div>`).join("");
 }
 
+function setupBriefStep() {
+  const title = $("#briefTitleId");
+  const subtitle = $("#briefSubtitle");
+  const issue = $("#issueText");
+  const tips = $("#briefTips");
+  const tipHint = $("#briefTip");
+  const isOther = state.complaint === "Something else";
+  if (title) {
+    title.textContent = isOther
+      ? "Tell the doctor briefly"
+      : `Please give more information about your “${state.complaint}”`;
+  }
+  if (subtitle) {
+    subtitle.textContent = isOther
+      ? "Describe what’s going on in your own words."
+      : "Write anything you think the doctor must know — feel free to phrase it in your own way.";
+  }
+  if (issue) {
+    issue.value = "";
+    issue.placeholder = isOther
+      ? "For example: I have fever and body pain since yesterday."
+      : `For example: my ${state.complaint.toLowerCase()} started today and is getting worse.`;
+  }
+  if (tips) tips.hidden = !isOther;
+  if (tipHint) {
+    tipHint.textContent = isOther
+      ? "Helpful details to add: Started · Where · Tried · Before"
+      : "You can add when it started, where you feel it, what you tried, and if it happened before.";
+  }
+  if (issue) issue.focus();
+}
+
 function renderReview() {
   const rows = [
     ["Name", $("#intakeName").value],
     ["Age / sex", `${$("#intakeAge").value} / ${$("#intakeSex").value}`],
-    ["Mobile", $("#intakePhone").value || "Not entered"],
+    ["Mobile", getIntakePhone() || "Not entered"],
     ["Reason", state.complaint],
     ["Patient words", $("#issueText").value || "Not entered"],
     ["Reports", state.files.length ? `${state.files.length} attached` : "No previous reports"],
@@ -726,16 +772,28 @@ function renderDoctorBrief() {
   const name = $("#intakeName")?.value || $("#patientName")?.value || "Demo Patient";
   const age = $("#intakeAge")?.value || $("#patientAge")?.value || "34";
   const sex = $("#intakeSex")?.value || $("#patientSex")?.value || "Male";
-  $("#briefTitle").textContent = `Token ${state.token} · ${name} · ${sex}, ${age}${state.pin ? ` · ${state.pin}` : ""}`;
+  $("#briefTitle").textContent = `Token ${state.token} · ${name}${state.pin ? ` · ${state.pin}` : ""}`;
   $("#briefIssue").textContent = $("#issueText")?.value || "Not entered";
   $("#briefFiles").textContent = state.files.length
     ? `${state.files.length} file(s) attached for doctor review only.`
     : "No previous reports attached.";
 
+  const demographicsEl = $("#briefDemographics");
+  if (demographicsEl) {
+    demographicsEl.innerHTML = [
+      `<span class="demo-chip demo-age">Age ${age}</span>`,
+      `<span class="demo-chip demo-sex">${sex}</span>`,
+      `<span class="demo-chip demo-contact">${getIntakePhone() || "No phone"}</span>`,
+    ].join("");
+  }
+
   const answerEntries = Object.entries(state.answers);
   $("#briefAnswers").innerHTML = answerEntries.length
-    ? answerEntries.map(([q, a]) => `<li>${q}: <strong>${a}</strong></li>`).join("")
-    : "<li>No basic questions answered yet.</li>";
+    ? answerEntries.map(
+        ([q, a]) =>
+          `<li class="answer-item"><span class="answer-q">${q}</span><strong class="answer-a">${a}</strong></li>`
+      ).join("")
+    : `<li class="answer-item empty">No basic questions answered yet.</li>`;
 
   const questions = activeQuestions();
   const missing = questions.filter((question) => !state.answers[question.text]);
@@ -746,6 +804,43 @@ function renderDoctorBrief() {
 
 function normalize(value) {
   return String(value || "").trim().toLowerCase();
+}
+
+// Phone helpers — Indonesian default +62, accept number without leading zero.
+function phoneCode() {
+  const el = $("#phoneCode");
+  return (el && el.value) || "+62";
+}
+
+function getIntakePhone() {
+  let num = ($("#intakePhone")?.value || "").trim();
+  // Strip a single leading zero (e.g. 0812... -> 812...).
+  if (num.startsWith("0")) num = num.slice(1);
+  const digits = num.replace(/\D/g, "");
+  if (!digits) return "";
+  return `${phoneCode()} ${digits}`;
+}
+
+function setIntakePhone(fullPhone) {
+  const s = String(fullPhone || "").trim();
+  if (!s) return;
+  let code = "+62";
+  let number = s;
+  const m = s.match(/^(\+\d{1,3})\s*(.*)$/);
+  if (m) {
+    code = m[1];
+    number = m[2].trim();
+  }
+  const codeEl = $("#phoneCode");
+  if (codeEl) {
+    if (codeEl.querySelector(`option[value="${code}"]`)) {
+      codeEl.value = code;
+    } else {
+      codeEl.value = "+62";
+    }
+  }
+  const numEl = $("#intakePhone");
+  if (numEl) numEl.value = number;
 }
 
 function identityKey(name, age, phone) {
@@ -773,7 +868,7 @@ function saveLinkedPatient() {
   const name = $("#intakeName").value || "Demo Patient";
   const age = $("#intakeAge").value || "34";
   const sex = $("#intakeSex").value || "Male";
-  const phone = $("#intakePhone").value || "";
+  const phone = getIntakePhone();
   const key = identityKey(name, age, phone);
   const existing = state.linkedIdentity;
 
@@ -848,6 +943,82 @@ function loadExistingPatient(pin) {
   $("#searchResults").innerHTML = `<div class="identity-lock"><strong>${patient.name}</strong><span>${patient.pin} loaded. Mobile ${patient.phone}. Update today's issue, then submit this visit.</span></div>`;
 }
 
+function renderWelcomeSearch(query = "") {
+  const term = normalize(query);
+  const resultsEl = $("#welcomeResults");
+  const emptyState = $("#welcomeEmpty");
+  if (!resultsEl) return;
+
+  if (!term) {
+    resultsEl.innerHTML = "";
+    if (emptyState) emptyState.hidden = true;
+    return;
+  }
+
+  const results = savedPatients().filter((patient) => {
+    const haystack = `${patient.name} ${patient.pin} ${patient.phone}`.toLowerCase();
+    return haystack.includes(term);
+  });
+
+  if (!results.length) {
+    resultsEl.innerHTML = "";
+    if (emptyState) {
+      emptyState.hidden = false;
+      emptyState.innerHTML = `
+        <p>No record matched “${escapeHtml(query.trim())}”.</p>
+        <button type="button" id="welcomeRegisterNew" class="btn primary">Register as a new Patient</button>`;
+      const registerBtn = $("#welcomeRegisterNew");
+      if (registerBtn) registerBtn.addEventListener("click", registerNewPatient);
+    }
+    return;
+  }
+
+  if (emptyState) emptyState.hidden = true;
+  resultsEl.innerHTML = results
+    .map(
+      (patient) => `
+        <div class="welcome-result" data-pin="${patient.pin}">
+          <div class="welcome-result-info">
+            <strong>${escapeHtml(patient.name)}</strong>
+            <span>${patient.pin} · ${patient.phone} · ${patient.sex}, ${patient.age}</span>
+          </div>
+          <button type="button" class="btn primary" data-confirm-pin="${patient.pin}">Confirm</button>
+        </div>
+      `,
+    )
+    .join("");
+}
+
+function confirmWelcomePatient(pin) {
+  const patient = savedPatients().find((item) => item.pin === pin);
+  if (!patient) return;
+  loadExistingPatient(pin); // pre-fills basic info on step 0
+  switchView("patient");
+}
+
+function registerNewPatient() {
+  clearIntakeDraft({ keepIdentity: false });
+  const hint = $("#detailsHint");
+  if (hint) hint.textContent = "New patient — please fill in your basic details.";
+  $("#intakeName").value = "";
+  $("#intakeAge").value = "";
+  $("#intakeSex").value = "";
+  const codeEl = $("#phoneCode");
+  if (codeEl) codeEl.value = "+62";
+  $("#intakePhone").value = "";
+  $("#issueText").value = "";
+  showStep(0);
+  switchView("patient");
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 function saveDoctorConclusion() {
   state.doctorSaved = true;
   const followupNeeded = $("#followupNeeded").value;
@@ -919,6 +1090,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = event.target.closest("[data-pin]");
     if (button) loadExistingPatient(button.dataset.pin);
   });
+
+  const welcomeSearch = $("#welcomeSearch");
+  if (welcomeSearch) {
+    welcomeSearch.addEventListener("input", (event) => renderWelcomeSearch(event.target.value));
+  }
+  const welcomeResults = $("#welcomeResults");
+  if (welcomeResults) {
+    welcomeResults.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-confirm-pin]");
+      if (button) confirmWelcomePatient(button.dataset.confirmPin);
+    });
+  }
   $(".history-search input").addEventListener("input", (event) => {
     historyFilters.query = event.target.value;
     renderHistoryList();
@@ -932,6 +1115,39 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#backStep").addEventListener("click", () => showStep(state.currentStep - 1));
   $("#nextStep").addEventListener("click", () => showStep(state.currentStep + 1));
   $("#skipStep").addEventListener("click", () => showStep(state.currentStep + 1));
+
+  const continueToIntake = $("#continueToIntake");
+  if (continueToIntake) {
+    continueToIntake.addEventListener("click", () => {
+      const name = $("#intakeName").value.trim();
+      const phoneNumber = ($("#intakePhone").value || "").trim();
+      if (!name) {
+        alert("Please enter your name to continue.");
+        return;
+      }
+      if (!phoneNumber) {
+        alert("Please enter your mobile number to continue.");
+        return;
+      }
+      const fullPhone = getIntakePhone();
+      $("#intakePhone").value = fullPhone.split(" ").slice(1).join(" ");
+      showStep(1);
+    });
+  }
+
+  const submitBrief = $("#submitBrief");
+  if (submitBrief) {
+    submitBrief.addEventListener("click", () => {
+      const brief = $("#issueText").value.trim();
+      if (!brief) {
+        alert("Please describe your issue briefly so the doctor can prepare your questions.");
+        return;
+      }
+      renderDoctorBrief();
+      showStep(3);
+    });
+  }
+
   $("#submitIntake").addEventListener("click", () => {
     if (!saveLinkedPatient()) return;
     patients[2].status = "Ready";
@@ -939,7 +1155,7 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#donePin").textContent = state.pin;
     renderQueues();
     renderDoctorBrief();
-    showStep(7);
+    showStep(5);
   });
 
   $$(".complaint-grid button").forEach((button) => {
@@ -950,7 +1166,8 @@ document.addEventListener("DOMContentLoaded", () => {
       state.aiBriefKey = "";
       $$(".complaint-grid button").forEach((el) => el.classList.remove("selected"));
       button.classList.add("selected");
-      showStep(3);
+      setupBriefStep();
+      showStep(2);
     });
   });
 
@@ -958,11 +1175,14 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => answerQuestion(button.dataset.answer));
   });
 
-  $("#reportInput").addEventListener("change", (event) => {
-    state.files = Array.from(event.target.files).map((file) => file.name);
-    renderFiles();
-    renderDoctorBrief();
-  });
+  const reportListener = $("#reportInput");
+  if (reportListener) {
+    reportListener.addEventListener("change", (event) => {
+      state.files = Array.from(event.target.files).map((file) => file.name);
+      renderFiles();
+      renderDoctorBrief();
+    });
+  }
 
   $$(".detail-chips button").forEach((button) => {
     button.addEventListener("click", () => {
