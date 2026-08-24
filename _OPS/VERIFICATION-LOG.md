@@ -1634,6 +1634,114 @@ The grep found the synthetic history fixture, history search/open hooks, and sam
 
 ---
 
+## V-2026-08-24-U-01 - Graphify current-state graph and next-chat handoff
+
+**Date:** 2026-08-24
+**Scope:** Baseline/final verification around installing the attached Graphify skill, generating a curated current-state project graph, saving next-chat context, and adding Graphify-first agent guidance.
+
+```text
+$ python -m pytest tests/ -q
+........................................................................ [ 72%]
+............................                                             [100%]
+100 passed in 0.39s
+```
+
+```text
+$ python -m harness.run
+VERDICT: PASS
+```
+
+```text
+$ python demo.py | Select-Object -Last 20
+Every behaviour above is deterministic and unit-tested.
+Run:  python -m pytest tests/ -v
+```
+
+Graphify install:
+
+```text
+$ graphify install --platform codex
+references       ->  C:\Users\Abrar Ali\.codex\skills\graphify\references
+skill installed  ->  C:\Users\Abrar Ali\.codex\skills\graphify\SKILL.md
+```
+
+Graphify build:
+
+```text
+$ graphify extract 'D:\MEDOXZI\graphify-current-state-src' --code-only --out 'D:\MEDOXZI\graphify-current-state'
+[graphify extract] scanning D:\MEDOXZI\graphify-current-state-src
+[graphify extract] --code-only: skipping 6 non-code file(s) (6 docs, 0 papers, 0 images) — no LLM extraction
+[graphify extract] found 2 code, 0 docs, 0 papers, 0 images
+[graphify extract] AST extraction on 2 code files...
+[graphify extract] wrote D:\MEDOXZI\graphify-current-state\graphify-out\graph.json: 68 nodes, 119 edges, 12 communities
+```
+
+```text
+$ graphify cluster-only 'D:\MEDOXZI\graphify-current-state' --no-label
+Loading existing graph...
+Graph: 68 nodes, 119 edges
+Re-clustering...
+Done - 12 communities. GRAPH_REPORT.md, graph.json and graph.html updated.
+```
+
+Graphify query check:
+
+```text
+$ graphify query "How do VisualHTMLMVP DoctorBrief and VerticalQuestionPack connect?" --graph graphify-current-state\graphify-out\graph.json --budget 1200
+Graph: graphify-current-state/graphify-out/graph.json (68 nodes) | Traversal: BFS depth=2 | Start: ['VisualHTMLMVP', 'VerticalQuestionPack', 'DoctorBrief'] | 18 nodes found
+NODE VisualHTMLMVP [src=current_state_model.py loc=L26 community=Community 11]
+NODE VerticalQuestionPack [src=current_state_model.py loc=L89 community=Community 10]
+NODE DoctorBrief [src=current_state_model.py loc=L64 community=Community 6]
+```
+
+Final verification after adding `AGENTS.md` and next-chat context:
+
+```text
+$ python -m pytest tests/ -q
+........................................................................ [ 72%]
+............................                                             [100%]
+100 passed in 0.45s
+```
+
+```text
+$ python -m harness.run
+VERDICT: PASS
+```
+
+```text
+$ python demo.py | Select-Object -Last 20
+Every behaviour above is deterministic and unit-tested.
+Run:  python -m pytest tests/ -v
+```
+
+**AGENT-PROTOCOL sweep:** full Windows sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; red-flag phrases only in prohibitive or historical contexts; retention references consistent including copied Graphify source docs; `PATIENT_UNSURE` only in rejection/history/test contexts including copied Graphify source docs; `probability` only in drift detector and prohibited-term lists/regexes; `>=500` only in ADR-029/history/Gate 6/synthetic/privacy contexts including copied Graphify source docs.
+
+**Verdict:** graph artifacts and handoff are verified. This created no production clinical content, no real patient data, no live messaging, no new regulatory claim, and no clinical performance claim.
+
+Final post-`STATE.md` verification rerun:
+
+```text
+$ python -m pytest tests/ -q
+........................................................................ [ 72%]
+............................                                             [100%]
+100 passed in 0.18s
+```
+
+```text
+$ python -m harness.run
+VERDICT: PASS
+```
+
+```text
+$ python demo.py | Select-Object -Last 20
+Every behaviour above is deterministic and unit-tested.
+Run:  python -m pytest tests/ -v
+```
+
+Final contradiction sweep after the `STATE.md` update remained contextual only: `FULL_AI` alias/history/direction; `No red flags` hits in prohibitive/historical/pitch-forbidden contexts; retention references consistent including copied Graphify source docs; `PATIENT_UNSURE` rejection/history/test contexts only; `probability` only in drift/prohibited-term implementation; `>=500`/`≥500` only in ADR-029/history/Gate 6/synthetic/privacy contexts including copied Graphify source docs.
+
+---
+
 ### V-2026-08-24-L-01 · HTML MVP refinement baseline
 
 **Date:** 2026-08-24

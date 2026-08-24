@@ -4,6 +4,35 @@
 
 ---
 
+## 2026-08-24 - Session U - Graphify current-state graph + next-chat handoff
+
+**WHAT**
+- Installed the attached Graphify skill into Codex and built a focused current-state graph for MEDOXZI.
+- Added `AGENTS.md` with a "Graphify First" rule so future agents use the saved graph before reading many files for architecture/project-state/link questions.
+- Added `_OPS/NEXT-CHAT-PROMPT.md` with a paste-ready next-chat prompt.
+- Added `_OPS/SESSION-LOG/2026-08-24-U-graphify-current-state.md` and recorded verification in `_OPS/VERIFICATION-LOG.md`.
+
+**WHY**
+The founder asked to continue in a new chat and reduce future token usage. A curated graph gives new agents a fast map of the current MVP, doctor-history flow, PIN identity boundary, vertical question pack, and compliance constraints without rereading the whole repository first.
+
+**EVIDENCE**
+- `graphify extract ... --code-only --out ...` wrote `graphify-current-state/graphify-out/graph.json`: **68 nodes, 119 edges, 12 communities**.
+- `graphify cluster-only ... --no-label` regenerated `GRAPH_REPORT.md`, `graph.json`, and `graph.html`.
+- `graphify query "How do VisualHTMLMVP DoctorBrief and VerticalQuestionPack connect?" --graph graphify-current-state/graphify-out/graph.json --budget 1200` returned 18 graph nodes including `VisualHTMLMVP`, `VerticalQuestionPack`, and `DoctorBrief`.
+- Final verification: `python -m pytest tests/ -q` -> **100 passed**; `python -m harness.run` -> **VERDICT: PASS**; `python demo.py | Select-Object -Last 20` -> clean deterministic demo tail.
+- Full evidence: `_OPS/VERIFICATION-LOG.md` **V-2026-08-24-U-01**.
+
+**NEXT**
+Use `_OPS/NEXT-CHAT-PROMPT.md` to start the next chat. Next agent should review the polished HTML MVP and continue with production PIN identity design / doctor-review flow only after the protocol baseline.
+
+**WHY NEXT**
+The project is moving from visualization/prototype alignment into product decisions. The next agent needs the same current-state map and must avoid burning context on broad file reads before knowing which nodes/files matter.
+
+**HOW**
+Start with `AGENTS.md`, the `_OPS` protocol files, then `graphify-current-state/graphify-out/GRAPH_REPORT.md`; ask relationship questions through `graphify query "<question>" --graph graphify-current-state/graphify-out/graph.json`.
+
+---
+
 ## 2026-08-24 - Session T - HTML MVP refinements: full name, phone format, LLM demographics, pick-a-reason split, clean loading, doctor brief color grading
 
 **WHAT**

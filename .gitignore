@@ -18,3 +18,9 @@ Thumbs.db
 
 # Uploaded source archive copy; source tree is committed separately.
 ziiAv6fl
+
+# Temporary local extraction of attached Graphify zip.
+.tmp-graphify-skill-*/
+
+# Graphify local query/cache internals; keep graph outputs, skip caches.
+graphify-current-state/graphify-out/cache/

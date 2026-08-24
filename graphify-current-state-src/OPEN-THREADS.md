@@ -28,8 +28,6 @@
 
 **Session S(v1.1) note (this session):** Resolved the above. The founder **confirmed** the red-flag removal as a real decision (session Q out-of-band directive, restated here): no red flags because the clinic handles routine OPD patients only, never emergencies; update wording where needed and continue. v1.1 (`diseases.json` version 1.1, 308 history questions) is now installed in `10-Reference/OPD-QuestionBank/`; all 40 literature packs rebuilt without red-flag screens; D14 wording adjusted (founder-authorized) to remove the last `emergency` patient-text hit. Gate is now **40 CLEAN / 0 BLOCKED**, bridge 40/0. Decision captured as **ADR-038**. All packs remain `DEMO_UNVALIDATED`; **OT-18 Lead Doctor sign-off still required before real-patient activation** — the 40/0 does NOT mean clinically signed.
 
-**Session U note:** Graphify current-state graph now exists for token-efficient handoff and architecture/project-link questions: `graphify-current-state/graphify-out/GRAPH_REPORT.md`, `graphify-current-state/graphify-out/graph.html`, and `graphify-current-state/graphify-out/graph.json`. Root `AGENTS.md` instructs future agents to use `graphify query "<question>" --graph graphify-current-state/graphify-out/graph.json` before broad raw-file reading. Next-chat prompt saved at `_OPS/NEXT-CHAT-PROMPT.md`. Graph is curated current-state coverage (68 nodes, 119 edges, 12 communities, 0 token cost), not a full-repository graph.
-
 ---
 
 ## ✅ Resolved — red-flag removal in question packs confirmed as real founder decision (ADR-038)
