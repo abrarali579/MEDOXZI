@@ -3,6 +3,66 @@
 **Append-only.** Newest first. Every entry answers: WHAT · WHY · EVIDENCE · NEXT · WHY NEXT · HOW.
 
 ---
+## 2026-08-25 - Session AA - Vercel production crash fix
+
+**WHAT**
+- Fixed the Vercel production crash reported at `https://medoxzi.vercel.app/` by adding root-level deployment fallbacks for repo-root imports:
+  - `vercel.json` rewrites root/static paths to the HTML MVP under `14-MVP-HTML/`.
+  - `api/questions.js` is a minimal CommonJS wrapper that forwards `/api/questions` to the existing ESM handler in `14-MVP-HTML/api/questions.js`.
+- Preserved the existing `14-MVP-HTML/vercel.json` + `14-MVP-HTML/api/questions.js` path for projects configured with Root Directory = `14-MVP-HTML`.
+- No clinical workflow, patient data model, safety gate, or visible product copy changed.
+
+**WHY**
+The deployed domain was returning Vercel `500 INTERNAL_SERVER_ERROR` / `FUNCTION_INVOCATION_FAILED` for both `/` and `/index.html`, which indicated the deployment was routing the static HTML MVP through a crashing function or mismatched root layout.
+
+**EVIDENCE**
+- Live pre-fix checks returned `FUNCTION_INVOCATION_FAILED` for `/` and `/index.html`.
+- `python -m pytest tests/ -q` -> `100 passed in 0.15s`.
+- `python -m harness.run` -> `VERDICT: PASS`.
+- `python demo.py | Select-Object -Last 24` -> deterministic demo completed.
+- `node --check 14-MVP-HTML\app.js; node --check 14-MVP-HTML\server.js; node --check 14-MVP-HTML\api\questions.js; node --check api\questions.js` -> all exited 0.
+- Handler smoke tests: both the subdir ESM handler and root wrapper return `200 {"ok":false,"source":"deepseek","error":"NO_API_KEY"}` when no API key is set, instead of crashing.
+- Full detail: `_OPS/SESSION-LOG/2026-08-25-AA-vercel-crash-fix.md`; VERIFICATION-LOG V-2026-08-25-AA-01.
+
+**NEXT**
+Push to GitHub, allow Vercel to redeploy, then verify `https://medoxzi.vercel.app/` loads the HTML MVP and `POST /api/questions` returns a controlled JSON response. If AI suggestions are needed in production, set `DEEPSEEK_API_KEY` in Vercel Production env.
+
+**WHY NEXT**
+The local deploy configuration is now resilient to either repo-root or `14-MVP-HTML` Vercel root settings; the production alias needs the committed artifact redeployed.
+
+**HOW**
+Followed AGENT-PROTOCOL and Graphify-first handoff; treated the screenshot as error evidence only; used Vercel function/deployment guidance; kept changes deployment-only; updated logs and `STATE.md` last; commit/push after verification.
+
+---
+## 2026-08-24 - Session Z - Vercel deployment infrastructure (vercel.json + serverless /api/questions)
+
+**WHAT**
+- Added `14-MVP-HTML/vercel.json` (Vercel v2): `framework: null` (Other/static), no build command, `outputDirectory: "."`, and a rewrite `/api/questions -> /api/questions.js`.
+- Added `14-MVP-HTML/api/questions.js`: a Vercel serverless function (ESM `export default handler`) porting the verified `suggestQuestions()` DeepSeek call from `server.js` unchanged (same system prompt, model `deepseek-chat`, temp 0.4, `response_format: json_object`, 4-question x 4-option clamp, same `{ok, source, suggested, alreadyKnown}` shape the frontend already parses). Added only deployment plumbing: CORS preflight, method guard, JSON/NO_BRIEF validation before the key gate, and a safe `{ok:false, error:"NO_API_KEY"}` fallback when the Vercel env var is unset.
+- Deploy target confirmed: the HTML MVP at `14-MVP-HTML/` is the only dir with a `package.json`; repo root has none, so Vercel import needs Framework Preset = Other + Root Directory = `14-MVP-HTML`.
+- No clinical content, no real patient data, no safety gate touched. `main` clean except unrelated untracked `package-lock.json` (left untouched).
+
+**WHY**
+Abrar is deploying to Vercel. A static-only `Other` preset serves the frontend but cannot run the Node `server.js` AI endpoint; the added serverless function keeps the AI question-suggestion feature working on Vercel with the key supplied via an env var (never committed).
+
+**EVIDENCE**
+- `git check-ignore 14-MVP-HTML/.env 14-MVP-HTML/.env.local .env` -> all ignored (exit 0); secrets never shipped.
+- `node --check 14-MVP-HTML/api/questions.js`, `node --check 14-MVP-HTML/app.js`, `node --check 14-MVP-HTML/server.js` -> all exit 0.
+- Local handler smoke test (real execution, mocked fetch): valid POST no-key -> `200 {ok:false,source:"deepseek",error:"NO_API_KEY"}`; empty brief no-key -> `400 NO_BRIEF`; GET no-key -> `405`; valid POST + mocked DeepSeek -> `200 {ok:true, source:"deepseek", suggested:[...4 options], alreadyKnown:[...]}`. Smoke script removed after run.
+- Full detail: `_OPS/SESSION-LOG/2026-08-24-Z-vercel-deployment-infra.md`; VERIFICATION-LOG V-2026-08-24-Z-02.
+
+**NEXT**
+Add `DEEPSEEK_API_KEY` as a Vercel Environment Variable (Production). Commit `vercel.json` + `api/questions.js`; push; redeploy; exercise the "Suggest questions" button on the deployed site. Without the key the endpoint safely falls back to static banks.
+
+**WHY NEXT**
+Environment contract for the serverless function to actually serve AI suggestions in production.
+
+**HOW**
+Per AGENT-PROTOCOL: read STATE/OPEN-THREADS/CHANGELOG; `git status` clean; created+verified files (`node --check` + live handler smoke test); appended VERIFICATION-LOG, this CHANGELOG entry, SESSION-LOG Z, OPEN-THREADS note; STATE.md updated last.
+
+---
+
+## 2026-08-24 - Session Y - HTML MVP final doctor command-center UI
 
 ## 2026-08-24 - Session Y - HTML MVP final doctor command-center UI
 

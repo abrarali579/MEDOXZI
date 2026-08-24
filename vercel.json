@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/questions", "destination": "/api/questions.js" },
+    { "source": "/", "destination": "/14-MVP-HTML/index.html" },
+    { "source": "/index.html", "destination": "/14-MVP-HTML/index.html" },
+    { "source": "/app.js", "destination": "/14-MVP-HTML/app.js" },
+    { "source": "/styles.css", "destination": "/14-MVP-HTML/styles.css" },
+    { "source": "/(.*)", "destination": "/14-MVP-HTML/$1" }
+  ]
+}

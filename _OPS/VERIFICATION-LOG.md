@@ -8,6 +8,61 @@
 
 ---
 
+## Session AA — 2026-08-25 — Vercel production crash fix
+
+### V-2026-08-25-AA-01 · Repo-root and subdir Vercel deploy paths no longer crash locally
+- **Claim:** The Vercel deployment files now support both common project roots: repo root serves the static HTML MVP through root rewrites and root `/api/questions`, while `14-MVP-HTML` root still serves the original HTML MVP config and serverless handler.
+- **Method:** Followed the repo protocol; used Graphify-first context, then raw deploy files because the current graph is stale for Session Z/AA deployment files; added root `vercel.json` + root `api/questions.js`; ran prototype checks, syntax checks, handler smoke tests, and live pre-fix URL checks.
+- **Evidence:**
+  ```text
+  $ Invoke-WebRequest -UseBasicParsing https://medoxzi.vercel.app/ -Method GET
+  A server error has occurred FUNCTION_INVOCATION_FAILED ...
+
+  $ Invoke-WebRequest -UseBasicParsing https://medoxzi.vercel.app/index.html -Method GET
+  A server error has occurred FUNCTION_INVOCATION_FAILED ...
+  ```
+  ```text
+  $ python -m pytest tests/ -q
+  ........................................................................ [ 72%]
+  ............................                                             [100%]
+  100 passed in 0.15s
+  ```
+  ```text
+  $ python -m harness.run
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+  VERDICT: PASS
+  ```
+  ```text
+  $ python demo.py | Select-Object -Last 24
+  Three distinct clinical facts. Three distinct renderings.
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+  ```
+  ```text
+  $ node --check 14-MVP-HTML\app.js
+  $ node --check 14-MVP-HTML\server.js
+  $ node --check 14-MVP-HTML\api\questions.js
+  $ node --check api\questions.js
+  ```
+  All syntax checks exited 0 with no output.
+  ```text
+  $ node --input-type=module -e "... import './14-MVP-HTML/api/questions.js' ..."
+  200 {"ok":false,"source":"deepseek","error":"NO_API_KEY"}
+
+  $ node -e "... require('./api/questions.js') ..."
+  200 {"ok":false,"source":"deepseek","error":"NO_API_KEY"}
+  ```
+- **Contradiction sweep:** Run after implementation; results were contextual only. No real patient data, MEDOXZI-owned patient marketing, clinical performance claim, diagnosis/treatment automation, or Indonesian regulatory certainty was introduced.
+- **Verdict:** ✅ **CONFIRMED LOCALLY** — the deployment fallback and API wrapper execute without crashing locally. Production requires commit/push and Vercel redeploy before live confirmation.
+
 ## Session D — 2026-08-23 — verification of the v2.2 changes
 
 ### V-2026-08-23-D-01 · Unit tests pass
@@ -2624,3 +2679,23 @@ No diagnostic/differential vocabulary present in any patient-facing question.
   ```
 - **Contradiction sweep:** Windows AGENT-PROTOCOL sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; `No red flags`/`No concerns` only in prohibitive, historical, or pitch-forbidden contexts; 25-year retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift/prohibited-term implementation; `>=500`/`≥500` only in ADR-029/history/Gate 6/synthetic/privacy contexts including copied Graphify source docs.
 - **Verdict:** ✅ **CONFIRMED** — final doctor command-center UI verified in browser on desktop and mobile, Graphify refreshed, and core prototype checks stayed green. This is visual/prototype evidence only, not clinical performance evidence.
+
+
+## Session Z — 2026-08-24 — Vercel deployment infrastructure
+
+### V-2026-08-24-Z-02 · Serverless /api/questions handler behaves correctly
+- **Claim:** `14-MVP-HTML/api/questions.js` (Vercel serverless function) returns the documented
+  responses for missing key, invalid input, wrong method, and a valid mocked DeepSeek response.
+- **Method:** imported the ESM handler into a throwaway `__smoke__.mjs`, called it with fake
+  `req`/`res` and a mocked `globalThis.fetch` for the DeepSeek call, executed with `node`.
+- **Evidence:**
+  ```
+  POST valid brief, no key  -> 200 {"ok":false,"source":"deepseek","error":"NO_API_KEY"}
+  POST empty brief, no key  -> 400 {"ok":false,"error":"NO_BRIEF"}
+  GET  no key               -> 405 {"ok":false,"error":"METHOD_NOT_ALLOWED"}
+  POST + mocked DeepSeek    -> 200 {"ok":true,"source":"deepseek",
+                                     "suggested":[{...4 options}...],"alreadyKnown":[...]}
+  ```
+  `node --check api/questions.js`, `node --check app.js`, `node --check server.js` all exit 0.
+- **Verdict:** ✅ CONFIRMED — deployment plumbing verified locally; production behaviour pending
+  live Vercel deploy + real `DEEPSEEK_API_KEY`.
