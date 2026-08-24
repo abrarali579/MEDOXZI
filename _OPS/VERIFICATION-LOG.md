@@ -2070,6 +2070,32 @@ No diagnostic/differential vocabulary present in any patient-facing question.
   ```
 - **Verdict:** ✅ **CONFIRMED**
 
+### V-2026-08-24-CRON-02 · Autonomous continuation driver — observed uncommitted gate drift (39/1 vs documented 28/12); baseline still green
+- **Claim:** committed/documented gate baseline is 28 CLEAN / 12 BLOCKED; the working tree now reports 39 CLEAN / 1 BLOCKED due to uncommitted, unlogged removal of red-flag screens across all 40 literature packs. Build itself stays green (tests/harness/demo/node all pass). No content committed or reverted this run.
+- **Method:** re-ran baseline under Python310 + re-ran `gate_literature.py` + `git status` + `git diff --stat` + inspected a previously-blocked pack (vertigo_D22) worktree.
+- **Evidence:**
+  ```
+  $ "/c/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe" -m pytest tests/ -q
+  100 passed in 0.17s
+  $ python320_harness: python -m harness.run
+  ... PASS H17_high_conf_accuracy_ge_0.95 H18_low_conf_accuracy_below_0.70 calibration_detector_self_test
+  VERDICT: PASS
+  $ python demo.py | tail -6   -> "Three distinct clinical facts. Three distinct renderings." (runs clean)
+  $ node --check ../14-MVP-HTML/app.js  -> OK
+  $ "/c/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe" medoxzi/content/vertical_pack/tools/gate_literature.py
+  [gate] scanned 40 literature packs / 308 questions
+  [gate] CLEAN: 39  BLOCKED: 1
+    BLOCKED bronchial_asthma_D14.json (1 hits): [F1_PROHIBITED_PHRASE] 'emergency' in:
+    'How many times have you needed emergency treatment or hospitalization for breathing problems?'
+  [gate] total hits by detector: {'F1_PROHIBITED_PHRASE': 1}
+  $ git status --short ->  M 40 literature/*.json +  M tools/build_from_questionbank.py  (all unstaged)
+  $ git diff --stat -- 11-Prototype/medoxzi/content/vertical_pack/literature/
+  40 files changed, 698 insertions(+), 3700 deletions(-)
+  $ vertigo_D22 worktree: num_questions 8, is_red_flag_screen False  (previously BLOCKED -> now CLEAN)
+  ```
+- **Note on suspicion:** the previous CRON-01 run (and session RT) both recorded 28/12 with a clean tree. These pack edits appeared in the working tree after those commits. The builder docstring attributes the red-flag removal to an unlogged "Session S" founder decision; no `_OPS/SESSION-LOG` entry or CHANGELOG/ADR trail exists to corroborate it. Per protocol rule 1 (no claim without evidence) this remains **unverified** until Abrar confirms or the log trail is supplied.
+- **Verdict:** ✅ build verified green (100 tests / VERDICT PASS / demo / node); ⚠️ **gate-drift observation CONFIRMED and left UNCOMMITTED pending human decision.** See session log `2026-08-24-S-cron-observed-gate-drift.md`, CHANGELOG 2026-08-24 entry.
+
 ### V-2026-08-24-CRON-01 · Autonomous continuation driver — baseline re-verified, no gate drift
 - **Claim:** current on-disk baseline is 100 tests green / harness VERDICT PASS / 28 CLEAN / 12 BLOCKED; git tree clean; all 8 Phase 0-6 design docs present.
 - **Method:** re-ran baseline under Python310 + re-ran gate_literature.py + git status + wc -c on design docs.

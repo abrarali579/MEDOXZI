@@ -22,7 +22,16 @@
 
 **Session O note:** Doctor past-file system upgraded in `14-MVP-HTML/` — cleaner grouped list (PIN, name, age/sex, mobile, date·complaint, follow-up badge, file count), filters by complaint / follow-up-needed / date with a Clear-filters reset, and an "open current visit + previous visits together" split-review panel (Current visit beside the selected Past visit). All data synthetic; four digit visible PINs retained. Production PIN collision/scoping risk documented under OT-21.
 
-**Session P note:** Founder reset six blockers with explicit decisions (recorded in Decision-Log as ADR-041) and asked ARHAM to design common-disease question banks with AI + Harness while he sleeps. Clarifications: (1) question pack is for **relevant patient questions only**, no diagnosis; doctors retain **full discretion** to act/not act on every answer; (2) not a →medical device → OT-02 →confirmed; (3) OT-14 →notified →PSE →founder handles; (4) OT-19 →consent taken at **data submission**; (5) OT-21 →big PIN shown **only in doctor's records**, not the main list →smart choice; (6) OT-05 →AI + Harness designed question bank for most common diseases; (7) data processing handled locally in-clinic at launch, normal AI tools until then. Question banks drafted now are `DEMO_UNVALIDATED` candidates — **not signed for real-patient use**.
+**Session S note:** This cron run observed an **uncommitted gate-drift**: `gate_literature.py` reports **39 CLEAN / 1 BLOCKED** (was documented 28/12). All 40 `literature/*.json` packs + `tools/build_from_questionbank.py` carry unstaged edits that remove red-flag screens and bump `source_bank` to v1.1, claiming an unlogged "Session S founder decision". **No `_OPS` log/ADR corroborates it.** Left uncommitted/reverted-nothing pending Abrar's decision. See V-CRON-02, session log S, CHANGELOG.
+
+---
+
+## ⚪ Watch / decision needed — uncommitted red-flag removal in question packs (found this run)
+
+- **What:** working-tree edits to all 40 literature packs strip the `is_red_flag_screen` questions and bump source metadata v1.0→v1.1; `tools/build_from_questionbank.py` was likewise edited to stop emitting red-flag screens (docstring cites an unlogged "Session S" founder decision: routine-OPD patients only, no red flags / no emergency handling).
+- **Why it matters:** the change shifts the gate from **28 CLEAN / 12 BLOCKED** → **39 CLEAN / 1 BLOCKED**. If real, it honours OT-02/OT-05 (non-diagnostic screening, OP D-only) and would let the founder's Lead Doctor review a friendlier set; if not, it is an unsanctioned alteration of Lead-Clinician-gated wording (ADR-002/037). Either way the current 39/1 must NOT be read as clinically signed.
+- **Decision needed from Abrar:** (a) confirm the red-flag removal as a real founder decision → we log it as genuine Session S + ADR, correct the 28-12 documentation, then commit the pack rebuild; OR (b) revert the builder edit + pack regen (accidental local change). After decision, cleared packs still need **OT-18 Lead Doctor sign-off** before real-patient use.
+- **Owner:** Abrar (decision) · **Status:** ⚪ awaiting decision · **Blocked on:** nothing build-wise (tests still 100 green, harness PASS).
 
 ## 🔴 Blocking — cannot proceed to real patient use without these
 

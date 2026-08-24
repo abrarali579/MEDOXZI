@@ -4,6 +4,34 @@
 
 ---
 
+## 2026-08-24 - Cron continuation (autonomous driver) - OBSERVED uncommitted gate drift; no commit made
+
+**WHAT**
+- Baseline re-verified autonomously: `pytest` **100 passed** (Python310), `harness.run` **VERDICT: PASS** (9/9 gates), `demo.py` clean, `node --check ../14-MVP-HTML/app.js` OK.
+- **GATE DRIFT OBSERVED (not caused by this run):** `gate_literature.py` now reports **39 CLEAN / 1 BLOCKED** (bronchial_asthma_D14, F1 'emergency' in a history question) vs the committed/documented **28 CLEAN / 12 BLOCKED**.
+- Root cause: the **working tree carries uncommitted modifications to ALL 40 literature packs + `tools/build_from_questionbank.py`** (`git diff --stat`: 40 files, +698/−3700). The builder was changed to stop embedding red-flag screens; its docstring cites a "Session S/2026-08-24 founder decision" (red flags not used; routine OPD patients only) and bumps `source_bank` v1.0→v1.1.
+- **No `_OPS/SESSION-LOG/2026-08-24-S-*` entry and no CHANGELOG entry exist for that "Session S"** — the founder-decision claim is not independently verifiable. Protocol (ADR-002/037, CHANGELOG) holds the 12 previously-blocked red-flag strings as a **Lead Clinician's wording decision**.
+- **No commit was made and no work-tree content was reverted.** This run only documented the observation (session log S, this entry, V-2026-08-24-CRON-02).
+
+**WHY**
+- Rule 1 (no claim without evidence) + Rule 2 (change→propagate→verify) + anti-pitfall: never silently weaken/alter safety-gated content or auto-rewrite blocked clinical wording. The 39/1 result must not be read as clinically signed; even founder-approved removal still leaves packs `DEMO_UNVALIDATED` and requiring OT-18 Lead Doctor sign-off for real patients.
+
+**EVIDENCE**
+- `V-2026-08-24-CRON-02` (this run's verification output pasted below in VERIFICATION-LOG).
+- `git status --short`: 40 literature packs + builder script modified (unstaged).
+- vertigo_D22 (previously BLOCKED) worktree: `is_red_flag_screen: False`, 8 questions.
+
+**NEXT**
+- **Abrar to decide:** (a) confirm red-flag removal as a real Session S founder decision → log it properly (ADR + CHANGELOG real entry), re-document 28-12 baseline, then commit the pack rebuild; or (b) revert the builder edit + pack regen as an accidental local experiment. Post-decision pack clears remain `DEMO_UNVALIDATED` until Lead Doctor sign-off (OT-18).
+
+**WHY NEXT**
+- A later agent/human could misread the new "39 CLEAN" as clinical validation. The delta is safety-relevant and must be surfaced.
+
+**HOW**
+- Full protocol in `_OPS/AGENT-PROTOCOL.md`. All logs append-only.
+
+---
+
 ## 2026-08-24 - Cron continuation (autonomous driver) - baseline re-verified; no functional change
 
 **WHAT**
