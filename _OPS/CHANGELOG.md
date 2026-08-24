@@ -4,6 +4,36 @@
 
 ---
 
+## 2026-08-24 - Session V - onboarding baseline + Graphify-first check
+
+**WHAT**
+- Joined the MEDOXZI repo from the mandatory protocol files and distinguished the repo's internal instructions from the user's controlling request.
+- Exercised the Graphify-first rule for project-state/context using the saved current-state graph before broad project-state reasoning.
+- Added `_OPS/SESSION-LOG/2026-08-24-V-onboarding-baseline.md`.
+- Recorded verification in `_OPS/VERIFICATION-LOG.md` V-2026-08-24-V-01.
+- No product, prototype, clinical-content, regulatory, or architecture behaviour changed.
+
+**WHY**
+The user asked for a protocol-compliant repo join at `D:\MEDOXZI`, including Graphify-first use, verification, contradiction sweep, ops-log updates, and `STATE.md` last. This creates a clean handoff point for the next real work without smuggling in unverified claims.
+
+**EVIDENCE**
+- `graphify query "What is the current project state, major next actions, and key safety boundaries?" --graph graphify-current-state/graphify-out/graph.json` returned the 68-node curated graph and surfaced the HTML MVP / doctor brief / PIN identity / vertical-pack / compliance map.
+- Final verification: `python -m pytest tests/ -q` -> **100 passed**; `python -m harness.run` -> **VERDICT: PASS**; `python demo.py | Select-Object -Last 20` -> clean deterministic demo tail.
+- `node --check 14-MVP-HTML/app.js` and `node --check 14-MVP-HTML/server.js` exited 0.
+- Contradiction sweep remained contextual only; no new defect found.
+- Pre-existing untracked `package-lock.json` remains untouched.
+
+**NEXT**
+Continue with the human-gated/product next steps already in `STATE.md` and `OPEN-THREADS.md`: HTML MVP visual review/screen lock (OT-20), production PIN identity binding (OT-21), clinic-owned comms controls (OT-19), and founder/counsel-owned Indonesian compliance follow-ups.
+
+**WHY NEXT**
+The repo is verified and mapped, but no production app exists yet. The next useful work should build from the current HTML MVP and identity/doctor-flow constraints while preserving the healthcare-first narrow MVP boundaries.
+
+**HOW**
+Start with `AGENTS.md`, `_OPS/STATE.md`, and `graphify-current-state/graphify-out/GRAPH_REPORT.md`; use `graphify query "<question>" --graph graphify-current-state/graphify-out/graph.json` before broad raw-file reading for project-state, architecture, or file-link questions.
+
+---
+
 ## 2026-08-24 - Session U - Graphify current-state graph + next-chat handoff
 
 **WHAT**

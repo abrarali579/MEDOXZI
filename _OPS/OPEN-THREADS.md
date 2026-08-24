@@ -30,6 +30,8 @@
 
 **Session U note:** Graphify current-state graph now exists for token-efficient handoff and architecture/project-link questions: `graphify-current-state/graphify-out/GRAPH_REPORT.md`, `graphify-current-state/graphify-out/graph.html`, and `graphify-current-state/graphify-out/graph.json`. Root `AGENTS.md` instructs future agents to use `graphify query "<question>" --graph graphify-current-state/graphify-out/graph.json` before broad raw-file reading. Next-chat prompt saved at `_OPS/NEXT-CHAT-PROMPT.md`. Graph is curated current-state coverage (68 nodes, 119 edges, 12 communities, 0 token cost), not a full-repository graph.
 
+**Session V note:** Onboarding-only baseline completed with Graphify-first query and no functional changes. Verification stayed green (100 tests, harness PASS, demo clean, HTML MVP syntax OK). No open-thread priorities changed; pre-existing untracked `package-lock.json` remains untouched.
+
 ---
 
 ## ✅ Resolved — red-flag removal in question packs confirmed as real founder decision (ADR-038)

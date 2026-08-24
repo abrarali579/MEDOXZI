@@ -2363,3 +2363,45 @@ No diagnostic/differential vocabulary present in any patient-facing question.
    #briefAnswers .answer-item alternating rgb(228,244,242)/rgb(232,238,244) tints.
   ```
 - **Verdict:** ✅ **CONFIRMED** — full name capture, Indonesian-first phone (+62 default, dropdown, leading-zero strip, format hint), age+sex sent to and used by DeepSeek, pick-a-reason split with a distinct "Something else" brief + tips, clean "Analyzing Your Issue..." loading (all system texts removed), and an organized color-graded doctor brief all verified in the browser and API. Both intake branches complete end-to-end. DeepSeek output remains labeled triage suggestions under ADR-039/OT-18; doctor retains final discretion. No regression in consents (required "Share with my doctor" stays fixed+disabled).
+
+## V-2026-08-24-V-01 · Onboarding baseline and Graphify-first handoff check
+- **Claim:** A new agent can join from the mandatory protocol files plus the curated Graphify current-state graph; the inherited baseline remains green; no contradiction-sweep defect was introduced by onboarding/log-only work.
+- **Method:** Read the mandatory protocol files and latest handoff; read `AGENTS.md` and `graphify-current-state/graphify-out/GRAPH_REPORT.md`; ran Graphify query before broad project-state reasoning; ran the Windows standard verification block twice around the log-only session work; ran the AGENT-PROTOCOL contradiction sweep; checked HTML MVP JavaScript syntax.
+- **Evidence:**
+  ```text
+  $ graphify query "What is the current project state, major next actions, and key safety boundaries?" --graph graphify-current-state/graphify-out/graph.json
+  Graph: graphify-current-state/graphify-out/graph.json (68 nodes) | Traversal: BFS depth=2 | Start: ['state', 'current_state_model.py', 'MEDOXZICurrentState', 'identityKey()', 'SafetyHarness'] | 68 nodes found
+  ```
+  ```text
+  $ python -m pytest tests/ -q
+  ........................................................................ [ 72%]
+  ............................                                             [100%]
+  100 passed in 0.17s
+  ```
+  ```text
+  $ python -m harness.run
+  PASS  H1_contamination
+  PASS  H3_fabrication
+  PASS  H15_abstention
+  PASS  H5_drift
+  PASS  drift_detector_self_test
+  PASS  H16_ece_below_0.05
+  PASS  H17_high_conf_accuracy_ge_0.95
+  PASS  H18_low_conf_accuracy_below_0.70
+  PASS  calibration_detector_self_test
+  VERDICT: PASS
+  ```
+  ```text
+  $ python demo.py | Select-Object -Last 20
+  Three distinct clinical facts. Three distinct renderings.
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+  ```
+  ```text
+  $ node --check 14-MVP-HTML/app.js
+  $ node --check 14-MVP-HTML/server.js
+  ```
+  Both `node --check` commands exited 0 with no output.
+- **Contradiction sweep:** Windows AGENT-PROTOCOL sweep rerun. Results remain contextual only: `FULL_AI` alias/history/direction; `No red flags`/`No concerns` only in prohibitive, historical, or pitch-forbidden contexts; 25-year retention references consistent; `PATIENT_UNSURE` only in rejection/history/test contexts; `probability` only in drift/prohibited-term implementation; `>=500`/`≥500` only in ADR-029/history/Gate 6/synthetic/privacy contexts including copied Graphify source docs.
+- **Graph freshness note:** `GRAPH_REPORT.md` records source commit `89e3d76b`; current HEAD before this session was `0ec5b63` because Session U committed the graph/handoff after building it. The graph remains the intended curated current-state map, not a full-repository graph.
+- **Verdict:** ✅ **CONFIRMED** — onboarding protocol followed, baseline green, Graphify-first rule exercised, and no new contradiction found. This is repository/process evidence only; no clinical performance claim is made.
