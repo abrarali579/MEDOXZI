@@ -55,3 +55,13 @@
 ## HOW
 - Keep diagnosis/test fields explicitly doctor-entered/doctor-selected; do not add AI-generated diagnoses, treatment advice, production clinical claims, real-patient data, or live patient messaging.
 - Run `cd 14-MVP-HTML && node --env-file=.env server.js`, then open `http://localhost:8765` and review the visible Pre-visit Review command center.
+
+## FOLLOW-UP HANDOFF UPDATE
+- After the first Session Y commit, the founder asked to update logs for other agents.
+- Updated `_OPS/NEXT-CHAT-PROMPT.md` and `AGENTS.md` so future agents see the v0.7 doctor command-center state, the latest Session Y log, and the refreshed Graphify graph stats.
+- Re-ran:
+  - `graphify extract graphify-current-state-src --out graphify-current-state --code-only`
+    - `72 nodes, 126 edges, 14 communities`
+  - `graphify cluster-only graphify-current-state --no-label`
+    - `Done - 14 communities. GRAPH_REPORT.md, graph.json and graph.html updated.`
+- `graphify-current-state/graphify-out/GRAPH_REPORT.md` now reports built-from commit `e118caf2`.

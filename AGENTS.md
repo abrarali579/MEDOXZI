@@ -23,9 +23,17 @@ Recommended flow:
 3. Read raw files only when the graph answer is missing, stale, or too shallow.
 4. If code/state changes affect the graph, rebuild or update the graph and log it.
 
-The current graph was built from commit `89e3d76b` with 68 nodes, 119 edges,
-12 communities, and 0 token cost. It is a curated current-state graph, not a
+The current graph was built from commit `e118caf2` with 72 nodes, 126 edges,
+14 communities, and 0 token cost. It is a curated current-state graph, not a
 complete full-repository graph.
+
+Latest handoff context: Session Y updated `14-MVP-HTML/` to the v0.7 final
+doctor command-center UI. The default visible screen is Pre-visit Review with
+current + next-two queue, structured feedback, patient profile + previous
+record actions, allergies + vitals, close Q/A rows, attachment row,
+doctor-entered diagnosis fields, doctor-selected tests, plan categories, and a
+sticky assessment action bar. These are clinician-owned documentation controls,
+not AI diagnosis, test advice, treatment advice, or clinical performance claims.
 
 ## MEDOXZI Protocol
 

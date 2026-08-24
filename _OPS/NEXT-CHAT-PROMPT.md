@@ -30,8 +30,9 @@ Current context:
 - No production app exists yet.
 - HTML MVP lives in 14-MVP-HTML/.
 - Graphify current-state graph is saved in graphify-current-state/graphify-out/.
-- Graph was built as a curated current-state graph: 68 nodes, 119 edges, 12 communities, 0 token cost.
-- Latest relevant graph/session log: _OPS/SESSION-LOG/2026-08-24-U-graphify-current-state.md.
+- Current HTML MVP state: v0.7 final doctor command center. The default visible screen is Pre-visit Review with current + next-two queue, structured feedback, patient profile + previous record actions, allergies + vitals, close Q/A rows, attachment row, doctor-entered diagnosis fields, doctor-selected tests, plan categories, and sticky assessment actions.
+- Graph was built as a curated current-state graph: 72 nodes, 126 edges, 14 communities, 0 token cost; built from commit e118caf2.
+- Latest relevant graph/session log: _OPS/SESSION-LOG/2026-08-24-Y-html-mvp-final-doctor-command-center.md.
 - Root AGENTS.md tells future agents to use Graphify before reading many files.
 
 Hard boundaries:
