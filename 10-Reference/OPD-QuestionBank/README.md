@@ -1,5 +1,28 @@
 # OPD Question Bank — Common Diseases in Java, Indonesia
 
+## v1.1 revision note (wording pass)
+
+42 history-taking questions across 24 disease packs were rewritten to remove
+diagnosis-leading phrasing while keeping the same clinical intent:
+- No question states or implies the entry's own target diagnosis (e.g. "have
+  you been diagnosed with diabetes before" → "have you ever been told your
+  blood sugar was high...").
+- No question names a disease-specific drug class (e.g. "antihypertensive
+  medication", "antiretroviral therapy (ART)", "uric-acid-lowering medication")
+  — rewritten as "regular medication, and what is it for."
+- No question names a disease-specific lab test tied to the target diagnosis
+  (e.g. "uric acid blood test", "cholesterol test", "creatinine/eGFR") —
+  rewritten as a neutral "have you had blood tests done, were results
+  abnormal" framing.
+- Family-history and contact/neighbor questions no longer name the target
+  diagnosis directly — they describe the underlying finding or symptom
+  pattern instead (e.g. "family history of hypertension" → "family history of
+  high blood pressure readings").
+- The `purpose` field for each question is unchanged and remains
+  clinician-facing metadata (explains what the question is meant to screen
+  for) — it is not intended for direct display to patients.
+
+
 A structured database of 40 diseases most frequently seen in General/Internal
 Medicine outpatient (OPD) settings in Java, Indonesia, built for pre-round /
 patient history-taking.

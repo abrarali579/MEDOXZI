@@ -11,7 +11,7 @@
       "label_id": "Penyakit Jantung Hipertensi"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "I11",
   "category": "Cardiovascular",
   "context_note": "Top 6 outpatient diagnosis in Jakarta puskesmas 2024 (108,167 visits); complication of poorly controlled chronic hypertension.",
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Establish chronicity and control history",
-      "source_ref": "OPD QuestionBank v1.0 :: Hypertensive Heart Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Hypertensive Heart Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
       "authored_by": "LITERATURE_SOURCE - Hypertensive Heart Disease (requires clinician sign)"
     },
     {
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Screen for heart failure symptoms",
-      "source_ref": "OPD QuestionBank v1.0 :: Hypertensive Heart Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Hypertensive Heart Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
       "authored_by": "LITERATURE_SOURCE - Hypertensive Heart Disease (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Screen for fluid overload/right heart strain",
-      "source_ref": "OPD QuestionBank v1.0 :: Hypertensive Heart Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Hypertensive Heart Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
       "authored_by": "LITERATURE_SOURCE - Hypertensive Heart Disease (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Screen for concurrent ischemic heart disease",
-      "source_ref": "OPD QuestionBank v1.0 :: Hypertensive Heart Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Hypertensive Heart Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
       "authored_by": "LITERATURE_SOURCE - Hypertensive Heart Disease (requires clinician sign)"
     },
     {
@@ -102,15 +102,15 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Assess for paroxysmal nocturnal dyspnea/orthopnea",
-      "source_ref": "OPD QuestionBank v1.0 :: Hypertensive Heart Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Hypertensive Heart Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
       "authored_by": "LITERATURE_SOURCE - Hypertensive Heart Disease (requires clinician sign)"
     },
     {
       "question_key": "q_06",
       "chief_complaint_code": "hypertensive_heart_disease_D06",
       "text_by_language": {
-        "en": "Are you taking your antihypertensive medications as prescribed?"
+        "en": "Are you taking your prescribed medications regularly?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Assess adherence",
-      "source_ref": "OPD QuestionBank v1.0 :: Hypertensive Heart Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Hypertensive Heart Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
       "authored_by": "LITERATURE_SOURCE - Hypertensive Heart Disease (requires clinician sign)"
     },
     {
@@ -138,8 +138,8 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Assess overall cardiovascular risk profile",
-      "source_ref": "OPD QuestionBank v1.0 :: Hypertensive Heart Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Hypertensive Heart Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
       "authored_by": "LITERATURE_SOURCE - Hypertensive Heart Disease (requires clinician sign)"
     },
     {
@@ -156,84 +156,8 @@
       "is_required_for_completeness": true,
       "display_order": 8,
       "clinical_rationale": "Screen for arrhythmia",
-      "source_ref": "OPD QuestionBank v1.0 :: Hypertensive Heart Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
-      "authored_by": "LITERATURE_SOURCE - Hypertensive Heart Disease (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "hypertensive_heart_disease_D06",
-      "text_by_language": {
-        "en": "Severe breathlessness at rest",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Hypertensive Heart Disease :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D06'}",
-      "authored_by": "LITERATURE_SOURCE - Hypertensive Heart Disease (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "hypertensive_heart_disease_D06",
-      "text_by_language": {
-        "en": "Chest pain suggestive of acute coronary syndrome",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Hypertensive Heart Disease :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D06'}",
-      "authored_by": "LITERATURE_SOURCE - Hypertensive Heart Disease (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_11",
-      "chief_complaint_code": "hypertensive_heart_disease_D06",
-      "text_by_language": {
-        "en": "Coughing pink/frothy sputum (pulmonary edema)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 11,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Hypertensive Heart Disease :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D06'}",
-      "authored_by": "LITERATURE_SOURCE - Hypertensive Heart Disease (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_12",
-      "chief_complaint_code": "hypertensive_heart_disease_D06",
-      "text_by_language": {
-        "en": "Syncope",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 12,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Hypertensive Heart Disease :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D06'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Hypertensive Heart Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D06', 'name_en': 'Hypertensive Heart Disease', 'name_id': 'Penyakit Jantung Hipertensi', 'icd10': 'I11', 'category': 'Cardiovascular'}",
       "authored_by": "LITERATURE_SOURCE - Hypertensive Heart Disease (requires clinician sign)"
     }
   ]

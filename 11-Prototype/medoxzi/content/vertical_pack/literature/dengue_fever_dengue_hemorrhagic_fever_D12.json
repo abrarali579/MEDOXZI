@@ -11,7 +11,7 @@
       "label_id": "Demam Dengue / Demam Berdarah Dengue (DBD)"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "A90 / A91",
   "category": "Infectious",
   "context_note": "Java experiences seasonal dengue outbreaks (rainy season); a frequent cause of acute febrile OPD presentation.",
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Establish day of illness - critical for dengue phase assessment",
-      "source_ref": "OPD QuestionBank v1.0 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Dengue Fever / Dengue Hemorrhagic Fever (requires clinician sign)"
     },
     {
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Classic dengue symptom triad",
-      "source_ref": "OPD QuestionBank v1.0 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Dengue Fever / Dengue Hemorrhagic Fever (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Screen for warning signs of bleeding tendency",
-      "source_ref": "OPD QuestionBank v1.0 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Dengue Fever / Dengue Hemorrhagic Fever (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "WHO warning sign for progression to severe dengue",
-      "source_ref": "OPD QuestionBank v1.0 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Dengue Fever / Dengue Hemorrhagic Fever (requires clinician sign)"
     },
     {
@@ -102,15 +102,15 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Assess for critical phase, when plasma leakage risk is highest",
-      "source_ref": "OPD QuestionBank v1.0 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Dengue Fever / Dengue Hemorrhagic Fever (requires clinician sign)"
     },
     {
       "question_key": "q_06",
       "chief_complaint_code": "dengue_fever_dengue_hemorrhagic_fever_D12",
       "text_by_language": {
-        "en": "Has anyone in your neighborhood or household recently had dengue?"
+        "en": "Has anyone nearby recently had a similar illness with high fever and body aches?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Assess local outbreak exposure",
-      "source_ref": "OPD QuestionBank v1.0 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Dengue Fever / Dengue Hemorrhagic Fever (requires clinician sign)"
     },
     {
@@ -138,15 +138,15 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Assess hydration and early shock signs",
-      "source_ref": "OPD QuestionBank v1.0 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Dengue Fever / Dengue Hemorrhagic Fever (requires clinician sign)"
     },
     {
       "question_key": "q_08",
       "chief_complaint_code": "dengue_fever_dengue_hemorrhagic_fever_D12",
       "text_by_language": {
-        "en": "Have you had dengue before?"
+        "en": "Have you had a similar illness with high fever and body aches before?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -156,122 +156,8 @@
       "is_required_for_completeness": true,
       "display_order": 8,
       "clinical_rationale": "Prior infection raises risk of more severe secondary dengue",
-      "source_ref": "OPD QuestionBank v1.0 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
-      "authored_by": "LITERATURE_SOURCE - Dengue Fever / Dengue Hemorrhagic Fever (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "dengue_fever_dengue_hemorrhagic_fever_D12",
-      "text_by_language": {
-        "en": "Severe abdominal pain",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dengue Fever / Dengue Hemorrhagic Fever :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D12'}",
-      "authored_by": "LITERATURE_SOURCE - Dengue Fever / Dengue Hemorrhagic Fever (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "dengue_fever_dengue_hemorrhagic_fever_D12",
-      "text_by_language": {
-        "en": "Persistent vomiting",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dengue Fever / Dengue Hemorrhagic Fever :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D12'}",
-      "authored_by": "LITERATURE_SOURCE - Dengue Fever / Dengue Hemorrhagic Fever (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_11",
-      "chief_complaint_code": "dengue_fever_dengue_hemorrhagic_fever_D12",
-      "text_by_language": {
-        "en": "Bleeding (gums, nose, black stool, heavy menstrual bleeding)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 11,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dengue Fever / Dengue Hemorrhagic Fever :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D12'}",
-      "authored_by": "LITERATURE_SOURCE - Dengue Fever / Dengue Hemorrhagic Fever (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_12",
-      "chief_complaint_code": "dengue_fever_dengue_hemorrhagic_fever_D12",
-      "text_by_language": {
-        "en": "Lethargy/restlessness",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 12,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dengue Fever / Dengue Hemorrhagic Fever :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D12'}",
-      "authored_by": "LITERATURE_SOURCE - Dengue Fever / Dengue Hemorrhagic Fever (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_13",
-      "chief_complaint_code": "dengue_fever_dengue_hemorrhagic_fever_D12",
-      "text_by_language": {
-        "en": "Cold clammy skin, rapid weak pulse (shock)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 13,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dengue Fever / Dengue Hemorrhagic Fever :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D12'}",
-      "authored_by": "LITERATURE_SOURCE - Dengue Fever / Dengue Hemorrhagic Fever (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_14",
-      "chief_complaint_code": "dengue_fever_dengue_hemorrhagic_fever_D12",
-      "text_by_language": {
-        "en": "Fever defervescence with clinical worsening (critical phase)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 14,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dengue Fever / Dengue Hemorrhagic Fever :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D12'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dengue Fever / Dengue Hemorrhagic Fever :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D12', 'name_en': 'Dengue Fever / Dengue Hemorrhagic Fever', 'name_id': 'Demam Dengue / Demam Berdarah Dengue (DBD)', 'icd10': 'A90 / A91', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Dengue Fever / Dengue Hemorrhagic Fever (requires clinician sign)"
     }
   ]

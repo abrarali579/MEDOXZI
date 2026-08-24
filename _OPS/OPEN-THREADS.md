@@ -24,14 +24,17 @@
 
 **Session S note:** This cron run observed an **uncommitted gate-drift**: `gate_literature.py` reports **39 CLEAN / 1 BLOCKED** (was documented 28/12). All 40 `literature/*.json` packs + `tools/build_from_questionbank.py` carry unstaged edits that remove red-flag screens and bump `source_bank` to v1.1, claiming an unlogged "Session S founder decision". **No `_OPS` log/ADR corroborates it.** Left uncommitted/reverted-nothing pending Abrar's decision. See V-CRON-02, session log S, CHANGELOG.
 
+**Session S(v1.1) note (this session):** Resolved the above. The founder **confirmed** the red-flag removal as a real decision (session Q out-of-band directive, restated here): no red flags because the clinic handles routine OPD patients only, never emergencies; update wording where needed and continue. v1.1 (`diseases.json` version 1.1, 308 history questions) is now installed in `10-Reference/OPD-QuestionBank/`; all 40 literature packs rebuilt without red-flag screens; D14 wording adjusted (founder-authorized) to remove the last `emergency` patient-text hit. Gate is now **40 CLEAN / 0 BLOCKED**, bridge 40/0. Decision captured as **ADR-038**. All packs remain `DEMO_UNVALIDATED`; **OT-18 Lead Doctor sign-off still required before real-patient activation** — the 40/0 does NOT mean clinically signed.
+
 ---
 
-## ⚪ Watch / decision needed — uncommitted red-flag removal in question packs (found this run)
+## ✅ Resolved — red-flag removal in question packs confirmed as real founder decision (ADR-038)
 
-- **What:** working-tree edits to all 40 literature packs strip the `is_red_flag_screen` questions and bump source metadata v1.0→v1.1; `tools/build_from_questionbank.py` was likewise edited to stop emitting red-flag screens (docstring cites an unlogged "Session S" founder decision: routine-OPD patients only, no red flags / no emergency handling).
-- **Why it matters:** the change shifts the gate from **28 CLEAN / 12 BLOCKED** → **39 CLEAN / 1 BLOCKED**. If real, it honours OT-02/OT-05 (non-diagnostic screening, OP D-only) and would let the founder's Lead Doctor review a friendlier set; if not, it is an unsanctioned alteration of Lead-Clinician-gated wording (ADR-002/037). Either way the current 39/1 must NOT be read as clinically signed.
-- **Decision needed from Abrar:** (a) confirm the red-flag removal as a real founder decision → we log it as genuine Session S + ADR, correct the 28-12 documentation, then commit the pack rebuild; OR (b) revert the builder edit + pack regen (accidental local change). After decision, cleared packs still need **OT-18 Lead Doctor sign-off** before real-patient use.
-- **Owner:** Abrar (decision) · **Status:** ⚪ awaiting decision · **Blocked on:** nothing build-wise (tests still 100 green, harness PASS).
+- **What happened:** The founder confirmed via out-of-band directive (session Q, 2026-08-24): the clinic handles **routine OPD patients only and never emergencies**, so red flags are not used; wording may be updated to continue. That is the "Session S founder decision" the cron could not corroborate — now documented as **ADR-038**.
+- **What changed:** `build_from_questionbank.py` no longer embeds any red-flag/alarm string into patient packs (engine `is_red_flag_screen` capability stays intact for future clinician packs). QuestionBank **v1.1** installed as authoritative history-question source. All 40 packs rebuilt from v1.1. One founder-authorized wording fix on D14 Bronchial Asthma (`emergency treatment or hospitalization` → `hospital treatment or been admitted`) to satisfy the no-urgency-word gate.
+- **Gate result now:** **40 CLEAN / 0 BLOCKED** (was 28/12); bridge 40 loadable / 0 refused. Tests 100 green, harness VERDICT PASS.
+- **Boundary respected:** All 40 packs remain `DEMO_UNVALIDATED`, nothing signed or activated. **OT-18 named Lead Doctor sign-off is still required** before any real-patient use. The 40/0 CLEAN is a Harness-training/engineering gate result, **not** clinical sign-off.
+- **Status:** ✅ resolved · Commit with this session's pack rebuild + logs.
 
 ## 🔴 Blocking — cannot proceed to real patient use without these
 

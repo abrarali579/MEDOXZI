@@ -11,7 +11,7 @@
       "label_id": "Faringitis / Tonsilitis"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "J02 / J03",
   "category": "ENT/Infectious",
   "context_note": "Very frequent OPD complaint ('radang tenggorokan'), ranked among top diagnoses at multiple Java puskesmas.",
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Establish onset and severity",
-      "source_ref": "OPD QuestionBank v1.0 :: Pharyngitis / Tonsillitis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D33', 'name_en': 'Pharyngitis / Tonsillitis', 'name_id': 'Faringitis / Tonsilitis', 'icd10': 'J02 / J03', 'category': 'ENT/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Pharyngitis / Tonsillitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D33', 'name_en': 'Pharyngitis / Tonsillitis', 'name_id': 'Faringitis / Tonsilitis', 'icd10': 'J02 / J03', 'category': 'ENT/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Pharyngitis / Tonsillitis (requires clinician sign)"
     },
     {
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Assess systemic involvement",
-      "source_ref": "OPD QuestionBank v1.0 :: Pharyngitis / Tonsillitis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D33', 'name_en': 'Pharyngitis / Tonsillitis', 'name_id': 'Faringitis / Tonsilitis', 'icd10': 'J02 / J03', 'category': 'ENT/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Pharyngitis / Tonsillitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D33', 'name_en': 'Pharyngitis / Tonsillitis', 'name_id': 'Faringitis / Tonsilitis', 'icd10': 'J02 / J03', 'category': 'ENT/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Pharyngitis / Tonsillitis (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Screen for possible bacterial (streptococcal) tonsillitis",
-      "source_ref": "OPD QuestionBank v1.0 :: Pharyngitis / Tonsillitis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D33', 'name_en': 'Pharyngitis / Tonsillitis', 'name_id': 'Faringitis / Tonsilitis', 'icd10': 'J02 / J03', 'category': 'ENT/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Pharyngitis / Tonsillitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D33', 'name_en': 'Pharyngitis / Tonsillitis', 'name_id': 'Faringitis / Tonsilitis', 'icd10': 'J02 / J03', 'category': 'ENT/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Pharyngitis / Tonsillitis (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Assess lymphadenopathy, supports infectious etiology",
-      "source_ref": "OPD QuestionBank v1.0 :: Pharyngitis / Tonsillitis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D33', 'name_en': 'Pharyngitis / Tonsillitis', 'name_id': 'Faringitis / Tonsilitis', 'icd10': 'J02 / J03', 'category': 'ENT/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Pharyngitis / Tonsillitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D33', 'name_en': 'Pharyngitis / Tonsillitis', 'name_id': 'Faringitis / Tonsilitis', 'icd10': 'J02 / J03', 'category': 'ENT/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Pharyngitis / Tonsillitis (requires clinician sign)"
     },
     {
@@ -102,8 +102,8 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Screen for airway-threatening complications - red flag",
-      "source_ref": "OPD QuestionBank v1.0 :: Pharyngitis / Tonsillitis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D33', 'name_en': 'Pharyngitis / Tonsillitis', 'name_id': 'Faringitis / Tonsilitis', 'icd10': 'J02 / J03', 'category': 'ENT/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Pharyngitis / Tonsillitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D33', 'name_en': 'Pharyngitis / Tonsillitis', 'name_id': 'Faringitis / Tonsilitis', 'icd10': 'J02 / J03', 'category': 'ENT/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Pharyngitis / Tonsillitis (requires clinician sign)"
     },
     {
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Assess exposure/transmission pattern",
-      "source_ref": "OPD QuestionBank v1.0 :: Pharyngitis / Tonsillitis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D33', 'name_en': 'Pharyngitis / Tonsillitis', 'name_id': 'Faringitis / Tonsilitis', 'icd10': 'J02 / J03', 'category': 'ENT/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Pharyngitis / Tonsillitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D33', 'name_en': 'Pharyngitis / Tonsillitis', 'name_id': 'Faringitis / Tonsilitis', 'icd10': 'J02 / J03', 'category': 'ENT/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Pharyngitis / Tonsillitis (requires clinician sign)"
     },
     {
@@ -138,65 +138,8 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Assess for recurrent tonsillitis needing ENT referral",
-      "source_ref": "OPD QuestionBank v1.0 :: Pharyngitis / Tonsillitis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D33', 'name_en': 'Pharyngitis / Tonsillitis', 'name_id': 'Faringitis / Tonsilitis', 'icd10': 'J02 / J03', 'category': 'ENT/Infectious'}",
-      "authored_by": "LITERATURE_SOURCE - Pharyngitis / Tonsillitis (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_08",
-      "chief_complaint_code": "pharyngitis_tonsillitis_D33",
-      "text_by_language": {
-        "en": "Difficulty breathing or swallowing saliva (drooling)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 8,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Pharyngitis / Tonsillitis :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D33'}",
-      "authored_by": "LITERATURE_SOURCE - Pharyngitis / Tonsillitis (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "pharyngitis_tonsillitis_D33",
-      "text_by_language": {
-        "en": "Muffled ('hot potato') voice with severe throat pain (possible peritonsillar abscess/epiglottitis)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Pharyngitis / Tonsillitis :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D33'}",
-      "authored_by": "LITERATURE_SOURCE - Pharyngitis / Tonsillitis (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "pharyngitis_tonsillitis_D33",
-      "text_by_language": {
-        "en": "Severe neck swelling/stiffness",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Pharyngitis / Tonsillitis :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D33'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Pharyngitis / Tonsillitis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D33', 'name_en': 'Pharyngitis / Tonsillitis', 'name_id': 'Faringitis / Tonsilitis', 'icd10': 'J02 / J03', 'category': 'ENT/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Pharyngitis / Tonsillitis (requires clinician sign)"
     }
   ]

@@ -11,7 +11,7 @@
       "label_id": "Osteoartritis"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "M19",
   "category": "Musculoskeletal",
   "context_note": "Common in older OPD patients, especially knee OA, related to age, obesity, and physical labor.",
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Confirm mechanical pattern typical of OA",
-      "source_ref": "OPD QuestionBank v1.0 :: Osteoarthritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Osteoarthritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Osteoarthritis (requires clinician sign)"
     },
     {
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Differentiate OA (<30 min) from inflammatory arthritis (>1 hour)",
-      "source_ref": "OPD QuestionBank v1.0 :: Osteoarthritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Osteoarthritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Osteoarthritis (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Assess for crepitus, supportive of OA",
-      "source_ref": "OPD QuestionBank v1.0 :: Osteoarthritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Osteoarthritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Osteoarthritis (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Assess chronicity and progression",
-      "source_ref": "OPD QuestionBank v1.0 :: Osteoarthritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Osteoarthritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Osteoarthritis (requires clinician sign)"
     },
     {
@@ -102,8 +102,8 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Assess functional impact",
-      "source_ref": "OPD QuestionBank v1.0 :: Osteoarthritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Osteoarthritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Osteoarthritis (requires clinician sign)"
     },
     {
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Assess mechanical risk factors",
-      "source_ref": "OPD QuestionBank v1.0 :: Osteoarthritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Osteoarthritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Osteoarthritis (requires clinician sign)"
     },
     {
@@ -138,8 +138,8 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Identify secondary OA risk factors",
-      "source_ref": "OPD QuestionBank v1.0 :: Osteoarthritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Osteoarthritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Osteoarthritis (requires clinician sign)"
     },
     {
@@ -156,65 +156,8 @@
       "is_required_for_completeness": true,
       "display_order": 8,
       "clinical_rationale": "Rule out an acute inflammatory or infectious process",
-      "source_ref": "OPD QuestionBank v1.0 :: Osteoarthritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
-      "authored_by": "LITERATURE_SOURCE - Osteoarthritis (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "osteoarthritis_D18",
-      "text_by_language": {
-        "en": "Joint pain with fever/redness (rule out septic arthritis)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Osteoarthritis :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D18'}",
-      "authored_by": "LITERATURE_SOURCE - Osteoarthritis (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "osteoarthritis_D18",
-      "text_by_language": {
-        "en": "Sudden inability to bear weight",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Osteoarthritis :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D18'}",
-      "authored_by": "LITERATURE_SOURCE - Osteoarthritis (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_11",
-      "chief_complaint_code": "osteoarthritis_D18",
-      "text_by_language": {
-        "en": "Significant deformity after trauma",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 11,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Osteoarthritis :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D18'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Osteoarthritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D18', 'name_en': 'Osteoarthritis', 'name_id': 'Osteoartritis', 'icd10': 'M19', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Osteoarthritis (requires clinician sign)"
     }
   ]

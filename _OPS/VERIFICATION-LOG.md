@@ -2114,3 +2114,29 @@ No diagnostic/differential vocabulary present in any patient-facing question.
   design docs wc -c -> min 3.4KB (Followup-Capture 3396) .. max 8.2KB, all present
   ```
 - **Verdict:** ✅ **CONFIRMED** — no test regression (baseline is now 100, was 95 pre-RT+bridge tests), no gate split drift (28/12 unchanged), no uncommitted broken JSON (6 drafts tracked+clean). STATE.md §1/§4 updated to the verified 100-test current value.
+
+### V-2026-08-24-CRON-03 · Autonomous continuation driver — ADR-038 state verified + committed (40/0)
+- **Claim:** the working-tree ADR-038 engineering state is faithful, verified green, and correctly committed. Establishes (for run S(v1.1)): gate **CLEAN 40 / BLOCKED 0**, pytest **100 passed**, harness **VERDICT PASS (9/9)**, node OK, `diseases.json` v1.1, D14 founder-authorized wording present.
+- **Method:** re-ran the full baseline under Python310 + gate_literature + node + grep of version and D14 wording, then wrote session log/CHANGELOG/STATE entries and committed.
+- **Evidence:**
+  ```
+  $ python medoxzi/content/vertical_pack/tools/gate_literature   (Python310)
+  [gate] scanned 40 literature packs / 308 questions
+  [gate] CLEAN: 40  BLOCKED: 0
+  [gate] total hits by detector: none
+
+  $ pytest tests/ -q                                            (Python310)
+  100 passed in 0.18s
+
+  $ python -m harness.run
+  PASS H1_contamination PASS H3_fabrication PASS H15_abstention PASS H5_drift
+  PASS H16_ece_below_0.05 PASS H17_high_conf_accuracy_ge_0.95 PASS H18_low_conf_accuracy_below_0.70
+  PASS calibration_detector_self_test PASS drift_detector_self_test
+  VERDICT: PASS
+
+  $ node --check ../14-MVP-HTML/app.js  ->  node OK
+  $ grep -o '"version"[^,]*' 10-Reference/OPD-QuestionBank/diseases.json  ->  "version": "1.1"
+  $ grep -o "needed hospital treatment or been admitted" 11-Prototype/.../bronchial_asthma_D14.json  ->  matched
+  $ grep -o "emergency treatment or hospitalization" same  ->  (no match — old wording replaced)
+  ```
+- **Verdict:** ✅ **CONFIRMED** — ADR-038 state verified green and committed. Safety preserved: all 40 packs remain DEMO_UNVALIDATED; OT-18 named Lead Doctor sign-off still required before real-patient activation. The 40/0 gate is an engineering/harness result, NOT clinical sign-off.

@@ -11,7 +11,7 @@
       "label_id": "Dispepsia"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "K30",
   "category": "Gastrointestinal",
   "context_note": "One of the top outpatient complaints across Java puskesmas ('sakit maag'); linked to irregular meals, spicy food, stress, H. pylori prevalence.",
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Localize and characterize meal relationship",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
       "authored_by": "LITERATURE_SOURCE - Dyspepsia (Functional/Uninvestigated) (requires clinician sign)"
     },
     {
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Establish chronicity",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
       "authored_by": "LITERATURE_SOURCE - Dyspepsia (Functional/Uninvestigated) (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Screen for alarm features requiring urgent referral/endoscopy",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
       "authored_by": "LITERATURE_SOURCE - Dyspepsia (Functional/Uninvestigated) (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Identify gastric mucosal irritants",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
       "authored_by": "LITERATURE_SOURCE - Dyspepsia (Functional/Uninvestigated) (requires clinician sign)"
     },
     {
@@ -102,8 +102,8 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Identify contributing lifestyle factors",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
       "authored_by": "LITERATURE_SOURCE - Dyspepsia (Functional/Uninvestigated) (requires clinician sign)"
     },
     {
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Identify additional gastric irritant exposure",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
       "authored_by": "LITERATURE_SOURCE - Dyspepsia (Functional/Uninvestigated) (requires clinician sign)"
     },
     {
@@ -138,15 +138,15 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Support functional dyspepsia vs organic cause",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
       "authored_by": "LITERATURE_SOURCE - Dyspepsia (Functional/Uninvestigated) (requires clinician sign)"
     },
     {
       "question_key": "q_08",
       "chief_complaint_code": "dyspepsia_functional_uninvestigated_D04",
       "text_by_language": {
-        "en": "Do you have a family history of stomach cancer or peptic ulcer disease?"
+        "en": "Does anyone in your family have a history of stomach problems, ulcers, or stomach cancer?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -156,122 +156,8 @@
       "is_required_for_completeness": true,
       "display_order": 8,
       "clinical_rationale": "Assess risk stratification",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
-      "authored_by": "LITERATURE_SOURCE - Dyspepsia (Functional/Uninvestigated) (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "dyspepsia_functional_uninvestigated_D04",
-      "text_by_language": {
-        "en": "Unintentional weight loss",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyspepsia (Functional/Uninvestigated) :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D04'}",
-      "authored_by": "LITERATURE_SOURCE - Dyspepsia (Functional/Uninvestigated) (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "dyspepsia_functional_uninvestigated_D04",
-      "text_by_language": {
-        "en": "Vomiting blood or black stool (melena)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyspepsia (Functional/Uninvestigated) :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D04'}",
-      "authored_by": "LITERATURE_SOURCE - Dyspepsia (Functional/Uninvestigated) (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_11",
-      "chief_complaint_code": "dyspepsia_functional_uninvestigated_D04",
-      "text_by_language": {
-        "en": "Difficulty/pain swallowing (dysphagia)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 11,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyspepsia (Functional/Uninvestigated) :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D04'}",
-      "authored_by": "LITERATURE_SOURCE - Dyspepsia (Functional/Uninvestigated) (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_12",
-      "chief_complaint_code": "dyspepsia_functional_uninvestigated_D04",
-      "text_by_language": {
-        "en": "Age >45 with new-onset symptoms",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 12,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyspepsia (Functional/Uninvestigated) :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D04'}",
-      "authored_by": "LITERATURE_SOURCE - Dyspepsia (Functional/Uninvestigated) (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_13",
-      "chief_complaint_code": "dyspepsia_functional_uninvestigated_D04",
-      "text_by_language": {
-        "en": "Palpable abdominal mass",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 13,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyspepsia (Functional/Uninvestigated) :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D04'}",
-      "authored_by": "LITERATURE_SOURCE - Dyspepsia (Functional/Uninvestigated) (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_14",
-      "chief_complaint_code": "dyspepsia_functional_uninvestigated_D04",
-      "text_by_language": {
-        "en": "Persistent vomiting",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 14,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyspepsia (Functional/Uninvestigated) :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D04'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dyspepsia (Functional/Uninvestigated) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D04', 'name_en': 'Dyspepsia (Functional/Uninvestigated)', 'name_id': 'Dispepsia', 'icd10': 'K30', 'category': 'Gastrointestinal'}",
       "authored_by": "LITERATURE_SOURCE - Dyspepsia (Functional/Uninvestigated) (requires clinician sign)"
     }
   ]

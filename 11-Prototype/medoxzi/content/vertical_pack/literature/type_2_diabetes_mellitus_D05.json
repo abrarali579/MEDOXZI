@@ -11,7 +11,7 @@
       "label_id": "Diabetes Melitus Tipe 2"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "E11",
   "category": "Endocrine/Metabolic",
   "context_note": "Top 5 outpatient diagnosis in Jakarta puskesmas (188,000+ visits, 2024); rising prevalence across urban and rural Java.",
@@ -20,7 +20,7 @@
       "question_key": "q_01",
       "chief_complaint_code": "type_2_diabetes_mellitus_D05",
       "text_by_language": {
-        "en": "Have you been diagnosed with diabetes before? If so, when, and what treatment are you on?"
+        "en": "Have you ever been told your blood sugar was high, and are you currently on any treatment related to that?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Establish known vs new diagnosis",
-      "source_ref": "OPD QuestionBank v1.0 :: Type 2 Diabetes Mellitus :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Type 2 Diabetes Mellitus :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Type 2 Diabetes Mellitus (requires clinician sign)"
     },
     {
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Classic hyperglycemia symptoms",
-      "source_ref": "OPD QuestionBank v1.0 :: Type 2 Diabetes Mellitus :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Type 2 Diabetes Mellitus :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Type 2 Diabetes Mellitus (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Assess current control",
-      "source_ref": "OPD QuestionBank v1.0 :: Type 2 Diabetes Mellitus :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Type 2 Diabetes Mellitus :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Type 2 Diabetes Mellitus (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Screen for diabetic neuropathy/foot complications",
-      "source_ref": "OPD QuestionBank v1.0 :: Type 2 Diabetes Mellitus :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Type 2 Diabetes Mellitus :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Type 2 Diabetes Mellitus (requires clinician sign)"
     },
     {
@@ -102,15 +102,15 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Screen for diabetic retinopathy",
-      "source_ref": "OPD QuestionBank v1.0 :: Type 2 Diabetes Mellitus :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Type 2 Diabetes Mellitus :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Type 2 Diabetes Mellitus (requires clinician sign)"
     },
     {
       "question_key": "q_06",
       "chief_complaint_code": "type_2_diabetes_mellitus_D05",
       "text_by_language": {
-        "en": "Do you have a family history of diabetes?"
+        "en": "Does anyone in your family have a history of high blood sugar problems?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Assess genetic risk",
-      "source_ref": "OPD QuestionBank v1.0 :: Type 2 Diabetes Mellitus :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Type 2 Diabetes Mellitus :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Type 2 Diabetes Mellitus (requires clinician sign)"
     },
     {
@@ -138,8 +138,8 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Assess lifestyle contributors, guide counseling",
-      "source_ref": "OPD QuestionBank v1.0 :: Type 2 Diabetes Mellitus :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Type 2 Diabetes Mellitus :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Type 2 Diabetes Mellitus (requires clinician sign)"
     },
     {
@@ -156,8 +156,8 @@
       "is_required_for_completeness": true,
       "display_order": 8,
       "clinical_rationale": "Assess associated cardiometabolic risk",
-      "source_ref": "OPD QuestionBank v1.0 :: Type 2 Diabetes Mellitus :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Type 2 Diabetes Mellitus :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Type 2 Diabetes Mellitus (requires clinician sign)"
     },
     {
@@ -174,84 +174,8 @@
       "is_required_for_completeness": true,
       "display_order": 9,
       "clinical_rationale": "Assess adherence and hypoglycemia risk",
-      "source_ref": "OPD QuestionBank v1.0 :: Type 2 Diabetes Mellitus :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
-      "authored_by": "LITERATURE_SOURCE - Type 2 Diabetes Mellitus (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "type_2_diabetes_mellitus_D05",
-      "text_by_language": {
-        "en": "Confusion or altered consciousness (possible DKA/HHS)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Type 2 Diabetes Mellitus :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D05'}",
-      "authored_by": "LITERATURE_SOURCE - Type 2 Diabetes Mellitus (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_11",
-      "chief_complaint_code": "type_2_diabetes_mellitus_D05",
-      "text_by_language": {
-        "en": "Very high or very low glucose with symptoms",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 11,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Type 2 Diabetes Mellitus :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D05'}",
-      "authored_by": "LITERATURE_SOURCE - Type 2 Diabetes Mellitus (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_12",
-      "chief_complaint_code": "type_2_diabetes_mellitus_D05",
-      "text_by_language": {
-        "en": "Non-healing foot ulcer with signs of infection",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 12,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Type 2 Diabetes Mellitus :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D05'}",
-      "authored_by": "LITERATURE_SOURCE - Type 2 Diabetes Mellitus (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_13",
-      "chief_complaint_code": "type_2_diabetes_mellitus_D05",
-      "text_by_language": {
-        "en": "Rapid unexplained weight loss with vomiting",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 13,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Type 2 Diabetes Mellitus :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D05'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Type 2 Diabetes Mellitus :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D05', 'name_en': 'Type 2 Diabetes Mellitus', 'name_id': 'Diabetes Melitus Tipe 2', 'icd10': 'E11', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Type 2 Diabetes Mellitus (requires clinician sign)"
     }
   ]

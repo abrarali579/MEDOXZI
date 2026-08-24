@@ -11,7 +11,7 @@
       "label_id": "Dislipidemia"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "E78",
   "category": "Endocrine/Metabolic",
   "context_note": "Top 7 outpatient diagnosis in Jakarta puskesmas 2024; usually detected on routine screening rather than symptoms.",
@@ -20,7 +20,7 @@
       "question_key": "q_01",
       "chief_complaint_code": "dyslipidemia_D07",
       "text_by_language": {
-        "en": "Have you ever had a cholesterol test done? What were the results?"
+        "en": "Have you had any blood tests done before, and if so, were any results outside the normal range?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -30,15 +30,15 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Establish baseline/diagnosis",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyslipidemia :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D07', 'name_en': 'Dyslipidemia', 'name_id': 'Dislipidemia', 'icd10': 'E78', 'category': 'Endocrine/Metabolic'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dyslipidemia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D07', 'name_en': 'Dyslipidemia', 'name_id': 'Dislipidemia', 'icd10': 'E78', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Dyslipidemia (requires clinician sign)"
     },
     {
       "question_key": "q_02",
       "chief_complaint_code": "dyslipidemia_D07",
       "text_by_language": {
-        "en": "Do you have a family history of high cholesterol, early heart attack, or stroke?"
+        "en": "Does anyone in your family have a history of early heart attack or stroke?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Assess familial hyperlipidemia risk",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyslipidemia :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D07', 'name_en': 'Dyslipidemia', 'name_id': 'Dislipidemia', 'icd10': 'E78', 'category': 'Endocrine/Metabolic'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dyslipidemia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D07', 'name_en': 'Dyslipidemia', 'name_id': 'Dislipidemia', 'icd10': 'E78', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Dyslipidemia (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Identify dietary contributors common in Javanese cuisine",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyslipidemia :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D07', 'name_en': 'Dyslipidemia', 'name_id': 'Dislipidemia', 'icd10': 'E78', 'category': 'Endocrine/Metabolic'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dyslipidemia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D07', 'name_en': 'Dyslipidemia', 'name_id': 'Dislipidemia', 'icd10': 'E78', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Dyslipidemia (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Assess modifiable lifestyle factor",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyslipidemia :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D07', 'name_en': 'Dyslipidemia', 'name_id': 'Dislipidemia', 'icd10': 'E78', 'category': 'Endocrine/Metabolic'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dyslipidemia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D07', 'name_en': 'Dyslipidemia', 'name_id': 'Dislipidemia', 'icd10': 'E78', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Dyslipidemia (requires clinician sign)"
     },
     {
@@ -102,15 +102,15 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Identify secondary causes/associated conditions",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyslipidemia :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D07', 'name_en': 'Dyslipidemia', 'name_id': 'Dislipidemia', 'icd10': 'E78', 'category': 'Endocrine/Metabolic'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dyslipidemia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D07', 'name_en': 'Dyslipidemia', 'name_id': 'Dislipidemia', 'icd10': 'E78', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Dyslipidemia (requires clinician sign)"
     },
     {
       "question_key": "q_06",
       "chief_complaint_code": "dyslipidemia_D07",
       "text_by_language": {
-        "en": "Are you currently taking any cholesterol-lowering medication? Any muscle pain since starting it?"
+        "en": "Are you currently taking any regular medication, and have you noticed any muscle pain since starting any new medication?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Assess treatment and statin side effects",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyslipidemia :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D07', 'name_en': 'Dyslipidemia', 'name_id': 'Dislipidemia', 'icd10': 'E78', 'category': 'Endocrine/Metabolic'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dyslipidemia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D07', 'name_en': 'Dyslipidemia', 'name_id': 'Dislipidemia', 'icd10': 'E78', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Dyslipidemia (requires clinician sign)"
     },
     {
@@ -138,65 +138,8 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Assess additional cardiovascular risk factors",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyslipidemia :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D07', 'name_en': 'Dyslipidemia', 'name_id': 'Dislipidemia', 'icd10': 'E78', 'category': 'Endocrine/Metabolic'}",
-      "authored_by": "LITERATURE_SOURCE - Dyslipidemia (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_08",
-      "chief_complaint_code": "dyslipidemia_D07",
-      "text_by_language": {
-        "en": "Chest pain (possible underlying ischemic disease)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 8,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyslipidemia :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D07'}",
-      "authored_by": "LITERATURE_SOURCE - Dyslipidemia (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "dyslipidemia_D07",
-      "text_by_language": {
-        "en": "Calf pain with walking (peripheral artery disease)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyslipidemia :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D07'}",
-      "authored_by": "LITERATURE_SOURCE - Dyslipidemia (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "dyslipidemia_D07",
-      "text_by_language": {
-        "en": "Very high triglycerides with abdominal pain (pancreatitis risk)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dyslipidemia :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D07'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dyslipidemia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D07', 'name_en': 'Dyslipidemia', 'name_id': 'Dislipidemia', 'icd10': 'E78', 'category': 'Endocrine/Metabolic'}",
       "authored_by": "LITERATURE_SOURCE - Dyslipidemia (requires clinician sign)"
     }
   ]

@@ -11,7 +11,7 @@
       "label_id": "Pasca Stroke / Gejala Sisa Kronik"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "I69",
   "category": "Neurological",
   "context_note": "Stroke is a leading cause of disability in Indonesia; many OPD visits are follow-up care for known stroke patients managing risk factors and rehabilitation.",
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Establish history and baseline deficit",
-      "source_ref": "OPD QuestionBank v1.0 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
       "authored_by": "LITERATURE_SOURCE - Post-Stroke Follow-up / Chronic Sequelae (requires clinician sign)"
     },
     {
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Screen for new stroke/TIA or progression - urgent if positive",
-      "source_ref": "OPD QuestionBank v1.0 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
       "authored_by": "LITERATURE_SOURCE - Post-Stroke Follow-up / Chronic Sequelae (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Assess secondary prevention adherence",
-      "source_ref": "OPD QuestionBank v1.0 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
       "authored_by": "LITERATURE_SOURCE - Post-Stroke Follow-up / Chronic Sequelae (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Screen for dysphagia and aspiration risk",
-      "source_ref": "OPD QuestionBank v1.0 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
       "authored_by": "LITERATURE_SOURCE - Post-Stroke Follow-up / Chronic Sequelae (requires clinician sign)"
     },
     {
@@ -102,8 +102,8 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Screen for post-stroke depression, common and under-recognized",
-      "source_ref": "OPD QuestionBank v1.0 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
       "authored_by": "LITERATURE_SOURCE - Post-Stroke Follow-up / Chronic Sequelae (requires clinician sign)"
     },
     {
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Assess rehabilitation engagement and functional recovery",
-      "source_ref": "OPD QuestionBank v1.0 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
       "authored_by": "LITERATURE_SOURCE - Post-Stroke Follow-up / Chronic Sequelae (requires clinician sign)"
     },
     {
@@ -138,8 +138,8 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Assess ongoing modifiable risk factors for recurrence",
-      "source_ref": "OPD QuestionBank v1.0 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
       "authored_by": "LITERATURE_SOURCE - Post-Stroke Follow-up / Chronic Sequelae (requires clinician sign)"
     },
     {
@@ -156,84 +156,8 @@
       "is_required_for_completeness": true,
       "display_order": 8,
       "clinical_rationale": "Assess safety risk related to balance/gait impairment",
-      "source_ref": "OPD QuestionBank v1.0 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
-      "authored_by": "LITERATURE_SOURCE - Post-Stroke Follow-up / Chronic Sequelae (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "post_stroke_follow_up_chronic_sequelae_D40",
-      "text_by_language": {
-        "en": "New sudden weakness, facial droop, or speech difficulty (possible new stroke/TIA - emergency)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Post-Stroke Follow-up / Chronic Sequelae :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D40'}",
-      "authored_by": "LITERATURE_SOURCE - Post-Stroke Follow-up / Chronic Sequelae (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "post_stroke_follow_up_chronic_sequelae_D40",
-      "text_by_language": {
-        "en": "Sudden severe headache",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Post-Stroke Follow-up / Chronic Sequelae :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D40'}",
-      "authored_by": "LITERATURE_SOURCE - Post-Stroke Follow-up / Chronic Sequelae (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_11",
-      "chief_complaint_code": "post_stroke_follow_up_chronic_sequelae_D40",
-      "text_by_language": {
-        "en": "New seizures",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 11,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Post-Stroke Follow-up / Chronic Sequelae :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D40'}",
-      "authored_by": "LITERATURE_SOURCE - Post-Stroke Follow-up / Chronic Sequelae (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_12",
-      "chief_complaint_code": "post_stroke_follow_up_chronic_sequelae_D40",
-      "text_by_language": {
-        "en": "Signs of aspiration (choking, recurrent pneumonia)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 12,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Post-Stroke Follow-up / Chronic Sequelae :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D40'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Post-Stroke Follow-up / Chronic Sequelae :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D40', 'name_en': 'Post-Stroke Follow-up / Chronic Sequelae', 'name_id': 'Pasca Stroke / Gejala Sisa Kronik', 'icd10': 'I69', 'category': 'Neurological'}",
       "authored_by": "LITERATURE_SOURCE - Post-Stroke Follow-up / Chronic Sequelae (requires clinician sign)"
     }
   ]

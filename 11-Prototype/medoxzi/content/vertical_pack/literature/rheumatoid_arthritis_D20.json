@@ -11,7 +11,7 @@
       "label_id": "Artritis Reumatoid"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "M06",
   "category": "Musculoskeletal/Autoimmune",
   "context_note": "Less common than OA/gout but an important differential when patients present with 'rematik' - symmetric small joint disease.",
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Symmetric small joint involvement is characteristic of RA",
-      "source_ref": "OPD QuestionBank v1.0 :: Rheumatoid Arthritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D20', 'name_en': 'Rheumatoid Arthritis', 'name_id': 'Artritis Reumatoid', 'icd10': 'M06', 'category': 'Musculoskeletal/Autoimmune'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Rheumatoid Arthritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D20', 'name_en': 'Rheumatoid Arthritis', 'name_id': 'Artritis Reumatoid', 'icd10': 'M06', 'category': 'Musculoskeletal/Autoimmune'}",
       "authored_by": "LITERATURE_SOURCE - Rheumatoid Arthritis (requires clinician sign)"
     },
     {
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": ">1 hour supports inflammatory arthritis over OA",
-      "source_ref": "OPD QuestionBank v1.0 :: Rheumatoid Arthritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D20', 'name_en': 'Rheumatoid Arthritis', 'name_id': 'Artritis Reumatoid', 'icd10': 'M06', 'category': 'Musculoskeletal/Autoimmune'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Rheumatoid Arthritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D20', 'name_en': 'Rheumatoid Arthritis', 'name_id': 'Artritis Reumatoid', 'icd10': 'M06', 'category': 'Musculoskeletal/Autoimmune'}",
       "authored_by": "LITERATURE_SOURCE - Rheumatoid Arthritis (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Assess chronicity for diagnostic criteria",
-      "source_ref": "OPD QuestionBank v1.0 :: Rheumatoid Arthritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D20', 'name_en': 'Rheumatoid Arthritis', 'name_id': 'Artritis Reumatoid', 'icd10': 'M06', 'category': 'Musculoskeletal/Autoimmune'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Rheumatoid Arthritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D20', 'name_en': 'Rheumatoid Arthritis', 'name_id': 'Artritis Reumatoid', 'icd10': 'M06', 'category': 'Musculoskeletal/Autoimmune'}",
       "authored_by": "LITERATURE_SOURCE - Rheumatoid Arthritis (requires clinician sign)"
     },
     {
@@ -84,15 +84,15 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Assess systemic inflammatory features",
-      "source_ref": "OPD QuestionBank v1.0 :: Rheumatoid Arthritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D20', 'name_en': 'Rheumatoid Arthritis', 'name_id': 'Artritis Reumatoid', 'icd10': 'M06', 'category': 'Musculoskeletal/Autoimmune'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Rheumatoid Arthritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D20', 'name_en': 'Rheumatoid Arthritis', 'name_id': 'Artritis Reumatoid', 'icd10': 'M06', 'category': 'Musculoskeletal/Autoimmune'}",
       "authored_by": "LITERATURE_SOURCE - Rheumatoid Arthritis (requires clinician sign)"
     },
     {
       "question_key": "q_05",
       "chief_complaint_code": "rheumatoid_arthritis_D20",
       "text_by_language": {
-        "en": "Does anyone in your family have rheumatoid arthritis or other autoimmune disease?"
+        "en": "Does anyone in your family have a history of long-term joint problems or immune-related conditions?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -102,8 +102,8 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Assess familial risk",
-      "source_ref": "OPD QuestionBank v1.0 :: Rheumatoid Arthritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D20', 'name_en': 'Rheumatoid Arthritis', 'name_id': 'Artritis Reumatoid', 'icd10': 'M06', 'category': 'Musculoskeletal/Autoimmune'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Rheumatoid Arthritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D20', 'name_en': 'Rheumatoid Arthritis', 'name_id': 'Artritis Reumatoid', 'icd10': 'M06', 'category': 'Musculoskeletal/Autoimmune'}",
       "authored_by": "LITERATURE_SOURCE - Rheumatoid Arthritis (requires clinician sign)"
     },
     {
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Assess disease progression/functional impact",
-      "source_ref": "OPD QuestionBank v1.0 :: Rheumatoid Arthritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D20', 'name_en': 'Rheumatoid Arthritis', 'name_id': 'Artritis Reumatoid', 'icd10': 'M06', 'category': 'Musculoskeletal/Autoimmune'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Rheumatoid Arthritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D20', 'name_en': 'Rheumatoid Arthritis', 'name_id': 'Artritis Reumatoid', 'icd10': 'M06', 'category': 'Musculoskeletal/Autoimmune'}",
       "authored_by": "LITERATURE_SOURCE - Rheumatoid Arthritis (requires clinician sign)"
     },
     {
@@ -138,65 +138,8 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Screen for overlapping autoimmune features",
-      "source_ref": "OPD QuestionBank v1.0 :: Rheumatoid Arthritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D20', 'name_en': 'Rheumatoid Arthritis', 'name_id': 'Artritis Reumatoid', 'icd10': 'M06', 'category': 'Musculoskeletal/Autoimmune'}",
-      "authored_by": "LITERATURE_SOURCE - Rheumatoid Arthritis (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_08",
-      "chief_complaint_code": "rheumatoid_arthritis_D20",
-      "text_by_language": {
-        "en": "Severe systemic symptoms (fever, weight loss)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 8,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Rheumatoid Arthritis :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D20'}",
-      "authored_by": "LITERATURE_SOURCE - Rheumatoid Arthritis (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "rheumatoid_arthritis_D20",
-      "text_by_language": {
-        "en": "Signs of vasculitis (skin ulcers, nerve symptoms)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Rheumatoid Arthritis :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D20'}",
-      "authored_by": "LITERATURE_SOURCE - Rheumatoid Arthritis (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "rheumatoid_arthritis_D20",
-      "text_by_language": {
-        "en": "Sudden neck pain with neurological symptoms (cervical spine involvement)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Rheumatoid Arthritis :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D20'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Rheumatoid Arthritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D20', 'name_en': 'Rheumatoid Arthritis', 'name_id': 'Artritis Reumatoid', 'icd10': 'M06', 'category': 'Musculoskeletal/Autoimmune'}",
       "authored_by": "LITERATURE_SOURCE - Rheumatoid Arthritis (requires clinician sign)"
     }
   ]

@@ -11,7 +11,7 @@
       "label_id": "Anemia Defisiensi Besi"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "D50",
   "category": "Hematological",
   "context_note": "Common in women of reproductive age and children in Java; linked to nutrition and menstrual blood loss.",
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Establish onset/chronicity",
-      "source_ref": "OPD QuestionBank v1.0 :: Iron Deficiency Anemia :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Iron Deficiency Anemia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
       "authored_by": "LITERATURE_SOURCE - Iron Deficiency Anemia (requires clinician sign)"
     },
     {
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Identify major cause of iron deficiency in reproductive-age women",
-      "source_ref": "OPD QuestionBank v1.0 :: Iron Deficiency Anemia :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Iron Deficiency Anemia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
       "authored_by": "LITERATURE_SOURCE - Iron Deficiency Anemia (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Screen for occult GI blood loss",
-      "source_ref": "OPD QuestionBank v1.0 :: Iron Deficiency Anemia :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Iron Deficiency Anemia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
       "authored_by": "LITERATURE_SOURCE - Iron Deficiency Anemia (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Assess dietary iron intake",
-      "source_ref": "OPD QuestionBank v1.0 :: Iron Deficiency Anemia :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Iron Deficiency Anemia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
       "authored_by": "LITERATURE_SOURCE - Iron Deficiency Anemia (requires clinician sign)"
     },
     {
@@ -102,8 +102,8 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Assess increased iron demand states",
-      "source_ref": "OPD QuestionBank v1.0 :: Iron Deficiency Anemia :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Iron Deficiency Anemia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
       "authored_by": "LITERATURE_SOURCE - Iron Deficiency Anemia (requires clinician sign)"
     },
     {
@@ -120,15 +120,15 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Screen for pica, a classic iron-deficiency symptom",
-      "source_ref": "OPD QuestionBank v1.0 :: Iron Deficiency Anemia :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Iron Deficiency Anemia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
       "authored_by": "LITERATURE_SOURCE - Iron Deficiency Anemia (requires clinician sign)"
     },
     {
       "question_key": "q_07",
       "chief_complaint_code": "iron_deficiency_anemia_D24",
       "text_by_language": {
-        "en": "Have you had worm infestation or lived in an area where this is common?"
+        "en": "Have you had any parasites in your stool before, or lived in an area with poor sanitation and soil contact?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -138,15 +138,15 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Assess for hookworm-related blood loss, relevant in rural Java",
-      "source_ref": "OPD QuestionBank v1.0 :: Iron Deficiency Anemia :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Iron Deficiency Anemia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
       "authored_by": "LITERATURE_SOURCE - Iron Deficiency Anemia (requires clinician sign)"
     },
     {
       "question_key": "q_08",
       "chief_complaint_code": "iron_deficiency_anemia_D24",
       "text_by_language": {
-        "en": "Have you had this checked before (hemoglobin/blood test)?"
+        "en": "Have you had a blood count test done before, and if so, were you told the results?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -156,65 +156,8 @@
       "is_required_for_completeness": true,
       "display_order": 8,
       "clinical_rationale": "Establish prior diagnostic history",
-      "source_ref": "OPD QuestionBank v1.0 :: Iron Deficiency Anemia :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
-      "authored_by": "LITERATURE_SOURCE - Iron Deficiency Anemia (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "iron_deficiency_anemia_D24",
-      "text_by_language": {
-        "en": "Severe symptomatic anemia (chest pain, severe breathlessness)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Iron Deficiency Anemia :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D24'}",
-      "authored_by": "LITERATURE_SOURCE - Iron Deficiency Anemia (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "iron_deficiency_anemia_D24",
-      "text_by_language": {
-        "en": "Signs of active GI bleeding (melena, hematemesis)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Iron Deficiency Anemia :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D24'}",
-      "authored_by": "LITERATURE_SOURCE - Iron Deficiency Anemia (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_11",
-      "chief_complaint_code": "iron_deficiency_anemia_D24",
-      "text_by_language": {
-        "en": "Heavy vaginal bleeding",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 11,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Iron Deficiency Anemia :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D24'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Iron Deficiency Anemia :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D24', 'name_en': 'Iron Deficiency Anemia', 'name_id': 'Anemia Defisiensi Besi', 'icd10': 'D50', 'category': 'Hematological'}",
       "authored_by": "LITERATURE_SOURCE - Iron Deficiency Anemia (requires clinician sign)"
     }
   ]

@@ -4,6 +4,35 @@
 
 ---
 
+## 2026-08-24 - Session S(v1.1) — cron autopilot COMMITTED the ADR-038 state + completed its log trail
+
+**WHAT**
+- Baseline re-verified (Python310): `pytest` **100 passed**, `harness.run` **VERDICT: PASS** (9/9 gates),
+  `node --check ../14-MVP-HTML/app.js` OK.
+- `gate_literature.py` → **CLEAN: 40 / BLOCKED: 0** — matches the **ADR-038** post-resolution target
+  (was the pre-ADR-038 documented 28/12).
+- Confirmed the working tree is the faithful implementation of **ADR-038** (Decision-Log.md, append-only):
+  `diseases.json` version **1.1**; D14 Bronchial Asthma carries the founder-authorized wording
+  `needed hospital treatment or been admitted` (no `emergency` hit); red-flag screens removed per
+  founder's routine-OPD-only scope; engine `is_red_flag_screen` capability left intact.
+- Session S (previous cron) had left this state UNCOMMITTED pending founder decision. That decision now
+  exists as **ADR-038**, so this run **committed** the ADR-038 engineering state and wrote the missing
+  log entries (session log `2026-08-24-SV11-cron-adr038-commit.md`, this CHANGELOG entry,
+  V-2026-08-24-CRON-03, STATE tracker update).
+
+**WHY**
+- We must not keep a verified, founder-documented state permanently uncommitted, and must not re-flag as
+  a blocker a decision the founder already made and recorded. Rule 1/2: the commit captures the change +
+  its ADR trail + real verification output together.
+- **Safety preserved:** all 40 packs remain **DEMO_UNVALIDATED**; OT-18 named Lead Doctor sign-off still
+  gates any real-patient activation. The 40/0 gate is an engineering/harness result, NOT clinical sign-off.
+
+**EVIDENCE**
+- `V-2026-08-24-CRON-03` (real gate/pytest/harness/node output pasted in VERIFICATION-LOG).
+- `git log -1` after commit → ADR-038-tracked message.
+
+---
+
 ## 2026-08-24 - Cron continuation (autonomous driver) - OBSERVED uncommitted gate drift; no commit made
 
 **WHAT**

@@ -8,11 +8,11 @@ D01,Acute Upper Respiratory Tract Infection (Common Cold),Respiratory,Have you b
 D01,Acute Upper Respiratory Tract Infection (Common Cold),Respiratory,"Do you smoke, or is anyone in your household a smoker?",Identify irritant exposure and risk of prolonged symptoms
 D01,Acute Upper Respiratory Tract Infection (Common Cold),Respiratory,"Do you have any chronic lung disease, heart disease, or immune-suppressing condition?",Identify risk factors for complications
 D01,Acute Upper Respiratory Tract Infection (Common Cold),Respiratory,Have you tried any medication already? Did it help?,"Guide further management, avoid duplicate therapy"
-D02,Essential (Primary) Hypertension,Cardiovascular,Have you ever been told you have high blood pressure before? When was it diagnosed?,Establish known vs new diagnosis
-D02,Essential (Primary) Hypertension,Cardiovascular,Are you currently taking any blood pressure medication? Do you take it regularly?,Assess adherence and control
+D02,Essential (Primary) Hypertension,Cardiovascular,"Have you had your blood pressure checked before, and if so, what were the readings?",Establish known vs new diagnosis
+D02,Essential (Primary) Hypertension,Cardiovascular,"Are you currently taking any regular medication, and if so, what is it for and how consistently do you take it?",Assess adherence and control
 D02,Essential (Primary) Hypertension,Cardiovascular,"Do you have headaches, dizziness, or blurred vision?",Screen for hypertensive symptoms/urgency
 D02,Essential (Primary) Hypertension,Cardiovascular,"Do you experience chest pain, palpitations, or shortness of breath, especially on exertion?",Screen for hypertensive heart disease
-D02,Essential (Primary) Hypertension,Cardiovascular,"Do you have a family history of hypertension, stroke, or heart disease?",Assess genetic/familial risk
+D02,Essential (Primary) Hypertension,Cardiovascular,"Does anyone in your family have a history of high blood pressure readings, stroke, or heart disease?",Assess genetic/familial risk
 D02,Essential (Primary) Hypertension,Cardiovascular,"How much salty food do you typically eat, and do you smoke or drink alcohol?",Identify modifiable lifestyle risk factors
 D02,Essential (Primary) Hypertension,Cardiovascular,"Do you have diabetes, high cholesterol, or kidney disease?",Assess comorbidities/cardiovascular risk
 D02,Essential (Primary) Hypertension,Cardiovascular,Have you had any swelling in your legs or changes in how much you urinate?,Screen for heart failure or renal involvement
@@ -31,13 +31,13 @@ D04,Dyspepsia (Functional/Uninvestigated),Gastrointestinal,"Do you regularly tak
 D04,Dyspepsia (Functional/Uninvestigated),Gastrointestinal,"How would you describe your eating pattern - do you often skip meals, eat late, or eat spicy/fatty food?",Identify contributing lifestyle factors
 D04,Dyspepsia (Functional/Uninvestigated),Gastrointestinal,Do you smoke or drink coffee/alcohol regularly?,Identify additional gastric irritant exposure
 D04,Dyspepsia (Functional/Uninvestigated),Gastrointestinal,Is the pain related to stress or does it improve with antacids?,Support functional dyspepsia vs organic cause
-D04,Dyspepsia (Functional/Uninvestigated),Gastrointestinal,Do you have a family history of stomach cancer or peptic ulcer disease?,Assess risk stratification
-D05,Type 2 Diabetes Mellitus,Endocrine/Metabolic,"Have you been diagnosed with diabetes before? If so, when, and what treatment are you on?",Establish known vs new diagnosis
+D04,Dyspepsia (Functional/Uninvestigated),Gastrointestinal,"Does anyone in your family have a history of stomach problems, ulcers, or stomach cancer?",Assess risk stratification
+D05,Type 2 Diabetes Mellitus,Endocrine/Metabolic,"Have you ever been told your blood sugar was high, and are you currently on any treatment related to that?",Establish known vs new diagnosis
 D05,Type 2 Diabetes Mellitus,Endocrine/Metabolic,"Do you experience excessive thirst, frequent urination, or unexplained weight loss?",Classic hyperglycemia symptoms
 D05,Type 2 Diabetes Mellitus,Endocrine/Metabolic,Do you check your blood sugar at home? What are your recent readings?,Assess current control
 D05,Type 2 Diabetes Mellitus,Endocrine/Metabolic,"Do you have numbness, tingling, or pain in your feet, or any wounds that are slow to heal?",Screen for diabetic neuropathy/foot complications
 D05,Type 2 Diabetes Mellitus,Endocrine/Metabolic,Have you had any changes in your vision recently?,Screen for diabetic retinopathy
-D05,Type 2 Diabetes Mellitus,Endocrine/Metabolic,Do you have a family history of diabetes?,Assess genetic risk
+D05,Type 2 Diabetes Mellitus,Endocrine/Metabolic,Does anyone in your family have a history of high blood sugar problems?,Assess genetic risk
 D05,Type 2 Diabetes Mellitus,Endocrine/Metabolic,"What does your diet typically look like, and how physically active are you?","Assess lifestyle contributors, guide counseling"
 D05,Type 2 Diabetes Mellitus,Endocrine/Metabolic,"Do you have high blood pressure, high cholesterol, or any history of heart or kidney problems?",Assess associated cardiometabolic risk
 D05,Type 2 Diabetes Mellitus,Endocrine/Metabolic,"Are you taking your medications regularly, and have you had any episodes of very low blood sugar (shakiness, sweating, confusion)?",Assess adherence and hypoglycemia risk
@@ -46,15 +46,15 @@ D06,Hypertensive Heart Disease,Cardiovascular,"Do you get short of breath with a
 D06,Hypertensive Heart Disease,Cardiovascular,Have you noticed swelling in your legs or ankles?,Screen for fluid overload/right heart strain
 D06,Hypertensive Heart Disease,Cardiovascular,"Do you have chest pain or tightness, and does it relate to exertion?",Screen for concurrent ischemic heart disease
 D06,Hypertensive Heart Disease,Cardiovascular,Do you wake up at night gasping for breath or needing extra pillows to sleep?,Assess for paroxysmal nocturnal dyspnea/orthopnea
-D06,Hypertensive Heart Disease,Cardiovascular,Are you taking your antihypertensive medications as prescribed?,Assess adherence
+D06,Hypertensive Heart Disease,Cardiovascular,Are you taking your prescribed medications regularly?,Assess adherence
 D06,Hypertensive Heart Disease,Cardiovascular,"Do you have diabetes, high cholesterol, or a history of kidney disease?",Assess overall cardiovascular risk profile
 D06,Hypertensive Heart Disease,Cardiovascular,Have you had any palpitations or episodes of dizziness/fainting?,Screen for arrhythmia
-D07,Dyslipidemia,Endocrine/Metabolic,Have you ever had a cholesterol test done? What were the results?,Establish baseline/diagnosis
-D07,Dyslipidemia,Endocrine/Metabolic,"Do you have a family history of high cholesterol, early heart attack, or stroke?",Assess familial hyperlipidemia risk
+D07,Dyslipidemia,Endocrine/Metabolic,"Have you had any blood tests done before, and if so, were any results outside the normal range?",Establish baseline/diagnosis
+D07,Dyslipidemia,Endocrine/Metabolic,Does anyone in your family have a history of early heart attack or stroke?,Assess familial hyperlipidemia risk
 D07,Dyslipidemia,Endocrine/Metabolic,"What does your typical diet look like - fried foods, fatty meats, coconut milk (santan)?",Identify dietary contributors common in Javanese cuisine
 D07,Dyslipidemia,Endocrine/Metabolic,Do you exercise regularly?,Assess modifiable lifestyle factor
 D07,Dyslipidemia,Endocrine/Metabolic,"Do you have diabetes, hypertension, or thyroid problems?",Identify secondary causes/associated conditions
-D07,Dyslipidemia,Endocrine/Metabolic,Are you currently taking any cholesterol-lowering medication? Any muscle pain since starting it?,Assess treatment and statin side effects
+D07,Dyslipidemia,Endocrine/Metabolic,"Are you currently taking any regular medication, and have you noticed any muscle pain since starting any new medication?",Assess treatment and statin side effects
 D07,Dyslipidemia,Endocrine/Metabolic,Do you smoke or drink alcohol?,Assess additional cardiovascular risk factors
 D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Musculoskeletal,"Which muscles or joints are affected, and is it one-sided or both sides?",Localize and assess symmetry
 D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Musculoskeletal,"How long have you had this pain, and did it start suddenly or gradually?",Establish onset/chronicity
@@ -63,7 +63,7 @@ D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Musculoskeletal,"Is the 
 D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Musculoskeletal,Does activity make it better or worse?,Differentiate mechanical (worse with use) vs inflammatory (better with use)
 D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Musculoskeletal,"Have you had any recent injury, unusual physical activity, or repetitive strain?",Identify precipitating trauma/overuse
 D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Musculoskeletal,"Do you have fever, weight loss, or fatigue along with the pain?",Screen for systemic inflammatory/infectious cause
-D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Musculoskeletal,"Do you have a history of gout, high uric acid, or similar episodes before?",Assess for recurrent gout
+D08,Myalgia / Non-specific Soft Tissue Pain ('Rematik'),Musculoskeletal,"Have you had similar sudden joint pain episodes before, especially in your big toe or another single joint?",Assess for recurrent gout
 D09,Acute Diarrhea / Gastroenteritis,Gastrointestinal/Infectious,"How many times a day are you passing loose stools, and since when?",Quantify severity and duration
 D09,Acute Diarrhea / Gastroenteritis,Gastrointestinal/Infectious,Is there any blood or mucus in the stool?,Screen for dysentery/invasive infection
 D09,Acute Diarrhea / Gastroenteritis,Gastrointestinal/Infectious,"Do you have fever, vomiting, or abdominal cramping?",Assess associated symptoms and severity
@@ -72,20 +72,20 @@ D09,Acute Diarrhea / Gastroenteritis,Gastrointestinal/Infectious,"Are you able t
 D09,Acute Diarrhea / Gastroenteritis,Gastrointestinal/Infectious,Is anyone else at home or nearby with similar symptoms?,Assess for outbreak/common source
 D09,Acute Diarrhea / Gastroenteritis,Gastrointestinal/Infectious,Have you traveled recently or taken any antibiotics recently?,Identify travel-related or antibiotic-associated causes
 D09,Acute Diarrhea / Gastroenteritis,Gastrointestinal/Infectious,"Do you feel dizzy when standing, or notice a very dry mouth?",Screen for dehydration
-D10,HIV Infection,Infectious,Have you been tested for HIV before? What was the result and when?,Establish diagnostic history
+D10,HIV Infection,Infectious,"Have you ever been tested for any infections that affect the immune system, and do you know the results?",Establish diagnostic history
 D10,HIV Infection,Infectious,"Have you had any risk exposures - unprotected sex, shared needles, blood transfusion?",Assess risk factors (asked with sensitivity and confidentiality)
 D10,HIV Infection,Infectious,"Have you had recurrent fevers, weight loss, or night sweats?",Screen for constitutional symptoms of HIV progression
 D10,HIV Infection,Infectious,Have you noticed white patches in your mouth or frequent skin infections?,Screen for opportunistic infection signs
-D10,HIV Infection,Infectious,Are you currently on antiretroviral therapy (ART)? Are you taking it consistently?,Assess treatment status and adherence
+D10,HIV Infection,Infectious,"Are you currently taking any regular medication for immune system support, and do you take it consistently?",Assess treatment status and adherence
 D10,HIV Infection,Infectious,Have you had any cough lasting more than 2 weeks?,"Screen for TB co-infection, common in Indonesia"
-D10,HIV Infection,Infectious,Do you have a partner or family member who is HIV positive?,Assess household/partner context and need for partner testing
+D10,HIV Infection,Infectious,Has your partner or anyone close to you been diagnosed with a condition that affects the immune system?,Assess household/partner context and need for partner testing
 D11,Pulmonary Tuberculosis,Infectious/Respiratory,"How long have you had a cough, and has it changed in character?",Screen duration - >2 weeks triggers TB workup per national guidelines
 D11,Pulmonary Tuberculosis,Infectious/Respiratory,Have you coughed up blood or blood-streaked sputum?,"Assess for hemoptysis, a red flag"
 D11,Pulmonary Tuberculosis,Infectious/Respiratory,"Do you have fevers, especially at night, or night sweats?",Classic constitutional TB symptoms
 D11,Pulmonary Tuberculosis,Infectious/Respiratory,Have you lost weight recently without trying?,Assess constitutional symptom burden
-D11,Pulmonary Tuberculosis,Infectious/Respiratory,Have you been in close contact with anyone diagnosed with TB?,Assess exposure history
-D11,Pulmonary Tuberculosis,Infectious/Respiratory,Have you ever been treated for TB before? Did you complete the full course?,Screen for relapse or drug-resistant TB risk
-D11,Pulmonary Tuberculosis,Infectious/Respiratory,Do you know your HIV status?,"Assess co-infection risk, affects management urgency"
+D11,Pulmonary Tuberculosis,Infectious/Respiratory,Has anyone you live with or spend a lot of time with had a long-lasting cough or been treated for a lung infection recently?,Assess exposure history
+D11,Pulmonary Tuberculosis,Infectious/Respiratory,"Have you ever been treated for a long-term lung infection before, and did you complete the full course of treatment?",Screen for relapse or drug-resistant TB risk
+D11,Pulmonary Tuberculosis,Infectious/Respiratory,Have you ever been tested for any condition that weakens your immune system?,"Assess co-infection risk, affects management urgency"
 D11,Pulmonary Tuberculosis,Infectious/Respiratory,"Do you live in a crowded household, or work/live in close quarters with others?",Assess transmission risk environment
 D11,Pulmonary Tuberculosis,Infectious/Respiratory,Have you had chest pain or shortness of breath?,Assess pulmonary involvement severity
 D12,Dengue Fever / Dengue Hemorrhagic Fever,Infectious,"When did the fever start, and has it been continuous or come and go?",Establish day of illness - critical for dengue phase assessment
@@ -93,23 +93,23 @@ D12,Dengue Fever / Dengue Hemorrhagic Fever,Infectious,"Do you have severe heada
 D12,Dengue Fever / Dengue Hemorrhagic Fever,Infectious,"Have you noticed any rash, bleeding gums, nosebleeds, or unusual bruising?",Screen for warning signs of bleeding tendency
 D12,Dengue Fever / Dengue Hemorrhagic Fever,Infectious,Have you had persistent vomiting or severe abdominal pain?,WHO warning sign for progression to severe dengue
 D12,Dengue Fever / Dengue Hemorrhagic Fever,Infectious,"Has your fever suddenly gone down, and if so, how are you feeling now?","Assess for critical phase, when plasma leakage risk is highest"
-D12,Dengue Fever / Dengue Hemorrhagic Fever,Infectious,Has anyone in your neighborhood or household recently had dengue?,Assess local outbreak exposure
+D12,Dengue Fever / Dengue Hemorrhagic Fever,Infectious,Has anyone nearby recently had a similar illness with high fever and body aches?,Assess local outbreak exposure
 D12,Dengue Fever / Dengue Hemorrhagic Fever,Infectious,"How much are you able to drink, and how often are you urinating?",Assess hydration and early shock signs
-D12,Dengue Fever / Dengue Hemorrhagic Fever,Infectious,Have you had dengue before?,Prior infection raises risk of more severe secondary dengue
+D12,Dengue Fever / Dengue Hemorrhagic Fever,Infectious,Have you had a similar illness with high fever and body aches before?,Prior infection raises risk of more severe secondary dengue
 D13,Typhoid Fever,Infectious,"How long have you had fever, and does it tend to rise through the day/week?",Typhoid classically shows a stepwise fever pattern over days
 D13,Typhoid Fever,Infectious,"Do you have abdominal pain, constipation, or diarrhea?",Assess GI involvement
 D13,Typhoid Fever,Infectious,Have you eaten food from street vendors or unclean water sources recently?,Identify likely exposure source
 D13,Typhoid Fever,Infectious,"Do you have a headache, loss of appetite, or generally feel very unwell?",Assess constitutional symptom severity
 D13,Typhoid Fever,Infectious,Has anyone around you had a similar prolonged fever recently?,Assess for common-source outbreak
 D13,Typhoid Fever,Infectious,Have you taken any antibiotics already for this illness?,"Assess partial treatment, may affect test results and choice of therapy"
-D13,Typhoid Fever,Infectious,Have you had typhoid fever before?,Assess for relapse or chronic carrier state
+D13,Typhoid Fever,Infectious,Have you had a similar prolonged fever illness before?,Assess for relapse or chronic carrier state
 D13,Typhoid Fever,Infectious,Do you have severe abdominal pain or notice blood in your stool?,Screen for intestinal perforation/bleeding - a surgical emergency
 D14,Bronchial Asthma,Respiratory,"How often do you experience wheezing, breathlessness, or chest tightness?",Assess symptom frequency for control classification
 D14,Bronchial Asthma,Respiratory,"Do symptoms wake you up at night, and how often?",Nocturnal symptoms indicate poor control
 D14,Bronchial Asthma,Respiratory,"What triggers your symptoms - exercise, cold air, dust, smoke, or specific allergens?",Identify triggers for avoidance counseling
-D14,Bronchial Asthma,Respiratory,"Do you or does anyone in your family have a history of asthma, eczema, or allergies?",Assess atopic predisposition
-D14,Bronchial Asthma,Respiratory,"Are you currently using any inhalers? How often, and do you use a reliever or controller inhaler?",Assess current management and technique needs
-D14,Bronchial Asthma,Respiratory,How many times have you needed emergency treatment or hospitalization for breathing problems?,Assess severity and prior exacerbation history
+D14,Bronchial Asthma,Respiratory,"Do you or does anyone in your family have a history of wheezing, breathing problems, eczema, or allergies?",Assess atopic predisposition
+D14,Bronchial Asthma,Respiratory,Are you currently using any inhaled medication for breathing? How often do you use it?,Assess current management and technique needs
+D14,Bronchial Asthma,Respiratory,How many times have you needed hospital treatment or been admitted for breathing problems?,Assess severity and prior exacerbation history
 D14,Bronchial Asthma,Respiratory,Does your breathlessness limit your daily activities or work?,Assess functional impact/control
 D14,Bronchial Asthma,Respiratory,"Do you smoke, or are you exposed to smoke/biomass fuel at home?",Identify aggravating exposures
 D15,Community-Acquired Pneumonia,Respiratory/Infectious,"How long have you had cough and fever, and is the cough productive?",Establish onset and character
@@ -124,7 +124,7 @@ D16,Gastritis / Peptic Ulcer Disease,Gastrointestinal,"How long have you had thi
 D16,Gastritis / Peptic Ulcer Disease,Gastrointestinal,"Do you take NSAIDs (like ibuprofen), aspirin, or steroids regularly?","Identify mucosal irritant use, major risk factor"
 D16,Gastritis / Peptic Ulcer Disease,Gastrointestinal,"Have you vomited blood, or noticed black/tarry stools?",Screen for GI bleeding - red flag
 D16,Gastritis / Peptic Ulcer Disease,Gastrointestinal,Do you smoke or drink alcohol or coffee frequently?,Identify contributing irritants
-D16,Gastritis / Peptic Ulcer Disease,Gastrointestinal,"Have you been diagnosed with H. pylori infection before, or has anyone in your family had stomach ulcers or stomach cancer?",Assess infectious/familial risk
+D16,Gastritis / Peptic Ulcer Disease,Gastrointestinal,"Have you ever been tested for a stomach infection before, or does anyone in your family have a history of stomach problems or stomach cancer?",Assess infectious/familial risk
 D16,Gastritis / Peptic Ulcer Disease,Gastrointestinal,Have you lost weight unintentionally or had difficulty swallowing?,Screen for alarm features requiring endoscopy referral
 D17,Gastroesophageal Reflux Disease (GERD),Gastrointestinal,Do you feel a burning sensation rising from your stomach to your chest or throat?,Confirm classic heartburn symptom
 D17,Gastroesophageal Reflux Disease (GERD),Gastrointestinal,"Are symptoms worse after eating, lying down, or bending over?",Confirm positional/postprandial reflux pattern
@@ -144,17 +144,17 @@ D18,Osteoarthritis,Musculoskeletal,Have you had any previous joint injury or sur
 D18,Osteoarthritis,Musculoskeletal,"Is there any redness, warmth, or swelling that came on suddenly?",Rule out an acute inflammatory or infectious process
 D19,Gout / Hyperuricemia,Musculoskeletal/Metabolic,"Which joint is affected, and did the pain come on suddenly, often overnight?","Classic acute gout presentation, especially first MTP joint"
 D19,Gout / Hyperuricemia,Musculoskeletal/Metabolic,Have you had similar episodes before? How often?,Assess recurrence pattern
-D19,Gout / Hyperuricemia,Musculoskeletal/Metabolic,Have you had a uric acid blood test before? What was the level?,Establish biochemical confirmation
+D19,Gout / Hyperuricemia,Musculoskeletal/Metabolic,"Have you had any blood tests done before related to joint pain, and were you told about any high levels?",Establish biochemical confirmation
 D19,Gout / Hyperuricemia,Musculoskeletal/Metabolic,"What foods do you eat regularly - organ meats, seafood, melinjo/emping, alcohol (especially beer)?",Identify dietary purine triggers
 D19,Gout / Hyperuricemia,Musculoskeletal/Metabolic,Do you have fever or feel systemically unwell along with the joint pain?,Screen for septic arthritis as differential
-D19,Gout / Hyperuricemia,Musculoskeletal/Metabolic,"Are you currently taking any uric-acid-lowering medication (e.g., allopurinol)? Are you taking it regularly?","Assess adherence, note starting/stopping can trigger flares"
+D19,Gout / Hyperuricemia,Musculoskeletal/Metabolic,"Are you currently on any regular medication for joint pain or previous joint swelling, and do you take it consistently?","Assess adherence, note starting/stopping can trigger flares"
 D19,Gout / Hyperuricemia,Musculoskeletal/Metabolic,Do you have kidney disease or take diuretics?,Identify factors that raise uric acid/reduce excretion
 D19,Gout / Hyperuricemia,Musculoskeletal/Metabolic,Have you noticed any hard lumps under the skin near your joints?,Screen for tophi indicating chronic gout
 D20,Rheumatoid Arthritis,Musculoskeletal/Autoimmune,"Which joints are affected, and are both sides of the body involved symmetrically?",Symmetric small joint involvement is characteristic of RA
 D20,Rheumatoid Arthritis,Musculoskeletal/Autoimmune,How long does your morning stiffness last?,>1 hour supports inflammatory arthritis over OA
 D20,Rheumatoid Arthritis,Musculoskeletal/Autoimmune,"How long have you had these symptoms - weeks, months, or longer?",Assess chronicity for diagnostic criteria
 D20,Rheumatoid Arthritis,Musculoskeletal/Autoimmune,"Do you have fatigue, low-grade fever, or unintentional weight loss?",Assess systemic inflammatory features
-D20,Rheumatoid Arthritis,Musculoskeletal/Autoimmune,Does anyone in your family have rheumatoid arthritis or other autoimmune disease?,Assess familial risk
+D20,Rheumatoid Arthritis,Musculoskeletal/Autoimmune,Does anyone in your family have a history of long-term joint problems or immune-related conditions?,Assess familial risk
 D20,Rheumatoid Arthritis,Musculoskeletal/Autoimmune,Have you noticed any joint deformity or difficulty with fine hand movements?,Assess disease progression/functional impact
 D20,Rheumatoid Arthritis,Musculoskeletal/Autoimmune,"Have you had any skin rashes, dry eyes/mouth, or other symptoms besides joint pain?",Screen for overlapping autoimmune features
 D21,Tension-Type Headache / Migraine,Neurological,"Can you describe the pain - is it a tight band-like pressure, or throbbing/pulsating?",Differentiate tension-type from migraine pattern
@@ -187,14 +187,14 @@ D24,Iron Deficiency Anemia,Hematological,"Have you noticed any blood in your sto
 D24,Iron Deficiency Anemia,Hematological,"What does your typical diet look like - do you eat meat, iron-rich vegetables regularly?",Assess dietary iron intake
 D24,Iron Deficiency Anemia,Hematological,Are you currently pregnant or breastfeeding?,Assess increased iron demand states
 D24,Iron Deficiency Anemia,Hematological,"Do you have any craving for unusual substances like ice, dirt, or starch?","Screen for pica, a classic iron-deficiency symptom"
-D24,Iron Deficiency Anemia,Hematological,Have you had worm infestation or lived in an area where this is common?,"Assess for hookworm-related blood loss, relevant in rural Java"
-D24,Iron Deficiency Anemia,Hematological,Have you had this checked before (hemoglobin/blood test)?,Establish prior diagnostic history
+D24,Iron Deficiency Anemia,Hematological,"Have you had any parasites in your stool before, or lived in an area with poor sanitation and soil contact?","Assess for hookworm-related blood loss, relevant in rural Java"
+D24,Iron Deficiency Anemia,Hematological,"Have you had a blood count test done before, and if so, were you told the results?",Establish prior diagnostic history
 D25,Chronic Kidney Disease,Renal,"Do you have a history of diabetes or hypertension, and how well controlled are they?",Identify the two leading causes of CKD
 D25,Chronic Kidney Disease,Renal,"Have you noticed any swelling in your legs, face, or around your eyes?",Assess for fluid retention
 D25,Chronic Kidney Disease,Renal,"Have you noticed foamy/frothy urine, or a change in how much you urinate?",Screen for proteinuria and renal function changes
 D25,Chronic Kidney Disease,Renal,"Do you take painkillers (NSAIDs) frequently, or any herbal/jamu remedies regularly?",Identify nephrotoxic exposures common in self-medication practices
-D25,Chronic Kidney Disease,Renal,Do you have a family history of kidney disease?,"Assess genetic risk (e.g., polycystic kidney disease)"
-D25,Chronic Kidney Disease,Renal,"Have you had any previous blood tests showing kidney problems (creatinine, eGFR)?",Establish prior diagnostic history/staging
+D25,Chronic Kidney Disease,Renal,Does anyone in your family have a history of kidney-related health problems?,"Assess genetic risk (e.g., polycystic kidney disease)"
+D25,Chronic Kidney Disease,Renal,Have you had any blood or urine tests done before that were flagged as abnormal?,Establish prior diagnostic history/staging
 D25,Chronic Kidney Disease,Renal,"Do you feel unusually tired, itchy, or have poor appetite?",Screen for uremic symptoms
 D25,Chronic Kidney Disease,Renal,"Have you ever had kidney stones, urinary infections, or blockage problems?",Identify structural/obstructive contributing causes
 D26,Chronic Obstructive Pulmonary Disease (COPD),Respiratory,"Do you have a long-standing cough with phlegm, and for how many years?",Assess chronic bronchitis pattern (cough >3 months/year for 2+ years)
@@ -202,19 +202,19 @@ D26,Chronic Obstructive Pulmonary Disease (COPD),Respiratory,"Do you smoke, or h
 D26,Chronic Obstructive Pulmonary Disease (COPD),Respiratory,"Are you exposed to cooking smoke from wood/biomass fuel, or workplace dust/fumes?",Identify non-smoking risk factors relevant in rural Java households
 D26,Chronic Obstructive Pulmonary Disease (COPD),Respiratory,"How far can you walk before feeling breathless, and has this changed over time?",Assess functional severity/progression
 D26,Chronic Obstructive Pulmonary Disease (COPD),Respiratory,How many times in the past year have you had a flare-up needing extra medication or hospital visits?,Assess exacerbation frequency for severity classification
-D26,Chronic Obstructive Pulmonary Disease (COPD),Respiratory,Have you had a diagnosis of asthma in childhood?,Assess for asthma-COPD overlap
+D26,Chronic Obstructive Pulmonary Disease (COPD),Respiratory,Did you have breathing problems or wheezing as a child?,Assess for asthma-COPD overlap
 D26,Chronic Obstructive Pulmonary Disease (COPD),Respiratory,"Are you currently using any inhalers, and do you know how to use them correctly?",Assess treatment and technique
 D26,Chronic Obstructive Pulmonary Disease (COPD),Respiratory,Have you had any swelling in your legs or unusual fatigue?,Screen for cor pulmonale/right heart strain
 D27,Allergic Rhinitis,ENT/Allergy,"How long have you had these symptoms, and do they come and go or are they constant?",Assess chronicity/pattern (perennial vs seasonal)
 D27,Allergic Rhinitis,ENT/Allergy,"What seems to trigger your symptoms - dust, cold air, pets, specific seasons, or environments?",Identify allergen triggers
 D27,Allergic Rhinitis,ENT/Allergy,"Do you have itchy eyes, throat, or skin along with the nasal symptoms?",Support allergic vs infectious etiology
-D27,Allergic Rhinitis,ENT/Allergy,"Do you or your family have a history of asthma, eczema, or allergies?",Assess atopic predisposition
+D27,Allergic Rhinitis,ENT/Allergy,"Does anyone in your family have a history of sneezing/nasal sensitivity, skin sensitivity, or other allergic-type reactions?",Assess atopic predisposition
 D27,Allergic Rhinitis,ENT/Allergy,"Is the discharge clear and watery, or thick and colored?",Differentiate allergic from infectious rhinitis/sinusitis
 D27,Allergic Rhinitis,ENT/Allergy,Do symptoms affect your sleep or daily activities?,Assess severity/impact for treatment intensity
-D27,Allergic Rhinitis,ENT/Allergy,Have you tried any antihistamines or nasal sprays? Did they help?,Assess prior treatment response
+D27,Allergic Rhinitis,ENT/Allergy,Have you tried any over-the-counter medication for this? Did it help?,Assess prior treatment response
 D28,Atopic/Contact Dermatitis,Dermatological,"Where on the body is the rash, and is it itchy?",Localize and assess key symptom (pruritus)
 D28,Atopic/Contact Dermatitis,Dermatological,"Have you started using any new soap, detergent, cosmetic, or come into contact with a new substance recently?",Identify contact allergen/irritant
-D28,Atopic/Contact Dermatitis,Dermatological,"Do you have a personal or family history of eczema, asthma, or allergies?",Assess atopic predisposition
+D28,Atopic/Contact Dermatitis,Dermatological,"Do you or your family have a history of sensitive skin, breathing problems, or allergic-type reactions?",Assess atopic predisposition
 D28,Atopic/Contact Dermatitis,Dermatological,"How long have you had this rash, and has it happened before in the same pattern?",Assess chronicity/recurrence
 D28,Atopic/Contact Dermatitis,Dermatological,"Does sweating, heat, or certain fabrics make it worse?",Identify aggravating factors relevant to tropical climate
 D28,Atopic/Contact Dermatitis,Dermatological,"Is there any oozing, pus, or increasing redness and warmth?",Screen for secondary bacterial infection
@@ -237,7 +237,7 @@ D31,Urinary Tract Infection,Genitourinary,"Do you have burning or pain when urin
 D31,Urinary Tract Infection,Genitourinary,"Do you have any fever, chills, or pain in your back/flank?",Screen for upper tract involvement (pyelonephritis) - red flag
 D31,Urinary Tract Infection,Genitourinary,"Have you noticed blood or cloudiness in your urine, or an unusual smell?",Assess for hematuria and infection severity
 D31,Urinary Tract Infection,Genitourinary,Is there a chance you could be pregnant?,Pregnancy changes management urgency and antibiotic choice
-D31,Urinary Tract Infection,Genitourinary,Have you had UTIs before? How frequently do they recur?,Assess for recurrent UTI requiring further workup
+D31,Urinary Tract Infection,Genitourinary,Have you had similar symptoms - burning or frequent urination - before? How often does this happen?,Assess for recurrent UTI requiring further workup
 D31,Urinary Tract Infection,Genitourinary,"How much water do you drink daily, and do you tend to hold your urine for long periods?",Identify contributing behavioral factors
 D31,Urinary Tract Infection,Genitourinary,Do you have diabetes or any condition affecting your immune system?,Identify risk factors for complicated UTI
 D31,Urinary Tract Infection,Genitourinary,For men: any history of prostate problems or difficulty with urine flow?,Assess for structural/obstructive cause in male UTI
@@ -262,18 +262,18 @@ D34,Conjunctivitis,Ophthalmological,Have you noticed any change in your vision?,
 D34,Conjunctivitis,Ophthalmological,Are you sensitive to light?,Photophobia may indicate more serious ocular involvement
 D34,Conjunctivitis,Ophthalmological,Has anyone around you had similar red/itchy eyes recently?,"Assess for contagious spread, common with viral conjunctivitis"
 D34,Conjunctivitis,Ophthalmological,"Do you wear contact lenses, or have you had any injury or object in the eye?",Identify risk factors for more serious corneal involvement
-D34,Conjunctivitis,Ophthalmological,Do you have any seasonal allergies or history of allergic conjunctivitis?,Assess for allergic etiology
-D35,Malaria,Infectious,"Do you live in or have you recently traveled to a malaria-endemic area (e.g., southern coastal Java, other islands)?",Establish exposure risk - essential for malaria suspicion
+D34,Conjunctivitis,Ophthalmological,"Do you have any seasonal allergies, or does this kind of red/itchy eye happen to you at certain times of year?",Assess for allergic etiology
+D35,Malaria,Infectious,"Do you live in or have you recently traveled to an area known for mosquito-borne fever illness (e.g., southern coastal Java, other islands)?",Establish exposure risk - essential for malaria suspicion
 D35,Malaria,Infectious,Does your fever come in cycles with chills/shivering followed by sweating?,Assess for classic paroxysmal fever pattern
-D35,Malaria,Infectious,Have you had malaria before?,Assess for possible relapse (P. vivax/ovale)
+D35,Malaria,Infectious,"Have you had a similar fever-with-chills illness before, and did you receive treatment for it?",Assess for possible relapse (P. vivax/ovale)
 D35,Malaria,Infectious,"Do you sleep under a mosquito net, or use mosquito repellent?",Assess exposure prevention practices
 D35,Malaria,Infectious,"Have you noticed yellowing of your eyes/skin, dark urine, or confusion?",Screen for severe/complicated malaria - red flags
-D35,Malaria,Infectious,Have you taken any antimalarial treatment already?,"Assess prior treatment, guides further management"
+D35,Malaria,Infectious,Have you already started any treatment for this fever?,"Assess prior treatment, guides further management"
 D35,Malaria,Infectious,"Do you have a headache, muscle aches, or feel extremely fatigued?",Assess associated symptom burden
 D36,Chikungunya Fever,Infectious,"When did the fever start, and how severe is your joint pain?",Establish onset and hallmark symptom severity
 D36,Chikungunya Fever,Infectious,"Which joints are painful, and is the pain symmetric on both sides?","Chikungunya classically causes severe, often symmetric polyarthralgia"
 D36,Chikungunya Fever,Infectious,Have you noticed any skin rash?,Common associated feature
-D36,Chikungunya Fever,Infectious,Has anyone in your neighborhood recently been diagnosed with chikungunya or dengue?,Assess local outbreak context
+D36,Chikungunya Fever,Infectious,Has anyone nearby recently had a similar illness with fever and severe joint pain?,Assess local outbreak context
 D36,Chikungunya Fever,Infectious,"Do you have any bleeding, severe abdominal pain, or persistent vomiting?","Screen for dengue warning signs, since co-circulation is common"
 D36,Chikungunya Fever,Infectious,How long has the joint pain lasted?,Chikungunya joint pain can persist for weeks to months (chronic phase)
 D36,Chikungunya Fever,Infectious,Have you been able to move around and perform daily activities?,Assess functional impact of joint symptoms
@@ -294,10 +294,10 @@ D38,Leptospirosis,Infectious,Have you had any cough or difficulty breathing?,"Sc
 D39,Hepatitis A,Infectious/Gastrointestinal,"Have you noticed yellowing of your eyes or skin, or dark-colored urine?","Assess for jaundice, a hallmark sign"
 D39,Hepatitis A,Infectious/Gastrointestinal,"Do you have nausea, poor appetite, or fatigue?",Assess prodromal symptom pattern
 D39,Hepatitis A,Infectious/Gastrointestinal,"Have you eaten food from street vendors, shellfish, or water from an uncertain source recently?",Identify fecal-oral transmission source
-D39,Hepatitis A,Infectious/Gastrointestinal,Has anyone around you recently had similar symptoms or been diagnosed with hepatitis?,Assess for common-source outbreak
+D39,Hepatitis A,Infectious/Gastrointestinal,Has anyone around you recently had similar symptoms - yellowing of the eyes/skin or fatigue with poor appetite?,Assess for common-source outbreak
 D39,Hepatitis A,Infectious/Gastrointestinal,Do you have pain in the upper right side of your abdomen?,Assess for liver involvement/hepatomegaly
 D39,Hepatitis A,Infectious/Gastrointestinal,Have you traveled recently to an area with poor sanitation?,Assess travel-related exposure
-D39,Hepatitis A,Infectious/Gastrointestinal,Have you had a hepatitis A vaccination before?,Assess immunization status
+D39,Hepatitis A,Infectious/Gastrointestinal,Have you been vaccinated against any liver infections in the past?,Assess immunization status
 D39,Hepatitis A,Infectious/Gastrointestinal,"Do you drink alcohol, or take any medications that could affect the liver?",Assess additional hepatotoxic risk factors
 D40,Post-Stroke Follow-up / Chronic Sequelae,Neurological,"When was your stroke, and what part of your body was affected?",Establish history and baseline deficit
 D40,Post-Stroke Follow-up / Chronic Sequelae,Neurological,"Have you noticed any new or worsening weakness, numbness, or speech difficulty since your last visit?",Screen for new stroke/TIA or progression - urgent if positive

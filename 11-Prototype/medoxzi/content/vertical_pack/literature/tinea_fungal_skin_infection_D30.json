@@ -11,7 +11,7 @@
       "label_id": "Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "B35",
   "category": "Dermatological/Infectious",
   "context_note": "Very common in Java's hot, humid climate; includes tinea corporis, cruris, pedis, and pityriasis versicolor ('panu').",
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Identify classic tinea morphology",
-      "source_ref": "OPD QuestionBank v1.0 :: Tinea (Fungal Skin Infection) :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D30', 'name_en': 'Tinea (Fungal Skin Infection)', 'name_id': 'Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)', 'icd10': 'B35', 'category': 'Dermatological/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Tinea (Fungal Skin Infection) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D30', 'name_en': 'Tinea (Fungal Skin Infection)', 'name_id': 'Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)', 'icd10': 'B35', 'category': 'Dermatological/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Tinea (Fungal Skin Infection) (requires clinician sign)"
     },
     {
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Assess symptom pattern relevant to tropical climate",
-      "source_ref": "OPD QuestionBank v1.0 :: Tinea (Fungal Skin Infection) :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D30', 'name_en': 'Tinea (Fungal Skin Infection)', 'name_id': 'Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)', 'icd10': 'B35', 'category': 'Dermatological/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Tinea (Fungal Skin Infection) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D30', 'name_en': 'Tinea (Fungal Skin Infection)', 'name_id': 'Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)', 'icd10': 'B35', 'category': 'Dermatological/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Tinea (Fungal Skin Infection) (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Assess chronicity/spread",
-      "source_ref": "OPD QuestionBank v1.0 :: Tinea (Fungal Skin Infection) :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D30', 'name_en': 'Tinea (Fungal Skin Infection)', 'name_id': 'Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)', 'icd10': 'B35', 'category': 'Dermatological/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Tinea (Fungal Skin Infection) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D30', 'name_en': 'Tinea (Fungal Skin Infection)', 'name_id': 'Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)', 'icd10': 'B35', 'category': 'Dermatological/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Tinea (Fungal Skin Infection) (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Assess transmission source (fomites, animals, person-to-person)",
-      "source_ref": "OPD QuestionBank v1.0 :: Tinea (Fungal Skin Infection) :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D30', 'name_en': 'Tinea (Fungal Skin Infection)', 'name_id': 'Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)', 'icd10': 'B35', 'category': 'Dermatological/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Tinea (Fungal Skin Infection) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D30', 'name_en': 'Tinea (Fungal Skin Infection)', 'name_id': 'Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)', 'icd10': 'B35', 'category': 'Dermatological/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Tinea (Fungal Skin Infection) (requires clinician sign)"
     },
     {
@@ -102,8 +102,8 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Assess prior treatment - steroid use can worsen tinea (tinea incognito)",
-      "source_ref": "OPD QuestionBank v1.0 :: Tinea (Fungal Skin Infection) :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D30', 'name_en': 'Tinea (Fungal Skin Infection)', 'name_id': 'Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)', 'icd10': 'B35', 'category': 'Dermatological/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Tinea (Fungal Skin Infection) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D30', 'name_en': 'Tinea (Fungal Skin Infection)', 'name_id': 'Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)', 'icd10': 'B35', 'category': 'Dermatological/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Tinea (Fungal Skin Infection) (requires clinician sign)"
     },
     {
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Identify risk factors for more extensive/recurrent infection",
-      "source_ref": "OPD QuestionBank v1.0 :: Tinea (Fungal Skin Infection) :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D30', 'name_en': 'Tinea (Fungal Skin Infection)', 'name_id': 'Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)', 'icd10': 'B35', 'category': 'Dermatological/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Tinea (Fungal Skin Infection) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D30', 'name_en': 'Tinea (Fungal Skin Infection)', 'name_id': 'Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)', 'icd10': 'B35', 'category': 'Dermatological/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Tinea (Fungal Skin Infection) (requires clinician sign)"
     },
     {
@@ -138,46 +138,8 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Identify contributing environmental factors",
-      "source_ref": "OPD QuestionBank v1.0 :: Tinea (Fungal Skin Infection) :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D30', 'name_en': 'Tinea (Fungal Skin Infection)', 'name_id': 'Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)', 'icd10': 'B35', 'category': 'Dermatological/Infectious'}",
-      "authored_by": "LITERATURE_SOURCE - Tinea (Fungal Skin Infection) (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_08",
-      "chief_complaint_code": "tinea_fungal_skin_infection_D30",
-      "text_by_language": {
-        "en": "Signs of extensive/refractory infection in an immunocompromised patient",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 8,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Tinea (Fungal Skin Infection) :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D30'}",
-      "authored_by": "LITERATURE_SOURCE - Tinea (Fungal Skin Infection) (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "tinea_fungal_skin_infection_D30",
-      "text_by_language": {
-        "en": "Signs of secondary bacterial infection",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Tinea (Fungal Skin Infection) :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D30'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Tinea (Fungal Skin Infection) :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D30', 'name_en': 'Tinea (Fungal Skin Infection)', 'name_id': 'Tinea / Infeksi Jamur Kulit (Panu, Kadas, Kurap)', 'icd10': 'B35', 'category': 'Dermatological/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Tinea (Fungal Skin Infection) (requires clinician sign)"
     }
   ]

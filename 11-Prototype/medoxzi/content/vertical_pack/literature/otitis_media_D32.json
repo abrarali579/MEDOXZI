@@ -11,7 +11,7 @@
       "label_id": "Otitis Media"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "H66",
   "category": "ENT",
   "context_note": "Common, especially in children, often following upper respiratory infections; frequent OPD presentation across Java.",
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Localize and assess laterality",
-      "source_ref": "OPD QuestionBank v1.0 :: Otitis Media :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D32', 'name_en': 'Otitis Media', 'name_id': 'Otitis Media', 'icd10': 'H66', 'category': 'ENT'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Otitis Media :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D32', 'name_en': 'Otitis Media', 'name_id': 'Otitis Media', 'icd10': 'H66', 'category': 'ENT'}",
       "authored_by": "LITERATURE_SOURCE - Otitis Media (requires clinician sign)"
     },
     {
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Assess for tympanic membrane perforation",
-      "source_ref": "OPD QuestionBank v1.0 :: Otitis Media :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D32', 'name_en': 'Otitis Media', 'name_id': 'Otitis Media', 'icd10': 'H66', 'category': 'ENT'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Otitis Media :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D32', 'name_en': 'Otitis Media', 'name_id': 'Otitis Media', 'icd10': 'H66', 'category': 'ENT'}",
       "authored_by": "LITERATURE_SOURCE - Otitis Media (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Assess severity and associated symptoms",
-      "source_ref": "OPD QuestionBank v1.0 :: Otitis Media :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D32', 'name_en': 'Otitis Media', 'name_id': 'Otitis Media', 'icd10': 'H66', 'category': 'ENT'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Otitis Media :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D32', 'name_en': 'Otitis Media', 'name_id': 'Otitis Media', 'icd10': 'H66', 'category': 'ENT'}",
       "authored_by": "LITERATURE_SOURCE - Otitis Media (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Identify common precipitating cause",
-      "source_ref": "OPD QuestionBank v1.0 :: Otitis Media :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D32', 'name_en': 'Otitis Media', 'name_id': 'Otitis Media', 'icd10': 'H66', 'category': 'ENT'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Otitis Media :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D32', 'name_en': 'Otitis Media', 'name_id': 'Otitis Media', 'icd10': 'H66', 'category': 'ENT'}",
       "authored_by": "LITERATURE_SOURCE - Otitis Media (requires clinician sign)"
     },
     {
@@ -102,8 +102,8 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Assess indirect symptoms in young children who cannot verbalize pain",
-      "source_ref": "OPD QuestionBank v1.0 :: Otitis Media :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D32', 'name_en': 'Otitis Media', 'name_id': 'Otitis Media', 'icd10': 'H66', 'category': 'ENT'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Otitis Media :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D32', 'name_en': 'Otitis Media', 'name_id': 'Otitis Media', 'icd10': 'H66', 'category': 'ENT'}",
       "authored_by": "LITERATURE_SOURCE - Otitis Media (requires clinician sign)"
     },
     {
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Screen for mastoiditis, a serious complication",
-      "source_ref": "OPD QuestionBank v1.0 :: Otitis Media :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D32', 'name_en': 'Otitis Media', 'name_id': 'Otitis Media', 'icd10': 'H66', 'category': 'ENT'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Otitis Media :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D32', 'name_en': 'Otitis Media', 'name_id': 'Otitis Media', 'icd10': 'H66', 'category': 'ENT'}",
       "authored_by": "LITERATURE_SOURCE - Otitis Media (requires clinician sign)"
     },
     {
@@ -138,84 +138,8 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Assess for otitis externa as an alternative diagnosis",
-      "source_ref": "OPD QuestionBank v1.0 :: Otitis Media :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D32', 'name_en': 'Otitis Media', 'name_id': 'Otitis Media', 'icd10': 'H66', 'category': 'ENT'}",
-      "authored_by": "LITERATURE_SOURCE - Otitis Media (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_08",
-      "chief_complaint_code": "otitis_media_D32",
-      "text_by_language": {
-        "en": "Severe swelling/tenderness behind the ear (mastoiditis)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 8,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Otitis Media :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D32'}",
-      "authored_by": "LITERATURE_SOURCE - Otitis Media (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "otitis_media_D32",
-      "text_by_language": {
-        "en": "Facial weakness",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Otitis Media :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D32'}",
-      "authored_by": "LITERATURE_SOURCE - Otitis Media (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "otitis_media_D32",
-      "text_by_language": {
-        "en": "High fever with lethargy/neck stiffness (possible meningitis)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Otitis Media :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D32'}",
-      "authored_by": "LITERATURE_SOURCE - Otitis Media (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_11",
-      "chief_complaint_code": "otitis_media_D32",
-      "text_by_language": {
-        "en": "Severe headache with vomiting",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 11,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Otitis Media :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D32'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Otitis Media :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D32', 'name_en': 'Otitis Media', 'name_id': 'Otitis Media', 'icd10': 'H66', 'category': 'ENT'}",
       "authored_by": "LITERATURE_SOURCE - Otitis Media (requires clinician sign)"
     }
   ]

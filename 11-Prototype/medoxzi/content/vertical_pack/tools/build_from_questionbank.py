@@ -1,6 +1,6 @@
 """Build literature-grounded question packs from the OPD Java Disease QuestionBank.
 
-Source:  10-Reference/OPD-QuestionBank/diseases.json (v1.0, 40 diseases, 308
+Source:  10-Reference/OPD-QuestionBank/diseases.json (v1.1, 40 diseases, 308
          history questions, each with a clinical purpose)
 Purpose: Fulfil the founder's requirement (session P / OT-05 / OT-18) that question
          packs are designed from *actual medical literature*, not free AI
@@ -18,8 +18,13 @@ Safeguards baked in (binding, ADR-002 / ADR-033 / ADR-037):
   * Patient-facing text is carried over verbatim; NO Hindi is fabricated (the
     bank ships English + Indonesian; `hi` text stays absent until a
     clinician/localiser supplies it) — we must not invent translations.
-  * Red-flag items become `is_red_flag_screen: true` questions, embedded and
-    not signposted, per Question-Framework §4.
+  * Red flags are deliberately NOT embedded as patient questions. Founder
+    decision (session S/2026-08-24): "Red Flags hum use nahi karenge ... hum
+    emergency patients ko handle nahi karenge; hamare patients normal OPD
+    walon honge." These packs are for routine OPD screening only, so the
+    bank's alarm/urgency strings are never shown to a patient. The engine's
+    `is_red_flag_screen` capability remains for future clinician-authored
+    packs; this builder simply does not emit them.
 
 Usage:
   python -m medoxzi.content.vertical_pack.tools.build_from_questionbank [--out DIR]
@@ -53,7 +58,7 @@ def slugify(name: str) -> str:
     return s or "disease"
 
 
-def build_pack(disease: dict) -> dict:
+def build_pack(disease: dict, db_version: str = "1.0") -> dict:
     """Turn one diseases.json record into a vertical_pack draft."""
     dcode = token = None
     for k in ("id", "icd10"):
@@ -68,15 +73,8 @@ def build_pack(disease: dict) -> dict:
     disp = 1
     # History questions: verbatim text + purpose as the ONLY clinical rationale.
     ordered = list(disease.get("questions", []))
+    src_version = f"v{db_version}"  # set below from the db file
 
-    # Red-flag screen: embed the bank's red flags as screening questions.
-    # Kept neutral (no "seek emergency now" wording — urgency stays with doctor).
-    redflag_start = disp
-    for rf in disease.get("red_flags", []):
-        redflag_start += 1  # reserve space; red flags come AFTER history by default
-
-    # Order: history questions first (structured), red-flag screen embedded near
-    # the end but not signposted as "these are the emergencies".
     for q in ordered:
         text = (q.get("q") or "").strip()
         purpose = (q.get("purpose") or "").strip()
@@ -91,10 +89,10 @@ def build_pack(disease: dict) -> dict:
             "is_required_for_completeness": True,
             "display_order": disp,
             "clinical_rationale": purpose,   # verbatim source purpose
-            "source_ref": f"OPD QuestionBank v1.0 :: {disease.get('name_en','')} :: history_questions.csv",
+            "source_ref": f"OPD QuestionBank {src_version} :: {disease.get('name_en','')} :: history_questions.csv",
             "evidence_reference": repr({
                 "database": "OPD Java Disease QuestionBank",
-                "version": "1.0",
+                "version": src_version,
                 "disease_id": disease.get("id"),
                 "name_en": disease.get("name_en"),
                 "name_id": disease.get("name_id"),
@@ -105,26 +103,8 @@ def build_pack(disease: dict) -> dict:
         })
         disp += 1
 
-    # Red-flag screen block
-    for rf in disease.get("red_flags", []):
-        text = (rf or "").strip()
-        if not text:
-            continue
-        questions.append({
-            "question_key": "rf_%02d" % disp,
-            "chief_complaint_code": dcode or safe,
-            "text_by_language": {"en": text, "screen": True},
-            "answer_type": "BOOL",           # presence/absence; minimal invented structure
-            "asked_of": ["PATIENT"],
-            "is_red_flag_screen": True,
-            "is_required_for_completeness": True,
-            "display_order": disp,
-            "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-            "source_ref": f"OPD QuestionBank v1.0 :: {disease.get('name_en','')} :: red_flags.csv",
-            "evidence_reference": repr({"database": "OPD Java Disease QuestionBank", "disease_id": disease.get("id")}),
-            "authored_by": f"LITERATURE_SOURCE - {disease.get('name_en','(unnamed)')} (requires clinician sign)",
-        })
-        disp += 1
+    # NOTE: red flags from the bank are intentionally NOT emitted here (see
+    # module docstring — founder decision: routine OPD screening only).
 
     return {
         "content_version": CONTENT_VERSION,
@@ -139,7 +119,7 @@ def build_pack(disease: dict) -> dict:
                 "label_id": disease.get("name_id"),
             }
         ],
-        "source_bank": "OPD Java Disease QuestionBank v1.0",
+        "source_bank": f"OPD Java Disease QuestionBank {src_version}",
         "icd10": disease.get("icd10"),
         "category": disease.get("category"),
         "context_note": disease.get("context_note"),
@@ -168,12 +148,13 @@ def main() -> int:
     out.mkdir(parents=True, exist_ok=True)
 
     diseases = db.get("diseases", [])
+    db_version = str(db.get("version", "1.0"))
     written, skipped = [], []
     for disease in diseases:
         name = disease.get("name_en") or disease.get("id")
         if not name:
             continue
-        pack = build_pack(disease)
+        pack = build_pack(disease, db_version)
         fname = slugify(name)
         if disease.get("id"):
             fname = f"{fname}_{disease['id']}"
@@ -183,9 +164,10 @@ def main() -> int:
         written.append(target.name)
 
     n_q = sum(len(x.get("questions", [])) for x in diseases)
-    print(f"[OK] {db.get('database_name', 'QuestionBank')} v{db.get('version')}")
+    print(f"[OK] {db.get('database_name', 'QuestionBank')} v{db_version}")
     print(f"[OK] wrote {len(written)} packs -> {out}")
-    print(f"[OK] total questions carried: {n_q} (+embedded red-flags)")
+    print(f"[OK] total history questions carried: {n_q}")
+    print(f"[OK] red flags intentionally NOT embedded (routine OPD screening only).")
     print(f"[OK] all DEMO_UNVALIDATED; clinician sign required before activation.")
     if skipped:
         print(f"[warn] skipped: {skipped}")

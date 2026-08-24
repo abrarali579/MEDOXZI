@@ -11,7 +11,7 @@
       "label_id": "Penyakit Pulpa dan Jaringan Periapikal"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "K04",
   "category": "Dental/Oral",
   "context_note": "Ranked top 3 outpatient diagnosis in Jakarta puskesmas 2024 (202,882 visits); reflects poor oral hygiene access.",
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Localize and establish duration",
-      "source_ref": "OPD QuestionBank v1.0 :: Dental Pulp and Periapical Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D03', 'name_en': 'Dental Pulp and Periapical Disease', 'name_id': 'Penyakit Pulpa dan Jaringan Periapikal', 'icd10': 'K04', 'category': 'Dental/Oral'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dental Pulp and Periapical Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D03', 'name_en': 'Dental Pulp and Periapical Disease', 'name_id': 'Penyakit Pulpa dan Jaringan Periapikal', 'icd10': 'K04', 'category': 'Dental/Oral'}",
       "authored_by": "LITERATURE_SOURCE - Dental Pulp and Periapical Disease (requires clinician sign)"
     },
     {
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Differentiate reversible vs irreversible pulpitis",
-      "source_ref": "OPD QuestionBank v1.0 :: Dental Pulp and Periapical Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D03', 'name_en': 'Dental Pulp and Periapical Disease', 'name_id': 'Penyakit Pulpa dan Jaringan Periapikal', 'icd10': 'K04', 'category': 'Dental/Oral'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dental Pulp and Periapical Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D03', 'name_en': 'Dental Pulp and Periapical Disease', 'name_id': 'Penyakit Pulpa dan Jaringan Periapikal', 'icd10': 'K04', 'category': 'Dental/Oral'}",
       "authored_by": "LITERATURE_SOURCE - Dental Pulp and Periapical Disease (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Suggests irreversible pulpitis/abscess",
-      "source_ref": "OPD QuestionBank v1.0 :: Dental Pulp and Periapical Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D03', 'name_en': 'Dental Pulp and Periapical Disease', 'name_id': 'Penyakit Pulpa dan Jaringan Periapikal', 'icd10': 'K04', 'category': 'Dental/Oral'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dental Pulp and Periapical Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D03', 'name_en': 'Dental Pulp and Periapical Disease', 'name_id': 'Penyakit Pulpa dan Jaringan Periapikal', 'icd10': 'K04', 'category': 'Dental/Oral'}",
       "authored_by": "LITERATURE_SOURCE - Dental Pulp and Periapical Disease (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Assess for spreading infection/abscess",
-      "source_ref": "OPD QuestionBank v1.0 :: Dental Pulp and Periapical Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D03', 'name_en': 'Dental Pulp and Periapical Disease', 'name_id': 'Penyakit Pulpa dan Jaringan Periapikal', 'icd10': 'K04', 'category': 'Dental/Oral'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dental Pulp and Periapical Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D03', 'name_en': 'Dental Pulp and Periapical Disease', 'name_id': 'Penyakit Pulpa dan Jaringan Periapikal', 'icd10': 'K04', 'category': 'Dental/Oral'}",
       "authored_by": "LITERATURE_SOURCE - Dental Pulp and Periapical Disease (requires clinician sign)"
     },
     {
@@ -102,8 +102,8 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Screen for systemic spread of infection",
-      "source_ref": "OPD QuestionBank v1.0 :: Dental Pulp and Periapical Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D03', 'name_en': 'Dental Pulp and Periapical Disease', 'name_id': 'Penyakit Pulpa dan Jaringan Periapikal', 'icd10': 'K04', 'category': 'Dental/Oral'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dental Pulp and Periapical Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D03', 'name_en': 'Dental Pulp and Periapical Disease', 'name_id': 'Penyakit Pulpa dan Jaringan Periapikal', 'icd10': 'K04', 'category': 'Dental/Oral'}",
       "authored_by": "LITERATURE_SOURCE - Dental Pulp and Periapical Disease (requires clinician sign)"
     },
     {
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Identify precipitating cause",
-      "source_ref": "OPD QuestionBank v1.0 :: Dental Pulp and Periapical Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D03', 'name_en': 'Dental Pulp and Periapical Disease', 'name_id': 'Penyakit Pulpa dan Jaringan Periapikal', 'icd10': 'K04', 'category': 'Dental/Oral'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dental Pulp and Periapical Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D03', 'name_en': 'Dental Pulp and Periapical Disease', 'name_id': 'Penyakit Pulpa dan Jaringan Periapikal', 'icd10': 'K04', 'category': 'Dental/Oral'}",
       "authored_by": "LITERATURE_SOURCE - Dental Pulp and Periapical Disease (requires clinician sign)"
     },
     {
@@ -138,65 +138,8 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Screen for deep space infection (emergency)",
-      "source_ref": "OPD QuestionBank v1.0 :: Dental Pulp and Periapical Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D03', 'name_en': 'Dental Pulp and Periapical Disease', 'name_id': 'Penyakit Pulpa dan Jaringan Periapikal', 'icd10': 'K04', 'category': 'Dental/Oral'}",
-      "authored_by": "LITERATURE_SOURCE - Dental Pulp and Periapical Disease (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_08",
-      "chief_complaint_code": "dental_pulp_and_periapical_disease_D03",
-      "text_by_language": {
-        "en": "Facial swelling spreading to eye/neck (risk of cellulitis)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 8,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dental Pulp and Periapical Disease :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D03'}",
-      "authored_by": "LITERATURE_SOURCE - Dental Pulp and Periapical Disease (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "dental_pulp_and_periapical_disease_D03",
-      "text_by_language": {
-        "en": "Fever with dental pain",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dental Pulp and Periapical Disease :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D03'}",
-      "authored_by": "LITERATURE_SOURCE - Dental Pulp and Periapical Disease (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "dental_pulp_and_periapical_disease_D03",
-      "text_by_language": {
-        "en": "Difficulty swallowing or opening mouth (trismus)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Dental Pulp and Periapical Disease :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D03'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Dental Pulp and Periapical Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D03', 'name_en': 'Dental Pulp and Periapical Disease', 'name_id': 'Penyakit Pulpa dan Jaringan Periapikal', 'icd10': 'K04', 'category': 'Dental/Oral'}",
       "authored_by": "LITERATURE_SOURCE - Dental Pulp and Periapical Disease (requires clinician sign)"
     }
   ]

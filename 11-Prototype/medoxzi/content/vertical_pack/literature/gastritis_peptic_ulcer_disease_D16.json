@@ -11,7 +11,7 @@
       "label_id": "Gastritis / Tukak Lambung"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "K29",
   "category": "Gastrointestinal",
   "context_note": "Extremely common OPD complaint across Java puskesmas ('maag'/'sakit lambung'), often overlapping with dyspepsia.",
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Differentiate gastric vs duodenal ulcer pattern",
-      "source_ref": "OPD QuestionBank v1.0 :: Gastritis / Peptic Ulcer Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D16', 'name_en': 'Gastritis / Peptic Ulcer Disease', 'name_id': 'Gastritis / Tukak Lambung', 'icd10': 'K29', 'category': 'Gastrointestinal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Gastritis / Peptic Ulcer Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D16', 'name_en': 'Gastritis / Peptic Ulcer Disease', 'name_id': 'Gastritis / Tukak Lambung', 'icd10': 'K29', 'category': 'Gastrointestinal'}",
       "authored_by": "LITERATURE_SOURCE - Gastritis / Peptic Ulcer Disease (requires clinician sign)"
     },
     {
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Assess chronicity",
-      "source_ref": "OPD QuestionBank v1.0 :: Gastritis / Peptic Ulcer Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D16', 'name_en': 'Gastritis / Peptic Ulcer Disease', 'name_id': 'Gastritis / Tukak Lambung', 'icd10': 'K29', 'category': 'Gastrointestinal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Gastritis / Peptic Ulcer Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D16', 'name_en': 'Gastritis / Peptic Ulcer Disease', 'name_id': 'Gastritis / Tukak Lambung', 'icd10': 'K29', 'category': 'Gastrointestinal'}",
       "authored_by": "LITERATURE_SOURCE - Gastritis / Peptic Ulcer Disease (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Identify mucosal irritant use, major risk factor",
-      "source_ref": "OPD QuestionBank v1.0 :: Gastritis / Peptic Ulcer Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D16', 'name_en': 'Gastritis / Peptic Ulcer Disease', 'name_id': 'Gastritis / Tukak Lambung', 'icd10': 'K29', 'category': 'Gastrointestinal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Gastritis / Peptic Ulcer Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D16', 'name_en': 'Gastritis / Peptic Ulcer Disease', 'name_id': 'Gastritis / Tukak Lambung', 'icd10': 'K29', 'category': 'Gastrointestinal'}",
       "authored_by": "LITERATURE_SOURCE - Gastritis / Peptic Ulcer Disease (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Screen for GI bleeding - red flag",
-      "source_ref": "OPD QuestionBank v1.0 :: Gastritis / Peptic Ulcer Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D16', 'name_en': 'Gastritis / Peptic Ulcer Disease', 'name_id': 'Gastritis / Tukak Lambung', 'icd10': 'K29', 'category': 'Gastrointestinal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Gastritis / Peptic Ulcer Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D16', 'name_en': 'Gastritis / Peptic Ulcer Disease', 'name_id': 'Gastritis / Tukak Lambung', 'icd10': 'K29', 'category': 'Gastrointestinal'}",
       "authored_by": "LITERATURE_SOURCE - Gastritis / Peptic Ulcer Disease (requires clinician sign)"
     },
     {
@@ -102,15 +102,15 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Identify contributing irritants",
-      "source_ref": "OPD QuestionBank v1.0 :: Gastritis / Peptic Ulcer Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D16', 'name_en': 'Gastritis / Peptic Ulcer Disease', 'name_id': 'Gastritis / Tukak Lambung', 'icd10': 'K29', 'category': 'Gastrointestinal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Gastritis / Peptic Ulcer Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D16', 'name_en': 'Gastritis / Peptic Ulcer Disease', 'name_id': 'Gastritis / Tukak Lambung', 'icd10': 'K29', 'category': 'Gastrointestinal'}",
       "authored_by": "LITERATURE_SOURCE - Gastritis / Peptic Ulcer Disease (requires clinician sign)"
     },
     {
       "question_key": "q_06",
       "chief_complaint_code": "gastritis_peptic_ulcer_disease_D16",
       "text_by_language": {
-        "en": "Have you been diagnosed with H. pylori infection before, or has anyone in your family had stomach ulcers or stomach cancer?"
+        "en": "Have you ever been tested for a stomach infection before, or does anyone in your family have a history of stomach problems or stomach cancer?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Assess infectious/familial risk",
-      "source_ref": "OPD QuestionBank v1.0 :: Gastritis / Peptic Ulcer Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D16', 'name_en': 'Gastritis / Peptic Ulcer Disease', 'name_id': 'Gastritis / Tukak Lambung', 'icd10': 'K29', 'category': 'Gastrointestinal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Gastritis / Peptic Ulcer Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D16', 'name_en': 'Gastritis / Peptic Ulcer Disease', 'name_id': 'Gastritis / Tukak Lambung', 'icd10': 'K29', 'category': 'Gastrointestinal'}",
       "authored_by": "LITERATURE_SOURCE - Gastritis / Peptic Ulcer Disease (requires clinician sign)"
     },
     {
@@ -138,84 +138,8 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Screen for alarm features requiring endoscopy referral",
-      "source_ref": "OPD QuestionBank v1.0 :: Gastritis / Peptic Ulcer Disease :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D16', 'name_en': 'Gastritis / Peptic Ulcer Disease', 'name_id': 'Gastritis / Tukak Lambung', 'icd10': 'K29', 'category': 'Gastrointestinal'}",
-      "authored_by": "LITERATURE_SOURCE - Gastritis / Peptic Ulcer Disease (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_08",
-      "chief_complaint_code": "gastritis_peptic_ulcer_disease_D16",
-      "text_by_language": {
-        "en": "Vomiting blood or coffee-ground vomitus",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 8,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Gastritis / Peptic Ulcer Disease :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D16'}",
-      "authored_by": "LITERATURE_SOURCE - Gastritis / Peptic Ulcer Disease (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "gastritis_peptic_ulcer_disease_D16",
-      "text_by_language": {
-        "en": "Black tarry stools (melena)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Gastritis / Peptic Ulcer Disease :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D16'}",
-      "authored_by": "LITERATURE_SOURCE - Gastritis / Peptic Ulcer Disease (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "gastritis_peptic_ulcer_disease_D16",
-      "text_by_language": {
-        "en": "Severe sudden abdominal pain (possible perforation)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Gastritis / Peptic Ulcer Disease :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D16'}",
-      "authored_by": "LITERATURE_SOURCE - Gastritis / Peptic Ulcer Disease (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_11",
-      "chief_complaint_code": "gastritis_peptic_ulcer_disease_D16",
-      "text_by_language": {
-        "en": "Significant unintentional weight loss",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 11,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Gastritis / Peptic Ulcer Disease :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D16'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Gastritis / Peptic Ulcer Disease :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D16', 'name_en': 'Gastritis / Peptic Ulcer Disease', 'name_id': 'Gastritis / Tukak Lambung', 'icd10': 'K29', 'category': 'Gastrointestinal'}",
       "authored_by": "LITERATURE_SOURCE - Gastritis / Peptic Ulcer Disease (requires clinician sign)"
     }
   ]

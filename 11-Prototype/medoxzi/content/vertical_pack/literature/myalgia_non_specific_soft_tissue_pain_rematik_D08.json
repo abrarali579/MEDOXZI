@@ -11,7 +11,7 @@
       "label_id": "Nyeri Otot/Jaringan Lunak (Rematik)"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "M79.1",
   "category": "Musculoskeletal",
   "context_note": "Frequently reported as 'nyeri sendi/rematik' - among the most common OPD diagnoses at rural Java puskesmas (e.g., top diagnosis at Puskesmas Gabus II 2023).",
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Localize and assess symmetry",
-      "source_ref": "OPD QuestionBank v1.0 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Myalgia / Non-specific Soft Tissue Pain ('Rematik') (requires clinician sign)"
     },
     {
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Establish onset/chronicity",
-      "source_ref": "OPD QuestionBank v1.0 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Myalgia / Non-specific Soft Tissue Pain ('Rematik') (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Screen for inflammatory or infectious arthritis",
-      "source_ref": "OPD QuestionBank v1.0 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Myalgia / Non-specific Soft Tissue Pain ('Rematik') (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Differentiate inflammatory vs mechanical cause",
-      "source_ref": "OPD QuestionBank v1.0 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Myalgia / Non-specific Soft Tissue Pain ('Rematik') (requires clinician sign)"
     },
     {
@@ -102,8 +102,8 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Differentiate mechanical (worse with use) vs inflammatory (better with use)",
-      "source_ref": "OPD QuestionBank v1.0 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Myalgia / Non-specific Soft Tissue Pain ('Rematik') (requires clinician sign)"
     },
     {
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Identify precipitating trauma/overuse",
-      "source_ref": "OPD QuestionBank v1.0 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Myalgia / Non-specific Soft Tissue Pain ('Rematik') (requires clinician sign)"
     },
     {
@@ -138,15 +138,15 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Screen for systemic inflammatory/infectious cause",
-      "source_ref": "OPD QuestionBank v1.0 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Myalgia / Non-specific Soft Tissue Pain ('Rematik') (requires clinician sign)"
     },
     {
       "question_key": "q_08",
       "chief_complaint_code": "myalgia_non_specific_soft_tissue_pain_rematik_D08",
       "text_by_language": {
-        "en": "Do you have a history of gout, high uric acid, or similar episodes before?"
+        "en": "Have you had similar sudden joint pain episodes before, especially in your big toe or another single joint?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -156,84 +156,8 @@
       "is_required_for_completeness": true,
       "display_order": 8,
       "clinical_rationale": "Assess for recurrent gout",
-      "source_ref": "OPD QuestionBank v1.0 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
-      "authored_by": "LITERATURE_SOURCE - Myalgia / Non-specific Soft Tissue Pain ('Rematik') (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "myalgia_non_specific_soft_tissue_pain_rematik_D08",
-      "text_by_language": {
-        "en": "Joint swelling with redness and warmth (possible septic arthritis/gout flare)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D08'}",
-      "authored_by": "LITERATURE_SOURCE - Myalgia / Non-specific Soft Tissue Pain ('Rematik') (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "myalgia_non_specific_soft_tissue_pain_rematik_D08",
-      "text_by_language": {
-        "en": "Fever with joint pain",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D08'}",
-      "authored_by": "LITERATURE_SOURCE - Myalgia / Non-specific Soft Tissue Pain ('Rematik') (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_11",
-      "chief_complaint_code": "myalgia_non_specific_soft_tissue_pain_rematik_D08",
-      "text_by_language": {
-        "en": "Symmetric small joint swelling (possible rheumatoid arthritis)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 11,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D08'}",
-      "authored_by": "LITERATURE_SOURCE - Myalgia / Non-specific Soft Tissue Pain ('Rematik') (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_12",
-      "chief_complaint_code": "myalgia_non_specific_soft_tissue_pain_rematik_D08",
-      "text_by_language": {
-        "en": "Sudden severe monoarticular pain (gout/infection)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 12,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D08'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Myalgia / Non-specific Soft Tissue Pain ('Rematik') :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D08', 'name_en': \"Myalgia / Non-specific Soft Tissue Pain ('Rematik')\", 'name_id': 'Nyeri Otot/Jaringan Lunak (Rematik)', 'icd10': 'M79.1', 'category': 'Musculoskeletal'}",
       "authored_by": "LITERATURE_SOURCE - Myalgia / Non-specific Soft Tissue Pain ('Rematik') (requires clinician sign)"
     }
   ]

@@ -11,7 +11,7 @@
       "label_id": "Diare Akut / Gastroenteritis"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "A09",
   "category": "Gastrointestinal/Infectious",
   "context_note": "Consistently in the top 10 across Jakarta and rural Java puskesmas; linked to food/water sanitation.",
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Quantify severity and duration",
-      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
     },
     {
@@ -48,8 +48,8 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Screen for dysentery/invasive infection",
-      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
     },
     {
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Assess associated symptoms and severity",
-      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Identify likely source/exposure",
-      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
     },
     {
@@ -102,8 +102,8 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Assess hydration status",
-      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
     },
     {
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Assess for outbreak/common source",
-      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
     },
     {
@@ -138,8 +138,8 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Identify travel-related or antibiotic-associated causes",
-      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
     },
     {
@@ -156,103 +156,8 @@
       "is_required_for_completeness": true,
       "display_order": 8,
       "clinical_rationale": "Screen for dehydration",
-      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
-      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
-      "text_by_language": {
-        "en": "Signs of severe dehydration (sunken eyes, lethargy, no urine output, very dry mouth)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D09'}",
-      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
-      "text_by_language": {
-        "en": "Blood or mucus in stool (dysentery)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D09'}",
-      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_11",
-      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
-      "text_by_language": {
-        "en": "High fever with severe abdominal pain",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 11,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D09'}",
-      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_12",
-      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
-      "text_by_language": {
-        "en": "Diarrhea >14 days (chronic)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 12,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D09'}",
-      "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_13",
-      "chief_complaint_code": "acute_diarrhea_gastroenteritis_D09",
-      "text_by_language": {
-        "en": "Infant/elderly with diarrhea",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 13,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Acute Diarrhea / Gastroenteritis :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D09'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Acute Diarrhea / Gastroenteritis :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D09', 'name_en': 'Acute Diarrhea / Gastroenteritis', 'name_id': 'Diare Akut / Gastroenteritis', 'icd10': 'A09', 'category': 'Gastrointestinal/Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Acute Diarrhea / Gastroenteritis (requires clinician sign)"
     }
   ]

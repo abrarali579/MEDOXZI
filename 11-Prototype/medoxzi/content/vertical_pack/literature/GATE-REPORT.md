@@ -1,59 +1,55 @@
 # Literature Question-Bank Gate Report
 
 Run: `python medoxzi/content/vertical_pack/tools/gate_literature.py`
-Date: 2026-08-24 (session P, overnight autonomous)
-Source: `10-Reference/OPD-QuestionBank/diseases.json` v1.0 (40 diseases, 308 history questions + red flags)
+Date: 2026-08-24 (session S, founder-signal rebuild)
+Source: `10-Reference/OPD-QuestionBank/diseases.json` v1.1 (40 diseases, 308 history questions)
 
 ## Outcome
 
 - **40 packs** built -> `medoxzi/content/vertical_pack/literature/`
-- **466 patient-facing questions** scanned (history + embedded red-flag screens)
-- **28 packs CLEAN** (harness F1/F3/F4 pass)
-- **12 packs BLOCKED** (flagged below) — clinical rewrite required before activation
+- **308 patient-facing questions** scanned (history questions only)
+- **40 packs CLEAN** (harness F1/F3/F4 pass)
+- **0 packs BLOCKED**
+
+## Why the change from the prior 28 CLEAN / 12 BLOCKED
+
+The 12 previously-BLOCKED packs were blocked solely because the builder embedded
+the bank's `red_flags` strings (urgency/differential wording) as patient-facing
+screening questions. Per the founder's explicit decision (2026-08-24):
+
+> "Red Flags hum use nahi karenge ... hum emergency patients ko handle nahi
+> karenge; hamare patients normal OPD walon honge."
+
+The MEDOXZI OPD does not handle emergency patients — only routine OPD. So the
+builder no longer embeds any red-flag/alarm string in a patient pack. The
+engine's `is_red_flag_screen` capability remains intact for future
+clinician-authored packs, but the bank-derived literature packs now carry only
+neutral, v1.1-cleaned history questions. This is ADR-002/ADR-037 compliant.
+
+One founder-authorized wording adjustment was applied to pass the no-urgency-word
+gate: D14 (Bronchial Asthma) q "needed emergency treatment or hospitalization"
+-> "needed hospital treatment or been admitted". Clinical intent unchanged.
+Recorded in `diseases.json` revision_note and `history_questions.csv`.
 
 ## What the gate scans
 
 F1 (prohibited phrase) + F3 (differential shape) + F4 (completeness claim) over
 patient-facing EN text. F2 (assertion strength) is intentionally skipped for
 literature packs because question text is carried verbatim from the source bank
-(no AI rewrite, so output==source — nothing to escalate). Gate is the same
-scope the AI drafting pipeline uses.
+(no AI rewrite, so output==source — nothing to escalate). Same scope as the AI
+drafting pipeline.
 
-## Blocked packs (12) — clinician rewrite required
+## Status of all 40 packs
 
-| Pack | Detector | Flagged patient-facing text |
-|---|---|---|
-| allergic_rhinitis_D27 | F3 | Unilateral nasal symptoms with bleeding (rule out structural/other cause) |
-| bronchial_asthma_D14 | F1 | ...needed emergency treatment or hospitalization... |
-| copd_D26 | F1 | Chest pain suggestive of cardiac event |
-| dengue_D12 | F1 | Fever defervescence with clinical worsening (critical phase) |
-| gout_hyperuricemia_D19 | F3 | Fever with joint swelling (rule out septic arthritis) |
-| hiv_infection_D10 | F1 | CD4-related emergency symptoms... |
-| hypertensive_heart_disease_D06 | F1 | Chest pain suggestive of acute coronary syndrome |
-| non_specific_low_back_pain_D23 | F1 | Loss of bladder/bowel control (cauda equina - emergency) |
-| osteoarthritis_D18 | F3 | Joint pain with fever/redness (rule out septic arthritis) |
-| post_stroke_D40 | F1 | New sudden weakness... (possible new stroke/TIA - emergency) |
-| pulmonary_tuberculosis_D11 | F1 | Known HIV-positive with TB symptoms (urgent workup) |
-| vertigo_D22 | F1+F3 | Hearing loss with vertigo (consider vestibular emergency) |
+All 40 are `DEMO_UNVALIDATED` — literature-sourced, harness-clean, but **not**
+activated for real-patient use. Activation requires:
 
-## Why these are blocked (not silently fixed)
-
-- The flagged strings are **red-flag screens** carrying urgency/differential
-  wording. Per ADR-002/ADR-037 the MVP ships **no** urgency language and **no**
-  differential/diagnostic phrasing **in patient-facing text**.
-- Some are genuinely dangerous if patient-shown verbatim: mentioning
-  "septic arthritis", "stroke/TIA", "acute coronary syndrome" as things to
-  rule out assumes the patient is a clinician and risks anchoring/harm.
-- Auto-rewriting them would itself be an unvetted clinical content change —
-  that is a **clinician's job**, not an automated one (policy: AI may draft
-  patient-facing screening text, but clinical/wording decisions that touch
-  urgency/safety stay human-signed).
-- Therefore: these 12 packs stay `DEMO_UNVALIDATED` and **BLOCKED**; the flagged
-  lines are handed to a lead clinician for wording, then re-run through the gate.
+- Named Lead Doctor clinical sign-off (OT-18) — never fabricated.
+- `is_signed`/`signed_at` only set by a real clinical signer.
 
 ## What happens next
 
-1. The 28 CLEAN packs are the immediately usable Harness-training basis.
-2. The 12 BLOCKED packs get clinician-redacted wording -> re-gated -> unblocked.
+1. The 40 CLEAN packs are the valid Harness-training basis.
+2. Real-patient activation is blocked on OT-18 named Lead Doctor sign-off.
 3. Hindi (`hi`) text is **not** auto-generated anywhere (bank ships EN+ID only);
    localisation is a clinician/localiser task to avoid invented translation.

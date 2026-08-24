@@ -1,6 +1,6 @@
 {
   "database_name": "OPD Java Indonesia - Pre-Round History Taking Question Bank",
-  "version": "1.0",
+  "version": "1.1",
   "disease_count": 40,
   "diseases": [
     {
@@ -89,11 +89,11 @@
       ],
       "questions": [
         {
-          "q": "Have you ever been told you have high blood pressure before? When was it diagnosed?",
+          "q": "Have you had your blood pressure checked before, and if so, what were the readings?",
           "purpose": "Establish known vs new diagnosis"
         },
         {
-          "q": "Are you currently taking any blood pressure medication? Do you take it regularly?",
+          "q": "Are you currently taking any regular medication, and if so, what is it for and how consistently do you take it?",
           "purpose": "Assess adherence and control"
         },
         {
@@ -105,7 +105,7 @@
           "purpose": "Screen for hypertensive heart disease"
         },
         {
-          "q": "Do you have a family history of hypertension, stroke, or heart disease?",
+          "q": "Does anyone in your family have a history of high blood pressure readings, stroke, or heart disease?",
           "purpose": "Assess genetic/familial risk"
         },
         {
@@ -231,7 +231,7 @@
           "purpose": "Support functional dyspepsia vs organic cause"
         },
         {
-          "q": "Do you have a family history of stomach cancer or peptic ulcer disease?",
+          "q": "Does anyone in your family have a history of stomach problems, ulcers, or stomach cancer?",
           "purpose": "Assess risk stratification"
         }
       ]
@@ -261,7 +261,7 @@
       ],
       "questions": [
         {
-          "q": "Have you been diagnosed with diabetes before? If so, when, and what treatment are you on?",
+          "q": "Have you ever been told your blood sugar was high, and are you currently on any treatment related to that?",
           "purpose": "Establish known vs new diagnosis"
         },
         {
@@ -281,7 +281,7 @@
           "purpose": "Screen for diabetic retinopathy"
         },
         {
-          "q": "Do you have a family history of diabetes?",
+          "q": "Does anyone in your family have a history of high blood sugar problems?",
           "purpose": "Assess genetic risk"
         },
         {
@@ -342,7 +342,7 @@
           "purpose": "Assess for paroxysmal nocturnal dyspnea/orthopnea"
         },
         {
-          "q": "Are you taking your antihypertensive medications as prescribed?",
+          "q": "Are you taking your prescribed medications regularly?",
           "purpose": "Assess adherence"
         },
         {
@@ -375,11 +375,11 @@
       ],
       "questions": [
         {
-          "q": "Have you ever had a cholesterol test done? What were the results?",
+          "q": "Have you had any blood tests done before, and if so, were any results outside the normal range?",
           "purpose": "Establish baseline/diagnosis"
         },
         {
-          "q": "Do you have a family history of high cholesterol, early heart attack, or stroke?",
+          "q": "Does anyone in your family have a history of early heart attack or stroke?",
           "purpose": "Assess familial hyperlipidemia risk"
         },
         {
@@ -395,7 +395,7 @@
           "purpose": "Identify secondary causes/associated conditions"
         },
         {
-          "q": "Are you currently taking any cholesterol-lowering medication? Any muscle pain since starting it?",
+          "q": "Are you currently taking any regular medication, and have you noticed any muscle pain since starting any new medication?",
           "purpose": "Assess treatment and statin side effects"
         },
         {
@@ -454,7 +454,7 @@
           "purpose": "Screen for systemic inflammatory/infectious cause"
         },
         {
-          "q": "Do you have a history of gout, high uric acid, or similar episodes before?",
+          "q": "Have you had similar sudden joint pain episodes before, especially in your big toe or another single joint?",
           "purpose": "Assess for recurrent gout"
         }
       ]
@@ -540,7 +540,7 @@
       ],
       "questions": [
         {
-          "q": "Have you been tested for HIV before? What was the result and when?",
+          "q": "Have you ever been tested for any infections that affect the immune system, and do you know the results?",
           "purpose": "Establish diagnostic history"
         },
         {
@@ -556,7 +556,7 @@
           "purpose": "Screen for opportunistic infection signs"
         },
         {
-          "q": "Are you currently on antiretroviral therapy (ART)? Are you taking it consistently?",
+          "q": "Are you currently taking any regular medication for immune system support, and do you take it consistently?",
           "purpose": "Assess treatment status and adherence"
         },
         {
@@ -564,7 +564,7 @@
           "purpose": "Screen for TB co-infection, common in Indonesia"
         },
         {
-          "q": "Do you have a partner or family member who is HIV positive?",
+          "q": "Has your partner or anyone close to you been diagnosed with a condition that affects the immune system?",
           "purpose": "Assess household/partner context and need for partner testing"
         }
       ]
@@ -610,15 +610,15 @@
           "purpose": "Assess constitutional symptom burden"
         },
         {
-          "q": "Have you been in close contact with anyone diagnosed with TB?",
+          "q": "Has anyone you live with or spend a lot of time with had a long-lasting cough or been treated for a lung infection recently?",
           "purpose": "Assess exposure history"
         },
         {
-          "q": "Have you ever been treated for TB before? Did you complete the full course?",
+          "q": "Have you ever been treated for a long-term lung infection before, and did you complete the full course of treatment?",
           "purpose": "Screen for relapse or drug-resistant TB risk"
         },
         {
-          "q": "Do you know your HIV status?",
+          "q": "Have you ever been tested for any condition that weakens your immune system?",
           "purpose": "Assess co-infection risk, affects management urgency"
         },
         {
@@ -677,7 +677,7 @@
           "purpose": "Assess for critical phase, when plasma leakage risk is highest"
         },
         {
-          "q": "Has anyone in your neighborhood or household recently had dengue?",
+          "q": "Has anyone nearby recently had a similar illness with high fever and body aches?",
           "purpose": "Assess local outbreak exposure"
         },
         {
@@ -685,7 +685,7 @@
           "purpose": "Assess hydration and early shock signs"
         },
         {
-          "q": "Have you had dengue before?",
+          "q": "Have you had a similar illness with high fever and body aches before?",
           "purpose": "Prior infection raises risk of more severe secondary dengue"
         }
       ]
@@ -739,7 +739,7 @@
           "purpose": "Assess partial treatment, may affect test results and choice of therapy"
         },
         {
-          "q": "Have you had typhoid fever before?",
+          "q": "Have you had a similar prolonged fever illness before?",
           "purpose": "Assess for relapse or chronic carrier state"
         },
         {
@@ -783,15 +783,15 @@
           "purpose": "Identify triggers for avoidance counseling"
         },
         {
-          "q": "Do you or does anyone in your family have a history of asthma, eczema, or allergies?",
+          "q": "Do you or does anyone in your family have a history of wheezing, breathing problems, eczema, or allergies?",
           "purpose": "Assess atopic predisposition"
         },
         {
-          "q": "Are you currently using any inhalers? How often, and do you use a reliever or controller inhaler?",
+          "q": "Are you currently using any inhaled medication for breathing? How often do you use it?",
           "purpose": "Assess current management and technique needs"
         },
         {
-          "q": "How many times have you needed emergency treatment or hospitalization for breathing problems?",
+          "q": "How many times have you needed hospital treatment or been admitted for breathing problems?",
           "purpose": "Assess severity and prior exacerbation history"
         },
         {
@@ -900,7 +900,7 @@
           "purpose": "Identify contributing irritants"
         },
         {
-          "q": "Have you been diagnosed with H. pylori infection before, or has anyone in your family had stomach ulcers or stomach cancer?",
+          "q": "Have you ever been tested for a stomach infection before, or does anyone in your family have a history of stomach problems or stomach cancer?",
           "purpose": "Assess infectious/familial risk"
         },
         {
@@ -1048,7 +1048,7 @@
           "purpose": "Assess recurrence pattern"
         },
         {
-          "q": "Have you had a uric acid blood test before? What was the level?",
+          "q": "Have you had any blood tests done before related to joint pain, and were you told about any high levels?",
           "purpose": "Establish biochemical confirmation"
         },
         {
@@ -1060,7 +1060,7 @@
           "purpose": "Screen for septic arthritis as differential"
         },
         {
-          "q": "Are you currently taking any uric-acid-lowering medication (e.g., allopurinol)? Are you taking it regularly?",
+          "q": "Are you currently on any regular medication for joint pain or previous joint swelling, and do you take it consistently?",
           "purpose": "Assess adherence, note starting/stopping can trigger flares"
         },
         {
@@ -1110,7 +1110,7 @@
           "purpose": "Assess systemic inflammatory features"
         },
         {
-          "q": "Does anyone in your family have rheumatoid arthritis or other autoimmune disease?",
+          "q": "Does anyone in your family have a history of long-term joint problems or immune-related conditions?",
           "purpose": "Assess familial risk"
         },
         {
@@ -1338,11 +1338,11 @@
           "purpose": "Screen for pica, a classic iron-deficiency symptom"
         },
         {
-          "q": "Have you had worm infestation or lived in an area where this is common?",
+          "q": "Have you had any parasites in your stool before, or lived in an area with poor sanitation and soil contact?",
           "purpose": "Assess for hookworm-related blood loss, relevant in rural Java"
         },
         {
-          "q": "Have you had this checked before (hemoglobin/blood test)?",
+          "q": "Have you had a blood count test done before, and if so, were you told the results?",
           "purpose": "Establish prior diagnostic history"
         }
       ]
@@ -1389,11 +1389,11 @@
           "purpose": "Identify nephrotoxic exposures common in self-medication practices"
         },
         {
-          "q": "Do you have a family history of kidney disease?",
+          "q": "Does anyone in your family have a history of kidney-related health problems?",
           "purpose": "Assess genetic risk (e.g., polycystic kidney disease)"
         },
         {
-          "q": "Have you had any previous blood tests showing kidney problems (creatinine, eGFR)?",
+          "q": "Have you had any blood or urine tests done before that were flagged as abnormal?",
           "purpose": "Establish prior diagnostic history/staging"
         },
         {
@@ -1450,7 +1450,7 @@
           "purpose": "Assess exacerbation frequency for severity classification"
         },
         {
-          "q": "Have you had a diagnosis of asthma in childhood?",
+          "q": "Did you have breathing problems or wheezing as a child?",
           "purpose": "Assess for asthma-COPD overlap"
         },
         {
@@ -1497,7 +1497,7 @@
           "purpose": "Support allergic vs infectious etiology"
         },
         {
-          "q": "Do you or your family have a history of asthma, eczema, or allergies?",
+          "q": "Does anyone in your family have a history of sneezing/nasal sensitivity, skin sensitivity, or other allergic-type reactions?",
           "purpose": "Assess atopic predisposition"
         },
         {
@@ -1509,7 +1509,7 @@
           "purpose": "Assess severity/impact for treatment intensity"
         },
         {
-          "q": "Have you tried any antihistamines or nasal sprays? Did they help?",
+          "q": "Have you tried any over-the-counter medication for this? Did it help?",
           "purpose": "Assess prior treatment response"
         }
       ]
@@ -1544,7 +1544,7 @@
           "purpose": "Identify contact allergen/irritant"
         },
         {
-          "q": "Do you have a personal or family history of eczema, asthma, or allergies?",
+          "q": "Do you or your family have a history of sensitive skin, breathing problems, or allergic-type reactions?",
           "purpose": "Assess atopic predisposition"
         },
         {
@@ -1701,7 +1701,7 @@
           "purpose": "Pregnancy changes management urgency and antibiotic choice"
         },
         {
-          "q": "Have you had UTIs before? How frequently do they recur?",
+          "q": "Have you had similar symptoms - burning or frequent urination - before? How often does this happen?",
           "purpose": "Assess for recurrent UTI requiring further workup"
         },
         {
@@ -1871,7 +1871,7 @@
           "purpose": "Identify risk factors for more serious corneal involvement"
         },
         {
-          "q": "Do you have any seasonal allergies or history of allergic conjunctivitis?",
+          "q": "Do you have any seasonal allergies, or does this kind of red/itchy eye happen to you at certain times of year?",
           "purpose": "Assess for allergic etiology"
         }
       ]
@@ -1901,7 +1901,7 @@
       ],
       "questions": [
         {
-          "q": "Do you live in or have you recently traveled to a malaria-endemic area (e.g., southern coastal Java, other islands)?",
+          "q": "Do you live in or have you recently traveled to an area known for mosquito-borne fever illness (e.g., southern coastal Java, other islands)?",
           "purpose": "Establish exposure risk - essential for malaria suspicion"
         },
         {
@@ -1909,7 +1909,7 @@
           "purpose": "Assess for classic paroxysmal fever pattern"
         },
         {
-          "q": "Have you had malaria before?",
+          "q": "Have you had a similar fever-with-chills illness before, and did you receive treatment for it?",
           "purpose": "Assess for possible relapse (P. vivax/ovale)"
         },
         {
@@ -1921,7 +1921,7 @@
           "purpose": "Screen for severe/complicated malaria - red flags"
         },
         {
-          "q": "Have you taken any antimalarial treatment already?",
+          "q": "Have you already started any treatment for this fever?",
           "purpose": "Assess prior treatment, guides further management"
         },
         {
@@ -1965,7 +1965,7 @@
           "purpose": "Common associated feature"
         },
         {
-          "q": "Has anyone in your neighborhood recently been diagnosed with chikungunya or dengue?",
+          "q": "Has anyone nearby recently had a similar illness with fever and severe joint pain?",
           "purpose": "Assess local outbreak context"
         },
         {
@@ -2122,7 +2122,7 @@
           "purpose": "Identify fecal-oral transmission source"
         },
         {
-          "q": "Has anyone around you recently had similar symptoms or been diagnosed with hepatitis?",
+          "q": "Has anyone around you recently had similar symptoms - yellowing of the eyes/skin or fatigue with poor appetite?",
           "purpose": "Assess for common-source outbreak"
         },
         {
@@ -2134,7 +2134,7 @@
           "purpose": "Assess travel-related exposure"
         },
         {
-          "q": "Have you had a hepatitis A vaccination before?",
+          "q": "Have you been vaccinated against any liver infections in the past?",
           "purpose": "Assess immunization status"
         },
         {
@@ -2200,5 +2200,6 @@
         }
       ]
     }
-  ]
+  ],
+  "revision_note": "v1.1: history-taking questions rewritten to remove diagnosis-naming, disease-specific drug/lab-test references, and other diagnosis-suggestive phrasing. Clinical intent/purpose of each question is unchanged. Founder-authorized wording adjustment (2026-08-24): D14 Bronchial Asthma patient question was 'needed emergency treatment or hospitalization' and is now 'needed hospital treatment or been admitted' to satisfy the engine no-urgency-word-in-patient-text gate; clinical intent (prior exacerbation and hospital utilization history) unchanged."
 }

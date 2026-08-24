@@ -11,7 +11,7 @@
       "label_id": "Malaria"
     }
   ],
-  "source_bank": "OPD Java Disease QuestionBank v1.0",
+  "source_bank": "OPD Java Disease QuestionBank v1.1",
   "icd10": "B54",
   "category": "Infectious",
   "context_note": "Endemic in parts of Java (e.g., southern coastal areas of Central/East Java, Banten) - important differential for fever in relevant areas/travelers.",
@@ -20,7 +20,7 @@
       "question_key": "q_01",
       "chief_complaint_code": "malaria_D35",
       "text_by_language": {
-        "en": "Do you live in or have you recently traveled to a malaria-endemic area (e.g., southern coastal Java, other islands)?"
+        "en": "Do you live in or have you recently traveled to an area known for mosquito-borne fever illness (e.g., southern coastal Java, other islands)?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -30,8 +30,8 @@
       "is_required_for_completeness": true,
       "display_order": 1,
       "clinical_rationale": "Establish exposure risk - essential for malaria suspicion",
-      "source_ref": "OPD QuestionBank v1.0 :: Malaria :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D35', 'name_en': 'Malaria', 'name_id': 'Malaria', 'icd10': 'B54', 'category': 'Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Malaria :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D35', 'name_en': 'Malaria', 'name_id': 'Malaria', 'icd10': 'B54', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Malaria (requires clinician sign)"
     },
     {
@@ -48,15 +48,15 @@
       "is_required_for_completeness": true,
       "display_order": 2,
       "clinical_rationale": "Assess for classic paroxysmal fever pattern",
-      "source_ref": "OPD QuestionBank v1.0 :: Malaria :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D35', 'name_en': 'Malaria', 'name_id': 'Malaria', 'icd10': 'B54', 'category': 'Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Malaria :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D35', 'name_en': 'Malaria', 'name_id': 'Malaria', 'icd10': 'B54', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Malaria (requires clinician sign)"
     },
     {
       "question_key": "q_03",
       "chief_complaint_code": "malaria_D35",
       "text_by_language": {
-        "en": "Have you had malaria before?"
+        "en": "Have you had a similar fever-with-chills illness before, and did you receive treatment for it?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -66,8 +66,8 @@
       "is_required_for_completeness": true,
       "display_order": 3,
       "clinical_rationale": "Assess for possible relapse (P. vivax/ovale)",
-      "source_ref": "OPD QuestionBank v1.0 :: Malaria :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D35', 'name_en': 'Malaria', 'name_id': 'Malaria', 'icd10': 'B54', 'category': 'Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Malaria :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D35', 'name_en': 'Malaria', 'name_id': 'Malaria', 'icd10': 'B54', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Malaria (requires clinician sign)"
     },
     {
@@ -84,8 +84,8 @@
       "is_required_for_completeness": true,
       "display_order": 4,
       "clinical_rationale": "Assess exposure prevention practices",
-      "source_ref": "OPD QuestionBank v1.0 :: Malaria :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D35', 'name_en': 'Malaria', 'name_id': 'Malaria', 'icd10': 'B54', 'category': 'Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Malaria :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D35', 'name_en': 'Malaria', 'name_id': 'Malaria', 'icd10': 'B54', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Malaria (requires clinician sign)"
     },
     {
@@ -102,15 +102,15 @@
       "is_required_for_completeness": true,
       "display_order": 5,
       "clinical_rationale": "Screen for severe/complicated malaria - red flags",
-      "source_ref": "OPD QuestionBank v1.0 :: Malaria :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D35', 'name_en': 'Malaria', 'name_id': 'Malaria', 'icd10': 'B54', 'category': 'Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Malaria :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D35', 'name_en': 'Malaria', 'name_id': 'Malaria', 'icd10': 'B54', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Malaria (requires clinician sign)"
     },
     {
       "question_key": "q_06",
       "chief_complaint_code": "malaria_D35",
       "text_by_language": {
-        "en": "Have you taken any antimalarial treatment already?"
+        "en": "Have you already started any treatment for this fever?"
       },
       "answer_type": "TEXT",
       "asked_of": [
@@ -120,8 +120,8 @@
       "is_required_for_completeness": true,
       "display_order": 6,
       "clinical_rationale": "Assess prior treatment, guides further management",
-      "source_ref": "OPD QuestionBank v1.0 :: Malaria :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D35', 'name_en': 'Malaria', 'name_id': 'Malaria', 'icd10': 'B54', 'category': 'Infectious'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Malaria :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D35', 'name_en': 'Malaria', 'name_id': 'Malaria', 'icd10': 'B54', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Malaria (requires clinician sign)"
     },
     {
@@ -138,122 +138,8 @@
       "is_required_for_completeness": true,
       "display_order": 7,
       "clinical_rationale": "Assess associated symptom burden",
-      "source_ref": "OPD QuestionBank v1.0 :: Malaria :: history_questions.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': '1.0', 'disease_id': 'D35', 'name_en': 'Malaria', 'name_id': 'Malaria', 'icd10': 'B54', 'category': 'Infectious'}",
-      "authored_by": "LITERATURE_SOURCE - Malaria (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_08",
-      "chief_complaint_code": "malaria_D35",
-      "text_by_language": {
-        "en": "Altered consciousness/confusion (cerebral malaria)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 8,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Malaria :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D35'}",
-      "authored_by": "LITERATURE_SOURCE - Malaria (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_09",
-      "chief_complaint_code": "malaria_D35",
-      "text_by_language": {
-        "en": "Jaundice",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 9,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Malaria :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D35'}",
-      "authored_by": "LITERATURE_SOURCE - Malaria (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_10",
-      "chief_complaint_code": "malaria_D35",
-      "text_by_language": {
-        "en": "Severe anemia (pallor, breathlessness)",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 10,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Malaria :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D35'}",
-      "authored_by": "LITERATURE_SOURCE - Malaria (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_11",
-      "chief_complaint_code": "malaria_D35",
-      "text_by_language": {
-        "en": "Dark urine",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 11,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Malaria :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D35'}",
-      "authored_by": "LITERATURE_SOURCE - Malaria (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_12",
-      "chief_complaint_code": "malaria_D35",
-      "text_by_language": {
-        "en": "Seizures",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 12,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Malaria :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D35'}",
-      "authored_by": "LITERATURE_SOURCE - Malaria (requires clinician sign)"
-    },
-    {
-      "question_key": "rf_13",
-      "chief_complaint_code": "malaria_D35",
-      "text_by_language": {
-        "en": "Signs of shock",
-        "screen": true
-      },
-      "answer_type": "BOOL",
-      "asked_of": [
-        "PATIENT"
-      ],
-      "is_red_flag_screen": true,
-      "is_required_for_completeness": true,
-      "display_order": 13,
-      "clinical_rationale": "Red-flag / alarm feature from source bank — flags need doctor attention.",
-      "source_ref": "OPD QuestionBank v1.0 :: Malaria :: red_flags.csv",
-      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'disease_id': 'D35'}",
+      "source_ref": "OPD QuestionBank v1.1 :: Malaria :: history_questions.csv",
+      "evidence_reference": "{'database': 'OPD Java Disease QuestionBank', 'version': 'v1.1', 'disease_id': 'D35', 'name_en': 'Malaria', 'name_id': 'Malaria', 'icd10': 'B54', 'category': 'Infectious'}",
       "authored_by": "LITERATURE_SOURCE - Malaria (requires clinician sign)"
     }
   ]
