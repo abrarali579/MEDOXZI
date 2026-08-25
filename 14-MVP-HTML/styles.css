@@ -3549,8 +3549,8 @@ body.doctor-shell #view-doctor .doctor-action-bar .primary {
   body.doctor-shell #view-doctor .doctor-command,
   body.doctor-shell #view-doctor .doctor-main-grid,
   body.doctor-shell #view-doctor .doctor-action-bar {
-    grid-template-columns: 1fr;
-    min-width: 0;
+    grid-template-columns: 1fr !important;
+    min-width: 0 !important;
   }
 
   body.doctor-shell #view-doctor .doctor-side-panel,
@@ -3560,18 +3560,22 @@ body.doctor-shell #view-doctor .doctor-action-bar .primary {
   }
 
   body.doctor-shell #view-doctor #doctorQueue {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
   body.doctor-shell #view-doctor .doctor-queue-card.current,
   body.doctor-shell #view-doctor .doctor-queue-card.incoming {
-    grid-template-columns: minmax(0, 1fr);
-    min-width: 0;
+    grid-template-columns: minmax(0, 1fr) !important;
+    min-width: 0 !important;
+  }
+
+  body.doctor-shell #view-doctor .doctor-queue-card.current .selected-actions {
+    justify-content: flex-start;
   }
 
   body.doctor-shell #view-doctor .doctor-entry-card {
-    display: block;
-    min-width: 0;
+    display: block !important;
+    min-width: 0 !important;
     padding: 10px;
   }
 
@@ -3581,27 +3585,27 @@ body.doctor-shell #view-doctor .doctor-action-bar .primary {
   body.doctor-shell #view-doctor .doctor-entry-card .plan-group,
   body.doctor-shell #view-doctor .doctor-entry-card .followup-row,
   body.doctor-shell #view-doctor .doctor-entry-card .clinical-note {
-    grid-column: auto;
-    grid-row: auto;
+    grid-column: auto !important;
+    grid-row: auto !important;
   }
 
   body.doctor-shell #view-doctor .doctor-entry-card .diagnosis-grid,
-  body.doctor-shell #view-doctor .followup-row,
+  body.doctor-shell #view-doctor .doctor-entry-card .followup-row,
   body.doctor-shell #view-doctor .vitals-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
   body.doctor-shell #view-doctor .choice-row,
   body.doctor-shell #view-doctor .doctor-entry-card .choice-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 
   body.doctor-shell #view-doctor .doctor-command {
-    grid-column: auto;
+    grid-column: auto !important;
   }
 
   body.doctor-shell #view-doctor .doctor-side-panel {
-    grid-column: auto;
+    grid-column: auto !important;
   }
 
   body.doctor-shell #view-doctor .doctor-action-bar .secondary,
