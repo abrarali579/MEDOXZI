@@ -66,6 +66,7 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   min-height: 100vh;
+  overflow-x: hidden;
   background: var(--surface);
   color: var(--ink);
   font-family: var(--font);
@@ -2673,6 +2674,7 @@ textarea::placeholder {
 
 body.doctor-shell {
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body.doctor-shell .app-shell {

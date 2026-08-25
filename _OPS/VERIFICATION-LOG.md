@@ -3153,3 +3153,15 @@ app.js OK
 - `browser_console` 0 messages / 0 errors.
 
 **Verdict:** ✅ CONFIRMED — phone-width text no longer leaves the screen; baseline green.
+## V-2026-08-25-AE-05 — Added body-level overflow-x safety net (14-MVP-HTML)
+
+**Scope:** UI-only hardening of Session AE rev v4. File: `14-MVP-HTML/styles.css`.
+
+**Change:** Added `overflow-x: hidden` to the base `body` (not just `#view-doctor`) and kept
+`overflow-y: auto`, so no view can push content off-screen horizontally on phones.
+
+**Baseline:** pytest 100 passed; harness PASS.
+**Browser (localhost:8765, iframe 390px):** all 6 views (staff/patient/doctor/records/viewer/ops)
+-> `overflow:false`, visible maxRight within viewport (<=386px). body computed `overflow-x:hidden`.
+
+**Verdict:** ✅ CONFIRMED — body-level safety net prevents any horizontal overflow.

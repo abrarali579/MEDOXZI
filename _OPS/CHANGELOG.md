@@ -3,6 +3,33 @@
 **Append-only.** Newest first. Every entry answers: WHAT · WHY · EVIDENCE · NEXT · WHY NEXT · HOW.
 
 ---
+## 2026-08-25 - Session AE (rev v4 hardening) - body-level overflow-x safety net
+
+**WHAT**
+- Added `overflow-x: hidden` on the base `body` (and kept `overflow-y: auto`) in
+  `14-MVP-HTML/styles.css`, so no view can push content off-screen horizontally at phone width.
+
+**WHY**
+Founder still saw text leaving the screen on a phone; even after the doctor-shell <=620px collapse,
+a body-level safety net guarantees horizontal clipping on every view.
+
+**EVIDENCE**
+- pytest 100 passed; harness PASS; browser: all 6 views at 390px iframe -> overflow:false,
+  visible maxRight within viewport; body computed overflow-x:hidden.
+- Detail: VERIFICATION-LOG V-2026-08-25-AE-05.
+
+**NEXT**
+Founder push to redeploy `medoxzi.vercel.app`, hard-refresh / clear cache on the phone, confirm.
+
+**WHY NEXT**
+Cache must be cleared or the phone serves stale CSS.
+
+**HOW**
+`git add 14-MVP-HTML/styles.css _OPS/ && git commit && git push`; on the phone clear site data or
+open incognito, then reload `medoxzi.vercel.app`.
+
+---
+
 ## 2026-08-25 - Session AE (rev v4) - Fix phone-width text off-screen (horizontal overflow)
 
 **WHAT**
