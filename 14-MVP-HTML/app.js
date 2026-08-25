@@ -330,7 +330,6 @@ function switchView(viewName, options = {}) {
   $$(".view").forEach((view) => view.classList.toggle("active", view.id === `view-${viewName}`));
   document.body.classList.toggle("doctor-shell", viewName === "doctor");
   const [context, title] = viewTitles[viewName] || viewTitles.doctor;
-  $(".nav-dropdown-head").textContent = "MEDOXZI";
   const sectionsBlock = $("#navSections");
   if (sectionsBlock) sectionsBlock.hidden = viewName !== "doctor";
   const contextEl = $("#topbarContext");
@@ -1152,33 +1151,45 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => switchView(button.dataset.jump)),
   );
 
-  // 3-dots navigation menu open/close
+  // 3-dots left slide-in navigation drawer
   const navMenuBtn = $("#navMenuBtn");
-  const navDropdown = $("#navDropdown");
-  function toggleNavMenu() {
-    const open = navDropdown.hidden;
-    navDropdown.hidden = !open;
-    navMenuBtn.setAttribute("aria-expanded", String(open));
+  const navDrawer = $("#navDrawer");
+  const drawerBackdrop = $("#drawerBackdrop");
+  const drawerCloseBtn = $("#drawerCloseBtn");
+
+  function openNavMenu() {
+    navDrawer.hidden = false;
+    drawerBackdrop.hidden = false;
+    requestAnimationFrame(() => {
+      navDrawer.classList.add("open");
+      drawerBackdrop.classList.add("open");
+    });
+    navMenuBtn.setAttribute("aria-expanded", "true");
   }
   window.closeNavMenu = function () {
-    if (navDropdown && !navDropdown.hidden) {
-      navDropdown.hidden = true;
-      navMenuBtn.setAttribute("aria-expanded", "false");
-    }
+    if (!navDrawer.classList.contains("open")) return;
+    navDrawer.classList.remove("open");
+    drawerBackdrop.classList.remove("open");
+    navMenuBtn.setAttribute("aria-expanded", "false");
+    setTimeout(() => {
+      navDrawer.hidden = true;
+      drawerBackdrop.hidden = true;
+    }, 240);
   };
+  function toggleNavMenu() {
+    if (navDrawer.classList.contains("open")) closeNavMenu();
+    else openNavMenu();
+  }
   navMenuBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     toggleNavMenu();
   });
-  document.addEventListener("click", (e) => {
-    if (!navDropdown.hidden && !navDropdown.contains(e.target) && !navMenuBtn.contains(e.target)) {
-      closeNavMenu();
-    }
-  });
+  drawerCloseBtn.addEventListener("click", closeNavMenu);
+  drawerBackdrop.addEventListener("click", closeNavMenu);
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeNavMenu();
   });
-  navDropdown.addEventListener("click", (e) => e.stopPropagation());
+  navDrawer.addEventListener("click", (e) => e.stopPropagation());
 
   // Pre-visit extra-section toggles (Intake responses / Doctor entry)
   const toggleIntake = $("#toggleIntakeAnswers");

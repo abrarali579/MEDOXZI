@@ -3,6 +3,36 @@
 **Append-only.** Newest first. Every entry answers: WHAT · WHY · EVIDENCE · NEXT · WHY NEXT · HOW.
 
 ---
+## 2026-08-25 - Session AE (rev v2) - Nav from dropdown to left slide-in drawer
+
+**WHAT**
+- Refined the Session AE navigation: replaced the down-dropping menu with a LEFT slide-in drawer.
+- The 3-dots button (top-left) now opens a full-height panel that slides in from the left edge,
+  with a dim backdrop; it holds the MEDOXZI logo header, a close (✕) button, the 6 nav items,
+  and (on Pre-visit review) the SECTIONS toggles (Intake responses / Doctor entry).
+- Backdrop click and Escape close the drawer; selecting a view switches and auto-closes it.
+
+**WHY**
+Abrar's preference: the menu should appear on the side as a separate mini screen/view when the
+3-dots is pressed, not drop down below it.
+
+**EVIDENCE**
+- Baseline green: pytest 100 passed, demo clean, harness VERDICT: PASS, `node --check app.js` OK.
+- Browser: drawer opens (left:0, width:300, full height), navigation switches views + auto-closes,
+  Pre-visit SECTIONS toggles hide/show cards, 0 console errors.
+- Detail: `_OPS/SESSION-LOG/2026-08-25-AE-topbar-3dots-menu.md`; VERIFICATION-LOG V-2026-08-25-AE-02.
+
+**NEXT**
+Founder push to redeploy `medoxzi.vercel.app`, review the left drawer on desktop + mobile/tablet.
+
+**WHY NEXT**
+Only after redeploy is the drawer visible in production.
+
+**HOW**
+`git add 14-MVP-HTML/index.html 14-MVP-HTML/styles.css 14-MVP-HTML/app.js _OPS/ && git commit && git push`.
+
+---
+
 ## 2026-08-25 - Session AE - Clean topbar + 3-dots collapsing navigation menu
 
 **WHAT**

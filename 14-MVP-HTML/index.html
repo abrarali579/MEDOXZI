@@ -18,21 +18,29 @@
             <h1 id="topbarTitle">Pre-visit review</h1>
           </div>
         </div>
-        <div class="nav-dropdown" id="navDropdown" role="menu" hidden>
-          <div class="nav-dropdown-head">MEDOXZI</div>
+      </header>
+
+      <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+      <div class="nav-drawer" id="navDrawer" role="dialog" aria-label="Navigation menu" aria-modal="true" hidden>
+        <div class="nav-drawer-head">
+          <span class="nav-drawer-logo" aria-hidden="true">M</span>
+          <strong>MEDOXZI</strong>
+          <button class="icon-button drawer-close" id="drawerCloseBtn" type="button" aria-label="Close menu">✕</button>
+        </div>
+        <nav class="nav-drawer-list">
           <button class="dropdown-item" role="menuitem" data-view="staff">Front desk</button>
           <button class="dropdown-item" role="menuitem" data-view="patient">Patient intake</button>
           <button class="dropdown-item" role="menuitem" data-view="doctor">Pre-visit review</button>
           <button class="dropdown-item" role="menuitem" data-view="records">Patient records</button>
           <button class="dropdown-item" role="menuitem" data-view="viewer">Record viewer</button>
           <button class="dropdown-item" role="menuitem" data-view="ops">Clinic operations</button>
-          <div class="nav-dropdown-sections" id="navSections" hidden>
-            <div class="nav-dropdown-subhead">Sections</div>
-            <label class="dropdown-toggle"><input type="checkbox" id="toggleIntakeAnswers" checked> Intake responses</label>
-            <label class="dropdown-toggle"><input type="checkbox" id="toggleDoctorEntry" checked> Doctor entry</label>
-          </div>
+        </nav>
+        <div class="nav-drawer-sections" id="navSections" hidden>
+          <div class="nav-dropdown-subhead">Sections</div>
+          <label class="dropdown-toggle"><input type="checkbox" id="toggleIntakeAnswers" checked> Intake responses</label>
+          <label class="dropdown-toggle"><input type="checkbox" id="toggleDoctorEntry" checked> Doctor entry</label>
         </div>
-      </header>
+      </div>
 
       <main>
         <section id="view-welcome" class="view active">

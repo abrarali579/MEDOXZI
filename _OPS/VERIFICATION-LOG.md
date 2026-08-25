@@ -3036,3 +3036,45 @@ hides that card (confirmed via accessibility tree — article removed). `browser
 reported 0 messages / 0 errors.
 
 **Verdict:** ✅ CONFIRMED — compact topbar + 3-dots nav works, baseline green, no JS errors.
+## V-2026-08-25-AE-02 — Nav moved from dropdown to LEFT slide-in drawer (14-MVP-HTML)
+
+**Scope:** UI-only continuation of Session AE. Files: `14-MVP-HTML/index.html`, `styles.css`, `app.js`.
+
+**Change:** Replaced the dropdown menu with a left slide-in drawer. The 3-dots button stays top-left;
+pressing it now opens a full-height panel that slides in from the LEFT edge (with a dim backdrop),
+holding the MEDOXZI logo header, a close button, the 6 nav items, and (on Pre-visit review) the
+SECTIONS toggles (Intake responses / Doctor entry). Backdrop-click and Escape close it.
+
+**Baseline (re-ran):**
+```bash
+cd D:/MEDOXZI/11-Prototype
+C:/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m pytest tests/ -q
+```
+```
+100 passed in 0.17s
+```
+```bash
+C:/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe demo.py | tail -3
+```
+```
+  Every behaviour above is deterministic and unit-tested.
+```
+```bash
+C:/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m harness.run | tail -3
+```
+```
+  VERDICT: PASS
+```
+```bash
+node --check 14-MVP-HTML/app.js
+```
+```
+app.js OK
+```
+
+**Browser (served localhost:8765):** 3-dots opens left drawer (`nav-drawer open`, translateX 0, left:0,
+width:300, full height); backdrop dims; 6 nav items present; clicking "Front desk" switches view +
+auto-closes drawer; on Pre-visit review the drawer shows SECTIONS toggles; unchecking "Intake
+responses" sets that card `display:none` (verified). `browser_console` 0 messages / 0 errors.
+
+**Verdict:** ✅ CONFIRMED — left slide-in drawer works, baseline green, no JS errors.
