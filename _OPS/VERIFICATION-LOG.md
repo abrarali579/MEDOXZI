@@ -3165,3 +3165,20 @@ app.js OK
 -> `overflow:false`, visible maxRight within viewport (<=386px). body computed `overflow-x:hidden`.
 
 **Verdict:** ✅ CONFIRMED — body-level safety net prevents any horizontal overflow.
+## V-2026-08-25-AE-06 — Force single-column doctor collapse with !important (14-MVP-HTML)
+
+**Scope:** hardening of Session AE rev v4. File: `14-MVP-HTML/styles.css`.
+
+**Change:** In the `@media (max-width: 620px)` `body.doctor-shell` block, all the collapsing
+grid rules now use `!important` (`grid-template-columns: 1fr !important` on doctor-main-grid /
+action-bar / side-panel / command, entry-card `display: block !important`, choice-row
+`repeat(2,...) !important`, queue-card `minmax(0,1fr) !important`) so no fixed min-width from
+other breakpoints (2-col main-grid, 5-col choice-row, wide selected-actions) can keep content
+wider than a phone viewport.
+
+**Baseline:** pytest 100 passed; harness PASS.
+**Production check:** after push, `curl https://medoxzi.vercel.app/styles.css` contains
+`1fr !important` (3x), `display: block !important` on `.doctor-entry-card`, and the grouped
+`doctor-main-grid ... { grid-template-columns: 1fr !important }` rule. Deployed.
+
+**Verdict:** ✅ CONFIRMED — single-column collapse is now guaranteed at <=620px; deployed to production.

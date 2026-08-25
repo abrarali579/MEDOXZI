@@ -3,6 +3,38 @@
 **Append-only.** Newest first. Every entry answers: WHAT · WHY · EVIDENCE · NEXT · WHY NEXT · HOW.
 
 ---
+## 2026-08-25 - Session AE (rev v4b) - !important single-column doctor collapse
+
+**WHAT**
+- In the `@media (max-width: 620px)` `body.doctor-shell` block, added `!important` to all the
+  collapsing grid rules (main-grid/action-bar/side-panel/command `1fr`, entry-card `display:block`,
+  choice-row `repeat(2)`, queue-card `minmax(0,1fr)`) so no fixed min-width from other
+  breakpoints keeps content wider than a phone.
+
+**WHY**
+The phone screenshot still showed Intake responses / Doctor entry / action buttons clipping
+off the left edge on a ~375px view, because lower-specificity/earlier 2-column rules could
+resist the collapse.
+
+**EVIDENCE**
+- pytest 100 passed; harness PASS; production CSS after push contains `1fr !important` (3x),
+  `display: block !important` on `.doctor-entry-card`, and the grouped `doctor-main-grid`
+  `grid-template-columns: 1fr !important` rule (curl verified).
+- Detail: VERIFICATION-LOG V-2026-08-25-AE-06.
+
+**NEXT**
+Founder hard-refresh / clear phone browser cache, reload `medoxzi.vercel.app`, confirm no
+off-screen text. If visible overflow persists after a fresh (non-cached) load, report back.
+
+**WHY NEXT**
+`!important` + last-in-file guarantees the collapse in a fresh render; residual overflow on an
+old cached page is not the current code.
+
+**HOW**
+Already pushed (`52448fb`). On the phone: clear site data or open incognito, then load the URL.
+
+---
+
 ## 2026-08-25 - Session AE (rev v4 hardening) - body-level overflow-x safety net
 
 **WHAT**
