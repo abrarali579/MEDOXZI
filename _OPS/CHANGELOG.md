@@ -3,6 +3,36 @@
 **Append-only.** Newest first. Every entry answers: WHAT · WHY · EVIDENCE · NEXT · WHY NEXT · HOW.
 
 ---
+## 2026-08-25 - Session AE (rev v4) - Fix phone-width text off-screen (horizontal overflow)
+
+**WHAT**
+- Added a `@media (max-width: 620px)` block scoped to `body.doctor-shell #view-doctor` in
+  `14-MVP-HTML/styles.css` that collapses the Pre-visit Review layout to a single column,
+  makes `.doctor-entry-card` `display:block`, forces `.choice-row` to 2 columns, collapses
+  diagnosis/vitals/follow-up grids, and sets `overflow-x: hidden` on the view.
+
+**WHY**
+On phone widths the Intake responses / Doctor entry cards were clipping off the left edge and
+the intake % clipped on the right (horizontal overflow) because the compact doctor layout had
+no phone breakpoint.
+
+**EVIDENCE**
+- Baseline green: pytest 100 passed, harness VERDICT: PASS, `node --check app.js` OK.
+- Browser width-emulation: 360/415/500/600px all `overflow:false` with `minLeft:0`; no regression
+  at 1024/1280/1440px; 0 console errors.
+- Detail: `_OPS/SESSION-LOG/2026-08-25-AE-topbar-3dots-menu.md`; VERIFICATION-LOG V-2026-08-25-AE-04.
+
+**NEXT**
+Founder push to redeploy `medoxzi.vercel.app`; confirm no off-screen text on a phone.
+
+**WHY NEXT**
+Only after redeploy is the phone fix visible in production.
+
+**HOW**
+`git add 14-MVP-HTML/styles.css _OPS/ && git commit && git push`.
+
+---
+
 ## 2026-08-25 - Session AE (rev v3) - Removed topbar breadcrumb text
 
 **WHAT**

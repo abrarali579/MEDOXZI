@@ -3112,3 +3112,44 @@ app.js OK
 0 console errors.
 
 **Verdict:** ✅ CONFIRMED — topbar clean (only ⋯ button), baseline green, no JS errors.
+## V-2026-08-25-AE-04 — Fix horizontal overflow / text off-screen on phone width (14-MVP-HTML)
+
+**Scope:** UI-only continuation of Session AE. File: `14-MVP-HTML/styles.css`.
+
+**Problem:** On narrow (phone) widths the Pre-visit Review doctor cards ("Intake responses",
+"Doctor entry") poked off the LEFT edge and "93%" was clipped on the right — horizontal overflow.
+Cause: the compact `doctor-shell` layout (Session AD) had no phone (<=620px) breakpoint, so the
+`.doctor-entry-card` internal 2-col grid and the 5-column `.choice-row` could not shrink.
+
+**Fix:** Added `@media (max-width: 620px)` block scoped to `body.doctor-shell #view-doctor` that
+collapses the layout to single column, makes the entry card `display:block`, forces the
+`.choice-row` (incl. `.doctor-entry-card .choice-row`) to 2 columns, collapses diagnosis/vitals/
+follow-up grids, and sets `overflow-x: hidden` on the view.
+
+**Baseline (re-ran):**
+```bash
+cd D:/MEDOXZI/11-Prototype
+C:/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m pytest tests/ -q
+```
+```
+100 passed in 0.17s
+```
+```bash
+C:/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m harness.run | tail -2
+```
+```
+  VERDICT: PASS
+```
+```bash
+node --check 14-MVP-HTML/app.js
+```
+```
+app.js OK
+```
+
+**Browser (localhost:8765, iframe width-emulation on doctor view):**
+- 360 / 415 / 500 / 600 px -> `overflow:false`, `minLeft:0` (nothing off left), maxRight within viewport.
+- No regression at 1024 / 1280 / 1440 px -> `overflow:false`.
+- `browser_console` 0 messages / 0 errors.
+
+**Verdict:** ✅ CONFIRMED — phone-width text no longer leaves the screen; baseline green.
