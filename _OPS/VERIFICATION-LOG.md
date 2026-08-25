@@ -3078,3 +3078,37 @@ auto-closes drawer; on Pre-visit review the drawer shows SECTIONS toggles; unche
 responses" sets that card `display:none` (verified). `browser_console` 0 messages / 0 errors.
 
 **Verdict:** ✅ CONFIRMED — left slide-in drawer works, baseline green, no JS errors.
+## V-2026-08-25-AE-03 — Removed "Medoxzi / <tab>" breadcrumb from topbar (14-MVP-HTML)
+
+**Scope:** UI-only continuation of Session AE. Files: `14-MVP-HTML/index.html`, `app.js`.
+
+**Change:** Removed the topbar breadcrumb text ("Medoxzi / <current tab>") and its elements
+(`#topbarContext`, `#topbarTitle`, `.brand-title`). The topbar now shows only the 3-dots `⋯`
+button. Removed the now-unused context/title update in `switchView`.
+
+**Baseline (re-ran):**
+```bash
+cd D:/MEDOXZI/11-Prototype
+C:/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m pytest tests/ -q
+```
+```
+100 passed in 0.17s
+```
+```bash
+C:/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m harness.run | tail -2
+```
+```
+  VERDICT: PASS
+```
+```bash
+node --check 14-MVP-HTML/app.js
+```
+```
+app.js OK
+```
+
+**Browser (served localhost:8765):** topbar textContent is exactly `⋯` (only the button); no
+"Medoxzi" / tab-name text. 3-dots opens the left drawer (`nav-drawer open`), drawer works,
+0 console errors.
+
+**Verdict:** ✅ CONFIRMED — topbar clean (only ⋯ button), baseline green, no JS errors.

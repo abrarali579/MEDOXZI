@@ -3,6 +3,33 @@
 **Append-only.** Newest first. Every entry answers: WHAT · WHY · EVIDENCE · NEXT · WHY NEXT · HOW.
 
 ---
+## 2026-08-25 - Session AE (rev v3) - Removed topbar breadcrumb text
+
+**WHAT**
+- Removed the topbar breadcrumb ("Medoxzi / <current tab>") and its elements (`#topbarContext`,
+  `#topbarTitle`, `.brand-title`). The topbar now shows only the 3-dots `⋯` button.
+- Removed the now-unused context/title update inside `switchView`.
+
+**WHY**
+Abrar wants a truly minimal header — no "Medoxzi / Tab Name" text anywhere; just the menu button.
+
+**EVIDENCE**
+- Baseline green: pytest 100 passed, demo clean, harness VERDICT: PASS, `node --check app.js` OK.
+- Browser: topbar textContent is exactly `⋯` (only the button, no Medoxzi/tab text); 3-dots opens
+  the left drawer; 0 console errors.
+- Detail: `_OPS/SESSION-LOG/2026-08-25-AE-topbar-3dots-menu.md`; VERIFICATION-LOG V-2026-08-25-AE-03.
+
+**NEXT**
+Founder push to redeploy `medoxzi.vercel.app`; confirm the minimal header in production.
+
+**WHY NEXT**
+Only after redeploy is the clean topbar visible live.
+
+**HOW**
+`git add 14-MVP-HTML/index.html 14-MVP-HTML/app.js _OPS/ && git commit && git push`.
+
+---
+
 ## 2026-08-25 - Session AE (rev v2) - Nav from dropdown to left slide-in drawer
 
 **WHAT**

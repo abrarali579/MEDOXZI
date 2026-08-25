@@ -329,13 +329,8 @@ function switchView(viewName, options = {}) {
   $$(".dropdown-item").forEach((item) => item.classList.toggle("active", item.dataset.view === viewName));
   $$(".view").forEach((view) => view.classList.toggle("active", view.id === `view-${viewName}`));
   document.body.classList.toggle("doctor-shell", viewName === "doctor");
-  const [context, title] = viewTitles[viewName] || viewTitles.doctor;
   const sectionsBlock = $("#navSections");
   if (sectionsBlock) sectionsBlock.hidden = viewName !== "doctor";
-  const contextEl = $("#topbarContext");
-  if (contextEl) contextEl.textContent = context;
-  const titleEl = $("#topbarTitle");
-  if (titleEl) titleEl.textContent = title;
   if (typeof window.closeNavMenu === "function") window.closeNavMenu();
 }
 
