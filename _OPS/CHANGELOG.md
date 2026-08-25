@@ -3,6 +3,34 @@
 **Append-only.** Newest first. Every entry answers: WHAT · WHY · EVIDENCE · NEXT · WHY NEXT · HOW.
 
 ---
+## 2026-08-25 - Session AE (rev v5) - Remove overlapping safety banner + compact 3-dots
+
+**WHAT**
+- Removed the `.doctor-safety` banner ("No clinic-approved safety rules are active") from the
+  Pre-visit Review doctor view (it overlapped the queue header on phone).
+- Compacted the 3-dots topbar strip: topbar padding 18px->8px, menu-trigger 44px->34px.
+
+**WHY**
+Founder reported the safety text overlapping the queue header and the 3-dots menu strip taking
+too much upper space.
+
+**EVIDENCE**
+- pytest 100 passed; `node --check app.js` OK.
+- Browser: safety banner gone; at 390px doctor view single-column, overflow:false, topbar compact.
+- Detail: VERIFICATION-LOG V-2026-08-25-AE-07.
+
+**NEXT**
+Founder hard-refresh / clear phone cache, reload `medoxzi.vercel.app`, confirm no overlap and a
+compact header.
+
+**WHY NEXT**
+Only after a fresh load will the removed banner and compact header be visible.
+
+**HOW**
+Pushed. On phone: clear site data or incognito, reload.
+
+---
+
 ## 2026-08-25 - Session AE (rev v4b) - !important single-column doctor collapse
 
 **WHAT**

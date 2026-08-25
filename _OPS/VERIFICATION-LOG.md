@@ -3182,3 +3182,34 @@ wider than a phone viewport.
 `doctor-main-grid ... { grid-template-columns: 1fr !important }` rule. Deployed.
 
 **Verdict:** ✅ CONFIRMED — single-column collapse is now guaranteed at <=620px; deployed to production.
+## V-2026-08-25-AE-07 — Remove overlapping safety banner + compact 3-dots topbar (14-MVP-HTML)
+
+**Scope:** UI-only. Files: `14-MVP-HTML/index.html`, `14-MVP-HTML/styles.css`.
+
+**Change:**
+- Removed the `.doctor-safety` banner ("No clinic-approved safety rules are active") from the
+  doctor (Pre-visit review) view because it overlapped the queue header on the phone; founder
+  explicitly asked to remove it.
+- Compacted the 3-dots topbar strip: topbar padding 18px->8px, menu-trigger button 44px->34px
+  (was taking too much upper space).
+
+**Baseline (re-ran):**
+```bash
+cd D:/MEDOXZI/11-Prototype
+C:/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m pytest tests/ -q
+```
+```
+100 passed in 0.16s
+```
+```bash
+node --check 14-MVP-HTML/app.js
+```
+```
+app.js OK
+```
+
+**Browser (localhost:8765, doctor view):** `.doctor-safety` no longer exists; at 390px iframe the
+doctor-main-grid collapses to a single column (339px), doctor-layout 355px (stacked), overflow:false,
+scrollWidth==viewport. Topbar height reduced (btn 34px, padding 8px).
+
+**Verdict:** ✅ CONFIRMED — safety banner removed, topbar compacted, doctor view clean at phone width.
