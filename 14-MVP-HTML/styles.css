@@ -1121,14 +1121,10 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: 286px minmax(0, 1fr);
-  grid-template-rows: 86px 1fr;
+  display: block;
 }
 
 .topbar {
-  grid-column: 2;
-  grid-row: 1;
   position: sticky;
   top: 0;
   z-index: 6;
@@ -1143,10 +1139,18 @@ body {
   display: none;
 }
 
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+
 .brand-title {
   display: flex;
   align-items: center;
   gap: 16px;
+  min-width: 0;
 }
 
 .brand-title .eyebrow {
@@ -1156,6 +1160,7 @@ body {
   font-weight: 650;
   letter-spacing: 0;
   text-transform: none;
+  white-space: nowrap;
 }
 
 .brand-title .eyebrow::after {
@@ -1167,6 +1172,9 @@ body {
 .brand-title h1 {
   font-size: 0.96rem;
   letter-spacing: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .clinic-select {
@@ -1195,6 +1203,88 @@ body {
   color: #fff;
   font-weight: 850;
 }
+
+/* 3-dots menu trigger */
+.menu-trigger {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: #fff;
+  color: var(--ink);
+  font-size: 1.7rem;
+  line-height: 1;
+  font-weight: 800;
+  box-shadow: var(--shadow-xs);
+}
+.menu-trigger:hover { background: var(--soft-2); }
+.menu-dots { letter-spacing: 2px; }
+
+/* Dropdown navigation menu */
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 32px;
+  z-index: 20;
+  min-width: 230px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+}
+.nav-dropdown-head {
+  padding: 8px 12px 6px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.dropdown-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: var(--r-md);
+  color: var(--ink-2);
+  font-weight: 650;
+  font-size: 0.92rem;
+}
+.dropdown-item:hover { background: var(--soft-2); color: var(--ink); }
+.dropdown-item.active {
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+}
+.nav-dropdown-sections {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--line);
+}
+.nav-dropdown-subhead {
+  padding: 6px 12px 4px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--r-md);
+  color: var(--ink-2);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.dropdown-toggle:hover { background: var(--soft-2); }
 
 .role-tabs {
   grid-column: 1;
@@ -2536,7 +2626,6 @@ body.doctor-shell .app-shell {
   padding: 0;
 }
 
-body.doctor-shell .topbar,
 body.doctor-shell .role-tabs {
   display: none;
 }

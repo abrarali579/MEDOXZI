@@ -310,12 +310,12 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => Array.from(document.querySelectorAll(selector));
 
 const viewTitles = {
-  staff: ["Clinic workspace", "Front desk"],
-  patient: ["Patient workspace", "Patient intake"],
-  doctor: ["Doctor workspace", "Pre-visit review"],
-  records: ["Doctor workspace", "Patient records"],
-  viewer: ["Doctor workspace", "Record viewer"],
-  ops: ["Clinic workspace", "Clinic operations"],
+  staff: ["Medoxzi", "Front desk"],
+  patient: ["Medoxzi", "Patient intake"],
+  doctor: ["Medoxzi", "Pre-visit review"],
+  records: ["Medoxzi", "Patient records"],
+  viewer: ["Medoxzi", "Record viewer"],
+  ops: ["Medoxzi", "Clinic operations"],
 };
 
 function switchView(viewName, options = {}) {
@@ -326,11 +326,18 @@ function switchView(viewName, options = {}) {
     }
   }
   $$(".tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.view === viewName));
+  $$(".dropdown-item").forEach((item) => item.classList.toggle("active", item.dataset.view === viewName));
   $$(".view").forEach((view) => view.classList.toggle("active", view.id === `view-${viewName}`));
   document.body.classList.toggle("doctor-shell", viewName === "doctor");
   const [context, title] = viewTitles[viewName] || viewTitles.doctor;
-  $("#topbarContext").textContent = context;
-  $("#topbarTitle").textContent = title;
+  $(".nav-dropdown-head").textContent = "MEDOXZI";
+  const sectionsBlock = $("#navSections");
+  if (sectionsBlock) sectionsBlock.hidden = viewName !== "doctor";
+  const contextEl = $("#topbarContext");
+  if (contextEl) contextEl.textContent = context;
+  const titleEl = $("#topbarTitle");
+  if (titleEl) titleEl.textContent = title;
+  if (typeof window.closeNavMenu === "function") window.closeNavMenu();
 }
 
 function currentQueuePatient() {
@@ -1140,10 +1147,51 @@ document.addEventListener("DOMContentLoaded", () => {
   showStep(0);
   renderDoctorBrief();
 
-  $$(".tab").forEach((tab) => tab.addEventListener("click", () => switchView(tab.dataset.view)));
+  $$(".dropdown-item").forEach((item) => item.addEventListener("click", () => switchView(item.dataset.view)));
   $$("[data-jump]").forEach((button) =>
     button.addEventListener("click", () => switchView(button.dataset.jump)),
   );
+
+  // 3-dots navigation menu open/close
+  const navMenuBtn = $("#navMenuBtn");
+  const navDropdown = $("#navDropdown");
+  function toggleNavMenu() {
+    const open = navDropdown.hidden;
+    navDropdown.hidden = !open;
+    navMenuBtn.setAttribute("aria-expanded", String(open));
+  }
+  window.closeNavMenu = function () {
+    if (navDropdown && !navDropdown.hidden) {
+      navDropdown.hidden = true;
+      navMenuBtn.setAttribute("aria-expanded", "false");
+    }
+  };
+  navMenuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleNavMenu();
+  });
+  document.addEventListener("click", (e) => {
+    if (!navDropdown.hidden && !navDropdown.contains(e.target) && !navMenuBtn.contains(e.target)) {
+      closeNavMenu();
+    }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeNavMenu();
+  });
+  navDropdown.addEventListener("click", (e) => e.stopPropagation());
+
+  // Pre-visit extra-section toggles (Intake responses / Doctor entry)
+  const toggleIntake = $("#toggleIntakeAnswers");
+  const toggleDoctor = $("#toggleDoctorEntry");
+  function applySectionToggles() {
+    const intakeCard = document.querySelector("#view-doctor .intake-card");
+    const doctorEntryCard = document.querySelector("#view-doctor .doctor-entry-card");
+    if (intakeCard) intakeCard.style.display = toggleIntake.checked ? "" : "none";
+    if (doctorEntryCard) doctorEntryCard.style.display = toggleDoctor.checked ? "" : "none";
+  }
+  if (toggleIntake) toggleIntake.addEventListener("change", applySectionToggles);
+  if (toggleDoctor) toggleDoctor.addEventListener("change", applySectionToggles);
+  window.applySectionToggles = applySectionToggles;
 
   $(".history-clear").addEventListener("click", () => {
     historyFilters.query = "";

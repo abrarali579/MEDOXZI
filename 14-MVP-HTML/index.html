@@ -10,36 +10,29 @@
     <div class="app-shell">
       <header class="topbar">
         <div class="brand-row">
-          <div class="brand-mark" aria-hidden="true">M</div>
+          <button class="icon-button menu-trigger" id="navMenuBtn" type="button" aria-label="Open navigation menu" aria-haspopup="true" aria-expanded="false">
+            <span class="menu-dots" aria-hidden="true">⋯</span>
+          </button>
           <div class="brand-title">
-            <p class="eyebrow" id="topbarContext">Doctor workspace</p>
+            <p class="eyebrow" id="topbarContext">Medoxzi</p>
             <h1 id="topbarTitle">Pre-visit review</h1>
           </div>
         </div>
-        <div class="topbar-meta">
-          <span class="clinic-select">Demo Clinic <span aria-hidden="true">⌄</span></span>
-          <span class="sync-chip" id="syncChip"><span class="dot live"></span>Live</span>
-          <span class="status-pill safe">Synthetic prototype</span>
-          <span class="doctor-avatar" aria-hidden="true">DA</span>
-        </div>
-      </header>
-
-      <nav class="role-tabs" aria-label="Prototype views">
-        <div class="sidebar-brand" aria-hidden="true">
-          <div class="brand-mark">M</div>
-          <div>
-            <strong>Medoxzi</strong>
-            <span>Pre-Round</span>
+        <div class="nav-dropdown" id="navDropdown" role="menu" hidden>
+          <div class="nav-dropdown-head">MEDOXZI</div>
+          <button class="dropdown-item" role="menuitem" data-view="staff">Front desk</button>
+          <button class="dropdown-item" role="menuitem" data-view="patient">Patient intake</button>
+          <button class="dropdown-item" role="menuitem" data-view="doctor">Pre-visit review</button>
+          <button class="dropdown-item" role="menuitem" data-view="records">Patient records</button>
+          <button class="dropdown-item" role="menuitem" data-view="viewer">Record viewer</button>
+          <button class="dropdown-item" role="menuitem" data-view="ops">Clinic operations</button>
+          <div class="nav-dropdown-sections" id="navSections" hidden>
+            <div class="nav-dropdown-subhead">Sections</div>
+            <label class="dropdown-toggle"><input type="checkbox" id="toggleIntakeAnswers" checked> Intake responses</label>
+            <label class="dropdown-toggle"><input type="checkbox" id="toggleDoctorEntry" checked> Doctor entry</label>
           </div>
         </div>
-        <button class="tab active" data-view="staff">Front desk</button>
-        <button class="tab" data-view="patient">Patient intake</button>
-        <button class="tab" data-view="doctor">Pre-visit review</button>
-        <button class="tab" data-view="records">Patient records</button>
-        <button class="tab" data-view="viewer">Record viewer</button>
-        <button class="tab" data-view="ops">Clinic operations</button>
-        <div class="sidebar-foot">Demo clinic workspace</div>
-      </nav>
+      </header>
 
       <main>
         <section id="view-welcome" class="view active">

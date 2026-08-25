@@ -3,6 +3,48 @@
 **Append-only.** Newest first. Every entry answers: WHAT · WHY · EVIDENCE · NEXT · WHY NEXT · HOW.
 
 ---
+## 2026-08-25 - Session AE - Clean topbar + 3-dots collapsing navigation menu
+
+**WHAT**
+- Updated only `14-MVP-HTML/` (index.html, styles.css, app.js).
+- Removed the global topbar/sidebar chrome on all screens: `Demo Clinic` selector, `Live` chip,
+  `Synthetic prototype` chip, the brand-mark `M` logo, and the whole `nav.role-tabs` sidebar
+  (brand logo, the 6 view tabs, the "Demo clinic workspace" footer box).
+- Replaced navigation with a single 3-dots `⋯` button at the top-left of the topbar that opens a
+  dropdown of the 6 views (Front desk, Patient intake, Pre-visit review, Patient records, Record
+  viewer, Clinic operations). Active view is highlighted in the dropdown.
+- On Pre-visit review the same dropdown gains a SECTIONS group with two checkboxes — "Intake
+  responses" and "Doctor entry" — that toggle those two doctor cards.
+- Breadcrumb eyebrow now always reads `Medoxzi`; topbar title shows the current screen name.
+- `.app-shell` switched from 2-column grid (286px sidebar + main) to block (full-width content).
+
+**WHY**
+Abrar's preference: the workspace should be the focus and the header chrome was taking too much
+space. Navigation tucked behind a compact 3-dots menu; on Pre-visit review the extra doctor
+sections collapse behind toggles (the layout itself was already good there). Pure visual/layout —
+no clinical rule, safety gate, or data logic touched.
+
+**EVIDENCE**
+- Baseline green: `pytest` 100 passed, `harness.run` VERDICT: PASS, `demo.py` runs clean,
+  `node --check 14-MVP-HTML/app.js` OK.
+- Live browser: 3-dots menu opens/closes, all 6 nav items switch views, Pre-visit SECTIONS
+  checkboxes hide/show the "Intake responses" / "Doctor entry" cards, 0 console errors.
+- Full detail: `_OPS/SESSION-LOG/2026-08-25-AE-topbar-3dots-menu.md`; VERIFICATION-LOG V-2026-08-25-AE-01.
+
+**NEXT**
+Founder `git add` + commit + push the three files; Vercel auto-redeploys `medoxzi.vercel.app`.
+Review the compact header on desktop and mobile/tablet.
+
+**WHY NEXT**
+Only after redeploy does the founder see the new header in production.
+
+**HOW**
+`git add 14-MVP-HTML/index.html 14-MVP-HTML/styles.css 14-MVP-HTML/app.js && git commit && git push`.
+Vercel (GitHub import) deploys on push. Local preview: `node --check 14-MVP-HTML/app.js`; open
+`14-MVP-HTML/index.html` or serve with the Python310 `-m http.server 8765` tutorial.
+
+---
+
 ## 2026-08-25 - Session AD - Compact landscape Pre-Visit Review
 
 **WHAT**

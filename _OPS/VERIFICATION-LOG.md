@@ -2998,3 +2998,41 @@ No diagnostic/differential vocabulary present in any patient-facing question.
   ```
 - **Vercel connector note:** `_deploy_to_vercel` returned `INVALID_ARGUMENT`; `list_teams` found `team_kpCCSsj8kNSjErilRR3lmy77`, but `list_projects` returned an empty list. Production still updated through the Git push and was verified by live browser/API checks.
 - **Verdict:** ✅ **CONFIRMED** — production is live with the compact doctor Pre-Visit Review UI and the API crash path remains healthy.
+## V-2026-08-25-AE-01 — Topbar cleanup + 3-dots collapsing nav (14-MVP-HTML)
+
+**Scope:** UI-only. Files: `14-MVP-HTML/index.html`, `14-MVP-HTML/styles.css`, `14-MVP-HTML/app.js`.
+
+**Baseline (re-ran after change):**
+```bash
+cd D:/MEDOXZI/11-Prototype
+C:/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m pytest tests/ -q
+```
+```
+100 passed in 0.39s
+```
+```bash
+C:/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m harness.run
+```
+```
+VERDICT: PASS
+```
+```bash
+C:/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe demo.py | tail -6
+```
+```
+  Every behaviour above is deterministic and unit-tested.
+```
+```bash
+node --check 14-MVP-HTML/app.js
+```
+```
+app.js OK
+```
+
+**Browser (served localhost:8765):** 3-dots menu opens dropdown with all 6 nav items; clicking
+"Front desk" switches view + closes menu; on Pre-visit review the dropdown shows a SECTIONS
+group with "Intake responses" / "Doctor entry" checkboxes; unchecking "Intake responses"
+hides that card (confirmed via accessibility tree — article removed). `browser_console`
+reported 0 messages / 0 errors.
+
+**Verdict:** ✅ CONFIRMED — compact topbar + 3-dots nav works, baseline green, no JS errors.
