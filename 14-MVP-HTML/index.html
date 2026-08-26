@@ -206,9 +206,11 @@
 
               <section class="intake-step" data-step="3">
                 <h2 id="questionTitle">Preparing focused questions</h2>
+                <div class="interview-progress" id="interviewProgress" aria-hidden="true">
+                  <span id="interviewProgressFill" class="interview-progress-fill"></span>
+                </div>
                 <div id="questionLoading" class="processing-box" hidden>
-                  <div class="spinner" aria-hidden="true"></div>
-                  <p class="processing-text">Reviewing your note...</p>
+                  <p class="processing-text">Thinking about what to ask next...</p>
                 </div>
                 <p id="questionText" class="question-text" hidden></p>
                 <div class="answer-grid" id="answerGrid" hidden>
@@ -220,33 +222,43 @@
                 <div id="answerSummary" class="answer-summary"></div>
               </section>
 
-              <section class="intake-step" data-step="4">
-                <h2>Review before submission</h2>
-                <div id="reviewList" class="review-list"></div>
-                <div class="upload-box inline-top">
-                  <input id="reportInput" type="file" multiple>
-                  <strong>No previous reports uploaded</strong>
-                  <span>Attach lab results, imaging, prescriptions, or referral notes if available.</span>
-                  <label for="reportInput" class="secondary upload-trigger">Upload file</label>
-                  <div id="fileList" class="file-list">No reports attached. This is normal for a first visit.</div>
+              <section class="intake-step review-step" data-step="4">
+                <div class="review-split">
+                  <div class="review-left">
+                    <h2>Review before submission</h2>
+                    <div id="reviewList" class="review-list"></div>
+                    <div class="upload-box">
+                      <input id="reportInput" type="file" multiple>
+                      <strong>No previous reports uploaded</strong>
+                      <span>Attach lab results, imaging, prescriptions, or referral notes if available.</span>
+                      <label for="reportInput" class="secondary upload-trigger">Upload file</label>
+                      <div id="fileList" class="file-list">No reports attached. This is normal for a first visit.</div>
+                    </div>
+                  </div>
+                  <div class="review-right">
+                    <div class="consent-block">
+                      <h3 class="subsection">Required consents</h3>
+                      <label class="check-row fixed">
+                        <input type="checkbox" checked disabled>
+                        <span>Share my answers with my doctor</span>
+                      </label>
+                      <label class="check-row">
+                        <input id="aiConsent" type="checkbox">
+                        <span>Prepare a structured pre-visit brief for my doctor</span>
+                      </label>
+                      <label class="check-row">
+                        <input id="clinicCommsConsent" type="checkbox">
+                        <span>Allow clinic-owned reminders and follow-up check-ins</span>
+                      </label>
+                      <p class="small-note">Optional choices can be turned off. Your visit continues normally.</p>
+                    </div>
+                    <div class="review-qa">
+                      <h3 class="subsection">Your answers</h3>
+                      <div id="reviewAnswers" class="answer-summary"></div>
+                    </div>
+                    <button id="submitIntake" class="primary full" type="button">Submit intake</button>
+                  </div>
                 </div>
-                <div class="consent-block">
-                  <h3 class="subsection">Required consents</h3>
-                  <label class="check-row fixed">
-                    <input type="checkbox" checked disabled>
-                    <span>Share my answers with my doctor</span>
-                  </label>
-                  <label class="check-row">
-                    <input id="aiConsent" type="checkbox">
-                    <span>Prepare a structured pre-visit brief for my doctor</span>
-                  </label>
-                  <label class="check-row">
-                    <input id="clinicCommsConsent" type="checkbox">
-                    <span>Allow clinic-owned reminders and follow-up check-ins</span>
-                  </label>
-                  <p class="small-note">Optional choices can be turned off. Your visit continues normally.</p>
-                </div>
-                <button id="submitIntake" class="primary full" type="button">Submit intake</button>
               </section>
 
               <section class="intake-step done-step" data-step="5">
@@ -309,7 +321,7 @@
                   </div>
                   <div class="allergy-line">
                     <span>Allergies</span>
-                    <strong id="briefAllergies">No known allergies</strong>
+                    <input id="briefAllergies" value="No known allergies" aria-label="Allergies" placeholder="Enter allergies">
                   </div>
                   <div class="vitals-grid">
                     <label>BP <input value="118 / 76" aria-label="Blood pressure"></label>
@@ -336,9 +348,9 @@
                     <span class="status-pill safe">No AI-generated content</span>
                   </div>
                   <div class="diagnosis-grid">
-                    <label>1st priority <input placeholder="Enter diagnosis"></label>
-                    <label>2nd priority <input placeholder="Enter diagnosis"></label>
-                    <label>3rd priority <input placeholder="Enter diagnosis"></label>
+                    <label>1st priority <input placeholder="Enter diagnosis" list="dxTerms"></label>
+                    <label>2nd priority <input placeholder="Enter diagnosis" list="dxTerms"></label>
+                    <label>3rd priority <input placeholder="Enter diagnosis" list="dxTerms"></label>
                   </div>
                   <div class="doctor-choice-group tests-group">
                     <h4>Relevant tests to be performed <span>Doctor-selected</span></h4>
@@ -478,6 +490,37 @@
         </section>
       </main>
     </div>
+
+    <datalist id="dxTerms">
+      <option value="Acute upper respiratory tract infection"></option>
+      <option value="Viral fever"></option>
+      <option value="Bacterial sinusitis"></option>
+      <option value="Acute pharyngitis"></option>
+      <option value="Acute gastroenteritis"></option>
+      <option value="Urinary tract infection"></option>
+      <option value="Tension headache"></option>
+      <option value="Migraine"></option>
+      <option value="Acute bronchitis"></option>
+      <option value="Pneumonia"></option>
+      <option value="Hypertension"></option>
+      <option value="Type 2 diabetes"></option>
+      <option value="Dyslipidemia"></option>
+      <option value="Musculoskeletal pain"></option>
+      <option value="Dengue fever"></option>
+      <option value="Malaria"></option>
+      <option value="Allergic rhinitis"></option>
+      <option value="Asthma"></option>
+      <option value="Iron deficiency anemia"></option>
+      <option value="Peptic ulcer disease"></option>
+      <option value="Gastroesophageal reflux disease"></option>
+      <option value="Acute appendicitis"></option>
+      <option value="Otitis media"></option>
+      <option value="Conjunctivitis"></option>
+      <option value="Cellulitis"></option>
+      <option value="Dehydration"></option>
+      <option value="Heat exhaustion"></option>
+      <option value="No acute illness"></option>
+    </datalist>
 
     <script src="app.js"></script>
   </body>

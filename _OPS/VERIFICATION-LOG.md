@@ -3227,3 +3227,20 @@ scrollWidth==viewport. Topbar height reduced (btn 34px, padding 8px).
 
 **Verdict:** confirmed — spinner only spins during the real LLM call; questions are generated
 adaptively (min 5 / max 12).
+## V-2026-08-25-AG-01 — Intake/doctor UI fix batch (persistence, progress bar, review split, selectable options) (14-MVP-HTML)
+
+**Scope:** UI-only. `index.html`, `styles.css`, `app.js`.
+
+**Verified (localhost:8765, browser, 0 console errors):**
+- Step+answers persist across refresh (localStorage medoxzi_step/medoxzi_answers; restored to step 4
+  with 7 answers after reload).
+- Allergies now editable input; 4 vitals inputs editable.
+- Spinner removed; interview progress bar fills (0% -> 13% after 1 answer, /8).
+- answerSummary max-height 30vh + overflow-y auto (no unbounded page growth).
+- Review step two-pane `.review-split` (0.9fr/1.1fr) at step 4; stacks to 1fr <=680px.
+- 28-term dxTerms datalist wired to the 3 diagnosis inputs.
+- Tests multi-select (CBC+X-ray -> [T,F,T,F,F]) + Plan single-select (last click wins).
+
+**Regression:** pytest 100 passed; `node --check app.js` OK.
+
+**Verdict:** ✅ CONFIRMED — all 7 founder issues addressed and verified on a live render.

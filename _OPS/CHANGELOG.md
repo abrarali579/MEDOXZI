@@ -3,6 +3,35 @@
 **Append-only.** Newest first. Every entry answers: WHAT · WHY · EVIDENCE · NEXT · WHY NEXT · HOW.
 
 ---
+## 2026-08-25 - Session AG - Intake/doctor UI fix batch
+
+**WHAT**
+Fixed 7 founder-reported UI issues in the intake + doctor views: (1) step/answers now persist across
+refresh; (2) Allergies + Vitals made editable; (3) loading circle replaced with an interview progress
+bar that fills toward 100%; (4) accumulated answers capped + scroll (no page growth); (5) review step
+redesigned as a two-pane split (intro left / questions+consent right); (6) clinical word suggestions
+via a dxTerms datalist on the diagnosis inputs; (7) Relevant tests + Plan category now selectable.
+
+**WHY**
+Founder review round raised these issues on the deployed prototype.
+
+**EVIDENCE**
+- Verified live (localhost): persistence, editable inputs, progress bar 0->13%, answerSummary scroll,
+  review two-pane 0.9fr/1.1fr, datalist present, tests multi-select + plan single-select, 0 console errors.
+- Detail: VERIFICATION-LOG V-2026-08-25-AG-01, SESSION-LOG 2026-08-25-AG-intake-doctor-ui-fixes.md.
+
+**NEXT**
+Founder reload `medoxzi.vercel.app` (clear cache) and confirm the 7 fixes on the deployed site,
+including the landscape review two-pane layout.
+
+**WHY NEXT**
+Confirms the changes on Vercel after redeploy.
+
+**HOW**
+Pushed. On phone: clear site data / incognito, reload.
+
+---
+
 ## 2026-08-25 - Session AF - Adaptive AI intake questions + spinner fix
 
 **WHAT**

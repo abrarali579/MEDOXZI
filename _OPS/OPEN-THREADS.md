@@ -205,3 +205,9 @@ Adaptive intake questions deployed: `/api/questions` now returns the next single
 brief + answers so far; frontend fetches after each answer and the spinner only spins during the
 LLM call. Founder to confirm on the deployed site (clear cache / incognito) that the flow branches
 on prior answers and the spinner stops after each question.
+
+## Session AG note:
+Intake/doctor UI fix batch deployed (persistence across refresh, editable allergies/vitals, progress
+bar replaces spinner, capped+scroll answers, two-pane review split, dxTerms datalist, selectable
+tests/plan). Founder to confirm on the deployed site (clear cache / incognito), especially the
+landscape review two-pane layout.

@@ -682,6 +682,7 @@ function renderStepIndicator() {
 
 function showStep(step) {
   state.currentStep = Math.max(0, Math.min(step, 5));
+  try { localStorage.setItem("medoxzi_step", String(state.currentStep)); } catch (e) {}
   $$(".intake-step").forEach((el) => {
     el.classList.toggle("active", Number(el.dataset.step) === state.currentStep);
   });
@@ -703,6 +704,7 @@ function showStep(step) {
     state.aiActive = true;
     state.aiNext = null;
     state.aiDone = false;
+    updateInterviewProgress();
     showQuestionLoading("Reviewing your note...");
     fetchNextAiQuestion().then(() => {
       if (state.currentStep === 3) {
@@ -718,6 +720,18 @@ function showStep(step) {
 }
 
 let _processingActive = false;
+
+/** Update the step-3 interview progress bar toward 100% as questions are answered. */
+function updateInterviewProgress() {
+  const fill = $("#interviewProgressFill");
+  if (!fill) return;
+  const answered = Object.keys(state.answers).length;
+  // Reaches 100% after 8 answers (a sensible interview length), calibrated to the
+  // min-5 / max-12 range so it visibly moves toward 100% with each question.
+  const pct = Math.min(100, Math.round((answered / 8) * 100));
+  fill.style.width = `${pct}%`;
+  fill.parentElement?.setAttribute("aria-valuenow", String(pct));
+}
 
 function showQuestionLoading(processingText) {
   _processingActive = true;
@@ -753,6 +767,7 @@ function renderStaticQuestion() {
   const questions = questionBanks[state.complaint] || questionBanks["Something else"];
   const index = Object.keys(state.answers).length;
   const nextQuestion = questions[Math.min(index, questions.length - 1)];
+  updateInterviewProgress();
   $("#questionTitle").textContent = `Intake question ${Math.min(index + 1, questions.length)} of ${questions.length}`;
   $("#questionText").textContent = nextQuestion.text;
   $("#questionText").hidden = false;
@@ -775,6 +790,7 @@ function renderAiQuestion() {
     showStep(4);
     return;
   }
+  updateInterviewProgress();
   $("#questionTitle").textContent = `Intake question ${answeredCount + 1} (adaptive)`;
   $("#questionText").textContent = q.text;
   $("#questionText").hidden = false;
@@ -903,6 +919,7 @@ async function answerQuestion(answer) {
     }
   }
   renderDoctorBrief();
+  try { localStorage.setItem("medoxzi_answers", JSON.stringify(state.answers)); } catch (e) {}
 }
 
 function renderFiles() {
@@ -955,9 +972,17 @@ function renderReview() {
     ["Reports", state.files.length ? `${state.files.length} attached` : "No previous reports"],
   ];
 
-  $("#reviewList").innerHTML = rows
+  $(".review-list").innerHTML = rows
     .map(([label, value]) => `<div class="review-item"><strong>${label}</strong><span>${value}</span></div>`)
     .join("");
+
+  // Right pane: the patient's accumulating answers (scrolls within).
+  const qa = $("#reviewAnswers");
+  if (qa) {
+    qa.innerHTML = Object.entries(state.answers)
+      .map(([q, a]) => `<div><strong>${q}</strong><br>${a}</div>`)
+      .join("");
+  }
 }
 
 function renderDoctorBrief() {
@@ -1243,7 +1268,20 @@ document.addEventListener("DOMContentLoaded", () => {
   renderHistoryFilters();
   renderHistoryList();
   openHistoryFile(historyPatients[0].pin);
-  showStep(0);
+  // Restore the workflow step across refresh (kept in localStorage by showStep).
+  let savedStep = 0;
+  try { savedStep = Math.max(0, Math.min(Number(localStorage.getItem("medoxzi_step")) || 0, 5)); } catch (e) {}
+  showStep(savedStep);
+  // Restore named values that survive a refresh.
+  try {
+    const savedAnswers = JSON.parse(localStorage.getItem("medoxzi_answers") || "{}");
+    if (savedAnswers && typeof savedAnswers === "object" && !Array.isArray(savedAnswers)) state.answers = savedAnswers;
+    if (state.answers && Object.keys(state.answers).length) {
+      state.aiActive = true;
+      state.aiDone = true; // resume from saved answers; don't re-ask
+      state.aiNext = null;
+    }
+  } catch (e) {}
   renderDoctorBrief();
 
   $$(".dropdown-item").forEach((item) => item.addEventListener("click", () => switchView(item.dataset.view)));
@@ -1430,12 +1468,33 @@ document.addEventListener("DOMContentLoaded", () => {
       state.aiActive = false;
       state.aiNext = null;
       state.aiDone = false;
+      try { localStorage.removeItem("medoxzi_answers"); } catch (e) {}
       $$(".complaint-grid button").forEach((el) => el.classList.remove("selected"));
       button.classList.add("selected");
       setupBriefStep();
       showStep(2);
     });
   });
+
+  // Doctor-entry selectable options: Relevant tests (multi-select) and Plan
+  // category (single-select). Toggle the .selected class.
+  const testsRow = $(".tests-group .choice-row");
+  if (testsRow) {
+    testsRow.addEventListener("click", (e) => {
+      const b = e.target.closest("button");
+      if (!b) return;
+      b.classList.toggle("selected");
+    });
+  }
+  const planRow = $(".plan-group .choice-row");
+  if (planRow) {
+    planRow.addEventListener("click", (e) => {
+      const b = e.target.closest("button");
+      if (!b) return;
+      $$(".plan-group .choice-row button").forEach((o) => o.classList.remove("selected"));
+      b.classList.add("selected");
+    });
+  }
 
   $$(".answer-grid button").forEach((button) => {
     button.addEventListener("click", () => answerQuestion(button.dataset.answer));
