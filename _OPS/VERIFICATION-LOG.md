@@ -3213,3 +3213,17 @@ doctor-main-grid collapses to a single column (339px), doctor-layout 355px (stac
 scrollWidth==viewport. Topbar height reduced (btn 34px, padding 8px).
 
 **Verdict:** ✅ CONFIRMED — safety banner removed, topbar compacted, doctor view clean at phone width.
+## V-2026-08-25-AF-01 — Adaptive AI intake questions + spinner only during LLM calls (14-MVP-HTML)
+
+**Scope:** `api/questions.js`, `server.js`, `app.js`. Feature change (UI + backend contract).
+
+**End-to-end verified (real DEEPSEEK_API_KEY, localhost:8765):**
+- Backend: first question returned (4 options + escape); Q2 branched on answer 1; Q3 branched on
+  answers 1+2; continued past 5 answers.
+- Browser: step 3 spinner shows then STOPS and Q1 -> Q2 -> Q3 -> ... each with spinner stopping;
+  reached review at 8 answers; "8 of 8 answered"; 0 console errors.
+- Regression: pytest 100 passed; harness VERDICT PASS; `node --check` on app.js / api/questions.js /
+  server.js all OK.
+
+**Verdict:** confirmed — spinner only spins during the real LLM call; questions are generated
+adaptively (min 5 / max 12).

@@ -3,6 +3,38 @@
 **Append-only.** Newest first. Every entry answers: WHAT · WHY · EVIDENCE · NEXT · WHY NEXT · HOW.
 
 ---
+## 2026-08-25 - Session AF - Adaptive AI intake questions + spinner fix
+
+**WHAT**
+- Changed `/api/questions` from returning a batch of 4 questions to returning the NEXT single
+  adaptive question given the brief + answers so far.
+- Frontend now fetches the next question after EACH answer (LLM analyzes prior answers), so the
+  interview adapts. Spinner spins only during the real LLM call, then stops.
+- Enforces min 5 / max 12 questions client-side; falls back to the static bank on error.
+
+**WHY**
+Founder asked: (1) the loading circle was spinning continuously — it should spin only while the
+LLM is actually generating; (2) make the question flow adaptive (brief -> Q1 -> analyze -> Q2 ->
+analyze Q1+Q2 -> Q3 ...), at least 5 questions.
+
+**EVIDENCE**
+- Backend + browser E2E verified with real key: questions branch on prior answers (Q2 on answer 1,
+  Q3 on 1+2); spinner stops after each question; reached review at 8 answers.
+- pytest 100 passed; harness VERDICT PASS; node --check OK.
+- Detail: VERIFICATION-LOG V-2026-08-25-AF-01, SESSION-LOG 2026-08-25-AF-adaptive-intake-questions.md.
+
+**NEXT**
+Founder reload `medoxzi.vercel.app` (clear cache if needed) and walks the intake flow to confirm the
+adaptive questions + spinner behaviour on the deployed site.
+
+**WHY NEXT**
+Confirms the new contract works on Vercel (serverless function) with the real key.
+
+**HOW**
+Pushed. On phone: clear site data / incognito, reload, walk the intake flow.
+
+---
+
 ## 2026-08-25 - Session AE (rev v5) - Remove overlapping safety banner + compact 3-dots
 
 **WHAT**

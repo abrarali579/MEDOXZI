@@ -3,8 +3,8 @@
  *
  * Serves the 14-MVP-HTML prototype and exposes one API endpoint:
  *   POST /api/questions
- *     body: { brief: string, complaint: string }
- *     ->   { ok: true, suggested: [{text, options[4]}], source: "deepseek" }
+ *     body: { brief: string, complaint: string, answers: [{q,a}] }
+ *     ->   { ok: true, source: "deepseek", question: {text, options[4]}, done: boolean }
  *       or { ok: false, error, fallback: true }
  *
  * DeepSeek is the processing LLM for turning a patient's free-text brief into
@@ -38,8 +38,8 @@ function json(res, code, body) {
   res.end(JSON.stringify(body));
 }
 
-/** Ask DeepSeek to turn a patient brief into suggested triage questions. */
-async function suggestQuestions(brief, complaint, patient) {
+/** Ask DeepSeek to give the NEXT adaptive intake question given the brief + answers so far. */
+async function suggestNextQuestion(brief, complaint, patient, answers) {
   if (!API_KEY) {
     return { ok: false, source: "deepseek", error: "NO_API_KEY" };
   }
@@ -55,26 +55,44 @@ async function suggestQuestions(brief, complaint, patient) {
   } else {
     demographics = "Patient age and sex are not provided. ";
   }
-  demographics += "Use the patient's age and sex to tailor the questions where relevant, but never make it awkward.";
+  demographics += "Use the patient's age and sex to tailor the question where relevant, but never make it awkward.";
+
   const sys = [
-    "You act as the intake-triage question suggester inside MEDOXZI, a pre-consultation ",
-    "intake tool for a general clinic. You NEVER diagnose and you NEVER give treatment advice. ",
-    "Your only job: from a patient's short description of why they are visiting, propose at most ",
-    "4 short follow-up questions the patient can answer on the intake tablet so the doctor gets a ",
-    "clearer brief. Each question must have exactly 4 plain-text answer options, and every option ",
-    "must include one escape option when sensible: 'Not sure', \"I don't know\", 'None', etc. ",
+    "You act as the adaptive intake-triage question suggester inside MEDOXZI, a pre-consultation ",
+    "intake tool for a general clinic. You NEVER diagnose and you NEVER give treatment advice, ",
+    "and you never ask for anything the patient cannot know (never ask them for a diagnosis). ",
+    "You are conducting a step-by-step, adaptive interview. One question at a time. ",
     demographics + " ",
+    "You are given: the patient's reason for visiting (complaint), their short brief, and the list ",
+    "of questions the patient has ALREADY answered (as question -> answer pairs). ",
+    "Your job is to ask the SINGLE most useful NEXT question, branching from what they have already ",
+    "said and answered, to progressively sharpen the brief for the doctor. ",
+    "Rules: ",
+    "1) NEVER re-ask or repeat anything the patient already told you or already answered. ",
+    "2) Ask exactly ONE question per response. ",
+    "3) The question must have exactly 4 plain-text answer options; include one escape option when ",
+    "sensible ('Not sure', \"I don't know\", 'None', 'Not asked', etc.). ",
+    "4) Keep all text in clear, simple English. ",
+    "5) When you have gathered enough to give the doctor a useful picture, or when the patient's ",
+    "answers stop adding new information, return done: true and no question. ",
+    "6) Always try to ask at least a few meaningful questions (the client enforces a minimum of 5 ",
+    "and a maximum of 12). ",
     "Respond as strict JSON only — no markdown, no prose, in this shape: ",
-    "{ \"questions\": [{\"text\":\"...\",\"options\":[\"a\",\"b\",\"c\",\"d\"]}], \"alreadyKnown\": [\"...\"] }. ",
-    "alreadyKnown is an optional array of facts the patient already told you that you deliberately ",
-    "did NOT ask again. ",
-    "The 4 questions should branch from what the patient already said, and must never ask for ",
-    "things the patient can't know (never ask for a diagnosis). Keep all text in clear, simple English. ",
-    "IMPORTANT — DO NOT re-ask anything the patient already told you. For example, if the patient gave ",
-    "a start time or duration (e.g. 'since yesterday', 'for 3 days', 'it started last week'), do NOT include ",
-    "a new 'when did it start' / duration / onset question. List those already-known facts in alreadyKnown ",
-    "instead. A patient should never be asked the same thing twice.",
+    '{ "question": {"text":"...","options":["a","b","c","d"]}, "done": false, "reason": "short rationale" }. ',
+    "When done, return { question: null, done: true }.",
   ].join("");
+
+  // Build a readable transcript of the interview so far.
+  const transcript = (Array.isArray(answers) ? answers : [])
+    .map((a, i) => `Q${i + 1}: ${a.q}\nA${i + 1}: ${a.a}`)
+    .join("\n\n");
+
+  const user = [
+    `Selected reason: ${complaint}.`,
+    `Patient's brief: "${brief}".`,
+    transcript ? `Interview so far:\n${transcript}` : "No questions answered yet (this is the first question).",
+    `Ask the single most relevant next question now.`,
+  ].join("\n");
 
   const res = await fetch("https://api.deepseek.com/chat/completions", {
     method: "POST",
@@ -88,10 +106,7 @@ async function suggestQuestions(brief, complaint, patient) {
       response_format: { type: "json_object" },
       messages: [
         { role: "system", content: sys },
-        {
-          role: "user",
-          content: `Selected reason: ${complaint}. Patient says: "${brief}".`,
-        },
+        { role: "user", content: user },
       ],
     }),
   });
@@ -112,25 +127,27 @@ async function suggestQuestions(brief, complaint, patient) {
     if (m) parsed = JSON.parse(m[1]);
   }
 
-  const raw = parsed?.questions;
-  if (!Array.isArray(raw)) return { ok: false, source: "deepseek", error: "BAD_RESPONSE" };
+  const q = parsed?.question || parsed?.next_question || null;
+  const done = Boolean(parsed?.done);
 
-  // Clamp to 4 questions, each 4 options, keep only string fields.
-  const suggested = raw
-    .slice(0, 4)
-    .map((q) => {
-      const opts = Array.isArray(q.options) ? q.options.map(String).slice(0, 4) : [];
-      return { text: String(q.text || "").trim(), options: opts };
-    })
-    .filter((q) => q.text && q.options.length === 4);
+  if (done || !q) {
+    return { ok: true, source: "deepseek", question: null, done: true };
+  }
 
-  const alreadyKnown = Array.isArray(parsed?.alreadyKnown)
-    ? parsed.alreadyKnown.map(String).slice(0, 8).filter(Boolean)
-    : [];
+  const opts = Array.isArray(q.options) ? q.options.map(String).slice(0, 4) : [];
+  const text = String(q.text || "").trim();
+  if (!text || opts.length !== 4) {
+    // Invalid question shape — treat as done so the client stops cleanly.
+    return { ok: true, source: "deepseek", question: null, done: true };
+  }
 
-  return suggested.length
-    ? { ok: true, source: "deepseek", suggested, alreadyKnown }
-    : { ok: false, source: "deepseek", error: "EMPTY_SUGGESTIONS" };
+  return {
+    ok: true,
+    source: "deepseek",
+    question: { text, options: opts },
+    done: false,
+    reason: String(parsed?.reason || "").trim(),
+  };
 }
 
 const server = createServer(async (req, res) => {
@@ -163,9 +180,12 @@ const server = createServer(async (req, res) => {
       age: String(payload.age || "").trim(),
       sex: String(payload.sex || "").trim(),
     };
+    const answers = Array.isArray(payload.answers)
+      ? payload.answers.slice(0, 12).map((a) => ({ q: String(a?.q || "").trim(), a: String(a?.a || "").trim() }))
+      : [];
 
     try {
-      const result = await suggestQuestions(brief.slice(0, 1200), complaint, patient);
+      const result = await suggestNextQuestion(brief.slice(0, 1200), complaint, patient, answers);
       // Cleanup: never echo the API key or raw HTTP bodies containing it.
       delete result.raw;
       return json(res, result.ok ? 200 : 200, result); // 200 even for fallback so client can decide

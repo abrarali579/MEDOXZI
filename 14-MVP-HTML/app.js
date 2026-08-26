@@ -9,6 +9,10 @@ const state = {
   doctorSaved: false,
   aiQuestions: null,
   aiBriefKey: "",
+  // Adaptive AI interview state.
+  aiActive: false,
+  aiNext: null,
+  aiDone: false,
 };
 
 const questionBanks = {
@@ -51,6 +55,10 @@ const questionBanks = {
 };
 
 function activeQuestions() {
+  // When the adaptive AI flow is active, the "list" is just the current question.
+  if (state.aiActive && state.aiNext) {
+    return [state.aiNext];
+  }
   if (state.aiQuestions && state.aiQuestions.length) {
     return state.aiQuestions;
   }
@@ -689,11 +697,18 @@ function showStep(step) {
   $("#skipStep").style.display = "none";
 
   if (state.currentStep === 3) {
-    showQuestionLoading();
-    ensureAISuggestions().then(() => {
+    // Reset any previous adaptive flow, then begin: show spinner and ask the LLM
+    // for the FIRST question based on the brief. Spinner only spins during the
+    // actual LLM call; once a question returns it stops and the question shows.
+    state.aiActive = true;
+    state.aiNext = null;
+    state.aiDone = false;
+    showQuestionLoading("Reviewing your note...");
+    fetchNextAiQuestion().then(() => {
       if (state.currentStep === 3) {
-        hideQuestionLoading();
-        renderQuestion();
+        if (state.aiActive && state.aiNext) renderAiQuestion();
+        else if (!state.aiActive) renderStaticQuestion();
+        else showStep(4); // AI started but stopped immediately (done) -> review
       }
     });
   }
@@ -704,10 +719,14 @@ function showStep(step) {
 
 let _processingActive = false;
 
-function showQuestionLoading() {
+function showQuestionLoading(processingText) {
   _processingActive = true;
   const ql = $("#questionLoading");
-  if (ql) ql.hidden = false;
+  if (ql) {
+    const tip = ql.querySelector(".processing-text");
+    if (tip && processingText) tip.textContent = processingText;
+    ql.hidden = false;
+  }
   ["#questionText", "#answerGrid"].forEach((sel) => {
     const el = $(sel);
     if (el) el.hidden = true;
@@ -724,8 +743,14 @@ function hideQuestionLoading() {
   });
 }
 
-function renderQuestion() {
-  const questions = activeQuestions();
+function renderAnswerSummary() {
+  $("#answerSummary").innerHTML = Object.entries(state.answers)
+    .map(([question, answer]) => `<div><strong>${question}</strong><br>${answer}</div>`)
+    .join("");
+}
+
+function renderStaticQuestion() {
+  const questions = questionBanks[state.complaint] || questionBanks["Something else"];
   const index = Object.keys(state.answers).length;
   const nextQuestion = questions[Math.min(index, questions.length - 1)];
   $("#questionTitle").textContent = `Intake question ${Math.min(index + 1, questions.length)} of ${questions.length}`;
@@ -739,64 +764,143 @@ function renderQuestion() {
     button.hidden = !option;
     button.classList.remove("selected");
   });
-  $("#answerSummary").innerHTML = Object.entries(state.answers)
-    .map(([question, answer]) => `<div><strong>${question}</strong><br>${answer}</div>`)
-    .join("");
+  renderAnswerSummary();
 }
 
-async function ensureAISuggestions() {
+function renderAiQuestion() {
+  const answeredCount = Object.keys(state.answers).length;
+  const q = state.aiNext;
+  if (!q) {
+    // Nothing more to ask; move on.
+    showStep(4);
+    return;
+  }
+  $("#questionTitle").textContent = `Intake question ${answeredCount + 1} (adaptive)`;
+  $("#questionText").textContent = q.text;
+  $("#questionText").hidden = false;
+  $("#answerGrid").hidden = false;
+  $$(".answer-grid button").forEach((button, optionIndex) => {
+    const option = q.options[optionIndex];
+    button.textContent = option;
+    button.dataset.answer = option;
+    button.hidden = !option;
+    button.classList.remove("selected");
+  });
+  renderAnswerSummary();
+}
+
+function renderQuestion() {
+  if (state.aiActive) {
+    renderAiQuestion();
+    return;
+  }
+  renderStaticQuestion();
+}
+
+function buildAnswersArray() {
+  return Object.entries(state.answers).map(([q, a]) => ({ q, a }));
+}
+
+/**
+ * Fetch the NEXT single adaptive question from the backend, given the brief
+ * and all the patient's answers so far. Shows the spinner only while the LLM
+ * is actually generating, then hides it once a question (or a done signal)
+ * returns. Enforces min 5 / max 12 questions client-side.
+ */
+async function fetchNextAiQuestion() {
+  if (!state.aiActive) return;
   const brief = ($("#issueText")?.value || "").trim();
   const complaint = state.complaint;
   const age = ($("#intakeAge")?.value || "").trim();
   const sex = ($("#intakeSex")?.value || "").trim();
-  const key = `${complaint}|${brief}`;
-  if (state.aiQuestions && state.aiBriefKey === key) {
-    return; // already have suggestions for this brief
-  }
-  if (!brief) {
-    // No brief yet: nothing to suggest from. No system text shown to patient.
-    state.aiQuestions = null;
-    state.aiBriefKey = "";
-    return;
-  }
+  const answers = buildAnswersArray();
+  const answeredCount = answers.length;
+
+  // Spinner only during the real LLM round-trip.
+  showQuestionLoading("Thinking about what to ask next...");
+
   try {
     const res = await fetch("/api/questions", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ brief: brief.slice(0, 1200), complaint, age, sex }),
+      body: JSON.stringify({ brief: brief.slice(0, 1200), complaint, age, sex, answers }),
     });
     const data = await res.json();
-    // Only apply if the brief hasn't changed since we dispatched.
-    if (key !== `${state.complaint}|${($("#issueText")?.value || "").trim()}`) return;
-    if (data && data.ok && Array.isArray(data.suggested) && data.suggested.length) {
-      state.aiQuestions = data.suggested;
-      state.aiBriefKey = key;
-      // Reset answers so the (possibly different) AI questions start fresh.
-      state.answers = {};
-      if (state.currentStep === 3) renderQuestion();
-      renderDoctorBrief();
+
+    if (data && data.ok && data.question && Array.isArray(data.question.options)) {
+      state.aiNext = { text: data.question.text, options: data.question.options.slice(0, 4) };
+      state.aiDone = false;
     } else {
-      // Fallback to the static set.
-      state.aiQuestions = null;
-      state.aiBriefKey = "";
+      // No question back (done signal, or fallback). If we're still below the
+      // minimum of 5, top up from the static bank so the flow never drops short.
+      if (answers.length < 5 && staticFillQuestion()) {
+        return; // staticFillQuestion set state.aiNext; keep the flow going
+      }
+      state.aiNext = null;
+      state.aiDone = true;
     }
   } catch (err) {
-    // Local server not running -> static set.
-    state.aiQuestions = null;
-    state.aiBriefKey = "";
+    // Network / backend unavailable — fall back to the static bank from here.
+    state.aiActive = false;
+    state.aiNext = null;
+    state.aiDone = true;
+    if (buildAnswersArray().length < 5) staticFillQuestion();
+  } finally {
+    hideQuestionLoading();
   }
 }
 
-function answerQuestion(answer) {
-  const questions = activeQuestions();
-  const index = Object.keys(state.answers).length;
-  const question = questions[Math.min(index, questions.length - 1)];
-  state.answers[question.text] = answer;
+/**
+ * If the LLM stops early (done) or errors before we've asked min 5 questions,
+ * fill the remainder from the static bank for the current complaint so we never
+ * drop below the minimum. Skips questions already asked.
+ */
+function staticFillQuestion() {
+  const asked = new Set(Object.keys(state.answers));
+  const bank = questionBanks[state.complaint] || questionBanks["Something else"];
+  const next = bank.find((q) => !asked.has(q.text));
+  if (next) {
+    state.aiNext = next;
+    state.aiDone = false;
+    return true;
+  }
+  return false;
+}
 
-  if (Object.keys(state.answers).length >= questions.length) {
-    showStep(4);
+async function answerQuestion(answer) {
+  const answeredCount = Object.keys(state.answers).length;
+
+  if (state.aiActive) {
+    if (!state.aiNext) {
+      showStep(4);
+      return;
+    }
+    state.answers[state.aiNext.text] = answer;
+    renderAnswerSummary();
+
+    // Enforce min 5 / max 12: keep asking until we've hit the floor of 5 (or the
+    // LLM genuinely has nothing more to ask) AND the LLM is done, capped at 12.
+    const nextCount = Object.keys(state.answers).length;
+    const tooMany = nextCount >= 12;
+    const llmDone = Boolean(state.aiDone) && nextCount >= 5;
+    if (tooMany || llmDone) {
+      state.aiNext = null;
+      showStep(4);
+    } else {
+      await fetchNextAiQuestion();
+      if (state.currentStep === 3) renderAiQuestion();
+    }
   } else {
-    renderQuestion();
+    // Static bank path (offline / fallback).
+    const questions = questionBanks[state.complaint] || questionBanks["Something else"];
+    const index = answeredCount;
+    const question = questions[Math.min(index, questions.length - 1)];
+    state.answers[question.text] = answer;
+    if (Object.keys(state.answers).length >= questions.length) {
+      showStep(4);
+    } else {
+      renderQuestion();
+    }
   }
   renderDoctorBrief();
 }
@@ -881,7 +985,8 @@ function renderDoctorBrief() {
   const answerEntries = Object.entries(state.answers);
   const answerCount = $("#answerCount");
   if (answerCount) {
-    answerCount.textContent = `${answerEntries.length} of ${questions.length} answered`;
+    const total = state.aiActive ? Math.max(5, Math.min(12, answerEntries.length)) : questions.length;
+    answerCount.textContent = `${answerEntries.length} of ${total} answered`;
   }
   $("#briefAnswers").innerHTML = answerEntries.length
     ? answerEntries.map(
@@ -1322,6 +1427,9 @@ document.addEventListener("DOMContentLoaded", () => {
       state.answers = {};
       state.aiQuestions = null;
       state.aiBriefKey = "";
+      state.aiActive = false;
+      state.aiNext = null;
+      state.aiDone = false;
       $$(".complaint-grid button").forEach((el) => el.classList.remove("selected"));
       button.classList.add("selected");
       setupBriefStep();

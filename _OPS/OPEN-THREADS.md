@@ -199,3 +199,9 @@
 
 ### OT-13 · Three unretrieved papers
 - `01-Research/Research-Log.md` R-07..R-09. No effect size from them is quoted anywhere. Retrieve via institutional access when convenient.
+
+## Session AF note:
+Adaptive intake questions deployed: `/api/questions` now returns the next single question given the
+brief + answers so far; frontend fetches after each answer and the spinner only spins during the
+LLM call. Founder to confirm on the deployed site (clear cache / incognito) that the flow branches
+on prior answers and the spinner stops after each question.
