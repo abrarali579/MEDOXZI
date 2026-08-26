@@ -211,3 +211,9 @@ Intake/doctor UI fix batch deployed (persistence across refresh, editable allerg
 bar replaces spinner, capped+scroll answers, two-pane review split, dxTerms datalist, selectable
 tests/plan). Founder to confirm on the deployed site (clear cache / incognito), especially the
 landscape review two-pane layout.
+
+## Session AH note:
+Intake questioner polish deployed: single progress bar with numeric %, "thinking" text removed,
+question+options hide/reappear together (no jump), never-re-ask prompt strengthened (no onset/duration
+re-ask), patient + welcome screens widened to 1080px (doctor view unchanged). Founder to confirm on the
+deployed site (clear cache / incognito).

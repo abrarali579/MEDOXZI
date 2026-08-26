@@ -1046,6 +1046,14 @@ textarea {
   line-height: 1.45;
   margin: 6px 0 16px;
 }
+/* The question + options live in a block that reserves its height so hiding the
+   question text and swapping options doesn't cause a vertical jump. */
+.question-block {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 .inline-top { margin-top: 14px; }
 
 .pill {
@@ -1709,7 +1717,7 @@ textarea::placeholder {
 }
 
 .patient-card {
-  width: min(520px, 100%);
+  width: min(1080px, 100%);
   min-height: 720px;
 }
 
@@ -1784,7 +1792,7 @@ textarea::placeholder {
 }
 
 .welcome-panel {
-  max-width: 660px;
+  max-width: 1080px;
   margin: 7vh auto 0;
   padding: 42px;
   border: 1px solid var(--line);

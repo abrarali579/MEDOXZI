@@ -3,6 +3,35 @@
 **Append-only.** Newest first. Every entry answers: WHAT · WHY · EVIDENCE · NEXT · WHY NEXT · HOW.
 
 ---
+## 2026-08-25 - Session AH - Intake questioner polish + wider screens
+
+**WHAT**
+(1) Consolidated 3 green progress lines into ONE bar with a numeric percentage; (2) removed the
+"Thinking about what to ask next..." text; (3) fixed the answer-click glitch so the question and its
+options hide/reappear together in a fixed-height block (no stale options, no jump); (4) strengthened
+the never-re-ask prompt so the LLM no longer re-asks onset/duration when the brief already states it;
+(5) widened the patient + welcome screens to fill the tablet (doctor view unchanged).
+
+**WHY**
+Founder review round 2 raised these issues on the deployed prototype.
+
+**EVIDENCE**
+- Verified live (localhost): single bar + numeric %, no thinking text, question/options toggle together,
+  no timing re-ask (brief "3 days ago" -> pain-type question), patient-card 1080px, 0 console errors.
+- Detail: VERIFICATION-LOG V-2026-08-25-AH-01, SESSION-LOG 2026-08-25-AH-intake-questioner-polish.md.
+
+**NEXT**
+Founder reload `medoxzi.vercel.app` (clear cache) and confirm the single progress bar, no re-ask, no
+jump, and wider screens on the deployed site.
+
+**WHY NEXT**
+Confirms the changes on Vercel after redeploy (including the updated never-re-ask prompt).
+
+**HOW**
+Pushed. On phone/tablet: clear site data / incognito, reload.
+
+---
+
 ## 2026-08-25 - Session AG - Intake/doctor UI fix batch
 
 **WHAT**

@@ -3244,3 +3244,20 @@ adaptively (min 5 / max 12).
 **Regression:** pytest 100 passed; `node --check app.js` OK.
 
 **Verdict:** ✅ CONFIRMED — all 7 founder issues addressed and verified on a live render.
+## V-2026-08-25-AH-01 — Intake questioner polish + wider screens (single progress bar, no thinking text, no re-ask, no jump) (14-MVP-HTML)
+
+**Scope:** `index.html`, `styles.css`, `app.js`, `api/questions.js`, `server.js`.
+
+**Verified (localhost, real key, 0 console errors):**
+- Single progress bar with numeric `#stepPct`; `#stepIndicator` + `#interviewProgress` + `#questionLoading`
+  (thinking text) all removed.
+- Step 3: question "How would you describe the pain in your knee?" (brief said "started 3 days ago" —
+  no timing re-ask); progress 0% -> 13% after 1 answer.
+- Answer click: `#questionText` + `#answerGrid` hide together, reappear together (no stale options /
+  jump); `.question-block` min-height 150px.
+- Backend never-re-ask prompt: brief "knee pain started 3 days ago" -> Q1 characterizes pain.
+- Width: patient-card `min(1080px,100%)`, welcome `max-width 1080px`; doctor view unchanged.
+
+**Regression:** pytest 100 passed; `node --check` on app.js / api/questions.js / server.js OK.
+
+**Verdict:** ✅ CONFIRMED — all 5 founder issues addressed and verified on a live render.

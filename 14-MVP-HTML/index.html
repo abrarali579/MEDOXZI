@@ -138,9 +138,8 @@
                   <p id="stepLabel" class="eyebrow">Step 1 of 7</p>
                   <div class="progress-track"><span id="progressBar"></span></div>
                 </div>
+                <span id="stepPct" class="step-pct">0%</span>
               </div>
-
-              <div class="step-indicator" id="stepIndicator" aria-hidden="true"></div>
 
               <section class="intake-step active" data-step="0">
                 <h2>Confirm your details</h2>
@@ -206,18 +205,14 @@
 
               <section class="intake-step" data-step="3">
                 <h2 id="questionTitle">Preparing focused questions</h2>
-                <div class="interview-progress" id="interviewProgress" aria-hidden="true">
-                  <span id="interviewProgressFill" class="interview-progress-fill"></span>
-                </div>
-                <div id="questionLoading" class="processing-box" hidden>
-                  <p class="processing-text">Thinking about what to ask next...</p>
-                </div>
-                <p id="questionText" class="question-text" hidden></p>
-                <div class="answer-grid" id="answerGrid" hidden>
-                  <button type="button"></button>
-                  <button type="button"></button>
-                  <button type="button"></button>
-                  <button type="button"></button>
+                <div class="question-block" id="questionBlock">
+                  <p id="questionText" class="question-text" hidden></p>
+                  <div class="answer-grid" id="answerGrid" hidden>
+                    <button type="button"></button>
+                    <button type="button"></button>
+                    <button type="button"></button>
+                    <button type="button"></button>
+                  </div>
                 </div>
                 <div id="answerSummary" class="answer-summary"></div>
               </section>

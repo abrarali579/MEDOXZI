@@ -669,15 +669,22 @@ function clearIntakeDraft({ keepIdentity = true } = {}) {
   $$(".complaint-grid button").forEach((button) => button.classList.remove("selected"));
 }
 
-function renderStepIndicator() {
-  const el = $("#stepIndicator");
-  if (!el) return;
+function updateSingleProgress() {
+  const bar = $("#progressBar");
+  const pctEl = $("#stepPct");
+  if (!bar) return;
+  let pct = 0;
   const total = 6;
-  const cur = state.currentStep;
-  el.innerHTML = Array.from({ length: total }, (_, i) => {
-    const cls = i < cur ? "step-dot done" : i === cur ? "step-dot current" : "step-dot";
-    return `<span class="${cls}"></span>`;
-  }).join("");
+  if (state.currentStep === 3) {
+    // During the adaptive interview, the single bar reflects how far the Q&A has
+    // progressed (reaches 100% around 8 answers, matching the 5-12 range).
+    const answered = Object.keys(state.answers).length;
+    pct = Math.min(100, Math.round((answered / 8) * 100));
+  } else {
+    pct = Math.min(100, Math.round(((state.currentStep + 1) / total) * 100));
+  }
+  bar.style.width = `${pct}%`;
+  if (pctEl) pctEl.textContent = `${pct}%`;
 }
 
 function showStep(step) {
@@ -686,26 +693,25 @@ function showStep(step) {
   $$(".intake-step").forEach((el) => {
     el.classList.toggle("active", Number(el.dataset.step) === state.currentStep);
   });
-  renderStepIndicator();
 
   const total = 6;
-  $("#stepLabel").textContent =
+  const stepLabel = $("#stepLabel");
+  if (stepLabel) stepLabel.textContent =
     state.currentStep < 5 ? `Step ${state.currentStep + 1} of ${total}` : "Done";
-  $("#progressBar").style.width = `${Math.min(100, ((state.currentStep + 1) / total) * 100)}%`;
+  updateSingleProgress();
   $("#backStep").disabled = state.currentStep === 0;
   $("#backStep").style.display = state.currentStep === 5 ? "none" : "";
   $("#nextStep").style.display = "none";
   $("#skipStep").style.display = "none";
 
   if (state.currentStep === 3) {
-    // Reset any previous adaptive flow, then begin: show spinner and ask the LLM
-    // for the FIRST question based on the brief. Spinner only spins during the
-    // actual LLM call; once a question returns it stops and the question shows.
+    // Reset any previous adaptive flow, then begin: ask the LLM for the FIRST
+    // question based on the brief. Every call shows/hides the question pair
+    // together and the single progress bar reflects the interview.
     state.aiActive = true;
     state.aiNext = null;
     state.aiDone = false;
-    updateInterviewProgress();
-    showQuestionLoading("Reviewing your note...");
+    updateSingleProgress();
     fetchNextAiQuestion().then(() => {
       if (state.currentStep === 3) {
         if (state.aiActive && state.aiNext) renderAiQuestion();
@@ -721,16 +727,8 @@ function showStep(step) {
 
 let _processingActive = false;
 
-/** Update the step-3 interview progress bar toward 100% as questions are answered. */
 function updateInterviewProgress() {
-  const fill = $("#interviewProgressFill");
-  if (!fill) return;
-  const answered = Object.keys(state.answers).length;
-  // Reaches 100% after 8 answers (a sensible interview length), calibrated to the
-  // min-5 / max-12 range so it visibly moves toward 100% with each question.
-  const pct = Math.min(100, Math.round((answered / 8) * 100));
-  fill.style.width = `${pct}%`;
-  fill.parentElement?.setAttribute("aria-valuenow", String(pct));
+  updateSingleProgress();
 }
 
 function showQuestionLoading(processingText) {
@@ -893,6 +891,7 @@ async function answerQuestion(answer) {
     }
     state.answers[state.aiNext.text] = answer;
     renderAnswerSummary();
+    updateInterviewProgress();
 
     // Enforce min 5 / max 12: keep asking until we've hit the floor of 5 (or the
     // LLM genuinely has nothing more to ask) AND the LLM is done, capped at 12.
