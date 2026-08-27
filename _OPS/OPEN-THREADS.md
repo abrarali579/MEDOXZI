@@ -217,3 +217,6 @@ Intake questioner polish deployed: single progress bar with numeric %, "thinking
 question+options hide/reappear together (no jump), never-re-ask prompt strengthened (no onset/duration
 re-ask), patient + welcome screens widened to 1080px (doctor view unchanged). Founder to confirm on the
 deployed site (clear cache / incognito).
+
+## Founder UI preferences (authoritative)
+Abrar's consolidated HTML-MVP UI preferences now live in `_OPS/NEXT-CHAT-PROMPT.md` (the "FOUNDER UI PREFERENCES" block): left slide-in drawer nav (⋯ button only, no breadcrumb/chips/logo), landscape-tablet doctor view, single progress line with numeric % (no spinner/thinking text), adaptive 5-12 AI questions, no onset/duration re-ask, screens fill tablet width except doctor view, editable allergies+vitals, multi-select tests + single-select plan, dxTerms typing suggestions, no-jump/reserved question block + capped scrolling answers, refresh persistence, cache-clear/incognito after deploy. Read that block before any UI change.

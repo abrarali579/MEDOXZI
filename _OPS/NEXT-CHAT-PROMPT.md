@@ -27,19 +27,59 @@ Before changing anything, follow the mandatory repo protocol:
 
 Current context:
 - Repo version: v2.6 healthcare-first narrow MVP.
-- No production app exists yet.
-- HTML MVP lives in 14-MVP-HTML/.
-- Graphify current-state graph is saved in graphify-current-state/graphify-out/.
-- Current HTML MVP state: v0.7 final doctor command center. The default visible screen is Pre-visit Review with current + next-two queue, structured feedback, patient profile + previous record actions, allergies + vitals, close Q/A rows, attachment row, doctor-entered diagnosis fields, doctor-selected tests, plan categories, and sticky assessment actions.
-- Graph was built as a curated current-state graph: 72 nodes, 126 edges, 14 communities, 0 token cost; built from commit e118caf2.
-- Latest relevant graph/session log: _OPS/SESSION-LOG/2026-08-24-Y-html-mvp-final-doctor-command-center.md.
-- Root AGENTS.md tells future agents to use Graphify before reading many files.
+- The HTML MVP in 14-MVP-HTML/ is DEPLOYED LIVE and is the main thing the founder is reviewing right
+  now. Production = https://medoxzi.vercel.app (Vercel, Root Directory = 14-MVP-HTML, serverless
+  /api/questions). It auto-deploys on push to main.
+- /api/questions is an ADAPTIVE one-question-at-a-time DeepSeek interviewer (NOT a batch-of-4):
+  POST body { brief, complaint, age, sex, answers:[{q,a}] } -> { ok, question:{text,options[4]},
+  done, reason }. The LLM reads the brief, asks the single most relevant next question, analyzes each
+  answer to design the next, and has an ABSOLUTE never-re-ask rule for onset/duration/timing already
+  stated in the brief. Min 5 / max 12 questions are enforced CLIENT-SIDE. 4 options with an escape;
+  no diagnosis / no treatment advice.
+- The founder is reviewing this LIVE on a phone + tablet. Recent founder-driven fixes (sessions AF-G-H):
+  adaptive questions, single progress bar with numeric %, no spinner/thinking text, editable
+  allergies+vitals, two-pane review, dxTerms autocomplete, selectable tests/plan, wider narrow screen,
+  refresh persistence. Full detail in STATE.md §1 and the session logs (AF/AG/AH) under _OPS/SESSION-LOG/.
+- Graphify current-state graph is saved in graphify-current-state/graphify-out/ (built earlier; may be
+  stale for the AF-AH UI changes — rebuild if you need current links).
 
 Hard boundaries:
 - No real patient data.
 - No MEDOXZI-owned patient marketing.
 - No clinical performance claims from synthetic/harness results.
 - No Indonesian regulatory position as settled unless backed by primary evidence and counsel status.
+- No AI diagnosis / treatment advice/ordering. Questions are triage/screening only; the doctor keeps
+  full discretion. Doctor-entered documentation is clinician-owned.
+
+=== FOUNDER UI PREFERENCES (MEDOXZI HTML MVP) — very important, follow these ===
+Abrar reviews the deployed site on a phone + tablet and corrects layout directly. The prototype must
+honour these preferences unless he explicitly overrides them:
+
+1. Navigation: a single ⋯ button at top-left opens a LEFT slide-in drawer (a full-height side panel,
+   NOT a dropdown below the button). Topbar shows ONLY the ⋯ button — no "Medoxzi / <tab>"
+   breadcrumb, no Demo Clinic / Live / Synthetic prototype chips, no brand-mark M, no left sidebar.
+2. Doctor view (Pre-visit Review): landscape tablet first, compact queue/header. Widening other
+   screens must NOT touch the doctor view.
+3. Progress: ONE green progress line with a numeric percentage (e.g. "13%"). No loading spinner,
+   no "Thinking..." / "Reviewing..." system text.
+4. Adaptive AI questions: brief → Q1 → analyze answer → Q2 → analyze 1+2 → Q3 ... min 5, max 12.
+   Never re-ask onset/duration/timing already stated in the brief.
+5. Display width: patient/intake + welcome screens should FILL the tablet width (we used 1080px).
+   Doctor view stays as designed.
+6. Editable: Allergies + Vitals are doctor-editable inputs (not read-only).
+7. Selectable: Relevant tests = multi-select; Plan category = single-select.
+8. Word suggestions: while the doctor types in the diagnosis fields, show relevant clinical
+   suggestions (we used a dxTerms datalist).
+9. Layout stability: question + its answer options hide/reappear together (no jump); accumulated
+   answers are capped and scroll (the page must not grow down indefinitely); review step fits one
+   screen and is two-pane in landscape (intro/details on the left, questions+consent on the right;
+   stacks to one column on narrow/portrait).
+10. Refresh: keep the same step + the patient's answers (persisted via localStorage). It must NOT
+    reset to the first page.
+11. Responsiveness: no text should overflow off the sides on a phone; any overflow on a phone is
+    flagged by the founder as a bug. After a redeploy, clear cache / use incognito — the founder
+    often sees a stale cached version.
+12. Language/communication with Abrar: mixed English + Roman Urdu is fine; address as "Aap".
 
 After work:
 - Run contradiction sweep from _OPS/AGENT-PROTOCOL.md.
