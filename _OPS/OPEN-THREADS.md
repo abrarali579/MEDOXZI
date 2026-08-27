@@ -220,3 +220,8 @@ deployed site (clear cache / incognito).
 
 ## Founder UI preferences (authoritative)
 Abrar's consolidated HTML-MVP UI preferences now live in `_OPS/NEXT-CHAT-PROMPT.md` (the "FOUNDER UI PREFERENCES" block): left slide-in drawer nav (⋯ button only, no breadcrumb/chips/logo), landscape-tablet doctor view, single progress line with numeric % (no spinner/thinking text), adaptive 5-12 AI questions, no onset/duration re-ask, screens fill tablet width except doctor view, editable allergies+vitals, multi-select tests + single-select plan, dxTerms typing suggestions, no-jump/reserved question block + capped scrolling answers, refresh persistence, cache-clear/incognito after deploy. Read that block before any UI change.
+
+## ⭐ ROLLBACK BASE
+git tag `base-v1` (commit 5a05c06; code state 9d9fd9f) is the founder-marked known-good stable point
+(adaptive AI intake + AF/AG/AH UI fixes + founder-prefs handoff, all deployed). If a later change
+breaks something, restore with `git reset --hard base-v1` / revert to that tag.

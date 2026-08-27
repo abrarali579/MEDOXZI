@@ -26,6 +26,9 @@ Before changing anything, follow the mandatory repo protocol:
    python demo.py | Select-Object -Last 20
 
 Current context:
+- ⭐ **ROLLBACK BASE = git tag `base-v1` (== commit 5a05c06; code state 9d9fd9f).** If anything
+  breaks later, this is the known-good stable point the founder wants to be able to return to.
+  `git checkout base-v1` / `git reset --hard base-v1` (or revert to that tag) restores it.
 - Repo version: v2.6 healthcare-first narrow MVP.
 - The HTML MVP in 14-MVP-HTML/ is DEPLOYED LIVE and is the main thing the founder is reviewing right
   now. Production = https://medoxzi.vercel.app (Vercel, Root Directory = 14-MVP-HTML, serverless
