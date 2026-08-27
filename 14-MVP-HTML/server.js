@@ -257,6 +257,146 @@ function strList(v) {
   return [];
 }
 
+/**
+ * Ask DeepSeek to diff two visit intakes into a doctor-useful, patient-reported
+ * change summary. Local mirror of api/compare.js. Never diagnoses; only
+ * reflects what the patient told this intake vs the previous one.
+ */
+async function compareVisits(previous, current, meta) {
+  if (!API_KEY) return { ok: false, source: "deepseek", error: "NO_API_KEY" };
+  const name = String(meta?.name || "the patient").trim();
+  const pin = String(meta?.pin || "").trim();
+  const age = String(meta?.age || "").trim();
+  const sex = String(meta?.sex || "").trim();
+
+  const formatVisit = (record, label) => {
+    const complaint = String(record?.complaint || "Not stated").trim();
+    const savedAt = String(record?.savedAt || "").trim();
+    const answers = Array.isArray(record?.answers) ? record.answers : [];
+    const lines = answers
+      .filter((a) => a && typeof a === "object")
+      .map((a, i) => `Q${i + 1}: ${String(a.q || "").trim()} → ${String(a.a || "").trim()}`)
+      .join("\n");
+    return [
+      `${label}${savedAt ? ` (${savedAt.slice(0, 10)})` : ""}`,
+      `Reason/concern: ${complaint}`,
+      lines ? lines : "No structured answers captured.",
+    ].join("\n");
+  };
+
+  const demos = `${name}${[age, sex].filter(Boolean).join(", ") ? ` (${[age, sex].filter(Boolean).join(", ")})` : ""}${pin ? ` (PIN ${pin})` : ""}`;
+
+  const sys = [
+    "You are MEDOXZI's visit-comparison assistant. MEDOXZI is a pre-consultation intake tool: ",
+    "a returning patient answers a fresh adaptive interview, and the doctor wants a quick ",
+    "read on how TODAY's intake compares with the PREVIOUS visit's — strictly as the patient ",
+    "reported it. ",
+    "Your job is ONLY to summarize patient-reported differences to help the doctor prepare. ",
+    "You are NOT a doctor and you do NOT diagnose, treat, or infer clinical improvement/worsening. ",
+    "Frame only what the patient said changed. Use the 'direction' field to label the overall arc ",
+    "of the patient's own report: 'improved' if the patient's report suggests the issue has mostly ",
+    "resolved or reduced, 'managed' if it appears stable/ongoing, 'exploratory' if the current ",
+    "visit is probing something new, or 'mixed' otherwise. ",
+    "Respond as strict JSON only — no markdown, no prose — in this exact shape: ",
+    '{ "direction": "...", "summary": "...", "changed": [{ "field": "...", ',
+    '"label": "...", "previous": "...", "current": "..." }], "improved": ["..."], ',
+    '"watch": ["..."], "unansweredNow": ["..."] }. ',
+    "changed lists verified patient-reported differences (field = the question topic). improved ",
+    "lists 1-3 points where the patient's report suggests things are better or stable/consistent. ",
+    "watch lists 1-3 points that are new, worse, or noteworthy. unansweredNow lists question topics ",
+    "from the previous visit that were not re-answered this visit. Be concise, concrete, and ",
+    "strictly pragmatic. If everything is consistent, say so honestly in summary and keep arrays short.",
+  ].join("");
+
+  const user = [
+    `Patient: ${demos}.`,
+    formatVisit(previous, "PREVIOUS visit intake"),
+    "---",
+    formatVisit(current, "CURRENT visit intake"),
+    "Compare the two visits above and return the JSON comparison now.",
+  ].join("\n");
+
+  const res = await fetch("https://api.deepseek.com/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${API_KEY}`,
+    },
+    body: JSON.stringify({
+      model: "deepseek-chat",
+      temperature: 0.2,
+      response_format: { type: "json_object" },
+      messages: [
+        { role: "system", content: sys },
+        { role: "user", content: user },
+      ],
+    }),
+  });
+
+  if (!res.ok) {
+    const body = await res.text().catch(() => "");
+    return { ok: false, source: "deepseek", error: `HTTP_${res.status}:${body.slice(0, 200)}` };
+  }
+
+  const data = await res.json();
+  const content = data?.choices?.[0]?.message?.content || "";
+  let parsed = null;
+  try {
+    parsed = JSON.parse(content);
+  } catch {
+    const m = content.match(/```(?:json)?\s*([\s\S]*?)```/);
+    if (m) {
+      try {
+        parsed = JSON.parse(m[1]);
+      } catch {
+        parsed = null;
+      }
+    }
+  }
+
+  const direction = String(parsed?.direction || "mixed");
+  const allowed = ["improved", "managed", "exploratory", "mixed"];
+  const compare = {
+    direction: allowed.includes(direction) ? direction : "mixed",
+    summary: String(parsed?.summary || ""),
+    changed: listOfObjects(parsed?.changed),
+    improved: strList4(parsed?.improved),
+    watch: strList4(parsed?.watch),
+    unansweredNow: strList4(parsed?.unansweredNow),
+  };
+
+  if (!compare.summary && !compare.changed.length) {
+    return { ok: true, source: "deepseek", compare: null, note: "unparseable" };
+  }
+  return { ok: true, source: "deepseek", compare };
+}
+
+/** List helper capped at 4 (compare arrays can be a touch longer than bilal's 3). */
+function strList4(v) {
+  if (Array.isArray(v)) return v.map(String).map((s) => s.trim()).filter(Boolean).slice(0, 4);
+  if (typeof v === "string" && v.trim()) return [v.trim()].slice(0, 4);
+  return [];
+}
+
+/** Normalize an array of {field,label,previous,current} objects (max 6). */
+function listOfObjects(v) {
+  if (!Array.isArray(v)) return [];
+  const out = [];
+  for (const item of v) {
+    if (out.length >= 6) break;
+    if (!item || typeof item !== "object") continue;
+    const field = String(item.field || "").trim() || String(item.label || "").trim();
+    if (!field) continue;
+    out.push({
+      field,
+      label: String(item.label || field).trim(),
+      previous: String(item.previous || "").trim(),
+      current: String(item.current || "").trim(),
+    });
+  }
+  return out;
+}
+
 const server = createServer(async (req, res) => {
   // Only allow local connections.
   const host = req.socket.remoteAddress || "";
@@ -328,6 +468,46 @@ const server = createServer(async (req, res) => {
             }))
           : [],
       });
+      delete result.raw;
+      return json(res, 200, result);
+    } catch (err) {
+      return json(res, 200, { ok: false, source: "deepseek", error: "EXCEPTION", message: String(err?.message || "unknown") });
+    }
+  }
+
+  if (url.pathname === "/api/compare" && req.method === "POST") {
+    let body = "";
+    for await (const chunk of req) body += chunk;
+    let payload = {};
+    try {
+      payload = JSON.parse(body || "{}");
+    } catch {
+      return json(res, 400, { ok: false, error: "BAD_JSON" });
+    }
+    const previous = payload.previous && typeof payload.previous === "object" ? payload.previous : null;
+    const current = payload.current && typeof payload.current === "object" ? payload.current : null;
+    if (!previous || !current) return json(res, 400, { ok: false, error: "NEED_PREVIOUS_AND_CURRENT" });
+    try {
+      const norm = (record) => ({
+        complaint: String(record?.complaint || "").trim(),
+        savedAt: String(record?.savedAt || "").trim(),
+        answers: Array.isArray(record?.answers)
+          ? record.answers.slice(0, 12).map((a) => ({
+              q: String(a?.q || "").trim(),
+              a: String(a?.a || "").trim(),
+            }))
+          : [],
+      });
+      const result = await compareVisits(
+        norm(previous),
+        norm(current),
+        {
+          name: String(payload.name || "").trim(),
+          pin: String(payload.pin || "").trim(),
+          age: String(payload.age || "").trim(),
+          sex: String(payload.sex || "").trim(),
+        }
+      );
       delete result.raw;
       return json(res, 200, result);
     } catch (err) {

@@ -346,6 +346,27 @@
                   <ul id="briefAnswers"></ul>
                 </article>
 
+                <article class="doctor-card doctor-compare-card" id="compareCard" hidden>
+                  <div class="doctor-card-head">
+                    <div>
+                      <h3>Compare with previous visit</h3>
+                      <span>Patient-reported change summary · demo</span>
+                    </div>
+                    <span class="status-pill safe">No diagnosis</span>
+                  </div>
+                  <div id="compareBody" class="compare-body">
+                    <p id="compareEmpty" class="quiet">No previous visit found for this patient yet.</p>
+                    <div id="compareControls" class="compare-controls" hidden>
+                      <label class="compare-select">
+                        Compare this visit against
+                        <select id="comparePair"></select>
+                      </label>
+                      <button id="runCompare" class="primary compact" type="button">Compare</button>
+                    </div>
+                    <div id="compareResult" class="compare-result" hidden></div>
+                  </div>
+                </article>
+
                 <article class="doctor-card doctor-entry-card">
                   <div class="doctor-card-head">
                     <div>

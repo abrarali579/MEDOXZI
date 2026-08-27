@@ -4,6 +4,35 @@
 
 ---
 
+## 2026-08-27 - Session RT2e - Compare with previous visit (`cmp`)
+
+**WHAT**
+Doctor-facing **Compare with previous visit** built end-to-end on the HTML MVP:
+1. **`api/compare.js`** (NEW serverless POST `/api/compare`) — DeepSeek visit-diff, mirroring `/api/bilal`. Compares THIS visit's intake answers vs a selected PRIOR visit and returns `{ direction, summary, changed[], improved[], watch[], unansweredNow[] }` — strictly patient-reported; system prompt forbids diagnosis/treatment/clinical inference.
+2. **`server.js`** local mirror — `compareVisits()` helper + `/api/compare` route; identical response shape for browser/dev.
+3. **Client (`app.js`)** — NEW append-only `medoxziVisitHistory` key (every interview appends `{...record, visit:N}` per PIN), so returning-patient history survives; `medoxziInterviewRecords` (Bilal latest-wins) untouched. `window.MEDOXZI_COMPARE` module (`appendVisitHistory`, `getPatientVisits`, `comparePin`, `updateCompareCardVisibility` auto-hooked into `switchView('doctor')`, `runCompare`, `renderCompareResult`). Doctor UI card `#compareCard` + pair `<select>` (`>2 visits` pick-pair, defaults to closest previous; `1 visit` → card hidden) + result panel + guardrail note.
+4. **Ordering bug fixed** in `saveLinkedPatient()`: `state.pin`/`state.linkedIdentity` now set BEFORE `saveInterviewRecord()` (was after), so Bilal records AND visit history carry the real PIN (previously the record was built with `pin:""`).
+
+**WHY**
+Founder's `cmp` task — give the doctor a one-tap patient-reported summary of how today's intake compares with a prior visit, reusing the `/api/bilal` DeepSeek infra and its hard guardrails. Needed multi-visit history (Bilal only kept latest-per-PIN), hence the additive `medoxziVisitHistory` store.
+
+**EVIDENCE**
+- `node --check app.js`/`server.js`/`api/compare.js` OK. Browser `:8765` server restarted with new code.
+- Local `/api/compare` POST (real DeepSeek, synthetic 2-visit headache) → `ok:true, source:"deepseek"`, `direction:"mixed"`, changed[4]/improved[2]/watch[2], no diagnosis.
+- Browser: 1-visit → card hidden; 2-visit → 1 prior option; 3-visit → 2 options defaulting to closest; `runCompare()` → real result rendered with CHANGED/WORTH-ATTENTION + `.min-note` guardrail. 0 console/JS errors.
+- Deployment artifacts production-safe: serverless `api/compare.js` response shape == tested local shape.
+
+**NEXT** (why next / how)
+- `fu` Follow-up + 1-day-before auto re-confirmation — queue+preview over `medoxziVisitHistory`; needs a scheduler decision (Vercel cron vs client-side) before building.
+- Optional: records/compare-history viewer.
+- `mk-send` real send backend stays deferred by static-MVP constraint (no DB/auth/gateway); marketing audit-only path already built.
+
+**HOW**
+Serverless `api/compare.js` = clone of bilal pattern (fetch DeepSeek, strict-JSON prompt, `strList`/`listOfObjects` normalizers). Client history `appendVisitHistory` hooked into `saveInterviewRecord()`. Card hooked into `switchView('doctor')` via `updateCompareCardVisibility()`. All test data synthetic; API key only from `.env` (gitignored). `_OPS/*.md` LF, `14-MVP-HTML/*` CRLF preserved.
+
+---
+
+
 ## 2026-08-27 - Session RT2d - Marketing Management view (7th nav tab) + Bilal interview-audit loop
 
 **WHAT**

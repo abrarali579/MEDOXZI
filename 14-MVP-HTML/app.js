@@ -341,6 +341,7 @@ function switchView(viewName, options = {}) {
   if (sectionsBlock) sectionsBlock.hidden = viewName !== "doctor";
   if (typeof window.closeNavMenu === "function") window.closeNavMenu();
   if (viewName === "marketing" && typeof renderMarketingRecipients === "function") renderMarketingRecipients();
+  if (viewName === "doctor" && typeof window.MEDOXZI_COMPARE !== "undefined") window.MEDOXZI_COMPARE.updateCompareCardVisibility();
 }
 
 function currentQueuePatient() {
@@ -1103,9 +1104,9 @@ function saveLinkedPatient() {
   );
   stored.push(patient);
   localStorage.setItem("medoxziDemoPatients", JSON.stringify(stored));
-  saveInterviewRecord(); // Bilal feedback loop: persists + audits this interview.
   state.pin = pin;
   state.linkedIdentity = patient;
+  saveInterviewRecord(); // Bilal feedback loop: persists + audits this interview.
   patients[2].pin = pin;
   patients[2].name = name;
   patients[2].age = age;
@@ -1749,6 +1750,7 @@ function saveInterviewRecord() {
     const next = records.filter((r) => r.pin !== rec.pin);
     next.push(rec);
     localStorage.setItem("medoxziInterviewRecords", JSON.stringify(next));
+    appendVisitHistory(rec);
     runBilalAudit(rec);
   } catch (e) {
     // Never break the intake flow over a background audit.
@@ -1794,3 +1796,188 @@ window.MEDOXZI_BILAL = {
   runBilalAudit,
   interviewRecordShape,
 };
+
+/* ===== Compare with previous visit ===== */
+// Per-pin append-only visit history so a returning patient can be compared
+// across visits. Bilal's latest-wins record list is untouched; this keeps a
+// full timeline purely for the doctor's "compare with previous visit" card.
+// All synthetic/demo; nothing leaves the browser except redacted Q/A text.
+const COMPARE_STORAGE = "medoxziVisitHistory";
+
+function appendVisitHistory(rec) {
+  try {
+    const history = JSON.parse(localStorage.getItem(COMPARE_STORAGE) || "[]");
+    const visitNo = history.filter((h) => h.pin === rec.pin).length + 1;
+    history.push({
+      id: rec.id,
+      pin: rec.pin,
+      name: rec.name,
+      age: rec.age,
+      sex: rec.sex,
+      complaint: rec.complaint,
+      answers: rec.answers,
+      savedAt: rec.savedAt,
+      visit: visitNo,
+    });
+    localStorage.setItem(COMPARE_STORAGE, JSON.stringify(history));
+  } catch (e) {
+    // Never break the intake flow over history capture.
+  }
+}
+
+function getPatientVisits(pin) {
+  try {
+    const history = JSON.parse(localStorage.getItem(COMPARE_STORAGE) || "[]");
+    return history
+      .filter((h) => String(h.pin) === String(pin))
+      .sort((a, b) => String(a.savedAt).localeCompare(String(b.savedAt)));
+  } catch (e) {
+    return [];
+  }
+}
+
+function comparePin() {
+  return String(state.pin || state.linkedIdentity?.pin || "").trim();
+}
+
+function updateCompareCardVisibility() {
+  const card = $("#compareCard");
+  const controls = $("#compareControls");
+  const empty = $("#compareEmpty");
+  const result = $("#compareResult");
+  if (!card) return;
+  const pin = comparePin();
+  const visits = pin ? getPatientVisits(pin) : [];
+  if (visits.length < 2) {
+    card.hidden = true;
+    return;
+  }
+  card.hidden = false;
+  if (empty) empty.hidden = true;
+  if (controls) controls.hidden = false;
+  if (result) {
+    result.hidden = true;
+    result.innerHTML = "";
+  }
+  const pair = $("#comparePair");
+  if (pair) {
+    const current = visits[visits.length - 1];
+    const prior = visits.slice(0, -1);
+    pair.innerHTML = prior
+      .slice()
+      .reverse()
+      .map(
+        (v) =>
+          `<option value="${v.id}">Visit ${v.visit} · ${visitsLabel(v)} · ${String(v.complaint || "").trim() || ""}</option>`
+      )
+      .join("");
+    pair.selectedIndex = prior.length - 1; // default: closest previous visit
+    void current;
+  }
+}
+
+function visitsLabel(v) {
+  const d = v.savedAt ? String(v.savedAt).slice(0, 10) : "?";
+  return d;
+}
+
+async function runCompare() {
+  const pin = comparePin();
+  const visits = pin ? getPatientVisits(pin) : [];
+  const resultEl = $("#compareResult");
+  const btn = $("#runCompare");
+  if (visits.length < 2 || !resultEl) return;
+  const current = visits[visits.length - 1];
+  const targetId = $("#comparePair")?.value || visits[visits.length - 2].id;
+  const previous = visits.find((v) => v.id === targetId) || visits[visits.length - 2];
+  if (!previous) return;
+
+  if (btn) btn.disabled = true;
+  resultEl.hidden = false;
+  resultEl.innerHTML = `<p class="quiet compare-loading">Comparing visit ${previous.visit} vs this visit…</p>`;
+
+  try {
+    const res = await fetch("/api/compare", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: current.name,
+        pin: current.pin,
+        age: current.age,
+        sex: current.sex,
+        previous: {
+          complaint: previous.complaint,
+          savedAt: previous.savedAt,
+          answers: previous.answers || [],
+        },
+        current: {
+          complaint: current.complaint,
+          savedAt: current.savedAt,
+          answers: current.answers || [],
+        },
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    renderCompareResult(resultEl, data);
+  } catch (e) {
+    resultEl.innerHTML = `<p class="quiet">Compare unavailable right now. Try again.</p>`;
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+}
+
+function arrowFor(direction) {
+  const map = { improved: "▲", managed: "●", exploratory: "＋", mixed: "◍" };
+  return map[direction] || "◍";
+}
+
+function renderCompareResult(el, data) {
+  const c = data?.compare;
+  if (!data?.ok || !c) {
+    el.innerHTML = `<p class="quiet">Compare unavailable${
+      data?.error ? ` — ${data.error}` : ""
+    }.</p>`;
+    return;
+  }
+  const changedHtml = (c.changed || [])
+    .map(
+      (ch) => `
+      <div class="compare-changed">
+        <span class="compare-field">${esc(ch.label || ch.field)}</span>
+        <div class="compare-before"><small>Previous</small>${esc(ch.previous || "—")}</div>
+        <div class="compare-now"><small>Now</small>${esc(ch.current || "—")}</div>
+      </div>`
+    )
+    .join("");
+  const improvedHtml = (c.improved || []).map((s) => `<li>${esc(s)}</li>`).join("");
+  const watchHtml = (c.watch || []).map((s) => `<li>${esc(s)}</li>`).join("");
+  const unansweredHtml = (c.unansweredNow || []).map((s) => `<li>${esc(s)}</li>`).join("");
+
+  el.innerHTML = `
+    <div class="compare-summary">
+      <strong class="compare-direction" data-dir="${esc(c.direction)}">${arrowFor(c.direction)} ${esc(c.direction)}</strong>
+      <p>${esc(c.summary)}</p>
+    </div>
+    ${c.changed && c.changed.length ? `<div class="compare-section"><h4>Changed</h4>${changedHtml}</div>` : ""}
+    ${c.improved && c.improved.length ? `<div class="compare-section"><h4>Better / stable</h4><ul>${improvedHtml}</ul></div>` : ""}
+    ${c.watch && c.watch.length ? `<div class="compare-section watch"><h4>Worth attention</h4><ul>${watchHtml}</ul></div>` : ""}
+    ${c.unansweredNow && c.unansweredNow.length ? `<div class="compare-section muted"><h4>Not re-answered this visit</h4><ul>${unansweredHtml}</ul></div>` : ""}
+    <p class="min-note">Patient-reported summary only — no diagnosis, no treatment advice.</p>`;
+}
+
+function esc(str) {
+  return String(str == null ? "" : str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+// Wire the compare controls (only when the card exists in the DOM).
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = $("#runCompare");
+  if (btn) btn.addEventListener("click", () => void runCompare());
+});
+
+// Expose for the console/inspection and the doctor-view hook in switchView.
+window.MEDOXZI_COMPARE = { getPatientVisits, runCompare, updateCompareCardVisibility };

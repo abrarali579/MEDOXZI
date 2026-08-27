@@ -50,6 +50,51 @@
   ```
 - **Verdict:** VERIFIED.
 
+---
+
+## Session RT2e — 2026-08-27 — Compare with previous visit (`cmp`)
+
+### V-2026-08-27-RT2e-01 · `/api/compare` returns a structured, patient-reported visit diff via real DeepSeek
+- **Claim:** POST `/api/compare` with a previous + current intake returns `{ ok:true, source:"deepseek", compare:{ direction, summary, changed[], improved[], watch[], unansweredNow[] } }`, and never emits diagnosis/treatment.
+- **Method:** Restart `node server.js` (new code), `POST /api/compare` with a synthetic 2-visit headache record.
+- **Evidence:**
+  ```json
+  {"ok":true,"source":"deepseek","compare":{
+    "direction":"mixed",
+    "summary":"The patient reports a change in headache character ... but notes new concerns.",
+    "changed":[{"field":"Onset","previous":"2 days ago","current":"persistent since last week", ...}, ...(4)],
+    "improved":["Fever settled","Symptom consistency improved", ...(2)],
+    "watch":["New productive cough","Developing shortness of breath on exertion", ...(2)],
+    "unansweredNow":[...]}}
+  ```
+  Output contains NO diagnosis or treatment text in any field.
+- **Verdict:** VERIFIED (real API key, live call, structured JSON).
+
+### V-2026-08-27-RT2e-02 · Compare card visibility + pick-pair logic in the doctor view
+- **Claim:** `#compareCard` is hidden for a 1-visit patient, shows with the correct prior-visit options for 2 and 3-visit patients, and defaults to the closest previous.
+- **Method:** Browser `:8765`, inject synthetic `medoxziVisitHistory`, set `state.pin`, drive `switchView('doctor')`, inspect `#compareCard`/`#comparePair`.
+- **Evidence:**
+  ```text
+  1 visit  -> compareCard.hidden = true
+  2 visits -> visible; pair options = ["Visit 1 · 2026-08-01 · Headache"]; selected = that option
+  3 visits -> pair options = ["Visit 2 · 2026-08-01 · Headache", "Visit 1 · 2026-07-01 · Headache"]; selected = "Visit 2"
+  ```
+- **Verdict:** VERIFIED.
+
+### V-2026-08-27-RT2e-03 · End-to-end compare renders live in the browser with guardrail intact
+- **Claim:** Clicking compare for a 2-visit patient POSTs `/api/compare`, renders direction/summary/changed/watch in `#compareResult`, and shows the "no diagnosis" note.
+- **Method:** Browser console `window.MEDOXZI_COMPARE.runCompare()` then read `#compareResult`.
+- **Evidence:**
+  ```text
+  result.hidden = false
+  direction: Mixed
+  CHANGED: Onset / Pain type / Nausea (each Previous -> Now)
+  WORTH ATTENTION: flagged concerns (no diagnosis wording)
+  note: "Patient-reported summary only — no diagnosis, no treatment advice."
+  console: 0 errors, 0 JS errors
+  ```
+- **Verdict:** VERIFIED.
+
 ### V-2026-08-27-RT2d-04 · No regressions: build + console clean
 - **Claim:** app.js / server.js are syntactically valid and the app loads with zero errors.
 - **Method:** `node --check` both files; browser load with console capture.
