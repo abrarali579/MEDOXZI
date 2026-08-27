@@ -3287,3 +3287,17 @@ adaptively (min 5 / max 12).
   PASS 21 5
   ```
 - **VERDICT:** ✅ VERIFIED — hard gates PASS (exit 0). Advisory quality metrics (deepseek self-termination runs to 12-cap ~half the time; done<5 server-side on some) are NOT hard failures; production client-side fill/cap covers them.
+
+---
+
+## Session RT2b — 2026-08-27 — Never-re-ask catalogue + prompt-contract guard
+
+**V-RT2b-2026-08-27-01**
+CLAIM: The never-re-ask and hard-safety rules are present verbatim in production prompt sources, and a regression that re-asks timing already in the brief now FAILS the harness build.
+METHOD: Deterministic prompt-source scan (`node harness/prompt_contract.test.mjs`) + live DeepSeek catalogue run (`node --env-file=.env harness/live_loop.mjs --suite reask`) against local server on :8765.
+EVIDENCE:
+- prompt_contract.test.mjs → PASS, exit 0, 14 gates (7 rules present verbatim in BOTH server.js and api/questions.js).
+- report_reask_catalogue.json → VERDICT PASS, 8 scenarios, 0 safety hits, 7/8 Q1 productive-probe advisory flags true.
+- 4 prior runs (r1-r4) each returned VERDICT FAIL with a real re-ask caught as a HARD `<scenario>_safety` gate — proving the guard flips verdict (previously such hits were recorded passively while suite still PASSed).
+- Full run transcript + report bytes on disk.
+VERDICT: PASS (guard proven: fails on violation, passes on compliant run).

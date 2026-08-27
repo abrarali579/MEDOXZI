@@ -1,0 +1,157 @@
+{
+  "harness_version": "D0.1.0",
+  "sources": {
+    "server.js (local dev)": {
+      "rules": {
+        "R1_never_reask": {
+          "ok": true,
+          "desc": "NEVER re-ask anything already told/answered",
+          "kind": "hard",
+          "detail": "present verbatim"
+        },
+        "R1bis_onset_timing": {
+          "ok": true,
+          "desc": "explicit ban on re-asking 'when did it start' / 'how long' / 'since when'",
+          "kind": "hard",
+          "detail": "present verbatim"
+        },
+        "R2_single_question": {
+          "ok": true,
+          "desc": "exactly ONE question per response",
+          "kind": "hard",
+          "detail": "present verbatim"
+        },
+        "R3_four_options": {
+          "ok": true,
+          "desc": "exactly 4 plain-text answer options + escape",
+          "kind": "hard",
+          "detail": "present verbatim"
+        },
+        "R4_no_diagnosis": {
+          "ok": true,
+          "desc": "never diagnose / never ask for a diagnosis",
+          "kind": "hard",
+          "detail": "present verbatim"
+        },
+        "R4bis_adaptive_single": {
+          "ok": true,
+          "desc": "single most useful NEXT question",
+          "kind": "hard",
+          "detail": "present verbatim"
+        },
+        "R6_window": {
+          "ok": true,
+          "desc": "5..12 round window referenced in prompt",
+          "kind": "hard",
+          "detail": "present verbatim"
+        }
+      }
+    },
+    "api/questions.js (production)": {
+      "rules": {
+        "R1_never_reask": {
+          "ok": true,
+          "desc": "NEVER re-ask anything already told/answered",
+          "kind": "hard",
+          "detail": "present verbatim"
+        },
+        "R1bis_onset_timing": {
+          "ok": true,
+          "desc": "explicit ban on re-asking 'when did it start' / 'how long' / 'since when'",
+          "kind": "hard",
+          "detail": "present verbatim"
+        },
+        "R2_single_question": {
+          "ok": true,
+          "desc": "exactly ONE question per response",
+          "kind": "hard",
+          "detail": "present verbatim"
+        },
+        "R3_four_options": {
+          "ok": true,
+          "desc": "exactly 4 plain-text answer options + escape",
+          "kind": "hard",
+          "detail": "present verbatim"
+        },
+        "R4_no_diagnosis": {
+          "ok": true,
+          "desc": "never diagnose / never ask for a diagnosis",
+          "kind": "hard",
+          "detail": "present verbatim"
+        },
+        "R4bis_adaptive_single": {
+          "ok": true,
+          "desc": "single most useful NEXT question",
+          "kind": "hard",
+          "detail": "present verbatim"
+        },
+        "R6_window": {
+          "ok": true,
+          "desc": "5..12 round window referenced in prompt",
+          "kind": "hard",
+          "detail": "present verbatim"
+        }
+      }
+    }
+  },
+  "gates": {
+    "server.js (local dev):R1_never_reask": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "server.js (local dev):R1bis_onset_timing": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "server.js (local dev):R2_single_question": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "server.js (local dev):R3_four_options": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "server.js (local dev):R4_no_diagnosis": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "server.js (local dev):R4bis_adaptive_single": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "server.js (local dev):R6_window": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "api/questions.js (production):R1_never_reask": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "api/questions.js (production):R1bis_onset_timing": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "api/questions.js (production):R2_single_question": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "api/questions.js (production):R3_four_options": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "api/questions.js (production):R4_no_diagnosis": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "api/questions.js (production):R4bis_adaptive_single": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "api/questions.js (production):R6_window": {
+      "ok": true,
+      "kind": "hard"
+    }
+  },
+  "verdict": "PASS",
+  "note": "Deterministic prompt-contract check. NOT clinical. Verifies the never-re-ask / single-q / 4-option / no-dx / no-treatment rules are intact verbatim in every production prompt source."
+}

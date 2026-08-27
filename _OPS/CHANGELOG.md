@@ -5,6 +5,32 @@
 ---
 
 ## 2026-08-27 - Session RT2 - Live-LLM interviewer harness
+## 2026-08-27 - Session RT2b - Never-re-ask regression catalogue + prompt-contract guard
+
+**WHAT**
+Two additions that make the RT2 harness learnings a PERMANENT part of the system rather than a one-off run:
+
+1. `harness/prompt_contract.test.mjs` — a deterministic, offline, zero-token regression test that opens BOTH production prompt sources (`server.js` and `api/questions.js`) and asserts the full ABSOLUTE-rule contract is present verbatim: no re-ask of onset/duration/timing already in the brief, exactly one question, exactly 4 options, no diagnosis wording, no treatment recommendation, no presumed named diagnosis. 7 rules x 2 files = 14 gates. It runs in seconds with no DeepSeek key and no server, so any future edit that weakens or drops a safety rule fails the fast baseline immediately.
+2. `harness/live_loop.mjs` extended with a task-2 **never-re-ask regression catalogue** (`--suite reask`): 8 curated scenarios, every one a brief that already deposits onset/duration/timing where Q1 MUST branch to complaint character/quality/location/severity instead of re-asking timing (e.g. `knee pain started 3 days ago` -> Q1 must ask pain character, not duration). Each scenario carries `expected_probe`; the output records the actual Q1 plus a `q1_productive` advisory flag. CRITICAL HARD-GUARD FIX: safety violations recorded during an encounter (reask / diagnosis / dx_assumption / treatment / shape) are now converted into a HARD FAILING gate (`<scenario>_safety`) that flips VERDICT to FAIL. Previously these were only recorded as passive hits while the suite could still say PASS.
+
+**WHY**
+Founder directive: run the harness learnings into the permanent system so it matures with time, and build task 2 (the never-re-ask regression set). The live-model interviewer is stochastic and occasionally re-asks onset/duration already given; the old harness recorded those as passive hits but still reported PASS, so a regression could ship silently. The catalogue is the regression net; the hard safety gate makes a caught violation fail the build.
+
+**EVIDENCE**
+- `node harness/prompt_contract.test.mjs` -> **PASS** (exit 0), 14 gates, both `server.js` and `api/questions.js`.
+- `node --env-file=.env harness/live_loop.mjs --suite reask` -> **VERDICT: PASS** (5th run, 109s), 8 scenarios, 0 re-ask/diagnosis/treatment/shape hits, 7/8 Q1 productive probes. Earlier runs 1-4 each caught a real re-ask (throat -> "How long have you had the cough", dizzy -> "How long have you had the hearing loss", stomachache -> "How long ... black/tarry stools", ear-pain -> "How long ... cold/cough") and the suite correctly FAILED with the `<scenario>_safety` hard gate — proving the guard flips the verdict.
+- Report on disk: `harness/report_reask_catalogue.json`, VERDICT PASS.
+- Detail: VERIFICATION-LOG V-RT2b-2026-08-27-01.
+
+**NEXT**
+None blocking. `q1_productive` is advisory (joint-swelling "How many joints are swollen?" reads as not-productive but is a legit extent probe — acceptable detector noise, not a hard miss). Stochastic `done_terminates`/`min_5` advisories remain documented-as-known (production client fill + max-12 cap cover them).
+
+**WHY NEXT**
+Keep the catalogue running after every future interviewer change so a re-introduced never-re-ask violation cannot ship.
+
+**HOW**
+Run `cd 14-MVP-HTML && node harness/prompt_contract.test.mjs` (fast, always-green contract guard) + `node --env-file=.env harness/live_loop.mjs --suite reask` (live catalogue; needs local server + DeepSeek key).
+
 
 **WHAT**
 Added `14-MVP-HTML/harness/live_loop.mjs`: a live question-answer-loop harness that drives the REAL adaptive DeepSeek interviewer (`/api/questions`) through 5 synthetic scenarios over HTTP, gating every generated question on the ABSOLUTE rules — no re-ask of onset/duration/timing already stated, no diagnosis/treatment wording, no presumed named diagnosis, exactly 4 options, and never exceeding the max-12 ceiling. Hard gates = PASS/FAIL; quality metrics (min 5, self-termination, escape rate) reported as advisory. Transient zero-round responses auto-retried. Report → `harness/report_live_loop.json`.

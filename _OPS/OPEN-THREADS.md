@@ -226,3 +226,9 @@ Abrar's consolidated HTML-MVP UI preferences now live in `_OPS/NEXT-CHAT-PROMPT.
 git tag `base-v1` (commit 5a05c06; code state 9d9fd9f) is the founder-marked known-good stable point
 (adaptive AI intake + AF/AG/AH UI fixes + founder-prefs handoff, all deployed). If a later change
 breaks something, restore with `git reset --hard base-v1` / revert to that tag.
+
+## RT2b - Never-re-ask catalogue + prompt-contract guard (2026-08-27)
+- `harness/prompt_contract.test.mjs` = deterministic, offline, always-green guard that the ABSOLUTE safety rules are intact verbatim in `server.js` AND `api/questions.js`. Runs in seconds, no key/no server. Run after ANY prompt edit: `cd 14-MVP-HTML && node harness/prompt_contract.test.mjs`.
+- `harness/live_loop.mjs --suite reask` = task-2 never-re-ask regression catalogue: 8 briefs that deposit onset/duration/timing where Q1 MUST probe complaint character/location/severity instead. Safety violations (reask/diagnosis/dx_assumption/treatment/shape) now become HARD FAILING gates. LIVE model is stochastic -> occasional reds are honest signal, re-run + read the caught question before shipping a change. Needs local server on :8765 + DeepSeek key.
+- `q1_productive` advisory: flags whether Q1 took a useful branch on timing-given briefs. Join-swelling "How many joints are swollen?" reads as not-productive but is a legit extent probe (acceptable noise).
+- Reported re-ask classes seen live (all duration/timing backslips): throat→"How long the cough", dizzy→"How long the hearing loss", stomachache→"How long black/tarry stools", ear-pain→"How long cold/cough". These mirror the historical fixes the user requested -> keep the catalogue forever-expanding with every re-ask the user complains about.

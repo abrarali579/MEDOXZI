@@ -1,0 +1,206 @@
+{
+  "harness_version": "L0.1.0",
+  "scenarios": {
+    "l2_knee_pain_3_days": {
+      "timing_given": true,
+      "rounds": 12,
+      "hits": [],
+      "q1": "How would you describe the pain in your knee?",
+      "q1_productive": true,
+      "expected_probe": "pain character"
+    },
+    "l2_back_pain_since_last_week": {
+      "timing_given": true,
+      "rounds": 1,
+      "hits": [],
+      "q1": "How would you describe the pain?",
+      "q1_productive": true,
+      "expected_probe": "pain type / radiation / numbness"
+    },
+    "l2_throat_days": {
+      "timing_given": true,
+      "rounds": 9,
+      "hits": [],
+      "q1": "How severe is your sore throat on a scale of 1 to 10, where 1 is mild and 10 is severe?",
+      "q1_productive": true,
+      "expected_probe": "sore throat type / associated symptoms"
+    },
+    "l2_ear_pain_hours": {
+      "timing_given": true,
+      "rounds": 1,
+      "hits": [],
+      "q1": "Is the pain constant or does it come and go?",
+      "q1_productive": true,
+      "expected_probe": "ear pain type / fever accompanying"
+    },
+    "l2_dizzy_since": {
+      "timing_given": true,
+      "rounds": 12,
+      "hits": [],
+      "q1": "When you feel dizzy, do you also experience any of the following?",
+      "q1_productive": true,
+      "expected_probe": "dizziness character / trigger / associated"
+    },
+    "l2_rash_weeks": {
+      "timing_given": true,
+      "rounds": 12,
+      "hits": [],
+      "q1": "How would you describe the rash?",
+      "q1_productive": true,
+      "expected_probe": "rash appearance / location / itch"
+    },
+    "l2_stomachache_after_meals_days": {
+      "timing_given": true,
+      "rounds": 12,
+      "hits": [],
+      "q1": "How would you describe the pain in your stomach?",
+      "q1_productive": true,
+      "expected_probe": "pain location / character / relation to food"
+    },
+    "l2_joint_swelling_week": {
+      "timing_given": true,
+      "rounds": 12,
+      "hits": [],
+      "q1": "How many joints are swollen?",
+      "q1_productive": false,
+      "expected_probe": "joint involved / stiffness / symmetry"
+    }
+  },
+  "gates": {
+    "l2_knee_pain_3_days_transport": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_knee_pain_3_days_max_12": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_knee_pain_3_days_min_5": {
+      "ok": true,
+      "kind": "advisory"
+    },
+    "l2_knee_pain_3_days_done_terminates": {
+      "ok": false,
+      "kind": "advisory"
+    },
+    "l2_back_pain_since_last_week_transport": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_back_pain_since_last_week_max_12": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_back_pain_since_last_week_min_5": {
+      "ok": false,
+      "kind": "advisory"
+    },
+    "l2_back_pain_since_last_week_done_terminates": {
+      "ok": true,
+      "kind": "advisory"
+    },
+    "l2_throat_days_transport": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_throat_days_max_12": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_throat_days_min_5": {
+      "ok": true,
+      "kind": "advisory"
+    },
+    "l2_throat_days_done_terminates": {
+      "ok": true,
+      "kind": "advisory"
+    },
+    "l2_ear_pain_hours_transport": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_ear_pain_hours_max_12": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_ear_pain_hours_min_5": {
+      "ok": false,
+      "kind": "advisory"
+    },
+    "l2_ear_pain_hours_done_terminates": {
+      "ok": true,
+      "kind": "advisory"
+    },
+    "l2_dizzy_since_transport": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_dizzy_since_max_12": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_dizzy_since_min_5": {
+      "ok": true,
+      "kind": "advisory"
+    },
+    "l2_dizzy_since_done_terminates": {
+      "ok": false,
+      "kind": "advisory"
+    },
+    "l2_rash_weeks_transport": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_rash_weeks_max_12": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_rash_weeks_min_5": {
+      "ok": true,
+      "kind": "advisory"
+    },
+    "l2_rash_weeks_done_terminates": {
+      "ok": false,
+      "kind": "advisory"
+    },
+    "l2_stomachache_after_meals_days_transport": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_stomachache_after_meals_days_max_12": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_stomachache_after_meals_days_min_5": {
+      "ok": true,
+      "kind": "advisory"
+    },
+    "l2_stomachache_after_meals_days_done_terminates": {
+      "ok": false,
+      "kind": "advisory"
+    },
+    "l2_joint_swelling_week_transport": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_joint_swelling_week_max_12": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "l2_joint_swelling_week_min_5": {
+      "ok": true,
+      "kind": "advisory"
+    },
+    "l2_joint_swelling_week_done_terminates": {
+      "ok": false,
+      "kind": "advisory"
+    },
+    "L7_escape_advisory": {
+      "ok": true,
+      "kind": "hard"
+    }
+  },
+  "verdict": "PASS",
+  "elapsed_s": 109,
+  "note": "Synthetic distribution. NOT a clinical performance claim."
+}

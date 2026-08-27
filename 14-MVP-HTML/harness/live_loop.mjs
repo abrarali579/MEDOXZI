@@ -86,6 +86,102 @@ const SCENARIOS = [
     sex: "female",
     brief: "Tired for about a month now, mostly in the afternoon.",
   },
+
+  // ======================================================================
+  // TASK-2 NEVER-RE-ASK REGRESSION CATALOGUE (Class L2).
+  //
+  // Curated from every onset/duration/timing phrasing we have historically
+  // seen the interviewer re-ask (the failure the user filed fixes for). Each
+  // brief ALREADY states WHEN the complaint started. Contract: the interviewer
+  // must NEVER re-ask it (hard, detector `reask`) and, as the productive path,
+  // its FIRST question should probe character/quality/location/severity — NOT
+  // duration (advisory detector `q1_productive`). `expected_probe` records the
+  // productive dimension so a regression to a duration question is visible.
+  // This whole catalogue runs under `--suite reask`.
+  //
+  // NOTE: synthetic only. NOT clinical. The onset phrasings exercise the SAME
+  // Rule-1 prohibition across complaint types to catch coverage gaps.
+  // ======================================================================
+  {
+    id: "l2_knee_pain_3_days",
+    timing_given: true,
+    suite: "reask",
+    expected_probe: "pain character",
+    complaint: "knee pain",
+    age: "56",
+    sex: "male",
+    brief: "Knee pain started about 3 days ago, worse when I go down stairs.",
+  },
+  {
+    id: "l2_back_pain_since_last_week",
+    timing_given: true,
+    suite: "reask",
+    expected_probe: "pain type / radiation / numbness",
+    complaint: "back pain",
+    age: "44",
+    sex: "female",
+    brief: "Lower back pain since last week, it came on after lifting something heavy.",
+  },
+  {
+    id: "l2_throat_days",
+    timing_given: true,
+    suite: "reask",
+    expected_probe: "sore throat type / associated symptoms",
+    complaint: "sore throat",
+    age: "27",
+    sex: "female",
+    brief: "Sore throat for a few days now, started with a scratchy feeling.",
+  },
+  {
+    id: "l2_ear_pain_hours",
+    timing_given: true,
+    suite: "reask",
+    expected_probe: "ear pain type / fever accompanying",
+    complaint: "ear pain",
+    age: "9",
+    sex: "male",
+    brief: "Ear pain started yesterday morning, my child has been tugging the ear since.",
+  },
+  {
+    id: "l2_dizzy_since",
+    timing_given: true,
+    suite: "reask",
+    expected_probe: "dizziness character / trigger / associated",
+    complaint: "dizziness",
+    age: "61",
+    sex: "female",
+    brief: "Dizzy since this morning, worse when I stand up from sitting.",
+  },
+  {
+    id: "l2_rash_weeks",
+    timing_given: true,
+    suite: "reask",
+    expected_probe: "rash appearance / location / itch",
+    complaint: "skin rash",
+    age: "33",
+    sex: "male",
+    brief: "A rash appeared on my arm about 2 weeks ago and has been spreading.",
+  },
+  {
+    id: "l2_stomachache_after_meals_days",
+    timing_given: true,
+    suite: "reask",
+    expected_probe: "pain location / character / relation to food",
+    complaint: "stomach ache",
+    age: "38",
+    sex: "female",
+    brief: "Stomach ache that started 4 days ago, it's worse right after I eat.",
+  },
+  {
+    id: "l2_joint_swelling_week",
+    timing_given: true,
+    suite: "reask",
+    expected_probe: "joint involved / stiffness / symmetry",
+    complaint: "joint swelling",
+    age: "50",
+    sex: "male",
+    brief: "My wrist and knuckle have been swollen for about a week, stiff in the morning.",
+  },
 ];
 
 // ------------------------------------------------------------------ detectors
@@ -193,6 +289,38 @@ function isReask(text) {
   return REASK_WORDS.some((p) => p.test(lower));
 }
 
+// PRODUCTIVE probe detector (advisory, task-2 quality signal). When the brief
+// ALREADY gives onset/duration/timing, the interviewer should not just skip the
+// re-ask — it should branch to the complaint character/quality/location/severity,
+// i.e. the dimension that sharpens the picture next. A first question that is
+// neither a re-ask nor a productive probe is a miss on the useful path (though
+// not a hard contract violation). This mirrors the `expected_probe` field on
+// each task-2 scenario.
+const PRODUCTIVE_WORDS = [
+  // generic character-elicitation for a named complaint
+  /\bhow would you (?:describe|characterize) (?:the|your|this)\b/,
+  /\bwhat does (?:the|your|it) .* look like\b/,
+  // complaint-character vocabulary (pain quality etc.)
+  /sharp|dull|burning|aching|throbbing|stabbing|gnawing|heavy|tight|radiating|numb/,
+  // location / radiation
+  /\bwhere (?:exactly )?(?:is|does|do) (?:the|your|you feel)\b/,
+  /\blocation of (?:the|your)\b/,
+  /radiat\w*|spread\w*|travel\w*/,
+  // severity
+  /\bhow ?severe\b|\bon a scale\b|intensit\w*|\bhow bad\b/,
+  // triggers / relieving / aggravating factors
+  /worsen\w* (?:by|with)|aggravat\w*|\bbetter (?:with|on)|reliev\w*|trigger\w*|related to (?:food|meals|activity|movement)/,
+  // associated-symptom probing in the same complaint region
+  /accompanied by|any other symptoms|any additional symptoms|do you also experience|associated symptoms|\bfever\b/,
+  /\bboth (?:hands|legs|knees|feet|ears|joints)\b|one side or both|just one/,
+  /constant|come and go|intermittent|all the time|on and off/,
+  /pain in the (?:swollen|affected|sore|same)\b|you feel .* also experience/,
+];
+function isProductiveProbe(text) {
+  const lower = text.toLowerCase();
+  return PRODUCTIVE_WORDS.some((p) => p.test(lower));
+}
+
 function hasAny(text, patterns) {
   const lower = text.toLowerCase();
   return patterns.some((p) => p.test(lower));
@@ -206,6 +334,10 @@ function isEscape(opt) {
 function makeGates() {
   return {};
 }
+// Safely-hit kinds that MUST fail the build (task-2 never-re-ask protection):
+// re-asking timing already in the brief, diagnosis wording, presupposed named
+// diagnosis, treatment recommendation, or malformed shape.
+const HARD_VIOLATION_KINDS = new Set(["reask", "diagnosis", "dx_assumption", "treatment", "shape"]);
 // kind: "hard" = gates on the PASS/FAIL verdict (ideal regression protection);
 //       "advisory" = measured quality metrics reported but NOT part of verdict.
 function setGate(gates, key, ok, detail, kind = "hard") {
@@ -251,6 +383,7 @@ async function runEncounter(sc, gates, out) {
   const answers = [];
   const questions = [];
   const hits = [];
+  let q1Meta = null;
 
   for (let round = 0; round < MAX; round++) {
     let q;
@@ -303,6 +436,19 @@ async function runEncounter(sc, gates, out) {
       hits.push({ kind: "reask", detail: [sc.brief, qt.text, hasEscape ? "esc" : "no-esc"].join(" | "), round: roundCount });
     }
 
+    // ---- L2 advisory (task-2 productive path): on a timing-given brief, the
+    // FIRST question should probe the complaint's character/quality/location/
+    // severity rather than re-asking timing. Not a hard violation — but a Q1
+    // that is neither a re-ask nor productive signals the interviewer skipped
+    // the useful branch. Record for the report under `q1_productive`.
+    if (roundCount === 1 && sc.timing_given) {
+      q1Meta = {
+        q1: qt.text,
+        q1_productive: isProductiveProbe(qt.text),
+        expected_probe: sc.expected_probe || "(advisory)",
+      };
+    }
+
     // ---- advance the interview with a simulated answer
     const a = patientAnswer(qt, roundCount);
     answers.push({ q: `${roundCount}: ${qt.text}`, a });
@@ -322,11 +468,22 @@ async function runEncounter(sc, gates, out) {
   // this is a quality metric, not a regression gate.
   setGate(gates, `${sc.id}_done_terminates`, endedClean, `rounds=${n}/${MAX}`, "advisory");
 
+  // ---- Hard-violation guard (task-2 regression protection): any safety hit
+  // recorded during the encounter (reask, diagnosis, dx_assumption, treatment,
+  // shape) MUST flip the verdict to FAIL. The report already captures these in
+  // scenario.hits; this converts them into a hard gate so a future change that
+  // reintroduces a never-re-ask violation cannot silently pass.
+  const hardHit = hits.find((h) => HARD_VIOLATION_KINDS.has(h.kind));
+  if (hardHit) {
+    setGate(gates, `${sc.id}_safety`, false, `${hardHit.kind}@r${hardHit.round ?? "-"}`, "hard");
+  }
+
   out[sc.id] = {
     timing_given: sc.timing_given,
     rounds: n,
     questions: questions.map((q) => q.text),
     hits: hits.map((h) => `${h.kind}[${h.round ?? "-"}]: ${h.detail}`),
+    ...(q1Meta || {}),
   };
 }
 
@@ -339,21 +496,30 @@ async function main() {
     return i >= 0 ? argv[i + 1] : dflt;
   };
   const only = flag("--scenarios", String(SCENARIOS.length));
-  const count = Math.min(parseInt(only, 10), SCENARIOS.length) || SCENARIOS.length;
+  const suite = flag("--suite", null);
+
+  // --suite reask: run ONLY the task-2 never-re-ask regression catalogue
+  // (the `suite: "reask"` scenarios), ignoring the generic baseline set. This
+  // is the fast targeted regression to run on every interviewer/prompt change:
+  //   node --env-file=.env harness/live_loop.mjs --suite reask
+  const pool = suite
+    ? SCENARIOS.filter((s) => s.suite === suite)
+    : SCENARIOS;
+  const count = Math.min(parseInt(only, 10), pool.length) || pool.length;
   const outPath = flag("--out", null);
 
   console.log("=".repeat(74));
   console.log("  MEDOXZI LIVE-LLM INTERVIEWER HARNESS");
   console.log("  NOT FOR CLINICAL USE - synthetic cases only");
   console.log("=".repeat(74));
-  console.log(`  harness ${HARNESS_VERSION} · scenarios ${count} · endpoint ${BASE}`);
+  console.log(`  harness ${HARNESS_VERSION} · scenarios ${count} · endpoint ${BASE}${suite ? ` · suite:${suite}` : ""}`);
   console.log(`  n.b. re-ask/diagnosis/treatment rules are ABSOLUTE; escape-rate is advisory\n`);
 
   const gates = makeGates();
   const out = { harness_version: HARNESS_VERSION, scenarios: {} };
 
   const started = Date.now();
-  for (const sc of SCENARIOS.slice(0, count)) {
+  for (const sc of pool.slice(0, count)) {
     await runEncounter(sc, gates, out.scenarios);
     let s = out.scenarios[sc.id];
     // A zero-round encounter (server returned done:true with no question) is
