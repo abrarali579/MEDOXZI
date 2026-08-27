@@ -30,6 +30,7 @@
           <button class="dropdown-item" role="menuitem" data-view="records">Patient records</button>
           <button class="dropdown-item" role="menuitem" data-view="viewer">Record viewer</button>
           <button class="dropdown-item" role="menuitem" data-view="ops">Clinic operations</button>
+          <button class="dropdown-item" role="menuitem" data-view="marketing">Marketing management</button>
         </nav>
         <div class="nav-drawer-sections" id="navSections" hidden>
           <div class="nav-dropdown-subhead">Sections</div>
@@ -490,6 +491,79 @@
                 <li>Staff read-back confirmation for assisted intake.</li>
                 <li>Support needs: wheelchair, interpreter, hearing support.</li>
               </ul>
+            </section>
+          </div>
+        </section>
+
+        <section id="view-marketing" class="view">
+          <div class="marketing-layout">
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Marketing management</p>
+                  <h2>New campaign</h2>
+                </div>
+                <span class="mini-badge">Synthetic demo</span>
+              </div>
+
+              <label class="field-label">Campaign title
+                <input id="campaignTitle" placeholder="e.g. Flu clinic reminder" autocomplete="off">
+              </label>
+
+              <label class="field-label">WhatsApp message
+                <textarea id="campaignMessage" rows="5" placeholder="Write the message patients receive. Use {{name}} and {{date}} to personalise."></textarea>
+              </label>
+
+              <div class="marketing-tools">
+                <button type="button" class="secondary compact" data-insert="{{name}}">Insert {{name}}</button>
+                <button type="button" class="secondary compact" data-insert="{{date}}">Insert {{date}}</button>
+              </div>
+
+              <div class="message-preview" id="campaignPreview">
+                Preview will appear here as you type.
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Recipients</p>
+                  <h2 id="recipientCount">0 selected</h2>
+                </div>
+                <div class="marketing-tools">
+                  <button type="button" class="secondary compact" id="selectAllPatients">Select all</button>
+                  <button type="button" class="secondary compact" id="clearSelection">Clear</button>
+                </div>
+              </div>
+              <label class="history-search">
+                Filter recipients
+                <input id="recipientFilter" placeholder="Search name or mobile" autocomplete="off">
+              </label>
+              <div id="recipientList" class="recipient-list"></div>
+              <div class="recipient-add">
+                <input id="newRecipientName" placeholder="New recipient name" autocomplete="off">
+                <input id="newRecipientPhone" placeholder="Mobile (e.g. +62 812…)" autocomplete="off">
+                <button type="button" class="secondary" id="addRecipientBtn">+ Add</button>
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Send</p>
+                  <h2>Campaign send</h2>
+                </div>
+                <span class="mini-badge locked">Consent-gated</span>
+              </div>
+              <ul class="guardrail-list">
+                <li>Sending stays OFF until each recipient has marketing consent, an opt-out path, and audited sender identity are live (P8).</li>
+                <li>This demo prepares the message and recipient list only — it never transmits real WhatsApp messages.</li>
+              </ul>
+              <div class="consent-row">
+                <label><input type="checkbox" id="consentCheckbox"> Recipients have marketing consent on file</label>
+              </div>
+              <button type="button" id="prepareCampaign" class="primary" disabled>Prepare campaign</button>
+              <div id="campaignAudit" class="small-note"></div>
             </section>
           </div>
         </section>

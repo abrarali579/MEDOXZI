@@ -340,6 +340,7 @@ function switchView(viewName, options = {}) {
   const sectionsBlock = $("#navSections");
   if (sectionsBlock) sectionsBlock.hidden = viewName !== "doctor";
   if (typeof window.closeNavMenu === "function") window.closeNavMenu();
+  if (viewName === "marketing" && typeof renderMarketingRecipients === "function") renderMarketingRecipients();
 }
 
 function currentQueuePatient() {
@@ -1102,6 +1103,7 @@ function saveLinkedPatient() {
   );
   stored.push(patient);
   localStorage.setItem("medoxziDemoPatients", JSON.stringify(stored));
+  saveInterviewRecord(); // Bilal feedback loop: persists + audits this interview.
   state.pin = pin;
   state.linkedIdentity = patient;
   patients[2].pin = pin;
@@ -1522,3 +1524,273 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $("#saveDoctor").addEventListener("click", saveDoctorConclusion);
 });
+
+/* ===== Marketing Management (campaign composer) ===== */
+const marketingState = {
+  recipients: [], // { id, name, phone, source }
+  selected: new Set(), // ids
+  filter: "",
+};
+
+function marketingReusableRecipients() {
+  const used = new Map();
+  savedPatients().forEach((p) => {
+    if (!p || !p.pin) return;
+    const id = `pat-${p.pin}`;
+    if (!used.has(id)) used.set(id, { id, name: p.name || `Patient ${p.pin}`, phone: p.phone || "", source: "patient" });
+  });
+  const extra = JSON.parse(localStorage.getItem("medoxziCampaignRecipients") || "[]");
+  extra.forEach((r) => { if (r && r.id) used.set(r.id, r); });
+  return [...used.values()];
+}
+
+function renderMarketingRecipients() {
+  const list = $("#recipientList");
+  const count = $("#recipientCount");
+  if (!list) return;
+  const all = marketingReusableRecipients();
+  const term = marketingState.filter.toLowerCase();
+  const shown = all.filter((r) => !term || `${r.name} ${r.phone}`.toLowerCase().includes(term));
+  if (!shown.length) {
+    list.innerHTML = `<p class="quiet">No recipients yet — add one below or run an intake.</p>`;
+  } else {
+    list.innerHTML = shown
+      .map((r) => {
+        const checked = marketingState.selected.has(r.id) ? "checked" : "";
+        const tag = r.source === "patient" ? `<span class="rec-tag">Synthetic</span>` : `<span class="rec-tag">Added</span>`;
+        return `<div class="recipient-item">
+          <label>
+            <input type="checkbox" data-recipient="${r.id}" ${checked}>
+            <span><span class="rec-name">${escapeHtml(r.name)}</span><br><span class="rec-phone">${escapeHtml(r.phone || "no mobile")}</span></span>
+          </label>
+          ${tag}
+          <button type="button" class="secondary compact" data-remove-recipient="${r.id}">Remove</button>
+        </div>`;
+      })
+      .join("");
+  }
+  const n = marketingState.selected.size;
+  count.textContent = `${n} selected`;
+  updateMarketingPreview();
+}
+
+function updateMarketingPreview() {
+  const preview = $("#campaignPreview");
+  const title = ($("#campaignTitle") || {}).value || "";
+  let msg = ($("#campaignMessage") || {}).value || "";
+  if (!title && !msg) { preview.textContent = "Preview will appear here as you type."; return; }
+  const n = marketingState.selected.size;
+  const sampleName = n ? Array.from(marketingState.selected)[0].split("-")[1] || "patient" : "patient";
+  msg = msg.replace(/{{name}}/g, sampleName === "patient" ? "patient" : sampleName);
+  msg = msg.replace(/{{date}}/g, new Date().toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short" }));
+  preview.innerHTML = `<strong>${escapeHtml(title || "Untitled campaign")}</strong> · ${n} recipient${n === 1 ? "" : "s"}<br><span class="quiet">${escapeHtml(msg || "(empty message)")}</span>`;
+}
+
+function addMarketingRecipient(name, phone) {
+  const used = marketingReusableRecipients();
+  const id = `ext-${Date.now()}`;
+  const rec = { id, name: (name || "").trim() || "Unnamed", phone: (phone || "").trim(), source: "added", consent: false };
+  const stored = JSON.parse(localStorage.getItem("medoxziCampaignRecipients") || "[]");
+  stored.push(rec);
+  localStorage.setItem("medoxziCampaignRecipients", JSON.stringify(stored));
+  marketingState.selected.add(id);
+  renderMarketingRecipients();
+}
+
+function removeMarketingRecipient(id) {
+  marketingState.selected.delete(id);
+  if (id.startsWith("ext-")) {
+    const stored = JSON.parse(localStorage.getItem("medoxziCampaignRecipients") || "[]").filter((r) => r.id !== id);
+    localStorage.setItem("medoxziCampaignRecipients", JSON.stringify(stored));
+  }
+  renderMarketingRecipients();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  marketingState.recipients = marketingReusableRecipients();
+  renderMarketingRecipients();
+
+  $("#recipientList")?.addEventListener("change", (e) => {
+    const box = e.target.closest("[data-recipient]");
+    if (!box) return;
+    if (box.checked) marketingState.selected.add(box.dataset.recipient);
+    else marketingState.selected.delete(box.dataset.recipient);
+    renderMarketingRecipients();
+  });
+
+  $("#recipientList")?.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-remove-recipient]");
+    if (btn) removeMarketingRecipient(btn.dataset.removeRecipient);
+  });
+
+  $("#selectAllPatients")?.addEventListener("click", () => {
+    marketingState.selected = new Set(marketingReusableRecipients().map((r) => r.id));
+    renderMarketingRecipients();
+  });
+
+  $("#clearSelection")?.addEventListener("click", () => {
+    marketingState.selected.clear();
+    renderMarketingRecipients();
+  });
+
+  $("#recipientFilter")?.addEventListener("input", (e) => {
+    marketingState.filter = e.target.value;
+    renderMarketingRecipients();
+  });
+
+  $("#addRecipientBtn")?.addEventListener("click", () => {
+    const name = $("#newRecipientName").value;
+    const phone = $("#newRecipientPhone").value;
+    addMarketingRecipient(name, phone);
+    $("#newRecipientName").value = "";
+    $("#newRecipientPhone").value = "";
+  });
+
+  $("#campaignTitle")?.addEventListener("input", updateMarketingPreview);
+  $("#campaignMessage")?.addEventListener("input", updateMarketingPreview);
+
+  $$("[data-insert]").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      const ta = $("#campaignMessage");
+      const token = btn.dataset.insert;
+      const start = ta.selectionStart;
+      const end = ta.selectionEnd;
+      ta.value = ta.value.slice(0, start) + token + ta.value.slice(end);
+      ta.focus();
+      ta.selectionStart = ta.selectionEnd = start + token.length;
+      updateMarketingPreview();
+    }),
+  );
+
+  function updatePrepareGate() {
+    const canSent = marketingState.selected.size > 0 && ($("#consentCheckbox") || {}).checked;
+    const btn = $("#prepareCampaign");
+    if (btn) btn.disabled = !canSent;
+  }
+  $("#consentCheckbox")?.addEventListener("change", () => {
+    updatePrepareGate();
+    updateMarketingPreview();
+  });
+  document.addEventListener("change", (e) => {
+    if (e.target && e.target.closest && e.target.closest("[data-recipient]")) updatePrepareGate();
+  });
+
+  $("#prepareCampaign")?.addEventListener("click", () => {
+    const title = ($("#campaignTitle") || {}).value || "Untitled campaign";
+    const msg = ($("#campaignMessage") || {}).value || "";
+    const ids = [...marketingState.selected];
+    const recipients = marketingReusableRecipients().filter((r) => ids.includes(r.id));
+    const entry = {
+      at: new Date().toISOString(),
+      title,
+      message: msg,
+      recipientCount: recipients.length,
+      consentDeclared: ($("#consentCheckbox") || {}).checked,
+      // Under ADR-036 no real message is transmitted. Logged as an audit entry only.
+      status: "prepared (not sent)",
+      where: "medoxzi-whatsapp-queue",
+    };
+    const audit = JSON.parse(localStorage.getItem("medoxziCampaignAudit") || "[]");
+    audit.unshift(entry);
+    localStorage.setItem("medoxziCampaignAudit", JSON.stringify(audit));
+    const el = $("#campaignAudit");
+    if (el) {
+      el.textContent =
+        `Prepared "${title}" for ${recipients.length} recipient(s) with consent declared. ` +
+        `Logged to audit queue (no WhatsApp message transmitted).`;
+    }
+  });
+
+  renderMarketingRecipients();
+});
+
+/* ===== Bilal interview-audit loop ===== */
+// Every completed interview is persisted as a training-grade record, then sent
+// to Bilal (/api/bilal) to judge whether it actually gave the doctor the most
+// useful information. The audit + accumulated feedback let the system improve
+// over time. All synthetic/demo data; nothing leaves the browser except the
+// redacted interview text POSTed to the serverless audit endpoint.
+
+function buildAnswersArraySafe() {
+  try {
+    if (typeof buildAnswersArray === "function") return buildAnswersArray() || [];
+  } catch (e) {}
+  return Object.entries(state.answers || {}).map(([q, a]) => ({ q, a }));
+}
+
+function interviewRecordShape() {
+  const name = String(state.patientName || state.linkedIdentity?.name || "").trim();
+  const age = String(state.age || "").trim() || String(state.linkedIdentity?.age || "").trim();
+  const sex = String(state.sex || "").trim() || String(state.linkedIdentity?.sex || "").trim();
+  const phone = String(state.linkedIdentity?.phone || "").trim();
+  const pin = String(state.pin || state.linkedIdentity?.pin || "").trim();
+  return {
+    id: `rec-${Date.now()}`,
+    pin,
+    name,
+    age,
+    sex,
+    phone,
+    complaint: String(state.complaint || "").trim(),
+    brief: ($("#issueText")?.value || "").trim().slice(0, 1200),
+    answers: buildAnswersArraySafe().slice(0, 12),
+    savedAt: new Date().toISOString(),
+    audit: null,
+  };
+}
+
+function saveInterviewRecord() {
+  try {
+    const rec = interviewRecordShape();
+    // Only persist records with real substance (a complaint + at least 2 answers).
+    if (!rec.complaint || rec.answers.length < 2) return;
+    const records = JSON.parse(localStorage.getItem("medoxziInterviewRecords") || "[]");
+    // Replace any earlier record for the same PIN so the latest visit wins.
+    const next = records.filter((r) => r.pin !== rec.pin);
+    next.push(rec);
+    localStorage.setItem("medoxziInterviewRecords", JSON.stringify(next));
+    runBilalAudit(rec);
+  } catch (e) {
+    // Never break the intake flow over a background audit.
+  }
+}
+
+async function runBilalAudit(rec) {
+  try {
+    const res = await fetch("/api/bilal", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ record: rec }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!data || !data.ok || !data.audit) return; // audit unavailable — skip silently
+    // Attach the audit to the record (latest visit wins by PIN).
+    const records = JSON.parse(localStorage.getItem("medoxziInterviewRecords") || "[]");
+    const idx = records.findIndex((r) => r.id === rec.id);
+    if (idx >= 0) {
+      records[idx].audit = { ...data.audit, at: new Date().toISOString() };
+      localStorage.setItem("medoxziInterviewRecords", JSON.stringify(records));
+    }
+    // Accumulate feedback so the system learns over time (Bilal's running log).
+    const log = JSON.parse(localStorage.getItem("medoxziImprovementLog") || "[]");
+    log.push({
+      at: new Date().toISOString(),
+      pin: rec.pin,
+      complaint: rec.complaint,
+      purposeFit: data.audit.purposeFit,
+      missing: data.audit.missing || [],
+      recommendation: data.audit.recommendation || "",
+      good: data.audit.good || [],
+    });
+    localStorage.setItem("medoxziImprovementLog", JSON.stringify(log));
+  } catch (e) {
+    // Offline / backend down — audit deferred, intake unaffected.
+  }
+}
+
+// Expose for the records UI and any console inspection.
+window.MEDOXZI_BILAL = {
+  saveInterviewRecord,
+  runBilalAudit,
+  interviewRecordShape,
+};

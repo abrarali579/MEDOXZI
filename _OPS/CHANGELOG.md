@@ -4,7 +4,33 @@
 
 ---
 
-## 2026-08-27 - Session RT2c - Production UI bug fixes (review Submit + interviewer no-jump) + thinking animation
+## 2026-08-27 - Session RT2d - Marketing Management view (7th nav tab) + Bilal interview-audit loop
+
+**WHAT**
+Two new build items shipped on the same HTML MVP (production chain):
+1. **Marketing Management — 7th view** (index.html nav + `view-marketing` HTML + styles.css block + app.js module). Campaign composer (title + message editor), bulk recipient manager driven by `savedPatients()` (all patients + add/remove + raw new phone), WhatsApp preview with `{{name}}`/`{{date}}` token resolution, and an ADR-036-gated send panel: consent checkbox + recipient-count gate + opt-out/audit/template-version controls. "Prepare" writes a `medoxziCampaignAudit` entry with status `prepared (not sent)` — **no WhatsApp message is ever transmitted** (static MVP; go-live billing/gateway deliberately absent, P8/OT-19 compliant).
+2. **Bilal interview-audit loop** (Abrar's workflow-training priority): every completed interview is now auto-persisted to `localStorage["medoxziInterviewRecords"]` (structured: pin, name, demographics, complaint, brief, answers[], savedAt) and then POSTed to a **new `/api/bilal`** DeepSeek endpoint (serverless `api/bilal.js` mirroring `api/questions.js`; local mirror route added to `server.js`). Bilal judges whether the interview gave the doctor the most useful info and returns `{ purposeFit, good[], missing[], recommendation, suggestedQuestions[] }`; the audit is attached under the record and appended to `medoxziImprovementLog` so the system learns over time.
+
+**WHY**
+- Marketing: founder requested a campaign/announcement tool with bulk WhatsApp select/add/remove + a new-phone path, but ADR-036/OT-19 forbids messaging until consent/opt-out/audit/template controls exist — so the view+controls are built, transmission stays off.
+- Bilal: founder explicitly wants each interview's record saved and an LLM sub-agent ("Bilal") to re-check it for purpose-fit, feeding good/missing/recommendation back to the system ("Bilal" name from founder, temporary).
+
+**EVIDENCE**
+- `node --check app.js` / `server.js` -> OK; browser console 0 errors.
+- Marketing view browser-verified: 17 recipients rendered, select-all→17, preview resolves `{{name}}`, prepare-gate disabled before consent + enabled after, audit row logged.
+- `/api/bilal` live DeepSeek test (rich 4-q headache record) returned `purposeFit:0.7`, good/missing/recommendation/suggestedQuestions all populated, `source:"deepseek"`.
+- Full client loop: record saved → audit attached (`purposeFit:0.4` for thinner 3-q record) → `medoxziImprovementLog` grew by 1.
+
+**NEXT** (why next / how)
+- `cmp` Compare-with-previous-visit — `/api/compare` mirrors `/api/bilal`; needs the multi-visit `medoxziInterviewRecords` Bilal now produces. Build next.
+- `fu` Follow-up + 1-day-before re-confirmation — queue+preview on top of the same record store; real send stays gated.
+- A records/Bilal feedback *viewer* (doctor-visible "what Bilal found + how to improve intake") remains a natural follow-on; not yet requested.
+- `mk-send` real send backend stays blocked by static-MVP constraint (no DB/auth/gateway) — intentionally not built.
+
+**HOW**
+Marketing: nav `data-view="marketing"`; `view-marketing` section; CSS appended at EOF (CRLF). Bilal: `api/bilal.js` + server.js `/api/bilal` route + `auditInterview()`/`strList()` helpers (local mirror); app.js `saveInterviewRecord()` hooked at end of `savePatient()`, `runBilalAudit()`, `window.MEDOXZI_BILAL`. API key read only from `.env` (gitignored), never shipped/logged. Records/audit are synthetic demo data only; no real patient data is stored or sent.
+
+---
 
 **WHAT**
 Two production bugs reported by the founder on `medoxzi.vercel.app` were diagnosed, fixed, live-verified, and deployed:

@@ -8,7 +8,60 @@
 
 ---
 
-## Session AC — 2026-08-25 — Restore `faf4e71` flow + doctor-only polish
+## Session RT2d — 2026-08-27 — Marketing Management view + Bilal interview-audit loop
+
+### V-2026-08-27-RT2d-01 · Marketing Management 7th view renders and is functionally correct
+- **Claim:** The 7th nav tab (Marketing management) shows a working campaign composer with a recipient list from patient data, WhatsApp preview, and ADR-036 consent-gated prepare.
+- **Method:** Browser UI on `http://localhost:8765/` (live updated server). Opened nav, switched via `switchView('marketing')`, inspected DOM, drove the composer programmatically.
+- **Evidence:**
+  ```text
+  nav item "Marketing management" present (7 tabs)
+  switchView('marketing') -> #view-marketing active, #recipientList rendered
+  17 .recipient-item rows from patient data
+  select-all -> count "17 selected"
+  title+message typed -> preview "Flu vaccine reminder · 17 recipients" resolves {{name}}->"4729"
+  prepare-gate: disabled before consent (true), enabled after consent (false)
+  prepare click -> medoxziCampaignAudit entry {status:"prepared (not sent)", recipientCount, consent:true}
+  ```
+- **Verdict:** VERIFIED. (Transmission intentionally never occurs; audit-only path is by design.)
+
+### V-2026-08-27-RT2d-02 · Bilal audit endpoint works against live DeepSeek
+- **Claim:** `/api/bilal` returns a purpose-fit audit (good/missing/recommendation/suggested questions) via DeepSeek for a real interview record.
+- **Method:** `node server.js` with `.env` key, then `POST /api/bilal` with a rich 4-answer headache record.
+- **Evidence:**
+  ```json
+  {"ok":true,"source":"deepseek","audit":{"purposeFit":0.7,
+    "good":["Captured onset, location, quality, severity, aggravating factors, and associated nausea.", ...],
+    "missing":["No duration of the prior episode ...","No current medication use ..."],
+    "recommendation":"Add questions about the prior episode's duration ... red-flag symptoms ...",
+    "suggestedQuestions":["How long did the similar episode last month last ...?", ...]}}
+  ```
+- **Verdict:** VERIFIED (real API key, live call, structured JSON returned).
+
+### V-2026-08-27-RT2d-03 · Full client interview-record + Bilal feedback loop persists and learns
+- **Claim:** Completing an interview saves a structured record, posts to `/api/bilal`, attaches the audit, and grows the improvement log.
+- **Method:** Browser console: set `state`, call `saveInterviewRecord()`, wait, read localStorage.
+- **Evidence:**
+  ```text
+  medoxziInterviewRecords -> rec id=rec-1787852240117 pin=T9001 answers=3 audit=pending
+  (after async) rec.audit=Yes purposeFit=0.4
+  medoxziImprovementLog entries=1 lastFit=0.4
+  (shorter 3-q record scored 0.4 vs richer 4-q 0.7 -> audit differentiates quality)
+  ```
+- **Verdict:** VERIFIED.
+
+### V-2026-08-27-RT2d-04 · No regressions: build + console clean
+- **Claim:** app.js / server.js are syntactically valid and the app loads with zero errors.
+- **Method:** `node --check` both files; browser load with console capture.
+- **Evidence:**
+  ```text
+  node --check server.js -> "SERVER JS OK"
+  node --check app.js    -> "APP JS OK"
+  browser console: js_errors=[], messages=[]  (0 errors)
+  ```
+- **Verdict:** VERIFIED.
+
+---
 
 ### V-2026-08-25-AC-01 · Restored intake/records workflow and polished only Doctor Review
 - **Claim:** The HTML MVP product flow is restored to `faf4e71 feat(mvp-html): split records workflow`, while only the Doctor / Pre-visit Review section receives the new polished command-center UI.
