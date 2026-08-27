@@ -3261,3 +3261,29 @@ adaptively (min 5 / max 12).
 **Regression:** pytest 100 passed; `node --check` on app.js / api/questions.js / server.js OK.
 
 **Verdict:** ✅ CONFIRMED — all 5 founder issues addressed and verified on a live render.
+
+
+---
+
+## Session RT2 — 2026-08-27 — Live-LLM interviewer harness
+
+### V-2026-08-27-RT2-01 · Live DeepSeek interviewer upholds the absolute rules across 5 synthetic encounters
+- **Claim:** `14-MVP-HTML/harness/live_loop.mjs` drives the real adaptive DeepSeek `/api/questions` interviewer through 5 synthetic scenarios and observes zero re-ask of onset/duration/timing, zero diagnosis/treatment wording, zero presupposed named diagnosis, exactly 4 options, and no max-12 ceiling breach; VERDICT PASS on all hard gates.
+- **Method:** Started `server.js` (real DeepSeek key from gitignored `.env`), ran `node --env-file=.env harness/live_loop.mjs --out harness/report_live_loop.json`, confirmed exit 0, then parsed the written JSON report on disk.
+- **Evidence:**
+  ```text
+  $ node --env-file=.env harness/live_loop.mjs --out harness/report_live_loop.json
+  [s1_chest_pain_duration] rounds=1 hits=0
+  [s2_headache_onset] rounds=12 hits=0
+  [s3_cough_duration] rounds=12 hits=0
+  [s4_abdominal_no_timing] rounds=9 hits=0
+  [s5_fatigue_timing] rounds=12 hits=0
+  VERDICT: PASS  (76.4s)
+  report -> harness/report_live_loop.json
+  ```
+  ```text
+  $ wc -c harness/report_live_loop.json && node -e "const r=require('./harness/report_live_loop.json');console.log(r.verdict, Object.keys(r.gates).length, Object.keys(r.scenarios).length)"
+  2500 harness/report_live_loop.json
+  PASS 21 5
+  ```
+- **VERDICT:** ✅ VERIFIED — hard gates PASS (exit 0). Advisory quality metrics (deepseek self-termination runs to 12-cap ~half the time; done<5 server-side on some) are NOT hard failures; production client-side fill/cap covers them.

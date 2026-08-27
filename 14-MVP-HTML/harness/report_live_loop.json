@@ -1,0 +1,119 @@
+{
+  "harness_version": "L0.1.0",
+  "scenarios": {
+    "s1_chest_pain_duration": {
+      "timing_given": true,
+      "rounds": 1,
+      "hits": []
+    },
+    "s2_headache_onset": {
+      "timing_given": true,
+      "rounds": 12,
+      "hits": []
+    },
+    "s3_cough_duration": {
+      "timing_given": true,
+      "rounds": 6,
+      "hits": []
+    },
+    "s4_abdominal_no_timing": {
+      "timing_given": false,
+      "rounds": 2,
+      "hits": []
+    },
+    "s5_fatigue_timing": {
+      "timing_given": true,
+      "rounds": 12,
+      "hits": []
+    }
+  },
+  "gates": {
+    "s1_chest_pain_duration_transport": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "s1_chest_pain_duration_max_12": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "s1_chest_pain_duration_min_5": {
+      "ok": false,
+      "kind": "advisory"
+    },
+    "s1_chest_pain_duration_done_terminates": {
+      "ok": true,
+      "kind": "advisory"
+    },
+    "s2_headache_onset_transport": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "s2_headache_onset_max_12": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "s2_headache_onset_min_5": {
+      "ok": true,
+      "kind": "advisory"
+    },
+    "s2_headache_onset_done_terminates": {
+      "ok": false,
+      "kind": "advisory"
+    },
+    "s3_cough_duration_transport": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "s3_cough_duration_max_12": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "s3_cough_duration_min_5": {
+      "ok": true,
+      "kind": "advisory"
+    },
+    "s3_cough_duration_done_terminates": {
+      "ok": true,
+      "kind": "advisory"
+    },
+    "s4_abdominal_no_timing_transport": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "s4_abdominal_no_timing_max_12": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "s4_abdominal_no_timing_min_5": {
+      "ok": false,
+      "kind": "advisory"
+    },
+    "s4_abdominal_no_timing_done_terminates": {
+      "ok": true,
+      "kind": "advisory"
+    },
+    "s5_fatigue_timing_transport": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "s5_fatigue_timing_max_12": {
+      "ok": true,
+      "kind": "hard"
+    },
+    "s5_fatigue_timing_min_5": {
+      "ok": true,
+      "kind": "advisory"
+    },
+    "s5_fatigue_timing_done_terminates": {
+      "ok": false,
+      "kind": "advisory"
+    },
+    "L7_escape_advisory": {
+      "ok": true,
+      "kind": "hard"
+    }
+  },
+  "verdict": "PASS",
+  "elapsed_s": 59.7,
+  "note": "Synthetic distribution. NOT a clinical performance claim."
+}

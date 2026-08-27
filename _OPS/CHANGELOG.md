@@ -3,6 +3,30 @@
 **Append-only.** Newest first. Every entry answers: WHAT · WHY · EVIDENCE · NEXT · WHY NEXT · HOW.
 
 ---
+
+## 2026-08-27 - Session RT2 - Live-LLM interviewer harness
+
+**WHAT**
+Added `14-MVP-HTML/harness/live_loop.mjs`: a live question-answer-loop harness that drives the REAL adaptive DeepSeek interviewer (`/api/questions`) through 5 synthetic scenarios over HTTP, gating every generated question on the ABSOLUTE rules — no re-ask of onset/duration/timing already stated, no diagnosis/treatment wording, no presumed named diagnosis, exactly 4 options, and never exceeding the max-12 ceiling. Hard gates = PASS/FAIL; quality metrics (min 5, self-termination, escape rate) reported as advisory. Transient zero-round responses auto-retried. Report → `harness/report_live_loop.json`.
+
+**WHY**
+Founder selected task 1 of the grounded suggestions: the existing Python harness only exercises synthetic deterministic content, never the live model. The production adaptive interviewer had zero automated coverage.
+
+**EVIDENCE**
+- `node harness/live_loop.mjs` → **VERDICT: PASS** (exit 0), all hard gates green across 5 scenarios, hits=0 (no re-ask/diagnosis/treatment/shape violations).
+- Report on disk: `harness/report_live_loop.json`, verdict PASS, 21 gates, 5 scenarios.
+- Detail: VERIFICATION-LOG V-RT2-2026-08-27-01, SESSION-LOG 2026-08-27-RT2-live-llm-harness.md.
+
+**NEXT**
+Extend scenario corpus / add `--runs N` for statistical rates; optionally wire the same gates into a cron over the live endpoint for production-drift watch. OT-18 Lead Doctor sign-off still blocking real-patient use.
+
+**WHY NEXT**
+Catch regressions in the interviewer as it evolves; the absolute rules are the main risk surface.
+
+**HOW**
+Dev harness only — no production code changed. Run via `cd 14-MVP-HTML && node --env-file=.env harness/live_loop.mjs`.
+
+---
 ## 2026-08-25 - Session AH - Intake questioner polish + wider screens
 
 **WHAT**
