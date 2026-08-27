@@ -3301,3 +3301,16 @@ EVIDENCE:
 - 4 prior runs (r1-r4) each returned VERDICT FAIL with a real re-ask caught as a HARD `<scenario>_safety` gate — proving the guard flips verdict (previously such hits were recorded passively while suite still PASSed).
 - Full run transcript + report bytes on disk.
 VERDICT: PASS (guard proven: fails on violation, passes on compliant run).
+
+## Session RT2c — 2026-08-27 — Production UI fixes (review Submit pinned + interviewer no-jump)
+
+**V-RT2c-2026-08-27-01**
+CLAIM: The review-your-submissions Submit button is now always visible on the phone, and the interviewer question block no longer jumps up/down during the LLM round-trip (plus a thinking-dot animation was added).
+METHOD: Live browser verification against the real DeepSeek interviewer on local `:8765`, driving the actual patient flow to step 4 (review); measured element rects/heights via `browser_console`; then production smoke via curl on `medoxzi.vercel.app` after pushing `main`.
+EVIDENCE:
+- Interviewer round-trip: answered a question and measured `#questionBlock` height before and during loading — **249px → 249px, delta 0** (no vertical jump).
+- Thinking-dot animation active during round-trip: at 60ms and 200ms after answering, `.is-loading` class on and `.thinking-dots` `display:flex`; at ~400ms is-loading off, dots none, next question rendered cleanly.
+- Review step (step 4): `#submitIntake` computed `position: sticky; bottom: 0; z-index: 20`, rect top 575 / bottom 625 in a 625px viewport → pinned to the bottom edge and visible (`visible:true`).
+- 0 console errors / 0 JS errors across the whole navigation.
+- Production smoke after push (`7912e03..b4a7325`): `medoxzi.vercel.app` HTTP 200; served `styles.css` contains `thinking-dots`×7 and `submitIntake`×2; served `app.js` contains `is-loading`×2 and the old `questionLoading` collapse is gone (0 matches); served `index.html` contains `thinkingDots`.
+VERDICT: PASS (both bugs fixed, verified live, and confirmed deployed).

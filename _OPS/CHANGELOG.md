@@ -4,6 +4,28 @@
 
 ---
 
+## 2026-08-27 - Session RT2c - Production UI bug fixes (review Submit + interviewer no-jump) + thinking animation
+
+**WHAT**
+Two production bugs reported by the founder on `medoxzi.vercel.app` were diagnosed, fixed, live-verified, and deployed:
+1. **Review-your-submissions page had no reachable Submit button** — the patient could see their answers but the intake could not be submitted, so data would not reach the doctor. Root cause: `#submitIntake` existed in the DOM but sat at the very bottom of the long stacked `.review-right`, below the fold on a phone. Fix: the Submit button is now `position: sticky; bottom: 0; z-index: 20` (raised bottom shadow + safe-area padding) so it pins to the bottom of the phone viewport and is always visible.
+2. **Interviewer question block jumped up/down after every answer.** Root cause: `showQuestionLoading()` set `hidden=true` on `#questionText` + `#answerGrid` during the LLM round-trip; `hidden` = `display:none`, so `.question-block` collapsed from ~249px to its 150px `min-height` floor and everything below lifted and snapped back. Fix: the JS no longer collapses the question/options — it toggles an `.is-loading` class on `#questionBlock`; CSS fades the content to opacity 0 IN PLACE (keeps height) and a new `.thinking-dots` overlay shows 3 brand-green bouncing dots (the "cool animation" the founder requested). `pointer-events:none` while loading prevents double-taps.
+
+**WHY**
+The review step's Submit action is the whole point of the flow (patient answers → doctor receives); an unreachable button silently broke that. The interviewer jump was a visible layout defect on the phone. Both are presentation/layout fixes — no change to the ABSOLUTE-rule interview contract, no clinical wording, doctor view untouched.
+
+**EVIDENCE**
+- Local `:8765` with the real DeepSeek interviewer: during an answer round-trip the question block height was **249px → 249px (delta 0)** — no vertical jump. Thinking dots visible at 60ms/200ms after answering, clean hand-off to the next question ~400ms. Review step: `#submitIntake` sticky, rect top 575/bottom 625 in a 625px viewport (pinned to the bottom edge). 0 console / 0 JS errors.
+- Deployed via push of `main` (`7912e03..b4a7325`, `b4a7325` commit). Production smoke: `medoxzi.vercel.app` HTTP 200; served `styles.css` has `thinking-dots`×7 + `submitIntake`×2; served `app.js` has `is-loading`×2 and the old `questionLoading` collapse removed (0 matches); `index.html` has `thinkingDots`.
+- Note: this push also deployed the two prior unpushed commits (`805c8ee` RT2 harness, `8923f00` RT2b permanence). After redeploy, clear cache / hard-refresh / incognito per UI convention.
+- Detail: VERIFICATION-LOG V-RT2c-2026-08-27-01; session log `SESSION-LOG/2026-08-27-RT2c-prod-ui-bugs-submit-and-no-jump.md`.
+
+**NEXT**
+None blocking. Founder may tune the thinking-dots size/speed/color or add a "Preparing…" label (`.thinking-dots` CSS only). The 5 English layman scenario briefs (delivered this session) remain available to extend `REASK_CATALOGUE` 8→13 if wanted.
+
+**WHY NEXT**
+Keep the `prompt_contract.test.mjs` guard + reask catalogue running after any future interviewer change; this UI fix did not touch the interview prompt, but it lives in the same files (`app.js`/`index.html`/`styles.css`) so a quick re-run of Part A (14 gates) next session confirms nothing regressed.
+
 ## 2026-08-27 - Session RT2 - Live-LLM interviewer harness
 ## 2026-08-27 - Session RT2b - Never-re-ask regression catalogue + prompt-contract guard
 

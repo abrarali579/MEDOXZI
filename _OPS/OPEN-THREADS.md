@@ -14,6 +14,8 @@
 
 **Session K note:** Local phone/tablet-first HTML MVP prototype started in `14-MVP-HTML/`. It is synthetic/demo-only and excludes diagnosis, visible differential, production red flags and real message sending.
 
+**Session RT2c note (2026-08-27):** Two production UI bugs reported by the founder are **RESOLVED and deployed** (commit `b4a7325`, pushed `main`; live on `medoxzi.vercel.app`): (1) review-your-submissions page had no reachable Submit on a phone — `#submitIntake` is now `position: sticky; bottom: 0` so it pins to the bottom of the mobile viewport and is always visible; (2) interviewer question block jumped up/down after each answer because loading `hidden` the question/options — the JS now toggles an `.is-loading` class and a `.thinking-dots` bouncing-dot animation, and the block keeps its height (delta 0 verified). New founder UI preference added: **the review Submit button must stay pinned/always visible on the phone**. See CHANGELOG / VERIFICATION-LOG / session log `2026-08-27-RT2c…`. Cache-clear/incognito after redeploy.
+
 **Session L note:** HTML MVP refined with existing-patient search, manual clinic token entry, relevant answer options, fixed review text layout, patient PIN generation/display, and removal of the patient-facing doctor-view button.
 
 **Session M note:** HTML MVP polished with professional colors/copy, fixed returning-patient PIN selection field sync, complaint-specific demo answer options, issue-description helper chips, and documented data-collection feature suggestions.
