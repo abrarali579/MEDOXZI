@@ -823,7 +823,7 @@ async function fetchNextAiQuestion() {
   const answeredCount = answers.length;
 
   // Spinner only during the real LLM round-trip.
-  showQuestionLoading("Thinking about what to ask next...");
+  showQuestionLoading("Examining your answers...");
 
   try {
     const res = await fetch("/api/questions", {

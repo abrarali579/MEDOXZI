@@ -611,28 +611,69 @@ textarea {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
 }
 .question-block.is-loading .thinking-dots { display: flex; }
-.thinking-dots .dotrow { display: flex; gap: 7px; }
-.thinking-dots .dotrow span {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: var(--brand);
-  animation: thinking-pulse 1.15s infinite ease-in-out;
+.med-symbol { position: relative; width: 64px; height: 64px; }
+.med-symbol svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
-.thinking-dots .dotrow span:nth-child(2) { animation-delay: 0.16s; }
-.thinking-dots .dotrow span:nth-child(3) { animation-delay: 0.32s; }
+.med-symbol .med-ring {
+  fill: none;
+  stroke: var(--brand);
+  stroke-width: 2;
+  opacity: 0.35;
+  transform-origin: 32px 32px;
+  transform-box: fill-box;
+  animation: med-ring-pulse 1.9s ease-out infinite;
+}
+.med-symbol .med-heart {
+  fill: var(--brand);
+  fill-opacity: 0.14;
+  stroke: var(--brand);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  transform-origin: 32px 34px;
+  transform-box: fill-box;
+  animation: med-heartbeat 1.05s ease-in-out infinite;
+}
+.med-symbol .med-ecg {
+  fill: none;
+  stroke: var(--brand);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 26 30;
+  stroke-dashoffset: 0;
+  animation: med-ecg-run 1.05s linear infinite;
+}
+@keyframes med-ring-pulse {
+  0%   { transform: scale(0.82); opacity: 0.45; }
+  70%  { transform: scale(1.15); opacity: 0.08; }
+  100% { transform: scale(1.2);  opacity: 0;    }
+}
+@keyframes med-heartbeat {
+  0%, 30%, 100% { transform: scale(1);    }
+  12%           { transform: scale(1.14); }
+  20%           { transform: scale(0.97); }
+  24%           { transform: scale(1.09); }
+}
+@keyframes med-ecg-run {
+  0%   { stroke-dashoffset: 0;   }
+  100% { stroke-dashoffset: -56; }
+}
 .thinking-dots .processing-text {
   font-style: normal;
   font-size: 0.95rem;
   color: var(--muted-2);
   text-align: center;
+  animation: med-text-fade 1.05s ease-in-out infinite;
 }
-@keyframes thinking-pulse {
-  0%, 70%, 100% { transform: translateY(0) scale(0.85); opacity: 0.45; }
-  35%          { transform: translateY(-4px) scale(1);    opacity: 1;   }
+@keyframes med-text-fade {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1;    }
 }
 
 .ai-source {
