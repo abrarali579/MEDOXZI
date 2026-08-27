@@ -358,6 +358,21 @@ textarea {
 .primary { background: var(--brand); color: #fff; box-shadow: var(--shadow-xs); }
 .primary:hover, .primary:focus { background: var(--brand-dark); box-shadow: var(--shadow-sm); }
 
+/* Submit on the review step: pin to the bottom of the phone viewport so the
+   patient can always see/reach it, no matter how long the answers list is. */
+#submitIntake {
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  width: 100%;
+  margin-top: 8px;
+  border-radius: var(--r-lg);
+  background: var(--brand);
+  box-shadow: 0 -6px 18px rgba(14, 124, 116, 0.28), var(--shadow-sm);
+  padding-bottom: max(14px, calc(14px + env(safe-area-inset-bottom)));
+}
+#submitIntake:hover, #submitIntake:focus { background: var(--brand-dark); }
+
 .secondary {
   border: 1px solid var(--line-strong);
   background: #fff;
@@ -571,6 +586,53 @@ textarea {
   font-weight: 700;
   line-height: 1.35;
   color: var(--ink);
+}
+
+/* Question block: stable height + in-place thinking animation (no layout jump).
+   During the LLM round-trip the question/options fade to 0 but keep their
+   space, so everything below stays put. */
+.question-block {
+  position: relative;
+  min-height: 150px;
+}
+.question-block .question-text,
+.question-block .answer-grid {
+  transition: opacity 0.18s ease;
+}
+.question-block.is-loading .question-text,
+.question-block.is-loading .answer-grid {
+  opacity: 0;
+  pointer-events: none;
+}
+.thinking-dots {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.question-block.is-loading .thinking-dots { display: flex; }
+.thinking-dots .dotrow { display: flex; gap: 7px; }
+.thinking-dots .dotrow span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--brand);
+  animation: thinking-pulse 1.15s infinite ease-in-out;
+}
+.thinking-dots .dotrow span:nth-child(2) { animation-delay: 0.16s; }
+.thinking-dots .dotrow span:nth-child(3) { animation-delay: 0.32s; }
+.thinking-dots .processing-text {
+  font-style: normal;
+  font-size: 0.95rem;
+  color: var(--muted-2);
+  text-align: center;
+}
+@keyframes thinking-pulse {
+  0%, 70%, 100% { transform: translateY(0) scale(0.85); opacity: 0.45; }
+  35%          { transform: translateY(-4px) scale(1);    opacity: 1;   }
 }
 
 .ai-source {

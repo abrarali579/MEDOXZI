@@ -733,26 +733,18 @@ function updateInterviewProgress() {
 
 function showQuestionLoading(processingText) {
   _processingActive = true;
-  const ql = $("#questionLoading");
-  if (ql) {
-    const tip = ql.querySelector(".processing-text");
-    if (tip && processingText) tip.textContent = processingText;
-    ql.hidden = false;
-  }
-  ["#questionText", "#answerGrid"].forEach((sel) => {
-    const el = $(sel);
-    if (el) el.hidden = true;
-  });
+  // Keep the question + options in place (do NOT collapse them): we only
+  // fade them out with an animation so the layout below never jumps.
+  const block = $("#questionBlock");
+  if (block) block.classList.add("is-loading");
+  const tip = $("#processingText");
+  if (tip && processingText) tip.textContent = processingText;
 }
 
 function hideQuestionLoading() {
   _processingActive = false;
-  const ql = $("#questionLoading");
-  if (ql) ql.hidden = true;
-  ["#questionText", "#answerGrid"].forEach((sel) => {
-    const el = $(sel);
-    if (el) el.hidden = false;
-  });
+  const block = $("#questionBlock");
+  if (block) block.classList.remove("is-loading");
 }
 
 function renderAnswerSummary() {
