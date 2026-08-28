@@ -74,6 +74,8 @@ class PatientIntake:
         "mobile_question_first_stack",
         "fixed_scroll_answers_so_far_panel",
         "no_duplicate_previous_questions_under_options",
+        "compact_question_text_scale",
+        "scrollable_long_question_and_options_area",
         "answers_persist_in_local_storage",
         "min_five_max_twelve_questions",
     ]
@@ -87,7 +89,7 @@ class ProfessionalInterviewScreen:
     purpose = "patient_facing_one_question_at_a_time_tablet_interview"
     layout = [
         "left_patient_context_chips",
-        "center_large_question_and_four_answer_cards",
+        "center_compact_question_and_four_answer_cards",
         "right_fixed_scroll_answers_so_far_panel",
         "back_and_skip_action_bar",
     ]

@@ -60,6 +60,8 @@
 
 **Session UI-INTERVIEW note (2026-08-28):** Patient Interview screen now implements the generated professional concept in `14-MVP-HTML/`: tablet-first three-column layout, context chips, large answer cards with infographic-style icons, fixed-scroll "Answers so far" panel, no duplicate previous-questions block under the options, and answer tap automatically fetches the next question without requiring Continue. Progress no longer reaches 100% inside the unfinished interview; it moves against the 12-question cap and reserves 100% for done. Browser verified desktop/tablet and 390px phone with no horizontal overflow; 12-answer stress check kept the answers panel scrolling instead of growing. OT-20 review should now include auto-next pacing and whether patients need a short transition animation after tapping an answer.
 
+**Session UI-SCALE note (2026-08-28):** Abrar-reported long-question readability issue addressed. Patient Interview question text is now smaller, answer cards are slightly more compact, and the central question/options card scrolls vertically when a long question would otherwise hide lower options. Browser verified 1180x820 and 390x844 with no horizontal overflow and all four options inside or scrollable. OT-20 review should check whether the scroll affordance is obvious enough on the actual target tablet.
+
 ---
 
 ## ✅ Resolved — red-flag removal in question packs confirmed as real founder decision (ADR-038)
@@ -155,6 +157,8 @@
 **Session Y note (2026-08-24):** OT-20 review scope now includes the v0.7 final doctor command center. The visible Pre-visit Review screen no longer presents separate Patient Records / Record Viewer tabs; it exposes `Previous record` as a patient-header action inside the command center. Review this reversal from the v0.6 split before screen lock, especially whether the inline action is enough for clinic workflow or whether historical search should return as a secondary route.
 
 **Session UI-INTERVIEW note (2026-08-28):** OT-20 review scope now includes the professional Patient Interview screen: auto-next after option tap, hidden Continue button, fixed-scroll "Answers so far", infographic-style answer/context icons, and progress that does not show 100% before completion. Confirm on real phone/tablet whether auto-next is fast enough without feeling abrupt.
+
+**Session UI-SCALE note (2026-08-28):** OT-20 review scope now also includes compact long-question typography and the scrollable question/options card. Confirm long adaptive questions at question 10-12 still feel readable and that hidden lower options are discoverable via scroll.
 
 ### OT-21 · Production PIN identity binding — 🟡 DESIGN UPDATED (founder decision, session P)
 - **What:** the HTML MVP now models a Patient Identification Number (PIN) generated at submission and linked to name, age and mobile. Production must enforce that a PIN cannot be silently attached to a different customer number or identity.

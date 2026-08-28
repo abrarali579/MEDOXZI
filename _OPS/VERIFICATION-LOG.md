@@ -8,6 +8,64 @@
 
 ---
 
+## Session UI-SCALE - 2026-08-28 - Compact long interview question layout
+
+### V-2026-08-28-UISCALE-01 - Long interview questions and options remain readable
+- **Claim:** Patient interview questions now use a smaller type scale, and long question/options content stays accessible through a scrollable center card instead of being clipped.
+- **Method:** Updated `14-MVP-HTML/styles.css`; verified with a synthetic long-question scenario in Playwright on desktop/tablet and phone widths.
+- **Evidence:**
+  ```text
+  Desktop/tablet viewport 1180x820:
+  console errors: []
+  question font size: 20px
+  question block height: 597px
+  question block overflow-y: auto
+  answer buttons: 4
+  all buttons inside or scrollable: true
+  horizontal overflow: false
+  ```
+  ```text
+  Phone viewport 390x844:
+  question font size: 19.52px
+  question block height: 594px
+  question block scrollHeight: 628px
+  question block overflow-y: auto
+  answer buttons: 4
+  all buttons inside or scrollable: true
+  horizontal overflow: false
+  ```
+- **Verdict:** PASS.
+
+### V-2026-08-28-UISCALE-02 - Baseline, prompt contract, and Graphify remain green
+- **Claim:** The layout-only refinement did not change safety behavior or the project graph state.
+- **Method:** Ran the standard Python baseline before/after the UI edit, JavaScript syntax checks, prompt-contract harness, Graphify refresh, and contradiction sweep.
+- **Evidence:**
+  ```text
+  $ python -m pytest tests/ -q
+  100 passed in 0.17s
+  ```
+  ```text
+  $ python -m harness.run
+  VERDICT: PASS
+  ```
+  ```text
+  $ python demo.py | Select-Object -Last 20
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+  ```
+  ```text
+  $ node --check app.js; node --check server.js; node --check api/questions.js; node --check api/bilal.js; node --check api/compare.js; node --check api/followups/enqueue.js; node --check api/followups/tick.js; node harness/prompt_contract.test.mjs
+  VERDICT: PASS
+  ```
+  ```text
+  $ graphify extract 'D:\MEDOXZI\graphify-current-state-src' --code-only --out 'D:\MEDOXZI\graphify-current-state'
+  202 nodes, 365 edges, 13 communities
+  ```
+  Contradiction sweep: contextual only for `FULL_AI`, `No red flags|No concerns`, 25-year retention, `PATIENT_UNSURE`, `probability`, and `>=500|500 real`.
+- **Verdict:** PASS.
+
+---
+
 ## Session UI-DEDUP - 2026-08-28 - Fix duplicate interview side-section (Abrar-reported)
 
 ### V-2026-08-28-UIDEDUP-01 - Duplicate patient context removed from right side-panel

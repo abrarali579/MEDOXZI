@@ -4,6 +4,46 @@
 
 ---
 
+## 2026-08-28 - Session UI-SCALE - Compact long interview question layout
+
+**WHAT**
+Refined the patient Interview screen for long adaptive questions:
+1. Reduced the large question text scale so questions no longer dominate the card.
+2. Made the central question/options card vertically scrollable, so long questions cannot hide lower answer options.
+3. Slightly compacted answer-card spacing and height while keeping the four-card visual style.
+4. Updated Graphify source metadata to record the compact question scale and scrollable long-question/options behavior.
+
+**WHY**
+Abrar reported that long adaptive questions looked too big and could push/hide options at the bottom of the interview card.
+
+**EVIDENCE**
+See `_OPS/VERIFICATION-LOG.md` V-2026-08-28-UISCALE-01..02.
+
+Key evidence:
+
+```text
+Desktop/tablet browser check:
+question font 20px, question block overflow-y auto,
+4 options accessible, horizontal overflow false
+```
+
+```text
+Phone browser check:
+question font 19.52px, block scrollHeight 628px > height 594px,
+overflow-y auto, all 4 options inside or scrollable, horizontal overflow false
+```
+
+**NEXT**
+Review the long-question screen on the actual target tablet and phone, especially at question 10-12 when the right answer history is full.
+
+**WHY NEXT**
+The layout now prevents clipping in browser verification, but final screen lock still needs human comfort testing on real clinic devices.
+
+**HOW**
+Run the patient intake with a deliberately long question and confirm the scroll feels obvious enough without adding visible instructional copy.
+
+---
+
 ## 2026-08-28 - Session UI-DEDUP - Fix duplicate interview side-section (Abrar-reported)
 
 **WHAT**
