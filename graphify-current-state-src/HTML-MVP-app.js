@@ -9,6 +9,10 @@ const state = {
   doctorSaved: false,
   aiQuestions: null,
   aiBriefKey: "",
+  // Adaptive AI interview state.
+  aiActive: false,
+  aiNext: null,
+  aiDone: false,
 };
 
 const questionBanks = {
@@ -51,6 +55,10 @@ const questionBanks = {
 };
 
 function activeQuestions() {
+  // When the adaptive AI flow is active, the "list" is just the current question.
+  if (state.aiActive && state.aiNext) {
+    return [state.aiNext];
+  }
   if (state.aiQuestions && state.aiQuestions.length) {
     return state.aiQuestions;
   }
@@ -310,12 +318,12 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => Array.from(document.querySelectorAll(selector));
 
 const viewTitles = {
-  staff: ["Clinic workspace", "Front desk"],
-  patient: ["Patient workspace", "Patient intake"],
-  doctor: ["Doctor workspace", "Pre-visit review"],
-  records: ["Doctor workspace", "Patient records"],
-  viewer: ["Doctor workspace", "Record viewer"],
-  ops: ["Clinic workspace", "Clinic operations"],
+  staff: ["Medoxzi", "Front desk"],
+  patient: ["Medoxzi", "Patient intake"],
+  doctor: ["Medoxzi", "Pre-visit review"],
+  records: ["Medoxzi", "Patient records"],
+  viewer: ["Medoxzi", "Record viewer"],
+  ops: ["Medoxzi", "Clinic operations"],
 };
 
 function switchView(viewName, options = {}) {
@@ -326,11 +334,14 @@ function switchView(viewName, options = {}) {
     }
   }
   $$(".tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.view === viewName));
+  $$(".dropdown-item").forEach((item) => item.classList.toggle("active", item.dataset.view === viewName));
   $$(".view").forEach((view) => view.classList.toggle("active", view.id === `view-${viewName}`));
   document.body.classList.toggle("doctor-shell", viewName === "doctor");
-  const [context, title] = viewTitles[viewName] || viewTitles.doctor;
-  $("#topbarContext").textContent = context;
-  $("#topbarTitle").textContent = title;
+  const sectionsBlock = $("#navSections");
+  if (sectionsBlock) sectionsBlock.hidden = viewName !== "doctor";
+  if (typeof window.closeNavMenu === "function") window.closeNavMenu();
+  if (viewName === "marketing" && typeof renderMarketingRecipients === "function") renderMarketingRecipients();
+  if (viewName === "doctor" && typeof window.MEDOXZI_COMPARE !== "undefined") window.MEDOXZI_COMPARE.updateCompareCardVisibility();
 }
 
 function currentQueuePatient() {
@@ -660,39 +671,54 @@ function clearIntakeDraft({ keepIdentity = true } = {}) {
   $$(".complaint-grid button").forEach((button) => button.classList.remove("selected"));
 }
 
-function renderStepIndicator() {
-  const el = $("#stepIndicator");
-  if (!el) return;
+function updateSingleProgress() {
+  const bar = $("#progressBar");
+  const pctEl = $("#stepPct");
+  if (!bar) return;
+  let pct = 0;
   const total = 6;
-  const cur = state.currentStep;
-  el.innerHTML = Array.from({ length: total }, (_, i) => {
-    const cls = i < cur ? "step-dot done" : i === cur ? "step-dot current" : "step-dot";
-    return `<span class="${cls}"></span>`;
-  }).join("");
+  if (state.currentStep === 3) {
+    // During the adaptive interview, the single bar reflects how far the Q&A has
+    // progressed (reaches 100% around 8 answers, matching the 5-12 range).
+    const answered = Object.keys(state.answers).length;
+    pct = Math.min(100, Math.round((answered / 8) * 100));
+  } else {
+    pct = Math.min(100, Math.round(((state.currentStep + 1) / total) * 100));
+  }
+  bar.style.width = `${pct}%`;
+  if (pctEl) pctEl.textContent = `${pct}%`;
 }
 
 function showStep(step) {
   state.currentStep = Math.max(0, Math.min(step, 5));
+  try { localStorage.setItem("medoxzi_step", String(state.currentStep)); } catch (e) {}
   $$(".intake-step").forEach((el) => {
     el.classList.toggle("active", Number(el.dataset.step) === state.currentStep);
   });
-  renderStepIndicator();
 
   const total = 6;
-  $("#stepLabel").textContent =
+  const stepLabel = $("#stepLabel");
+  if (stepLabel) stepLabel.textContent =
     state.currentStep < 5 ? `Step ${state.currentStep + 1} of ${total}` : "Done";
-  $("#progressBar").style.width = `${Math.min(100, ((state.currentStep + 1) / total) * 100)}%`;
+  updateSingleProgress();
   $("#backStep").disabled = state.currentStep === 0;
   $("#backStep").style.display = state.currentStep === 5 ? "none" : "";
   $("#nextStep").style.display = "none";
   $("#skipStep").style.display = "none";
 
   if (state.currentStep === 3) {
-    showQuestionLoading();
-    ensureAISuggestions().then(() => {
+    // Reset any previous adaptive flow, then begin: ask the LLM for the FIRST
+    // question based on the brief. Every call shows/hides the question pair
+    // together and the single progress bar reflects the interview.
+    state.aiActive = true;
+    state.aiNext = null;
+    state.aiDone = false;
+    updateSingleProgress();
+    fetchNextAiQuestion().then(() => {
       if (state.currentStep === 3) {
-        hideQuestionLoading();
-        renderQuestion();
+        if (state.aiActive && state.aiNext) renderAiQuestion();
+        else if (!state.aiActive) renderStaticQuestion();
+        else showStep(4); // AI started but stopped immediately (done) -> review
       }
     });
   }
@@ -703,30 +729,37 @@ function showStep(step) {
 
 let _processingActive = false;
 
-function showQuestionLoading() {
+function updateInterviewProgress() {
+  updateSingleProgress();
+}
+
+function showQuestionLoading(processingText) {
   _processingActive = true;
-  const ql = $("#questionLoading");
-  if (ql) ql.hidden = false;
-  ["#questionText", "#answerGrid"].forEach((sel) => {
-    const el = $(sel);
-    if (el) el.hidden = true;
-  });
+  // Keep the question + options in place (do NOT collapse them): we only
+  // fade them out with an animation so the layout below never jumps.
+  const block = $("#questionBlock");
+  if (block) block.classList.add("is-loading");
+  const tip = $("#processingText");
+  if (tip && processingText) tip.textContent = processingText;
 }
 
 function hideQuestionLoading() {
   _processingActive = false;
-  const ql = $("#questionLoading");
-  if (ql) ql.hidden = true;
-  ["#questionText", "#answerGrid"].forEach((sel) => {
-    const el = $(sel);
-    if (el) el.hidden = false;
-  });
+  const block = $("#questionBlock");
+  if (block) block.classList.remove("is-loading");
 }
 
-function renderQuestion() {
-  const questions = activeQuestions();
+function renderAnswerSummary() {
+  $("#answerSummary").innerHTML = Object.entries(state.answers)
+    .map(([question, answer]) => `<div><strong>${question}</strong><br>${answer}</div>`)
+    .join("");
+}
+
+function renderStaticQuestion() {
+  const questions = questionBanks[state.complaint] || questionBanks["Something else"];
   const index = Object.keys(state.answers).length;
   const nextQuestion = questions[Math.min(index, questions.length - 1)];
+  updateInterviewProgress();
   $("#questionTitle").textContent = `Intake question ${Math.min(index + 1, questions.length)} of ${questions.length}`;
   $("#questionText").textContent = nextQuestion.text;
   $("#questionText").hidden = false;
@@ -738,66 +771,148 @@ function renderQuestion() {
     button.hidden = !option;
     button.classList.remove("selected");
   });
-  $("#answerSummary").innerHTML = Object.entries(state.answers)
-    .map(([question, answer]) => `<div><strong>${question}</strong><br>${answer}</div>`)
-    .join("");
+  renderAnswerSummary();
 }
 
-async function ensureAISuggestions() {
+function renderAiQuestion() {
+  const answeredCount = Object.keys(state.answers).length;
+  const q = state.aiNext;
+  if (!q) {
+    // Nothing more to ask; move on.
+    showStep(4);
+    return;
+  }
+  updateInterviewProgress();
+  $("#questionTitle").textContent = `Intake question ${answeredCount + 1} (adaptive)`;
+  $("#questionText").textContent = q.text;
+  $("#questionText").hidden = false;
+  $("#answerGrid").hidden = false;
+  $$(".answer-grid button").forEach((button, optionIndex) => {
+    const option = q.options[optionIndex];
+    button.textContent = option;
+    button.dataset.answer = option;
+    button.hidden = !option;
+    button.classList.remove("selected");
+  });
+  renderAnswerSummary();
+}
+
+function renderQuestion() {
+  if (state.aiActive) {
+    renderAiQuestion();
+    return;
+  }
+  renderStaticQuestion();
+}
+
+function buildAnswersArray() {
+  return Object.entries(state.answers).map(([q, a]) => ({ q, a }));
+}
+
+/**
+ * Fetch the NEXT single adaptive question from the backend, given the brief
+ * and all the patient's answers so far. Shows the spinner only while the LLM
+ * is actually generating, then hides it once a question (or a done signal)
+ * returns. Enforces min 5 / max 12 questions client-side.
+ */
+async function fetchNextAiQuestion() {
+  if (!state.aiActive) return;
   const brief = ($("#issueText")?.value || "").trim();
   const complaint = state.complaint;
   const age = ($("#intakeAge")?.value || "").trim();
   const sex = ($("#intakeSex")?.value || "").trim();
-  const key = `${complaint}|${brief}`;
-  if (state.aiQuestions && state.aiBriefKey === key) {
-    return; // already have suggestions for this brief
-  }
-  if (!brief) {
-    // No brief yet: nothing to suggest from. No system text shown to patient.
-    state.aiQuestions = null;
-    state.aiBriefKey = "";
-    return;
-  }
+  const answers = buildAnswersArray();
+  const answeredCount = answers.length;
+
+  // Spinner only during the real LLM round-trip.
+  showQuestionLoading("Examining your answers...");
+
   try {
     const res = await fetch("/api/questions", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ brief: brief.slice(0, 1200), complaint, age, sex }),
+      body: JSON.stringify({ brief: brief.slice(0, 1200), complaint, age, sex, answers }),
     });
     const data = await res.json();
-    // Only apply if the brief hasn't changed since we dispatched.
-    if (key !== `${state.complaint}|${($("#issueText")?.value || "").trim()}`) return;
-    if (data && data.ok && Array.isArray(data.suggested) && data.suggested.length) {
-      state.aiQuestions = data.suggested;
-      state.aiBriefKey = key;
-      // Reset answers so the (possibly different) AI questions start fresh.
-      state.answers = {};
-      if (state.currentStep === 3) renderQuestion();
-      renderDoctorBrief();
+
+    if (data && data.ok && data.question && Array.isArray(data.question.options)) {
+      state.aiNext = { text: data.question.text, options: data.question.options.slice(0, 4) };
+      state.aiDone = false;
     } else {
-      // Fallback to the static set.
-      state.aiQuestions = null;
-      state.aiBriefKey = "";
+      // No question back (done signal, or fallback). If we're still below the
+      // minimum of 5, top up from the static bank so the flow never drops short.
+      if (answers.length < 5 && staticFillQuestion()) {
+        return; // staticFillQuestion set state.aiNext; keep the flow going
+      }
+      state.aiNext = null;
+      state.aiDone = true;
     }
   } catch (err) {
-    // Local server not running -> static set.
-    state.aiQuestions = null;
-    state.aiBriefKey = "";
+    // Network / backend unavailable — fall back to the static bank from here.
+    state.aiActive = false;
+    state.aiNext = null;
+    state.aiDone = true;
+    if (buildAnswersArray().length < 5) staticFillQuestion();
+  } finally {
+    hideQuestionLoading();
   }
 }
 
-function answerQuestion(answer) {
-  const questions = activeQuestions();
-  const index = Object.keys(state.answers).length;
-  const question = questions[Math.min(index, questions.length - 1)];
-  state.answers[question.text] = answer;
+/**
+ * If the LLM stops early (done) or errors before we've asked min 5 questions,
+ * fill the remainder from the static bank for the current complaint so we never
+ * drop below the minimum. Skips questions already asked.
+ */
+function staticFillQuestion() {
+  const asked = new Set(Object.keys(state.answers));
+  const bank = questionBanks[state.complaint] || questionBanks["Something else"];
+  const next = bank.find((q) => !asked.has(q.text));
+  if (next) {
+    state.aiNext = next;
+    state.aiDone = false;
+    return true;
+  }
+  return false;
+}
 
-  if (Object.keys(state.answers).length >= questions.length) {
-    showStep(4);
+async function answerQuestion(answer) {
+  const answeredCount = Object.keys(state.answers).length;
+
+  if (state.aiActive) {
+    if (!state.aiNext) {
+      showStep(4);
+      return;
+    }
+    state.answers[state.aiNext.text] = answer;
+    renderAnswerSummary();
+    updateInterviewProgress();
+
+    // Enforce min 5 / max 12: keep asking until we've hit the floor of 5 (or the
+    // LLM genuinely has nothing more to ask) AND the LLM is done, capped at 12.
+    const nextCount = Object.keys(state.answers).length;
+    const tooMany = nextCount >= 12;
+    const llmDone = Boolean(state.aiDone) && nextCount >= 5;
+    if (tooMany || llmDone) {
+      state.aiNext = null;
+      showStep(4);
+    } else {
+      await fetchNextAiQuestion();
+      if (state.currentStep === 3) renderAiQuestion();
+    }
   } else {
-    renderQuestion();
+    // Static bank path (offline / fallback).
+    const questions = questionBanks[state.complaint] || questionBanks["Something else"];
+    const index = answeredCount;
+    const question = questions[Math.min(index, questions.length - 1)];
+    state.answers[question.text] = answer;
+    if (Object.keys(state.answers).length >= questions.length) {
+      showStep(4);
+    } else {
+      renderQuestion();
+    }
   }
   renderDoctorBrief();
+  try { localStorage.setItem("medoxzi_answers", JSON.stringify(state.answers)); } catch (e) {}
 }
 
 function renderFiles() {
@@ -850,9 +965,17 @@ function renderReview() {
     ["Reports", state.files.length ? `${state.files.length} attached` : "No previous reports"],
   ];
 
-  $("#reviewList").innerHTML = rows
+  $(".review-list").innerHTML = rows
     .map(([label, value]) => `<div class="review-item"><strong>${label}</strong><span>${value}</span></div>`)
     .join("");
+
+  // Right pane: the patient's accumulating answers (scrolls within).
+  const qa = $("#reviewAnswers");
+  if (qa) {
+    qa.innerHTML = Object.entries(state.answers)
+      .map(([q, a]) => `<div><strong>${q}</strong><br>${a}</div>`)
+      .join("");
+  }
 }
 
 function renderDoctorBrief() {
@@ -880,7 +1003,8 @@ function renderDoctorBrief() {
   const answerEntries = Object.entries(state.answers);
   const answerCount = $("#answerCount");
   if (answerCount) {
-    answerCount.textContent = `${answerEntries.length} of ${questions.length} answered`;
+    const total = state.aiActive ? Math.max(5, Math.min(12, answerEntries.length)) : questions.length;
+    answerCount.textContent = `${answerEntries.length} of ${total} answered`;
   }
   $("#briefAnswers").innerHTML = answerEntries.length
     ? answerEntries.map(
@@ -982,6 +1106,7 @@ function saveLinkedPatient() {
   localStorage.setItem("medoxziDemoPatients", JSON.stringify(stored));
   state.pin = pin;
   state.linkedIdentity = patient;
+  saveInterviewRecord(); // Bilal feedback loop: persists + audits this interview.
   patients[2].pin = pin;
   patients[2].name = name;
   patients[2].age = age;
@@ -1137,13 +1262,79 @@ document.addEventListener("DOMContentLoaded", () => {
   renderHistoryFilters();
   renderHistoryList();
   openHistoryFile(historyPatients[0].pin);
-  showStep(0);
+  // Restore the workflow step across refresh (kept in localStorage by showStep).
+  let savedStep = 0;
+  try { savedStep = Math.max(0, Math.min(Number(localStorage.getItem("medoxzi_step")) || 0, 5)); } catch (e) {}
+  showStep(savedStep);
+  // Restore named values that survive a refresh.
+  try {
+    const savedAnswers = JSON.parse(localStorage.getItem("medoxzi_answers") || "{}");
+    if (savedAnswers && typeof savedAnswers === "object" && !Array.isArray(savedAnswers)) state.answers = savedAnswers;
+    if (state.answers && Object.keys(state.answers).length) {
+      state.aiActive = true;
+      state.aiDone = true; // resume from saved answers; don't re-ask
+      state.aiNext = null;
+    }
+  } catch (e) {}
   renderDoctorBrief();
 
-  $$(".tab").forEach((tab) => tab.addEventListener("click", () => switchView(tab.dataset.view)));
+  $$(".dropdown-item").forEach((item) => item.addEventListener("click", () => switchView(item.dataset.view)));
   $$("[data-jump]").forEach((button) =>
     button.addEventListener("click", () => switchView(button.dataset.jump)),
   );
+
+  // 3-dots left slide-in navigation drawer
+  const navMenuBtn = $("#navMenuBtn");
+  const navDrawer = $("#navDrawer");
+  const drawerBackdrop = $("#drawerBackdrop");
+  const drawerCloseBtn = $("#drawerCloseBtn");
+
+  function openNavMenu() {
+    navDrawer.hidden = false;
+    drawerBackdrop.hidden = false;
+    requestAnimationFrame(() => {
+      navDrawer.classList.add("open");
+      drawerBackdrop.classList.add("open");
+    });
+    navMenuBtn.setAttribute("aria-expanded", "true");
+  }
+  window.closeNavMenu = function () {
+    if (!navDrawer.classList.contains("open")) return;
+    navDrawer.classList.remove("open");
+    drawerBackdrop.classList.remove("open");
+    navMenuBtn.setAttribute("aria-expanded", "false");
+    setTimeout(() => {
+      navDrawer.hidden = true;
+      drawerBackdrop.hidden = true;
+    }, 240);
+  };
+  function toggleNavMenu() {
+    if (navDrawer.classList.contains("open")) closeNavMenu();
+    else openNavMenu();
+  }
+  navMenuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleNavMenu();
+  });
+  drawerCloseBtn.addEventListener("click", closeNavMenu);
+  drawerBackdrop.addEventListener("click", closeNavMenu);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeNavMenu();
+  });
+  navDrawer.addEventListener("click", (e) => e.stopPropagation());
+
+  // Pre-visit extra-section toggles (Intake responses / Doctor entry)
+  const toggleIntake = $("#toggleIntakeAnswers");
+  const toggleDoctor = $("#toggleDoctorEntry");
+  function applySectionToggles() {
+    const intakeCard = document.querySelector("#view-doctor .intake-card");
+    const doctorEntryCard = document.querySelector("#view-doctor .doctor-entry-card");
+    if (intakeCard) intakeCard.style.display = toggleIntake.checked ? "" : "none";
+    if (doctorEntryCard) doctorEntryCard.style.display = toggleDoctor.checked ? "" : "none";
+  }
+  if (toggleIntake) toggleIntake.addEventListener("change", applySectionToggles);
+  if (toggleDoctor) toggleDoctor.addEventListener("change", applySectionToggles);
+  window.applySectionToggles = applySectionToggles;
 
   $(".history-clear").addEventListener("click", () => {
     historyFilters.query = "";
@@ -1268,12 +1459,36 @@ document.addEventListener("DOMContentLoaded", () => {
       state.answers = {};
       state.aiQuestions = null;
       state.aiBriefKey = "";
+      state.aiActive = false;
+      state.aiNext = null;
+      state.aiDone = false;
+      try { localStorage.removeItem("medoxzi_answers"); } catch (e) {}
       $$(".complaint-grid button").forEach((el) => el.classList.remove("selected"));
       button.classList.add("selected");
       setupBriefStep();
       showStep(2);
     });
   });
+
+  // Doctor-entry selectable options: Relevant tests (multi-select) and Plan
+  // category (single-select). Toggle the .selected class.
+  const testsRow = $(".tests-group .choice-row");
+  if (testsRow) {
+    testsRow.addEventListener("click", (e) => {
+      const b = e.target.closest("button");
+      if (!b) return;
+      b.classList.toggle("selected");
+    });
+  }
+  const planRow = $(".plan-group .choice-row");
+  if (planRow) {
+    planRow.addEventListener("click", (e) => {
+      const b = e.target.closest("button");
+      if (!b) return;
+      $$(".plan-group .choice-row button").forEach((o) => o.classList.remove("selected"));
+      b.classList.add("selected");
+    });
+  }
 
   $$(".answer-grid button").forEach((button) => {
     button.addEventListener("click", () => answerQuestion(button.dataset.answer));
@@ -1310,3 +1525,604 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $("#saveDoctor").addEventListener("click", saveDoctorConclusion);
 });
+
+/* ===== Marketing Management (campaign composer) ===== */
+const marketingState = {
+  recipients: [], // { id, name, phone, source }
+  selected: new Set(), // ids
+  filter: "",
+};
+
+function marketingReusableRecipients() {
+  const used = new Map();
+  savedPatients().forEach((p) => {
+    if (!p || !p.pin) return;
+    const id = `pat-${p.pin}`;
+    if (!used.has(id)) used.set(id, { id, name: p.name || `Patient ${p.pin}`, phone: p.phone || "", source: "patient" });
+  });
+  const extra = JSON.parse(localStorage.getItem("medoxziCampaignRecipients") || "[]");
+  extra.forEach((r) => { if (r && r.id) used.set(r.id, r); });
+  return [...used.values()];
+}
+
+function renderMarketingRecipients() {
+  const list = $("#recipientList");
+  const count = $("#recipientCount");
+  if (!list) return;
+  const all = marketingReusableRecipients();
+  const term = marketingState.filter.toLowerCase();
+  const shown = all.filter((r) => !term || `${r.name} ${r.phone}`.toLowerCase().includes(term));
+  if (!shown.length) {
+    list.innerHTML = `<p class="quiet">No recipients yet — add one below or run an intake.</p>`;
+  } else {
+    list.innerHTML = shown
+      .map((r) => {
+        const checked = marketingState.selected.has(r.id) ? "checked" : "";
+        const tag = r.source === "patient" ? `<span class="rec-tag">Synthetic</span>` : `<span class="rec-tag">Added</span>`;
+        return `<div class="recipient-item">
+          <label>
+            <input type="checkbox" data-recipient="${r.id}" ${checked}>
+            <span><span class="rec-name">${escapeHtml(r.name)}</span><br><span class="rec-phone">${escapeHtml(r.phone || "no mobile")}</span></span>
+          </label>
+          ${tag}
+          <button type="button" class="secondary compact" data-remove-recipient="${r.id}">Remove</button>
+        </div>`;
+      })
+      .join("");
+  }
+  const n = marketingState.selected.size;
+  count.textContent = `${n} selected`;
+  updateMarketingPreview();
+}
+
+function updateMarketingPreview() {
+  const preview = $("#campaignPreview");
+  const title = ($("#campaignTitle") || {}).value || "";
+  let msg = ($("#campaignMessage") || {}).value || "";
+  if (!title && !msg) { preview.textContent = "Preview will appear here as you type."; return; }
+  const n = marketingState.selected.size;
+  const sampleName = n ? Array.from(marketingState.selected)[0].split("-")[1] || "patient" : "patient";
+  msg = msg.replace(/{{name}}/g, sampleName === "patient" ? "patient" : sampleName);
+  msg = msg.replace(/{{date}}/g, new Date().toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short" }));
+  preview.innerHTML = `<strong>${escapeHtml(title || "Untitled campaign")}</strong> · ${n} recipient${n === 1 ? "" : "s"}<br><span class="quiet">${escapeHtml(msg || "(empty message)")}</span>`;
+}
+
+function addMarketingRecipient(name, phone) {
+  const used = marketingReusableRecipients();
+  const id = `ext-${Date.now()}`;
+  const rec = { id, name: (name || "").trim() || "Unnamed", phone: (phone || "").trim(), source: "added", consent: false };
+  const stored = JSON.parse(localStorage.getItem("medoxziCampaignRecipients") || "[]");
+  stored.push(rec);
+  localStorage.setItem("medoxziCampaignRecipients", JSON.stringify(stored));
+  marketingState.selected.add(id);
+  renderMarketingRecipients();
+}
+
+function removeMarketingRecipient(id) {
+  marketingState.selected.delete(id);
+  if (id.startsWith("ext-")) {
+    const stored = JSON.parse(localStorage.getItem("medoxziCampaignRecipients") || "[]").filter((r) => r.id !== id);
+    localStorage.setItem("medoxziCampaignRecipients", JSON.stringify(stored));
+  }
+  renderMarketingRecipients();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  marketingState.recipients = marketingReusableRecipients();
+  renderMarketingRecipients();
+
+  $("#recipientList")?.addEventListener("change", (e) => {
+    const box = e.target.closest("[data-recipient]");
+    if (!box) return;
+    if (box.checked) marketingState.selected.add(box.dataset.recipient);
+    else marketingState.selected.delete(box.dataset.recipient);
+    renderMarketingRecipients();
+  });
+
+  $("#recipientList")?.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-remove-recipient]");
+    if (btn) removeMarketingRecipient(btn.dataset.removeRecipient);
+  });
+
+  $("#selectAllPatients")?.addEventListener("click", () => {
+    marketingState.selected = new Set(marketingReusableRecipients().map((r) => r.id));
+    renderMarketingRecipients();
+  });
+
+  $("#clearSelection")?.addEventListener("click", () => {
+    marketingState.selected.clear();
+    renderMarketingRecipients();
+  });
+
+  $("#recipientFilter")?.addEventListener("input", (e) => {
+    marketingState.filter = e.target.value;
+    renderMarketingRecipients();
+  });
+
+  $("#addRecipientBtn")?.addEventListener("click", () => {
+    const name = $("#newRecipientName").value;
+    const phone = $("#newRecipientPhone").value;
+    addMarketingRecipient(name, phone);
+    $("#newRecipientName").value = "";
+    $("#newRecipientPhone").value = "";
+  });
+
+  $("#campaignTitle")?.addEventListener("input", updateMarketingPreview);
+  $("#campaignMessage")?.addEventListener("input", updateMarketingPreview);
+
+  $$("[data-insert]").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      const ta = $("#campaignMessage");
+      const token = btn.dataset.insert;
+      const start = ta.selectionStart;
+      const end = ta.selectionEnd;
+      ta.value = ta.value.slice(0, start) + token + ta.value.slice(end);
+      ta.focus();
+      ta.selectionStart = ta.selectionEnd = start + token.length;
+      updateMarketingPreview();
+    }),
+  );
+
+  function updatePrepareGate() {
+    const canSent = marketingState.selected.size > 0 && ($("#consentCheckbox") || {}).checked;
+    const btn = $("#prepareCampaign");
+    if (btn) btn.disabled = !canSent;
+  }
+  $("#consentCheckbox")?.addEventListener("change", () => {
+    updatePrepareGate();
+    updateMarketingPreview();
+  });
+  document.addEventListener("change", (e) => {
+    if (e.target && e.target.closest && e.target.closest("[data-recipient]")) updatePrepareGate();
+  });
+
+  $("#prepareCampaign")?.addEventListener("click", () => {
+    const title = ($("#campaignTitle") || {}).value || "Untitled campaign";
+    const msg = ($("#campaignMessage") || {}).value || "";
+    const ids = [...marketingState.selected];
+    const recipients = marketingReusableRecipients().filter((r) => ids.includes(r.id));
+    const entry = {
+      at: new Date().toISOString(),
+      title,
+      message: msg,
+      recipientCount: recipients.length,
+      consentDeclared: ($("#consentCheckbox") || {}).checked,
+      // Under ADR-036 no real message is transmitted. Logged as an audit entry only.
+      status: "prepared (not sent)",
+      where: "medoxzi-whatsapp-queue",
+    };
+    const audit = JSON.parse(localStorage.getItem("medoxziCampaignAudit") || "[]");
+    audit.unshift(entry);
+    localStorage.setItem("medoxziCampaignAudit", JSON.stringify(audit));
+    const el = $("#campaignAudit");
+    if (el) {
+      el.textContent =
+        `Prepared "${title}" for ${recipients.length} recipient(s) with consent declared. ` +
+        `Logged to audit queue (no WhatsApp message transmitted).`;
+    }
+  });
+
+  renderMarketingRecipients();
+});
+
+/* ===== Follow-up scheduler (fu) ===== */
+// Queue + preview only. Nothing is ever transmitted (ADR-036); the tick reads
+// the due list and logs an audit entry. Re-confirmation surfaces 1 day before
+// the chosen date; a follow-up surfaces on the chosen date.
+
+function fuDueAtEpoch() {
+  const raw = ($("#fuDate") || {}).value;
+  if (!raw) return null;
+  const base = new Date(`${raw}T09:00:00`).getTime() / 1000; // local 9am
+  if (Number.isNaN(base)) return null;
+  const type = ($("#fuType") || {}).value;
+  // 1-day-before re-confirmation: surface the day before the appointment.
+  return type === "reconfirm" ? base - 86400 : base;
+}
+
+function renderFuPreview() {
+  const el = $("#fuPreview");
+  if (!el) return;
+  const msg = ($("#fuMessage") || {}).value || "";
+  const due = fuDueAtEpoch();
+  const type = ($("#fuType") || {}).value;
+  const n = marketingState.selected.size;
+  if (!msg || !due) {
+    el.textContent = "No follow-up preview yet — add a message and a date.";
+    return;
+  }
+  const dateStr = new Date(due * 1000).toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short" });
+  const label = type === "reconfirm" ? "re-confirmation" : "follow-up";
+  el.innerHTML = `<div><strong>${escapeHtml(label)}</strong> · will surface on <strong>${escapeHtml(dateStr)}</strong> · ${n} recipient${n === 1 ? "" : "s"}</div>` +
+    `<div class="quiet">${escapeHtml(msg.replace(/{{name}}/g, "patient").replace(/{{date}}/g, dateStr))}</div>`;
+}
+
+function updateFuGate() {
+  const canEnqueue =
+    marketingState.selected.size > 0 &&
+    ($("#consentCheckbox") || {}).checked &&
+    !!($("#fuMessage") || {}).value &&
+    !!fuDueAtEpoch();
+  const btn = $("#enqueueFu");
+  if (btn) btn.disabled = !canEnqueue;
+}
+
+function fuAuditEntry(extra) {
+  try {
+    const list = JSON.parse(localStorage.getItem("medoxziCampaignAudit") || "[]");
+    list.unshift(Object.assign({
+      at: new Date().toISOString(),
+      status: "prepared (not sent)",
+      where: "medoxzi-followup-queue",
+    }, extra || {}));
+    localStorage.setItem("medoxziCampaignAudit", JSON.stringify(list));
+  } catch (e) {}
+}
+
+function fuResolveName(id) {
+  const all = marketingReusableRecipients();
+  const rec = all.find((r) => r.id === id);
+  return rec ? (rec.name || "patient") : "patient";
+}
+
+async function fuEnqueue() {
+  const result = $("#fuQueueResult");
+  const type = ($("#fuType") || {}).value;
+  const msg = ($("#fuMessage") || {}).value;
+  const dueAt = fuDueAtEpoch();
+  const ids = [...marketingState.selected];
+  const recipients = marketingReusableRecipients().filter((r) => ids.includes(r.id));
+  const dateStr = new Date(dueAt * 1000).toLocaleDateString(undefined, { day: "numeric", month: "short" });
+  const items = recipients.map((r) => ({
+    pin: r.id.startsWith("pat-") ? r.id.slice(4) : r.id,
+    name: r.name || "patient",
+    phone: r.phone || "",
+    type,
+    dueAt,
+    message: msg.replace(/{{name}}/g, r.name || "patient").replace(/{{date}}/g, dateStr),
+  }));
+  result.textContent = "Queueing follow-up reminders…";
+  if (window.enqueueFuHook) { result.textContent = window.enqueueFuHook(items); return; }
+  try {
+    const resp = await fetch("/api/followups/enqueue", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ consent: ($("#consentCheckbox") || {}).checked, items }),
+    });
+    const data = await resp.json();
+    if (data && data.ok) {
+      const n = data.queued || items.length;
+      result.innerHTML = `✓ Queued ${n} follow-up reminder(s) on the server (${data.source}). Nothing was sent (ADR-036 audit-only).`;
+      fuAuditEntry({ kind: "followup", type, count: n, dueAt, consentDeclared: true });
+    } else if (data && data.kind === "KV_UNAVAILABLE") {
+      result.innerHTML = `⚠ Server KV not linked yet — logged ${items.length} to the local audit queue only (nothing sent).`;
+      fuAuditEntry({ kind: "followup", type, count: items.length, dueAt, consentDeclared: true, fallback: "KV_UNAVAILABLE" });
+    } else {
+      result.textContent = `Queue failed: ${(data && data.error) || "unknown"}`;
+    }
+  } catch (err) {
+    result.textContent = `Queue error: ${String(err && err.message)}`;
+  }
+}
+
+async function fuCheckDue() {
+  const listEl = $("#fuDueList");
+  if (!listEl) return;
+  listEl.innerHTML = "Checking due items…";
+  try {
+    const resp = await fetch("/api/followups/tick");
+    const data = await resp.json();
+    if (data && data.ok) {
+      const due = data.due || [];
+      if (!due.length) {
+        listEl.innerHTML = `<li class="quiet">No follow-up is due right now.</li>`;
+      } else {
+        listEl.innerHTML = due
+          .map((d) => {
+            const when = new Date((d.dueAt || 0) * 1000).toLocaleDateString(undefined, { day: "numeric", month: "short" });
+            return `<li>${escapeHtml(d.name || "patient")} — ${escapeHtml(d.type || "follow-up")} (surface ${when}) — ${escapeHtml((d.message || "").slice(0, 80))}</li>`;
+          })
+          .join("");
+      }
+    } else if (data && data.kind === "KV_UNAVAILABLE") {
+      listEl.innerHTML = `<li class="quiet">Server KV not linked yet — due-check needs Vercel KV (KV_REST_API_URL / KV_REST_API_TOKEN).</li>`;
+    } else {
+      listEl.innerHTML = `<li class="quiet">Due-check unavailable: ${escapeHtml((data && data.error) || "unknown")}</li>`;
+    }
+  } catch (err) {
+    listEl.innerHTML = `<li class="quiet">Due-check error: ${escapeHtml(String(err && err.message))}</li>`;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  $("#fuType")?.addEventListener("change", () => { renderFuPreview(); updateFuGate(); });
+  $("#fuDate")?.addEventListener("change", () => { renderFuPreview(); updateFuGate(); });
+  $("#fuMessage")?.addEventListener("input", () => { renderFuPreview(); updateFuGate(); });
+  $("#enqueueFu")?.addEventListener("click", fuEnqueue);
+  $("#fuCheckDue")?.addEventListener("click", fuCheckDue);
+  // The campaign composer already listens for change on recipient + consent; keep the fu gate in sync too.
+  document.addEventListener("change", (e) => {
+    if ((e.target && e.target.matches && e.target.matches("[data-recipient],#consentCheckbox")) || e.target.id === "consentCheckbox") {
+      updateFuGate();
+    }
+  });
+  renderFuPreview();
+  updateFuGate();
+});
+
+/* ===== Bilal interview-audit loop ===== */
+// Every completed interview is persisted as a training-grade record, then sent
+// to Bilal (/api/bilal) to judge whether it actually gave the doctor the most
+// useful information. The audit + accumulated feedback let the system improve
+// over time. All synthetic/demo data; nothing leaves the browser except the
+// redacted interview text POSTed to the serverless audit endpoint.
+
+function buildAnswersArraySafe() {
+  try {
+    if (typeof buildAnswersArray === "function") return buildAnswersArray() || [];
+  } catch (e) {}
+  return Object.entries(state.answers || {}).map(([q, a]) => ({ q, a }));
+}
+
+function interviewRecordShape() {
+  const name = String(state.patientName || state.linkedIdentity?.name || "").trim();
+  const age = String(state.age || "").trim() || String(state.linkedIdentity?.age || "").trim();
+  const sex = String(state.sex || "").trim() || String(state.linkedIdentity?.sex || "").trim();
+  const phone = String(state.linkedIdentity?.phone || "").trim();
+  const pin = String(state.pin || state.linkedIdentity?.pin || "").trim();
+  return {
+    id: `rec-${Date.now()}`,
+    pin,
+    name,
+    age,
+    sex,
+    phone,
+    complaint: String(state.complaint || "").trim(),
+    brief: ($("#issueText")?.value || "").trim().slice(0, 1200),
+    answers: buildAnswersArraySafe().slice(0, 12),
+    savedAt: new Date().toISOString(),
+    audit: null,
+  };
+}
+
+function saveInterviewRecord() {
+  try {
+    const rec = interviewRecordShape();
+    // Only persist records with real substance (a complaint + at least 2 answers).
+    if (!rec.complaint || rec.answers.length < 2) return;
+    const records = JSON.parse(localStorage.getItem("medoxziInterviewRecords") || "[]");
+    // Replace any earlier record for the same PIN so the latest visit wins.
+    const next = records.filter((r) => r.pin !== rec.pin);
+    next.push(rec);
+    localStorage.setItem("medoxziInterviewRecords", JSON.stringify(next));
+    appendVisitHistory(rec);
+    runBilalAudit(rec);
+  } catch (e) {
+    // Never break the intake flow over a background audit.
+  }
+}
+
+async function runBilalAudit(rec) {
+  try {
+    const res = await fetch("/api/bilal", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ record: rec }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!data || !data.ok || !data.audit) return; // audit unavailable — skip silently
+    // Attach the audit to the record (latest visit wins by PIN).
+    const records = JSON.parse(localStorage.getItem("medoxziInterviewRecords") || "[]");
+    const idx = records.findIndex((r) => r.id === rec.id);
+    if (idx >= 0) {
+      records[idx].audit = { ...data.audit, at: new Date().toISOString() };
+      localStorage.setItem("medoxziInterviewRecords", JSON.stringify(records));
+    }
+    // Accumulate feedback so the system learns over time (Bilal's running log).
+    const log = JSON.parse(localStorage.getItem("medoxziImprovementLog") || "[]");
+    log.push({
+      at: new Date().toISOString(),
+      pin: rec.pin,
+      complaint: rec.complaint,
+      purposeFit: data.audit.purposeFit,
+      missing: data.audit.missing || [],
+      recommendation: data.audit.recommendation || "",
+      good: data.audit.good || [],
+    });
+    localStorage.setItem("medoxziImprovementLog", JSON.stringify(log));
+  } catch (e) {
+    // Offline / backend down — audit deferred, intake unaffected.
+  }
+}
+
+// Expose for the records UI and any console inspection.
+window.MEDOXZI_BILAL = {
+  saveInterviewRecord,
+  runBilalAudit,
+  interviewRecordShape,
+};
+
+/* ===== Compare with previous visit ===== */
+// Per-pin append-only visit history so a returning patient can be compared
+// across visits. Bilal's latest-wins record list is untouched; this keeps a
+// full timeline purely for the doctor's "compare with previous visit" card.
+// All synthetic/demo; nothing leaves the browser except redacted Q/A text.
+const COMPARE_STORAGE = "medoxziVisitHistory";
+
+function appendVisitHistory(rec) {
+  try {
+    const history = JSON.parse(localStorage.getItem(COMPARE_STORAGE) || "[]");
+    const visitNo = history.filter((h) => h.pin === rec.pin).length + 1;
+    history.push({
+      id: rec.id,
+      pin: rec.pin,
+      name: rec.name,
+      age: rec.age,
+      sex: rec.sex,
+      complaint: rec.complaint,
+      answers: rec.answers,
+      savedAt: rec.savedAt,
+      visit: visitNo,
+    });
+    localStorage.setItem(COMPARE_STORAGE, JSON.stringify(history));
+  } catch (e) {
+    // Never break the intake flow over history capture.
+  }
+}
+
+function getPatientVisits(pin) {
+  try {
+    const history = JSON.parse(localStorage.getItem(COMPARE_STORAGE) || "[]");
+    return history
+      .filter((h) => String(h.pin) === String(pin))
+      .sort((a, b) => String(a.savedAt).localeCompare(String(b.savedAt)));
+  } catch (e) {
+    return [];
+  }
+}
+
+function comparePin() {
+  return String(state.pin || state.linkedIdentity?.pin || "").trim();
+}
+
+function updateCompareCardVisibility() {
+  const card = $("#compareCard");
+  const controls = $("#compareControls");
+  const empty = $("#compareEmpty");
+  const result = $("#compareResult");
+  if (!card) return;
+  const pin = comparePin();
+  const visits = pin ? getPatientVisits(pin) : [];
+  if (visits.length < 2) {
+    card.hidden = true;
+    return;
+  }
+  card.hidden = false;
+  if (empty) empty.hidden = true;
+  if (controls) controls.hidden = false;
+  if (result) {
+    result.hidden = true;
+    result.innerHTML = "";
+  }
+  const pair = $("#comparePair");
+  if (pair) {
+    const current = visits[visits.length - 1];
+    const prior = visits.slice(0, -1);
+    pair.innerHTML = prior
+      .slice()
+      .reverse()
+      .map(
+        (v) =>
+          `<option value="${v.id}">Visit ${v.visit} · ${visitsLabel(v)} · ${String(v.complaint || "").trim() || ""}</option>`
+      )
+      .join("");
+    pair.selectedIndex = prior.length - 1; // default: closest previous visit
+    void current;
+  }
+}
+
+function visitsLabel(v) {
+  const d = v.savedAt ? String(v.savedAt).slice(0, 10) : "?";
+  return d;
+}
+
+async function runCompare() {
+  const pin = comparePin();
+  const visits = pin ? getPatientVisits(pin) : [];
+  const resultEl = $("#compareResult");
+  const btn = $("#runCompare");
+  if (visits.length < 2 || !resultEl) return;
+  const current = visits[visits.length - 1];
+  const targetId = $("#comparePair")?.value || visits[visits.length - 2].id;
+  const previous = visits.find((v) => v.id === targetId) || visits[visits.length - 2];
+  if (!previous) return;
+
+  if (btn) btn.disabled = true;
+  resultEl.hidden = false;
+  resultEl.innerHTML = `<p class="quiet compare-loading">Comparing visit ${previous.visit} vs this visit…</p>`;
+
+  try {
+    const res = await fetch("/api/compare", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: current.name,
+        pin: current.pin,
+        age: current.age,
+        sex: current.sex,
+        previous: {
+          complaint: previous.complaint,
+          savedAt: previous.savedAt,
+          answers: previous.answers || [],
+        },
+        current: {
+          complaint: current.complaint,
+          savedAt: current.savedAt,
+          answers: current.answers || [],
+        },
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    renderCompareResult(resultEl, data);
+  } catch (e) {
+    resultEl.innerHTML = `<p class="quiet">Compare unavailable right now. Try again.</p>`;
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+}
+
+function arrowFor(direction) {
+  const map = { improved: "▲", managed: "●", exploratory: "＋", mixed: "◍" };
+  return map[direction] || "◍";
+}
+
+function renderCompareResult(el, data) {
+  const c = data?.compare;
+  if (!data?.ok || !c) {
+    el.innerHTML = `<p class="quiet">Compare unavailable${
+      data?.error ? ` — ${data.error}` : ""
+    }.</p>`;
+    return;
+  }
+  const changedHtml = (c.changed || [])
+    .map(
+      (ch) => `
+      <div class="compare-changed">
+        <span class="compare-field">${esc(ch.label || ch.field)}</span>
+        <div class="compare-before"><small>Previous</small>${esc(ch.previous || "—")}</div>
+        <div class="compare-now"><small>Now</small>${esc(ch.current || "—")}</div>
+      </div>`
+    )
+    .join("");
+  const improvedHtml = (c.improved || []).map((s) => `<li>${esc(s)}</li>`).join("");
+  const watchHtml = (c.watch || []).map((s) => `<li>${esc(s)}</li>`).join("");
+  const unansweredHtml = (c.unansweredNow || []).map((s) => `<li>${esc(s)}</li>`).join("");
+
+  el.innerHTML = `
+    <div class="compare-summary">
+      <strong class="compare-direction" data-dir="${esc(c.direction)}">${arrowFor(c.direction)} ${esc(c.direction)}</strong>
+      <p>${esc(c.summary)}</p>
+    </div>
+    ${c.changed && c.changed.length ? `<div class="compare-section"><h4>Changed</h4>${changedHtml}</div>` : ""}
+    ${c.improved && c.improved.length ? `<div class="compare-section"><h4>Better / stable</h4><ul>${improvedHtml}</ul></div>` : ""}
+    ${c.watch && c.watch.length ? `<div class="compare-section watch"><h4>Worth attention</h4><ul>${watchHtml}</ul></div>` : ""}
+    ${c.unansweredNow && c.unansweredNow.length ? `<div class="compare-section muted"><h4>Not re-answered this visit</h4><ul>${unansweredHtml}</ul></div>` : ""}
+    <p class="min-note">Patient-reported summary only — no diagnosis, no treatment advice.</p>`;
+}
+
+function esc(str) {
+  return String(str == null ? "" : str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+// Wire the compare controls (only when the card exists in the DOM).
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = $("#runCompare");
+  if (btn) btn.addEventListener("click", () => void runCompare());
+});
+
+// Expose for the console/inspection and the doctor-view hook in switchView.
+window.MEDOXZI_COMPARE = { getPatientVisits, runCompare, updateCompareCardVisibility };

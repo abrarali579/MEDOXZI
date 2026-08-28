@@ -1,7 +1,7 @@
 # STATE — where this project actually is
 
-**Updated:** 2026-08-28, sessions RT2 (live-LLM interviewer harness) + RT2b (never-re-ask catalogue + prompt-contract guard) + RT2c (production UI: review Submit + interviewer no-jump) + RT2d (Marketing Management 7th view + Bilal interview-audit loop) + RT2e (Compare with previous visit) + RT2f (Follow-up + 1-day-before re-confirmation scheduler) + MKT (Marketing Management professional UI overhaul)
-**Repository version:** **v2.6**
+**Updated:** 2026-08-28, sessions RT2 (live-LLM interviewer harness) + RT2b (never-re-ask catalogue + prompt-contract guard) + RT2c (production UI: review Submit + interviewer no-jump) + RT2d (Marketing Management 7th view + Bilal interview-audit loop) + RT2e (Compare with previous visit) + RT2f (Follow-up + 1-day-before re-confirmation scheduler) + MKT (Marketing Management professional UI overhaul) + LAUNCH-AUDIT (Graphify refresh + launch-readiness audit) + OT23 (adaptive interviewer validator + live re-ask fix)
+**Repository version:** **v2.7**
 **Read this first. Update it last.**
 
 ---
@@ -14,9 +14,11 @@ Session RT2 added `14-MVP-HTML/harness/live_loop.mjs`, a live question-answer-lo
 
 Session RT2b made those harness learnings PERMANENT and built the task-2 never-re-ask regression set: (1) `harness/prompt_contract.test.mjs` — a deterministic, offline, zero-token guard that asserts the full ABSOLUTE-rule contract is present verbatim in BOTH `server.js` and `api/questions.js` (7 rules x 2 files = 14 gates; runs in seconds, no key/no server, so any edit that weakens a safety rule fails the fast baseline immediately); (2) `harness/live_loop.mjs --suite reask` — an 8-scenario never-re-ask catalogue of briefs that deposit onset/duration/timing where Q1 MUST branch to complaint character/location/severity instead (e.g. `knee pain started 3 days ago` -> Q1 must ask pain character, not duration), plus a CRITICAL hard-guard fix: safety violations (reask/diagnosis/dx_assumption/treatment/shape) recorded during an encounter now become HARD FAILING gates that flip VERDICT to FAIL (previously recorded as passive hits while the suite could still report PASS). Catalogue VERDICT PASS this run (7/8 Q1 productive probes); 4 prior runs each FAILED on a live re-ask, proving the guard. All dev-tool; no production code changed.
 
-Session RT2f delivered the follow-up scheduler: `api/followups/enqueue.js` + `api/followups/tick.js` (serverless, Upstash Redis sorted-set `fu:queue`), a `vercel.json` daily cron (09:00 UTC), server.js local routes + in-memory KV shim, and the Marketing-view **Follow-up scheduler** panel (reuses recipient selection + consent from the campaign composer; re-confirm = appointment date − 1 day; follow-up = date + offset; queue server-side; "Check due now" surfaces the due list). Audit-only per ADR-036 — no real message is ever transmitted; enqueue without consent returns `CONSENT_REQUIRED`. **⚠️ BLOCKED ON FOUNDER:** `KV_REST_API_URL` + `KV_REST_API_TOKEN` must be set (link a Vercel KV store) or production returns `{ok:false, kind:"KV_UNAVAILABLE"}`. Local full-verified via the KV shim. See CHANGELOG / VERIFICATION-LOG V-2026-08-28-RT2f-01..04 / OPEN-THREADS. 
+Session RT2f delivered the follow-up scheduler: `api/followups/enqueue.js` + `api/followups/tick.js` (serverless, Upstash Redis sorted-set `fu:queue`), a `vercel.json` daily cron (09:00 UTC), server.js local routes + in-memory KV shim, and the Marketing-view **Follow-up scheduler** panel (reuses recipient selection + consent from the campaign composer; re-confirm = appointment date − 1 day; follow-up = date + offset; queue server-side; "Check due now" surfaces the due list). Audit-only per ADR-036 — no real message is ever transmitted; enqueue without consent returns `CONSENT_REQUIRED`. **⚠️ BLOCKED ON FOUNDER:** `KV_REST_API_URL` + `KV_REST_API_TOKEN` must be set (link a Vercel KV store) or production returns `{ok:false, kind:"KV_UNAVAILABLE"}`. Local full-verified via the KV shim. See CHANGELOG / VERIFICATION-LOG V-2026-08-28-RT2f-01..04 / OPEN-THREADS.
 
 Session MKT rebuilt the Marketing Management 7th view into a professional, governance-accurate UI: a page header block (eyebrow + H1 "Clinic communications" + purpose line + status chips), step-grouped panels (campaign → recipients → review & send → follow-up scheduler), clearer CTA hierarchy, and phone-safe CSS. **Governance fix:** the view previously framed the consent as "marketing consent"; per ADR-021 MEDOXZI must NOT conduct patient marketing, so all copy now reads **clinic-owned communication consent** (ADR-036) with an audit-only no-send path. No JS behaviour or IDs changed; all 22 JS-bound IDs, gate logic, message interpolation and the consent-gated prepare/queue/check-due flows verified intact. Phone-width (390px) measurement: 0 overflowing elements. Prompt-contract harness PASS. REVERT to `base-v1` (tag, commit `5a05c06`) if anything regresses; no clinical/safety logic changed.
+
+Session LAUNCH-AUDIT refreshed the official curated Graphify current-state graph and added `_OPS/LAUNCH-READINESS-AUDIT-2026-08-28.md`. Audit verdict: **prototype-ready, not real-patient launch-ready**. It found one live DeepSeek hard timing re-ask in the stomachache scenario ("How long have you been taking ibuprofen regularly?"). Session OT23 then fixed that blocker: `14-MVP-HTML/server.js` and `14-MVP-HTML/api/questions.js` now validate every model question before the patient sees it, retry once with the validator reason, and fall back to a static safe question if needed. `14-MVP-HTML/harness/live_loop.mjs` now carries the exact `l2_stomachache_ibuprofen_duration_trap` regression. The targeted live re-ask suite now passes across **9 scenarios**. Graphify was refreshed again after the code change to **190 nodes, 331 edges, 12 communities, 0 token cost** at commit `334f2582`.
 
 **⭐ ROLLBACK BASE:** git tag `base-v1` (commit `5a05c06`; code state `9d9fd9f`) is the founder-marked
 known-good stable point — adaptive AI intake + AF/AG/AH UI fixes + founder-prefs handoff all applied
@@ -66,7 +68,8 @@ Last verified **sessions RT2 + RT2b**, on the Windows host. Evidence: VERIFICATI
 | `Invoke-WebRequest http://127.0.0.1:8765/index.html` | **200** |
 | Production UI fix verification (session RT2c, commit `b4a7325`) | local `:8765` real DeepSeek interviewer: question-block height **249→249 px (delta 0)** during answer round-trip (no jump); thinking-dots animate at 60/200ms, clean hand-off ~400ms; review-step Submit `position:sticky; bottom:0`, rect 575/625 in 625px viewport (pinned); 0 console/js errors. Production smoke: `medoxzi.vercel.app` **200**, `styles.css` has `thinking-dots`×7 + `submitIntake`×2, `app.js` `is-loading`×2, old `questionLoading` collapse removed |
 | Doctor past-file live-browser (session O) | complaint filter "Cough" → 2 of 15; date filter → 1 of 15; Clear filters → 15 of 15; PIN 6184 opens "current + past" split review; 0 JS errors |
-| Graphify current-state graph (session AD refresh) | **73 nodes, 130 edges, 15 communities, 0 token cost** |
+| Graphify current-state graph (session OT23 refresh) | **190 nodes, 331 edges, 12 communities, 0 token cost** |
+| `node --env-file=.env harness/live_loop.mjs --suite reask` (session OT23, fresh local server on `:8770`) | **VERDICT: PASS** — 9 scenarios, including original stomachache case and new ibuprofen-duration trap; no hard re-ask/diagnosis/treatment/shape hit |
 
 ## 5. Blocking threads
 
@@ -78,6 +81,7 @@ Last verified **sessions RT2 + RT2b**, on the Windows host. Evidence: VERIFICATI
 | **OT-19 · Clinic-owned engagement consent/comms controls** | 🟡 **REDUCED** | Founder (session P): clear consent will be captured **at data submission** for follow-up and reminders/announcements. Messaging still needs the consent/opt-out/audit/template controls before go-live (ADR-036 holds). |
 | **OT-20 · HTML MVP visual review and screen lock** | 🟡 **Blocks production frontend scope** | Founder/doctor/staff should review the local HTML prototype before production frontend work. |
 | **OT-21 · Production PIN identity binding** | 🟡 **DESIGN UPDATED (session P)** | Founder: use a **larger PIN**, exposed **only in the doctor's records** (not the main list). Prototype collision/scoping risk (OT-21 sub-note) still applies to production identity. |
+| **OT-23 · Adaptive interviewer deterministic validator** | ✅ **Resolved** | Server/API validator, one repair attempt, static safe fallback, and permanent ibuprofen-duration regression fixture added; targeted live re-ask suite PASS across 9 scenarios. |
 | **OT-04 · Evidence Sprint** | ⚪ **Deferred risk** | Founder deferred/skipped it for now by ADR-035; document reality risk remains accepted, not disproven. |
 | **OT-17 · Which vertical goes first** | ✅ **Resolved** | Healthcare-first selected by founder in ADR-035. |
 
@@ -179,18 +183,20 @@ Session S(v1.1) had committed the ADR-038 state with all 40 packs `DEMO_UNVALIDA
 
 | # | Action | Why now |
 |---|---|---|
-| 1 | **Use Graphify first for project-state / architecture / file-link questions** | Saves tokens and gives new agents a map before raw-file reading |
-| 2 | **Review polished `14-MVP-HTML/index.html` on phone/tablet/doctor-desktop dimensions** | Confirms the v0.7 final doctor command center, four digit PINs, returning-patient selection sync, complaint-specific demo options, helper chips, review/upload card, PIN/done screen, **Pre-visit current+incoming queue, structured feedback, patient profile + previous record action, vitals, doctor-entered diagnosis fields, doctor-selected tests, plan categories** and data-capture ideas before production frontend engineering |
+| 1 | **Review polished `14-MVP-HTML/index.html` on phone/tablet/doctor-desktop dimensions** | Confirms the v0.7 final doctor command center, four digit PINs, returning-patient selection sync, complaint-specific demo options, helper chips, review/upload card, PIN/done screen, **Pre-visit current+incoming queue, structured feedback, patient profile + previous record action, vitals, doctor-entered diagnosis fields, doctor-selected tests, plan categories** and data-capture ideas before production frontend engineering |
+| 2 | **Use the refreshed Graphify map and launch audit for next planning** | `graphify-current-state/graphify-out/` is current at 190 nodes / 331 edges; `_OPS/LAUNCH-READINESS-AUDIT-2026-08-28.md` gives the phase plan |
 | 3 | **Design production PIN identity binding** (OT-21) | Patient history must not attach to the wrong mobile/name/age identity |
-| 4 | **Vertical question-pack shell + pipeline built (session P)** — `vertical_pack/` shell, schema README, `draft_pack.py` local-model pipeline, cron autopilot; draft most-common complaints | Screens screening intake safely; AI drafts candidate questions only, never clinical metadata |
-| 5 | **Draft first-visit/no-report common-disease question packs as `DRAFT` / `DEMO_UNVALIDATED` only** | Lets product/UX proceed without pretending content is signed |
-| 6 | **Get named Lead Doctor review/sign-off before real patient questioning** (OT-18) | Production symptom/history questions are clinical behaviour |
-| 7 | **Build report attachment/source viewer before trusted extraction** | Matches v2.6 scope and avoids unverified report conclusions |
-| 8 | **Add doctor conclusion follow-up date/note capture** | Supports the v2.6 doctor value story without sending messages prematurely |
-| 9 | **Design clinic-owned communication consent, opt-out, audit and template-versioning** (OT-19) | Required before reminders/check-ins/announcements/discounts can go live |
-| 10 | **PSE registration** (OT-14) + **counsel opinions** (OT-01, OT-02) | Long lead; blocks lawful healthcare operation |
-| 11 | **Content licensing audit** (OT-05) | Must precede generation at scale |
-| 12 | **Get a GPU quote** | Turns ADR-034 from feasible into costed |
+| 4 | **Start production skeleton: database-backed identity, encounter, consent, audit, auth/RBAC/RLS, and durable state** | This is now the main gap between the polished demo and real-patient launch readiness |
+| 5 | **Provision Vercel KV for follow-up scheduler** (OT-22) | Required before production follow-up queue can persist; real send still remains gated by consent/opt-out/audit/template controls |
+| 6 | **Vertical question-pack shell + pipeline built (session P)** — `vertical_pack/` shell, schema README, `draft_pack.py` local-model pipeline, cron autopilot; draft most-common complaints | Screens screening intake safely; AI drafts candidate questions only, never clinical metadata |
+| 7 | **Draft first-visit/no-report common-disease question packs as `DRAFT` / `DEMO_UNVALIDATED` only** | Lets product/UX proceed without pretending content is signed |
+| 8 | **Get named Lead Doctor review/sign-off before real patient questioning** (OT-18 standard path; ADR-039 founder override applies only to current 40 packs) | Production symptom/history questions are clinical behaviour |
+| 9 | **Build report attachment/source viewer before trusted extraction** | Matches v2.7 scope and avoids unverified report conclusions |
+| 10 | **Add doctor conclusion follow-up date/note capture** | Supports the doctor value story without sending messages prematurely |
+| 11 | **Design clinic-owned communication consent, opt-out, audit and template-versioning** (OT-19) | Required before reminders/check-ins/announcements/discounts can go live |
+| 12 | **PSE registration** (OT-14) + **counsel opinions** (OT-01, OT-02) | Long lead; blocks lawful healthcare operation |
+| 13 | **Content licensing audit** (OT-05) | Must precede generation at scale |
+| 14 | **Get a GPU quote** | Turns ADR-034 from feasible into costed |
 
 ## 9. What must NOT happen next
 

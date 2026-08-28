@@ -1,14 +1,32 @@
 {
   "HTML-MVP-app.js": {
-    "mtime": 1787605978.122985,
-    "seen": 1787606638.8880212,
-    "ast_hash": "463758f641e4c17c807cbb6a37f6883d",
-    "semantic_hash": "463758f641e4c17c807cbb6a37f6883d"
+    "mtime": 1787874908.4278755,
+    "seen": 1787909652.1246397,
+    "ast_hash": "9bfe04600d347d816ca206f43b20b167",
+    "semantic_hash": "9bfe04600d347d816ca206f43b20b167"
   },
   "current_state_model.py": {
-    "mtime": 1787586477.0129845,
-    "seen": 1787592506.2695217,
-    "ast_hash": "16732014a4953cf620700749c82a8feb",
-    "semantic_hash": "16732014a4953cf620700749c82a8feb"
+    "mtime": 1787917507.447649,
+    "seen": 1787917518.5772612,
+    "ast_hash": "7ef4cdec063de410e092405f8593d2b4",
+    "semantic_hash": "7ef4cdec063de410e092405f8593d2b4"
+  },
+  "HTML-MVP-api-questions.js": {
+    "mtime": 1787917193.914507,
+    "seen": 1787917518.5772612,
+    "ast_hash": "7429be9a5577a6a1ef28f81cf6b80242",
+    "semantic_hash": "7429be9a5577a6a1ef28f81cf6b80242"
+  },
+  "HTML-MVP-server.js": {
+    "mtime": 1787917251.9473646,
+    "seen": 1787917518.5772612,
+    "ast_hash": "db7e2b3dfcb1ffd7612de31ce38d8e00",
+    "semantic_hash": "db7e2b3dfcb1ffd7612de31ce38d8e00"
+  },
+  "Live-Loop-Harness.mjs": {
+    "mtime": 1787917262.64027,
+    "seen": 1787917518.5772612,
+    "ast_hash": "23a541c40fd6cafaeb78fc4c814b7e53",
+    "semantic_hash": "23a541c40fd6cafaeb78fc4c814b7e53"
   }
 }

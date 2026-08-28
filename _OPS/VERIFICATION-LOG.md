@@ -8,6 +8,144 @@
 
 ---
 
+## Session OT23 - 2026-08-28 - Adaptive interviewer validator and live re-ask fix
+
+### V-2026-08-28-OT23-01 - Question validator added to both patient-facing question endpoints
+- **Claim:** The adaptive interviewer now validates model output before returning it to the patient in both the local server and Vercel API handler.
+- **Method:** Edited `14-MVP-HTML/server.js` and `14-MVP-HTML/api/questions.js`; inspected the diff and ran syntax/prompt-contract checks.
+- **Evidence:**
+  ```text
+  validateQuestionCandidate()
+  rejects: invalid shape, multiple questions, duplicate/re-ask, known timing/duration re-ask, diagnosis wording, treatment recommendation wording
+  behavior: retry once with violation reason, then static safe fallback
+  ```
+- **Verdict:** PASS.
+
+### V-2026-08-28-OT23-02 - Permanent live regression fixture added
+- **Claim:** The exact ibuprofen-duration re-ask class found in the audit is now part of the permanent live harness catalogue.
+- **Method:** Added `l2_stomachache_ibuprofen_duration_trap` to `14-MVP-HTML/harness/live_loop.mjs`, with seed answer "I have been taking ibuprofen regularly."
+- **Evidence:**
+  ```text
+  l2_stomachache_ibuprofen_duration_trap
+  timing_given: true
+  brief: Stomach ache that started 4 days ago, it's worse right after I eat.
+  seed answer: I have been taking ibuprofen regularly.
+  ```
+- **Verdict:** PASS.
+
+### V-2026-08-28-OT23-03 - Prompt contract and live re-ask suite pass after fix
+- **Claim:** The known hard re-ask blocker is fixed for the targeted live regression suite.
+- **Method:** Started a fresh local server on port 8770 and ran the targeted live harness against that endpoint.
+- **Evidence:**
+  ```text
+  $ node --check app.js; node --check server.js; node --check api/questions.js; node --check api/bilal.js; node --check api/compare.js; node --check api/followups/enqueue.js; node --check api/followups/tick.js; node harness/prompt_contract.test.mjs
+  VERDICT: PASS
+  ```
+  ```text
+  $ LIVE_LOOP_BASE=http://127.0.0.1:8770 node --env-file=.env harness/live_loop.mjs --suite reask
+  scenarios 9
+  l2_stomachache_after_meals_days rounds=12 hits=0
+  l2_stomachache_ibuprofen_duration_trap rounds=12 hits=0
+  VERDICT: PASS  (160.2s)
+  ```
+- **Verdict:** PASS. Advisory termination/minimum metrics remain visible; no hard safety hit occurred.
+
+### V-2026-08-28-OT23-04 - Final baseline, Graphify refresh, and contradiction sweep
+- **Claim:** Core prototype baseline remains green, Graphify reflects the validator update, and no new contradiction class was introduced.
+- **Method:** Reran protocol baseline, Graphify extract/cluster, and Windows contradiction sweep.
+- **Evidence:**
+  ```text
+  $ python -m pytest tests/ -q
+  100 passed in 0.29s
+  ```
+  ```text
+  $ python -m harness.run
+  VERDICT: PASS
+  ```
+  ```text
+  $ python demo.py | Select-Object -Last 20
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+  ```
+  ```text
+  $ graphify extract 'D:\MEDOXZI\graphify-current-state-src' --code-only --out 'D:\MEDOXZI\graphify-current-state'
+  190 nodes, 331 edges, 12 communities
+  ```
+  Contradiction sweep: contextual only for `FULL_AI`, `No red flags|No concerns`, 25-year retention, `PATIENT_UNSURE`, `probability`, and `>=500|500 real`.
+- **Verdict:** PASS.
+
+---
+
+## Session LAUNCH-AUDIT - 2026-08-28 - Graphify refresh and launch-readiness audit
+
+### V-2026-08-28-LA-01 - Graphify current-state map refreshed
+- **Claim:** The official Graphify current-state map was refreshed from the latest curated source, including adaptive interviewer, Bilal audit, visit compare, follow-up scheduler, marketing/clinic communications, and deployment concepts.
+- **Method:** Refreshed `graphify-current-state-src/` source copies, updated `current_state_model.py`, ran Graphify code-only extraction and cluster-only report generation.
+- **Evidence:**
+  ```text
+  $ graphify extract 'D:\MEDOXZI\graphify-current-state-src' --code-only --out 'D:\MEDOXZI\graphify-current-state'
+  [graphify extract] wrote D:\MEDOXZI\graphify-current-state\graphify-out\graph.json: 122 nodes, 222 edges, 21 communities
+  ```
+  ```text
+  $ graphify cluster-only 'D:\MEDOXZI\graphify-current-state' --no-label
+  Graph: 122 nodes, 222 edges
+  Done - 21 communities. GRAPH_REPORT.md, graph.json and graph.html updated.
+  ```
+- **Verdict:** PASS. Token cost remained zero because this used the curated code-only path.
+
+### V-2026-08-28-LA-02 - Local HTML/API smoke checks
+- **Claim:** The local HTML MVP loads and key server endpoints return expected governed shapes.
+- **Method:** Used the already-running local server on `127.0.0.1:8765`; checked page load, adaptive question endpoint, Bilal audit, compare endpoint, follow-up consent gate, and follow-up tick preview.
+- **Evidence:**
+  ```text
+  GET /index.html -> status=200 length=34773
+  POST /api/questions -> status=200 ok=True hasQuestion=True options=4 done=False
+  POST /api/bilal -> status=200 ok=True hasAudit=True
+  POST /api/compare -> status=200 ok=True direction=mixed
+  POST /api/followups/enqueue with consent=false -> status=400 ok=False error=CONSENT_REQUIRED
+  GET /api/followups/tick -> ok=True source=local-kv note="preview only - nothing transmitted"
+  ```
+- **Verdict:** PASS for local smoke checks.
+
+### V-2026-08-28-LA-03 - Live never-re-ask catalogue found a launch blocker
+- **Claim:** The live DeepSeek re-ask catalogue still catches real prompt failures and currently found one hard timing re-ask.
+- **Method:** Ran the live harness against the local `/api/questions` endpoint with the `reask` suite.
+- **Evidence:**
+  ```text
+  $ node --env-file=.env harness/live_loop.mjs --suite reask
+  FAIL   l2_stomachache_after_meals_days_safety  reask@r12
+  VERDICT: FAIL
+  ```
+  Caught question:
+  ```text
+  How long have you been taking ibuprofen regularly?
+  ```
+- **Verdict:** FAIL. This is a launch-readiness blocker for the adaptive interviewer until fixed or bounded by deterministic server-side validation/retry/fallback.
+
+### V-2026-08-28-LA-04 - Final baseline and contradiction sweep
+- **Claim:** Core Python prototype and prompt-contract baseline remained green after Graphify/report work; contradiction sweep found no new contradiction class.
+- **Method:** Reran protocol verification and Windows contradiction sweep.
+- **Evidence:**
+  ```text
+  $ python -m pytest tests/ -q
+  100 passed in 0.19s
+  ```
+  ```text
+  $ python -m harness.run
+  VERDICT: PASS
+  ```
+  ```text
+  $ python demo.py | Select-Object -Last 20
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+  ```
+  ```text
+  $ node harness/prompt_contract.test.mjs
+  VERDICT: PASS
+  ```
+  Contradiction sweep: contextual only for `FULL_AI`, `No red flags|No concerns`, 25-year retention, `PATIENT_UNSURE`, `probability`, and `>=500|500 real`.
+- **Verdict:** PASS, with live AI catalogue failure tracked separately in V-2026-08-28-LA-03.
+
 ## Session MKT — 2026-08-28 — Marketing Management professional UI overhaul (audit + fix)
 
 ### V-2026-08-28-MKT-01 · Redesigned marketing view preserves all JS-bindable IDs + gate logic

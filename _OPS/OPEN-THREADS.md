@@ -68,6 +68,15 @@
 - **Boundary respected:** All 40 packs remain `DEMO_UNVALIDATED`, nothing signed or activated. **OT-18 named Lead Doctor sign-off is still required** before any real-patient use. The 40/0 CLEAN is a Harness-training/engineering gate result, **not** clinical sign-off.
 - **Status:** ✅ resolved · Commit with this session's pack rebuild + logs.
 
+## ✅ Resolved — adaptive interviewer deterministic validator (OT-23)
+
+- **What happened:** Session LAUNCH-AUDIT found a hard live DeepSeek timing re-ask in the never-re-ask catalogue: "How long have you been taking ibuprofen regularly?"
+- **What changed:** Session OT23 added deterministic model-output validation to both `14-MVP-HTML/server.js` and `14-MVP-HTML/api/questions.js`. The validator rejects invalid shape, multiple questions, duplicate/re-asked questions, known timing/duration re-asks, diagnosis wording, and treatment-recommendation wording before the question reaches the patient.
+- **Fallback behavior:** the API retries once with the validator reason; if the model still fails, it returns a static safe question.
+- **Regression:** `14-MVP-HTML/harness/live_loop.mjs` now includes the permanent fixture `l2_stomachache_ibuprofen_duration_trap`.
+- **Gate result now:** targeted live suite **PASS** across 9 re-ask scenarios, including the original stomachache case and the new ibuprofen-duration trap.
+- **Status:** ✅ resolved · Keep validator mandatory for every patient-facing question endpoint until the duplicate local/serverless code is replaced by a shared module.
+
 ## 🔴 Blocking — cannot proceed to real patient use without these
 
 ### OT-01 · Indonesian data storage and inference — 🟠 DOWNGRADED from 🔴 (session E)
@@ -246,3 +255,6 @@ breaks something, restore with `git reset --hard base-v1` / revert to that tag.
 
 ## Session MKT note (2026-08-28):
 Marketing Management 7th view was audited and rebuilt as a professional, governance-accurate UI (header block, step-grouped panels, clearer CTAs, phone-safe CSS). **Governance fix:** the section previously said "marketing consent"; per ADR-021 MEDOXZI must NOT do patient marketing, so all framing now reads **"clinic communications" / "clinic-owned communication consent"** (ADR-036) with an audit-only no-send path. No JS behaviour or IDs changed. Verify live on prod after deploy (clear cache / incognito). See CHANGELOG / VERIFICATION-LOG V-2026-08-28-MKT-01..03.
+
+## Session LAUNCH-AUDIT note (2026-08-28):
+Graphify current-state map refreshed to **122 nodes, 222 edges, 21 communities** from the latest curated source. A launch-readiness audit was added at `_OPS/LAUNCH-READINESS-AUDIT-2026-08-28.md`. Live DeepSeek re-ask catalogue found a hard launch blocker: stomachache timing-rich brief produced a round-12 timing re-ask ("How long have you been taking ibuprofen regularly?") and `harness/live_loop.mjs --suite reask` returned **VERDICT: FAIL**. Add server-side question validation/retry/fallback before treating the adaptive interviewer as pilot-ready.

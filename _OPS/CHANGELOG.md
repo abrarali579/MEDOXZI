@@ -4,6 +4,116 @@
 
 ---
 
+## 2026-08-28 - Session OT23 - Adaptive interviewer validator + live re-ask fix
+
+**WHAT**
+Closed the live adaptive-interviewer re-ask blocker found by session LAUNCH-AUDIT:
+1. Added deterministic model-output validation to both `14-MVP-HTML/server.js` and `14-MVP-HTML/api/questions.js`.
+2. The validator rejects malformed question shape, multiple questions, duplicate questions, timing/duration re-asks when timing is already known, diagnosis wording, and treatment-recommendation wording.
+3. Added one repair attempt with the validator reason before falling back to a static safe question.
+4. Added permanent live regression fixture `l2_stomachache_ibuprofen_duration_trap` in `14-MVP-HTML/harness/live_loop.mjs`.
+5. Refreshed Graphify again after code changes; current map is **190 nodes, 331 edges, 12 communities**.
+
+**WHY**
+Prompt-only safety failed once under live DeepSeek testing. Patient-facing AI questions need deterministic server-side enforcement before pilot readiness.
+
+**EVIDENCE**
+See `_OPS/VERIFICATION-LOG.md` V-2026-08-28-OT23-01..04.
+
+Key evidence:
+
+```text
+$ node --check app.js; node --check server.js; node --check api/questions.js; ...; node harness/prompt_contract.test.mjs
+VERDICT: PASS
+```
+
+```text
+$ node --env-file=.env harness/live_loop.mjs --suite reask
+VERDICT: PASS  (9 scenarios)
+```
+
+```text
+$ python -m pytest tests/ -q
+100 passed in 0.29s
+```
+
+```text
+$ python -m harness.run
+VERDICT: PASS
+```
+
+**NEXT**
+1. Founder/doctor/staff screen review and v0.8/v1 demo lock.
+2. Begin production skeleton: database-backed identity, encounter, consent, audit, auth/RBAC/RLS, and durable state.
+3. Keep the validator mirrored across every deployed question endpoint until a shared module replaces the duplicate local/serverless code.
+
+**WHY NEXT**
+The adaptive interviewer is now guarded for the known hard re-ask class, but the app is still a static/localStorage prototype rather than a real-patient production system.
+
+**HOW**
+Treat `validateQuestionCandidate()` as a mandatory model-output gate. Run prompt contract plus live re-ask suite before any future prompt, server, API, or question-flow change.
+
+---
+
+## 2026-08-28 - Session LAUNCH-AUDIT - Graphify refresh + launch-readiness audit
+
+**WHAT**
+Updated the official curated Graphify current-state map and produced a professional launch-readiness audit:
+1. Refreshed `graphify-current-state-src/` source copies from current `_OPS`, roadmap, decision log, and HTML MVP files.
+2. Updated `graphify-current-state-src/current_state_model.py` to include adaptive interviewer, prompt-contract harness, live interview harness, Bilal interview audit, visit compare, clinic communications, follow-up scheduler, Vercel deployment, and the KV blocker.
+3. Rebuilt `graphify-current-state/graphify-out/GRAPH_REPORT.md`, `graphify-current-state/graphify-out/graph.html`, and `graphify-current-state/graphify-out/graph.json`: **122 nodes, 222 edges, 21 communities**, zero token cost.
+4. Added `_OPS/LAUNCH-READINESS-AUDIT-2026-08-28.md`, covering launch blockers, phased improvement plan, maximum pre-launch hardening, safe post-launch improvement loop, UI/API/product gaps, and feature recommendations.
+
+**WHY**
+The founder asked for a full project map refresh and a deep launch-readiness audit before the next implementation phase. The prior graph was curated and useful, but stale relative to RT2d/RT2e/RT2f/MKT changes.
+
+**EVIDENCE**
+See `_OPS/VERIFICATION-LOG.md` V-2026-08-28-LA-01..04.
+
+Key evidence:
+
+```text
+$ graphify extract 'D:\MEDOXZI\graphify-current-state-src' --code-only --out 'D:\MEDOXZI\graphify-current-state'
+122 nodes, 222 edges, 21 communities
+```
+
+```text
+$ python -m pytest tests/ -q
+100 passed in 0.19s
+```
+
+```text
+$ python -m harness.run
+VERDICT: PASS
+```
+
+```text
+$ node harness/prompt_contract.test.mjs
+VERDICT: PASS
+```
+
+Live AI launch-readiness blocker found:
+
+```text
+$ node --env-file=.env harness/live_loop.mjs --suite reask
+FAIL   l2_stomachache_after_meals_days_safety  reask@r12
+VERDICT: FAIL
+```
+
+**NEXT**
+1. Fix the live re-ask failure with deterministic server-side question validation, retry, and static fallback.
+2. Complete founder/doctor/staff phone-tablet screen review and lock the demo UI.
+3. Begin production skeleton work: database-backed identity, encounter, consent, audit, RBAC/RLS, and durable state.
+4. Keep Bilal/compare/follow-up outputs as candidate improvement signals only, never automatic self-training.
+
+**WHY NEXT**
+The demo is strong, but real-patient launch needs production controls. Prompt-only safety did not fully hold under live stochastic testing, so a deterministic validator is required before relying on the adaptive interviewer.
+
+**HOW**
+Use `_OPS/LAUNCH-READINESS-AUDIT-2026-08-28.md` as the next-phase plan. Start with Phase 0 items: server-side validator/retry/fallback, permanent harness fixture for the ibuprofen-duration re-ask, and screen review completion.
+
+---
+
 ## 2026-08-28 - Session MKT - Marketing Management professional UI overhaul (audit + fix)
 
 **WHAT**

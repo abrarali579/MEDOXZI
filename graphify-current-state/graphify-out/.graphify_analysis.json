@@ -1,131 +1,249 @@
 {
   "communities": {
     "0": [
+      "current_state_model",
+      "current_state_model_adaptiveinterviewapi",
+      "current_state_model_adaptiveinterviewapi_guarded_by",
+      "current_state_model_adaptivequestionvalidator",
+      "current_state_model_bilalinterviewaudit",
+      "current_state_model_clinicmessaging",
+      "current_state_model_contentlicensing",
+      "current_state_model_doctorbrief",
+      "current_state_model_doctorbrief_receives_from",
+      "current_state_model_doctorpastfiles",
+      "current_state_model_doctorpastfiles_links_to",
+      "current_state_model_doctorworkflow",
+      "current_state_model_followuppreview",
+      "current_state_model_followupscheduler",
+      "current_state_model_followupscheduler_requires",
+      "current_state_model_indonesiancompliance",
+      "current_state_model_liveinterviewharness",
+      "current_state_model_marketingmanagement",
+      "current_state_model_marketingmanagement_depends_on",
+      "current_state_model_medoxzicurrentstate",
+      "current_state_model_medoxzicurrentstate_depends_on",
+      "current_state_model_patientintake",
+      "current_state_model_patientintake_feeds",
+      "current_state_model_pinidentitybinding",
+      "current_state_model_promptcontractharness",
+      "current_state_model_rationale_1",
+      "current_state_model_safetyharness",
+      "current_state_model_verceldeployment",
+      "current_state_model_verticalquestionpack",
+      "current_state_model_verticalquestionpack_guarded_by",
+      "current_state_model_visitcompare",
+      "current_state_model_visualhtmlmvp",
+      "current_state_model_visualhtmlmvp_contains",
+      "current_state_model_welcomesearch"
+    ],
+    "1": [
+      "live_loop_harness",
+      "live_loop_harness_askquestion",
+      "live_loop_harness_assumednameddx",
+      "live_loop_harness_diagnosis_words",
+      "live_loop_harness_dirname",
+      "live_loop_harness_dx_presuppose",
+      "live_loop_harness_escape_words",
+      "live_loop_harness_hard_violation_kinds",
+      "live_loop_harness_hasany",
+      "live_loop_harness_isescape",
+      "live_loop_harness_isperepisode",
+      "live_loop_harness_isproductiveprobe",
+      "live_loop_harness_isreask",
+      "live_loop_harness_istreatmentimperative",
+      "live_loop_harness_main",
+      "live_loop_harness_makegates",
+      "live_loop_harness_meds_history",
+      "live_loop_harness_mentionsmedshistory",
+      "live_loop_harness_named_dx",
+      "live_loop_harness_patientanswer",
+      "live_loop_harness_per_episode",
+      "live_loop_harness_productive_words",
+      "live_loop_harness_rationale_102",
+      "live_loop_harness_reask_words",
+      "live_loop_harness_runencounter",
+      "live_loop_harness_scenarios",
+      "live_loop_harness_setgate",
+      "live_loop_harness_treatment_recommend"
+    ],
+    "2": [
+      "html_mvp_server",
+      "html_mvp_server_asksknowntimingagain",
+      "html_mvp_server_auditinterview",
+      "html_mvp_server_comparevisits",
+      "html_mvp_server_diagnosis_words",
+      "html_mvp_server_hasknowntiming",
+      "html_mvp_server_isduplicatequestion",
+      "html_mvp_server_json",
+      "html_mvp_server_listofobjects",
+      "html_mvp_server_local_kv",
+      "html_mvp_server_localget",
+      "html_mvp_server_localset",
+      "html_mvp_server_localzadd",
+      "html_mvp_server_localzrangebyscore",
+      "html_mvp_server_localzrem",
+      "html_mvp_server_mime",
+      "html_mvp_server_per_episode",
+      "html_mvp_server_reask_words",
+      "html_mvp_server_server",
+      "html_mvp_server_staticsafequestion",
+      "html_mvp_server_strlist",
+      "html_mvp_server_strlist4",
+      "html_mvp_server_suggestnextquestion",
+      "html_mvp_server_timing_context",
+      "html_mvp_server_treatment_recommend",
+      "html_mvp_server_validatequestioncandidate"
+    ],
+    "3": [
+      "docref_adr_0036",
+      "html_mvp_app",
+      "html_mvp_app_applysectiontoggles",
+      "html_mvp_app_historyfilters",
+      "html_mvp_app_historypatients",
+      "html_mvp_app_marketingstate",
+      "html_mvp_app_openclosesplitreview",
+      "html_mvp_app_opencurrentvisitsplit",
+      "html_mvp_app_opencurrentwithpast",
+      "html_mvp_app_openhistoryfile",
+      "html_mvp_app_opennavmenu",
+      "html_mvp_app_patients",
+      "html_mvp_app_questionbanks",
+      "html_mvp_app_renderhistoryfilters",
+      "html_mvp_app_setupbriefstep",
+      "html_mvp_app_state",
+      "html_mvp_app_togglenavmenu",
+      "html_mvp_app_uniquecomplaints",
+      "html_mvp_app_updatepreparegate",
+      "html_mvp_app_viewtitles"
+    ],
+    "4": [
       "html_mvp_app_allpatientrecords",
+      "html_mvp_app_applyhistoryfilters",
       "html_mvp_app_clearintakedraft",
       "html_mvp_app_confirmwelcomepatient",
-      "html_mvp_app_escapehtml",
+      "html_mvp_app_generatepin",
+      "html_mvp_app_identitykey",
       "html_mvp_app_loadexistingpatient",
+      "html_mvp_app_normalize",
+      "html_mvp_app_patienthasfollowup",
       "html_mvp_app_registernewpatient",
       "html_mvp_app_renderfiles",
+      "html_mvp_app_renderhistorylist",
       "html_mvp_app_rendersearchresults",
       "html_mvp_app_renderwelcomesearch",
       "html_mvp_app_savedoctorconclusion",
       "html_mvp_app_savedpatients",
+      "html_mvp_app_savelinkedpatient",
       "html_mvp_app_setintakephone",
       "html_mvp_app_switchview",
       "html_mvp_app_syncpatientfromregistration"
     ],
-    "1": [
-      "html_mvp_app",
-      "html_mvp_app_historyfilters",
-      "html_mvp_app_historypatients",
-      "html_mvp_app_openclosesplitreview",
-      "html_mvp_app_openhistoryfile",
-      "html_mvp_app_patients",
-      "html_mvp_app_questionbanks",
-      "html_mvp_app_setupbriefstep",
-      "html_mvp_app_state",
-      "html_mvp_app_viewtitles"
+    "5": [
+      "html_mvp_api_questions",
+      "html_mvp_api_questions_asksknowntimingagain",
+      "html_mvp_api_questions_diagnosis_words",
+      "html_mvp_api_questions_handler",
+      "html_mvp_api_questions_hasknowntiming",
+      "html_mvp_api_questions_isduplicatequestion",
+      "html_mvp_api_questions_per_episode",
+      "html_mvp_api_questions_reask_words",
+      "html_mvp_api_questions_staticsafequestion",
+      "html_mvp_api_questions_suggestnextquestion",
+      "html_mvp_api_questions_timing_context",
+      "html_mvp_api_questions_treatment_recommend",
+      "html_mvp_api_questions_validatequestioncandidate"
     ],
-    "2": [
-      "current_state_model",
-      "current_state_model_clinicmessaging",
-      "current_state_model_contentlicensing",
-      "current_state_model_followuppreview",
-      "current_state_model_indonesiancompliance",
-      "current_state_model_pinidentitybinding",
-      "current_state_model_rationale_1",
-      "current_state_model_safetyharness",
-      "current_state_model_welcomesearch"
-    ],
-    "3": [
+    "6": [
       "html_mvp_app_activequestions",
       "html_mvp_app_answerquestion",
-      "html_mvp_app_ensureaisuggestions",
-      "html_mvp_app_hidequestionloading",
+      "html_mvp_app_getintakephone",
+      "html_mvp_app_phonecode",
+      "html_mvp_app_renderaiquestion",
+      "html_mvp_app_renderanswersummary",
       "html_mvp_app_renderdoctorbrief",
       "html_mvp_app_renderquestion",
-      "html_mvp_app_renderstepindicator",
-      "html_mvp_app_showquestionloading",
-      "html_mvp_app_showstep"
-    ],
-    "4": [
-      "html_mvp_app_generatepin",
-      "html_mvp_app_getintakephone",
-      "html_mvp_app_identitykey",
-      "html_mvp_app_phonecode",
       "html_mvp_app_renderreview",
-      "html_mvp_app_savelinkedpatient"
+      "html_mvp_app_renderstaticquestion",
+      "html_mvp_app_showstep",
+      "html_mvp_app_updateinterviewprogress",
+      "html_mvp_app_updatesingleprogress"
     ],
-    "5": [
+    "7": [
+      "html_mvp_app_appendvisithistory",
+      "html_mvp_app_buildanswersarray",
+      "html_mvp_app_buildanswersarraysafe",
+      "html_mvp_app_fetchnextaiquestion",
+      "html_mvp_app_hidequestionloading",
+      "html_mvp_app_interviewrecordshape",
+      "html_mvp_app_runbilalaudit",
+      "html_mvp_app_saveinterviewrecord",
+      "html_mvp_app_showquestionloading",
+      "html_mvp_app_staticfillquestion"
+    ],
+    "8": [
+      "html_mvp_app_addmarketingrecipient",
+      "html_mvp_app_escapehtml",
+      "html_mvp_app_fucheckdue",
+      "html_mvp_app_furesolvename",
+      "html_mvp_app_marketingreusablerecipients",
+      "html_mvp_app_removemarketingrecipient",
+      "html_mvp_app_rendermarketingrecipients",
+      "html_mvp_app_updatemarketingpreview"
+    ],
+    "9": [
+      "html_mvp_app_arrowfor",
+      "html_mvp_app_comparepin",
+      "html_mvp_app_esc",
+      "html_mvp_app_getpatientvisits",
+      "html_mvp_app_rendercompareresult",
+      "html_mvp_app_runcompare",
+      "html_mvp_app_updatecomparecardvisibility",
+      "html_mvp_app_visitslabel"
+    ],
+    "10": [
       "html_mvp_app_currentqueuepatient",
       "html_mvp_app_doctorqueueitemhtml",
       "html_mvp_app_previsitpatients",
       "html_mvp_app_queueitemhtml",
       "html_mvp_app_renderqueues"
     ],
-    "6": [
-      "html_mvp_app_applyhistoryfilters",
-      "html_mvp_app_normalize",
-      "html_mvp_app_patienthasfollowup",
-      "html_mvp_app_renderhistorylist"
-    ],
-    "7": [
-      "current_state_model_doctorbrief",
-      "current_state_model_doctorbrief_receives_from"
-    ],
-    "8": [
-      "current_state_model_doctorpastfiles",
-      "current_state_model_doctorpastfiles_links_to"
-    ],
-    "9": [
-      "current_state_model_medoxzicurrentstate",
-      "current_state_model_medoxzicurrentstate_depends_on"
-    ],
-    "10": [
-      "current_state_model_patientintake",
-      "current_state_model_patientintake_feeds"
-    ],
     "11": [
-      "current_state_model_verticalquestionpack",
-      "current_state_model_verticalquestionpack_guarded_by"
-    ],
-    "12": [
-      "current_state_model_visualhtmlmvp",
-      "current_state_model_visualhtmlmvp_contains"
-    ],
-    "13": [
-      "html_mvp_app_opencurrentvisitsplit",
-      "html_mvp_app_opencurrentwithpast"
-    ],
-    "14": [
-      "html_mvp_app_renderhistoryfilters",
-      "html_mvp_app_uniquecomplaints"
+      "html_mvp_app_fuauditentry",
+      "html_mvp_app_fudueatepoch",
+      "html_mvp_app_fuenqueue",
+      "html_mvp_app_renderfupreview",
+      "html_mvp_app_updatefugate"
     ]
   },
   "cohesion": {
-    "0": 0.18681318681318682,
-    "1": 0.2,
-    "2": 0.2222222222222222,
-    "3": 0.3611111111111111,
-    "4": 0.3333333333333333,
-    "5": 0.4,
-    "6": 0.8333333333333334,
-    "7": 1.0,
-    "8": 1.0,
-    "9": 1.0,
-    "10": 1.0,
-    "11": 1.0,
-    "12": 1.0,
-    "13": 1.0,
-    "14": 1.0
+    "0": 0.058823529411764705,
+    "1": 0.11375661375661375,
+    "2": 0.14153846153846153,
+    "3": 0.11578947368421053,
+    "4": 0.14736842105263157,
+    "5": 0.24358974358974358,
+    "6": 0.2692307692307692,
+    "7": 0.2,
+    "8": 0.32142857142857145,
+    "9": 0.2857142857142857,
+    "10": 0.4,
+    "11": 0.4
   },
   "gods": [
     {
+      "id": "live_loop_harness_runencounter",
+      "label": "runEncounter()",
+      "degree": 12
+    },
+    {
+      "id": "html_mvp_server_server",
+      "label": "server",
+      "degree": 10
+    },
+    {
       "id": "html_mvp_app_showstep",
       "label": "showStep()",
-      "degree": 10
+      "degree": 9
     },
     {
       "id": "html_mvp_app_loadexistingpatient",
@@ -135,77 +253,45 @@
     {
       "id": "html_mvp_app_savedpatients",
       "label": "savedPatients()",
-      "degree": 7
+      "degree": 8
     },
     {
-      "id": "html_mvp_app_syncpatientfromregistration",
-      "label": "syncPatientFromRegistration()",
-      "degree": 6
-    },
-    {
-      "id": "html_mvp_app_renderdoctorbrief",
-      "label": "renderDoctorBrief()",
-      "degree": 6
-    },
-    {
-      "id": "html_mvp_app_getintakephone",
-      "label": "getIntakePhone()",
-      "degree": 6
-    },
-    {
-      "id": "html_mvp_app_normalize",
-      "label": "normalize()",
-      "degree": 6
-    },
-    {
-      "id": "html_mvp_app_registernewpatient",
-      "label": "registerNewPatient()",
-      "degree": 5
-    },
-    {
-      "id": "html_mvp_app_renderwelcomesearch",
-      "label": "renderWelcomeSearch()",
-      "degree": 5
+      "id": "html_mvp_app_answerquestion",
+      "label": "answerQuestion()",
+      "degree": 8
     },
     {
       "id": "html_mvp_app_switchview",
       "label": "switchView()",
-      "degree": 5
+      "degree": 7
+    },
+    {
+      "id": "html_mvp_app_fetchnextaiquestion",
+      "label": "fetchNextAiQuestion()",
+      "degree": 7
+    },
+    {
+      "id": "html_mvp_app_rendermarketingrecipients",
+      "label": "renderMarketingRecipients()",
+      "degree": 7
+    },
+    {
+      "id": "html_mvp_server_validatequestioncandidate",
+      "label": "validateQuestionCandidate()",
+      "degree": 6
     }
   ],
   "surprises": [
     {
-      "source": "loadExistingPatient()",
-      "target": "identityKey()",
+      "source": "doctorQueueItemHtml()",
+      "target": "getIntakePhone()",
       "source_files": [
         "HTML-MVP-app.js",
         "HTML-MVP-app.js"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "note": "Bridges community 0 → community 4"
-    },
-    {
-      "source": "loadExistingPatient()",
-      "target": "showStep()",
-      "source_files": [
-        "HTML-MVP-app.js",
-        "HTML-MVP-app.js"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "note": "Bridges community 0 → community 3"
-    },
-    {
-      "source": "renderSearchResults()",
-      "target": "normalize()",
-      "source_files": [
-        "HTML-MVP-app.js",
-        "HTML-MVP-app.js"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "note": "Bridges community 0 → community 6"
+      "note": "Bridges community 10 → community 6"
     },
     {
       "source": "syncPatientFromRegistration()",
@@ -216,40 +302,72 @@
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "note": "Bridges community 0 → community 5"
+      "note": "Bridges community 10 → community 4"
     },
     {
-      "source": "renderDoctorBrief()",
-      "target": "getIntakePhone()",
+      "source": "fuEnqueue()",
+      "target": "marketingReusableRecipients()",
       "source_files": [
         "HTML-MVP-app.js",
         "HTML-MVP-app.js"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "note": "Bridges community 3 → community 4"
+      "note": "Bridges community 11 → community 8"
+    },
+    {
+      "source": "loadExistingPatient()",
+      "target": "renderReview()",
+      "source_files": [
+        "HTML-MVP-app.js",
+        "HTML-MVP-app.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 4 → community 6"
+    },
+    {
+      "source": "renderWelcomeSearch()",
+      "target": "escapeHtml()",
+      "source_files": [
+        "HTML-MVP-app.js",
+        "HTML-MVP-app.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 4 → community 8"
     }
   ],
   "questions": [
     {
-      "type": "bridge_node",
-      "question": "Why does `PatientIntake` connect `Community 10` to `Community 2`?",
-      "why": "High betweenness centrality (0.007) - this node is a cross-community bridge."
-    },
-    {
-      "type": "bridge_node",
-      "question": "Why does `VerticalQuestionPack` connect `Community 11` to `Community 2`?",
-      "why": "High betweenness centrality (0.007) - this node is a cross-community bridge."
-    },
-    {
-      "type": "bridge_node",
-      "question": "Why does `VisualHTMLMVP` connect `Community 12` to `Community 2`?",
-      "why": "High betweenness centrality (0.007) - this node is a cross-community bridge."
-    },
-    {
       "type": "isolated_nodes",
-      "question": "What connects `ClinicMessaging`, `ContentLicensing`, `FollowupPreview` to the rest of the system?",
-      "why": "13 weakly-connected nodes found - possible documentation gaps or missing edges."
+      "question": "What connects `AdaptiveQuestionValidator`, `BilalInterviewAudit`, `ClinicMessaging` to the rest of the system?",
+      "why": "46 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.058823529411764705 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.11375661375661375 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 2` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.14153846153846153 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 3` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.11578947368421053 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 4` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.14736842105263157 - nodes in this community are weakly interconnected."
     }
   ]
 }
