@@ -729,11 +729,6 @@ function updateInterviewContext() {
   setText("interviewSex", sex || "Sex not set");
   setText("interviewComplaint", complaint);
   setText("interviewTiming", timing);
-  setText("notedName", name);
-  setText("notedAge", age || "Not set");
-  setText("notedSex", sex || "Not set");
-  setText("notedComplaint", complaint);
-  setText("notedTiming", timing === "Timing not stated" ? "Not stated" : timing);
 }
 
 function optionIcon(option, index) {
@@ -848,6 +843,22 @@ function renderAnswerSummary() {
     .join("");
 }
 
+function renderInterviewAnswers() {
+  const container = $("#answersSoFar");
+  if (!container) return;
+  const entries = Object.entries(state.answers);
+  if (!entries.length) {
+    container.innerHTML = `<p class="empty-note">No answers yet. Answer the questions and they will appear here.</p>`;
+    return;
+  }
+  container.innerHTML = entries
+    .map(
+      ([question, answer]) =>
+        `<div class="qa-row"><span>${escapeHtml(question)}</span><strong>${escapeHtml(answer)}</strong></div>`
+    )
+    .join("");
+}
+
 function renderStaticQuestion() {
   const questions = questionBanks[state.complaint] || questionBanks["Something else"];
   const index = Object.keys(state.answers).length;
@@ -867,6 +878,7 @@ function renderStaticQuestion() {
     button.classList.remove("selected");
   });
   renderAnswerSummary();
+  renderInterviewAnswers();
 }
 
 function renderAiQuestion() {
@@ -892,6 +904,7 @@ function renderAiQuestion() {
     button.classList.remove("selected");
   });
   renderAnswerSummary();
+  renderInterviewAnswers();
 }
 
 function renderQuestion() {
@@ -982,6 +995,7 @@ async function answerQuestion(answer) {
     }
     state.answers[state.aiNext.text] = answer;
     renderAnswerSummary();
+  renderInterviewAnswers();
     updateInterviewProgress();
 
     // Enforce min 5 / max 12: keep asking until we've hit the floor of 5 (or the

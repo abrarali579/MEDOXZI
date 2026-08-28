@@ -912,22 +912,37 @@ textarea {
   gap: 13px;
 }
 
-.noted-list div {
+.answers-so-far {
   display: grid;
-  gap: 2px;
+  gap: 12px;
 }
 
-.noted-list span {
+.answers-so-far .qa-row {
+  display: grid;
+  gap: 3px;
+  padding-left: 10px;
+  border-left: 3px solid var(--brand);
+}
+
+.answers-so-far .qa-row span {
   color: var(--muted);
   font-size: 0.74rem;
   font-weight: 750;
+  overflow-wrap: anywhere;
 }
 
-.noted-list strong {
+.answers-so-far .qa-row strong {
   color: var(--ink);
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   font-weight: 750;
   overflow-wrap: anywhere;
+}
+
+.answers-so-far .empty-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
 }
 
 .interview-assurance {
@@ -1301,10 +1316,8 @@ textarea {
   .interview-progress-copy { text-align: center; }
   .interview-tools { justify-content: center; flex-wrap: wrap; }
   .interview-main { order: 1; }
-  .interview-context { order: 2; }
-  .already-noted { order: 3; }
   .interview-context,
-  .noted-list { grid-template-columns: 1fr; }
+  .already-noted { display: none; }
   .interview-main .question-block {
     min-height: auto;
     padding: 20px;
@@ -1328,7 +1341,6 @@ textarea {
     height: 44px;
     font-size: 1.05rem;
   }
-  .already-noted { padding: 16px; }
   .interview-action-bar {
     position: sticky;
     bottom: 0;

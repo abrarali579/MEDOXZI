@@ -4,6 +4,27 @@
 
 ---
 
+## 2026-08-28 - Session UI-DEDUP - Fix duplicate interview side-section (Abrar-reported)
+
+**WHAT**
+Removed the duplicated patient context from the interview screen's right-hand panel and repurposed it:
+1. Left context rail keeps the static patient identity/facts (avatar, name, age, sex, complaint, timing).
+2. Right panel (formerly "Already noted", showing the same static rows) now shows the **live "Answers so far"** Q→A trail built from `state.answers`, refreshed on every answer. No duplicated content.
+3. Phone (`≤430px`) now renders **QNA only** — both side panels hidden via media query; they appear only on tablet/desktop.
+4. Viewport meta now `maximum-scale=1, user-scalable=no` to stop iOS auto-zoom on input focus/editing.
+
+**WHY** Abrar reported a duplicate section (same patient fields in both side panels) + wanted the two panels tablet-only (phone = QNA only) + no auto-zoom on phone editing.
+
+**EVIDENCE** Browser (desktop 1264px): context rail = patient facts, right panel = empty state then live QA row after injected answer; no JS errors (`node --check` OK, 0 console errors); phone hide is deterministic `@media (max-width:430px)` CSS.
+
+**NEXT** OT-20 full-screen review pass.
+
+**WHY NEXT** Lock the screen after the review checklist.
+
+**HOW** Patch index.html (viewport + ## panel container), styles.css (answers-so-far styles + phone hide + dead-rule removal), app.js (renderInterviewAnswers + remove noted* writes + hook 3 render sites). [tool: patch, browser, terminal]
+
+---
+
 ## 2026-08-28 - Session UI-INTERVIEW - Professional patient interview screen
 
 **WHAT**

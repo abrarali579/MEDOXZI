@@ -8,6 +8,34 @@
 
 ---
 
+## Session UI-DEDUP - 2026-08-28 - Fix duplicate interview side-section (Abrar-reported)
+
+### V-2026-08-28-UIDEDUP-01 - Duplicate patient context removed from right side-panel
+- **Claim:** The interview screen no longer shows the same static patient context (name/age/sex/complaint/timing) in both side panels. The right panel now shows the live "Answers so far" Q→A trail instead.
+- **Method:** Browser at 1264px desktop: inspected `.interview-context` (left rail) and `.already-noted` (right "Answers so far" panel) computed styles + content; injected an answer into `state.answers` and called `renderInterviewAnswers()`.
+- **Evidence:**
+  ```text
+  .interview-context visible (grid); interviewName="Ahmed Khan"; interviewComplaint="Fever"
+  .already-noted visible (grid); header "Answers so far"
+  initial:  panel shows empty-note "No answers yet…"
+  after inject:  <div class="qa-row"><span>How long have you had the pain for?</span><strong>4 days</strong></div>
+  No notedName/notedAge/notedSex/notedComplaint/notedTiming references remain in app.js/index.html/styles.css (grep = 0 hits)
+  ```
+- **Verdict:** PASS. No duplicated patient fields; right panel = dynamic answer trail.
+
+### V-2026-08-28-UIDEDUP-02 - Phone renders QNA only; side panels tablet-only; no auto-zoom on focus
+- **Claim:** On phone (`≤430px`) the two side panels are hidden (QNA only); they remain visible on tablet/desktop. Viewport stops iOS auto-zoom on editing.
+- **Method:** Read final `styles.css` phone media query; verified viewport meta in `index.html`; `node --check app.js`; reloaded local `:8765` and read console.
+- **Evidence:**
+  ```text
+  @media (max-width:430px){ .interview-main{order:1} .interview-context,.already-noted{display:none} } (line 1318-1320)
+  viewport meta = "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+  node --check app.js -> OK ; browser reload :8765 -> 0 console messages, 0 js_errors
+  ```
+- **Verdict:** PASS.
+
+---
+
 ## Session UI-INTERVIEW - 2026-08-28 - Professional patient interview screen
 
 ### V-2026-08-28-UIINT-01 - Patient interview screen implemented in the actual HTML MVP
