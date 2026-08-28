@@ -8,6 +8,95 @@
 
 ---
 
+## Session UI-INTERVIEW - 2026-08-28 - Professional patient interview screen
+
+### V-2026-08-28-UIINT-01 - Patient interview screen implemented in the actual HTML MVP
+- **Claim:** The generated professional interview-screen concept is now implemented in `14-MVP-HTML/`, not just mocked as an image.
+- **Method:** Updated the patient interview step markup, styling, and interaction logic in `14-MVP-HTML/index.html`, `14-MVP-HTML/styles.css`, and `14-MVP-HTML/app.js`.
+- **Evidence:**
+  ```text
+  Implemented:
+  - three-column tablet interview workspace
+  - patient context rail
+  - central one-question-at-a-time answer cards
+  - already-noted summary panel
+  - bottom Back / Skip / Continue action bar
+  - tap-option-then-continue interaction
+  - mobile question-first stack
+  ```
+- **Verdict:** PASS. The patient view still shows no diagnosis, treatment advice, differential, or clinical performance claim.
+
+### V-2026-08-28-UIINT-02 - Local syntax, prompt-contract, and endpoint checks pass
+- **Claim:** The UI implementation did not break the local HTML MVP scripts, adaptive question guard, or local server page load.
+- **Method:** Ran JavaScript syntax checks, the prompt-contract harness, a static DOM hook check, and a local HTTP smoke test against a fresh server on port `8771`.
+- **Evidence:**
+  ```text
+  $ node --check app.js; node --check server.js; node --check api/questions.js; node --check api/bilal.js; node --check api/compare.js; node --check api/followups/enqueue.js; node --check api/followups/tick.js; node harness/prompt_contract.test.mjs
+  VERDICT: PASS
+  ```
+  ```text
+  Static hooks present:
+  interviewBack, skipQuestion, continueAnswer, interviewName, notedTiming,
+  questionText, answerGrid, questionBlock, interview-mode, interview-shell,
+  selectPendingAnswer, submitPendingAnswer, skipCurrentQuestion
+  ```
+  ```text
+  GET http://127.0.0.1:8771/index.html -> 200
+  ```
+- **Verdict:** PASS.
+
+### V-2026-08-28-UIINT-03 - Browser UI verification passes on tablet/desktop and phone widths
+- **Claim:** The new interview screen renders professionally, remains interactive, and avoids horizontal overflow on checked tablet/desktop and phone viewports.
+- **Method:** Used Playwright against the local server on `127.0.0.1:8771`, drove a synthetic intake to the interview step, selected an answer, continued once, then repeated the layout check at mobile width.
+- **Evidence:**
+  ```text
+  Desktop/tablet viewport 1180x820:
+  console errors: []
+  interview mode: true
+  shell columns: 230px 554px 250px
+  question: How would you describe the pain?
+  answer buttons: 4
+  Continue disabled before selection: true
+  selected answer cards after tap: 1
+  Continue disabled after selection: false
+  horizontal overflow: false
+  ```
+  ```text
+  Phone viewport 390x844:
+  console errors: []
+  answer columns: 294px
+  action bar columns: 336px
+  answer buttons: 4
+  horizontal overflow: false
+  ```
+- **Verdict:** PASS.
+
+### V-2026-08-28-UIINT-04 - Protocol baseline, Graphify refresh, and contradiction sweep pass
+- **Claim:** Core prototype baseline remains green, Graphify reflects the interview UI update, and no prohibited project claim class was introduced.
+- **Method:** Ran the required Python baseline, refreshed the curated Graphify current-state map, and ran the contradiction sweep from `_OPS/AGENT-PROTOCOL.md`.
+- **Evidence:**
+  ```text
+  $ python -m pytest tests/ -q
+  100 passed in 0.19s
+  ```
+  ```text
+  $ python -m harness.run
+  VERDICT: PASS
+  ```
+  ```text
+  $ python demo.py | Select-Object -Last 20
+  Every behaviour above is deterministic and unit-tested.
+  Run:  python -m pytest tests/ -v
+  ```
+  ```text
+  $ graphify extract 'D:\MEDOXZI\graphify-current-state-src' --code-only --out 'D:\MEDOXZI\graphify-current-state'
+  201 nodes, 359 edges, 13 communities
+  ```
+  Contradiction sweep: contextual only for `FULL_AI`, `No red flags|No concerns`, 25-year retention, `PATIENT_UNSURE`, `probability`, and `>=500|500 real`.
+- **Verdict:** PASS.
+
+---
+
 ## Session OT23 - 2026-08-28 - Adaptive interviewer validator and live re-ask fix
 
 ### V-2026-08-28-OT23-01 - Question validator added to both patient-facing question endpoints

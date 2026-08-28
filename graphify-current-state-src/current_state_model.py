@@ -39,6 +39,7 @@ class VisualHTMLMVP:
         return [
             WelcomeSearch,
             PatientIntake,
+            ProfessionalInterviewScreen,
             DoctorBrief,
             DoctorPastFiles,
             MarketingManagement,
@@ -68,12 +69,32 @@ class PatientIntake:
         "one_progress_bar_with_numeric_percent",
         "no_spinner_or_thinking_text",
         "question_block_keeps_height",
+        "professional_tablet_interview_screen",
+        "tap_option_then_continue_action",
+        "mobile_question_first_stack",
         "answers_persist_in_local_storage",
         "min_five_max_twelve_questions",
     ]
 
     def feeds(self):
-        return [DoctorBrief, VerticalQuestionPack, AdaptiveInterviewAPI, BilalInterviewAudit]
+        return [ProfessionalInterviewScreen, DoctorBrief, VerticalQuestionPack, AdaptiveInterviewAPI, BilalInterviewAudit]
+
+
+class ProfessionalInterviewScreen:
+    location = ["14-MVP-HTML/index.html", "14-MVP-HTML/styles.css", "14-MVP-HTML/app.js"]
+    purpose = "patient_facing_one_question_at_a_time_tablet_interview"
+    layout = [
+        "left_patient_context_chips",
+        "center_large_question_and_four_answer_cards",
+        "right_already_noted_panel",
+        "sticky_back_skip_continue_bar",
+    ]
+    interaction = "answer_card_selection_enables_continue"
+    responsive = "three_column_tablet_layout_stacks_question_first_on_phone"
+    boundary = "no_diagnosis_shown"
+
+    def uses(self):
+        return [AdaptiveInterviewAPI, AdaptiveQuestionValidator]
 
 
 class AdaptiveInterviewAPI:

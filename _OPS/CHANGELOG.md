@@ -4,6 +4,57 @@
 
 ---
 
+## 2026-08-28 - Session UI-INTERVIEW - Professional patient interview screen
+
+**WHAT**
+Implemented the generated interview-screen UI in the actual `14-MVP-HTML/` prototype:
+1. Rebuilt the patient interview step as a professional tablet-first workspace with MEDOXZI header, patient context rail, central one-question card, "Already noted" summary panel, and bottom action bar.
+2. Changed answering from instant-submit to **tap option → selected state → Continue**, with Skip and Back controls visible in the same action area.
+3. Added mobile-specific layout so the question stays first, answer cards stack cleanly, and the action bar remains reachable.
+4. Refreshed the curated Graphify current-state map to include the new `ProfessionalInterviewScreen` concept: **201 nodes, 359 edges, 13 communities**.
+
+**WHY**
+Abrar approved the generated interview UI direction and asked to actually implement it in the product prototype.
+
+**EVIDENCE**
+See `_OPS/VERIFICATION-LOG.md` V-2026-08-28-UIINT-01..04.
+
+Key evidence:
+
+```text
+Desktop/tablet browser check:
+interview mode true, shell columns 230px 554px 250px,
+4 answer buttons, Continue disabled until selection, horizontal overflow false
+```
+
+```text
+Phone browser check:
+390x844, 4 answer buttons, single-column answers, horizontal overflow false
+```
+
+```text
+$ python -m pytest tests/ -q
+100 passed in 0.19s
+```
+
+```text
+$ node harness/prompt_contract.test.mjs
+VERDICT: PASS
+```
+
+**NEXT**
+1. Founder/doctor/staff review of the new patient interview screen on a real phone and landscape tablet.
+2. If approved, lock the patient-interview visual direction into the v0.8/v1 demo scope.
+3. Continue production skeleton planning: durable identity, encounter state, consent, audit, auth/RBAC/RLS, and real storage.
+
+**WHY NEXT**
+The screen now exists and passes local/browser checks, but launch readiness still depends on human workflow review and production-grade infrastructure.
+
+**HOW**
+Review the actual `14-MVP-HTML/` flow, especially whether patients understand the selected-answer state, Skip behavior, "Already noted" summary, and mobile action bar.
+
+---
+
 ## 2026-08-28 - Session OT23 - Adaptive interviewer validator + live re-ask fix
 
 **WHAT**

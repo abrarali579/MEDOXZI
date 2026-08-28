@@ -13,6 +13,7 @@ const state = {
   aiActive: false,
   aiNext: null,
   aiDone: false,
+  pendingAnswer: "",
 };
 
 const questionBanks = {
@@ -659,6 +660,7 @@ function clearIntakeDraft({ keepIdentity = true } = {}) {
   state.answers = {};
   state.files = [];
   state.doctorSaved = false;
+  state.pendingAnswer = "";
   if (!keepIdentity) {
     state.pin = "";
     state.linkedIdentity = null;
@@ -689,6 +691,93 @@ function updateSingleProgress() {
   if (pctEl) pctEl.textContent = `${pct}%`;
 }
 
+function initialsFor(name) {
+  const parts = String(name || "MX").trim().split(/\s+/).filter(Boolean);
+  return (parts[0]?.[0] || "M").toUpperCase() + (parts[1]?.[0] || "X").toUpperCase();
+}
+
+function extractTimingFromBrief(brief) {
+  const text = String(brief || "").trim();
+  const patterns = [
+    /\b(started|began)\s+[^,.]{1,42}/i,
+    /\bsince\s+(?:yesterday|this morning|last night|last week|last month|monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b/i,
+    /\bfor (?:the last |about |around |almost |nearly )?\d+\s*(?:hour|hours|day|days|week|weeks|month|months)\b/i,
+    /\b\d+\s*(?:hour|hours|day|days|week|weeks|month|months)\s+ago\b/i,
+  ];
+  for (const pattern of patterns) {
+    const hit = text.match(pattern);
+    if (hit) return hit[0].replace(/[.]+$/, "");
+  }
+  return "Timing not stated";
+}
+
+function setText(id, value) {
+  const el = $(`#${id}`);
+  if (el) el.textContent = value;
+}
+
+function updateInterviewContext() {
+  const name = ($("#intakeName")?.value || "Patient").trim() || "Patient";
+  const age = ($("#intakeAge")?.value || "").trim();
+  const sex = ($("#intakeSex")?.value || "").trim();
+  const complaint = state.complaint || "Reason not set";
+  const timing = extractTimingFromBrief($("#issueText")?.value || "");
+
+  setText("interviewInitials", initialsFor(name));
+  setText("interviewName", name);
+  setText("interviewAge", age ? `${age} years` : "Age not set");
+  setText("interviewSex", sex || "Sex not set");
+  setText("interviewComplaint", complaint);
+  setText("interviewTiming", timing);
+  setText("notedName", name);
+  setText("notedAge", age || "Not set");
+  setText("notedSex", sex || "Not set");
+  setText("notedComplaint", complaint);
+  setText("notedTiming", timing === "Timing not stated" ? "Not stated" : timing);
+}
+
+function optionIcon(option, index) {
+  const text = String(option || "").toLowerCase();
+  if (/not sure|don't know|not asked|none|not applicable/.test(text)) return "?";
+  if (/upper|front|head|throat|chest/.test(text)) return "U";
+  if (/lower|back|leg|foot|feet/.test(text)) return "L";
+  if (/side|left|right|one/.test(text)) return "S";
+  if (/severe|strong|worse|sharp|burning/.test(text)) return "!";
+  return String(index + 1);
+}
+
+function resetPendingAnswer() {
+  state.pendingAnswer = "";
+  const continueButton = $("#continueAnswer");
+  if (continueButton) continueButton.disabled = true;
+}
+
+function selectPendingAnswer(answer) {
+  if (_processingActive || !answer) return;
+  state.pendingAnswer = answer;
+  $$(".answer-grid button").forEach((button) => {
+    button.classList.toggle("selected", button.dataset.answer === answer);
+  });
+  const continueButton = $("#continueAnswer");
+  if (continueButton) continueButton.disabled = false;
+}
+
+function submitPendingAnswer() {
+  if (_processingActive || !state.pendingAnswer) return;
+  const answer = state.pendingAnswer;
+  resetPendingAnswer();
+  answerQuestion(answer);
+}
+
+function skipCurrentQuestion() {
+  if (_processingActive) return;
+  const escape = Array.from($$(".answer-grid button"))
+    .map((button) => button.dataset.answer || "")
+    .find((answer) => /not sure|don't know|not asked|none|not applicable/i.test(answer));
+  resetPendingAnswer();
+  answerQuestion(escape || "Not sure");
+}
+
 function showStep(step) {
   state.currentStep = Math.max(0, Math.min(step, 5));
   try { localStorage.setItem("medoxzi_step", String(state.currentStep)); } catch (e) {}
@@ -697,6 +786,8 @@ function showStep(step) {
   });
 
   const total = 6;
+  const patientCard = $(".patient-card");
+  if (patientCard) patientCard.classList.toggle("interview-mode", state.currentStep === 3);
   const stepLabel = $("#stepLabel");
   if (stepLabel) stepLabel.textContent =
     state.currentStep < 5 ? `Step ${state.currentStep + 1} of ${total}` : "Done";
@@ -707,6 +798,8 @@ function showStep(step) {
   $("#skipStep").style.display = "none";
 
   if (state.currentStep === 3) {
+    updateInterviewContext();
+    resetPendingAnswer();
     // Reset any previous adaptive flow, then begin: ask the LLM for the FIRST
     // question based on the brief. Every call shows/hides the question pair
     // together and the single progress bar reflects the interview.
@@ -760,13 +853,15 @@ function renderStaticQuestion() {
   const index = Object.keys(state.answers).length;
   const nextQuestion = questions[Math.min(index, questions.length - 1)];
   updateInterviewProgress();
+  updateInterviewContext();
+  resetPendingAnswer();
   $("#questionTitle").textContent = `Intake question ${Math.min(index + 1, questions.length)} of ${questions.length}`;
   $("#questionText").textContent = nextQuestion.text;
   $("#questionText").hidden = false;
   $("#answerGrid").hidden = false;
   $$(".answer-grid button").forEach((button, optionIndex) => {
     const option = nextQuestion.options[optionIndex];
-    button.textContent = option;
+    button.innerHTML = option ? `<span class="answer-icon">${optionIcon(option, optionIndex)}</span><span>${escapeHtml(option)}</span>` : "";
     button.dataset.answer = option;
     button.hidden = !option;
     button.classList.remove("selected");
@@ -783,13 +878,15 @@ function renderAiQuestion() {
     return;
   }
   updateInterviewProgress();
+  updateInterviewContext();
+  resetPendingAnswer();
   $("#questionTitle").textContent = `Intake question ${answeredCount + 1} (adaptive)`;
   $("#questionText").textContent = q.text;
   $("#questionText").hidden = false;
   $("#answerGrid").hidden = false;
   $$(".answer-grid button").forEach((button, optionIndex) => {
     const option = q.options[optionIndex];
-    button.textContent = option;
+    button.innerHTML = option ? `<span class="answer-icon">${optionIcon(option, optionIndex)}</span><span>${escapeHtml(option)}</span>` : "";
     button.dataset.answer = option;
     button.hidden = !option;
     button.classList.remove("selected");
@@ -1410,6 +1507,12 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#backStep").addEventListener("click", () => showStep(state.currentStep - 1));
   $("#nextStep").addEventListener("click", () => showStep(state.currentStep + 1));
   $("#skipStep").addEventListener("click", () => showStep(state.currentStep + 1));
+  const interviewBack = $("#interviewBack");
+  if (interviewBack) interviewBack.addEventListener("click", () => showStep(2));
+  const skipQuestion = $("#skipQuestion");
+  if (skipQuestion) skipQuestion.addEventListener("click", skipCurrentQuestion);
+  const continueAnswer = $("#continueAnswer");
+  if (continueAnswer) continueAnswer.addEventListener("click", submitPendingAnswer);
 
   const continueToIntake = $("#continueToIntake");
   if (continueToIntake) {
@@ -1491,7 +1594,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   $$(".answer-grid button").forEach((button) => {
-    button.addEventListener("click", () => answerQuestion(button.dataset.answer));
+    button.addEventListener("click", () => selectPendingAnswer(button.dataset.answer));
   });
 
   const reportListener = $("#reportInput");
