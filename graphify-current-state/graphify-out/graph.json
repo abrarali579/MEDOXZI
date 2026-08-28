@@ -14,7 +14,7 @@
       "file_type": "code",
       "norm_label": "adaptiveinterviewapi",
       "source_file": "current_state_model.py",
-      "source_location": "L100"
+      "source_location": "L102"
     },
     {
       "id": "current_state_model_adaptivequestionvalidator",
@@ -27,7 +27,7 @@
       "file_type": "code",
       "norm_label": "adaptivequestionvalidator",
       "source_file": "current_state_model.py",
-      "source_location": "L119"
+      "source_location": "L121"
     },
     {
       "id": "current_state_model_bilalinterviewaudit",
@@ -40,7 +40,7 @@
       "file_type": "code",
       "norm_label": "bilalinterviewaudit",
       "source_file": "current_state_model.py",
-      "source_location": "L238"
+      "source_location": "L240"
     },
     {
       "id": "current_state_model_clinicmessaging",
@@ -53,7 +53,7 @@
       "file_type": "code",
       "norm_label": "clinicmessaging",
       "source_file": "current_state_model.py",
-      "source_location": "L210"
+      "source_location": "L212"
     },
     {
       "id": "current_state_model_contentlicensing",
@@ -66,7 +66,7 @@
       "file_type": "code",
       "norm_label": "contentlicensing",
       "source_file": "current_state_model.py",
-      "source_location": "L265"
+      "source_location": "L267"
     },
     {
       "id": "current_state_model_doctorbrief",
@@ -79,7 +79,7 @@
       "file_type": "code",
       "norm_label": "doctorbrief",
       "source_file": "current_state_model.py",
-      "source_location": "L133"
+      "source_location": "L135"
     },
     {
       "id": "current_state_model_doctorpastfiles",
@@ -92,7 +92,7 @@
       "file_type": "code",
       "norm_label": "doctorpastfiles",
       "source_file": "current_state_model.py",
-      "source_location": "L154"
+      "source_location": "L156"
     },
     {
       "id": "current_state_model_doctorworkflow",
@@ -105,7 +105,7 @@
       "file_type": "code",
       "norm_label": "doctorworkflow",
       "source_file": "current_state_model.py",
-      "source_location": "L163"
+      "source_location": "L165"
     },
     {
       "id": "current_state_model_followuppreview",
@@ -118,7 +118,7 @@
       "file_type": "code",
       "norm_label": "followuppreview",
       "source_file": "current_state_model.py",
-      "source_location": "L271"
+      "source_location": "L273"
     },
     {
       "id": "current_state_model_followupscheduler",
@@ -131,7 +131,7 @@
       "file_type": "code",
       "norm_label": "followupscheduler",
       "source_file": "current_state_model.py",
-      "source_location": "L227"
+      "source_location": "L229"
     },
     {
       "id": "current_state_model_indonesiancompliance",
@@ -144,7 +144,7 @@
       "file_type": "code",
       "norm_label": "indonesiancompliance",
       "source_file": "current_state_model.py",
-      "source_location": "L258"
+      "source_location": "L260"
     },
     {
       "id": "current_state_model_liveinterviewharness",
@@ -157,7 +157,7 @@
       "file_type": "code",
       "norm_label": "liveinterviewharness",
       "source_file": "current_state_model.py",
-      "source_location": "L203"
+      "source_location": "L205"
     },
     {
       "id": "current_state_model_marketingmanagement",
@@ -170,7 +170,7 @@
       "file_type": "code",
       "norm_label": "marketingmanagement",
       "source_file": "current_state_model.py",
-      "source_location": "L217"
+      "source_location": "L219"
     },
     {
       "id": "current_state_model_medoxzicurrentstate",
@@ -209,7 +209,7 @@
       "file_type": "code",
       "norm_label": "pinidentitybinding",
       "source_file": "current_state_model.py",
-      "source_location": "L174"
+      "source_location": "L176"
     },
     {
       "id": "current_state_model_professionalinterviewscreen",
@@ -222,7 +222,7 @@
       "file_type": "code",
       "norm_label": "professionalinterviewscreen",
       "source_file": "current_state_model.py",
-      "source_location": "L83"
+      "source_location": "L85"
     },
     {
       "id": "current_state_model_promptcontractharness",
@@ -235,7 +235,7 @@
       "file_type": "code",
       "norm_label": "promptcontractharness",
       "source_file": "current_state_model.py",
-      "source_location": "L197"
+      "source_location": "L199"
     },
     {
       "id": "current_state_model_safetyharness",
@@ -248,7 +248,7 @@
       "file_type": "code",
       "norm_label": "safetyharness",
       "source_file": "current_state_model.py",
-      "source_location": "L191"
+      "source_location": "L193"
     },
     {
       "id": "current_state_model_verceldeployment",
@@ -261,7 +261,7 @@
       "file_type": "code",
       "norm_label": "verceldeployment",
       "source_file": "current_state_model.py",
-      "source_location": "L251"
+      "source_location": "L253"
     },
     {
       "id": "current_state_model_verticalquestionpack",
@@ -274,7 +274,7 @@
       "file_type": "code",
       "norm_label": "verticalquestionpack",
       "source_file": "current_state_model.py",
-      "source_location": "L181"
+      "source_location": "L183"
     },
     {
       "id": "current_state_model_visitcompare",
@@ -287,7 +287,7 @@
       "file_type": "code",
       "norm_label": "visitcompare",
       "source_file": "current_state_model.py",
-      "source_location": "L245"
+      "source_location": "L247"
     },
     {
       "id": "current_state_model_visualhtmlmvp",
@@ -325,7 +325,7 @@
       "file_type": "code",
       "norm_label": ".guarded_by()",
       "source_file": "current_state_model.py",
-      "source_location": "L115"
+      "source_location": "L117"
     },
     {
       "id": "current_state_model_doctorbrief_receives_from",
@@ -337,7 +337,7 @@
       "file_type": "code",
       "norm_label": ".receives_from()",
       "source_file": "current_state_model.py",
-      "source_location": "L150"
+      "source_location": "L152"
     },
     {
       "id": "current_state_model_doctorpastfiles_links_to",
@@ -349,7 +349,7 @@
       "file_type": "code",
       "norm_label": ".links_to()",
       "source_file": "current_state_model.py",
-      "source_location": "L159"
+      "source_location": "L161"
     },
     {
       "id": "current_state_model_followupscheduler_requires",
@@ -361,7 +361,7 @@
       "file_type": "code",
       "norm_label": ".requires()",
       "source_file": "current_state_model.py",
-      "source_location": "L234"
+      "source_location": "L236"
     },
     {
       "id": "current_state_model_marketingmanagement_depends_on",
@@ -373,7 +373,7 @@
       "file_type": "code",
       "norm_label": ".depends_on()",
       "source_file": "current_state_model.py",
-      "source_location": "L223"
+      "source_location": "L225"
     },
     {
       "id": "current_state_model_medoxzicurrentstate_depends_on",
@@ -397,7 +397,7 @@
       "file_type": "code",
       "norm_label": ".feeds()",
       "source_file": "current_state_model.py",
-      "source_location": "L79"
+      "source_location": "L81"
     },
     {
       "id": "current_state_model_professionalinterviewscreen_uses",
@@ -409,7 +409,7 @@
       "file_type": "code",
       "norm_label": ".uses()",
       "source_file": "current_state_model.py",
-      "source_location": "L96"
+      "source_location": "L98"
     },
     {
       "id": "current_state_model_verticalquestionpack_guarded_by",
@@ -421,7 +421,7 @@
       "file_type": "code",
       "norm_label": ".guarded_by()",
       "source_file": "current_state_model.py",
-      "source_location": "L187"
+      "source_location": "L189"
     },
     {
       "id": "current_state_model_visualhtmlmvp_contains",
@@ -604,148 +604,136 @@
       "source_location": "L359"
     },
     {
-      "id": "html_mvp_app_activequestions",
-      "label": "activeQuestions()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "Community 10",
-      "file_type": "code",
-      "norm_label": "activequestions()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L58"
-    },
-    {
-      "id": "html_mvp_app_renderdoctorbrief",
-      "label": "renderDoctorBrief()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "Community 10",
-      "file_type": "code",
-      "norm_label": "renderdoctorbrief()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1078"
-    },
-    {
-      "id": "html_mvp_app_savedoctorconclusion",
-      "label": "saveDoctorConclusion()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "Community 10",
-      "file_type": "code",
-      "norm_label": "savedoctorconclusion()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1340"
-    },
-    {
-      "id": "html_mvp_app_setintakephone",
-      "label": "setIntakePhone()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "Community 10",
-      "file_type": "code",
-      "norm_label": "setintakephone()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1141"
-    },
-    {
-      "id": "html_mvp_app_switchview",
-      "label": "switchView()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "Community 10",
-      "file_type": "code",
-      "norm_label": "switchview()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L330"
-    },
-    {
-      "id": "html_mvp_app_syncpatientfromregistration",
-      "label": "syncPatientFromRegistration()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "Community 10",
-      "file_type": "code",
-      "norm_label": "syncpatientfromregistration()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L636"
-    },
-    {
       "id": "html_mvp_app_appendvisithistory",
       "label": "appendVisitHistory()",
       "_callable": true,
       "_origin": "ast",
-      "community": 11,
-      "community_name": "Community 11",
+      "community": 10,
+      "community_name": "Community 10",
       "file_type": "code",
       "norm_label": "appendvisithistory()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2055"
+      "source_location": "L2081"
     },
     {
       "id": "html_mvp_app_buildanswersarray",
       "label": "buildAnswersArray()",
       "_callable": true,
       "_origin": "ast",
-      "community": 11,
-      "community_name": "Community 11",
+      "community": 10,
+      "community_name": "Community 10",
       "file_type": "code",
       "norm_label": "buildanswersarray()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L905"
+      "source_location": "L930"
     },
     {
       "id": "html_mvp_app_buildanswersarraysafe",
       "label": "buildAnswersArraySafe()",
       "_callable": true,
       "_origin": "ast",
-      "community": 11,
-      "community_name": "Community 11",
+      "community": 10,
+      "community_name": "Community 10",
       "file_type": "code",
       "norm_label": "buildanswersarraysafe()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1963"
+      "source_location": "L1989"
     },
     {
       "id": "html_mvp_app_interviewrecordshape",
       "label": "interviewRecordShape()",
       "_callable": true,
       "_origin": "ast",
-      "community": 11,
-      "community_name": "Community 11",
+      "community": 10,
+      "community_name": "Community 10",
       "file_type": "code",
       "norm_label": "interviewrecordshape()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1970"
+      "source_location": "L1996"
     },
     {
       "id": "html_mvp_app_runbilalaudit",
       "label": "runBilalAudit()",
       "_callable": true,
       "_origin": "ast",
-      "community": 11,
-      "community_name": "Community 11",
+      "community": 10,
+      "community_name": "Community 10",
       "file_type": "code",
       "norm_label": "runbilalaudit()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2008"
+      "source_location": "L2034"
     },
     {
       "id": "html_mvp_app_saveinterviewrecord",
       "label": "saveInterviewRecord()",
       "_callable": true,
       "_origin": "ast",
-      "community": 11,
-      "community_name": "Community 11",
+      "community": 10,
+      "community_name": "Community 10",
       "file_type": "code",
       "norm_label": "saveinterviewrecord()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1991"
+      "source_location": "L2017"
+    },
+    {
+      "id": "html_mvp_app_fuauditentry",
+      "label": "fuAuditEntry()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "Community 11",
+      "file_type": "code",
+      "norm_label": "fuauditentry()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1879"
+    },
+    {
+      "id": "html_mvp_app_fudueatepoch",
+      "label": "fuDueAtEpoch()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "Community 11",
+      "file_type": "code",
+      "norm_label": "fudueatepoch()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1842"
+    },
+    {
+      "id": "html_mvp_app_fuenqueue",
+      "label": "fuEnqueue()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "Community 11",
+      "file_type": "code",
+      "norm_label": "fuenqueue()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1897"
+    },
+    {
+      "id": "html_mvp_app_renderfupreview",
+      "label": "renderFuPreview()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "Community 11",
+      "file_type": "code",
+      "norm_label": "renderfupreview()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1852"
+    },
+    {
+      "id": "html_mvp_app_updatefugate",
+      "label": "updateFuGate()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "Community 11",
+      "file_type": "code",
+      "norm_label": "updatefugate()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1869"
     },
     {
       "id": "html_mvp_app_fetchnextaiquestion",
@@ -757,7 +745,7 @@
       "file_type": "code",
       "norm_label": "fetchnextaiquestion()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L915"
+      "source_location": "L940"
     },
     {
       "id": "html_mvp_app_hidequestionloading",
@@ -769,7 +757,7 @@
       "file_type": "code",
       "norm_label": "hidequestionloading()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L839"
+      "source_location": "L842"
     },
     {
       "id": "html_mvp_app_showquestionloading",
@@ -781,7 +769,7 @@
       "file_type": "code",
       "norm_label": "showquestionloading()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L829"
+      "source_location": "L832"
     },
     {
       "id": "html_mvp_app_staticfillquestion",
@@ -793,7 +781,7 @@
       "file_type": "code",
       "norm_label": "staticfillquestion()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L963"
+      "source_location": "L988"
     },
     {
       "id": "html_mvp_server_asksknowntimingagain",
@@ -1009,7 +997,7 @@
       "file_type": "code",
       "norm_label": "applysectiontoggles()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1426"
+      "source_location": "L1452"
     },
     {
       "id": "html_mvp_app_openclosesplitreview",
@@ -1069,7 +1057,7 @@
       "file_type": "code",
       "norm_label": "opennavmenu()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1389"
+      "source_location": "L1415"
     },
     {
       "id": "html_mvp_app_renderhistoryfilters",
@@ -1084,18 +1072,6 @@
       "source_location": "L477"
     },
     {
-      "id": "html_mvp_app_selectpendinganswer",
-      "label": "selectPendingAnswer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "Community 3",
-      "file_type": "code",
-      "norm_label": "selectpendinganswer()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L755"
-    },
-    {
       "id": "html_mvp_app_setupbriefstep",
       "label": "setupBriefStep()",
       "_callable": true,
@@ -1105,7 +1081,7 @@
       "file_type": "code",
       "norm_label": "setupbriefstep()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1023"
+      "source_location": "L1049"
     },
     {
       "id": "html_mvp_app_togglenavmenu",
@@ -1117,7 +1093,7 @@
       "file_type": "code",
       "norm_label": "togglenavmenu()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1408"
+      "source_location": "L1434"
     },
     {
       "id": "html_mvp_app_uniquecomplaints",
@@ -1141,15 +1117,267 @@
       "file_type": "code",
       "norm_label": "updatepreparegate()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1769"
+      "source_location": "L1795"
+    },
+    {
+      "id": "html_mvp_app_answerquestion",
+      "label": "answerQuestion()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "answerquestion()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1000"
+    },
+    {
+      "id": "html_mvp_app_escapehtml",
+      "label": "escapeHtml()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "escapehtml()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1358"
+    },
+    {
+      "id": "html_mvp_app_extracttimingfrombrief",
+      "label": "extractTimingFromBrief()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "extracttimingfrombrief()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L701"
+    },
+    {
+      "id": "html_mvp_app_fucheckdue",
+      "label": "fuCheckDue()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "fucheckdue()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1937"
+    },
+    {
+      "id": "html_mvp_app_initialsfor",
+      "label": "initialsFor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "initialsfor()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L696"
+    },
+    {
+      "id": "html_mvp_app_optionicon",
+      "label": "optionIcon()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "optionicon()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L736"
+    },
+    {
+      "id": "html_mvp_app_renderaiquestion",
+      "label": "renderAiQuestion()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "renderaiquestion()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L895"
+    },
+    {
+      "id": "html_mvp_app_renderanswersummary",
+      "label": "renderAnswerSummary()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "renderanswersummary()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L848"
+    },
+    {
+      "id": "html_mvp_app_renderinterviewanswers",
+      "label": "renderInterviewAnswers()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "renderinterviewanswers()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L856"
+    },
+    {
+      "id": "html_mvp_app_renderquestion",
+      "label": "renderQuestion()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "renderquestion()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L922"
+    },
+    {
+      "id": "html_mvp_app_renderstaticquestion",
+      "label": "renderStaticQuestion()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "renderstaticquestion()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L872"
+    },
+    {
+      "id": "html_mvp_app_resetpendinganswer",
+      "label": "resetPendingAnswer()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "resetpendinganswer()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L748"
+    },
+    {
+      "id": "html_mvp_app_selectpendinganswer",
+      "label": "selectPendingAnswer()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "selectpendinganswer()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L754"
+    },
+    {
+      "id": "html_mvp_app_settext",
+      "label": "setText()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "settext()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L716"
+    },
+    {
+      "id": "html_mvp_app_showstep",
+      "label": "showStep()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "showstep()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L784"
+    },
+    {
+      "id": "html_mvp_app_skipcurrentquestion",
+      "label": "skipCurrentQuestion()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "skipcurrentquestion()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L775"
+    },
+    {
+      "id": "html_mvp_app_submitpendinganswer",
+      "label": "submitPendingAnswer()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "submitpendinganswer()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L768"
+    },
+    {
+      "id": "html_mvp_app_updateinterviewcontext",
+      "label": "updateInterviewContext()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "updateinterviewcontext()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L721"
+    },
+    {
+      "id": "html_mvp_app_updateinterviewprogress",
+      "label": "updateInterviewProgress()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "updateinterviewprogress()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L828"
+    },
+    {
+      "id": "html_mvp_app_updatesingleprogress",
+      "label": "updateSingleProgress()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "Community 4",
+      "file_type": "code",
+      "norm_label": "updatesingleprogress()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L676"
+    },
+    {
+      "id": "html_mvp_app_activequestions",
+      "label": "activeQuestions()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Community 5",
+      "file_type": "code",
+      "norm_label": "activequestions()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L58"
     },
     {
       "id": "html_mvp_app_allpatientrecords",
       "label": "allPatientRecords()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "allpatientrecords()",
       "source_file": "HTML-MVP-app.js",
@@ -1160,8 +1388,8 @@
       "label": "applyHistoryFilters()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "applyhistoryfilters()",
       "source_file": "HTML-MVP-app.js",
@@ -1172,8 +1400,8 @@
       "label": "clearIntakeDraft()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "clearintakedraft()",
       "source_file": "HTML-MVP-app.js",
@@ -1184,348 +1412,252 @@
       "label": "confirmWelcomePatient()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "confirmwelcomepatient()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1310"
+      "source_location": "L1336"
     },
     {
       "id": "html_mvp_app_generatepin",
       "label": "generatePin()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "generatepin()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1167"
+      "source_location": "L1193"
+    },
+    {
+      "id": "html_mvp_app_getintakephone",
+      "label": "getIntakePhone()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Community 5",
+      "file_type": "code",
+      "norm_label": "getintakephone()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1158"
     },
     {
       "id": "html_mvp_app_identitykey",
       "label": "identityKey()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "identitykey()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1163"
+      "source_location": "L1189"
     },
     {
       "id": "html_mvp_app_loadexistingpatient",
       "label": "loadExistingPatient()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "loadexistingpatient()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1243"
+      "source_location": "L1269"
     },
     {
       "id": "html_mvp_app_normalize",
       "label": "normalize()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "normalize()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1122"
+      "source_location": "L1148"
     },
     {
       "id": "html_mvp_app_patienthasfollowup",
       "label": "patientHasFollowup()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "patienthasfollowup()",
       "source_file": "HTML-MVP-app.js",
       "source_location": "L446"
     },
     {
+      "id": "html_mvp_app_phonecode",
+      "label": "phoneCode()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Community 5",
+      "file_type": "code",
+      "norm_label": "phonecode()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1153"
+    },
+    {
       "id": "html_mvp_app_registernewpatient",
       "label": "registerNewPatient()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "registernewpatient()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1317"
+      "source_location": "L1343"
+    },
+    {
+      "id": "html_mvp_app_renderdoctorbrief",
+      "label": "renderDoctorBrief()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Community 5",
+      "file_type": "code",
+      "norm_label": "renderdoctorbrief()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1104"
     },
     {
       "id": "html_mvp_app_renderfiles",
       "label": "renderFiles()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "renderfiles()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1015"
+      "source_location": "L1041"
     },
     {
       "id": "html_mvp_app_renderhistorylist",
       "label": "renderHistoryList()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "renderhistorylist()",
       "source_file": "HTML-MVP-app.js",
       "source_location": "L498"
     },
     {
+      "id": "html_mvp_app_renderreview",
+      "label": "renderReview()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Community 5",
+      "file_type": "code",
+      "norm_label": "renderreview()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1081"
+    },
+    {
       "id": "html_mvp_app_rendersearchresults",
       "label": "renderSearchResults()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "rendersearchresults()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1215"
+      "source_location": "L1241"
     },
     {
       "id": "html_mvp_app_renderwelcomesearch",
       "label": "renderWelcomeSearch()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "renderwelcomesearch()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1264"
+      "source_location": "L1290"
+    },
+    {
+      "id": "html_mvp_app_savedoctorconclusion",
+      "label": "saveDoctorConclusion()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "Community 5",
+      "file_type": "code",
+      "norm_label": "savedoctorconclusion()",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1366"
     },
     {
       "id": "html_mvp_app_savedpatients",
       "label": "savedPatients()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "savedpatients()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1176"
+      "source_location": "L1202"
     },
     {
       "id": "html_mvp_app_savelinkedpatient",
       "label": "saveLinkedPatient()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "file_type": "code",
       "norm_label": "savelinkedpatient()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1184"
+      "source_location": "L1210"
     },
     {
-      "id": "html_mvp_app_answerquestion",
-      "label": "answerQuestion()",
+      "id": "html_mvp_app_setintakephone",
+      "label": "setIntakePhone()",
       "_callable": true,
       "_origin": "ast",
       "community": 5,
       "community_name": "Community 5",
       "file_type": "code",
-      "norm_label": "answerquestion()",
+      "norm_label": "setintakephone()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L975"
+      "source_location": "L1167"
     },
     {
-      "id": "html_mvp_app_extracttimingfrombrief",
-      "label": "extractTimingFromBrief()",
+      "id": "html_mvp_app_switchview",
+      "label": "switchView()",
       "_callable": true,
       "_origin": "ast",
       "community": 5,
       "community_name": "Community 5",
       "file_type": "code",
-      "norm_label": "extracttimingfrombrief()",
+      "norm_label": "switchview()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L699"
+      "source_location": "L330"
     },
     {
-      "id": "html_mvp_app_initialsfor",
-      "label": "initialsFor()",
+      "id": "html_mvp_app_syncpatientfromregistration",
+      "label": "syncPatientFromRegistration()",
       "_callable": true,
       "_origin": "ast",
       "community": 5,
       "community_name": "Community 5",
       "file_type": "code",
-      "norm_label": "initialsfor()",
+      "norm_label": "syncpatientfromregistration()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L694"
-    },
-    {
-      "id": "html_mvp_app_optionicon",
-      "label": "optionIcon()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "optionicon()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L739"
-    },
-    {
-      "id": "html_mvp_app_renderaiquestion",
-      "label": "renderAiQuestion()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "renderaiquestion()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L872"
-    },
-    {
-      "id": "html_mvp_app_renderanswersummary",
-      "label": "renderAnswerSummary()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "renderanswersummary()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L845"
-    },
-    {
-      "id": "html_mvp_app_renderquestion",
-      "label": "renderQuestion()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "renderquestion()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L897"
-    },
-    {
-      "id": "html_mvp_app_renderstaticquestion",
-      "label": "renderStaticQuestion()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "renderstaticquestion()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L851"
-    },
-    {
-      "id": "html_mvp_app_resetpendinganswer",
-      "label": "resetPendingAnswer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "resetpendinganswer()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L749"
-    },
-    {
-      "id": "html_mvp_app_settext",
-      "label": "setText()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "settext()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L714"
-    },
-    {
-      "id": "html_mvp_app_showstep",
-      "label": "showStep()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "showstep()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L781"
-    },
-    {
-      "id": "html_mvp_app_skipcurrentquestion",
-      "label": "skipCurrentQuestion()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "skipcurrentquestion()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L772"
-    },
-    {
-      "id": "html_mvp_app_submitpendinganswer",
-      "label": "submitPendingAnswer()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "submitpendinganswer()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L765"
-    },
-    {
-      "id": "html_mvp_app_updateinterviewcontext",
-      "label": "updateInterviewContext()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "updateinterviewcontext()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L719"
-    },
-    {
-      "id": "html_mvp_app_updateinterviewprogress",
-      "label": "updateInterviewProgress()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "updateinterviewprogress()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L825"
-    },
-    {
-      "id": "html_mvp_app_updatesingleprogress",
-      "label": "updateSingleProgress()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Community 5",
-      "file_type": "code",
-      "norm_label": "updatesingleprogress()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L676"
+      "source_location": "L636"
     },
     {
       "id": "html_mvp_api_questions_asksknowntimingagain",
@@ -1612,160 +1744,64 @@
       "source_location": "L152"
     },
     {
-      "id": "html_mvp_app_addmarketingrecipient",
-      "label": "addMarketingRecipient()",
+      "id": "html_mvp_app_currentqueuepatient",
+      "label": "currentQueuePatient()",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
       "community_name": "Community 7",
       "file_type": "code",
-      "norm_label": "addmarketingrecipient()",
+      "norm_label": "currentqueuepatient()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1693"
+      "source_location": "L348"
     },
     {
-      "id": "html_mvp_app_escapehtml",
-      "label": "escapeHtml()",
+      "id": "html_mvp_app_doctorqueueitemhtml",
+      "label": "doctorQueueItemHtml()",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
       "community_name": "Community 7",
       "file_type": "code",
-      "norm_label": "escapehtml()",
+      "norm_label": "doctorqueueitemhtml()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1332"
+      "source_location": "L374"
     },
     {
-      "id": "html_mvp_app_fuauditentry",
-      "label": "fuAuditEntry()",
+      "id": "html_mvp_app_previsitpatients",
+      "label": "previsitPatients()",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
       "community_name": "Community 7",
       "file_type": "code",
-      "norm_label": "fuauditentry()",
+      "norm_label": "previsitpatients()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1853"
+      "source_location": "L352"
     },
     {
-      "id": "html_mvp_app_fucheckdue",
-      "label": "fuCheckDue()",
+      "id": "html_mvp_app_queueitemhtml",
+      "label": "queueItemHtml()",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
       "community_name": "Community 7",
       "file_type": "code",
-      "norm_label": "fucheckdue()",
+      "norm_label": "queueitemhtml()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1911"
+      "source_location": "L358"
     },
     {
-      "id": "html_mvp_app_fudueatepoch",
-      "label": "fuDueAtEpoch()",
+      "id": "html_mvp_app_renderqueues",
+      "label": "renderQueues()",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
       "community_name": "Community 7",
       "file_type": "code",
-      "norm_label": "fudueatepoch()",
+      "norm_label": "renderqueues()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1816"
-    },
-    {
-      "id": "html_mvp_app_fuenqueue",
-      "label": "fuEnqueue()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Community 7",
-      "file_type": "code",
-      "norm_label": "fuenqueue()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1871"
-    },
-    {
-      "id": "html_mvp_app_furesolvename",
-      "label": "fuResolveName()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Community 7",
-      "file_type": "code",
-      "norm_label": "furesolvename()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1865"
-    },
-    {
-      "id": "html_mvp_app_marketingreusablerecipients",
-      "label": "marketingReusableRecipients()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Community 7",
-      "file_type": "code",
-      "norm_label": "marketingreusablerecipients()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1639"
-    },
-    {
-      "id": "html_mvp_app_removemarketingrecipient",
-      "label": "removeMarketingRecipient()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Community 7",
-      "file_type": "code",
-      "norm_label": "removemarketingrecipient()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1704"
-    },
-    {
-      "id": "html_mvp_app_renderfupreview",
-      "label": "renderFuPreview()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Community 7",
-      "file_type": "code",
-      "norm_label": "renderfupreview()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1826"
-    },
-    {
-      "id": "html_mvp_app_rendermarketingrecipients",
-      "label": "renderMarketingRecipients()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Community 7",
-      "file_type": "code",
-      "norm_label": "rendermarketingrecipients()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1651"
-    },
-    {
-      "id": "html_mvp_app_updatefugate",
-      "label": "updateFuGate()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Community 7",
-      "file_type": "code",
-      "norm_label": "updatefugate()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1843"
-    },
-    {
-      "id": "html_mvp_app_updatemarketingpreview",
-      "label": "updateMarketingPreview()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Community 7",
-      "file_type": "code",
-      "norm_label": "updatemarketingpreview()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1681"
+      "source_location": "L427"
     },
     {
       "id": "html_mvp_app_arrowfor",
@@ -1777,7 +1813,7 @@
       "file_type": "code",
       "norm_label": "arrowfor()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2177"
+      "source_location": "L2203"
     },
     {
       "id": "html_mvp_app_comparepin",
@@ -1789,7 +1825,7 @@
       "file_type": "code",
       "norm_label": "comparepin()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2087"
+      "source_location": "L2113"
     },
     {
       "id": "html_mvp_app_esc",
@@ -1801,7 +1837,7 @@
       "file_type": "code",
       "norm_label": "esc()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2216"
+      "source_location": "L2242"
     },
     {
       "id": "html_mvp_app_getpatientvisits",
@@ -1813,7 +1849,7 @@
       "file_type": "code",
       "norm_label": "getpatientvisits()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2076"
+      "source_location": "L2102"
     },
     {
       "id": "html_mvp_app_rendercompareresult",
@@ -1825,7 +1861,7 @@
       "file_type": "code",
       "norm_label": "rendercompareresult()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2182"
+      "source_location": "L2208"
     },
     {
       "id": "html_mvp_app_runcompare",
@@ -1837,7 +1873,7 @@
       "file_type": "code",
       "norm_label": "runcompare()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2132"
+      "source_location": "L2158"
     },
     {
       "id": "html_mvp_app_updatecomparecardvisibility",
@@ -1849,7 +1885,7 @@
       "file_type": "code",
       "norm_label": "updatecomparecardvisibility()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2091"
+      "source_location": "L2117"
     },
     {
       "id": "html_mvp_app_visitslabel",
@@ -1861,103 +1897,79 @@
       "file_type": "code",
       "norm_label": "visitslabel()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2127"
+      "source_location": "L2153"
     },
     {
-      "id": "html_mvp_app_currentqueuepatient",
-      "label": "currentQueuePatient()",
+      "id": "html_mvp_app_addmarketingrecipient",
+      "label": "addMarketingRecipient()",
       "_callable": true,
       "_origin": "ast",
       "community": 9,
       "community_name": "Community 9",
       "file_type": "code",
-      "norm_label": "currentqueuepatient()",
+      "norm_label": "addmarketingrecipient()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L348"
+      "source_location": "L1719"
     },
     {
-      "id": "html_mvp_app_doctorqueueitemhtml",
-      "label": "doctorQueueItemHtml()",
+      "id": "html_mvp_app_furesolvename",
+      "label": "fuResolveName()",
       "_callable": true,
       "_origin": "ast",
       "community": 9,
       "community_name": "Community 9",
       "file_type": "code",
-      "norm_label": "doctorqueueitemhtml()",
+      "norm_label": "furesolvename()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L374"
+      "source_location": "L1891"
     },
     {
-      "id": "html_mvp_app_getintakephone",
-      "label": "getIntakePhone()",
+      "id": "html_mvp_app_marketingreusablerecipients",
+      "label": "marketingReusableRecipients()",
       "_callable": true,
       "_origin": "ast",
       "community": 9,
       "community_name": "Community 9",
       "file_type": "code",
-      "norm_label": "getintakephone()",
+      "norm_label": "marketingreusablerecipients()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1132"
+      "source_location": "L1665"
     },
     {
-      "id": "html_mvp_app_phonecode",
-      "label": "phoneCode()",
+      "id": "html_mvp_app_removemarketingrecipient",
+      "label": "removeMarketingRecipient()",
       "_callable": true,
       "_origin": "ast",
       "community": 9,
       "community_name": "Community 9",
       "file_type": "code",
-      "norm_label": "phonecode()",
+      "norm_label": "removemarketingrecipient()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1127"
+      "source_location": "L1730"
     },
     {
-      "id": "html_mvp_app_previsitpatients",
-      "label": "previsitPatients()",
+      "id": "html_mvp_app_rendermarketingrecipients",
+      "label": "renderMarketingRecipients()",
       "_callable": true,
       "_origin": "ast",
       "community": 9,
       "community_name": "Community 9",
       "file_type": "code",
-      "norm_label": "previsitpatients()",
+      "norm_label": "rendermarketingrecipients()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L352"
+      "source_location": "L1677"
     },
     {
-      "id": "html_mvp_app_queueitemhtml",
-      "label": "queueItemHtml()",
+      "id": "html_mvp_app_updatemarketingpreview",
+      "label": "updateMarketingPreview()",
       "_callable": true,
       "_origin": "ast",
       "community": 9,
       "community_name": "Community 9",
       "file_type": "code",
-      "norm_label": "queueitemhtml()",
+      "norm_label": "updatemarketingpreview()",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L358"
-    },
-    {
-      "id": "html_mvp_app_renderqueues",
-      "label": "renderQueues()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "Community 9",
-      "file_type": "code",
-      "norm_label": "renderqueues()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L427"
-    },
-    {
-      "id": "html_mvp_app_renderreview",
-      "label": "renderReview()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 9,
-      "community_name": "Community 9",
-      "file_type": "code",
-      "norm_label": "renderreview()",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1055"
+      "source_location": "L1707"
     },
     {
       "id": "current_state_model",
@@ -2276,7 +2288,7 @@
       "file_type": "code",
       "norm_label": "marketingstate",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1633"
+      "source_location": "L1659"
     },
     {
       "id": "html_mvp_app_patients",
@@ -2331,7 +2343,7 @@
       "file_type": "concept",
       "norm_label": "adr-0036",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1793"
+      "source_location": "L1819"
     },
     {
       "id": "html_mvp_api_questions",
@@ -2494,7 +2506,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1694",
+      "source_location": "L1720",
       "weight": 1.0
     },
     {
@@ -2506,31 +2518,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1701",
-      "weight": 1.0
-    },
-    {
-      "source": "html_mvp_app_answerquestion",
-      "target": "html_mvp_app_renderquestion",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1008",
-      "weight": 1.0
-    },
-    {
-      "source": "html_mvp_app_answerquestion",
-      "target": "html_mvp_app_renderdoctorbrief",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L1011",
+      "source_location": "L1727",
       "weight": 1.0
     },
     {
@@ -2542,7 +2530,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L980",
+      "source_location": "L1005",
       "weight": 1.0
     },
     {
@@ -2554,7 +2542,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L984",
+      "source_location": "L1009",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app_answerquestion",
+      "target": "html_mvp_app_renderinterviewanswers",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1010",
       "weight": 1.0
     },
     {
@@ -2566,7 +2566,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L985",
+      "source_location": "L1011",
       "weight": 1.0
     },
     {
@@ -2578,7 +2578,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L996",
+      "source_location": "L1022",
       "weight": 1.0
     },
     {
@@ -2590,7 +2590,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L997",
+      "source_location": "L1023",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app_answerquestion",
+      "target": "html_mvp_app_renderquestion",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1034",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app_answerquestion",
+      "target": "html_mvp_app_renderdoctorbrief",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1037",
       "weight": 1.0
     },
     {
@@ -2626,7 +2650,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1965",
+      "source_location": "L1991",
       "weight": 1.0
     },
     {
@@ -2650,7 +2674,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1311",
+      "source_location": "L1337",
       "weight": 1.0
     },
     {
@@ -2662,7 +2686,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1313",
+      "source_location": "L1339",
       "weight": 1.0
     },
     {
@@ -2674,7 +2698,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1314",
+      "source_location": "L1340",
       "weight": 1.0
     },
     {
@@ -2698,7 +2722,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L921",
+      "source_location": "L946",
       "weight": 1.0
     },
     {
@@ -2710,7 +2734,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L925",
+      "source_location": "L950",
       "weight": 1.0
     },
     {
@@ -2722,7 +2746,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L941",
+      "source_location": "L966",
       "weight": 1.0
     },
     {
@@ -2734,7 +2758,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L954",
+      "source_location": "L979",
       "weight": 1.0
     },
     {
@@ -2746,7 +2770,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1926",
+      "source_location": "L1952",
       "weight": 1.0
     },
     {
@@ -2758,7 +2782,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1875",
+      "source_location": "L1901",
       "weight": 1.0
     },
     {
@@ -2770,7 +2794,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1877",
+      "source_location": "L1903",
       "weight": 1.0
     },
     {
@@ -2782,7 +2806,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1899",
+      "source_location": "L1925",
       "weight": 1.0
     },
     {
@@ -2794,7 +2818,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1866",
+      "source_location": "L1892",
       "weight": 1.0
     },
     {
@@ -2806,7 +2830,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1168",
+      "source_location": "L1194",
       "weight": 1.0
     },
     {
@@ -2818,7 +2842,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1138",
+      "source_location": "L1164",
       "weight": 1.0
     },
     {
@@ -2830,7 +2854,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1164",
+      "source_location": "L1190",
       "weight": 1.0
     },
     {
@@ -2842,7 +2866,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1985",
+      "source_location": "L2011",
       "weight": 1.0
     },
     {
@@ -2854,7 +2878,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1244",
+      "source_location": "L1270",
       "weight": 1.0
     },
     {
@@ -2866,7 +2890,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1246",
+      "source_location": "L1272",
       "weight": 1.0
     },
     {
@@ -2878,7 +2902,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1250",
+      "source_location": "L1276",
       "weight": 1.0
     },
     {
@@ -2890,7 +2914,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1256",
+      "source_location": "L1282",
       "weight": 1.0
     },
     {
@@ -2902,7 +2926,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1259",
+      "source_location": "L1285",
       "weight": 1.0
     },
     {
@@ -2914,7 +2938,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1260",
+      "source_location": "L1286",
       "weight": 1.0
     },
     {
@@ -2926,7 +2950,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1641",
+      "source_location": "L1667",
       "weight": 1.0
     },
     {
@@ -2974,7 +2998,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1318",
+      "source_location": "L1344",
       "weight": 1.0
     },
     {
@@ -2986,7 +3010,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1328",
+      "source_location": "L1354",
       "weight": 1.0
     },
     {
@@ -2998,7 +3022,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1329",
+      "source_location": "L1355",
       "weight": 1.0
     },
     {
@@ -3010,7 +3034,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1710",
+      "source_location": "L1736",
       "weight": 1.0
     },
     {
@@ -3022,7 +3046,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L877",
+      "source_location": "L900",
       "weight": 1.0
     },
     {
@@ -3034,7 +3058,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L880",
+      "source_location": "L903",
       "weight": 1.0
     },
     {
@@ -3046,7 +3070,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L881",
+      "source_location": "L904",
       "weight": 1.0
     },
     {
@@ -3058,7 +3082,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L882",
+      "source_location": "L905",
       "weight": 1.0
     },
     {
@@ -3070,7 +3094,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L889",
+      "source_location": "L912",
       "weight": 1.0
     },
     {
@@ -3082,7 +3106,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L889",
+      "source_location": "L912",
       "weight": 1.0
     },
     {
@@ -3094,7 +3118,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L894",
+      "source_location": "L918",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app_renderaiquestion",
+      "target": "html_mvp_app_renderinterviewanswers",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L919",
       "weight": 1.0
     },
     {
@@ -3106,7 +3142,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2194",
+      "source_location": "L2220",
       "weight": 1.0
     },
     {
@@ -3118,7 +3154,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2206",
+      "source_location": "L2232",
       "weight": 1.0
     },
     {
@@ -3130,7 +3166,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1082",
+      "source_location": "L1108",
       "weight": 1.0
     },
     {
@@ -3142,7 +3178,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1096",
+      "source_location": "L1122",
       "weight": 1.0
     },
     {
@@ -3154,7 +3190,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1830",
+      "source_location": "L1856",
       "weight": 1.0
     },
     {
@@ -3166,7 +3202,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1839",
+      "source_location": "L1865",
       "weight": 1.0
     },
     {
@@ -3206,6 +3242,18 @@
       "weight": 1.0
     },
     {
+      "source": "html_mvp_app_renderinterviewanswers",
+      "target": "html_mvp_app_escapehtml",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L867",
+      "weight": 1.0
+    },
+    {
       "source": "html_mvp_app_rendermarketingrecipients",
       "target": "html_mvp_app_marketingreusablerecipients",
       "relation": "calls",
@@ -3214,7 +3262,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1655",
+      "source_location": "L1681",
       "weight": 1.0
     },
     {
@@ -3226,7 +3274,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1668",
+      "source_location": "L1694",
       "weight": 1.0
     },
     {
@@ -3238,7 +3286,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1678",
+      "source_location": "L1704",
       "weight": 1.0
     },
     {
@@ -3250,7 +3298,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L899",
+      "source_location": "L924",
       "weight": 1.0
     },
     {
@@ -3262,7 +3310,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L902",
+      "source_location": "L927",
       "weight": 1.0
     },
     {
@@ -3310,7 +3358,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1059",
+      "source_location": "L1085",
       "weight": 1.0
     },
     {
@@ -3322,7 +3370,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1216",
+      "source_location": "L1242",
       "weight": 1.0
     },
     {
@@ -3334,7 +3382,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1221",
+      "source_location": "L1247",
       "weight": 1.0
     },
     {
@@ -3346,7 +3394,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L855",
+      "source_location": "L876",
       "weight": 1.0
     },
     {
@@ -3358,7 +3406,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L856",
+      "source_location": "L877",
       "weight": 1.0
     },
     {
@@ -3370,7 +3418,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L857",
+      "source_location": "L878",
       "weight": 1.0
     },
     {
@@ -3382,7 +3430,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L864",
+      "source_location": "L885",
       "weight": 1.0
     },
     {
@@ -3394,7 +3442,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L864",
+      "source_location": "L885",
       "weight": 1.0
     },
     {
@@ -3406,7 +3454,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L869",
+      "source_location": "L891",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app_renderstaticquestion",
+      "target": "html_mvp_app_renderinterviewanswers",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L892",
       "weight": 1.0
     },
     {
@@ -3418,7 +3478,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1265",
+      "source_location": "L1291",
       "weight": 1.0
     },
     {
@@ -3430,7 +3490,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1276",
+      "source_location": "L1302",
       "weight": 1.0
     },
     {
@@ -3442,7 +3502,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1286",
+      "source_location": "L1312",
       "weight": 1.0
     },
     {
@@ -3454,7 +3514,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2133",
+      "source_location": "L2159",
       "weight": 1.0
     },
     {
@@ -3466,7 +3526,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2134",
+      "source_location": "L2160",
       "weight": 1.0
     },
     {
@@ -3478,7 +3538,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2169",
+      "source_location": "L2195",
       "weight": 1.0
     },
     {
@@ -3490,7 +3550,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1354",
+      "source_location": "L1380",
       "weight": 1.0
     },
     {
@@ -3502,7 +3562,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1178",
+      "source_location": "L1204",
       "weight": 1.0
     },
     {
@@ -3514,7 +3574,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1993",
+      "source_location": "L2019",
       "weight": 1.0
     },
     {
@@ -3526,7 +3586,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2001",
+      "source_location": "L2027",
       "weight": 1.0
     },
     {
@@ -3538,7 +3598,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2002",
+      "source_location": "L2028",
       "weight": 1.0
     },
     {
@@ -3550,7 +3610,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1188",
+      "source_location": "L1214",
       "weight": 1.0
     },
     {
@@ -3562,7 +3622,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1189",
+      "source_location": "L1215",
       "weight": 1.0
     },
     {
@@ -3574,7 +3634,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1197",
+      "source_location": "L1223",
       "weight": 1.0
     },
     {
@@ -3586,7 +3646,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1206",
+      "source_location": "L1232",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app_selectpendinganswer",
+      "target": "html_mvp_app_submitpendinganswer",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L764",
       "weight": 1.0
     },
     {
@@ -3598,7 +3670,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L794",
+      "source_location": "L797",
       "weight": 1.0
     },
     {
@@ -3610,7 +3682,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L801",
+      "source_location": "L804",
       "weight": 1.0
     },
     {
@@ -3622,7 +3694,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L802",
+      "source_location": "L805",
       "weight": 1.0
     },
     {
@@ -3634,7 +3706,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L810",
+      "source_location": "L813",
       "weight": 1.0
     },
     {
@@ -3646,7 +3718,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L813",
+      "source_location": "L816",
       "weight": 1.0
     },
     {
@@ -3658,7 +3730,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L819",
+      "source_location": "L822",
       "weight": 1.0
     },
     {
@@ -3670,7 +3742,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L777",
+      "source_location": "L780",
       "weight": 1.0
     },
     {
@@ -3682,7 +3754,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L778",
+      "source_location": "L781",
       "weight": 1.0
     },
     {
@@ -3694,7 +3766,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L768",
+      "source_location": "L771",
       "weight": 1.0
     },
     {
@@ -3706,7 +3778,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L769",
+      "source_location": "L772",
       "weight": 1.0
     },
     {
@@ -3790,7 +3862,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1410",
+      "source_location": "L1436",
       "weight": 1.0
     },
     {
@@ -3802,7 +3874,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2097",
+      "source_location": "L2123",
       "weight": 1.0
     },
     {
@@ -3814,7 +3886,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2098",
+      "source_location": "L2124",
       "weight": 1.0
     },
     {
@@ -3826,7 +3898,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2119",
+      "source_location": "L2145",
       "weight": 1.0
     },
     {
@@ -3838,7 +3910,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1848",
+      "source_location": "L1874",
       "weight": 1.0
     },
     {
@@ -3850,7 +3922,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L724",
+      "source_location": "L726",
       "weight": 1.0
     },
     {
@@ -3862,7 +3934,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L726",
+      "source_location": "L728",
       "weight": 1.0
     },
     {
@@ -3874,7 +3946,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L726",
+      "source_location": "L728",
       "weight": 1.0
     },
     {
@@ -3886,7 +3958,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L826",
+      "source_location": "L829",
       "weight": 1.0
     },
     {
@@ -3898,7 +3970,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1690",
+      "source_location": "L1716",
       "weight": 1.0
     },
     {
@@ -4329,7 +4401,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1793",
+      "source_location": "L1819",
       "weight": 1.0
     },
     {
@@ -4340,7 +4412,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L100",
+      "source_location": "L102",
       "weight": 1.0
     },
     {
@@ -4351,7 +4423,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L119",
+      "source_location": "L121",
       "weight": 1.0
     },
     {
@@ -4362,7 +4434,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L133",
+      "source_location": "L135",
       "weight": 1.0
     },
     {
@@ -4373,7 +4445,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L154",
+      "source_location": "L156",
       "weight": 1.0
     },
     {
@@ -4384,7 +4456,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L163",
+      "source_location": "L165",
       "weight": 1.0
     },
     {
@@ -4395,7 +4467,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L174",
+      "source_location": "L176",
       "weight": 1.0
     },
     {
@@ -4406,7 +4478,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L181",
+      "source_location": "L183",
       "weight": 1.0
     },
     {
@@ -4417,7 +4489,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L191",
+      "source_location": "L193",
       "weight": 1.0
     },
     {
@@ -4428,7 +4500,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L197",
+      "source_location": "L199",
       "weight": 1.0
     },
     {
@@ -4439,7 +4511,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L203",
+      "source_location": "L205",
       "weight": 1.0
     },
     {
@@ -4450,7 +4522,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L210",
+      "source_location": "L212",
       "weight": 1.0
     },
     {
@@ -4461,7 +4533,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L217",
+      "source_location": "L219",
       "weight": 1.0
     },
     {
@@ -4472,7 +4544,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L227",
+      "source_location": "L229",
       "weight": 1.0
     },
     {
@@ -4483,7 +4555,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L238",
+      "source_location": "L240",
       "weight": 1.0
     },
     {
@@ -4494,7 +4566,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L245",
+      "source_location": "L247",
       "weight": 1.0
     },
     {
@@ -4505,7 +4577,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L251",
+      "source_location": "L253",
       "weight": 1.0
     },
     {
@@ -4516,7 +4588,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L258",
+      "source_location": "L260",
       "weight": 1.0
     },
     {
@@ -4527,7 +4599,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L265",
+      "source_location": "L267",
       "weight": 1.0
     },
     {
@@ -4538,7 +4610,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L271",
+      "source_location": "L273",
       "weight": 1.0
     },
     {
@@ -4582,7 +4654,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L83",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -4741,13 +4813,24 @@
     },
     {
       "source": "html_mvp_app",
+      "target": "html_mvp_app_answerquestion",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L1000",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app",
       "target": "html_mvp_app_renderfiles",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1015",
+      "source_location": "L1041",
       "weight": 1.0
     },
     {
@@ -4758,7 +4841,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1023",
+      "source_location": "L1049",
       "weight": 1.0
     },
     {
@@ -4780,7 +4863,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1055",
+      "source_location": "L1081",
       "weight": 1.0
     },
     {
@@ -4791,7 +4874,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1078",
+      "source_location": "L1104",
       "weight": 1.0
     },
     {
@@ -4802,7 +4885,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1122",
+      "source_location": "L1148",
       "weight": 1.0
     },
     {
@@ -4813,7 +4896,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1127",
+      "source_location": "L1153",
       "weight": 1.0
     },
     {
@@ -4824,7 +4907,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1132",
+      "source_location": "L1158",
       "weight": 1.0
     },
     {
@@ -4835,7 +4918,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1141",
+      "source_location": "L1167",
       "weight": 1.0
     },
     {
@@ -4846,7 +4929,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1163",
+      "source_location": "L1189",
       "weight": 1.0
     },
     {
@@ -4857,7 +4940,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1167",
+      "source_location": "L1193",
       "weight": 1.0
     },
     {
@@ -4868,7 +4951,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1176",
+      "source_location": "L1202",
       "weight": 1.0
     },
     {
@@ -4879,7 +4962,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1184",
+      "source_location": "L1210",
       "weight": 1.0
     },
     {
@@ -4890,7 +4973,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1215",
+      "source_location": "L1241",
       "weight": 1.0
     },
     {
@@ -4901,7 +4984,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1243",
+      "source_location": "L1269",
       "weight": 1.0
     },
     {
@@ -4912,7 +4995,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1264",
+      "source_location": "L1290",
       "weight": 1.0
     },
     {
@@ -4923,7 +5006,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1310",
+      "source_location": "L1336",
       "weight": 1.0
     },
     {
@@ -4934,7 +5017,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1317",
+      "source_location": "L1343",
       "weight": 1.0
     },
     {
@@ -4945,7 +5028,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1332",
+      "source_location": "L1358",
       "weight": 1.0
     },
     {
@@ -4956,7 +5039,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1340",
+      "source_location": "L1366",
       "weight": 1.0
     },
     {
@@ -4967,7 +5050,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1389",
+      "source_location": "L1415",
       "weight": 1.0
     },
     {
@@ -4978,7 +5061,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1408",
+      "source_location": "L1434",
       "weight": 1.0
     },
     {
@@ -4989,7 +5072,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1426",
+      "source_location": "L1452",
       "weight": 1.0
     },
     {
@@ -5000,7 +5083,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1633",
+      "source_location": "L1659",
       "weight": 1.0
     },
     {
@@ -5011,7 +5094,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1639",
+      "source_location": "L1665",
       "weight": 1.0
     },
     {
@@ -5022,7 +5105,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1651",
+      "source_location": "L1677",
       "weight": 1.0
     },
     {
@@ -5033,7 +5116,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1681",
+      "source_location": "L1707",
       "weight": 1.0
     },
     {
@@ -5044,7 +5127,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1693",
+      "source_location": "L1719",
       "weight": 1.0
     },
     {
@@ -5055,7 +5138,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1704",
+      "source_location": "L1730",
       "weight": 1.0
     },
     {
@@ -5066,7 +5149,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1769",
+      "source_location": "L1795",
       "weight": 1.0
     },
     {
@@ -5077,7 +5160,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1816",
+      "source_location": "L1842",
       "weight": 1.0
     },
     {
@@ -5088,7 +5171,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1826",
+      "source_location": "L1852",
       "weight": 1.0
     },
     {
@@ -5099,7 +5182,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1843",
+      "source_location": "L1869",
       "weight": 1.0
     },
     {
@@ -5110,7 +5193,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1853",
+      "source_location": "L1879",
       "weight": 1.0
     },
     {
@@ -5121,7 +5204,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1865",
+      "source_location": "L1891",
       "weight": 1.0
     },
     {
@@ -5132,7 +5215,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1871",
+      "source_location": "L1897",
       "weight": 1.0
     },
     {
@@ -5154,7 +5237,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1911",
+      "source_location": "L1937",
       "weight": 1.0
     },
     {
@@ -5165,7 +5248,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1963",
+      "source_location": "L1989",
       "weight": 1.0
     },
     {
@@ -5176,7 +5259,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2055",
+      "source_location": "L2081",
       "weight": 1.0
     },
     {
@@ -5187,7 +5270,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2087",
+      "source_location": "L2113",
       "weight": 1.0
     },
     {
@@ -5198,7 +5281,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2127",
+      "source_location": "L2153",
       "weight": 1.0
     },
     {
@@ -5209,7 +5292,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2177",
+      "source_location": "L2203",
       "weight": 1.0
     },
     {
@@ -5220,7 +5303,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2182",
+      "source_location": "L2208",
       "weight": 1.0
     },
     {
@@ -5231,7 +5314,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2216",
+      "source_location": "L2242",
       "weight": 1.0
     },
     {
@@ -5495,7 +5578,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L694",
+      "source_location": "L696",
       "weight": 1.0
     },
     {
@@ -5506,7 +5589,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L699",
+      "source_location": "L701",
       "weight": 1.0
     },
     {
@@ -5517,7 +5600,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L714",
+      "source_location": "L716",
       "weight": 1.0
     },
     {
@@ -5528,7 +5611,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L719",
+      "source_location": "L721",
       "weight": 1.0
     },
     {
@@ -5539,7 +5622,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L739",
+      "source_location": "L736",
       "weight": 1.0
     },
     {
@@ -5550,7 +5633,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L749",
+      "source_location": "L748",
       "weight": 1.0
     },
     {
@@ -5561,7 +5644,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L755",
+      "source_location": "L754",
       "weight": 1.0
     },
     {
@@ -5572,7 +5655,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L765",
+      "source_location": "L768",
       "weight": 1.0
     },
     {
@@ -5583,7 +5666,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L772",
+      "source_location": "L775",
       "weight": 1.0
     },
     {
@@ -5594,7 +5677,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L781",
+      "source_location": "L784",
       "weight": 1.0
     },
     {
@@ -5605,7 +5688,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L825",
+      "source_location": "L828",
       "weight": 1.0
     },
     {
@@ -5616,7 +5699,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L829",
+      "source_location": "L832",
       "weight": 1.0
     },
     {
@@ -5627,7 +5710,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L839",
+      "source_location": "L842",
       "weight": 1.0
     },
     {
@@ -5638,7 +5721,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L845",
+      "source_location": "L848",
+      "weight": 1.0
+    },
+    {
+      "source": "html_mvp_app",
+      "target": "html_mvp_app_renderinterviewanswers",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "HTML-MVP-app.js",
+      "source_location": "L856",
       "weight": 1.0
     },
     {
@@ -5649,7 +5743,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L851",
+      "source_location": "L872",
       "weight": 1.0
     },
     {
@@ -5660,7 +5754,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L872",
+      "source_location": "L895",
       "weight": 1.0
     },
     {
@@ -5671,7 +5765,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L897",
+      "source_location": "L922",
       "weight": 1.0
     },
     {
@@ -5682,7 +5776,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L905",
+      "source_location": "L930",
       "weight": 1.0
     },
     {
@@ -5693,7 +5787,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L915",
+      "source_location": "L940",
       "weight": 1.0
     },
     {
@@ -5704,18 +5798,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L963",
-      "weight": 1.0
-    },
-    {
-      "source": "html_mvp_app",
-      "target": "html_mvp_app_answerquestion",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "HTML-MVP-app.js",
-      "source_location": "L975",
+      "source_location": "L988",
       "weight": 1.0
     },
     {
@@ -6287,7 +6370,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L115",
+      "source_location": "L117",
       "weight": 1.0
     },
     {
@@ -6298,7 +6381,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L150",
+      "source_location": "L152",
       "weight": 1.0
     },
     {
@@ -6309,7 +6392,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L159",
+      "source_location": "L161",
       "weight": 1.0
     },
     {
@@ -6320,7 +6403,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L234",
+      "source_location": "L236",
       "weight": 1.0
     },
     {
@@ -6331,7 +6414,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L223",
+      "source_location": "L225",
       "weight": 1.0
     },
     {
@@ -6353,7 +6436,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L79",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -6364,7 +6447,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L96",
+      "source_location": "L98",
       "weight": 1.0
     },
     {
@@ -6375,7 +6458,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "current_state_model.py",
-      "source_location": "L187",
+      "source_location": "L189",
       "weight": 1.0
     },
     {
@@ -6420,7 +6503,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L1289",
+      "source_location": "L1315",
       "weight": 1.0
     },
     {
@@ -6456,7 +6539,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2043",
+      "source_location": "L2069",
       "weight": 1.0
     },
     {
@@ -6468,7 +6551,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2044",
+      "source_location": "L2070",
       "weight": 1.0
     },
     {
@@ -6480,7 +6563,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2045",
+      "source_location": "L2071",
       "weight": 1.0
     },
     {
@@ -6492,7 +6575,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2231",
+      "source_location": "L2257",
       "weight": 1.0
     },
     {
@@ -6504,7 +6587,7 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2231",
+      "source_location": "L2257",
       "weight": 1.0
     },
     {
@@ -6516,10 +6599,10 @@
       "confidence_score": 0.85,
       "context": "collection",
       "source_file": "HTML-MVP-app.js",
-      "source_location": "L2231",
+      "source_location": "L2257",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0db647339c87614db7d9223f9551d06ee951b7b1"
+  "built_at_commit": "dd6d2d350666c6ed4cbd90c5386e8fc9347c284a"
 }

@@ -48,9 +48,11 @@
   - patient context rail
   - central one-question-at-a-time answer cards
   - already-noted summary panel
-  - bottom Back / Skip / Continue action bar
-  - tap-option-then-continue interaction
+  - bottom Back / Skip action bar
+  - tap-option-auto-next-question interaction
   - mobile question-first stack
+  - fixed-scroll Answers so far panel
+  - no duplicate previous-questions section under answer options
   ```
 - **Verdict:** PASS. The patient view still shows no diagnosis, treatment advice, differential, or clinical performance claim.
 
@@ -64,7 +66,7 @@
   ```
   ```text
   Static hooks present:
-  interviewBack, skipQuestion, continueAnswer, interviewName, notedTiming,
+  interviewBack, skipQuestion, continueAnswer(hidden), interviewName, notedTiming,
   questionText, answerGrid, questionBlock, interview-mode, interview-shell,
   selectPendingAnswer, submitPendingAnswer, skipCurrentQuestion
   ```
@@ -84,9 +86,11 @@
   shell columns: 230px 554px 250px
   question: How would you describe the pain?
   answer buttons: 4
-  Continue disabled before selection: true
-  selected answer cards after tap: 1
-  Continue disabled after selection: false
+  Continue visible: false
+  lower duplicate answer summary visible: false
+  answer tap advances automatically to question 2
+  progress after one answer: 8%
+  Answers so far visible height: 406px, overflow-y: auto
   horizontal overflow: false
   ```
   ```text
@@ -95,7 +99,13 @@
   answer columns: 294px
   action bar columns: 336px
   answer buttons: 4
+  Continue visible: false
   horizontal overflow: false
+  ```
+  ```text
+  Answers panel stress check:
+  12 rows -> visible height 404px, scrollHeight 859px, overflow-y auto,
+  shell height remained fixed, horizontal overflow false
   ```
 - **Verdict:** PASS.
 
@@ -105,7 +115,7 @@
 - **Evidence:**
   ```text
   $ python -m pytest tests/ -q
-  100 passed in 0.19s
+  100 passed in 0.43s
   ```
   ```text
   $ python -m harness.run
@@ -118,7 +128,7 @@
   ```
   ```text
   $ graphify extract 'D:\MEDOXZI\graphify-current-state-src' --code-only --out 'D:\MEDOXZI\graphify-current-state'
-  201 nodes, 359 edges, 13 communities
+  202 nodes, 365 edges, 13 communities
   ```
   Contradiction sweep: contextual only for `FULL_AI`, `No red flags|No concerns`, 25-year retention, `PATIENT_UNSURE`, `probability`, and `>=500|500 real`.
 - **Verdict:** PASS.

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>MEDOXZI MVP HTML Prototype</title>
     <link rel="stylesheet" href="styles.css">
   </head>
@@ -222,11 +222,11 @@
                       <strong id="interviewName">Patient</strong>
                     </div>
                     <div class="context-card">
-                      <span class="context-icon">#</span>
+                      <span class="context-icon">Y</span>
                       <span id="interviewAge">Age not set</span>
                     </div>
                     <div class="context-card">
-                      <span class="context-icon">S</span>
+                      <span class="context-icon">SX</span>
                       <span id="interviewSex">Sex not set</span>
                     </div>
                     <div class="context-card">
@@ -234,7 +234,7 @@
                       <span id="interviewComplaint">Reason not set</span>
                     </div>
                     <div class="context-card">
-                      <span class="context-icon">T</span>
+                      <span class="context-icon">⌚</span>
                       <span id="interviewTiming">Timing not stated</span>
                     </div>
                   </aside>
@@ -259,17 +259,14 @@
                         <em id="processingText" class="processing-text"></em>
                       </div>
                     </div>
-                    <div id="answerSummary" class="answer-summary"></div>
                   </div>
 
                   <aside class="already-noted" aria-label="Already noted">
-                    <h3>Already noted</h3>
+                    <h3>Answers so far</h3>
                     <div class="noted-list">
-                      <div><span>Name</span><strong id="notedName">Patient</strong></div>
-                      <div><span>Age</span><strong id="notedAge">Not set</strong></div>
-                      <div><span>Gender</span><strong id="notedSex">Not set</strong></div>
-                      <div><span>Symptom</span><strong id="notedComplaint">Not set</strong></div>
-                      <div><span>Onset</span><strong id="notedTiming">Not stated</strong></div>
+                      <div id="answersSoFar" class="answers-so-far">
+                        <p class="empty-note">No answers yet. Answer the questions and they will appear here.</p>
+                      </div>
                     </div>
                     <div class="interview-assurance">One question at a time. No diagnosis is shown.</div>
                   </aside>
@@ -277,7 +274,7 @@
                 <div class="interview-action-bar">
                   <button id="interviewBack" class="secondary" type="button">Back</button>
                   <button id="skipQuestion" class="secondary" type="button">Skip / Not sure</button>
-                  <button id="continueAnswer" class="primary" type="button" disabled>Continue</button>
+                  <button id="continueAnswer" class="primary" type="button" hidden disabled>Continue</button>
                 </div>
               </section>
 

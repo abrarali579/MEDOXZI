@@ -680,10 +680,12 @@ function updateSingleProgress() {
   let pct = 0;
   const total = 6;
   if (state.currentStep === 3) {
-    // During the adaptive interview, the single bar reflects how far the Q&A has
-    // progressed (reaches 100% around 8 answers, matching the 5-12 range).
+    // During the adaptive interview, avoid showing 100% before the review is
+    // actually ready. It moves gradually against the hard 12-question ceiling.
     const answered = Object.keys(state.answers).length;
-    pct = Math.min(100, Math.round((answered / 8) * 100));
+    pct = Math.min(92, Math.round((answered / 12) * 100));
+  } else if (state.currentStep === 5) {
+    pct = 100;
   } else {
     pct = Math.min(100, Math.round(((state.currentStep + 1) / total) * 100));
   }
@@ -729,21 +731,18 @@ function updateInterviewContext() {
   setText("interviewSex", sex || "Sex not set");
   setText("interviewComplaint", complaint);
   setText("interviewTiming", timing);
-  setText("notedName", name);
-  setText("notedAge", age || "Not set");
-  setText("notedSex", sex || "Not set");
-  setText("notedComplaint", complaint);
-  setText("notedTiming", timing === "Timing not stated" ? "Not stated" : timing);
 }
 
 function optionIcon(option, index) {
   const text = String(option || "").toLowerCase();
   if (/not sure|don't know|not asked|none|not applicable/.test(text)) return "?";
-  if (/upper|front|head|throat|chest/.test(text)) return "U";
-  if (/lower|back|leg|foot|feet/.test(text)) return "L";
-  if (/side|left|right|one/.test(text)) return "S";
-  if (/severe|strong|worse|sharp|burning/.test(text)) return "!";
-  return String(index + 1);
+  if (/yes|before|taken|tried|regularly|often/.test(text)) return "✓";
+  if (/no|never|none/.test(text)) return "−";
+  if (/upper|front|head|throat|chest|same/.test(text)) return "◎";
+  if (/lower|back|leg|foot|feet|after/.test(text)) return "↓";
+  if (/side|left|right|one|located|where/.test(text)) return "◐";
+  if (/severe|strong|worse|sharp|burning|throbbing|pulsating/.test(text)) return "!";
+  return ["1", "2", "3", "4"][index] || "•";
 }
 
 function resetPendingAnswer() {
@@ -757,9 +756,13 @@ function selectPendingAnswer(answer) {
   state.pendingAnswer = answer;
   $$(".answer-grid button").forEach((button) => {
     button.classList.toggle("selected", button.dataset.answer === answer);
+    button.disabled = true;
   });
   const continueButton = $("#continueAnswer");
   if (continueButton) continueButton.disabled = false;
+  setTimeout(() => {
+    if (state.pendingAnswer === answer) submitPendingAnswer();
+  }, 180);
 }
 
 function submitPendingAnswer() {
@@ -843,8 +846,26 @@ function hideQuestionLoading() {
 }
 
 function renderAnswerSummary() {
-  $("#answerSummary").innerHTML = Object.entries(state.answers)
+  const summary = $("#answerSummary");
+  if (!summary) return;
+  summary.innerHTML = Object.entries(state.answers)
     .map(([question, answer]) => `<div><strong>${question}</strong><br>${answer}</div>`)
+    .join("");
+}
+
+function renderInterviewAnswers() {
+  const container = $("#answersSoFar");
+  if (!container) return;
+  const entries = Object.entries(state.answers);
+  if (!entries.length) {
+    container.innerHTML = `<p class="empty-note">No answers yet. Answer the questions and they will appear here.</p>`;
+    return;
+  }
+  container.innerHTML = entries
+    .map(
+      ([question, answer]) =>
+        `<div class="qa-row"><span>${escapeHtml(question)}</span><strong>${escapeHtml(answer)}</strong></div>`
+    )
     .join("");
 }
 
@@ -864,9 +885,11 @@ function renderStaticQuestion() {
     button.innerHTML = option ? `<span class="answer-icon">${optionIcon(option, optionIndex)}</span><span>${escapeHtml(option)}</span>` : "";
     button.dataset.answer = option;
     button.hidden = !option;
+    button.disabled = false;
     button.classList.remove("selected");
   });
   renderAnswerSummary();
+  renderInterviewAnswers();
 }
 
 function renderAiQuestion() {
@@ -889,9 +912,11 @@ function renderAiQuestion() {
     button.innerHTML = option ? `<span class="answer-icon">${optionIcon(option, optionIndex)}</span><span>${escapeHtml(option)}</span>` : "";
     button.dataset.answer = option;
     button.hidden = !option;
+    button.disabled = false;
     button.classList.remove("selected");
   });
   renderAnswerSummary();
+  renderInterviewAnswers();
 }
 
 function renderQuestion() {
@@ -982,6 +1007,7 @@ async function answerQuestion(answer) {
     }
     state.answers[state.aiNext.text] = answer;
     renderAnswerSummary();
+  renderInterviewAnswers();
     updateInterviewProgress();
 
     // Enforce min 5 / max 12: keep asking until we've hit the floor of 5 (or the

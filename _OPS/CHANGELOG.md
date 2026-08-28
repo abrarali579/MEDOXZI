@@ -30,9 +30,11 @@ Removed the duplicated patient context from the interview screen's right-hand pa
 **WHAT**
 Implemented the generated interview-screen UI in the actual `14-MVP-HTML/` prototype:
 1. Rebuilt the patient interview step as a professional tablet-first workspace with MEDOXZI header, patient context rail, central one-question card, "Already noted" summary panel, and bottom action bar.
-2. Changed answering from instant-submit to **tap option → selected state → Continue**, with Skip and Back controls visible in the same action area.
-3. Added mobile-specific layout so the question stays first, answer cards stack cleanly, and the action bar remains reachable.
-4. Refreshed the curated Graphify current-state map to include the new `ProfessionalInterviewScreen` concept: **201 nodes, 359 edges, 13 communities**.
+2. Changed answering to **tap option → automatic next question**; Continue is hidden from the patient flow, with Skip and Back controls still visible.
+3. Fixed the interview progress bar so it no longer reaches 100% before the interview is actually finished.
+4. Removed the duplicate previous-questions block under the answer options; "Answers so far" is now the single visible history panel and has fixed-height scrolling.
+5. Added clearer infographic-style answer/context icons and mobile-specific layout so the question stays first, answer cards stack cleanly, and the action bar remains reachable.
+6. Refreshed the curated Graphify current-state map to include the new `ProfessionalInterviewScreen` concept: **202 nodes, 365 edges, 13 communities**.
 
 **WHY**
 Abrar approved the generated interview UI direction and asked to actually implement it in the product prototype.
@@ -45,7 +47,14 @@ Key evidence:
 ```text
 Desktop/tablet browser check:
 interview mode true, shell columns 230px 554px 250px,
-4 answer buttons, Continue disabled until selection, horizontal overflow false
+4 answer buttons, Continue hidden, answer tap auto-advances,
+progress 0% -> 8% after one answer, horizontal overflow false
+```
+
+```text
+Answers panel stress check:
+12 rows -> visible height 404px, scrollHeight 859px, overflow-y auto,
+shell height fixed, horizontal overflow false
 ```
 
 ```text
@@ -72,7 +81,7 @@ VERDICT: PASS
 The screen now exists and passes local/browser checks, but launch readiness still depends on human workflow review and production-grade infrastructure.
 
 **HOW**
-Review the actual `14-MVP-HTML/` flow, especially whether patients understand the selected-answer state, Skip behavior, "Already noted" summary, and mobile action bar.
+Review the actual `14-MVP-HTML/` flow, especially whether patients understand the auto-next behavior, Skip behavior, "Answers so far" scroll panel, and mobile action bar.
 
 ---
 

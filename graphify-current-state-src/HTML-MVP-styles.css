@@ -768,6 +768,7 @@ textarea {
   grid-template-columns: 230px minmax(0, 1fr) 250px;
   gap: 16px;
   align-items: stretch;
+  height: min(640px, calc(100vh - 220px));
   min-height: 500px;
 }
 
@@ -777,6 +778,7 @@ textarea {
   align-content: start;
   gap: 10px;
   min-width: 0;
+  min-height: 0;
 }
 
 .context-card {
@@ -806,7 +808,7 @@ textarea {
   border-radius: 50%;
   background: var(--brand-tint);
   color: var(--brand-dark);
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 900;
 }
 
@@ -817,12 +819,13 @@ textarea {
 
 .interview-main {
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr);
   min-width: 0;
+  min-height: 0;
 }
 
 .interview-main .question-block {
-  min-height: 500px;
+  min-height: 0;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
   padding: 34px 38px;
@@ -830,6 +833,7 @@ textarea {
   border-radius: 8px;
   background: rgba(255,255,255,0.96);
   box-shadow: var(--shadow-sm);
+  overflow: hidden;
 }
 
 .interview-main .question-text {
@@ -866,6 +870,15 @@ textarea {
   box-shadow: 0 1px 2px rgba(16,32,48,0.04);
 }
 
+.interview-main .answer-grid button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.interview-main .answer-grid button.selected:disabled {
+  opacity: 1;
+}
+
 .answer-icon {
   display: grid;
   place-items: center;
@@ -892,11 +905,13 @@ textarea {
 }
 
 .already-noted {
+  grid-template-rows: auto minmax(0, 1fr) auto;
   padding: 24px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255,255,255,0.94);
   box-shadow: var(--shadow-xs);
+  overflow: hidden;
 }
 
 .already-noted h3 {
@@ -910,24 +925,46 @@ textarea {
 .noted-list {
   display: grid;
   gap: 13px;
+  min-height: 0;
 }
 
-.noted-list div {
+.answers-so-far {
   display: grid;
-  gap: 2px;
+  align-content: start;
+  gap: 12px;
+  min-height: 0;
+  max-height: 100%;
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-color: var(--brand) var(--soft-2);
 }
 
-.noted-list span {
+.answers-so-far .qa-row {
+  display: grid;
+  gap: 3px;
+  padding-left: 10px;
+  border-left: 3px solid var(--brand);
+}
+
+.answers-so-far .qa-row span {
   color: var(--muted);
   font-size: 0.74rem;
   font-weight: 750;
+  overflow-wrap: anywhere;
 }
 
-.noted-list strong {
+.answers-so-far .qa-row strong {
   color: var(--ink);
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   font-weight: 750;
   overflow-wrap: anywhere;
+}
+
+.answers-so-far .empty-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
 }
 
 .interview-assurance {
@@ -952,7 +989,7 @@ textarea {
 
 .interview-action-bar {
   display: grid;
-  grid-template-columns: minmax(130px, 0.9fr) minmax(170px, 1.2fr) minmax(180px, 1.1fr);
+  grid-template-columns: minmax(130px, 0.9fr) minmax(170px, 1.2fr);
   gap: 14px;
   align-items: center;
   margin: 14px -24px -22px;
@@ -970,6 +1007,10 @@ textarea {
   opacity: 0.45;
   cursor: not-allowed;
   box-shadow: none;
+}
+
+.interview-action-bar [hidden] {
+  display: none;
 }
 
 .ai-source {
@@ -1301,10 +1342,8 @@ textarea {
   .interview-progress-copy { text-align: center; }
   .interview-tools { justify-content: center; flex-wrap: wrap; }
   .interview-main { order: 1; }
-  .interview-context { order: 2; }
-  .already-noted { order: 3; }
   .interview-context,
-  .noted-list { grid-template-columns: 1fr; }
+  .already-noted { display: none; }
   .interview-main .question-block {
     min-height: auto;
     padding: 20px;
@@ -1328,7 +1367,6 @@ textarea {
     height: 44px;
     font-size: 1.05rem;
   }
-  .already-noted { padding: 16px; }
   .interview-action-bar {
     position: sticky;
     bottom: 0;

@@ -58,6 +58,8 @@
 
 **Session Y note:** `14-MVP-HTML/` now implements the founder's final doctor command-center concept as HTML v0.7. The default visible screen is a full-width Pre-visit Review workspace with a highlighted current patient plus two incoming patients, structured feedback, patient profile + previous record actions, allergies + vitals (BP, pulse, temperature, weight; no SpO2), close question-answer rows, report attachment row, and clinician-owned assessment controls: three priority diagnosis input fields, doctor-selected relevant tests, plan category buttons, follow-up controls, and a sticky action bar. These are prototype documentation controls only: no AI-generated diagnosis/test advice, no treatment recommendation, no clinical performance claim, no real patient data, and no live messaging were added. Browser verification covered desktop and mobile with no console errors, no undersized visible controls, and `hasSpO2: false`.
 
+**Session UI-INTERVIEW note (2026-08-28):** Patient Interview screen now implements the generated professional concept in `14-MVP-HTML/`: tablet-first three-column layout, context chips, large answer cards with infographic-style icons, fixed-scroll "Answers so far" panel, no duplicate previous-questions block under the options, and answer tap automatically fetches the next question without requiring Continue. Progress no longer reaches 100% inside the unfinished interview; it moves against the 12-question cap and reserves 100% for done. Browser verified desktop/tablet and 390px phone with no horizontal overflow; 12-answer stress check kept the answers panel scrolling instead of growing. OT-20 review should now include auto-next pacing and whether patients need a short transition animation after tapping an answer.
+
 ---
 
 ## ✅ Resolved — red-flag removal in question packs confirmed as real founder decision (ADR-038)
@@ -151,6 +153,8 @@
 **Session X note (2026-08-24):** OT-20 review scope now includes the v0.6 tab split and doctor live-queue rule: Pre-visit Review must stay focused on current consultation + two incoming patients, while historical search/detail belongs in Patient Records and Record Viewer. Patient direct-entry prefill and motion polish should also be reviewed before screen lock.
 
 **Session Y note (2026-08-24):** OT-20 review scope now includes the v0.7 final doctor command center. The visible Pre-visit Review screen no longer presents separate Patient Records / Record Viewer tabs; it exposes `Previous record` as a patient-header action inside the command center. Review this reversal from the v0.6 split before screen lock, especially whether the inline action is enough for clinic workflow or whether historical search should return as a secondary route.
+
+**Session UI-INTERVIEW note (2026-08-28):** OT-20 review scope now includes the professional Patient Interview screen: auto-next after option tap, hidden Continue button, fixed-scroll "Answers so far", infographic-style answer/context icons, and progress that does not show 100% before completion. Confirm on real phone/tablet whether auto-next is fast enough without feeling abrupt.
 
 ### OT-21 · Production PIN identity binding — 🟡 DESIGN UPDATED (founder decision, session P)
 - **What:** the HTML MVP now models a Patient Identification Number (PIN) generated at submission and linked to name, age and mobile. Production must enforce that a PIN cannot be silently attached to a different customer number or identity.

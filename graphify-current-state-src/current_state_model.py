@@ -70,8 +70,10 @@ class PatientIntake:
         "no_spinner_or_thinking_text",
         "question_block_keeps_height",
         "professional_tablet_interview_screen",
-        "tap_option_then_continue_action",
+        "tap_option_auto_next_question",
         "mobile_question_first_stack",
+        "fixed_scroll_answers_so_far_panel",
+        "no_duplicate_previous_questions_under_options",
         "answers_persist_in_local_storage",
         "min_five_max_twelve_questions",
     ]
@@ -86,12 +88,12 @@ class ProfessionalInterviewScreen:
     layout = [
         "left_patient_context_chips",
         "center_large_question_and_four_answer_cards",
-        "right_already_noted_panel",
-        "sticky_back_skip_continue_bar",
+        "right_fixed_scroll_answers_so_far_panel",
+        "back_and_skip_action_bar",
     ]
-    interaction = "answer_card_selection_enables_continue"
+    interaction = "answer_card_tap_records_answer_and_fetches_next_question_automatically"
     responsive = "three_column_tablet_layout_stacks_question_first_on_phone"
-    boundary = "no_diagnosis_shown"
+    boundary = "no_diagnosis_shown_and_no_treatment_advice"
 
     def uses(self):
         return [AdaptiveInterviewAPI, AdaptiveQuestionValidator]
