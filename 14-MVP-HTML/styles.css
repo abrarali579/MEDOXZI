@@ -3897,7 +3897,63 @@ body.doctor-shell #view-doctor .doctor-action-bar .primary {
   font-size: 0.88rem;
 }
 .consent-row label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
   cursor: pointer;
+  line-height: 1.35;
+}
+.consent-row input[type="checkbox"] {
+  margin-top: 2px;
+  accent-color: var(--brand, #0e7c74);
+}
+
+/* ===== Patient engagement view — professional layout ===== */
+.mkt-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 6px 0 2px;
+}
+.mkt-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.mkt-sub {
+  margin: 6px 0 0;
+  max-width: 62ch;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.mkt-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 6px;
+}
+.panel-hint {
+  align-self: center;
+  font-size: 0.78rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.tools-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 0 2px 0 6px;
+  align-self: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.panel.panel-accent {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 1px var(--accent-tint, #e6f2ee);
 }
 
 button.primary:disabled {
@@ -3915,6 +3971,16 @@ button.primary:disabled {
   .recipient-item {
     align-items: flex-start;
     flex-wrap: wrap;
+  }
+  .panel-hint {
+    white-space: normal;
+  }
+  .mkt-header h1 {
+    font-size: 1.3rem;
+  }
+  .mkt-badges {
+    width: 100%;
+    padding-top: 2px;
   }
 }
 

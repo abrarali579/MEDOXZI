@@ -8,6 +8,38 @@
 
 ---
 
+## Session MKT — 2026-08-28 — Marketing Management professional UI overhaul (audit + fix)
+
+### V-2026-08-28-MKT-01 · Redesigned marketing view preserves all JS-bindable IDs + gate logic
+- **Claim:** Rebuilding the marketing view HTML (header/panels/step-grouping) broke no JS — every ID the client scripts read still resolves, and the consent-gated prepare flow still works end-to-end.
+- **Method:** Browser (localhost:8765) reload → switch to marketing view → assert presence of all 22 JS-bound IDs (`campaignTitle, campaignMessage, campaignPreview, recipientCount, recipientList, selectAllPatients, clearSelection, recipientFilter, newRecipientName, newRecipientPhone, addRecipientBtn, consentCheckbox, prepareCampaign, campaignAudit, fuType, fuDate, fuMessage, fuPreview, enqueueFu, fuQueueResult, fuCheckDue, fuDueList`) → drive real interactions.
+- **Evidence:**
+  ```text
+  idsOk → all 22 present (result:true)
+  renderMarketingRecipients() → 17 recipient checkboxes in #recipientList
+  select recipients + set message "Dear {{name}}, your follow-up is on {{date}}."
+    → preview: "Follow-up reminder · 1 recipient  Dear <name>, your follow-up is on <date>."
+    → prepareCampaign.enabled = true (was disabled before consent+select)
+  click prepare → audit: "Prepared \"Follow-up reminder\" for 1 recipient(s) with consent declared. Logged to audit queue (no WhatsApp message trans…"
+  fuCheckDue present → follow-up scheduler intact
+  console: 0 js_errors, 0 warnings
+  ```
+- **Verdict:** PASS.
+
+### V-2026-08-28-MKT-02 · No phone-width overflow in redesigned view (founder rule #11)
+- **Claim:** No element in the marketing view overflows horizontally at a phone (390px) width.
+- **Method:** In a 390px-wide same-origin iframe, `switchView('marketing')`, then measure every descendant rect against the iframe viewport; also check `documentElement.scrollWidth` vs `clientWidth`.
+- **Evidence:** `{iframeWidth:390, mktVisible:true, docOverflow:[], marketingOverflowEls:0, firstOffender:""}`.
+- **Verdict:** PASS.
+
+### V-2026-08-28-MKT-03 · Governance framing corrected (ADR-021 vs ADR-036)
+- **Claim:** The redesigned view no longer frames the consent as "marketing consent" (MEDOXZI patient marketing is prohibited per ADR-021); it now reads as clinic-owned communication consent (ADR-036), with a no-send audit-only send path.
+- **Method:** Inspect the rendered H1, eyebrow, status chips, consent label, guardrail copy, and the audit string emitted on prepare.
+- **Evidence:** H1 "Clinic communications"; consent label/clamp wording = "clinic-owned communication consent"; prepare audit ends "(no WhatsApp message transmitted)" — matches RT2d/RT2f audit-only contract. No wording refers to MEDOXZI marketing to patients.
+- **Verdict:** PASS.
+
+---
+
 ## Session RT2f — 2026-08-28 — Follow-up + 1-day-before auto re-confirmation (scheduler)
 
 ### V-2026-08-28-RT2f-01 · Follow-up enqueue API validates consent-gated future-dated items

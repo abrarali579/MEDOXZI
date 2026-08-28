@@ -518,26 +518,39 @@
 
         <section id="view-marketing" class="view">
           <div class="marketing-layout">
+            <header class="mkt-header">
+              <div>
+                <p class="eyebrow">Patient engagement</p>
+                <h1>Clinic communications</h1>
+                <p class="mkt-sub">Prepare clinic-owned follow-up and reminder messages for your own patients. Nothing is transmitted here — everything is queued, previewed and logged.</p>
+              </div>
+              <div class="mkt-badges">
+                <span class="mini-badge">Synthetic demo</span>
+                <span class="mini-badge locked">Consent-gated</span>
+              </div>
+            </header>
+
             <section class="panel">
               <div class="panel-head">
                 <div>
-                  <p class="eyebrow">Marketing management</p>
-                  <h2>New campaign</h2>
+                  <p class="eyebrow">Step 1 · Write</p>
+                  <h2>Message</h2>
                 </div>
-                <span class="mini-badge">Synthetic demo</span>
+                <span class="panel-hint">Personalise with {{name}} / {{date}}</span>
               </div>
 
-              <label class="field-label">Campaign title
-                <input id="campaignTitle" placeholder="e.g. Flu clinic reminder" autocomplete="off">
+              <label class="field-label">Message title
+                <input id="campaignTitle" placeholder="e.g. Follow-up reminder" autocomplete="off">
               </label>
 
               <label class="field-label">WhatsApp message
-                <textarea id="campaignMessage" rows="5" placeholder="Write the message patients receive. Use {{name}} and {{date}} to personalise."></textarea>
+                <textarea id="campaignMessage" rows="5" placeholder="Write the message your patients receive. Use {{name}} and {{date}} to personalise."></textarea>
               </label>
 
               <div class="marketing-tools">
-                <button type="button" class="secondary compact" data-insert="{{name}}">Insert {{name}}</button>
-                <button type="button" class="secondary compact" data-insert="{{date}}">Insert {{date}}</button>
+                <span class="tools-label">Insert:</span>
+                <button type="button" class="secondary compact" data-insert="{{name}}">Patient name</button>
+                <button type="button" class="secondary compact" data-insert="{{date}}">Appointment date</button>
               </div>
 
               <div class="message-preview" id="campaignPreview">
@@ -548,8 +561,8 @@
             <section class="panel">
               <div class="panel-head">
                 <div>
-                  <p class="eyebrow">Recipients</p>
-                  <h2 id="recipientCount">0 selected</h2>
+                  <p class="eyebrow">Step 2 · Choose recipients</p>
+                  <h2 id="recipientCount">No recipients yet</h2>
                 </div>
                 <div class="marketing-tools">
                   <button type="button" class="secondary compact" id="selectAllPatients">Select all</button>
@@ -568,20 +581,23 @@
               </div>
             </section>
 
-            <section class="panel">
+            <section class="panel panel-accent">
               <div class="panel-head">
                 <div>
-                  <p class="eyebrow">Send</p>
-                  <h2>Campaign send</h2>
+                  <p class="eyebrow">Step 3 · Review &amp; prepare</p>
+                  <h2>Send preview</h2>
                 </div>
-                <span class="mini-badge locked">Consent-gated</span>
+                <span class="mini-badge locked">No real send</span>
               </div>
               <ul class="guardrail-list">
-                <li>Sending stays OFF until each recipient has marketing consent, an opt-out path, and audited sender identity are live (P8).</li>
-                <li>This demo prepares the message and recipient list only — it never transmits real WhatsApp messages.</li>
+                <li>This step only prepares the message and recipient list — it never transmits real WhatsApp messages.</li>
+                <li>A real send goes live only once clinic-owned consent, an opt-out path and audited sender identity are in place.</li>
               </ul>
               <div class="consent-row">
-                <label><input type="checkbox" id="consentCheckbox"> Recipients have marketing consent on file</label>
+                <label>
+                  <input type="checkbox" id="consentCheckbox">
+                  <span>Recipients have clinic-owned communication consent on file</span>
+                </label>
               </div>
               <button type="button" id="prepareCampaign" class="primary" disabled>Prepare campaign</button>
               <div id="campaignAudit" class="small-note"></div>

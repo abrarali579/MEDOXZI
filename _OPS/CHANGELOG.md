@@ -4,6 +4,33 @@
 
 ---
 
+## 2026-08-28 - Session MKT - Marketing Management professional UI overhaul (audit + fix)
+
+**WHAT**
+Audited the Marketing Management 7th view (campaign composer + recipients + send controls + follow-up scheduler) and rebuilt it as a professional, governance-accurate UI. No JS behaviour or element IDs changed — all 22 JS-bound IDs, handlers, gate logic, message interpolation and audit trail preserved:
+1. **Governance-correct labels** — the section was framed as "marketing consent", which contradicts ADR-021/ADR-036 (MEDOXZI must not do patient marketing; the real feature is clinic-owned patient engagement). All framing now says **"clinic communications"**, **"clinic-owned communication consent"** (ADR-036), and "Prepared … with consent declared. Logged to audit queue (no WhatsApp message transmitted)." — compliant, professional copy.
+2. **Page header block** — eyebrow + H1 "Clinic communications" + one-line purpose + two subtle status chips (Synthetic demo / ADR-036 consent-gated).
+3. **Step-grouped, consistent panels** — New campaign, Recipients (select/add), Review & send (consent + guardrail + prepare), Follow-up scheduler. Same-category text now aligned into the JS-updated `#campaignPreview` / `#fuPreview` cards.
+4. **CTA hierarchy** — one clear primary per action; helper text ("Personalise with {{name}} / {{date}}") moved to a quiet `panel-hint` beside the tools; `tools-label` microcopy.
+5. **Phone-safe CSS (`styles.css`)** — new `.mkt-header/.mkt-sub/.mkt-badges/.panel-accent/.panel-hint/.tools-label`. No element overflows at 390px (iPhone width); verified 0 offenders. `#no-prune` boundary intact.
+
+**WHY**
+Founder directive: "Marketing management section ko audiy kr ky proper fix kro. UI professional bnao." Audit found (a) governance-inaccurate "marketing consent" labelling and (b) a flat, un-professional panel stack. Professional UI plus compliance-correct wording in one pass.
+
+**EVIDENCE**
+- Browser (localhost:8765) marketing view: rendered header + all 22 IDs present; E2E = select 3 recipients → "1 selected", message `{{name}}`/`{{date}}` interpolates in preview, consent+select enables prepare, prepare → audit "Prepared \"…\" for 1 recipient(s) with consent declared. Logged to audit queue (no WhatsApp message transmitted)". 0 JS errors / 0 console warnings.
+- Phone-width check via 390px iframe: `marketingOverflowEls: 0`, docOverflow `[]`.
+- Prompt-contract harness **PASS (14 gates)**; `node --check app.js` OK.
+- Each new CSS class defined exactly once (no dupes).
+
+**NEXT** (why next / how)
+Founder to review the professionalised section live on prod after deploy (clear cache / incognito). OT-22 (KV provisioning) remains founder-owned and unchanged.
+
+**HOW**
+Edited `14-MVP-HTML/index.html` (marketing + fu scheduler sections) and `14-MVP-HTML/styles.css` (new professional classes + 640px phone rule); LF/CRLF preserved; committed `MKT` (conventional-style message).
+
+---
+
 ## 2026-08-28 - Session RT2f - Follow-up + 1-day-before auto re-confirmation (`fu`)
 
 **WHAT**
