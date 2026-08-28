@@ -397,6 +397,46 @@ function listOfObjects(v) {
   return out;
 }
 
+// ---------------------------------------------------------------------------
+// Local Vercel-KV shim for the fu scheduler (dev/verification only).
+// Mirrors the Upstash REST sorted-set semantics used by api/followups/*.js so
+// the local server can run the full enqueue -> tick -> preview flow without a
+// real KV store. In-memory per process; never touches real data; no secrets.
+// ---------------------------------------------------------------------------
+const LOCAL_KV = { map: new Map() };
+/** Redis-like ZADD: score = due epoch, member = JSON. Dedupes by member. */
+function localZadd(key, score, member) {
+  const z = LOCAL_KV.map.get(key) || new Map();
+  z.set(member, score);
+  LOCAL_KV.map.set(key, z);
+  return 1;
+}
+/** Redis-like ZRANGEBYSCORE WITHSCORES -> [member, score, ...] for score in [min,max]. */
+function localZrangebyscore(key, min, max) {
+  const z = LOCAL_KV.map.get(key) || new Map();
+  const pairs = [];
+  for (const [member, score] of z) {
+    if (score >= min && score <= max) pairs.push(member, score);
+  }
+  return pairs;
+}
+/** Redis-like ZREM: remove members, return count removed. */
+function localZrem(key, members) {
+  const z = LOCAL_KV.map.get(key);
+  if (!z || !Array.isArray(members) || !members.length) return 0;
+  let n = 0;
+  for (const m of members) if (z.delete(m)) n++;
+  return n;
+}
+function localGet(key) {
+  const v = LOCAL_KV.map.get(key);
+  return typeof v === "string" ? v : null;
+}
+function localSet(key, value) {
+  LOCAL_KV.map.set(key, value);
+  return "OK";
+}
+
 const server = createServer(async (req, res) => {
   // Only allow local connections.
   const host = req.socket.remoteAddress || "";
@@ -513,6 +553,92 @@ const server = createServer(async (req, res) => {
     } catch (err) {
       return json(res, 200, { ok: false, source: "deepseek", error: "EXCEPTION", message: String(err?.message || "unknown") });
     }
+  }
+
+  // fu scheduler — local mirror of api/followups/* using the in-memory KV shim.
+  if (url.pathname === "/api/followups/enqueue" && req.method === "POST") {
+    let body = "";
+    for await (const chunk of req) body += chunk;
+    let payload = {};
+    try {
+      payload = JSON.parse(body || "{}");
+    } catch {
+      return json(res, 400, { ok: false, error: "BAD_JSON" });
+    }
+    if (payload.consent !== true) {
+      return json(res, 400, { ok: false, error: "CONSENT_REQUIRED", message: "Follow-up scheduling requires declared consent (ADR-036)." });
+    }
+    const rawItems = Array.isArray(payload.items) ? payload.items : [];
+    const items = [];
+    for (const it of rawItems) {
+      if (items.length >= 200) break;
+      const pin = String(it?.pin || "").trim();
+      const name = String(it?.name || "").trim();
+      const phone = String(it?.phone || "").trim();
+      const type = it?.type === "reconfirm" ? "reconfirm" : "follow-up";
+      const dueAt = Math.floor(Number(it?.dueAt));
+      const message = String(it?.message || "").trim();
+      if (!pin || !name || !message || Number.isNaN(dueAt) || dueAt <= 0) continue;
+      items.push({ pin, name, phone: phone || "", type, dueAt, message });
+    }
+    if (!items.length) return json(res, 400, { ok: false, error: "NO_VALID_ITEMS" });
+    let queued = 0;
+    for (const it of items) {
+      const member = JSON.stringify({ pin: it.pin, name: it.name, type: it.type, dueAt: it.dueAt, message: it.message });
+      queued += localZadd("fu:queue", it.dueAt, member);
+    }
+    return json(res, 200, { ok: true, source: "local-kv", queued });
+  }
+
+  if (url.pathname === "/api/followups/tick" && req.method === "GET") {
+    const now = Math.floor(Date.now() / 1000);
+    const pairs = localZrangebyscore("fu:queue", 0, now);
+    const due = [];
+    for (let i = 0; i < pairs.length; i += 2) {
+      const member = pairs[i];
+      const score = pairs[i + 1];
+      let parsed = null;
+      try {
+        parsed = JSON.parse(member);
+      } catch {
+        parsed = null;
+      }
+      if (!parsed || typeof parsed !== "object") continue;
+      due.push({
+        pin: String(parsed.pin || ""),
+        name: String(parsed.name || ""),
+        type: parsed.type === "reconfirm" ? "reconfirm" : "follow-up",
+        message: String(parsed.message || ""),
+        dueAt: Math.floor(Number(parsed.dueAt) || Number(score) || now),
+      });
+    }
+    // Audit stamp + clear.
+    const stamp = {
+      at: new Date().toISOString(),
+      tickEpoch: now,
+      surfaced: due.length,
+      due: due.map((d) => ({ pin: d.pin, name: d.name, type: d.type, dueAt: d.dueAt, message: d.message })),
+    };
+    let log = [];
+    try {
+      const prev = JSON.parse(localGet("fu:ticklog") || "[]");
+      if (Array.isArray(prev)) log = prev;
+    } catch {
+      log = [];
+    }
+    log.unshift(stamp);
+    if (log.length > 200) log = log.slice(0, 200);
+    localSet("fu:ticklog", JSON.stringify(log));
+    const members = due.map((d) => JSON.stringify({ pin: d.pin, name: d.name, type: d.type, dueAt: d.dueAt, message: d.message }));
+    localZrem("fu:queue", members);
+    return json(res, 200, {
+      ok: true,
+      source: "local-kv",
+      due,
+      surfaced: due.length,
+      tick: stamp.at,
+      note: "preview only — nothing transmitted (ADR-036 gate).",
+    });
   }
 
   // Static file serving.

@@ -4,6 +4,30 @@
 
 ---
 
+## 2026-08-28 - Session RT2f - Follow-up + 1-day-before auto re-confirmation (`fu`)
+
+**WHAT**
+Server-side follow-up scheduler for the HTML MVP, governed by ADR-036 (queue + preview; real send gated / audit-only):
+1. **`api/followups/enqueue.js`** (NEW `POST /api/followups/enqueue`) — Upstash REST via `fetch`; validates consent-required / non-empty / due-in-future; persists each item as a JSON member of Redis **Sorted Set `fu:queue`** (score=due epoch) via `/pipeline`. Never sends. `KV_UNAVAILABLE` graceful fallback when env absent (mirrors `NO_API_KEY`).
+2. **`api/followups/tick.js`** (NEW `GET /api/followups/tick`, cron target) — `ZRANGEBYSCORE fu:queue 0 now` → due preview `{ok,due:[…]}` → `ZREM` → append `fu:ticklog`. Never sends.
+3. **`server.js`** — inline `localKV` in-memory shim + local followup routes mirroring serverless (no key needed for dev/browser).
+4. **Client (marketing view)** — Follow-up scheduler panel reusing the selected recipients + the single ADR-036 consent checkbox: type toggle (follow-up vs 1-day-before), schedule date, `{{name}}`/`{{date}}` message, consent-gated **Queue follow-up reminders** (POST enqueue) + **Check due now** (GET tick) due-list. 1-day-before window computed client-side (dueAt = date−1d).
+5. **`vercel.json`** — rewrites for both followup endpoints + cron `0 9 * * *` (daily 09:00 UTC).
+
+**WHY**
+Founder `fu` task, explicitly server-side (Vercel KV / Upstash Redis chosen 2026-08-28). Complements RT2d composer + RT2e visit history. ADR-036: no real message is ever transmitted — audit entry only.
+
+**EVIDENCE**
+- `node --check` enqueue/tick/server/app OK. Local curl e2e on `:8765` (localKV shim): enqueue 3 (past-due / due-now / far-future) → `{ok,queued:3}`; no-consent → `CONSENT_REQUIRED`; tick surfaced exactly the 2 due and cleared (2nd tick empty); fresh enqueue → tick surfaced 1.
+- Browser marketing view: panel renders, gate disabled until selection+consent+message+date, preview "re-confirmation · will surface on <date−1d>", enqueue → "✓ Queued 17 … (local-kv). Nothing was sent", check-due listed 17 with `{{name}}` resolved. 0 console/JS errors.
+- Prompt-contract harness **PASS (14 gates)**; no overflow at patient width.
+
+**NEXT** (why next / how)
+- **Founder must provision Vercel KV**: add `KV_REST_API_URL` + `KV_REST_API_TOKEN` to the project env (dashboard). Until linked, serverless returns `KV_UNAVAILABLE` and the client logs a graceful local audit fallback. → OT-22.
+- Optional: follow-up records viewer; real send (`mk-send`) stays deferred by static-MVP constraint.
+
+**HOW**
+
 ## 2026-08-27 - Session RT2e - Compare with previous visit (`cmp`)
 
 **WHAT**

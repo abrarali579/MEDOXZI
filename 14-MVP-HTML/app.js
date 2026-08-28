@@ -1705,6 +1705,151 @@ document.addEventListener("DOMContentLoaded", () => {
   renderMarketingRecipients();
 });
 
+/* ===== Follow-up scheduler (fu) ===== */
+// Queue + preview only. Nothing is ever transmitted (ADR-036); the tick reads
+// the due list and logs an audit entry. Re-confirmation surfaces 1 day before
+// the chosen date; a follow-up surfaces on the chosen date.
+
+function fuDueAtEpoch() {
+  const raw = ($("#fuDate") || {}).value;
+  if (!raw) return null;
+  const base = new Date(`${raw}T09:00:00`).getTime() / 1000; // local 9am
+  if (Number.isNaN(base)) return null;
+  const type = ($("#fuType") || {}).value;
+  // 1-day-before re-confirmation: surface the day before the appointment.
+  return type === "reconfirm" ? base - 86400 : base;
+}
+
+function renderFuPreview() {
+  const el = $("#fuPreview");
+  if (!el) return;
+  const msg = ($("#fuMessage") || {}).value || "";
+  const due = fuDueAtEpoch();
+  const type = ($("#fuType") || {}).value;
+  const n = marketingState.selected.size;
+  if (!msg || !due) {
+    el.textContent = "No follow-up preview yet — add a message and a date.";
+    return;
+  }
+  const dateStr = new Date(due * 1000).toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short" });
+  const label = type === "reconfirm" ? "re-confirmation" : "follow-up";
+  el.innerHTML = `<div><strong>${escapeHtml(label)}</strong> · will surface on <strong>${escapeHtml(dateStr)}</strong> · ${n} recipient${n === 1 ? "" : "s"}</div>` +
+    `<div class="quiet">${escapeHtml(msg.replace(/{{name}}/g, "patient").replace(/{{date}}/g, dateStr))}</div>`;
+}
+
+function updateFuGate() {
+  const canEnqueue =
+    marketingState.selected.size > 0 &&
+    ($("#consentCheckbox") || {}).checked &&
+    !!($("#fuMessage") || {}).value &&
+    !!fuDueAtEpoch();
+  const btn = $("#enqueueFu");
+  if (btn) btn.disabled = !canEnqueue;
+}
+
+function fuAuditEntry(extra) {
+  try {
+    const list = JSON.parse(localStorage.getItem("medoxziCampaignAudit") || "[]");
+    list.unshift(Object.assign({
+      at: new Date().toISOString(),
+      status: "prepared (not sent)",
+      where: "medoxzi-followup-queue",
+    }, extra || {}));
+    localStorage.setItem("medoxziCampaignAudit", JSON.stringify(list));
+  } catch (e) {}
+}
+
+function fuResolveName(id) {
+  const all = marketingReusableRecipients();
+  const rec = all.find((r) => r.id === id);
+  return rec ? (rec.name || "patient") : "patient";
+}
+
+async function fuEnqueue() {
+  const result = $("#fuQueueResult");
+  const type = ($("#fuType") || {}).value;
+  const msg = ($("#fuMessage") || {}).value;
+  const dueAt = fuDueAtEpoch();
+  const ids = [...marketingState.selected];
+  const recipients = marketingReusableRecipients().filter((r) => ids.includes(r.id));
+  const dateStr = new Date(dueAt * 1000).toLocaleDateString(undefined, { day: "numeric", month: "short" });
+  const items = recipients.map((r) => ({
+    pin: r.id.startsWith("pat-") ? r.id.slice(4) : r.id,
+    name: r.name || "patient",
+    phone: r.phone || "",
+    type,
+    dueAt,
+    message: msg.replace(/{{name}}/g, r.name || "patient").replace(/{{date}}/g, dateStr),
+  }));
+  result.textContent = "Queueing follow-up reminders…";
+  if (window.enqueueFuHook) { result.textContent = window.enqueueFuHook(items); return; }
+  try {
+    const resp = await fetch("/api/followups/enqueue", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ consent: ($("#consentCheckbox") || {}).checked, items }),
+    });
+    const data = await resp.json();
+    if (data && data.ok) {
+      const n = data.queued || items.length;
+      result.innerHTML = `✓ Queued ${n} follow-up reminder(s) on the server (${data.source}). Nothing was sent (ADR-036 audit-only).`;
+      fuAuditEntry({ kind: "followup", type, count: n, dueAt, consentDeclared: true });
+    } else if (data && data.kind === "KV_UNAVAILABLE") {
+      result.innerHTML = `⚠ Server KV not linked yet — logged ${items.length} to the local audit queue only (nothing sent).`;
+      fuAuditEntry({ kind: "followup", type, count: items.length, dueAt, consentDeclared: true, fallback: "KV_UNAVAILABLE" });
+    } else {
+      result.textContent = `Queue failed: ${(data && data.error) || "unknown"}`;
+    }
+  } catch (err) {
+    result.textContent = `Queue error: ${String(err && err.message)}`;
+  }
+}
+
+async function fuCheckDue() {
+  const listEl = $("#fuDueList");
+  if (!listEl) return;
+  listEl.innerHTML = "Checking due items…";
+  try {
+    const resp = await fetch("/api/followups/tick");
+    const data = await resp.json();
+    if (data && data.ok) {
+      const due = data.due || [];
+      if (!due.length) {
+        listEl.innerHTML = `<li class="quiet">No follow-up is due right now.</li>`;
+      } else {
+        listEl.innerHTML = due
+          .map((d) => {
+            const when = new Date((d.dueAt || 0) * 1000).toLocaleDateString(undefined, { day: "numeric", month: "short" });
+            return `<li>${escapeHtml(d.name || "patient")} — ${escapeHtml(d.type || "follow-up")} (surface ${when}) — ${escapeHtml((d.message || "").slice(0, 80))}</li>`;
+          })
+          .join("");
+      }
+    } else if (data && data.kind === "KV_UNAVAILABLE") {
+      listEl.innerHTML = `<li class="quiet">Server KV not linked yet — due-check needs Vercel KV (KV_REST_API_URL / KV_REST_API_TOKEN).</li>`;
+    } else {
+      listEl.innerHTML = `<li class="quiet">Due-check unavailable: ${escapeHtml((data && data.error) || "unknown")}</li>`;
+    }
+  } catch (err) {
+    listEl.innerHTML = `<li class="quiet">Due-check error: ${escapeHtml(String(err && err.message))}</li>`;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  $("#fuType")?.addEventListener("change", () => { renderFuPreview(); updateFuGate(); });
+  $("#fuDate")?.addEventListener("change", () => { renderFuPreview(); updateFuGate(); });
+  $("#fuMessage")?.addEventListener("input", () => { renderFuPreview(); updateFuGate(); });
+  $("#enqueueFu")?.addEventListener("click", fuEnqueue);
+  $("#fuCheckDue")?.addEventListener("click", fuCheckDue);
+  // The campaign composer already listens for change on recipient + consent; keep the fu gate in sync too.
+  document.addEventListener("change", (e) => {
+    if ((e.target && e.target.matches && e.target.matches("[data-recipient],#consentCheckbox")) || e.target.id === "consentCheckbox") {
+      updateFuGate();
+    }
+  });
+  renderFuPreview();
+  updateFuGate();
+});
+
 /* ===== Bilal interview-audit loop ===== */
 // Every completed interview is persisted as a training-grade record, then sent
 // to Bilal (/api/bilal) to judge whether it actually gave the doctor the most

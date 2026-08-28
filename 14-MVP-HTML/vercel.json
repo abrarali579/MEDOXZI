@@ -4,6 +4,11 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "rewrites": [
-    { "source": "/api/questions", "destination": "/api/questions.js" }
+    { "source": "/api/questions", "destination": "/api/questions.js" },
+    { "source": "/api/followups/enqueue", "destination": "/api/followups/enqueue.js" },
+    { "source": "/api/followups/tick", "destination": "/api/followups/tick.js" }
+  ],
+  "crons": [
+    { "path": "/api/followups/tick", "schedule": "0 9 * * *" }
   ]
 }

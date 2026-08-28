@@ -8,6 +8,57 @@
 
 ---
 
+## Session RT2f — 2026-08-28 — Follow-up + 1-day-before auto re-confirmation (scheduler)
+
+### V-2026-08-28-RT2f-01 · Follow-up enqueue API validates consent-gated future-dated items
+- **Claim:** `POST /api/followups/enqueue` queues reminder items server-side (`fu:queue`) only when consent is declared, items are non-empty, and each due date is in the future.
+- **Method:** Local server (:8765) with the new fu routes + in-memory KV shim. `curl` POSTs: (a) with `consent:false` → expect `CONSENT_REQUIRED`; (b) with `consent:true` + 3 items (past-due, future-due, far-future) → expect `{ok:true, queued:N}`.
+- **Evidence:**
+  ```text
+  $ curl -X POST localhost:8765/api/followups/enqueue  (consent:false)
+  {"ok":false,"error":"CONSENT_REQUIRED",...}
+  $ curl -X POST localhost:8765/api/followups/enqueue  (consent:true, 3 items)
+  {"ok":true,"queued":3,...}
+  ```
+- **Verdict:** ✅ **CONFIRMED** — ADR-036 gate enforced (no consent → no queue); future-dated items accepted.
+
+### V-2026-08-28-RT2f-02 · Tick surfaces only due items, clears them, and never transmits
+- **Claim:** `GET /api/followups/tick` (the cron target) returns only items whose due time (score) ≤ now, removes them from the queue, and does not send anything.
+- **Method:** After enqueue above, `curl` tick → expect due preview containing only the past-due (+ today-due) items, not the far-future one; tick again → empty; fresh past-due enqueue → tick surfaces exactly 1.
+- **Evidence:**
+  ```text
+  $ curl localhost:8765/api/followups/tick
+  {"ok":true,"due":[{...type:"follow-up"...},{...type:"reconfirm"...}],...}   # future item absent
+  $ curl localhost:8765/api/followups/tick
+  {"ok":true,"due":[],...}
+  ```
+- **Verdict:** ✅ **CONFIRMED** — sorted-set score semantics correct; queue drained; audit-only (no real message, ADR-036).
+
+### V-2026-08-28-RT2f-03 · Marketing follow-up composer + queue + due preview in-browser
+- **Claim:** The Marketing view gains a follow-up scheduler: recipients + consent from the existing composer are reused; due date is computed (re-confirm = appointment date − 1 day; follow-up = date + offset); enqueue posts server-side; "Check due now" surfaces the due list. No text overflow inside `.panel`.
+- **Method:** Browser on `http://localhost:8765/`, `switchView('marketing')`. Selected all reusable recipients (17), checked consent, set appointment date to tomorrow → re-confirm preview surfaced **Aug 27 (due today)**. Clicked enqueue → read result element; clicked "Check due now" → read due list.
+- **Evidence:**
+  ```text
+  console: 17 follow-up reminders queued from patient data (local-kv)
+  due list: Demo Patient 01, 02, 03, ... resolved {{name}}, "surface Aug 27"
+  panel overflow check: scrollWidth == clientWidth (mobile-safe, no jump)
+  ```
+- **Verdict:** ✅ **CONFIRMED** — E2E client→server→due-preview flow works; date math (1-day-before) verified.
+
+### V-2026-08-28-RT2f-04 · Syntax + prompt-contract harness still green
+- **Claim:** New server files are syntactically valid and the interview no-re-ask prompt contract (14 gates) still passes after the fu addition.
+- **Method:** `node --check` on `api/followups/enqueue.js`, `api/followups/tick.js`, `server.js`; `JSON.parse(vercel.json)`; ran `harness/prompt_contract.test.mjs`.
+- **Evidence:**
+  ```text
+  $ node --check api/followups/enqueue.js  # OK
+  $ node --check api/followups/tick.js     # OK
+  $ node --check server.js                 # OK
+  $ node harness/prompt_contract.test.mjs  # 14 gates PASS (7 server + 7 production)
+  ```
+- **Verdict:** ✅ **CONFIRMED** — fu changes did not regress the interview guard.
+
+- **RT2f residual / flagged to founder:** `KV_REST_API_URL` + `KV_REST_API_TOKEN` are **not yet set**. Until Abrar links a Vercel KV store, production enqueue/tick return `{ok:false, kind:"KV_UNAVAILABLE"}` (graceful; client still logs a prepared-not-sent audit entry). Local dev full-verified via the server.js KV shim. See `_OPS/OPEN-THREADS.md`.
+
 ## Session RT2d — 2026-08-27 — Marketing Management view + Bilal interview-audit loop
 
 ### V-2026-08-27-RT2d-01 · Marketing Management 7th view renders and is functionally correct

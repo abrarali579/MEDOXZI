@@ -586,6 +586,39 @@
               <button type="button" id="prepareCampaign" class="primary" disabled>Prepare campaign</button>
               <div id="campaignAudit" class="small-note"></div>
             </section>
+
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Scheduler</p>
+                  <h2>Follow-up reminders</h2>
+                </div>
+                <span class="mini-badge locked">Consent-gated</span>
+              </div>
+              <ul class="guardrail-list">
+                <li>Queue + preview only. A real message is never sent under ADR-036 — the tick reads the due list and logs an audit entry.</li>
+                <li>Re-confirmation surfaces 1 day before appointment; follow-ups surface on the chosen date.</li>
+              </ul>
+              <label class="field-label">Reminder type
+                <select id="fuType">
+                  <option value="follow-up">Follow-up (due on a date)</option>
+                  <option value="reconfirm">1-day-before re-confirmation</option>
+                </select>
+              </label>
+              <label class="field-label" id="fuDateLabel">Follow-up / appointment date
+                <input type="date" id="fuDate" autocomplete="off">
+              </label>
+              <label class="field-label">Message (uses campaign template)
+                <textarea id="fuMessage" rows="3" placeholder="Personalise with {{name}} and {{date}}."></textarea>
+              </label>
+              <div class="message-preview" id="fuPreview">No follow-up preview yet.</div>
+              <button type="button" id="enqueueFu" class="primary" disabled>Queue follow-up reminders</button>
+              <div id="fuQueueResult" class="small-note"></div>
+              <div class="marketing-tools" style="margin-top:14px">
+                <button type="button" class="secondary compact" id="fuCheckDue">Check due now</button>
+              </div>
+              <div id="fuDueList" class="guardrail-list"></div>
+            </section>
           </div>
         </section>
       </main>
