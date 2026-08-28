@@ -41,6 +41,7 @@ class VisualHTMLMVP:
             PatientIntake,
             ProfessionalInterviewScreen,
             DoctorBrief,
+            DoctorNoSymbolReviewWorkspace,
             DoctorPastFiles,
             MarketingManagement,
             FollowupScheduler,
@@ -137,9 +138,11 @@ class AdaptiveQuestionValidator:
 class DoctorBrief:
     purpose = "source_bound_doctor_review_before_consult"
     includes = [
-        "current_plus_two_queue",
+        "top_patient_status_strip",
+        "left_patient_concern_allergies_vitals_review_status_stack",
+        "center_grouped_scrollable_intake_responses",
+        "right_clinician_owned_doctor_entry_panel",
         "structured_feedback",
-        "demographic_chips",
         "patient_words",
         "answer_list",
         "attachments",
@@ -152,7 +155,33 @@ class DoctorBrief:
     forbidden_outputs = ["ai_diagnosis", "visible_differential", "treatment_advice"]
 
     def receives_from(self):
-        return [PatientIntake, DoctorPastFiles, VisitCompare, BilalInterviewAudit]
+        return [PatientIntake, DoctorNoSymbolReviewWorkspace, DoctorPastFiles, VisitCompare, BilalInterviewAudit]
+
+
+class DoctorNoSymbolReviewWorkspace:
+    location = ["14-MVP-HTML/index.html", "14-MVP-HTML/styles.css", "14-MVP-HTML/app.js"]
+    purpose = "doctor_previsit_review_ui_matching_no_icon_no_symbol_concept"
+    layout = [
+        "top_current_patient_summary_strip",
+        "left_patient_reported_concern_allergies_vitals_review_status",
+        "center_grouped_patient_intake_answers_with_scroll_area",
+        "right_doctor_entered_priority_diagnoses_tests_plan_followup_note",
+        "bottom_sticky_assessment_action_bar",
+    ]
+    visual_rules = [
+        "plain_ui_chips_only",
+        "no_generated_images",
+        "no_decorative_icon_symbols",
+        "warm_off_white_professional_palette",
+        "eight_pixel_or_smaller_card_radius",
+    ]
+    dynamic_behavior = [
+        "patient_strip_updates_from_current_intake_identity",
+        "answer_count_uses_actual_completed_answer_total",
+        "intake_answers_group_into_location_severity_associated_symptoms",
+        "followup_yes_no_controls_are_mutually_exclusive",
+    ]
+    boundary = "clinician_owned_review_and_documentation_no_ai_diagnosis_or_test_advice"
 
 
 class DoctorPastFiles:

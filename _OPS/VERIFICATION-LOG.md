@@ -3507,6 +3507,22 @@ No diagnostic/differential vocabulary present in any patient-facing question.
 **Scope:** UI-only. Files: `14-MVP-HTML/index.html`, `14-MVP-HTML/styles.css`, `14-MVP-HTML/app.js`.
 
 **Baseline (re-ran after change):**
+## V-2026-08-28-UIDOCTOR-01 — Doctor Review no-symbol concept implemented
+
+**Scope:** `14-MVP-HTML/index.html`, `14-MVP-HTML/styles.css`, `14-MVP-HTML/app.js`, Graphify current-state source.
+
+**Verified locally (`localhost:8771`):**
+- Desktop 1440x900: Doctor view root opacity 1, new `doctor-review-strip` present, three-column review grid `365.844px 499.688px 526.469px`, 9 answer rows grouped into Location & description / Severity & timing / Associated symptoms, `answerCount` = `9 of 9 answered`, no horizontal overflow, 0 console errors.
+- Stress layouts: 1024x768 with 18 answers scrolls inside `#briefAnswers` (`overflow-y:auto`, scrollable true), sticky action bar, no horizontal overflow, 0 console errors.
+- Phone 390x844 with 18 answers stacks to one column, answers remain scrollable, no horizontal overflow, action bar becomes static for phone ergonomics, 0 console errors.
+- Interaction: Follow-up Yes/No controls are mutually exclusive; tests remain multi-select; plan category remains single-select.
+- Prompt-contract regression: `node harness/prompt_contract.test.mjs` PASS.
+- Contradiction sweep: contextual only for `FULL_AI`, `No red flags|No concerns`, 25-year retention, `PATIENT_UNSURE`, `probability`, and `>=500|500 real`; no new unsafe doctor-facing claim introduced.
+
+**Verdict:** CONFIRMED — the Doctor / Pre-visit Review section now matches the generated no-icon/no-symbol concept while preserving clinician-owned documentation boundaries.
+
+---
+
 ```bash
 cd D:/MEDOXZI/11-Prototype
 C:/Users/Abrar Ali/AppData/Local/Programs/Python/Python310/python.exe -m pytest tests/ -q

@@ -338,89 +338,94 @@
         </section>
 
         <section id="view-doctor" class="view">
-          <div class="doctor-layout">
-            <section class="doctor-queue doctor-side-panel" aria-label="Live queue">
-              <div class="doctor-side-head">
-                <div class="doctor-queue-brand">
-                  <div class="brand-mark" aria-hidden="true">M</div>
-                  <strong>MEDOXZI</strong>
-                  <span><span class="dot live"></span>Live queue</span>
-                </div>
-                <span class="auto-chip"><span class="dot live"></span>Auto-advancing</span>
-                <button class="secondary compact view-queue-button" type="button">View queue</button>
-                <div class="doctor-top-icons" aria-label="Doctor notifications and profile">
-                  <button class="icon-button compact bell-button" type="button" aria-label="Notifications">⌕</button>
-                  <span class="doctor-avatar" aria-hidden="true">DA</span>
-                </div>
-              </div>
+          <div class="doctor-layout doctor-review-shell">
+            <section class="doctor-queue doctor-side-panel" aria-label="Live queue" hidden>
               <div id="doctorQueue" class="queue-list"></div>
             </section>
 
-            <section class="doctor-brief doctor-command">
+            <section class="doctor-brief doctor-command" aria-label="Pre-visit review workspace">
               <h2 id="briefTitle" class="sr-only">Token 51 · Demo Patient</h2>
               <div id="briefDemographics" class="sr-only"></div>
 
-              <div class="doctor-main-grid">
-                <article class="doctor-card concern-card">
-                  <h3>Patient-reported concern</h3>
-                  <p id="briefIssue">I have fever and body pain since yesterday. I feel tired and want the doctor to check.</p>
-                </article>
+              <div class="doctor-review-strip" aria-label="Current patient summary">
+                <div class="strip-brand">
+                  <strong>MEDOXZI</strong>
+                  <span>Pre-visit review</span>
+                </div>
+                <div class="strip-patient">
+                  <strong id="reviewPatientName">Budi Demo</strong>
+                  <span id="reviewPatientMeta">Patient ID 1050 · 42 yrs · Male</span>
+                </div>
+                <div class="strip-progress">
+                  <span>Started: 3 days ago</span>
+                  <strong id="answerCount">0 of 4 answered</strong>
+                </div>
+                <div class="strip-status">
+                  <span>Doctor-entered</span>
+                  <span>For clinician review</span>
+                  <span>No AI-generated content</span>
+                </div>
+              </div>
 
-                <article class="doctor-card vitals-card">
-                  <div class="doctor-card-head">
-                    <h3>Allergies & vitals</h3>
-                    <div class="recorded-by">
-                      <span>Recorded by</span>
-                      <strong>Dr. Dana</strong>
-                      <span>May 14, 2025 · 10:15 AM</span>
+              <div class="doctor-main-grid doctor-review-grid">
+                <div class="doctor-left-stack">
+                  <article class="doctor-card concern-card">
+                    <span class="section-kicker">Patient-reported concern</span>
+                    <h3 id="reviewComplaint">Headache</h3>
+                    <p id="briefIssue">I have fever and body pain since yesterday. I feel tired and want the doctor to check.</p>
+                  </article>
+
+                  <article class="doctor-card vitals-card">
+                    <div class="doctor-card-head">
+                      <h3>Allergies & vitals</h3>
+                      <div class="recorded-by">
+                        <span>Recorded by</span>
+                        <strong>Dr. Dana</strong>
+                        <span>May 14, 2025 · 10:15 AM</span>
+                      </div>
                     </div>
-                  </div>
-                  <div class="allergy-line">
-                    <span>Allergies</span>
-                    <input id="briefAllergies" value="No known allergies" aria-label="Allergies" placeholder="Enter allergies">
-                  </div>
-                  <div class="vitals-grid">
-                    <label>BP <input value="118 / 76" aria-label="Blood pressure"></label>
-                    <label>Pulse <input value="78" aria-label="Pulse"></label>
-                    <label>Temp <input value="36.8" aria-label="Temperature"></label>
-                    <label>Weight <input value="61" aria-label="Weight"></label>
-                  </div>
-                </article>
+                    <div class="allergy-line">
+                      <span>Allergies</span>
+                      <input id="briefAllergies" value="No known allergies" aria-label="Allergies" placeholder="Enter allergies">
+                    </div>
+                    <div class="vitals-grid">
+                      <label>BP <input value="118 / 76" aria-label="Blood pressure"></label>
+                      <label>Pulse <input value="78" aria-label="Pulse"></label>
+                      <label>Temp <input value="36.8" aria-label="Temperature"></label>
+                      <label>Weight <input value="61" aria-label="Weight"></label>
+                    </div>
+                  </article>
+
+                  <article class="doctor-card review-status-card">
+                    <h3>Review status</h3>
+                    <dl>
+                      <div><dt>Submitted</dt><dd>May 14, 2025 · 10:15 AM</dd></div>
+                      <div><dt>Attachment</dt><dd id="briefFiles">No file attached</dd></div>
+                      <div><dt>Queue position</dt><dd>Current patient</dd></div>
+                    </dl>
+                    <div class="review-status-actions">
+                      <button class="secondary compact" type="button">Patient profile</button>
+                      <button class="secondary compact" data-jump="viewer" type="button">Previous record</button>
+                    </div>
+                  </article>
+                </div>
 
                 <article class="doctor-card intake-card">
                   <div class="doctor-card-head">
-                    <h3>Intake responses</h3>
-                    <span id="answerCount" class="mini-badge">0 of 4 answered</span>
+                    <div>
+                      <span class="section-kicker">Intake responses</span>
+                      <h3>Grouped patient answers</h3>
+                    </div>
                     <label class="toggle-line"><input type="checkbox"> Show unanswered</label>
                   </div>
-                  <ul id="briefAnswers"></ul>
-                </article>
-
-                <article class="doctor-card doctor-compare-card" id="compareCard" hidden>
-                  <div class="doctor-card-head">
-                    <div>
-                      <h3>Compare with previous visit</h3>
-                      <span>Patient-reported change summary · demo</span>
-                    </div>
-                    <span class="status-pill safe">No diagnosis</span>
-                  </div>
-                  <div id="compareBody" class="compare-body">
-                    <p id="compareEmpty" class="quiet">No previous visit found for this patient yet.</p>
-                    <div id="compareControls" class="compare-controls" hidden>
-                      <label class="compare-select">
-                        Compare this visit against
-                        <select id="comparePair"></select>
-                      </label>
-                      <button id="runCompare" class="primary compact" type="button">Compare</button>
-                    </div>
-                    <div id="compareResult" class="compare-result" hidden></div>
-                  </div>
+                  <div id="briefAnswers" class="doctor-answer-groups"></div>
                 </article>
 
                 <article class="doctor-card doctor-entry-card">
                   <div class="doctor-card-head">
                     <div>
-                      <h3>Doctor-entered <span>For clinician review</span></h3>
+                      <span class="section-kicker">Doctor-entered</span>
+                      <h3>Clinician review note</h3>
                     </div>
                     <span class="status-pill safe">No AI-generated content</span>
                   </div>
@@ -450,7 +455,11 @@
                     </div>
                   </div>
                   <div class="followup-row">
-                    <label class="switch-field">Follow-up needed <input id="followupNeeded" type="checkbox" checked></label>
+                    <fieldset class="segmented-field">
+                      <legend>Follow-up needed</legend>
+                      <label><input id="followupNeeded" name="followupNeededChoice" type="checkbox" checked> Yes</label>
+                      <label><input name="followupNoChoice" type="checkbox"> No</label>
+                    </fieldset>
                     <label>Follow-up date <input id="followupDate" type="date"></label>
                   </div>
                   <label class="clinical-note">
@@ -458,19 +467,42 @@
                     <textarea id="doctorNote" rows="4" placeholder="Enter clinician note..."></textarea>
                   </label>
                 </article>
+
+                <article class="doctor-card doctor-compare-card" id="compareCard" hidden>
+                  <div class="doctor-card-head">
+                    <div>
+                      <h3>Compare with previous visit</h3>
+                      <span>Patient-reported change summary · demo</span>
+                    </div>
+                    <span class="status-pill safe">No diagnosis</span>
+                  </div>
+                  <div id="compareBody" class="compare-body">
+                    <p id="compareEmpty" class="quiet">No previous visit found for this patient yet.</p>
+                    <div id="compareControls" class="compare-controls" hidden>
+                      <label class="compare-select">
+                        Compare this visit against
+                        <select id="comparePair"></select>
+                      </label>
+                      <button id="runCompare" class="primary compact" type="button">Compare</button>
+                    </div>
+                    <div id="compareResult" class="compare-result" hidden></div>
+                  </div>
+                </article>
               </div>
 
               <div class="doctor-action-bar">
+                <div class="action-left">
+                  <button class="secondary compact" type="button">Back to patient list</button>
+                </div>
                 <div class="structured-feedback">
                   <h3>Structured feedback <span>For this intake</span></h3>
                   <label><input type="checkbox"> Question useful</label>
                   <label><input type="checkbox"> Question unclear</label>
                   <label><input type="checkbox"> Missing question</label>
                   <label><input type="checkbox"> Patient answer corrected</label>
-                  <label><input type="checkbox"> Attachment needed</label>
                 </div>
-                <span class="draft-pill">✓ Draft saved</span>
-                <span class="review-pill">Doctor reviewed · May 14, 2025 10:18 AM · Dr. Dana</span>
+                <span class="draft-pill">Draft saved</span>
+                <span class="review-pill">10:18 AM · Dr. Dana</span>
                 <button class="secondary compact" type="button">Save draft</button>
                 <button class="secondary compact" type="button">Mark reviewed</button>
                 <button id="saveDoctor" class="primary compact" type="button">Save assessment</button>

@@ -160,6 +160,8 @@
 
 **Session UI-SCALE note (2026-08-28):** OT-20 review scope now also includes compact long-question typography and the scrollable question/options card. Confirm long adaptive questions at question 10-12 still feel readable and that hidden lower options are discoverable via scroll.
 
+**Session UI-DOCTOR-NOICON note (2026-08-28):** OT-20 review scope now includes the no-icon/no-symbol Doctor / Pre-visit Review redesign. The visible section is a top patient status strip plus three zones: left patient concern/allergies/vitals/review status, center grouped scrollable intake responses, right clinician-entered diagnosis/tests/plan/follow-up/note controls, and a bottom assessment rail. Confirm on the target tablet whether the grouped answer headings and sticky bottom rail match doctor workflow before screen lock.
+
 ### OT-21 · Production PIN identity binding — 🟡 DESIGN UPDATED (founder decision, session P)
 - **What:** the HTML MVP now models a Patient Identification Number (PIN) generated at submission and linked to name, age and mobile. Production must enforce that a PIN cannot be silently attached to a different customer number or identity.
 - **Founder decision (session P) — smart choice:** the **big PIN (full identifier) is shown only inside a doctor's patient records** — **never on the main list view** (the list shows a short/labelled reference instead). This reduces shoulder-surfing and index-based exposure on the main screen while keeping the full identity link inside a record.

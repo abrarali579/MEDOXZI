@@ -4,6 +4,50 @@
 
 ---
 
+## 2026-08-28 - Session UI-DOCTOR-NOICON - Doctor review no-symbol workspace
+
+**WHAT**
+Implemented Abrar's latest generated Doctor / Pre-visit Review concept in `14-MVP-HTML/`:
+1. Replaced the visible live-queue command-center chrome with a clean top patient status strip.
+2. Rebuilt the section into three professional work zones: left patient concern/allergies/vitals/review status, center grouped intake responses, and right doctor-entered review note.
+3. Kept intake answers inside a fixed scrollable center panel and grouped them into location/description, severity/timing, and associated-symptoms sections.
+4. Converted follow-up needed into plain Yes/No controls with mutually exclusive behavior.
+5. Kept the bottom action rail for structured feedback, draft/review status, Save draft, Mark reviewed, and Save assessment.
+6. Refreshed Graphify current-state graph: **203 nodes, 367 edges, 14 communities**.
+
+**WHY**
+Abrar approved the no-icons/no-symbols concept and asked to implement the exact UI in this specific doctor review section.
+
+**EVIDENCE**
+See `_OPS/VERIFICATION-LOG.md` V-2026-08-28-UIDOCTOR-01.
+
+Key evidence:
+
+```text
+Desktop browser check:
+root opacity 1, 3-column doctor-review-grid,
+9 of 9 answered, grouped answer sections present,
+no horizontal overflow, 0 console errors
+```
+
+```text
+Stress browser check:
+1024x768 and 390x844 with 18 answers:
+#briefAnswers overflow-y auto, scrollable true,
+no horizontal overflow, 0 console errors
+```
+
+**NEXT**
+Founder/doctor/staff review on the actual clinic tablet, especially center-column grouping names and whether the bottom rail should stay sticky on landscape tablet.
+
+**WHY NEXT**
+The UI is browser-verified, but final screen lock still needs human workflow approval.
+
+**HOW**
+Open Pre-visit Review, run a 9-answer patient intake, then review the doctor screen without generated icons or image assets.
+
+---
+
 ## 2026-08-28 - Session UI-SCALE - Compact long interview question layout
 
 **WHAT**

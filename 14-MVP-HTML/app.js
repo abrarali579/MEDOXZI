@@ -401,7 +401,7 @@ function doctorQueueItemHtml(patient, { current = false } = {}) {
         </span>
         <span class="selected-file">
           <span class="file-mark">PDF</span>
-          <span id="briefFiles">${fileLabel}</span>
+          <span class="brief-file-label">${fileLabel}</span>
         </span>
         <span class="selected-actions">
           <button class="secondary compact" type="button">View</button>
@@ -1107,6 +1107,12 @@ function renderDoctorBrief() {
   const sex = $("#intakeSex")?.value || $("#patientSex")?.value || "Male";
   const questions = activeQuestions();
   $("#briefTitle").textContent = `${name} · Patient ID ${state.pin || state.token}`;
+  const reviewPatientName = $("#reviewPatientName");
+  const reviewPatientMeta = $("#reviewPatientMeta");
+  const reviewComplaint = $("#reviewComplaint");
+  if (reviewPatientName) reviewPatientName.textContent = name;
+  if (reviewPatientMeta) reviewPatientMeta.textContent = `Patient ID ${state.pin || state.token} · ${age} yrs · ${sex}`;
+  if (reviewComplaint) reviewComplaint.textContent = state.complaint || "Patient concern";
   $("#briefIssue").textContent = $("#issueText")?.value || "Not entered";
   $("#briefFiles").textContent = state.files.length ? state.files[0] : "No file attached";
   const attachmentCount = $("#attachmentCount");
@@ -1126,15 +1132,40 @@ function renderDoctorBrief() {
   const answerEntries = Object.entries(state.answers);
   const answerCount = $("#answerCount");
   if (answerCount) {
-    const total = state.aiActive ? Math.max(5, Math.min(12, answerEntries.length)) : questions.length;
+    const total = state.aiActive && state.aiDone ? answerEntries.length : (state.aiActive ? Math.max(5, Math.min(12, answerEntries.length + 1)) : questions.length);
     answerCount.textContent = `${answerEntries.length} of ${total} answered`;
   }
+  const answerGroups = [
+    ["Location & description", []],
+    ["Severity & timing", []],
+    ["Associated symptoms", []],
+  ];
+  answerEntries.forEach(([q, a], index) => {
+    const text = normalize(q);
+    const groupIndex =
+      text.includes("where") || text.includes("located") || text.includes("describe") ? 0
+      : text.includes("scale") || text.includes("severe") || text.includes("when") || text.includes("often") ? 1
+      : index < 2 ? 0 : index < 4 ? 1 : 2;
+    answerGroups[groupIndex][1].push([q, a]);
+  });
   $("#briefAnswers").innerHTML = answerEntries.length
-    ? answerEntries.map(
-        ([q, a]) =>
-          `<li class="answer-item"><span class="answer-q">${q}</span><strong class="answer-a">${a}</strong></li>`
-      ).join("")
-    : `<li class="answer-item empty">No intake questions answered yet.</li>`;
+    ? answerGroups
+        .filter(([, rows]) => rows.length)
+        .map(
+          ([label, rows]) => `
+            <section class="answer-group">
+              <h4>${label}</h4>
+              ${rows.map(([q, a]) => `
+                <div class="answer-item">
+                  <span class="answer-q">${q}</span>
+                  <strong class="answer-a">${a}</strong>
+                </div>
+              `).join("")}
+            </section>
+          `,
+        )
+        .join("")
+    : `<div class="answer-item empty">No intake questions answered yet.</div>`;
 
   const missingItems = $("#missingItems");
   if (missingItems) {
@@ -1616,6 +1647,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!b) return;
       $$(".plan-group .choice-row button").forEach((o) => o.classList.remove("selected"));
       b.classList.add("selected");
+    });
+  }
+  const followupYes = $("#followupNeeded");
+  const followupNo = document.querySelector('input[name="followupNoChoice"]');
+  if (followupYes && followupNo) {
+    followupYes.addEventListener("change", () => {
+      if (followupYes.checked) followupNo.checked = false;
+      if (!followupYes.checked && !followupNo.checked) followupNo.checked = true;
+    });
+    followupNo.addEventListener("change", () => {
+      if (followupNo.checked) followupYes.checked = false;
+      if (!followupYes.checked && !followupNo.checked) followupYes.checked = true;
     });
   }
 

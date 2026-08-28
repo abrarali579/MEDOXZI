@@ -4540,3 +4540,610 @@ button.primary:disabled {
     width: 100%;
   }
 }
+
+/* ===== Session UI-DOCTOR-NOICON: no-symbol pre-visit review concept ===== */
+body.doctor-shell #view-doctor {
+  min-height: 100vh;
+  padding: 14px;
+  background: #f4f7f6;
+}
+
+body.doctor-shell #view-doctor.view.active {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+body.doctor-shell #view-doctor .doctor-side-panel[hidden] {
+  display: none !important;
+}
+
+body.doctor-shell #view-doctor .doctor-review-shell,
+body.doctor-shell #view-doctor .doctor-command {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+body.doctor-shell #view-doctor .doctor-command {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+body.doctor-shell #view-doctor .doctor-review-strip {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.7fr) minmax(260px, 1.2fr) minmax(210px, 0.8fr) minmax(420px, 1.3fr);
+  gap: 10px;
+  align-items: stretch;
+  min-height: 74px;
+  padding: 10px;
+  border: 1px solid #d5e2ef;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(13, 38, 68, 0.06);
+}
+
+body.doctor-shell #view-doctor .strip-brand,
+body.doctor-shell #view-doctor .strip-patient,
+body.doctor-shell #view-doctor .strip-progress,
+body.doctor-shell #view-doctor .strip-status {
+  min-width: 0;
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding: 8px 10px;
+  border-radius: 7px;
+  background: #f8fbfb;
+}
+
+body.doctor-shell #view-doctor .strip-brand strong {
+  color: #006c62;
+  font-size: 1.03rem;
+  letter-spacing: 0.06em;
+}
+
+body.doctor-shell #view-doctor .strip-brand span,
+body.doctor-shell #view-doctor .strip-patient span,
+body.doctor-shell #view-doctor .strip-progress span {
+  color: #5c6f87;
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+body.doctor-shell #view-doctor .strip-patient strong,
+body.doctor-shell #view-doctor .strip-progress strong {
+  color: #08233f;
+  font-size: 0.98rem;
+}
+
+body.doctor-shell #view-doctor .strip-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  justify-content: flex-end;
+}
+
+body.doctor-shell #view-doctor .strip-status span,
+body.doctor-shell #view-doctor .status-pill.safe,
+body.doctor-shell #view-doctor .draft-pill,
+body.doctor-shell #view-doctor .review-pill {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #b9ded5;
+  border-radius: 7px;
+  background: #e9f7f3;
+  color: #006c62;
+  padding: 0 10px;
+  font-size: 0.78rem;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+body.doctor-shell #view-doctor .doctor-review-grid {
+  display: grid;
+  grid-template-columns: minmax(245px, 0.82fr) minmax(420px, 1.12fr) minmax(440px, 1.18fr);
+  gap: 10px;
+  align-items: stretch;
+}
+
+body.doctor-shell #view-doctor .doctor-left-stack {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  min-width: 0;
+}
+
+body.doctor-shell #view-doctor .doctor-card {
+  min-width: 0;
+  border: 1px solid #d5e2ef;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(13, 38, 68, 0.055);
+}
+
+body.doctor-shell #view-doctor .section-kicker {
+  display: block;
+  color: #006c62;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0;
+  margin-bottom: 4px;
+}
+
+body.doctor-shell #view-doctor .doctor-card h3 {
+  margin: 0;
+  color: #061a35;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+body.doctor-shell #view-doctor .doctor-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+body.doctor-shell #view-doctor .concern-card,
+body.doctor-shell #view-doctor .vitals-card,
+body.doctor-shell #view-doctor .review-status-card {
+  min-height: auto;
+  padding: 14px;
+}
+
+body.doctor-shell #view-doctor .concern-card p {
+  margin: 10px 0 0;
+  color: #17334f;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+body.doctor-shell #view-doctor .recorded-by {
+  display: grid;
+  justify-items: end;
+  gap: 2px;
+  color: #5c6f87;
+  font-size: 0.72rem;
+  line-height: 1.25;
+  text-align: right;
+}
+
+body.doctor-shell #view-doctor .recorded-by strong {
+  color: #08233f;
+  font-size: 0.78rem;
+}
+
+body.doctor-shell #view-doctor .allergy-line {
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+}
+
+body.doctor-shell #view-doctor .allergy-line span,
+body.doctor-shell #view-doctor .vitals-grid label,
+body.doctor-shell #view-doctor .diagnosis-grid label,
+body.doctor-shell #view-doctor .followup-row label,
+body.doctor-shell #view-doctor .segmented-field legend,
+body.doctor-shell #view-doctor .clinical-note {
+  color: #08233f;
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+body.doctor-shell #view-doctor .allergy-line input,
+body.doctor-shell #view-doctor .vitals-grid input,
+body.doctor-shell #view-doctor .diagnosis-grid input,
+body.doctor-shell #view-doctor .followup-row input,
+body.doctor-shell #view-doctor .clinical-note textarea {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid #bfd0e4;
+  border-radius: 7px;
+  background: #fbfdff;
+  color: #071f3e;
+  font-size: 0.85rem;
+  font-weight: 750;
+}
+
+body.doctor-shell #view-doctor .vitals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+body.doctor-shell #view-doctor .vitals-grid label {
+  display: grid;
+  gap: 5px;
+}
+
+body.doctor-shell #view-doctor .review-status-card dl {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 0;
+}
+
+body.doctor-shell #view-doctor .review-status-card dl div {
+  display: grid;
+  gap: 2px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #edf2f6;
+}
+
+body.doctor-shell #view-doctor .review-status-card dl div:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+body.doctor-shell #view-doctor .review-status-card dt {
+  color: #607389;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+body.doctor-shell #view-doctor .review-status-card dd {
+  margin: 0;
+  color: #071f3e;
+  font-size: 0.85rem;
+  font-weight: 850;
+}
+
+body.doctor-shell #view-doctor .review-status-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+body.doctor-shell #view-doctor .intake-card {
+  grid-column: auto;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-height: 540px;
+  padding: 14px;
+}
+
+body.doctor-shell #view-doctor .toggle-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #17334f;
+  font-size: 0.78rem;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+body.doctor-shell #view-doctor .doctor-answer-groups {
+  min-height: 0;
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+  padding-right: 6px;
+  display: grid;
+  gap: 12px;
+  scrollbar-color: #0b907f #e8f0f4;
+}
+
+body.doctor-shell #view-doctor .answer-group {
+  display: grid;
+  gap: 6px;
+}
+
+body.doctor-shell #view-doctor .answer-group h4 {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 7px 8px;
+  border: 1px solid #d5e2ef;
+  border-radius: 7px;
+  background: #f6faf9;
+  color: #006c62;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+body.doctor-shell #view-doctor .answer-item {
+  min-height: 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(112px, max-content);
+  gap: 10px;
+  align-items: center;
+  padding: 9px 10px;
+  border: 1px solid #d7e6f3;
+  border-radius: 7px;
+  background: #eef7ff;
+}
+
+body.doctor-shell #view-doctor .answer-item:nth-child(even) {
+  background: #edf8f3;
+}
+
+body.doctor-shell #view-doctor .answer-item.empty {
+  grid-template-columns: 1fr;
+  color: #607389;
+  font-weight: 800;
+}
+
+body.doctor-shell #view-doctor .answer-q {
+  color: #24445f;
+  font-size: 0.83rem;
+  line-height: 1.35;
+}
+
+body.doctor-shell #view-doctor .answer-a {
+  justify-self: end;
+  max-width: 210px;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #061a35;
+  padding: 6px 9px;
+  text-align: right;
+  font-size: 0.84rem;
+  line-height: 1.25;
+  box-shadow: inset 0 0 0 1px rgba(213, 226, 239, 0.7);
+}
+
+body.doctor-shell #view-doctor .doctor-entry-card {
+  grid-column: auto;
+  grid-row: auto;
+  display: grid;
+  align-content: start;
+  min-height: 540px;
+  border-color: #b9cdf6;
+  padding: 14px;
+}
+
+body.doctor-shell #view-doctor .diagnosis-grid {
+  display: grid;
+  gap: 8px;
+  margin-top: 0;
+}
+
+body.doctor-shell #view-doctor .diagnosis-grid label {
+  display: grid;
+  grid-template-columns: 102px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+}
+
+body.doctor-shell #view-doctor .doctor-choice-group {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+body.doctor-shell #view-doctor .doctor-choice-group h4 {
+  margin: 0;
+  color: #061a35;
+  font-size: 0.85rem;
+  line-height: 1.25;
+}
+
+body.doctor-shell #view-doctor .doctor-choice-group h4 span,
+body.doctor-shell #view-doctor .doctor-card h3 span {
+  color: #34536e;
+  font-size: 0.76rem;
+}
+
+body.doctor-shell #view-doctor .choice-row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(76px, 1fr));
+  gap: 8px;
+}
+
+body.doctor-shell #view-doctor .choice-row button,
+body.doctor-shell #view-doctor .review-status-actions .secondary,
+body.doctor-shell #view-doctor .doctor-action-bar .secondary,
+body.doctor-shell #view-doctor .doctor-action-bar .primary {
+  min-height: 38px;
+  border-radius: 7px;
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+body.doctor-shell #view-doctor .choice-row button {
+  padding: 0 8px;
+  border: 1px solid #bfd0e4;
+  background: #ffffff;
+  color: #08233f;
+}
+
+body.doctor-shell #view-doctor .choice-row button.selected {
+  border-color: #00977f;
+  background: #e7f8f1;
+  color: #006c62;
+}
+
+body.doctor-shell #view-doctor .followup-row {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.75fr) minmax(0, 1fr);
+  gap: 10px;
+  align-items: end;
+  margin-top: 14px;
+}
+
+body.doctor-shell #view-doctor .segmented-field {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body.doctor-shell #view-doctor .segmented-field legend {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+body.doctor-shell #view-doctor .segmented-field label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  border: 1px solid #bfd0e4;
+  border-radius: 7px;
+  background: #ffffff;
+}
+
+body.doctor-shell #view-doctor .segmented-field input {
+  width: 16px;
+  min-height: 16px;
+  accent-color: #008f78;
+}
+
+body.doctor-shell #view-doctor .clinical-note {
+  display: grid;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+body.doctor-shell #view-doctor .clinical-note textarea {
+  min-height: 138px;
+  padding: 12px;
+  resize: vertical;
+}
+
+body.doctor-shell #view-doctor .doctor-action-bar {
+  position: sticky;
+  bottom: 10px;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: 170px minmax(300px, 1fr) auto auto auto auto auto;
+  gap: 8px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #d5e2ef;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 16px 28px rgba(13, 38, 68, 0.12);
+}
+
+body.doctor-shell #view-doctor .structured-feedback {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 10px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body.doctor-shell #view-doctor .structured-feedback h3 {
+  width: 100%;
+  margin: 0;
+  color: #061a35;
+  font-size: 0.78rem;
+}
+
+body.doctor-shell #view-doctor .structured-feedback h3 span {
+  color: #3f5a74;
+}
+
+body.doctor-shell #view-doctor .structured-feedback label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #08233f;
+  font-size: 0.74rem;
+  font-weight: 820;
+  white-space: nowrap;
+}
+
+body.doctor-shell #view-doctor .structured-feedback input,
+body.doctor-shell #view-doctor .toggle-line input {
+  width: 16px;
+  min-height: 16px;
+  accent-color: #008f78;
+}
+
+body.doctor-shell #view-doctor .review-pill {
+  border-color: #d5e2ef;
+  background: #f8fbfb;
+  color: #17334f;
+}
+
+body.doctor-shell #view-doctor .doctor-action-bar .primary {
+  border-color: #008f78;
+  background: #008f78;
+  color: #ffffff;
+}
+
+body.doctor-shell #view-doctor .doctor-compare-card {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 1260px) {
+  body.doctor-shell #view-doctor {
+    padding: 10px;
+  }
+
+  body.doctor-shell #view-doctor .doctor-review-strip {
+    grid-template-columns: minmax(170px, 0.8fr) minmax(260px, 1.2fr) minmax(190px, 0.8fr);
+  }
+
+  body.doctor-shell #view-doctor .strip-status {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
+  body.doctor-shell #view-doctor .doctor-review-grid {
+    grid-template-columns: minmax(260px, 0.8fr) minmax(430px, 1fr);
+  }
+
+  body.doctor-shell #view-doctor .doctor-entry-card {
+    grid-column: 1 / -1;
+    min-height: auto;
+  }
+
+  body.doctor-shell #view-doctor .doctor-action-bar {
+    grid-template-columns: 170px minmax(280px, 1fr) auto auto auto;
+  }
+}
+
+@media (max-width: 860px) {
+  body.doctor-shell #view-doctor .doctor-review-strip,
+  body.doctor-shell #view-doctor .doctor-review-grid,
+  body.doctor-shell #view-doctor .doctor-action-bar {
+    grid-template-columns: 1fr;
+  }
+
+  body.doctor-shell #view-doctor .strip-status {
+    grid-column: auto;
+    justify-content: flex-start;
+  }
+
+  body.doctor-shell #view-doctor .intake-card,
+  body.doctor-shell #view-doctor .doctor-entry-card {
+    min-height: auto;
+  }
+
+  body.doctor-shell #view-doctor .doctor-answer-groups {
+    max-height: 430px;
+  }
+
+  body.doctor-shell #view-doctor .choice-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.doctor-shell #view-doctor .followup-row,
+  body.doctor-shell #view-doctor .diagnosis-grid label,
+  body.doctor-shell #view-doctor .allergy-line {
+    grid-template-columns: 1fr;
+  }
+
+  body.doctor-shell #view-doctor .doctor-action-bar {
+    position: static;
+  }
+}
