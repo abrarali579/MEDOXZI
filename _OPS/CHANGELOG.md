@@ -4,6 +4,47 @@
 
 ---
 
+## 2026-09-01 - Session OT22-RESOLVED - Vercel KV provisioned; follow-up scheduler live (OT-22 closed)
+
+**WHAT**
+The founder provisioned **Upstash KV** in Vercel and linked it to the `medoxzi` project
+(db `upstash-kv-celeste-umbrella`, Free plan), closing the last 🔴 blocker on the
+follow-up/re-confirm scheduler (`fu`, session RT2f). Vercel auto-injected
+`KV_REST_API_URL` + `KV_REST_API_TOKEN` (and head-only/url/redis aliases) and redeployed.
+
+**WHY**
+OT-22 was the single 🔴 blocking thread: the `fu` enqueue/tick endpoints persist the
+reminder queue in Vercel KV, so production degraded to `{ok:false, kind:"KV_UNAVAILABLE"}`
+until a KV store was linked. No code change needed — this was purely the founder-side
+provisioning step that RT2f flagged as the sole manual step.
+
+**EVIDENCE**
+See `_OPS/VERIFICATION-LOG.md` V-2026-09-01-OT22-01..03 and session log
+`2026-09-01-OT22-resolved-vercel-kv.md`. Live production (2026-09-01):
+
+```text
+POST /api/followups/enqueue  (no consent)
+  -> 400 {"ok":false,"error":"CONSENT_REQUIRED",...}   # passes KV gate, reaches consent gate
+POST /api/followups/enqueue  (consent:true, no valid item)
+  -> 400 {"ok":false,"error":"NO_VALID_ITEMS"}          # passes consent gate, reaches validation
+POST /api/followups/tick
+  -> 200 {"ok":true,"source":"upstash","due":[],"surfaced":0,"note":"preview only — nothing transmitted (ADR-036 gate)."}
+```
+
+`source:"upstash"` proves the queue now runs on real Upstash Redis (was in-memory shim /
+`KV_UNAVAILABLE`). ADR-036 audit-only gate intact (`nothing transmitted`).
+
+**NEXT**
+Founder can queue/preview items in the Marketing Management 7th view → Follow-up scheduler
+(audit-only). Real sending stays gated by consent/opt-out/audit/template controls (OT-19 / ADR-036).
+
+**WHY NEXT**
+OT-22 was the one thing blocking `fu` activation; now unblocked.
+
+**HOW**
+Founder: Vercel → Storage → Upstash → create db → connect to `medoxzi` project → redeploy.
+Verified live by calling the enqueue/tick endpoints.
+
 ## 2026-08-28 - Session UI-DOCTOR-NOICON - Doctor review no-symbol workspace
 
 **WHAT**

@@ -175,12 +175,11 @@
 - **Production requirement:** scope the PIN to its creating clinic + use a distinct immutable internal patient key; treat the visible 4-digit PIN as a **per-clinic 4-digit prefix/short-code**, not a global or national identifier. Any remap/correction must be an audited human action (covered by the OT-21 How line).
 - **Demo assertion:** no real patient data anywhere in the prototype; all PIN-linked files are synthetic "sample doctor assessments".
 
-### OT-22 · Provision Vercel KV (Upstash Redis) for the follow-up scheduler — 🔴 blocks `fu` activation (RT2f, 2026-08-28)
-- **What:** `api/followups/enqueue.js` + `api/followups/tick.js` persist the reminder queue (`fu:queue` Sorted Set) and tick log in **Vercel KV**. Production is graceful-degraded until a KV store is linked.
-- **Founder action (the only manual step):** Vercel dashboard → **Storage → Create Database → KV** → link to the `medoxzi` project; then **Project Settings → Environments** → add **`KV_REST_API_URL`** and **`KV_REST_API_TOKEN`** (also add both to `14-MVP-HTML/.env` for local prod-parity). Keep names only — the agent never reads the token value.
-- **Owner:** founder (Abrar) 🔧
-- **How to confirm done:** after env is set, production `/api/followups/enqueue` returns `{ok:true,…}` instead of `{ok:false, kind:"KV_UNAVAILABLE"}`; `medoxzi.vercel.app`, wait for auto-deploy, then Preview the Marketing view and queue one item. OT-22 closes when the founder confirms KV returns `ok`.
-- **Demo fallback (no KV yet):** client still logs a prepared-not-sent audit entry locally; nothing is lost, nothing is sent. Local full-verified via the server.js in-memory KV shim.
+### OT-22 · Provision Vercel KV (Upstash Redis) for the follow-up scheduler — ✅ RESOLVED (OT22-RESOLVED, 2026-09-01)
+- **What:** `api/followups/enqueue.js` + `api/followups/tick.js` persist the reminder queue (`fu:queue` Sorted Set) and tick log in **Vercel KV**.
+- **Status:** ✅ **RESOLVED.** The founder linked **Upstash KV** (db `upstash-kv-celeste-umbrella`, Free plan) to the `medoxzi` project (Vercel → Storage → Upstash → connect to project → redeploy). Env vars `KV_REST_API_URL` + `KV_REST_API_TOKEN` auto-injected by Vercel.
+- **Verified live (2026-09-01):** enqueue now reaches the consent gate (was `KV_UNAVAILABLE`); tick returns `{ok:true, source:"upstash", ...}` with the ADR-036 audit-only note (`nothing transmitted`). See VERIFICATION-LOG V-2026-09-01-OT22-01..03 and session log `2026-09-01-OT22-resolved-vercel-kv.md`.
+- **How confirmed done:** production `/api/followups/enqueue` no longer returns `{ok:false, kind:"KV_UNAVAILABLE"}`; `/api/followups/tick` returns `ok:true` with `source:"upstash"`. Trade: production *sending* remains gated by consent/opt-out/audit/template controls (OT-19 / ADR-036), unchanged.
 
 ## 🟠 Blocking the pitch
 

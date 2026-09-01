@@ -8,6 +8,41 @@
 
 ---
 
+## Session OT22-RESOLVED - 2026-09-01 - Vercel KV provisioned; follow-up scheduler live
+
+### V-2026-09-01-OT22-01 - Enqueue passes the KV check (KV no longer unavailable)
+- **Claim:** The `fu` enqueue endpoint no longer returns `{ok:false, kind:"KV_UNAVAILABLE"}`; Upstash KV is wired to production.
+- **Method:** `curl -X POST https://medoxzi.vercel.app/api/followups/enqueue` with a payload lacking consent.
+- **Evidence:**
+  ```text
+  HTTP 400
+  {"ok":false,"error":"CONSENT_REQUIRED","message":"Follow-up scheduling requires declared marketing/follow-up consent (ADR-036)."}
+  ```
+  The endpoint passes the KV layer and reaches the consent gate — pre-KV it returned `KV_UNAVAILABLE`.
+- **Verdict:** ✅ **PASS** — KV is connected in production.
+
+### V-2026-09-01-OT22-02 - Enqueue passes consent gate and reaches item validation
+- **Claim:** With consent declared, enqueue progresses to the recipient/item validation layer.
+- **Method:** `curl -X POST .../api/followups/enqueue` with `{"type":"followup","days":3,"consent":true}` and no valid target item.
+- **Evidence:**
+  ```text
+  HTTP 400
+  {"ok":false,"error":"NO_VALID_ITEMS"}
+  ```
+- **Verdict:** ✅ **PASS** — full enqueue chain healthy (KV → consent → validation).
+
+### V-2026-09-01-OT22-03 - Daily tick runs against real Upstash KV
+- **Claim:** The `fu` tick endpoint now persists/reports from real Upstash Redis and stays audit-only per ADR-036.
+- **Method:** `curl -X POST https://medoxzi.vercel.app/api/followups/tick`.
+- **Evidence:**
+  ```text
+  HTTP 200
+  {"ok":true,"source":"upstash","due":[],"surfaced":0,"tick":"2026-09-01T12:29:56.859Z","note":"preview only — nothing transmitted (ADR-036 gate)."}
+  ```
+- **Verdict:** ✅ **PASS** — `source:"upstash"` confirms real KV backing; `nothing transmitted` confirms ADR-036 audit-only gate intact.
+
+---
+
 ## Session UI-SCALE - 2026-08-28 - Compact long interview question layout
 
 ### V-2026-08-28-UISCALE-01 - Long interview questions and options remain readable
