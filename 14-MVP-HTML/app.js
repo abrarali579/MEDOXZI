@@ -1662,6 +1662,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Follow-up date must be today or later (cannot set a past follow-up).
+  const followupDateEl = $("#followupDate");
+  if (followupDateEl) {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+    followupDateEl.min = `${yyyy}-${mm}-${dd}`;
+  }
+
   $$(".answer-grid button").forEach((button) => {
     button.addEventListener("click", () => selectPendingAnswer(button.dataset.answer));
   });
