@@ -4,6 +4,49 @@
 
 ---
 
+## 2026-09-01 - Session DOCTOR-WALKTHROUGH - End-to-end doctor-workflow friction pass + follow-up date fix
+
+**WHAT**
+Ran a structured end-to-end doctor-workflow pass on the live production app (`medoxzi.vercel.app`)
+with synthetic data (new patient → search → intake → adaptive AI interview → doctor Pre-visit
+Review → follow-up controls → records → viewer → marketing/follow-up scheduler → ops), and fixed
+the one genuine friction item found:
+1. **Follow-up date could be set in the past** — added `min = today` on the doctor-view
+   `#followupDate` input so a clinician cannot schedule a past follow-up. (UI-only.)
+Two apparent friction items were investigated and confirmed **already correct / not bugs**:
+- The review header "N of M answered" does NOT count "M" as a defect: mid-adaptive-interview it
+  projects the guaranteed minimum (max(5, …)) — intentional and right.
+- The "Answers so far" empty-state placeholder already renders ("No answers yet. …") and is
+  styled (`.empty-note`); an earlier probe simply queried the wrong element (`#answerSummary`).
+
+**WHY**
+Abrar's priority is making the product so good a doctor can't say no. This pass verifies the
+whole clinician + patient workflow works end-to-end and removes a real usability friction
+(past follow-up date) that would otherwise let a doctor schedule an impossible date.
+
+**EVIDENCE**
+See `_OPS/VERIFICATION-LOG.md` V-2026-09-01-DOCTOR-01..03 and session log
+`2026-09-01-DOCTOR-walkthrough-friction-pass.md`. Live verification (local `:8765` + prod):
+```text
+#followupDate.min = "2026-09-01" (today)  ✅ set by the new code, type=date
+0 console errors / 0 JS errors across every view
+Adaptive AI intake: branches on answers (severity → SOB → activity), never re-asks onset/duration
+Doctor review: dxTerms autocomplete, tests/plan multi/single-select, Save→Review→Assess lifecycle all work
+Records: complaint filter 15 → 2; Record Viewer + Marketing follow-up scheduler + ops all render
+```
+
+**NEXT**
+Founder to reconfirm on the deployed site (clear cache/incognito per UI convention). Commit
+`4df0f45` pushed to `main`; Vercel auto-deploys.
+
+**WHY NEXT**
+The follow-up date guard is now in place; the rest of the workflow was verified green in this pass.
+
+**HOW**
+Patched `14-MVP-HTML/app.js` (set `#followupDate.min` to today on init); verified live via local
+server + browser, ran `node --check` (OK) and `node harness/prompt_contract.test.mjs` (PASS),
+then committed + pushed `4df0f45`.
+
 ## 2026-09-01 - Session OT22-RESOLVED - Vercel KV provisioned; follow-up scheduler live (OT-22 closed)
 
 **WHAT**

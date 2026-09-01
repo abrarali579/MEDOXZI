@@ -8,6 +8,34 @@
 
 ---
 
+## Session DOCTOR-WALKTHROUGH - 2026-09-01 - End-to-end doctor-workflow friction pass + follow-up date fix
+
+### V-2026-09-01-DOCTOR-01 - Follow-up date cannot be set in the past
+- **Claim:** The doctor Pre-visit Review `#followupDate` input now enforces `min = today`, so a clinician cannot schedule a past follow-up.
+- **Method:** Patched `14-MVP-HTML/app.js` to set `followupDateEl.min` to today's YYYY-MM-DD on init; verified live against the served local build and in the browser.
+- **Evidence:**
+  ```text
+  localhost:8765 view-doctor: #followupDate.min = "2026-09-01", type=date, today = 2026-09-01
+  node --check app.js: OK
+  node harness/prompt_contract.test.mjs: VERDICT PASS (safety contract intact)
+  0 console errors / 0 JS errors
+  ```
+- **Verdict:** ✅ **PASS** — past follow-up dates are now blocked.
+
+### V-2026-09-01-DOCTOR-02 - Full end-to-end doctor workflow functions on production
+- **Claim:** The complete workflow (new patient → search → intake → adaptive AI interview → doctor review → follow-up → records → viewer → marketing → ops) runs without errors.
+- **Method:** Drove `medoxzi.vercel.app` with synthetic data (Rina Sari, 34/F, cough 3 days) through every view; checked console after each.
+- **Evidence:** 0 console errors / 0 JS errors at every step. Adaptive interviewer asked severity → SOB → activity (branched on answers, no onset/duration re-ask). Doctor view: dxTerms autocomplete ("Acute upper resp" → "Acute upper respiratory tract infection"), CBC/X-ray + Follow-up plan toggle to `selected`, Save draft → Mark reviewed → reviewed-and-logged lifecycle. Records complaint filter 15 → 2 (4729, 3470); Record Viewer opened record 4729 with sample clinician entries; Marketing follow-up scheduler (`#fuType`) renders with "no real send" gate; ops reminder "Disabled".
+- **Verdict:** ✅ **PASS** — end-to-end workflow green.
+
+### V-2026-09-01-DOCTOR-03 - Confirmed-not-bugs: review count + answers empty state
+- **Claim:** The "N of M answered" header and the "Answers so far" empty state are not defects.
+- **Method:** Read `renderDoctorBrief` (line ~1133) and `renderInterviewAnswers` (line ~857) in `app.js`.
+- **Evidence:** M is computed as `state.aiActive && !aiDone ? max(5, min(12, entries+1)) : …` — i.e. mid-adaptive-interview it projects the guaranteed minimum total, which is intentional. `renderInterviewAnswers` renders "No answers yet. Answer the questions and they will appear here." when empty, and `.empty-note` is styled (styles.css line 967). An earlier probe had queried the wrong element (`#answerSummary`).
+- **Verdict:** ✅ **PASS** — both are correct behavior, no change needed.
+
+---
+
 ## Session OT22-RESOLVED - 2026-09-01 - Vercel KV provisioned; follow-up scheduler live
 
 ### V-2026-09-01-OT22-01 - Enqueue passes the KV check (KV no longer unavailable)
